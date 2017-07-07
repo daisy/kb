@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Descriptions | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Descriptions</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+
+				<p>There are many reasons why describing content adds to its accessibility for all readers. Although often
+					considered only useful for non-visual readers, descriptions facilitate comprehension and provide context
+					for readers with a wide range of needs. They can also assist readers whose first language may not be that
+					of the text being read.</p>
+
+				<section id="hyperlinks">
+					<h4><code>hyperlinks</code></h4>
+
+					<p>Plain old hyperlinks remain the most widely accessible way to provide a link to a description.</p>
+
+					<pre class="prettyprint linenums"><code>&lt;figure>
+   &lt;img src="crime-map.jpg" alt="Crime in Gotham City">
+   &lt;a href="crime-desc.xhtml">Description&lt;/a>
+&lt;/figure></code></pre>
+
+					<p>The primary advantage of hyperlinks is that they are exposed to all users, unlike the
+							<code>aria-describedby</code> attribute described in the next section. Their primary disadvantage
+						is that they are always visible, and publishers are often prevented from adding any visble content by
+						their agreements with authors.</p>
+
+					<p>Note that a hyperlink does not always have to reference a description in another document;
+						descriptions might be included at the end of a section, like footnotes.</p>
+				</section>
+
+				<section id="by">
+					<h4><code>aria-describedby</code></h4>
+
+					<p>The <code>aria-describedby</code> attribute can be used to add a description to any HTML5 element, not
+						just <code>img</code>, and is the currently recommended mechanism for referencing descriptions in
+						EPUB 3.</p>
+
+					<p>The attribute references the ID of the element on the page containing the description. For
+						example:</p>
+
+					<pre class="prettyprint linenums"><code>&lt;table aria-describedby="table-desc">
+    &#8230;
+&lt;table>
+
+&lt;aside id="desc">
+    &lt;p>The table is composed of three smaller tables
+          each of which &#8230; &lt;/p>
+&lt;/aside></code></pre>
+
+					<p>Note that the ID reference does not include a hash (#) at the start. If the description is spread
+						across multiple elements, the ID of each can be listed in the attribute.</p>
+
+					<p>It is not required that the element containing the description be visible content. The
+							<code>aria-describedby</code> attribute can point to hidden elements:</p>
+
+					<pre class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
+
+&lt;aside id="desc" hidden="hidden">
+    &#8230;
+&lt;/aside></code></pre>
+
+					<p>Before using hidden content too extensively, be aware that the ability to navigate the description is
+						removed when content is not visible. Hidden descriptions are read as one long text string that the
+						user has to listen to in its entirety.</p>
+
+					<p>One of the primary limitations of <code>aria-describedby</code> is that the element containing the
+						description must be present in the same page as the content that is being described, so it is not
+						possible to reference out-of-band descriptions directly. The workaround to this limitation is to
+						reference the external description through an <code>iframe</code> element:</p>
+
+					<pre class="prettyprint linenums"><code>&lt;img src="bunny.jpg" aria-describedby="bunny-desc"/>
+
+&lt;iframe id="desc" src="bunny-description.xhtml" hidden="hidden">&lt;/iframe></code></pre>
+
+					<p>Although using an <code>iframe</code> in this fashion mimics the out-of-band functionality of the
+							<code>longdesc</code> attribute, there are a number of drawbacks:</p>
+
+					<ul>
+						<li>There is no way to reference into the content in the <code>iframe</code> from an
+								<code>aria-describedby attribute</code>; all content in the <code>iframe</code> will be
+							read.</li>
+
+						<li>The <code>iframe</code> will be announced as a separate document.</li>
+
+						<li>Using many <code>iframe</code> elements slows down the loading of documents, since each
+							description must be loaded, unlike proper out-of-band linking mechanisms, which allow the content
+							to only be loaded as requested by the reader.</li>
+					</ul>
+				</section>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>WAI &#8212; <a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby">WAI-ARIA
+							1.0 - aria-describedby</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				<dl>
+					<dt>Why link to visible descriptions?</dt>
+					<dd>
+						<p>Even though a description is a visible part of the current page, linking to it provides a
+							programmatic means for users of assistive technologies to rapidly access the description without
+							having to hunt through the page content.</p>
+					</dd>
+					<dt>Why not <code>longdesc</code>?</dt>
+					<dd>
+						<p>The <code>longdesc</code> attribute is an HTML5 extension not currently supported by EPUB. It is
+							also limited to being attached to <code>img</code> elements.</p>
+					</dd>
+					<dt>Why not <code>aria-details</code>?</dt>
+					<dd>
+						<p>The <code>aria-details</code> attribute is currently under development and not supported by
+							assistive technologies. It will allow an association to be made with a description in a
+								<code>details</code> element. Although similar to <code>aria-describedby</code>, the
+								<code>aria-details</code> attribute will not result in stringified content (i.e., the user
+							will be able to navigate the description as structured HTML).</p>
+					</dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

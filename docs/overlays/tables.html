@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Tables | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Tables</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>In the same way that XHTML tables provide markup structure that can be navigated by readers using
+					assistive technologies, so too must Media Overlay documents provide equivalent skippability and
+					escapability functionality through markup to facilitate playback.</p>
+
+				<p>This structure can be layered into an overlay using <code>seq</code> elements to represent the
+					corresponding rows and cells in the markup. The typical process for converting table markup to overlay
+					markup follows:</p>
+
+				<ul>
+					<li>A single <code>seq</code> element encloses the entire table, and includes an <code>epub:type</code>
+						attribute specifying the property <code class="property">table</code>.</li>
+					<li>Each row in the table is represented using a <code>seq</code> element with an <code>epub:type</code>
+						attribute specifying the property <code class="property">table-row</code>.</li>
+					<li>Complex table cells &#8212; those that contain two or more synchronization points &#8212; are
+						identified using <code>seq</code> elements with an <code>epub:type</code> attribute specifying the
+						property <code class="property">table-cell</code>. If the cell contains a complex structure like a
+						nested table or list, that structure must be marked up as appropriate to ensure escapability and
+						skippability from it.</li>
+					<li>Simple table cells containing only a single synchronization point can be represented using
+							<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
+							class="property">table-cell</code>.</li>
+				</ul>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Example</h3>
+
+				<figure>
+					<p>Example 1 &#8212; A comparison of XHTML table markup to overlay table markup</p>
+					<pre class="prettyprint linenums small"><code>&lt;table>
+   &lt;tr>
+      &lt;td>
+         &lt;p>&#8230;&lt;/p>
+         &lt;p>&#8230;&lt;/p>
+      &lt;/td>
+      &lt;td>&#8230;&lt;/td>
+      &lt;td>
+         &lt;ul>
+            &lt;li>&#8230;&lt;/lt>
+         &lt;/ul>
+      &lt;/td>
+   &lt;/tr>
+&lt;/table></code></pre>
+					<pre class="prettyprint linenums small"><code>&lt;seq epub:type="table">
+   &lt;seq epub:type="table-row">
+      &lt;seq epub:type="table-cell">
+         &lt;par>&#8230;&lt;/par>
+         &lt;par>&#8230;&lt;/par>
+      &lt;/seq>
+      &lt;par epub:type="table-cell">&#8230;&lt;/par>
+      &lt;seq epub:type="table-cell">
+         &lt;seq epub:type="list">
+            &lt;par epub:type="list-item">&#8230;&lt;/par>
+         &lt;/seq>
+      &lt;/seq>
+   &lt;/seq>
+&lt;/seq></code></pre>
+				</figure>
+			</section>
+
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-seq-elem">The
+								<code>seq</code> Element</a></li>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-par-elem">The
+								<code>par</code> Element</a></li>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-skippability"
+						>Skippability</a></li>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-escabaility"
+						>Escapability</a></li>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub/vocab/structure/#h_tables">Stuctural Semantics
+							Vocabulary &#8212; Tables</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li><a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">Synchronized Multimedia Integration Language
+							(SMIL 3.0)</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

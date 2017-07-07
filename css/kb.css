@@ -1,0 +1,639 @@
+
+@font-face{
+    font-family: 'Raleway';
+    src: url(../fonts/Raleway-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Calibri,Helvetica,Arial,sans-serif;
+	font-size: 1.6rem;
+	background-color: rgb(253,253,253);
+}
+
+/* general headings */
+
+h1 {
+	font-size: 170%;
+	color: rgb(255,255,255);
+	margin: 0;
+	padding: 2px 0;
+	background-color: rgb(0,0,120);
+	height: 52px;
+}
+
+h1 a {
+	color: inherit !important;
+}
+
+h2 {
+	font-family: Raleway;
+	font-size: 190%;
+	padding: 0 0 0 0.7em;
+	margin: 1em 0 0 0;
+}
+
+
+h3 {
+	font-size: 120%;
+	color: rgb(0,0,100);
+	margin-top: 1.75em;
+}
+
+h3:before {
+    content: '\00a7\00a0\00a0';
+    font-size: 1.8rem;
+    color: rgb(0,0,200);
+}
+
+p.bridgehead {
+	font-weight: bold;
+	color: rgb(0,0,140);
+}
+
+/* general links */
+
+a:link {
+	color: rgb(0,0,200);
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(102,51,102);
+}
+
+h1 a, nav a {
+	text-decoration: none;
+}
+
+/* page headers and footers */
+
+header {
+	padding: 0;
+	margin: 0;
+}
+
+footer {
+	font-size: 90%;
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 0;
+	margin-left: 1em;
+	padding-bottom: 0.5em;
+	border-top: 2px solid rgb(240,240,255);
+}
+
+footer address {
+	margin-top: 0.2em;
+	padding-top: 1em;
+	font-style: normal;
+}
+
+section.section {
+	/* border-right: 1px solid rgb(0,0,0); */
+	padding-bottom: 0.5em;
+	max-width: 48em;
+}
+
+section.section > section {
+	padding-left: 2em;
+}
+
+/* breadcrumb nav */
+
+nav.breadcrumb {
+	color: rgb(0,0,0);
+	text-indent: 0.5em;
+	margin-top: 0.3em;
+	margin-left: 1.15em;
+	padding: 2px 0;
+	width: 35em;
+}
+
+nav.breadcrumb p {
+	margin: 0;
+	margin-top: -0.2em;
+	padding: 0;
+	font-size: 90%;
+}
+
+nav.breadcrumb a {
+	color: rgb(0,0,0);
+	text-decoration: underline;
+	font-size: 100%;
+}
+
+/* page nav */
+
+nav.pageNav {
+	line-height: 18px;
+	margin-top: 5px;
+}
+
+nav.bottomNav {
+	margin-left: 1em;
+}
+
+/* section nav */
+nav.mini-toc {
+	font-family: Helvetica,Arial,sans-serif;
+	margin-left: 1.15em;
+	margin-top: 0.3em;
+	min-width: 7em;
+}
+
+nav.mini-toc h3 {
+	font-size: 0.8em;
+	margin: 0 0 0 0.7em;
+	border: none;
+	display: inline-block;
+}
+
+nav.mini-toc h3:before,
+nav.mini-toc h3:after {
+    content: '';
+}
+
+nav.mini-toc ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+nav.mini-toc li {
+	font-size: 0.9em;
+	padding: 0 0.3em 0 0.8em;
+	display: inline-block;
+}
+
+nav.mini-toc a {
+	font-size: 0.9em;
+}
+
+
+/* section spacing */
+
+section {
+	margin-top: 2.5em;
+}
+
+section.section {
+	margin-top: 0;
+}
+
+
+/* usage section styles */
+
+section.usage {
+	margin-top: 0;
+	padding: 0 0.5em;
+}
+
+section.usage h3 {
+	margin-top: 0;
+}
+
+
+/* compliance references */
+
+section.reqs {
+	padding: 0 0.5em;
+}
+
+section.reqs section {
+	margin: 0;
+	padding: 0;
+}
+
+ul.req {
+	padding-left: 1.5em;
+	margin-left: 0;
+	margin-bottom: 0.5em;
+}
+
+ul.req li {
+	list-style-image: url('../graphics/checkbox.png');
+}
+
+ul.req > li {
+	margin-top: 0.4em;
+}
+
+ul.req li.labeled  {
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: -1.3em;
+	padding-left: 0;
+}
+
+ul.req > li.labeled > ul {
+	margin-left: 2em;
+}
+
+/* example section styles */
+
+section.example {
+	padding: 0 0.5em;
+}
+
+section.example > h3 {
+	margin-bottom: 0;
+	padding-bottom: 0.2em;
+}
+
+
+/* example formatting*/
+
+
+pre {
+	font-family: "Courier New", Courier, Monospace;
+	font-size: 90%;
+	padding: 0;
+	white-space: pre-wrap;
+}
+
+pre.small { font-size: 85%; }
+
+pre ol {
+	padding-left: 3em;
+}
+
+pre > ol > li {
+	padding-left: 0.3em;
+	background-color: rgb(255,255,255);
+	width: 98%;
+}
+
+pre code {
+	color: rgb(0,0,0);
+}
+
+code {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 85%;
+	color: rgb(120,0,0);
+}
+
+pre code {
+	font-family: "Courier New", Courier, Monospace;
+	font-weight: normal;
+	font-size: 105%;
+}
+
+code.prettyprint {
+	font-family: "Courier New", Courier, Monospace;
+	font-weight: normal;
+}
+
+/* sample section styles */
+
+section.sample {
+	padding: 0 0.5em;
+}
+
+section.sample > h3 {
+	margin-bottom: 0;
+	padding-bottom: 0.2em;
+}
+
+section > ul > li {
+	margin-top: 0.75em;
+}
+
+section > ul > li > ul > li {
+	margin-top: 0.3em;
+}
+
+
+/* FAQ styles */
+
+section.faq {
+	padding: 0 0.5em;
+}
+
+dl.faq dt {
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+
+figure {
+	margin: 1.5em;
+}
+
+figcaption {
+	font-weight: bold;
+	color: rgb(0,0,0);
+	margin: 2.5em 0 1em 0;
+}
+
+figure p {
+	margin-left: 2em;
+}
+
+/* additional resources section */
+
+section.res {
+	padding: 0 0.5em;
+}
+
+section.res > h3 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+section.res li {
+	margin-top: 0.3em;
+}
+
+
+
+/* lists */
+
+ul.multicol {
+	list-style-type: none;
+	width: 100%;
+	margin-left: 0;
+}
+
+ul.multicol li {
+	float: left;
+	padding-left: 1em;
+	width: 12em;
+}
+
+
+/* general formatting*/
+
+br {
+	clear: both;
+}
+
+img.sub {
+	vertical-align: middle;
+}
+
+p.ack {
+	text-align: right;
+	font-size: 0.8em;
+	color: rgb(80,80,80);
+	margin-top: -1em;
+	padding-top: 0;
+}
+
+p.switch {
+	font-size: 0.75em;
+	margin-top: -1.6em;
+	margin-left: 1.8em;
+}
+
+
+/* element tables */
+
+table.elemDef {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table.elemDef thead {
+	background-color: rgb(240,240,240);
+}
+
+table.elemDef th {
+	font-size: 90%;
+	padding: 0.25em;
+}
+
+table.elemDef td {
+	border-style: solid;
+	border-color: rgb(0,0,0);
+	border-width: 1px 0 0 0;
+	vertical-align: top;
+}
+
+table.elemDef a {
+	font-weight: bold;
+}
+
+td.root {
+	padding-left: 0.5em;
+}
+
+td.firstChild {
+	padding-left: 2em;
+}
+
+td.secondChild {
+	padding-left: 3em;
+}
+
+td.thirdChild {
+	padding-left: 4em;
+	padding-right: 1em;
+}
+
+td.use {
+	max-width: 25em;
+	padding: 0.25em 2em;
+}
+
+
+.infolink {
+	margin: 0;
+	padding-left: 1.6em;
+	font-size: 80%;
+	font-weight: bold;
+}
+
+/* general directionality */
+.center {
+	text-align: center;
+}
+
+aside {
+	max-width: 38em;
+}
+
+/* warnings */
+div.warning, div.note {
+	margin: 2em 0 2em 3em;
+	padding-left: 1em;
+	width: 80%;
+	border-left: 4px solid rgb(0,220,0);
+}
+
+div.warning p.label,
+div.note p.label {
+    font-weight: bold;
+}
+
+p.label, div.warning p.label {
+	width: 4.1em;
+	color: rgb(190,0,0);
+}
+
+span.atrisk {
+	color: rgb(190,0,0);
+}
+
+/* tables */
+
+table {
+	border-collapse: collapse;
+	border: 1px solid rgb(0,0,255);
+}
+
+td, th {
+	padding: 0.3em;
+	border: 1px solid rgb(0,0,255);
+}
+
+th {
+	font-size: 90%;
+	background-color: rgb(236,236,236);
+}
+
+caption {
+	font-weight: bold;
+	font-size: 95%;
+	margin-bottom: 0.5em;
+}
+
+/* figures */
+
+figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* lists */
+
+.none {
+	list-style-type: none;
+}
+
+li {
+	margin-top: 0.4em;
+}
+
+pre li {
+	margin-top: auto;
+}
+
+/* paragraphs */
+
+.offset {
+	margin-top: 3em;
+	font-weight: bold;
+	color: rgb(0,0,140);
+}
+
+
+/* logo */
+
+.left {
+	float: left;
+	margin-right: 1em;
+}
+
+.logo {
+	height: 50px;
+}
+
+/* compliance dls */
+
+dl.legis dd aside h4 {
+	font-weight: normal;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+dl.legis dd aside ul {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+dl.legis dd aside ul li {
+	padding-top: 0;
+	margin-top: 0.3em;
+}
+
+/* annotations */
+
+ruby {
+	text-decoration: underline;
+}
+
+rt {
+	text-align: left;
+	font-size: 0.7em;
+}
+
+/* revision dates */
+
+section.rev {
+	padding: 0 0.5em;
+	font-size: 90%;
+}
+
+dl.revhistory dt {
+	font-style: italic;
+	color: rgb(64,32,96);
+}
+
+dl.revhistory dd {
+	margin-left: 1em;
+}
+
+p.page {
+	font-weight: bold
+}
+
+q {
+	quotes: '"' '"';
+}
+
+
+/* priorities */
+
+abbr.bp, abbr.rec, abbr.opt {
+	font-size: 80%;
+	font-weight: bold;
+}
+
+abbr.bp {
+	color: rgb(190,0,0);
+}
+
+abbr.rec {
+	color: rgb(255,128,0);
+}
+
+abbr.opt {
+	color: rgb(0,190,0);
+}
+
+img.logo {
+    vertical-align: middle;
+    padding-right: 0.5em;
+}
+
+.wcag-level {
+    font-size: 90%;
+    color: rgb(0,0,120);
+}

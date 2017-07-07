@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Separation of Style | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<style type="text/css">
+			@namespace epub 'http://www.idpf.org/2007/ops';
+			
+			aside[epub|type ~= 'sidebar'],
+			aside[epub\:type ~= 'sidebar']{
+			    padding: 0.5em;
+			    margin-left: 2em;
+			    width: 25%;
+			    max-width: 15em;
+			    background-color: rgb(240, 240, 240);
+			    border: solid 1px rgb(0, 0, 0);
+			    float: right;
+			}
+			
+			aside[epub|type ~= 'sidebar'] h4,
+			aside[epub\:type ~= 'sidebar'] h4{
+			    margin: 0em;
+			    padding: 0em;
+			}
+			
+			aside[epub|type ~= 'warning'],
+			aside[epub\:type ~= 'warning']{
+			    width: 80%;
+			    background-color: rgb(255, 255, 255);
+			    border: solid 2px rgb(200, 0, 0);
+			    padding-top: 1em;
+			}
+			
+			aside[epub|type ~= 'warning'] h4,
+			aside[epub\:type ~= 'warning'] h4{
+			    text-indent: 0.5em;
+			    width: 4em;
+			    margin: -1.5em 0em 0em 1em;
+			    background-color: rgb(255, 255, 200);
+			    border: solid 1px rgb(0, 0, 0);
+			    color: rgb(0, 0, 0);
+			}</style>
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Separation of Style</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>The visual appearance of content is often the only consideration that ebook authors take into account when
+					producing content, but this focus excludes that many readers are not going to be reading visually (e.g.,
+					refreshable braille, text-to-speech playback, etc.). Separating style from markup is consequently not
+					just about keeping CSS in a separate file from your markup, but recognizing that markup must convey
+					meaning to be useful to all readers, and that visual rendering is only one possible use case.</p>
+
+				<p>To create rich markup, EPUB 3 includes <a href="epub-type.html">the <code>epub:type</code> attribute</a>
+					for semantic inflection &#8212; the ability to make statements about the nature of the tagging you're
+					using beyond just the tag name. Using this attribute with the most relevant structural tag is the most
+					effective way to create meaningful structures that promote accessibility regardless of the medium used to
+					read the content &#8212; by establishing the <a href="order.html">logical reading order</a>.</p>
+
+				<p>Semantically-rich markup also enables meaningful styling, as the <code>epub:type</code> attribute can be
+					used in CSS selectors to apply styling by purpose. (See <a href="#ex02">Example 2</a>.) The use of
+					semantic styling is encouraged as it ensures focus is kept on how the data is represented, not just how
+					it looks when rendered.</p>
+
+				<p>But also note that the choices that you make for your content are not necessarily the optimal ones for
+					many visual readers. A reader may prefer a different color scheme, to increase the contrast levels, to
+					change the justification, fonts or line height to better suit their needs.</p>
+
+				<p>For this reason, cleanly separating style information from the markup is a good practice to maintain.
+					Avoid using the <code>style</code> attribute, as it can impede the ability of readers to reflow and
+					re-style documents.</p>
+
+				<p>CSS style definitions can be linked to the content documents to which they apply via the HTML5
+						<code>link</code> element. Multiple style sheets may be attached to a document to target different
+					rendering mediums and/or to more cleanly group style by function.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+
+				<figure>
+					<figcaption>Example 1 &#8212; Using the <code>epub:type</code> attribute to style a sidebar</figcaption>
+					<p>The following CSS would make any <code>aside</code> elements defined as sidebars float to the right of
+						the text:</p>
+					<pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
+aside[epub|type~='sidebar'] {
+   padding: 0.5em;
+   margin-left: 2em;
+   width: 25%;
+   max-width: 15em;
+   background-color: rgb(240,240,240);
+   border: solid 1px; rgb(0,0,0);
+   float: right;
+}</code></pre>
+					<p>Aplying to this markup:</p>
+					<pre class="prettyprint linenums"><code>&lt;aside epub:type="sidebar">
+   &lt;h4>UK Prime Ministers&lt;/h4>
+   &lt;ol>
+   	&lt;li>Sir Robert Walpole&lt;/li>
+   	&#8230;
+   &lt;/ol>
+&lt;/aside></code></pre>
+					<p>would result in the following rendering in a publication:</p>
+					<aside class="sidebar">
+						<h4>UK Prime Ministers</h4>
+						<ol>
+							<li>Sir Robert Walpole</li>
+							<li>…</li>
+						</ol>
+					</aside>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+						et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+						qui officia deserunt mollit anim id est laborum.</p>
+					<br />
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Adding a red border to a warning</figcaption>
+					<p>Instead of using style alone to create an alert box, semantic styling could be achieved using the
+							<code>epub:type</code> attribute as follows:</p>
+					<pre class="prettyprint linenums"><code>&lt;aside epub:type="warning">
+   &lt;h4>Alert&lt;/h4>
+   &lt;p>
+      Adding acids and bases can cause 
+      violent reactions!
+   &lt;/p>
+&lt;/aside></code></pre>
+					<pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
+aside[epub|type~='warning'] {
+   border: solid 2px rgb(200,0,0);
+}
+
+aside[epub|type~='warning'] h4 {
+   text-indent: 0.5em;
+   width: 4em;
+   margin: -1.25em 0em 0em 1em;
+   background-color: rgb(255,255,200);
+   border: solid 1px rgb(0,0,0);
+}</code></pre>
+					<p>The above markup would render as follows:</p>
+					<aside class="warning">
+						<h4>Alert</h4>
+						<p>Adding acids and bases can cause violent reactions!</p>
+					</aside>
+				</figure>
+
+				<figure>
+					<figcaption>Example 3 &#8212; Linking a style sheet</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
+   &lt;head>
+      &#8230;
+      &lt;link
+           rel="stylesheet"
+           type="text/css"
+           href="#css/epub3.css"/>
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 4 &#8212; Including style overrides for mobile rendering</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
+   &lt;head>
+      &#8230;
+      &lt;link
+           rel="stylesheet"
+           type="text/css"
+           href="#css/epub3.css"
+           media="screen"/>
+      
+      &lt;link
+           rel="stylesheet"
+           type="text/css"
+           href="#css/epub3-mobile.css"
+           media="screen and (max-width:480px)"/>
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+				</figure>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-content-type-attribute"
+							>The <code>epub:type</code> attribute</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H88.html">H88: Using HTML according to
+							spec</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G14.html">G14: Ensuring that information
+							conveyed by color differences is also available in text</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G115.html">G115: Using semantic elements
+							to mark up structure</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G117.html">G117: Using text to convey
+							information that is conveyed by variations in presentation of text</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
+							whenever color cues are used</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

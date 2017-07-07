@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Media Overlays Overview | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Media Overlays Overview</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#samp">Samples</a></li>
+					<li><a href="#res">Resources</a></li>
+				</ol>
+			</nav>
+
+			<section id="def" class="usage">
+				<p>The EPUB 3.0 Media Overlays specification defines a profile of the <a
+						href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">SMIL</a> grammar for synchronizing text
+					rendering with audio playback.</p>
+
+				<p>Media Overlays documents are built using the following elements:</p>
+
+				<table class="elemDef">
+					<thead>
+						<tr>
+							<th>Element</th>
+							<th>Use</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="root"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-smil-elem"
+								>smil</a></td>
+							<td class="use">The <code>smil</code> element is the root element of each Media Overlay, and
+								contains an optional <code>head</code> and required <code>body</code> element</td>
+						</tr>
+						<tr>
+							<td class="firstChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-head-elem"
+									>head</a></td>
+							<td class="use">The <code>head</code> element may contain metadata in an optional
+									<code>metadata</code> element, but none is required by the EPUB 3 specification</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-seq-elem"
+									>metadata</a></td>
+							<td class="use">The <code>metadata</code> element is an extension element that allows metadata
+								from foreign namespaces to be included in the overlay</td>
+						</tr>
+						<tr>
+							<td class="firstChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-body-elem"
+									>body</a></td>
+							<td class="use">The <code>body</code> element defines playback through the order of
+									<code>seq</code> and <code>par</code> elements it contains</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-seq-elem"
+									>seq</a></td>
+							<td class="use">The <code>seq</code> element is used to structure an overlay. It is used to
+								represent complex structures such as sections, tables and lists that a reader may want to
+								skip or escape from</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-par-elem"
+									>par</a></td>
+							<td class="use">The <code>par</code> element defines a synchronization point in its child
+									<code>text</code> and/or <code>audio</code> elements</td>
+						</tr>
+						<tr>
+							<td class="thirdChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-text-elem"
+									>text</a></td>
+							<td class="use">The <code>text</code> element identifies the content document and element to
+								synchronize visual rendering to</td>
+						</tr>
+						<tr>
+							<td class="thirdChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-audio-elem"
+									>audio</a></td>
+							<td class="use">The <code>audio</code> element identifies the audio file and optional start and
+								end points for playback</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p>In order to synchronize a publication, each content document in a publication must have its own overlay
+					associated with it. Overlays are tied to content documents in the package document manifest using a
+						<code>media-overlay</code> attribute with the ID of the <code>item</code> that defines the
+					overlay.</p>
+
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; A basic overlay document</figcaption>
+					<p>The following example shows an overlay document for a chapter that consists of only a heading and two
+						paragraphs.</p>
+					<pre class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
+      xmlns:epub="http://www.idpf.org/2007/ops"
+      version="3.0">
+   &lt;body>
+      &lt;seq
+           epub:textref="chapter_001.xhtml"
+           epub:type="bodymatter chapter">
+      
+         &lt;par>
+            &lt;text src="chapter_001.xhtml#c01h01"/>
+            &lt;audio
+                   src="audio/c01.mp4"
+                   clipBegin="0:00:00.000" 
+                   clipEnd="0:00:05.250"/>
+         &lt;/par>
+         
+         &lt;par>
+            &lt;text src="chapter_001.xhtml#c01p0001"/>
+            &lt;audio
+                   src="audio/c01.mp4"
+                   clipBegin="0:00:05.250"
+                   clipEnd="0:00:58.100"/>
+         &lt;/par>
+         
+         &lt;par>
+            &lt;text src="chapter_001.xhtml#c01p0002"/>
+            &lt;audio
+                   src="audio/c01.mp4"
+                   clipBegin="0:00:58.100"
+                   clipEnd="0:02:04.000"/>
+         &lt;/par>
+      &lt;/seq>
+   &lt;/body>
+&lt;/smil></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Linking a chapter document to its overlay</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;item id="xchapter_001"
+      href="chapter_001.xhtml"
+      media-type="application/xhtml+xml"
+      media-overlay="chapter_001_overlay"/>
+
+&lt;item id="chapter_001_overlay"
+      href="chapter_001_overlay.smil"
+      media-type="application/smil+xml"/></code></pre>
+				</figure>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>Samples</h3>
+
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
+					publications that implement Media Overlays:</p>
+
+				<ul>
+					<li><a href="http://code.google.com/p/epub-samples/source/browse/#svn%2Ftrunk%2F30%2Fmoby-dick-mo%2FOPS"
+							>Moby Dick</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li><a href="http://idpf.org/epub3/latest/mediaoverlays">EPUB Media Overlays 3.0</a></li>
+					<li><a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">Synchronized Multimedia Integration Language
+							(SMIL 3.0)</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

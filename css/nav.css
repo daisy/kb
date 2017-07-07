@@ -1,0 +1,84 @@
+
+body {
+}
+
+nav#toc {
+	margin: 2em 0 0 0;
+	padding: 0em;
+}
+
+nav#toc h2 {
+    font-size: 160%;
+}
+
+nav#toc h3 {
+	margin-left: 1em;
+}
+
+nav.toc {
+	margin-left: 2em;
+}
+
+ol.sub {
+	list-style-type: decimal;
+}
+
+nav ol, nav.toc ol {
+	list-style-type: none;
+}
+
+ol.sub > li {
+	display: inline-block;
+	padding-left: 0.5em;
+	width: 15em;
+}
+
+nav[role~='doc-toc'] ol, nav.toc ol {
+	margin-top: 0;
+}
+
+nav[role~='doc-toc'] li, nav.toc li {
+	padding-top: 0.2em;
+}
+
+nav[role~='doc-toc'] > ol > li > ol, nav.toc > ol > li > ol  {
+	padding-top: 0.4em;
+}
+
+nav[role~='doc-toc'] > ol > li, nav.toc > ol > li {
+	padding-top: 0.8em;
+}
+
+nav[role~='doc-toc'] > ol > li.first {
+	padding-top: 0em;
+}
+
+.nav-h1 {
+	font-size: 105%;
+	font-weight: bold;
+	display: block;
+	margin-top: 0em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	color: rgb(0,0,90);
+}
+
+nav.toc .nav-h1 {
+	border: none;
+}
+
+.nav-h2 {
+	font-weight: bold;
+	display: block;
+	padding-top: 0.3em;
+	color: rgb(0,0,160);
+}
+
+a {
+	text-decoration: none;
+}
+
+div.about {
+    margin-left: 1.8em;
+    max-width: 45em;
+}

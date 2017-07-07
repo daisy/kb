@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Canvas | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Canvas</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>The <code>canvas</code> element provides a two-dimensional drawing surface, which introduces the same
+					accessibility issues as occur with <a href="../xhtml/images.html">images</a>. That the element can be
+					used for static and dynamic images makes it similar in nature to SVG, and further complicates access.</p>
+
+				<p>When using the element to draw static two-dimensional images, consider wrapping the element as a
+						<code>figure</code> and <a href="../xhtml/figures.html">embedding a description in the
+					caption</a>.</p>
+
+				<p>If the element is used to draw bar graphs, pie charts and similar data representations, also consider
+					making that data available in a more accessible form (e.g., as a table).</p>
+
+				<div class="note">
+					<p class="label">Note</p>
+					<p>The HTML specification requires that equivalent fallback content be provided when using the
+							<code>canvas</code> element. Although this content can be embedded in the <code>canvas</code>
+						element itself, doing so may interfere with other accessibility requirements (e.g., a description
+						should not be included in the <code>canvas</code> if the <code>canvas</code> element already contains
+						shadow DOM elements for scripting).</p>
+				</div>
+
+				<p>Before scripting content, consider the impact it will have on the user experience. If the information that
+					you draw is critical to the comprehension of the book, ensure that scripting the element is only an <a
+						href="pe.html">enhancement of that information</a> (i.e., do not lock it up in a requirement that
+					scripting be enabled).</p>
+
+				<p>Ideally, when scripting the <code>canvas</code> element the element should remain accessible. Since the
+					element is just a bitmap image, current accessibility work is aimed at providing a shadow DOM that can be
+					manipulated. To this end, developers can embed accessible elements (using WAI-ARIA states and properties)
+					inside the <code>canvas</code> element to represent what is being drawn, thereby allowing assistive
+					technologies to interact with the accessible elements in similar fashion to how someone would visually
+					interact with the display.</p>
+
+				<p>Early experimental support is only just beginning to appear, however, so this page is subject to
+					change.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; Wrapping a canvas in a figure</figcaption>
+					<pre class="prettyprint linenums small"><code>&lt;figure>
+   &lt;figcaption>
+      &lt;span class="caption">Figure 1 — Sales 
+      of tablets by manufacturer: Sorny 45%, 
+      MagnetBox 25%, Panaphonics 30%&lt;/span>
+   &lt;/figcaption>
+   &lt;canvas id="piechart" width="400" height="400">&lt;/canvas>
+&lt;/figure>
+&lt;script>
+&lt;![CDATA[
+   function drawPie() {
+   
+      var mfctr = new Array();
+          mfctr[0] = new Array();
+          mfctr[0].name = 'Sorny';
+          mfctr[0].pct = 45;
+          mfctr[0].color = 'rgb(0,0,255)';
+          mfctr[1] = new Array();
+          mfctr[1].name = 'MagnetBox';
+          mfctr[1].pct = 25;
+          mfctr[1].color = 'rgb(0,255,0)';
+          mfctr[2] = new Array();
+          mfctr[2].name = 'Panaphonics';
+          mfctr[2].pct = 30;
+          mfctr[2].color = 'rgb(255,0,0)';
+      
+      var canvas = document.getElementById('piechart');
+      
+      var context = canvas.getContext('2d');
+          context.clearRect(0, 0, canvas.width, canvas.height);
+      
+      var lastpos = 0;
+      var labelpos = 325;
+      
+      for (var i = 0; i &lt; mfctr.length; i++) {
+         
+         var m = mfctr[i];
+         
+         context.fillStyle = m.color;
+         context.beginPath();
+         context.moveTo(200,150);
+         context.arc(200,150,150,lastpos,lastpos+(Math.PI*2*(m.pct/100)),false);
+         context.lineTo(200,150);
+         context.fill();
+         
+         context.strokeStyle = 'rgb(0,0,0)';
+         context.stroke();
+         
+         context.fillStyle = m.color;
+         context.font = "16pt Arial";
+         
+         var text = m.name;
+         var offset = context.measureText(text);
+         context.fillText(text, 0, labelpos);
+         
+         var pctlabel = ' -- ' + m.pct + '%';
+         
+         context.fillStyle = 'rgb(0,0,0)';
+         context.fillText(pctlabel, offset.width, labelpos);
+         
+         labelpos += 35;
+         lastpos += Math.PI*2*(m.pct/100);
+      }
+   }
+   
+   drawPie();
+]]&gt;
+&lt;/script></code></pre>
+					<p>Following is a working demo of this code:</p>
+					<figure>
+						<figcaption>
+							<span class="caption">Figure 1 — Sales of tablets by manufacturer: Sorny 45%, MagnetBox 25%,
+								Panaphonics 30%</span>
+						</figcaption>
+						<canvas id="piechart" width="400" height="400">
+							<ul>
+								<li>Sorny 45%</li>
+								<li>MagnetBox 25%</li>
+								<li>Panaphonics 30%</li>
+							</ul>
+						</canvas>
+						<script>
+   //<![CDATA[
+      function drawPie() {
+      
+         var mfctr = new Array();
+             mfctr[0] = new Array();
+         	 mfctr[0].name = 'Sorny';
+         	 mfctr[0].pct = 45;
+         	 mfctr[0].color = 'rgb(0,0,255)';
+             mfctr[1] = new Array();
+             mfctr[1].name = 'MagnetBox';
+         	 mfctr[1].pct = 25;
+         	 mfctr[1].color = 'rgb(0,255,0)';
+             mfctr[2] = new Array();
+             mfctr[2].name = 'Panaphonics';
+         	 mfctr[2].pct = 30;
+         	 mfctr[2].color = 'rgb(255,0,0)';
+         
+         var canvas = document.getElementById('piechart');
+         
+         var context = canvas.getContext('2d');
+             context.clearRect(0, 0, canvas.width, canvas.height);
+         
+         var lastpos = 0;
+         var labelpos = 325;
+         
+         for (var i = 0; i < mfctr.length; i++) {
+            
+            var m = mfctr[i];
+            
+            context.fillStyle = m.color;
+            context.beginPath();
+            context.moveTo(200,150);
+            context.arc(200,150,150,lastpos,lastpos+(Math.PI*2*(m.pct/100)),false);
+            context.lineTo(200,150);
+            context.fill();
+            
+            context.strokeStyle = 'rgb(0,0,0)';
+            context.stroke();
+            
+            context.fillStyle = m.color;
+            context.font = "16pt Arial";
+            
+            var text = m.name;
+            var offset = context.measureText(text);
+            context.fillText(text, 0, labelpos);
+            
+            var pctlabel = ' -- ' + m.pct + '%';
+            
+            context.fillStyle = 'rgb(0,0,0)';
+            context.fillText(pctlabel, offset.width, labelpos);
+            
+            labelpos += 35;
+            lastpos += Math.PI*2*(m.pct/100);
+         }
+      }
+      
+      drawPie();
+   //]]>
+   </script>
+					</figure>
+				</figure>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/scripting-1.html#the-canvas-element">The
+								<code>canvas</code> element</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure
+							that content does not violate the general flash threshold or red flash threshold</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component
+							of the content flashes more than three times in any 1-second period</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G103.html">G103: Providing visual
+							illustrations, pictures, and symbols to help explain ideas, events, and processes</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G111.html">G111: Using color and
+							pattern</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li><a href="http://www.jumis.com/cme-wcag.html">Canvas Method Experiments in WCAG</a></li>
+					<li><a href="http://www.jumis.com/cme-tech.html">Canvas Uses and Techniques for WCAG</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

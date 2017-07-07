@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Sections | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Sections</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>The <code>section</code> element is used to encapsulate sections of primary content and establish the
+					publication's structural hierarchy. Clearly grouping and identifying content enables better navigation by
+					anyone reading using an assistive technology (<a href="#faq03">see also the faq</a>).</p>
+
+				<p>An <code>epub:type</code> attribute should be attached to each <code>section</code> to indicate the
+					specific nature of the content, when applicable. See the <a href="http://idpf.org/epub/vocab/structure/"
+						>EPUB 3 Structural Semantics Vocabulary</a> for the list of allowed values that can be used with the
+					attribute.</p>
+
+				<p>When the <code>epub:type</code> attribute is not specified, a generic section/subsection nature is assumed
+					based on the nesting level.</p>
+
+				<p>A <code>section</code> must not have more than one child heading.</p>
+
+				<p>If a section does not have a heading, consider including an <code>aria-label</code> attribute on the
+						<code>section</code> to identify its purpose.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+
+				<figure>
+					<figcaption>Example 1 &#8212; Defining a section is a chapter with a heading</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter">
+   &lt;h1 id="c01h01">Chapter 1. Loomings.&lt;/h1>
+   &lt;p>Call me Ishmael. &#8230; &lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Defining a section is a chapter by attribute</figcaption>
+					<p class="bridgehead"><code>title</code> attribute</p>
+					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter" title="chapter">
+   &lt;p>It was a dark and stormy night &#8230; &lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+					<p class="bridgehead"><code>aria-label</code> attribute</p>
+					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter" aria-label="chapter">
+   &lt;p>It was a dark and stormy night &#8230; &lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/sections.html#the-section-element">The
+								<code>section</code> element</a></li>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/sections.html#headings-and-sections">Headings and
+							sections</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H69.html">H69: Providing heading elements
+							at the beginning of each section of content</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G127.html">G127: Identifying a Web page's
+							relationship to a larger collection of Web pages</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Should I use the <code>section</code> element for secondary content?</dt>
+					<dd><p>No, the <code>section</code> element should only be used to identify primary structural
+							content.</p>
+						<p>Self-contained secondary content embedded within a section &#8212; such as sidebars,
+							mini-articles, etc. &#8212; should be identified using the <code>aside</code> and
+								<code>article</code> elements, as appropriate.</p>
+					</dd>
+					<dt>How do I handle large sections?</dt>
+					<dd><p>EPUBs are typically broken up into smaller XHTML content files to improve rendering, so it's often
+							the case that an entire part cannot be contained in a single file. The question becomes, how do
+							you split the chapters into separate files and still retain the part?</p>
+						<p>There are two approaches you can take to flattening out your content, and neither is optimal
+							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
+							is to include the part heading with the first chapter:</p>
+						<pre class="prettyprint linenums"><code>&lt;body>
+   &lt;section epub:type="part">
+      &lt;h1>Part I&lt;/h1>
+      &lt;section epub:type="chapter">
+         &lt;h2>Chapter I&lt;/h2>
+      &lt;/section
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Each subsequent chapter file would contain a single <code>section</code> with an <code>h2</code>
+							heading. Although this markup approach appears to suggest that the part only contains a single
+							chapter, consistent heading numbering will allow an assistive technology to correctly orient the
+							reader.</p>
+						<p>The other approach is to separate the part heading into its own file:</p>
+						<pre class="prettyprint linenums"><code>&lt;body>
+   &lt;section epub:type="part">
+      &lt;h1>Part I&lt;/h1>
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is
+							subordinate to the part. One advantage of this approach is that reading systems will render the
+							part heading separately from the first chapter content.</p>
+						<p>It would be nice to see a future version of EPUB include a way of retaining information about the
+							document hierarchy regardless of how the content gets broken up into files (e.g., in the spine),
+							but at this time no such mechanism exists.</p>
+					</dd>
+					<dt>Do sections assist in navigation?</dt>
+					<dd><p>Yes and no.</p>
+						<p>Grouping content into <code>section</code> elements more clearly delineates the structure of your
+							document, since there's no ambiguity about where the section begins and ends (e.g., in HTML4,
+							headings were often interspersed throughout the content regardless of relation to structure).
+							This structure allows readers using assistive technologies to move from section to section more
+							easily.</p>
+						<p>It's also true that grouping and identifying the nature of each <code>section</code> with an
+								<code>epub:type</code> attribute aids navigation of the document at the markup level (which
+							is where assistive technologies usually operate).</p>
+						<p>That said, because the publication's hierarchy often gets flattened when content is split into
+							separate XHTML files, the <code>section</code> element alone is left somewhat crippled as a
+							navigation aid. A reader will have more difficulty moving quickly from part to part and skipping
+							all the chapters in between unless they use the table of contents (i.e., each content file would
+							have to be loaded and each <code>section</code> type checked to move forward at the markup
+							level).</p>
+					</dd>
+					<dt>Should I use numbered headings or generic headings for my sections?</dt>
+					<dd><p>See the <a href="headings.html">Headings section</a> for more information.</p></dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

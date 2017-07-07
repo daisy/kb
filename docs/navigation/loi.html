@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Lists of Illustrations | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Lists of Illustrations</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>To facilitate navigation of the content, publications should include a guide to all the illustrations they
+					contain. Without these quick links, there is often no easy way for readers to locate the illustrations
+					again. They instead have to navigate through the content of the book until they reach the location.</p>
+
+				<p>The EPUB navigation document can be used to provide this functionality. A list of illustrations can be
+					defined in the same manner as the <a href="toc.html">table of contents</a>, but using a <code>nav</code>
+					element with an <code>epub:type</code> attribute with the value <code class="property">loi</code> (see <a
+						href="#ex01">Example 1</a>). The <code>loi nav</code> should contain only a single ordered
+					list of entries, with each entry linking to a figure or illustrations.</p>
+
+				<p>Note that although this type of navigation aid is not formally defined in the EPUB specification,
+					navigation documents were made extensible for this purpose. When creating an <code>loi nav</code>, you
+					should also embed the navigation document as content within the publication as Reading systems may not
+					provide specialized access to it.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Example</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; List of Illustrations</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;nav epub:type="loi">
+   &lt;h2>List of Illustrations&lt;/h2>
+   &lt;ol>
+      &lt;li>
+         &lt;a href="ch01.html#fig01">Figure 1.1&lt;/a>
+      &lt;/li>
+      &lt;li>
+         &lt;a href="ch01.html#fig02">Figure 1.2&lt;/a>
+      &lt;/li>
+      &#8230;
+   &lt;/ol>
+&lt;/nav></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Referencing from the landmarks nav</figcaption>
+					<p>The <code>landmarks nav</code> can reference elements in the same file as itself using an
+							<code>href</code> attribute that references the list's <code>id</code>:</p>
+					<pre class="prettyprint linenums"><code>&lt;nav epub:type="loi" id="illustrations">
+   &#8230;
+&lt;/nav>
+
+&lt;nav epub:type="landmarks">
+   &#8230;
+   &lt;li>
+      &lt;a href="#illustrations" epub:type="loi">List of 
+      Illustrations&lt;/a>
+   &lt;/li>
+   &#8230;
+&lt;/nav></code></pre>
+				</figure>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav-def-types-other">Other
+								<code>nav</code> Elements</a></li>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/sections.html#the-nav-element">The <code>nav</code>
+							element</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Do I have to use the EPUB navigation document to define my list of
+						illustrations?</dt>
+					<dd><p>No, using the navigation document simplifies the creation process (i.e., requires creating only
+							one instance for two uses), but is not required for accessibility or other purposes.</p>
+					</dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>PLS Lexicons | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>PLS Lexicons</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>PLS lexicons provide control over the text-to-speech (TTS) playback rendering on conforming reading
+					systems. A lexicon file is like a dictionary or look-up guide, allowing the pronunciations defined in it
+					to be used in place of the default rendering when matching words are encountered. Defining words in a
+					lexicon ensures that readers hear your work played back as expected, not based on the heuristics applied
+					by the TTS engine on their reading system.</p>
+
+				<p>Each PLS lexicon is an XML file with a root <code>lexicon</code> element. Lexicons are comprised of one or
+					more <code>lexeme</code> entries, each of which defines the word(s) to match in <code>grapheme</code>
+					element(s) and the replacement pronunciation to use in a <code>phoneme</code> element. (See <a
+						href="#ex01">Example 1</a>.)</p>
+
+				<p>The <code>alias</code> element can also be used to replace one word with another. (See <a
+						href="#ex05">Example 5</a>.)</p>
+
+				<p>The language of the lexicon and the phonetic alphabet used must both be defined on the root
+						<code>lexicon</code> element.</p>
+
+				<p>PLS entries should be created for any complex word that is important to the publication and that a TTS
+					engine is likely to mispronounce. The list includes, but is not limited to, proper names and nouns,
+					technical, scientific and legal terms, and complex compound words. The default rendering for heteronyms
+					can also be defined in a PLS lexicon so that only variations need to be handled by SSML tagging.</p>
+
+				<p>Note that PLS lexicons are not activated simply by being included in the EPUB container. You must
+					reference the applicable lexicon(s) from each content document in order for them to be applied to the
+					content. The <code>hreflang</code> attribute should also always be set to the language of the referenced
+					PLS file. (See <a href="#ex06">Example 6</a>.)</p>
+
+				<p>Multiple lexicons can be attached to a content document to handle embedded foreign languages. (See <a
+						href="#ex07">Example 7</a>.)</p>
+
+				<p>Localizations are not possible within a single PLS lexicon file, but you can attach multiple lexicons to
+					voice words differently for different regions. (See the <a href="#faq4">faq question</a> below for
+					more information.)</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; A minimal lexicon file</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;lexicon
+  version="1.0"
+  alphabet="x-sampa"
+  xml:lang="en"
+  xmlns="http://www.w3.org/2005/01/pronunciation-lexicon">
+   &lt;lexeme>
+      &lt;grapheme>acetaminophen&lt;/grapheme>
+      &lt;phoneme>@"sit@'mIn@f@n&lt;/phoneme>
+   &lt;/lexeme>
+&lt;/lexicon></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Handling regional variations in spelling</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>defence&lt;/grapheme>
+   &lt;grapheme>defense&lt;/grapheme>
+   &lt;phoneme>dI'fEns&lt;/phoneme>
+&lt;/lexeme></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 3 &#8212; Handling alternate forms</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>vitæ&lt;/grapheme>
+   &lt;grapheme>vitae&lt;/grapheme>
+   &lt;phoneme>vitaI&lt;/phoneme>
+&lt;/lexeme></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 4 &#8212; Including more than one phonetic spelling</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>defence&lt;/grapheme>
+   &lt;grapheme>defense&lt;/grapheme>
+   &lt;phoneme>dI'fEns&lt;/phoneme>
+   &lt;phoneme alphabet="ipa">dɪˈfɛns&lt;/phoneme>
+&lt;/lexeme></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 5 &#8212; Replacing one term with another</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>50-50&lt;/grapheme>
+   &lt;phoneme>fifty fifty&lt;/phoneme>
+&lt;/lexeme></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 6 &#8212; Adding a PLS lexicon to the manifest</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;item
+      id="pls"
+      href="#EPUB/lexicon.pls"
+      media-type="application/pls+xml"/></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 7 &#8212; Linking PLS lexicons to a content document</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;html … xml:lang="en">
+   &lt;head>
+      &#8230;
+      &lt;link
+         rel="pronunciation"
+         href="#lex/en.pls"
+         type="application/pls+xml"
+         hreflang="en" />
+      &lt;link
+         rel="pronunciation"
+         href="#lex/fr.pls"
+         type="application/pls+xml"
+         hreflang="fr" />
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+				</figure>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-pls">PLS Documents</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li><a href="http://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification (PLS)
+							Version 1.0</a></li>
+					<li><a href="http://faq.ivona.com/?p=1062&amp;lang=en">PLS lexicons - preparing and using with IVONA
+							synthesizers</a></li>
+					<li><a href="http://msdn.microsoft.com/en-us/library/hh378335.aspx">Lexicons and Phonetic Alphabets
+							(Microsoft.Speech)</a></li>
+					<li><a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">Computer-coding the IPA: a proposed
+							extension of SAMPA</a> (X-SAMPA)</li>
+					<li><a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">Reproduction of The International Phonetic
+							Alphabet (Revised to 2005)</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Are lexicons supported at this time?</dt>
+					<dd><p>At the time of writing, no reading systems have appeared that support the new TTS enhancements in
+							EPUB 3. Please send a report if the situation changes and this page has not been
+						updated.</p></dd>
+					<dt>Should I use IPA or X-SAMPA or something else to write my pronunciations?</dt>
+					<dd><p>Although IPA is arguably the most widely recognized phonetic alphabet, that does not mean that it
+							has full support even in existing synthetic speech engines. Some engines support only their own
+							alphabets, for example. IPA is also less developer-friendly than X-SAMPA because it uses Unicode
+							characters that require modifying most keyboard layouts to input, whereas X-SAMPA is ASCII-based.
+							Internal workflows should be a determining factor at this time. The ultimate answer will depend
+							on what engines are employed in reading systems.</p>
+						<p>Note that it is possible to translate one alphabet representation to the other, so work in either
+							alphabet shouldn't ever be <q>lost</q> if there does turn out to be a clear winner and loser.</p>
+					</dd>
+					<dt>Are lexicons case sensitive?</dt>
+					<dd><p>The need to be able to define case-sensitive pronunciations is clear, but how PLS lexicons are
+							processed less so. The specification itself says nothing about case sensitivity of graphemes,
+							with only a requirement for case-sensitive processing defined in an <a
+								href="http://www.w3.org/TR/pronunciation-lexicon/#AppC">informative appendix</a>. Until
+							reading systems that support PLS lexicons appear, any answer is speculative, but assume case
+							sensitivity because of the critical role it plays. </p>
+						<p>Note that you should also consider that certain terms will appear both in lower case and title
+							case in a publication without changing the pronunciation, and add <code>grapheme</code> elements
+							for both cases:</p>
+						<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>acetaminophen&lt;/grapheme>
+   &lt;grapheme>Acetaminophen&lt;/grapheme>
+   &lt;phoneme>@"sit@'mIn@f@n&lt;/phoneme>
+&lt;/lexeme></code></pre>
+						<p>When case conflicts occur, use SSML in the markup to correct the pronunciation of the less common
+							term. For example, both spellings <q>mobile</q> and <q>Mobile</q> may refer to human mobility in
+							a document that studies age-related health issues in Mobile, Alabama. Defining the pronunciation
+							of <q>Mobile</q> as <q>ˈmoʊbaɪl</q> will cause the city name to be mispronounced (and likewise
+							the other way around).</p>
+					</dd>
+					<dt>Are there any dangers in mixing languages?</dt>
+					<dd><p>Yes, if the rendering engine does not support voicing the specified language, the reader may get
+							an error or the text may be silently skipped. Error handling in such situations cannot be
+							guaranteed. Language-specific lexicons will typically not be loaded.</p></dd>
+					<dt>Can I add localizations?</dt>
+					<dd><p>Not within a single PLS file. The <code>phoneme</code> element does not allow an
+								<code>xml:lang</code> to be attached to it. Multiple localized lexicons could be attached to
+							a content document that only specifies the stem language code, so that the reader's localization
+							preference setting can be used to determine the proper lexicon to apply (e.g., the content
+							document specifies it is <code>en</code> and the lexicons specify <code>en-US</code> and
+								<code>en-GB</code>).</p>
+						<p>Care should be taken not to exclude readers by specifying localizations. If a reading system does
+							not include a voice that can handle the localizations, the lexicon will not be loaded.</p>
+						<p>A better solution is to define one lexicon for all reading systems that can handle the
+							region-independent language. If the publication is written in US English, for example, it would
+							be better to use the default <code>en</code> code for the standard pronunciation lexicon and
+							specify a locale only for targeted regions:</p>
+						<pre class="prettyprint linenums"><code>&lt;html … xml:lang="en">
+   &lt;head>
+      &#8230;
+      &lt;link
+         rel="pronunciation"
+         href="#lex/en.pls"
+         type="application/pls+xml"
+         hreflang="en" />
+      &lt;link
+         rel="pronunciation"
+         href="#lex/en-GB.pls"
+         type="application/pls+xml"
+         hreflang="en-GB" />
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+						<p>This way any reader with an English-language reading system will at least hear the correct US
+							pronunciations.</p>
+					</dd>
+					<dt>Should I use PLS lexicons or SSML?</dt>
+					<dd><p>The inclusion of the technologies in EPUB 3 was not to require a choice to be made; the
+							technologies are meant to complement each other. PLS lexicons allow you to define a word once and
+							have the TTS engine do the work of replacing it each time it occurs in the prose. <a
+								href="ssml.html">SSML</a>, on the other hand, provides the fine-grained control that is just
+							not possible in a lexicon, at the price of having to tag each instance of a term that has to be
+							replaced.</p>
+					</dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

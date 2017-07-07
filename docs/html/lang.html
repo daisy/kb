@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Language | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript">
+            $(document).ready(function () {
+                prettyPrint();
+            });
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Language</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Setting the language ensures that assistive technologies correctly interpret and render the text.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+				    <li>Set the <code>lang</code> and <code>xml:lang</code> attributes on the root <code>html</code> element. <span class="wcag-level">(WCAG <a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">3.1.1</a>)</span></li>
+				    <li>Set the <code>lang</code> and <code>xml:lang</code> attributes whenever the default language changes. <span class="wcag-level">(WCAG <a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">3.1.2</a>)</span></li>
+				    <li>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>. <span class="wcag-level">(WCAG <a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">3.1.1</a>)</span></li>
+				</ul>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Example</h3>
+
+				<figure>
+					<pre class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en">
+   &#8230;
+   &lt;body>
+      &#8230;
+      &lt;p>
+         Harsh gargoyle face that warred against me 
+         over our mess of hash of lights in 
+         &lt;span xml:lang="fr" lang="fr">rue 
+         Saint-André-des-Arts&lt;/span>. In words of
+         words for words, palabras. Oisin with
+         Patrick. Faunman he met in Clamart woods,
+         brandishing a winebottle.
+         &lt;i xml:lang="fr" lang="fr">C'est 
+         vendredi saint!&lt;/i> Murthering Irish.
+         His image, wandering, he met. I mine. I 
+         met a fool i'the forest.
+      &lt;/p>
+      &#8230;
+   &lt;/body>
+&lt;/html></code></pre>
+				</figure>
+			</section>
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Specifying a document's default language &#8212; as well as any changes within the document, such as
+		            instances of foreign language terms or dialogue or passages in another language &#8212; helps ensure that
+		            assistive technologies can correctly render the text (e.g., that the correct braille characters are
+		            presented, or a voice capable of rendering the language gets used).</p>
+		        
+		        <p>To define the default language for an XHTML document, the <code>lang</code> and <code>xml:lang</code>
+		            language attributes need to be attached to the root <code>html</code> element. The language code defined
+		            in these attributes should match one of the language codes specified in a <code>dc:language</code>
+		            element in the package document's metadata section (<a href="#faq01">see the faq</a> for more
+		            information).</p>
+		        
+		        <p>When attached to elements within the body, the language attributes identify the language of the text
+		            content of that element (i.e., to identify a change in language).</p>
+		    </section>
+		    
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/dom.html#the-lang-and-xml:lang-attributes">The lang
+							and xml:lang attributes</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H57.html">H57: Using language attributes
+							on the html element</a></li>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H58.html">H58: Using language attributes
+							to identify changes in the human language</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li><a href="http://www.w3.org/International/getting-started/language">Language on the Web</a></li>
+					<li><a href="http://www.w3.org/International/articles/language-tags/">Language tags in HTML and
+						xml</a></li>
+					<li><a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC5646 &#8212; Tags for Identifying
+							Languages</a> (BCP 47)</li>
+					<li><a href="http://www.w3.org/International/questions/qa-css-lang#xmllang">Styling using language
+							attributes</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Is it necessary to specify a default language in content files?</dt>
+					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
+							information may not be available to assistive technologies depending on the reading system used.
+							A cloud reader may only have access to the current XHTML content document, for example, in which
+							case the proper language for braille rendering or TTS playback may not be available.</p>
+						<p>In the case of multilingual publications, it additionally may not be clear to any reading system
+							or assistive technology which of the specified languages in the package document is the correct
+							default for any given content document.</p>
+						<p>Best practice is to always specify the language in each content document to ensure proper
+							rendering.</p></dd>
+					<dt>Is it necessary to specify both the <code>lang</code> and <code>xml:lang</code>
+						attributes?</dt>
+					<dd><p>Again, for optimal accessibility both should be specified at this time. Assistive technologies may
+							only recognize one or the other attribute.</p>
+						<p>In addition, if XHTML content documents are rendered as HTML by a reading system, only the
+								<code>lang</code> attribute may be recognized.</p></dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

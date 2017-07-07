@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Table of Contents | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Table of Contents</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#samp">Samples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>Although the <a href="../nav/toc.html">EPUB navigation document</a> provides navigation capabilities for
+					the publication as a whole, embedding tables of contents within the body can further facilitate
+					comprehension and navigation (e.g., a table of contents in the front matter or a reduced table of
+					contents or mini tables of contents at the start of each section).</p>
+
+				<p>If you embed other tables of contents in the body of your publication, try to construct them in the same
+					way as the navigation document &#8212; using the <code>nav</code> element and ordered lists. Lists
+					simplify access as assistive technologies typically provide hotkeys to move through them more
+					effectively.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+
+				<figure>
+					<figcaption>Example 1 &#8212; Re-using the <code>nav toc</code> by including it in the spine</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;manifest>
+      &#8230;
+      &lt;item id="htmltoc"
+      	    properties="nav"
+      	    media-type="application/xhtml+xml"
+      	    href="bk01-toc.xhtml"/>
+      &#8230;
+   &lt;/manifest>
+   &#8230;
+   &lt;spine>
+      &#8230;
+      &lt;itemref idref="htmltoc" linear="yes"/>
+      &#8230;
+   &lt;/spine>
+&lt;/manifest></code></pre>
+					<p class="ack">See in context in <a
+							href="http://code.google.com/p/epub-samples/source/browse/trunk/30/accessible_epub_3/EPUB/package.opf"
+							>Accessible EPUB 3 package file</a></p>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Adding a table of contents to the publication body</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;section epub:type="toc">
+   &lt;h1>Table of Contents&lt;/h1>
+   &lt;nav id="toc">
+      &lt;ol class="toc">
+         &lt;li>
+            &lt;a href="ch01.xhtml">1. Introduction&lt;/a>
+         &lt;/li>
+         &lt;li>
+            &lt;a href="ch02.xhtml">2. Building a 
+               Better EPUB: Fundamental
+               Accessibility&lt;/a>
+         &lt;/li>
+         &lt;li>
+            &lt;a href="ch03.xhtml">3. It’s Alive:
+               Rich Content Accessibility&lt;/a>
+         &lt;/li>
+         &lt;li>
+            &lt;a href="ch04.xhtml">4. Conclusion&lt;/a>
+         &lt;/li>
+      &lt;/ol>
+   &lt;/nav>
+&lt;/section></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 3 &#8212; A mini table of contents at the start of a section</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;section>
+   &lt;header>
+      &lt;h2>
+         3. It’s Alive: Rich Content Accessibility
+      &lt;/h3>
+      &lt;nav id="toc">
+         &lt;ol>
+            &lt;li>
+               &lt;a href="#s01">The Sound and 
+               the Fury: Audio and Video&lt;/a>
+            &lt;/li>
+            &lt;li>
+               &lt;a href="#s02">Talk to Me: 
+               Media Overlays&lt;/a>
+            &lt;/li>
+            &lt;li>
+               &lt;a href="#s03">Tell It Like 
+               It Is: Text-to-Speech (TTS)&lt;/a>
+            &lt;/li>
+            &lt;li>
+               &lt;a href="#s04">The Coded Word:
+               Scripted Interactivity&lt;/a>
+            &lt;/li>
+            &lt;li>
+               &lt;a href="#s05">A Little Help:
+               WAI-ARIA&lt;/a>
+            &lt;/li>
+            &lt;li>
+               &lt;a href="#s06">A Blank Slate:
+               Canvas&lt;/a>
+            &lt;/li>
+         &lt;/ol>
+      &lt;/nav>
+   &lt;/header>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>Samples</h3>
+
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
+					publications that include embedded tables of contents:</p>
+
+				<ul>
+					<li><a href="http://code.google.com/p/epub-samples/source/browse/trunk/30/mahabharata/EPUB/nav/nav.xhtml"
+							>Mahabharata</a> &#8212; uses the <code>hidden</code> attribute to hide additional
+							<code>nav</code> elements</li>
+				</ul>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G126.html">G126: Providing a list of
+							links to all other Web pages</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav">EPUB Navigation
+							Documents</a></li>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav-def-types-toc">The
+								<code>toc nav</code> Element</a></li>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/sections.html#the-nav-element">The <code>nav</code>
+							element</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Do I have to use the navigation document in the body?</dt>
+					<dd><p>No, it's just a convenience. If the navigation document format is too restrictive or otherwise not
+							conducive to your needs, you can create your own for the body. As a table of contents in the body
+							is not explicitly an accessibility aid, you have greater freedom to lay it out how you need.
+							Maintaining an accessible structure to it is still recommended, however.</p>
+					</dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>

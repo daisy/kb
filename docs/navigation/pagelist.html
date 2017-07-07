@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Page List | Accessible Publishing Knowledge Base</title>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Page List</h2>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#samp">Samples</a></li>
+					<li><a href="#reqs">Compliance References</a></li>
+					<li><a href="#res">Resources</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc" class="usage">
+				<p>If an EPUB publication includes <a href="../xhtml/pagenum.html">page break markers</a> it also requires a
+					page list &#8212; a special navigation component in the EPUB navigation document that provides links to
+					all the page break locations.</p>
+
+				<p>Reading systems can use this list to provide automatic page jump functionality, or simply expose the list
+					so that users can manually select the page they wish to go to.</p>
+			</section>
+
+			<section id="ex" class="example">
+				<h3>Examples</h3>
+
+				<figure>
+					<figcaption>Example 1 &#8212; Page list navigation</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;nav epub:type="page-list">
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page754">754&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page755">755&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page756">756&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page757">757&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page758">758&lt;/a>&lt;/li>
+ &lt;/ol>
+&lt;/nav></code></pre>
+				</figure>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>Samples</h3>
+
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
+					publications that implement page list navigation:</p>
+
+				<ul>
+					<li><a href="http://code.google.com/p/epub-samples/downloads/list">Georgia</a></li>
+				</ul>
+			</section>
+
+			<section id="reqs" class="reqs">
+				<h3>References</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav-def-types-pagelist"
+							>The <code>page-list nav</code> Element</a></li>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html5/sections.html#the-nav-element">The <code>nav</code>
+							element</a></li>
+				</ul>
+			</section>
+
+			<section id="res" class="res">
+				<h3>Additional Resources</h3>
+				<ul>
+					<li>EPUB 2 &#8212; <a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">Declarative
+							Global Navigation &#8212; the NCX</a></li>
+					<li>Z39.86-2005 &#8212; <a href="http://www.niso.org/workrooms/daisy/Z39-86-2005.html#NCX">Navigation
+							Control File (NCX)</a></li>
+				</ul>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>What if the order of my ebook doesn't exactly match the order of the print
+						equivalent?</dt>
+					<dd><p>It's sometimes the case when converting to ebooks that front and back matter material gets
+							shuffled around and/or omitted. These changes in content order are not unexpected, and readers
+							will understand that their ebooks may not be formatted exactly the same way as the print, and may
+							not include all the print content.</p>
+						<p>If you do make changes to the content order, do not renumber the existing pagination to return it
+							to sequential order. The purpose of page list navigation is to get the reader to the equivalent
+							point, not to be sequentially correct.</p>
+						<p>Whenever re-ordering or omitting content, consider adding a note to the <code>dc:source</code>
+							element in the package document that identifies the print equivalent:</p>
+						<pre class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+   &lt;dc:source id="pub">
+      urn:isbn:9760123456789
+   &lt;/dc:source>
+   &lt;meta
+      refines="#src-pub"
+      property="dc:description">The print index has
+      been omitted from the EPUB version of this book.
+   &lt;/meta>
+&lt;/metadata></code></pre>
+					</dd>
+					<dt>If I include an NCX, should it also include a corresponding
+						<code>pageList</code>?</dt>
+					<dd><p>Yes. An EPUB 2 reading system will only be able to interpret the NCX.</p></dd>
+				</dl>
+			</section>
+		</section>
+		<footer></footer>
+	</body>
+</html>
