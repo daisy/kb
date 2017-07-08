@@ -35,10 +35,11 @@ body {
 
 h1 {
 	font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
-	font-size: 140%;
+	font-size: 130%;
+	text-indent: 0.5rem;
 	color: rgb(255,255,255);
 	margin: 0;
-	padding: 4px 0 2px 0;
+	padding: 0.4rem 0 0.2rem 0;
 	background-color: rgb(27,95,161);
 	height: 36px;
 }
@@ -100,17 +101,10 @@ header {
 footer {
 	font-size: 90%;
 	text-align: center;
-	margin-top: 3em;
-	margin-bottom: 0;
-	margin-left: 1em;
+	margin: 3em 0 0 0;
 	padding-bottom: 0.5em;
 	border-top: 2px solid rgb(240,240,255);
-}
-
-footer address {
-	margin-top: 0.2em;
-	padding-top: 1em;
-	font-style: normal;
+	background-color: rgb(240,242,244);
 }
 
 section.section {
