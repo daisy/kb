@@ -206,28 +206,7 @@ section.section {
 }
 
 
-/* usage section styles */
-
-section.usage {
-	margin-top: 0;
-	padding: 0 0.5em;
-}
-
-section.usage h3 {
-	margin-top: 0;
-}
-
-
 /* compliance references */
-
-section.reqs {
-	padding: 0 0.5em;
-}
-
-section.reqs section {
-	margin: 0;
-	padding: 0;
-}
 
 ul.req {
 	padding-left: 1.5em;
@@ -254,17 +233,6 @@ ul.req > li.labeled > ul {
 	margin-left: 2em;
 }
 
-/* example section styles */
-
-section.example {
-	padding: 0 0.5em;
-}
-
-section.example > h3 {
-	margin-bottom: 0;
-	padding-bottom: 0.2em;
-}
-
 
 /* example formatting*/
 
@@ -274,6 +242,10 @@ pre {
 	font-size: 90%;
 	padding: 0;
 	white-space: pre-wrap;
+}
+
+pre.prettyprint {
+	border-left: 0.3rem solid rgb(20,120,240) !important;
 }
 
 pre.small { font-size: 85%; }
@@ -644,6 +616,7 @@ img.logo {
 }
 
 
-main > section > section {
-    border-top: 0.1rem solid rgb(0,0,0);
+body > section > section {
+    border-top: 0.1rem dotted rgb(210,210,210);
+	padding: 0 0.5em;
 }
