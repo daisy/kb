@@ -24,8 +24,11 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
@@ -41,29 +44,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc" class="usage">
-				<p>Images that are central to the understanding of a publication must always include a text alternative in
-					their <code>alt</code> attribute. In the case of complex images, a detailed description should also be
-					added.</p>
-
-				<p>If the image is purely decorative, the <code>alt</code> attribute should be left empty. For improved,
-					accessibility, an ARIA <code>role</code> attribute with the property <code class="property"
-						>presentation</code> should also be attached.</p>
-
-				<div class="note">
-					<p class="label">Note</p>
-					<p>If an image is important to the publication, but not required to be read at the point of insertion
-						(i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
-						enclose it.</p>
-				</div>
-				<div class="note">
-					<p class="label">Note</p>
-					<p>The <code>details</code> element has been removed from HTML5, but remains under development for HTML
-						5.1. It will allow a collapsible description when finalized, but is not recommended for describing
-						content at this time.</p>
-				</div>
 			</section>
 
 			<section id="ex" class="example">
@@ -109,7 +89,32 @@
      alt=""/></code></pre>
 				</figure>
 			</section>
-
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Images that are central to the understanding of a publication must always include a text alternative in
+		            their <code>alt</code> attribute. In the case of complex images, a detailed description should also be
+		            added.</p>
+		        
+		        <p>If the image is purely decorative, the <code>alt</code> attribute should be left empty. For improved,
+		            accessibility, an ARIA <code>role</code> attribute with the property <code class="property"
+		                >presentation</code> should also be attached.</p>
+		        
+		        <div class="note">
+		            <p class="label">Note</p>
+		            <p>If an image is important to the publication, but not required to be read at the point of insertion
+		                (i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
+		                enclose it.</p>
+		        </div>
+		        <div class="note">
+		            <p class="label">Note</p>
+		            <p>The <code>details</code> element has been removed from HTML5, but remains under development for HTML
+		                5.1. It will allow a collapsible description when finalized, but is not recommended for describing
+		                content at this time.</p>
+		        </div>
+		    </section>
+		    
 			<section id="refs" class="reqs">
 				<h3>References</h3>
 

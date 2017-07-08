@@ -24,8 +24,11 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
 			</nav>
@@ -42,30 +45,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc" class="usage">
-				<p>Headings remain one of the primary means of navigation for users of assistive technologies.</p>
-
-				<p>Each <code>section</code> should have a numbered heading (e.g., <code>h1</code>) that reflects its level
-					in the document hierarchy, as numbered headings allow assistive technologies, regardless of their support
-					for HTML5, to navigate the document structure.</p>
-
-				<p>Each heading element must represent a single heading. Do not break a heading up into separate tags for
-					visual formatting. If you need to include subheadings, incorporate them into the main heading or include
-					them in a subsequent paragraph, using a <code>header</code> tag to encapsulate the full heading (<a
-						href="#ex03">Example 2</a> shows both usage examples).</p>
-
-				<p>If a section of text does not have a heading, include a heading in an <code>aria-label</code> attribute on
-					the enclosing element. Assistive technologies will announce this label and alert users that a new section
-					is starting.</p>
-
-				<div class="note">
-					<p class="label">Note</p>
-					<p>Do not use heading elements within <code>figure</code>, <code>blockquote</code> and other HTML5
-						sectioning root elements. Although these features may have titles, using heading elements will force
-						users to navigate through them to find the next section.</p>
-				</div>
 			</section>
 
 			<section id="ex" class="example">
@@ -109,7 +88,33 @@
 					<pre class="prettyprint linenums"><code>&lt;section epub:type="preamble" aria-label="preamble"></code></pre>
 				</figure>
 			</section>
-
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Headings remain one of the primary means of navigation for users of assistive technologies.</p>
+		        
+		        <p>Each <code>section</code> should have a numbered heading (e.g., <code>h1</code>) that reflects its level
+		            in the document hierarchy, as numbered headings allow assistive technologies, regardless of their support
+		            for HTML5, to navigate the document structure.</p>
+		        
+		        <p>Each heading element must represent a single heading. Do not break a heading up into separate tags for
+		            visual formatting. If you need to include subheadings, incorporate them into the main heading or include
+		            them in a subsequent paragraph, using a <code>header</code> tag to encapsulate the full heading (<a
+		                href="#ex03">Example 2</a> shows both usage examples).</p>
+		        
+		        <p>If a section of text does not have a heading, include a heading in an <code>aria-label</code> attribute on
+		            the enclosing element. Assistive technologies will announce this label and alert users that a new section
+		            is starting.</p>
+		        
+		        <div class="note">
+		            <p class="label">Note</p>
+		            <p>Do not use heading elements within <code>figure</code>, <code>blockquote</code> and other HTML5
+		                sectioning root elements. Although these features may have titles, using heading elements will force
+		                users to navigate through them to find the next section.</p>
+		        </div>
+		    </section>
+		    
 			<section id="refs" class="reqs">
 				<h3>References</h3>
 

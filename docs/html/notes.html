@@ -24,8 +24,11 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
@@ -41,63 +44,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc" class="usage">
-				<p>Footnotes and endnotes have proven an impediment to the reading experience because they interrup the
-					narrative flow. When footnotes are placed immediately following the paragraph that references them,
-					readers had to manually navigate past them each time, as they are typically indistinguishable from text
-					content. Even endnotes, grouped at the end of the section, require the user to jump past them.</p>
-
-				<p>The HTML5 structural elements, together with the <code>epub:type</code> attribute, provide a means of
-					alleviating this problem, by clearly marking individual footnotes and endnotes, and sections of them. Not
-					only does this allow accessible reading systems to ignore the notes except when followed from their
-					referents, but it allows any reading system to handle them more intelligently (e.g., as pop-ups).</p>
-
-				<p>Notes placed within the primary narrative should be tagged using the HTML5 <code>aside</code> element (see
-						<a href="#ex01">Example 1</a>). This usage ensures that even if the EPUB semantic is not
-					recognized, the notes will still be treated as secondary content due the nature of the HTML5
-						<code>aside</code> element.</p>
-
-				<p>The type of note must be identified using the <code>epub:type</code> attribute. The <a
-						href="http://idpf.org/epub/vocab/structure/">EPUB 3 Structural Semantics</a> Vocabulary defines the
-					following note types:</p>
-
-				<ul>
-					<li><code class="property">footnote</code> &#8212; a note that would normally be placed at the bottom of
-						a print or electronic page</li>
-					<li><code class="property">endnote</code> &#8212; a note that would normally be placed at the end of a
-						section or publication</li>
-				</ul>
-
-				<p>Notes that are grouped at the end of a section do not need to be individually tagged as
-					<code>aside</code>, but should be grouped in a <code>section</code> carrying the appropriate <code
-						class="property">footnotes</code> or <code class="property">endnotes</code> semantic (see <a
-						href="#ex02">Example 2</a>). Lists are an effective means of representing groups of notes in
-					these sections, as they allow readers to move through them more effectively (e.g., each list item number
-					will typically correspond sequentially to the contained note number, and readers should have the ability
-					to jump through more than one list item at a time when there are many notes).</p>
-
-				<p class="bridgehead">Notes in Tables</p>
-
-				<p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
-					summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
-					a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
-
-				<p class="bridgehead">Note References</p>
-
-				<p>Note references must be tagged using the HTML5 <code>a</code> element with an <code>epub:type</code>
-					attribute designating the property <code class="property">noteref</code>.</p>
-
-				<p>Do not use the <code>sup</code> element to superscript note references, as it is redundant presentational
-					tagging. The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
-					elements. (See <a href="#ex03">Example 3</a> below.)</p>
-
-				<p class="bridgehead">Back Referencing</p>
-
-				<p>Although not specifically required to be accessible, it is good practice to back-link groups of notes to
-					their referent locations in the text (see <a href="#ex04">Example 4</a>). If a reader is
-					surveying your notes, this will allow them to quickly find the text the note refers to.</p>
 			</section>
 
 			<section id="ex" class="example">
@@ -160,7 +106,66 @@ a[epub|type~='noteref'] {
 				</figure>
 
 			</section>
-
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Footnotes and endnotes have proven an impediment to the reading experience because they interrup the
+		            narrative flow. When footnotes are placed immediately following the paragraph that references them,
+		            readers had to manually navigate past them each time, as they are typically indistinguishable from text
+		            content. Even endnotes, grouped at the end of the section, require the user to jump past them.</p>
+		        
+		        <p>The HTML5 structural elements, together with the <code>epub:type</code> attribute, provide a means of
+		            alleviating this problem, by clearly marking individual footnotes and endnotes, and sections of them. Not
+		            only does this allow accessible reading systems to ignore the notes except when followed from their
+		            referents, but it allows any reading system to handle them more intelligently (e.g., as pop-ups).</p>
+		        
+		        <p>Notes placed within the primary narrative should be tagged using the HTML5 <code>aside</code> element (see
+		            <a href="#ex01">Example 1</a>). This usage ensures that even if the EPUB semantic is not
+		            recognized, the notes will still be treated as secondary content due the nature of the HTML5
+		            <code>aside</code> element.</p>
+		        
+		        <p>The type of note must be identified using the <code>epub:type</code> attribute. The <a
+		            href="http://idpf.org/epub/vocab/structure/">EPUB 3 Structural Semantics</a> Vocabulary defines the
+		            following note types:</p>
+		        
+		        <ul>
+		            <li><code class="property">footnote</code> &#8212; a note that would normally be placed at the bottom of
+		                a print or electronic page</li>
+		            <li><code class="property">endnote</code> &#8212; a note that would normally be placed at the end of a
+		                section or publication</li>
+		        </ul>
+		        
+		        <p>Notes that are grouped at the end of a section do not need to be individually tagged as
+		            <code>aside</code>, but should be grouped in a <code>section</code> carrying the appropriate <code
+		                class="property">footnotes</code> or <code class="property">endnotes</code> semantic (see <a
+		                    href="#ex02">Example 2</a>). Lists are an effective means of representing groups of notes in
+		            these sections, as they allow readers to move through them more effectively (e.g., each list item number
+		            will typically correspond sequentially to the contained note number, and readers should have the ability
+		            to jump through more than one list item at a time when there are many notes).</p>
+		        
+		        <p class="bridgehead">Notes in Tables</p>
+		        
+		        <p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
+		            summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
+		            a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
+		        
+		        <p class="bridgehead">Note References</p>
+		        
+		        <p>Note references must be tagged using the HTML5 <code>a</code> element with an <code>epub:type</code>
+		            attribute designating the property <code class="property">noteref</code>.</p>
+		        
+		        <p>Do not use the <code>sup</code> element to superscript note references, as it is redundant presentational
+		            tagging. The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
+		            elements. (See <a href="#ex03">Example 3</a> below.)</p>
+		        
+		        <p class="bridgehead">Back Referencing</p>
+		        
+		        <p>Although not specifically required to be accessible, it is good practice to back-link groups of notes to
+		            their referent locations in the text (see <a href="#ex04">Example 4</a>). If a reader is
+		            surveying your notes, this will allow them to quickly find the text the note refers to.</p>
+		    </section>
+		    
 			<section id="refs" class="reqs">
 				<h3>References</h3>
 

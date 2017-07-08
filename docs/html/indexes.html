@@ -24,7 +24,10 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
 				</ol>
 			</nav>
 
@@ -41,22 +44,7 @@
 					<li>...</li>
 				</ul>
 			</section>
-			
-			<section id="desc" class="usage">
-				<p>Indexes should be marked up using unordered lists, as the alphatized order of the entries is not
-					significant (e.g., an index can be reverse sorted without loss of information). If page numbers are
-					included in the publication, page references in index entries can be linked.</p>
-
-				<p>To faciliate navigating an index, use nested <code>section</code> elements to enclose alphabetically- and
-					numerically-related entries. Many indexes include the number or letter as a heading, but if one is not
-					present or wanted, include the number or letter in a <code>title</code> attribute on the enclosing
-					section so that it can be announced by assistive technologies.</p>
-
-				<p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
-					does it speed up the movement through entries, but the position within the list can be announced,
-					allowing the reader to quickly return to the same spot again later, if needed.</p>
-			</section>
-
+		    
 			<section id="ex" class="example">
 				<h3>Examples</h3>
 
@@ -112,6 +100,23 @@
 &lt;/section></code></pre>
 				</figure>
 			</section>
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Indexes should be marked up using unordered lists, as the alphatized order of the entries is not
+		            significant (e.g., an index can be reverse sorted without loss of information). If page numbers are
+		            included in the publication, page references in index entries can be linked.</p>
+		        
+		        <p>To faciliate navigating an index, use nested <code>section</code> elements to enclose alphabetically- and
+		            numerically-related entries. Many indexes include the number or letter as a heading, but if one is not
+		            present or wanted, include the number or letter in a <code>title</code> attribute on the enclosing
+		            section so that it can be announced by assistive technologies.</p>
+		        
+		        <p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
+		            does it speed up the movement through entries, but the position within the list can be announced,
+		            allowing the reader to quickly return to the same spot again later, if needed.</p>
+		    </section>
 		</section>
 		<footer></footer>
 	</body>

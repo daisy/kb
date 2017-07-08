@@ -24,8 +24,11 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
@@ -41,24 +44,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc" class="usage">
-				<p>Bibliographies should be marked up using list elements. Unordered lists are appropriate for traditional
-					print bibliographies, as the alphabetization of entries does not infer sequential order (e.g., the
-					bibliography can be reverse sorted without losing meaning). Definition lists can also be used for
-					non-traditional layouts (e.g., for web link-based bibliographies).</p>
-
-				<p>The <code>section</code> element containing the bibliography should be identified using the
-						<code>epub:type</code> attribute with the property <code class="property">bibliography</code>.</p>
-
-				<p>To faciliate navigating a bibliography, use nested <code>section</code> elements to enclose
-					alphabetically- and numerically-related entries. The <code>title</code> attribute can be attached to the
-					enclosing section to include a title if the sections do not have headings.</p>
-
-				<p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
-					does it speed up the movement through entries, but the position within the list can be announced,
-					allowing the reader to quickly return to the same spot again later, if needed.</p>
 			</section>
 
 			<section id="ex" class="example">
@@ -107,7 +92,27 @@
 &lt;/section></code></pre>
 				</figure>
 			</section>
-
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Bibliographies should be marked up using list elements. Unordered lists are appropriate for traditional
+		            print bibliographies, as the alphabetization of entries does not infer sequential order (e.g., the
+		            bibliography can be reverse sorted without losing meaning). Definition lists can also be used for
+		            non-traditional layouts (e.g., for web link-based bibliographies).</p>
+		        
+		        <p>The <code>section</code> element containing the bibliography should be identified using the
+		            <code>epub:type</code> attribute with the property <code class="property">bibliography</code>.</p>
+		        
+		        <p>To faciliate navigating a bibliography, use nested <code>section</code> elements to enclose
+		            alphabetically- and numerically-related entries. The <code>title</code> attribute can be attached to the
+		            enclosing section to include a title if the sections do not have headings.</p>
+		        
+		        <p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
+		            does it speed up the movement through entries, but the position within the list can be announced,
+		            allowing the reader to quickly return to the same spot again later, if needed.</p>
+		    </section>
+		    
 			<section id="refs" class="reqs">
 				<h3>References</h3>
 

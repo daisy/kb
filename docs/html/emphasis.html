@@ -24,8 +24,11 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Details</a></li>
+				    <li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
@@ -41,57 +44,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc" class="usage">
-				<p>Bolding and italics are often taken for mere styling elements, but they carry various kinds of information
-					pertinent to the text: emphasized points, changes in tone or location, special names, etc. Unless the
-					correct semantic tagging is used to apply this formatting, however, the same information cannot be
-					conveyed to non-visual readers.</p>
-
-				<p>The following table outlines how to apply the various HTML5 and CSS methods for bolding and italics:</p>
-
-				<table>
-					<colgroup>
-						<col style="width: 10em;" />
-						<col style="width: *;" />
-					</colgroup>
-					<tr>
-						<th>Element/Propety</th>
-						<th>Purpose</th>
-					</tr>
-					<tr>
-						<td class="center"><code>em</code></td>
-						<td>The <code>em</code> element indicates the text is to be vocally stressed.</td>
-					</tr>
-					<tr>
-						<td class="center"><code>strong</code></td>
-						<td>The <code>strong</code> element indicates importance, such as when making imperative statements
-							or using signal words like 'warning' and 'alert'.</td>
-					</tr>
-					<tr>
-						<td class="center"><code>i</code></td>
-						<td>The <code>i</code> element is used when the use of italics indicate a change in tone or voice. An
-							example provided in the HTML5 specification is for an extended dream sequence, but could be any
-							similar divergence from the main narrative into thought or remembrance. The <code>i</code>
-							element is also used whenever there is semantic significance behind the emphasis (e.g., the
-							italicized words indicate a technical term, foreign words, etc.).</td>
-					</tr>
-					<tr>
-						<td class="center"><code>b</code></td>
-						<td>The <code>b</code> element is used whenever the bolding conveys semantic meaning, similar to the
-							use of <code>i</code> for semantic tagging (e.g., keywords).</td>
-					</tr>
-					<tr>
-						<td class="center">
-							<code class="property">font-style: italic</code><br />
-							<code class="property">font-weight: bold</code>
-						</td>
-						<td>The CSS properties for bolding and italics should be used whenever the use of bolding and italics
-							is presentational (for example, on headings and lead-in words). CSS formatting carries no
-							semantics, so the emphasis will not be noted by assistive technologies.</td>
-					</tr>
-				</table>
 			</section>
 
 			<section id="ex" class="example">
@@ -137,7 +89,60 @@
 &lt;/p></code></pre>
 				</figure>
 			</section>
-
+		    
+		    <section id="desc" class="usage">
+		        <h3>Details</h3>
+		        
+		        <p>Bolding and italics are often taken for mere styling elements, but they carry various kinds of information
+		            pertinent to the text: emphasized points, changes in tone or location, special names, etc. Unless the
+		            correct semantic tagging is used to apply this formatting, however, the same information cannot be
+		            conveyed to non-visual readers.</p>
+		        
+		        <p>The following table outlines how to apply the various HTML5 and CSS methods for bolding and italics:</p>
+		        
+		        <table>
+		            <colgroup>
+		                <col style="width: 10em;" />
+		                <col style="width: *;" />
+		            </colgroup>
+		            <tr>
+		                <th>Element/Propety</th>
+		                <th>Purpose</th>
+		            </tr>
+		            <tr>
+		                <td class="center"><code>em</code></td>
+		                <td>The <code>em</code> element indicates the text is to be vocally stressed.</td>
+		            </tr>
+		            <tr>
+		                <td class="center"><code>strong</code></td>
+		                <td>The <code>strong</code> element indicates importance, such as when making imperative statements
+		                    or using signal words like 'warning' and 'alert'.</td>
+		            </tr>
+		            <tr>
+		                <td class="center"><code>i</code></td>
+		                <td>The <code>i</code> element is used when the use of italics indicate a change in tone or voice. An
+		                    example provided in the HTML5 specification is for an extended dream sequence, but could be any
+		                    similar divergence from the main narrative into thought or remembrance. The <code>i</code>
+		                    element is also used whenever there is semantic significance behind the emphasis (e.g., the
+		                    italicized words indicate a technical term, foreign words, etc.).</td>
+		            </tr>
+		            <tr>
+		                <td class="center"><code>b</code></td>
+		                <td>The <code>b</code> element is used whenever the bolding conveys semantic meaning, similar to the
+		                    use of <code>i</code> for semantic tagging (e.g., keywords).</td>
+		            </tr>
+		            <tr>
+		                <td class="center">
+		                    <code class="property">font-style: italic</code><br />
+		                    <code class="property">font-weight: bold</code>
+		                </td>
+		                <td>The CSS properties for bolding and italics should be used whenever the use of bolding and italics
+		                    is presentational (for example, on headings and lead-in words). CSS formatting carries no
+		                    semantics, so the emphasis will not be noted by assistive technologies.</td>
+		            </tr>
+		        </table>
+		    </section>
+		    
 			<section id="refs" class="reqs">
 				<h3>References</h3>
 
