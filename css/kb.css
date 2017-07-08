@@ -126,7 +126,8 @@ nav.breadcrumb {
 	margin-left: 1.15em;
 	padding: 2px 0;
 	width: 35em;
-	background-color: rgb(240,242,244);
+	background-color: rgb(240,245,255);
+	border-radius: 1rem;
 }
 
 nav.breadcrumb > p {
