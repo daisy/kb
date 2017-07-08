@@ -1,5 +1,13 @@
 
 @font-face{
+    font-family: 'Open Sans Light';
+    src: url(../fonts/OpenSans-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face{
     font-family: 'Raleway';
     src: url(../fonts/Raleway-Regular.ttf) format('truetype');
     font-weight: normal;
@@ -25,9 +33,8 @@ body {
 /* general headings */
 
 h1 {
-	font-family: Raleway;
+	font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
 	font-size: 140%;
-	font-weight: normal;
 	color: rgb(255,255,255);
 	margin: 0;
 	padding: 4px 0 2px 0;
@@ -634,4 +641,9 @@ img.logo {
 .wcag-level {
     font-size: 90%;
     color: rgb(0,0,120);
+}
+
+
+main > section > section {
+    border-top: 0.1rem solid rgb(0,0,0);
 }
