@@ -126,30 +126,24 @@ nav.breadcrumb {
 	margin-left: 1.15em;
 	padding: 2px 0;
 	width: 35em;
+	background-color: rgb(240,242,244);
 }
 
-nav.breadcrumb p {
+nav.breadcrumb > p {
 	margin: 0;
 	margin-top: -0.2em;
-	padding: 0;
+	padding: 0.3rem;
 	font-size: 90%;
 }
 
-nav.breadcrumb a {
-	color: rgb(0,0,0);
-	text-decoration: underline;
+nav.breadcrumb > p > a,
+nav.breadcrumb > p > span {
 	font-size: 100%;
+	padding: 0 1rem;
 }
 
-/* page nav */
-
-nav.pageNav {
-	line-height: 18px;
-	margin-top: 5px;
-}
-
-nav.bottomNav {
-	margin-left: 1em;
+nav.breadcrumb > p > a:first-child {
+	padding: 0 1rem 0 0;
 }
 
 /* section nav */
