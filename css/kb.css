@@ -27,7 +27,8 @@ html, body {
 body {
 	font-family: Calibri,Helvetica,Arial,sans-serif;
 	font-size: 1.6rem;
-	background-color: rgb(253,253,253);
+	background-color: rgb(251,252,253);
+	color: rgb(0,0,0);
 }
 
 /* general headings */
@@ -246,6 +247,11 @@ pre {
 
 pre.prettyprint {
 	border-left: 0.3rem solid rgb(20,120,240) !important;
+	background-color: inherit !important;
+}
+
+pre.prettyprint * {
+	background-color: inherit !important;
 }
 
 pre.small { font-size: 85%; }
