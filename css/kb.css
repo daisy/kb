@@ -195,34 +195,6 @@ section.section {
 }
 
 
-/* compliance references */
-
-ul.req {
-	padding-left: 1.5em;
-	margin-left: 0;
-	margin-bottom: 0.5em;
-}
-
-ul.req li {
-	list-style-image: url('../graphics/checkbox.png');
-}
-
-ul.req > li {
-	margin-top: 0.4em;
-}
-
-ul.req li.labeled  {
-	list-style-type: none;
-	list-style-image: none;
-	margin-left: -1.3em;
-	padding-left: 0;
-}
-
-ul.req > li.labeled > ul {
-	margin-left: 2em;
-}
-
-
 /* example formatting*/
 
 
@@ -319,23 +291,6 @@ figcaption {
 figure p {
 	margin-left: 2em;
 }
-
-/* additional resources section */
-
-section.res {
-	padding: 0 0.5em;
-}
-
-section.res > h3 {
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-section.res li {
-	margin-top: 0.3em;
-}
-
-
 
 /* lists */
 
@@ -526,24 +481,6 @@ pre li {
 	margin-right: 1em;
 }
 
-/* compliance dls */
-
-dl.legis dd aside h4 {
-	font-weight: normal;
-	padding-bottom: 0;
-	margin-bottom: 0;
-}
-
-dl.legis dd aside ul {
-	padding-top: 0;
-	margin-top: 0;
-}
-
-dl.legis dd aside ul li {
-	padding-top: 0;
-	margin-top: 0.3em;
-}
-
 /* annotations */
 
 ruby {
@@ -555,48 +492,11 @@ rt {
 	font-size: 0.7em;
 }
 
-/* revision dates */
 
-section.rev {
-	padding: 0 0.5em;
-	font-size: 90%;
-}
 
-dl.revhistory dt {
-	font-style: italic;
-	color: rgb(64,32,96);
-}
-
-dl.revhistory dd {
-	margin-left: 1em;
-}
-
-p.page {
-	font-weight: bold
-}
 
 q {
 	quotes: '"' '"';
-}
-
-
-/* priorities */
-
-abbr.bp, abbr.rec, abbr.opt {
-	font-size: 80%;
-	font-weight: bold;
-}
-
-abbr.bp {
-	color: rgb(190,0,0);
-}
-
-abbr.rec {
-	color: rgb(255,128,0);
-}
-
-abbr.opt {
-	color: rgb(0,190,0);
 }
 
 img.logo {
