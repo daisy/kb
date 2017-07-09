@@ -1,84 +1,33 @@
 
-body {
-}
-
 nav#toc {
-	margin: 2em 0 0 0;
+	margin: 2em 0 0 2em;
 	padding: 0em;
 }
 
 nav#toc h2 {
-    font-size: 160%;
+    margin-left: -3rem;
 }
 
-nav#toc h3 {
-	margin-left: 1em;
+details {
+    background-color: rgb(245,249,255);
+    border: 0.2rem solid rgb(180,180,180);
+    padding: 0.5rem;
+    margin-top: 2rem;
+    max-width: 80rem;
 }
 
-nav.toc {
-	margin-left: 2em;
+summary {
+    font-size: 130%;
+    color: rgb(0,0,100);
 }
 
-ol.sub {
-	list-style-type: decimal;
-}
-
-nav ol, nav.toc ol {
+ol {
 	list-style-type: none;
-}
-
-ol.sub > li {
-	display: inline-block;
-	padding-left: 0.5em;
-	width: 15em;
-}
-
-nav[role~='doc-toc'] ol, nav.toc ol {
-	margin-top: 0;
-}
-
-nav[role~='doc-toc'] li, nav.toc li {
-	padding-top: 0.2em;
-}
-
-nav[role~='doc-toc'] > ol > li > ol, nav.toc > ol > li > ol  {
-	padding-top: 0.4em;
-}
-
-nav[role~='doc-toc'] > ol > li, nav.toc > ol > li {
-	padding-top: 0.8em;
-}
-
-nav[role~='doc-toc'] > ol > li.first {
-	padding-top: 0em;
-}
-
-.nav-h1 {
-	font-size: 105%;
-	font-weight: bold;
-	display: block;
-	margin-top: 0em;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
-	color: rgb(0,0,90);
-}
-
-nav.toc .nav-h1 {
-	border: none;
-}
-
-.nav-h2 {
-	font-weight: bold;
-	display: block;
-	padding-top: 0.3em;
-	color: rgb(0,0,160);
+	-moz-column-width: 15em;
+    -webkit-column-width: 15em;
+    column-width: 15em;
 }
 
 a {
 	text-decoration: none;
-}
-
-div.about {
-    margin-left: 1.8em;
-    max-width: 45em;
 }
