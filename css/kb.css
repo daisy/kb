@@ -69,8 +69,9 @@ h3:before {
 }
 
 p.bridgehead {
-	font-weight: bold;
-	color: rgb(0,0,140);
+	font-size: 110%;
+	font-style: italic;
+    margin-top: 3rem;
 }
 
 /* general links */
@@ -333,64 +334,6 @@ p.switch {
 	margin-left: 1.8em;
 }
 
-
-/* element tables */
-
-table.elemDef {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-table.elemDef thead {
-	background-color: rgb(240,240,240);
-}
-
-table.elemDef th {
-	font-size: 90%;
-	padding: 0.25em;
-}
-
-table.elemDef td {
-	border-style: solid;
-	border-color: rgb(0,0,0);
-	border-width: 1px 0 0 0;
-	vertical-align: top;
-}
-
-table.elemDef a {
-	font-weight: bold;
-}
-
-td.root {
-	padding-left: 0.5em;
-}
-
-td.firstChild {
-	padding-left: 2em;
-}
-
-td.secondChild {
-	padding-left: 3em;
-}
-
-td.thirdChild {
-	padding-left: 4em;
-	padding-right: 1em;
-}
-
-td.use {
-	max-width: 25em;
-	padding: 0.25em 2em;
-}
-
-
-.infolink {
-	margin: 0;
-	padding-left: 1.6em;
-	font-size: 80%;
-	font-weight: bold;
-}
-
 /* general directionality */
 .center {
 	text-align: center;
@@ -467,23 +410,8 @@ pre li {
 	margin-top: auto;
 }
 
-/* paragraphs */
 
-.offset {
-	margin-top: 3em;
-	font-weight: bold;
-	color: rgb(0,0,140);
-}
-
-
-/* logo */
-
-.left {
-	float: left;
-	margin-right: 1em;
-}
-
-/* annotations */
+ * /* annotations */
 
 ruby {
 	text-decoration: underline;

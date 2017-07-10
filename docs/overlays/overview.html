@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Media Overlays Overview | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
 		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
 		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
@@ -12,6 +13,56 @@
             $(document).ready(function () {
                 prettyPrint();
             });//]]> </script>
+	    <style>
+            /* element tables */
+            
+            table.elemDef {
+            	border: 1px solid black;
+            	border-collapse: collapse;
+            }
+            
+            table.elemDef thead {
+            	background-color: rgb(240,240,240);
+            }
+            
+            table.elemDef th {
+            	font-size: 90%;
+            	padding: 0.25em;
+            }
+            
+            table.elemDef td {
+            	border-style: solid;
+            	border-color: rgb(0,0,0);
+            	border-width: 1px 0 0 0;
+            	vertical-align: top;
+            }
+            
+            table.elemDef a {
+            	font-weight: bold;
+            }
+            
+            td.root {
+            	padding-left: 0.5em;
+            }
+            
+            td.firstChild {
+            	padding-left: 2em;
+            }
+            
+            td.secondChild {
+            	padding-left: 3em;
+            }
+            
+            td.thirdChild {
+            	padding-left: 4em;
+            	padding-right: 1em;
+            }
+            
+            td.use {
+            	max-width: 25em;
+            	padding: 0.25em 2em;
+            }
+	    </style>
 	</head>
 
 	<body>
