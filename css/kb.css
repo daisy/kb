@@ -36,7 +36,7 @@ body {
 h1 {
 	font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
 	font-size: 130%;
-	text-indent: 0.5rem;
+	text-indent: 4.5rem;
 	color: rgb(255,255,255);
 	margin: 0;
 	padding: 0.4rem 0 0.2rem 0;
@@ -111,10 +111,11 @@ section.section {
 	/* border-right: 1px solid rgb(0,0,0); */
 	padding-bottom: 0.5em;
 	max-width: 48em;
+	margin-left: 5rem;
 }
 
 section.section > section {
-	padding-left: 2em;
+	margin-left: 2em;
 }
 
 /* breadcrumb nav */

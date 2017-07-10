@@ -40,14 +40,21 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>The correct tagging and description of data tables simplifies access and understanding for readers who 
+				    cannot see the data or need additional help understanding it.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+				    <li>Ensure that table headers are identified and their scope (row or column) is defined. <span 
+				        class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 
+				            1.3.1</a>)</span></li>
+				    <li>Provide a title in the <code>caption</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+				    <li>Provide a summary that describes the structure of complex tables. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+				    <li>Never use data table elements or attributes in presentational tables. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span>
+				    </li>
 				</ul>
 			</section>
 
@@ -339,9 +346,9 @@
 		            the presence of a table, especially when the table is offset from the content.</p>
 		        
 		        <p>For complex tables, including a summary of the structure for the reader before they enter the content can
-		            greatly assist comprehension, as well. HTML5 currently does not provide a mechanism to include this
-		            information in a programmatically deterministic way (i.e., so that someone can discover the information
-		            without hunting around manually for it).</p>
+		            greatly assist comprehension, as well. The HTML5 specification defines some <a 
+		                href="https://www.w3.org/TR/html/tabular-data.html#sec-techniques-for-describing-tables">techniques 
+		                for describing tables</a>.</p>
 		        
 		        <p class="bridgehead">Secondary content</p>
 		        
@@ -350,11 +357,14 @@
 		        
 		        <p class="bridgehead">Presentational layout</p>
 		        
-		        <p>Tables should never be used to lay out documents. See the section on <a href="../fixed/xhtml.html">fixed
-		            layout positioning with CSS</a> for more information on how to create these documents more
-		            accessibly.</p>
+		        <p>Avoid using tables for layout purposes. If a presentational table layout is unavoidable, consider using 
+		            the CSS table layout properties to achieve the effect.</p>
 		        
-		        <p>Avoid using tables when all that the cells contain are lists of information (e.g., for placing information
+		        <p>When using a table for presentational purposes, the table must not include any data table elements or attributes.
+		            These include: the <code>thead</code>, <code>th</code> and <code>caption</code> elements, and <code>headers</code>
+		            and <code>scope</code> attributes (also the <code>summary</code> attribute if creating HTML4 or XHTML 1.1 documents).</p>
+		        
+		        <p>Also avoid using tables when all that the cells contain are lists of information (e.g., for placing information
 		            side-by-side, or where the first column in each row is a new unrelated header and the second a list of
 		            relevant to that topic). The extra table formatting is an unnecessary encumbrance to navigation.</p>
 		    </section>
