@@ -31,6 +31,10 @@ body {
 	color: rgb(0,0,0);
 }
 
+a {
+    text-decoration: none;
+}
+
 /* general headings */
 
 h1 {
@@ -443,4 +447,9 @@ img.logo {
 body > section > section {
     border-top: 0.1rem dotted rgb(210,210,210);
 	padding: 0 0.5em;
+}
+
+
+#tech li {
+    margin-top: 1rem !important;
 }
