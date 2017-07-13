@@ -41,14 +41,23 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Ensure that inline frames are uniquely titled so that users can decide whether they want to read or interact
+				    with the contents, and that frame content remains consumable after resizing or zooming.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+				    <li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip">WCAG 2.4.1</a> and <a href="https://www.w3.org/TR/WCAG20/#ensure-compat-rsv">WCAG 4.1.2</a>)</span>
+					    <ul>
+					        <li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H64.html">H64: Using the title attribute
+					            of the frame and iframe elements</a></li>
+					    </ul>
+					</li>
+				    <li>Identify frames not intended for users in their label.</li>
+				    <li>Use relative units to size the <code>iframe</code>.</li>
+				    <li>Set scrolling to <code>auto</code>.</li>
 				</ul>
 			</section>
 		    
@@ -105,10 +114,8 @@
 				<h3>References</h3>
 
 				<ul>
-					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/embedded-content-0.html#the-iframe-element">The
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/semantics-embedded-content.html#the-iframe-element">The
 								<code>iframe</code> element</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H64.html">H64: Using the title attribute
-							of the frame and iframe elements</a></li>
 				</ul>
 			</section>
 

@@ -146,19 +146,26 @@
 		            accessibility, an ARIA <code>role</code> attribute with the property <code class="property"
 		                >presentation</code> should also be attached.</p>
 		        
-		        <div class="note">
-		            <p class="label">Note</p>
+		        <aside class="note" aria-labelledby="note1">
+		            <p id="note1" class="label">Note</p>
 		            <p>If an image is important to the publication, but not required to be read at the point of insertion
 		                (i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
 		                enclose it.</p>
-		        </div>
+		        </aside>
+		        
+		        <aside class="note" aria-labelledby="note2">
+		            <p id="note2" class="label">Note</p>
+		            <p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use
+		              in content that conforms to EPUB 3.0.1 or earlier versions of the standard. Only EPUB 3.1 and its 
+		              successors allow this element.</p>
+		        </aside>
 		    </section>
 		    
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
-					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/embedded-content-0.html#the-img-element">The
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element">The
 								<code>img</code> element</a></li>
 				    <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G103.html">G103: Providing visual
 				        illustrations, pictures, and symbols to help explain ideas, events, and processes</a></li>

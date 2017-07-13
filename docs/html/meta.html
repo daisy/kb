@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Meta | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+		<script type="text/javascript" src="../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+            $(document).ready(function () {
+                prettyPrint();
+            });//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Meta</h2>
+
+			<nav class="breadcrumb">
+				<p><a href="../index.html">KB</a> > <a href="index.html">HTML</a> > <span>Meta</span></p>
+			</nav>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+				    <li><a href="#summary">Summary</a></li>
+				    <li><a href="#tech">Techniques</a></li>
+				    <li><a href="#ex">Examples</a></li>
+				    <li><a href="#desc">Explanation</a></li>
+				    <li><a href="#refs">References</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Meta properties and directives that prevent zooming or initiate delayed page refreshes impede access
+				        for readers with low vision and who need additional time to consume the content.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+				    <li>Do not disable zooming with the <code>viewport/user-scalabe=no</code> property.</li>
+				    <li>Do not prevent zooming by setting the <code>viewport/maximum-scale</code> property to a value less than "2.0".</li>
+				    <li>Do not use the <code>meta-refresh</code> pragma directive with a value greater than "0".
+				        <ul>
+				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H76.html">H76: Using meta refresh to create an instant client-side redirect</a></li>
+				        </ul>
+				    </li>
+				</ul>
+			</section>
+		    
+			<section id="ex">
+				<h3>Example</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; Meta viewport</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;meta
+        name="viewport"
+        content="initial-scale=1.0;maximum-scale=5.0"/></code></pre>
+				</figure>
+			    
+			    <figure>
+			        <figcaption>Example 1 &#8212; Meta refresh</figcaption>
+			        <pre class="prettyprint linenums"><code>&lt;meta
+        http-equiv="refresh"
+        content="0;url=new-page.html"/></code></pre>
+			    </figure>
+			</section>
+		    
+		    <section id="desc">
+		        <h3>Explanation</h3>
+		        
+		        <p>Disabling the ability to zoom a page prevents readers from being able to enlarge the content
+		            to a size that is more comfortable for them to read at. Similarly, setting a maximum scale
+		            less than double the initial size limits minimums for readability required by WCAG.</p>
+		        
+		        <p>It is not normal for publications to make use of page redirects in packaged formats like EPUB.
+		            For web-hosted publications, consider using a HTTP redirect to send users to a replacement
+		            page.</p>
+		        
+		        <p>If it is necessary to refresh the content of a page, provide the user the option to initiate the
+		            refresh.</p>
+		    </section>
+		    
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+				    <li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/document-metadata.html#the-meta-element">The
+								<code>meta</code> element</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer>
+			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
+				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/html/iframes.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
+</html>
