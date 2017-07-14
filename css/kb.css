@@ -92,7 +92,7 @@ a:link {
 
 a:hover {
 	text-decoration: none;
-	border-bottom: 0.1rem dotted rgb(220,0,0);
+	border-bottom: 0.1rem dotted rgb(0,0,220);
 }
 
 a:visited {
