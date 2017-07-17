@@ -41,14 +41,38 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>The use of heading tags ensures users do not have to rely on visual styling to understand and 
+				    navigate the document outline.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
-				<ul>
-					<li>...</li>
+			    <ul>
+				    <li>Ensure all headings are identified.
+				        <ul>
+				            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H42.html">H42: Using h1-h6 to identify
+				                headings</a></li>
+				        </ul>
+				    </li>
+				    <li>Use one heading per section to establish the document outline.
+				        <ul>
+				            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H69.html">H69: Providing heading elements
+				                at the beginning of each section of content</a></li>
+				            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G141.html">G141: Organizing a page using
+				                headings</a></li>
+				            <li><a href="http://www.w3.org/TR/html/sections.html#headings-and-sections">HTML5 &#8212; 
+				                Headings and sections</a></li>
+				            <li><a href="http://www.w3.org/TR/html/common-idioms.html#sub-head">HTML5 &#8212; Subheadings,
+				                subtitles, alternative titles and taglines</a></li>
+				        </ul>
+				    </li>
+				    <li>Check that headings describe their sections.
+				        <ul>
+				            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G130.html">G130: Providing descriptive
+				                headings</a></li>
+				        </ul>
+				    </li>
 				</ul>
 			</section>
 
@@ -57,24 +81,24 @@
 
 				<figure>
 					<figcaption>Example 1 &#8212; Numbered headings</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="division">
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-part">
   &lt;h1>Book One: 1805&lt;/h1>
-      &lt;section epub:type="chapter">
+      &lt;section role="doc-chapter">
          &lt;h2>Chapter 1&lt;/h2></code></pre>
 				</figure>
 
 				<figure>
 					<figcaption>Example 2 &#8212; Headings and Subtitles</figcaption>
 					<p class="bridgehead">Combined</p>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter">
-   &lt;h1>&lt;span epub:type="title">ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.&lt;/span>
-   &lt;span epub:type="subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/span>&lt;/h1>
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
+   &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.
+   &lt;span role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/span>&lt;/h1>
 </code></pre>
 					<p class="bridgehead">Using <code>header</code></p>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter">
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
    &lt;header>
       &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.&lt;/h1>
-      &lt;p epub:type="subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/p>
+      &lt;p role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/p>
    &lt;/header>
 </code></pre>
 				</figure>
@@ -128,18 +152,6 @@
 							href="http://www.w3.org/TR/html/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">The
 								<code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and
 								<code>h6</code> elements</a></li>
-					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/sections.html#headings-and-sections">Headings and
-							sections</a></li>
-					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/common-idioms.html#sub-head">Subheadings,
-							subtitles, alternative titles and taglines</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H42.html">H42: Using h1-h6 to identify
-							headings</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H69.html">H69: Providing heading elements
-							at the beginning of each section of content</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G130.html">G130: Providing descriptive
-							headings</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G141.html">G141: Organizing a page using
-							headings</a></li>
 				</ul>
 			</section>
 

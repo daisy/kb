@@ -236,10 +236,6 @@ pre > ol > li {
 	width: 98%;
 }
 
-pre code {
-	color: rgb(0,0,0);
-}
-
 code {
 	font-size: 90%;
 	color: rgb(0,0,0);
@@ -252,7 +248,7 @@ code {
 pre code {
 	font-family: "Courier New", Courier, Monospace;
 	font-weight: normal;
-	font-size: 105%;
+	font-size: 95%;
 	border-radius: 0;
 	border: none !important;
 }
