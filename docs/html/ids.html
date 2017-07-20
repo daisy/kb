@@ -26,7 +26,7 @@
 				<p><a href="../index.html">KB</a> > <a href="index.html">HTML</a> > <span>Identifiers</span></p>
 			</nav>
 
-			<nav class="mini-toc">
+			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
 				    <li><a href="#summary">Summary</a></li>
@@ -40,33 +40,54 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Ensuring all identifiers are unique prevents problems navigating and accessing the content.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+				    <li>Verify that all <code>id</code> attributes have unique values. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#ensure-compat-parses">WCAG 4.1.1</a>)</span>
+				        <ul>
+				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H93.html">H93: Ensuring that id attributes are unique on a Web page</a></li>
+				        </ul>
+				    </li>
 				</ul>
 			</section>
 
 			<section id="ex">
 				<h3>Examples</h3>
-
+			    
+			    <figure>
+			        <figcaption>Example 1 &#8212; Using <a href="https://tools.ietf.org/html/rfc4122">UUIDs</a> for uniqueness</figcaption>
+			        <pre class="prettyprint linenums"><code>&lt;section id="fad1bb2a-ecdc-4cb5-886f-aedbd7cb2adb"></code></pre>
+			    </figure>
+			    
+			    <figure>
+			        <figcaption>Example 1 &#8212; Using mnemonics</figcaption>
+			        <pre class="prettyprint linenums"><code>&lt;section id="c01">
+&lt;h2>Chapter 1&lt;/h2></code></pre>
+			    </figure>
 			</section>
 		    
 		    <section id="desc">
 		        <h3>Explanation</h3>
 		        
-		        <p>...</p>
+		        <p>If all the <code>id</code> attributes in a document are not unique, a reading system will not understand
+		            which one is being referred to. For example, if a user is trying to navigate to a specific section,
+		            the reading system will not be able to determine which of the sections to go to. It might take the user
+		            to the first section with the identifier, or it might leave the user at the top of document.</p>
+		        
+		        <p>Duplicate identifiers are an XML error, so also be aware that they can cause a reading system to report
+		            an error instead of rendering the document. In this case, the user won't have any access to the content.</p>
 		    </section>
 		    
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
-					<li>...</li>
+				    <li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/dom.html#the-id-attribute">The
+				        <code>id</code> attribute</a></li>
 				</ul>
 			</section>
 		</section>
