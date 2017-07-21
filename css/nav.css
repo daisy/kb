@@ -1,6 +1,5 @@
 
 body {
-    background-color: rgb(242,242,242)
 }
 
 nav#toc {
@@ -9,7 +8,6 @@ nav#toc {
 }
 
 nav#toc h2 {
-    margin-left: -3rem;
     margin-bottom: 2rem;
 }
 
@@ -24,13 +22,10 @@ nav > section > h3 {
 
 ol {
 	list-style-type: none;
-	-moz-column-width: 15em;
-    -webkit-column-width: 15em;
-    column-width: 15em;
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-    max-width: 60rem;
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+    max-width: 80rem;
 }
 
 a {
