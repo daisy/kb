@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,10 +29,10 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 				</ol>
 			</nav>
 
@@ -49,7 +49,7 @@
 					<li>...</li>
 				</ul>
 			</section>
-		    
+			
 			<section id="ex">
 				<h3>Examples</h3>
 
@@ -58,31 +58,31 @@
 					<pre class="prettyprint linenums"><code>&lt;section epub:type="index">
    &lt;h1>Index&lt;/h1>
    &lt;section epub:type="part">
-      &lt;h2>A&lt;/h2>
-      &lt;ul>
-         &lt;li>
-            Apples, &lt;a href="#page01">1&lt;/a>, 
-            &lt;a href="#page27">27&lt;/a>
-         &lt;/li>
-         &#8230;
-      &lt;/ul>
+	  &lt;h2>A&lt;/h2>
+	  &lt;ul>
+		 &lt;li>
+			Apples, &lt;a href="#page01">1&lt;/a>, 
+			&lt;a href="#page27">27&lt;/a>
+		 &lt;/li>
+		 &#8230;
+	  &lt;/ul>
    &lt;/section>
    &#8230;
    &lt;section epub:type="part">
-      &lt;h2>O&lt;/h2>
-      &lt;ul>
-         &lt;li>Oranges
-            &lt;ul>
-               &lt;li>
-                  Florida, &lt;a 
-                  href="#page03">3&lt;/a>&#8211;&lt;a
-                  href="#page05">5&lt;/a>
-               &lt;/li>
-               &#8230;
-            &lt;/ul>
-         &lt;/li>
-         &#8230;
-      &lt;/ul>
+	  &lt;h2>O&lt;/h2>
+	  &lt;ul>
+		 &lt;li>Oranges
+			&lt;ul>
+			   &lt;li>
+				  Florida, &lt;a 
+				  href="#page03">3&lt;/a>&#8211;&lt;a
+				  href="#page05">5&lt;/a>
+			   &lt;/li>
+			   &#8230;
+			&lt;/ul>
+		 &lt;/li>
+		 &#8230;
+	  &lt;/ul>
    &lt;/section>
    &#8230;
 &lt;/section></code></pre>
@@ -93,35 +93,35 @@
 					<pre class="prettyprint linenums"><code>&lt;section epub:type="index">
    &lt;h1>Index&lt;/h1>
    &lt;section epub:type="part" title="A">
-      &#8230;
+	  &#8230;
    &lt;/section>
    &lt;section epub:type="part" title="B">
-      &#8230;
+	  &#8230;
    &lt;/section>
    &lt;section epub:type="part" title="C">
-      &#8230;
+	  &#8230;
    &lt;/section>
    &#8230;
 &lt;/section></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Indexes should be marked up using unordered lists, as the alphatized order of the entries is not
-		            significant (e.g., an index can be reverse sorted without loss of information). If page numbers are
-		            included in the publication, page references in index entries can be linked.</p>
-		        
-		        <p>To faciliate navigating an index, use nested <code>section</code> elements to enclose alphabetically- and
-		            numerically-related entries. Many indexes include the number or letter as a heading, but if one is not
-		            present or wanted, include the number or letter in a <code>title</code> attribute on the enclosing
-		            section so that it can be announced by assistive technologies.</p>
-		        
-		        <p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
-		            does it speed up the movement through entries, but the position within the list can be announced,
-		            allowing the reader to quickly return to the same spot again later, if needed.</p>
-		    </section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Indexes should be marked up using unordered lists, as the alphatized order of the entries is not
+					significant (e.g., an index can be reverse sorted without loss of information). If page numbers are
+					included in the publication, page references in index entries can be linked.</p>
+				
+				<p>To faciliate navigating an index, use nested <code>section</code> elements to enclose alphabetically- and
+					numerically-related entries. Many indexes include the number or letter as a heading, but if one is not
+					present or wanted, include the number or letter in a <code>title</code> attribute on the enclosing
+					section so that it can be announced by assistive technologies.</p>
+				
+				<p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not only
+					does it speed up the movement through entries, but the position within the list can be announced,
+					allowing the user to quickly return to the same spot again later, if needed.</p>
+			</section>
 		</section>
 		<footer>
 			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To

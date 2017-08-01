@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -49,14 +49,14 @@
 			</section>
 			
 			<section id="desc">
-				<p>Ensuring sufficient contrast between background colors and images is necessary to ensure that readers who
+				<p>Ensuring sufficient contrast between background colors and images is necessary to ensure that users who
 					have difficulty distinguishing contrasts are able to read your publication. Avoid overlaying text on
 					noisy (multi-color) background images, and relying on positioning to avoid color contrasts, as different
 					reading system may reflow content in unexpected ways.</p>
 
 				<p>Also ensure that background images do not convey information necessary to understand the publication, or
 					to be able to interact with it. Unlike embedded images, backgrounds cannot be given text alternatives or
-					descriptions and a reader will not know a change has occurred.</p>
+					descriptions and a user will not know a change has occurred.</p>
 
 				<div class="note">
 					<p class="label">Note</p>
@@ -86,65 +86,65 @@
 						elements with a static background. In a real-world scenario, CSS would be used for more than just
 						positioning the images and dialogue, but could enhance the display for visual rendering by adding
 						advanced animations and transforms (for systems that support these features).</p>
-					<p>Using this approach, the dialogue and text alternatives convey information that will allow a reader to
-						follow the storyline. A reader with basic visual rendering will see a static version of the ultimate
-						display, and a reader with an advanced system will get the full experience. This gradual increase in
+					<p>Using this approach, the dialogue and text alternatives convey information that will allow a user to
+						follow the storyline. A user with basic visual rendering will see a static version of the ultimate
+						display, and a user with an advanced system will get the full experience. This gradual increase in
 						functionality is at the root of progressive enhancement.</p>
 					<p>The example makes use of the EPUB 3 fixed layout metadata to define the page size.</p>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
-      &lt;meta 
-            name="viewport"
-            content="width=1024, height=600"/>
-      &#8230;
-      &lt;style type="text/css">
-         body {
-            background-image: url('img/oz02.jpg');
-         }
-         
-         img#oz {
-            position: absolute;
-            left: 0px;
-            top: 25px;
-         }
-         
-         p#oz-speaks {
-            position: absolute;
-            left: 120px;
-            top: 50px;
-         }
-         
-         img#dorothy {
-            position: absolute;
-            right: 0px;
-            top: 125px;
-         }
-         
-         p#oz-speaks {
-            position: absolute;
-            right: 140px;
-            top: 100px;
-         }
-      &lt;/style>
+	  &lt;meta 
+			name="viewport"
+			content="width=1024, height=600"/>
+	  &#8230;
+	  &lt;style type="text/css">
+		 body {
+			background-image: url('img/oz02.jpg');
+		 }
+		 
+		 img#oz {
+			position: absolute;
+			left: 0px;
+			top: 25px;
+		 }
+		 
+		 p#oz-speaks {
+			position: absolute;
+			left: 120px;
+			top: 50px;
+		 }
+		 
+		 img#dorothy {
+			position: absolute;
+			right: 0px;
+			top: 125px;
+		 }
+		 
+		 p#oz-speaks {
+			position: absolute;
+			right: 140px;
+			top: 100px;
+		 }
+	  &lt;/style>
    &lt;/head>
    &lt;body>
-      &lt;img id="oz" 
-           src="graphics/wizard001.jpg"
-           alt="A giant head floats over a chair in the middle of the room"/>
-      
-      &lt;p id="speaks">
-         I am Oz, the Great and Terrible.
-         Who are you, and why do you seek me?
-      &lt;/p>
-      
-      &lt;img id="dorothy"
-         src="graphics/dorothy162.jpg"
-         alt="Dorothy works up the courage to reply"/>
-      
-      &lt;p id="speaks">
-         I am Dorothy, the Small and Meek.
-         I have come to you for help.
-      &lt;/p>
+	  &lt;img id="oz" 
+		   src="graphics/wizard001.jpg"
+		   alt="A giant head floats over a chair in the middle of the room"/>
+	  
+	  &lt;p id="speaks">
+		 I am Oz, the Great and Terrible.
+		 Who are you, and why do you seek me?
+	  &lt;/p>
+	  
+	  &lt;img id="dorothy"
+		 src="graphics/dorothy162.jpg"
+		 alt="Dorothy works up the courage to reply"/>
+	  
+	  &lt;p id="speaks">
+		 I am Dorothy, the Small and Meek.
+		 I have come to you for help.
+	  &lt;/p>
    &lt;/body>
 &lt;/html></code></pre>
 				</figure>
@@ -154,16 +154,16 @@
 				<h3>References</h3>
 
 				<ul>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
 							ratio of at least 7:1 exists between text (and images of text) and background behind the
 						text</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
 							ratio of at least 4.5:1 exists between text (and images of text) and background behind the
 							text</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
 							ratio of at least 3:1 exists between text (and images of text) and background behind the
 						text</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
 							whenever color cues are used</a></li>
 				</ul>
 			</section>

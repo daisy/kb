@@ -10,59 +10,59 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
-	    <style>
-            /* element tables */
-            
-            table.elemDef {
-            	border: 1px solid black;
-            	border-collapse: collapse;
-            }
-            
-            table.elemDef thead {
-            	background-color: rgb(240,240,240);
-            }
-            
-            table.elemDef th {
-            	font-size: 90%;
-            	padding: 0.25em;
-            }
-            
-            table.elemDef td {
-            	border-style: solid;
-            	border-color: rgb(0,0,0);
-            	border-width: 1px 0 0 0;
-            	vertical-align: top;
-            }
-            
-            table.elemDef a {
-            	font-weight: bold;
-            }
-            
-            td.root {
-            	padding-left: 0.5em;
-            }
-            
-            td.firstChild {
-            	padding-left: 2em;
-            }
-            
-            td.secondChild {
-            	padding-left: 3em;
-            }
-            
-            td.thirdChild {
-            	padding-left: 4em;
-            	padding-right: 1em;
-            }
-            
-            td.use {
-            	max-width: 25em;
-            	padding: 0.25em 2em;
-            }
-	    </style>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
+		<style>
+			/* element tables */
+			
+			table.elemDef {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			table.elemDef thead {
+				background-color: rgb(240,240,240);
+			}
+			
+			table.elemDef th {
+				font-size: 90%;
+				padding: 0.25em;
+			}
+			
+			table.elemDef td {
+				border-style: solid;
+				border-color: rgb(0,0,0);
+				border-width: 1px 0 0 0;
+				vertical-align: top;
+			}
+			
+			table.elemDef a {
+				font-weight: bold;
+			}
+			
+			td.root {
+				padding-left: 0.5em;
+			}
+			
+			td.firstChild {
+				padding-left: 2em;
+			}
+			
+			td.secondChild {
+				padding-left: 3em;
+			}
+			
+			td.thirdChild {
+				padding-left: 4em;
+				padding-right: 1em;
+			}
+			
+			td.use {
+				max-width: 25em;
+				padding: 0.25em 2em;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -128,7 +128,7 @@
 							<td class="secondChild"><a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-seq-elem"
 									>seq</a></td>
 							<td class="use">The <code>seq</code> element is used to structure an overlay. It is used to
-								represent complex structures such as sections, tables and lists that a reader may want to
+								represent complex structures such as sections, tables and lists that a user may want to
 								skip or escape from</td>
 						</tr>
 						<tr>
@@ -166,37 +166,37 @@
 					<p>The following example shows an overlay document for a chapter that consists of only a heading and two
 						paragraphs.</p>
 					<pre class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
-      xmlns:epub="http://www.idpf.org/2007/ops"
-      version="3.0">
+	  xmlns:epub="http://www.idpf.org/2007/ops"
+	  version="3.0">
    &lt;body>
-      &lt;seq
-           epub:textref="chapter_001.xhtml"
-           epub:type="bodymatter chapter">
-      
-         &lt;par>
-            &lt;text src="chapter_001.xhtml#c01h01"/>
-            &lt;audio
-                   src="audio/c01.mp4"
-                   clipBegin="0:00:00.000" 
-                   clipEnd="0:00:05.250"/>
-         &lt;/par>
-         
-         &lt;par>
-            &lt;text src="chapter_001.xhtml#c01p0001"/>
-            &lt;audio
-                   src="audio/c01.mp4"
-                   clipBegin="0:00:05.250"
-                   clipEnd="0:00:58.100"/>
-         &lt;/par>
-         
-         &lt;par>
-            &lt;text src="chapter_001.xhtml#c01p0002"/>
-            &lt;audio
-                   src="audio/c01.mp4"
-                   clipBegin="0:00:58.100"
-                   clipEnd="0:02:04.000"/>
-         &lt;/par>
-      &lt;/seq>
+	  &lt;seq
+		   epub:textref="chapter_001.xhtml"
+		   epub:type="bodymatter chapter">
+	  
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01h01"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:00.000" 
+				   clipEnd="0:00:05.250"/>
+		 &lt;/par>
+		 
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01p0001"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:05.250"
+				   clipEnd="0:00:58.100"/>
+		 &lt;/par>
+		 
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01p0002"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:58.100"
+				   clipEnd="0:02:04.000"/>
+		 &lt;/par>
+	  &lt;/seq>
    &lt;/body>
 &lt;/smil></code></pre>
 				</figure>
@@ -204,13 +204,13 @@
 				<figure>
 					<figcaption>Example 2 &#8212; Linking a chapter document to its overlay</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;item id="xchapter_001"
-      href="chapter_001.xhtml"
-      media-type="application/xhtml+xml"
-      media-overlay="chapter_001_overlay"/>
+	  href="chapter_001.xhtml"
+	  media-type="application/xhtml+xml"
+	  media-overlay="chapter_001_overlay"/>
 
 &lt;item id="chapter_001_overlay"
-      href="chapter_001_overlay.smil"
-      media-type="application/smil+xml"/></code></pre>
+	  href="chapter_001_overlay.smil"
+	  media-type="application/smil+xml"/></code></pre>
 				</figure>
 			</section>
 

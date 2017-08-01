@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -50,7 +50,7 @@
 			
 			<section id="desc">
 				<p>In order to facilitate the navigation of lists, Media Overlay documents must be marked up so that lists
-					are discoverable &#8212; and consequently escapable and skippable &#8212; by the reader without having to
+					are discoverable &#8212; and consequently escapable and skippable &#8212; by the user without having to
 					drop out of playback mode.</p>
 
 				<p>Although the basic markup for lists in overlays is the same regardless of list type, HTML5 includes two
@@ -97,25 +97,25 @@
 					<pre class="prettyprint linenums small"><code>&lt;ul>
    &lt;li>&#8230;&lt;/li>
    &lt;li>
-      &lt;p>&#8230;&lt;/p>
-      &lt;p>&#8230;&lt;/p>
+	  &lt;p>&#8230;&lt;/p>
+	  &lt;p>&#8230;&lt;/p>
    &lt;li>
    &lt;li>
-      &lt;ol>
-         &lt;li>&#8230;&lt;/li>
-      &lt;/ol>
+	  &lt;ol>
+		 &lt;li>&#8230;&lt;/li>
+	  &lt;/ol>
    &lt;li>
 &lt;/ul></code></pre>
 					<pre class="prettyprint linenums small"><code>&lt;seq epub:type="list">
    &lt;par epub:type="list-item">&#8230;&lt;/par>
    &lt;seq epub:type="list-item">
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
    &lt;/seq>
    &lt;seq epub:type="list-item">
-      &lt;seq epub:type="list">
-         &lt;par epub:type="list-item">&#8230;&lt;/par>
-      &lt;/seq>
+	  &lt;seq epub:type="list">
+		 &lt;par epub:type="list-item">&#8230;&lt;/par>
+	  &lt;/seq>
    &lt;/seq>
 &lt;/seq></code></pre>
 				</figure>
@@ -130,21 +130,21 @@
    &lt;dt>&#8230;&lt;/dt>
    &lt;dd>&#8230;&lt;/dd>
    &lt;dd>
-      &lt;p>&#8230;&lt;/p>
-      &lt;p>&#8230;&lt;/p>
+	  &lt;p>&#8230;&lt;/p>
+	  &lt;p>&#8230;&lt;/p>
    &lt;dd>
 &lt;/dl></code></pre>
 					<pre class="prettyprint linenums small"><code>&lt;seq epub:type="list">
    &lt;seq epub:type="list-item">
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
    &lt;/seq>
    &lt;seq epub:type="list-item">
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
-      &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
+	  &lt;par>&#8230;&lt;/par>
    &lt;/seq>
 &lt;/seq></code></pre>
 				</figure>

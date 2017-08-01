@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -55,8 +55,8 @@
 						href="http://idpf.org/epub3/latest/packages#sec-nav">EPUB navigation document</a> (the <code>toc
 						nav</code>).</p>
 
-				<p>The navigation document is one of the two key methods readers use to move around the content, the other
-					being <a href="../xhtml/toc.html">headings</a>. It provides readers easy access to the major sections of
+				<p>The navigation document is one of the two key methods users use to move around the content, the other
+					being <a href="../xhtml/toc.html">headings</a>. It provides users easy access to the major sections of
 					the publication, which simplifies quick traversal and random inspection.</p>
 
 				<p>The table of contents is constructed using ordered lists (<code>ol</code>). Each list item must either
@@ -76,7 +76,7 @@
 					<pre class="prettyprint linenums"><code>&lt;nav epub:type="toc" id="toc">
 &lt;ol>
   &lt;li>
-    &lt;a href="s01.xhtml">A simple link&lt;/a>
+	&lt;a href="s01.xhtml">A simple link&lt;/a>
   &lt;/li>
   &#8230;
 &lt;/ol>
@@ -89,20 +89,20 @@
 &lt;ol>
   &#8230;
   &lt;li>
-    &lt;a href="s03.xhtml">A linked heading&lt;/a>
-    &lt;ol>
-      &lt;li>&lt;a href="s03-01.xhtml">Subsection&lt;/a>
-      &#8230;
-    &lt;/ol>
+	&lt;a href="s03.xhtml">A linked heading&lt;/a>
+	&lt;ol>
+	  &lt;li>&lt;a href="s03-01.xhtml">Subsection&lt;/a>
+	  &#8230;
+	&lt;/ol>
   &lt;/li>
   &lt;li>
-    &lt;span class="navhd">An unlinked heading&lt;/span>
-    &lt;ol>
-      &lt;li>
-        &lt;a href="s04-01.xhtml">Subsection&lt;/a>
-      &lt;/li>
-      &#8230;
-    &lt;/ol>
+	&lt;span class="navhd">An unlinked heading&lt;/span>
+	&lt;ol>
+	  &lt;li>
+		&lt;a href="s04-01.xhtml">Subsection&lt;/a>
+	  &lt;/li>
+	  &#8230;
+	&lt;/ol>
   &lt;/li>
   &#8230;
 &lt;/nav></code></pre>
@@ -114,13 +114,13 @@
 &lt;ol>
   &#8230;
   &lt;li>
-    &lt;a href="s05.xhtml">A linked heading&lt;/a>
-    &lt;ol hidden="hidden">
-      &lt;li>
-        &lt;a href="s05-01.xhtml">Hidden subsection&lt;/a>
-      &lt;/li>
-      &#8230;
-    &lt;/ol>
+	&lt;a href="s05.xhtml">A linked heading&lt;/a>
+	&lt;ol hidden="hidden">
+	  &lt;li>
+		&lt;a href="s05-01.xhtml">Hidden subsection&lt;/a>
+	  &lt;/li>
+	  &#8230;
+	&lt;/ol>
   &lt;/li>
   &#8230;
 &lt;/ol>
@@ -133,9 +133,9 @@
 &lt;ol>
   &#8230;
   &lt;li>
-    &lt;a href="s02.xhtml"
-       title="alternate prose title">A simple link 
-       requiring an alternate pronunciation&lt;/a>
+	&lt;a href="s02.xhtml"
+	   title="alternate prose title">A simple link 
+	   requiring an alternate pronunciation&lt;/a>
   &lt;/li>
   &#8230;
 &lt;/ol>
@@ -182,11 +182,11 @@
 								<code>toc nav</code> Element</a></li>
 					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/sections.html#the-nav-element">The <code>nav</code>
 							element</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G64.html">G64: Providing a Table of
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G64.html">G64: Providing a Table of
 							Contents</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G126.html">G126: Providing a list of
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G126.html">G126: Providing a list of
 							links to all other Web pages</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G128.html">G128: Indicating current
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G128.html">G128: Indicating current
 							location within navigation bars</a></li>
 					<li>EPUB 2 &#8212; <a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">Declarative
 							Global Navigation &#8212; the NCX</a></li>

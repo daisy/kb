@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,11 +29,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#samp">Samples</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#samp">Samples</a></li>
 					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
@@ -42,14 +42,15 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>If a publication has a statically-paginated equivalent, including page numbers allows users to coordinate locations.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Include page break markers in the content. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+					<li>Include a page list. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.4.5</a>)</span></li>
 				</ul>
 			</section>
 
@@ -61,49 +62,52 @@
 					<pre class="prettyprint linenums"><code>&lt;p>
    &#8230;
    &lt;span
-         epub:type="pagebreak"
-        
-         title="24"/>
+		 role="doc-pagebreak"
+		 id="pg24"
+		 aria-label="24"/>
    &#8230;
 &lt;/p></code></pre>
 				</figure>
 
 				<figure>
-					<figcaption>Example 2 &#8212; Package document source declaration</figcaption>
+					<figcaption>Example 2 &#8212; Declaring source in EPUB package document</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;package&#8230;>
    &#8230;
    &lt;metadata
-      xmlns:dc="http://purl.org/dc/elements/1.1/">
-      &#8230;
-      &lt;dc:source id="id">
-         urn:isbn:9780375704024
-      &lt;/dc:source>
+	  xmlns:dc="http://purl.org/dc/elements/1.1/">
+	  &#8230;
+	  &lt;dc:source id="id">
+		 urn:isbn:9780375704024
+	  &lt;/dc:source>
    &lt;/metadata>
 &lt;/package></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>If an ebook is produced from the same workflow as a print document, print pagination markers should be
-		            retained in the document. These markers benefit readers in mixed print/digital environments, such as a
-		            classroom, as the page numbers allow a common point of reference between the two editions.</p>
-		        
-		        <p>Page break locations can be added to the markup using <code>span</code> and <code>div</code> tags with an
-		            <code>epub:type</code> attribute set to the value <code>pagebreak</code>.</p>
-		        
-		        <p>When including page numbers, a <a href="../nav/pagelist.html"><code>page-list nav</code></a> should also
-		            be included to faciliate navigation. The <code>page-list nav</code> is used to look up the location of
-		            the page break when the reader requests to move to a specific location. (An <code>id</code> attribute
-		            must be attached to each element containing a page number to allow creation of the <code>page-list
-		                nav</code>.)</p>
-		        
-		        <p>When including print page references, the package document metadata should also include <a
-		            href="http://idpf.org/epub3/latest/publications#sec-opf-dcsource">a <code>dc:source</code> element
-		            identifying the print source</a>.</p>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>If a digital publication is produced from the same workflow as a print document, print pagination markers should be
+					retained. These markers benefit users in mixed print/digital environments, such as a
+					classroom, as the page numbers allow a common point of reference between the two editions.</p>
+				
+				<p>Page break locations can be added to the markup using <code>span</code> and <code>div</code> tags with an
+					<code>role</code> attribute set to the value <code>doc-pagebreak</code>. An <code>id</code> attribute
+					must be attached to each element containing a page number to enable linking to the breaks.</p>
+				
+				<p>When including page numbers, a <a href="../nav/pagelist.html">page list</a> should also
+					be included to faciliate navigation. The page list is used to find the location of
+					page breaks.</p>
+				
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>When including print page references, the EPUB 3 package document metadata should also include <a
+						href="http://idpf.org/epub3/latest/publications#sec-opf-dcsource">a <code>dc:source</code> element
+						identifying the print source</a>.</p>
+				</section>
+			</section>
+			
 			<section id="samp" class="sample">
 				<h3>Samples</h3>
 
@@ -142,10 +146,10 @@
 					<dt>Should I include the page numbers as content or empty elements?</dt>
 					<dd><p>There are pros and cons to each approach.</p>
 						<p>If you include the page numbers as text content within a <code>span</code> or <code>div</code>,
-							the pages will be more easily accessible to both sighted readers and readers using assistive
+							the pages will be more easily accessible to both sighted users and users using assistive
 							technologies. This method has been employed in previous DAISY standards. The potential downside,
 							however, is that mainstream reading systems will not provide equivalent functionality to turn off
-							unwanted content, forcing readers to view the page numbers. Additionally, current assistive
+							unwanted content, forcing users to view the page numbers. Additionally, current assistive
 							technologies may not provide content filtering on the <code>epub:type</code> attribute, also
 							interfering with reading.</p>
 						<p>Page numbers as empty elements are the more traditional mainstream approach, with anchor tags
@@ -155,9 +159,9 @@
 							alternatives.</p>
 					</dd>
 					<dt>Why is the <code>page-list nav</code> necessary?</dt>
-					<dd><p>Although the <a href="../nav/pagelist.html"><code>page-list nav</code></a> provides readers a way
+					<dd><p>Although the <a href="../nav/pagelist.html"><code>page-list nav</code></a> provides users a way
 							to manually look up pages, it is primarily intended to facilitate quick-access through the
-							reading system. To implement a feature that can jump a reader to a specific page that they voice
+							reading system. To implement a feature that can jump a user to a specific page that they voice
 							or type in, reading system need to be able to map the location quickly without having to randomly
 							load and scan content files. The <code>page-list nav</code> is how these lookups occur.</p></dd>
 					<dt>Where do I put a page number when the page break occurs in the middle of a
@@ -168,25 +172,25 @@
 						<p>The obvious solutions are to either insert the page number as the very last element in the item
 							that ends the page:</p>
 						<pre><code>&lt;li>&#8230;.&lt;span
-      epub:type="pagebreak"
-     
-      title="24"/>&lt;/li>
+	  epub:type="pagebreak"
+	 
+	  title="24"/>&lt;/li>
    &lt;li>&#8230;&lt;/li>
 </code></pre>
 						<p>or to place it as the very first element in the list item that starts the page</p>
 						<pre><code>&lt;li>&#8230;.&lt;/li>
    &lt;li>&lt;span
-      epub:type="pagebreak"
-     
-      title="24"/>&#8230;&lt;/li>
+	  epub:type="pagebreak"
+	 
+	  title="24"/>&#8230;&lt;/li>
 </code></pre>
 						<p>Best practice at this time is to place the page break inside the concluding element, but both
 							methods are acceptable. When included in the trailing list item, an assistive technology should
-							announce the new list item that starts the next page to the reader, whereas if the page number
-							starts the list item the reader may not be made aware they are in a list until reaching the next
+							announce the new list item that starts the next page to the user, whereas if the page number
+							starts the list item the user may not be made aware they are in a list until reaching the next
 							item.</p>
 						<p>One practice to avoid is creating a new list item just for the page break. As page breaks are
-							often not visible content, an empty list item will be confusing to all readers.</p>
+							often not visible content, an empty list item will be confusing to all users.</p>
 					</dd>
 					<dt>Can I use <code>a</code> tags for page numbers?</dt>
 					<dd><p>The <code>a</code> element has two specific uses defined in HTML5: for links when the

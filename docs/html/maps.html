@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript">
-            $(document).ready(function () {
-                prettyPrint();
-            });
+			$(document).ready(function () {
+				prettyPrint();
+			});
 		</script>
 	</head>
 
@@ -30,30 +30,30 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
 			<section id="summary">
 				<h3>Summary</h3>
 				
-			    <p>Ensure the areas of an image map are labelled so that the map is accessible to readers who cannot cannot see it or easily activate the regions.</p>
+				<p>Ensure the areas of an image map are labelled so that the map is accessible to users who cannot cannot see it or easily activate the regions.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Ensure each <code>area</code> element has descriptive alternative text <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
-				        <ul>
-				            <li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H24.html">H24: Providing text
-				                alternatives for the area elements of image maps</a></li>
-				        </ul>
-				    </li>
+					<li>Ensure each <code>area</code> element has descriptive alternative text <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H24.html">H24: Providing text
+								alternatives for the area elements of image maps</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			
@@ -62,12 +62,12 @@
 				<figure>
 					<figcaption>Example 1 &#8212; A client-side map</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
-     src="north-america.png"
-     usemap="#na-map"/>
+	 src="north-america.png"
+	 usemap="#na-map"/>
   &lt;map id="map">
-     &lt;area shape="poly" coords="..." href="ca-info.xhtml" alt="Canada"/>
-     &lt;area shape="poly" coords="..." href="us-info.xhtml" alt="US"/>
-     &lt;area shape="poly" coords="..." href="mx-info.xhtml" alt="Mexico"/>
+	 &lt;area shape="poly" coords="..." href="ca-info.xhtml" alt="Canada"/>
+	 &lt;area shape="poly" coords="..." href="us-info.xhtml" alt="US"/>
+	 &lt;area shape="poly" coords="..." href="mx-info.xhtml" alt="Mexico"/>
   &lt;/map>
 </code></pre>
 				</figure>
@@ -75,44 +75,44 @@
 				<figure>
 					<figcaption>Example 2 &#8212; A server-side map</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;a href="...">&lt;img
-     src="north-america.png"
-     ismap="ismap"/>&lt;/a>
+	 src="north-america.png"
+	 ismap="ismap"/>&lt;/a>
 </code></pre>
 				</figure>
 			</section>
 
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>An image mapis a context-sensitive image that, depending on where the reader clicks, touches or otherwise 
-		            activates it, results in a unique operation being performed. Image maps are commonly used to make 
-		            two-dimensional images dynamic, to provide more information about points on an infographic, etc.</p>
-		        
-		        <p class="bridgehead">Client-side v. Server-side</p>
-		        
-		        <p>There are two ways to create maps: locally using the <code>usemap</code> attribute to reference a
-		            <code>map</code> element that defines the clickable region; and remotely by enclosing the image in an
-		            <code>a</code> tag and setting the <code>ismap</code> attribute on the <code>img</code> tag.</p>
-		        
-		        <p>Server-side maps are inherently less accessible, both because they require that the reader be able to see
-		            the image to discern the regions and also because they require that the reader be able to click on the
-		            image in an exact spot.</p>
-		        
-		        <p>Client-side maps make use of an associated <code>map</code> element to define the clickable regions. Each
-		            region is specified in an <code>area</code> element, and each <code>area</code> should include an
-		            <code>alt</code> attribute that indicates its purpose so that non-visual readers can easily discover
-		            the functionality. Assistive technologies allow readers to iterate over these areas, making them a much
-		            friendlier option than server-side maps, and without requiring intrusive fallbacks.</p>
-		        
-		        <p>In fact, server-side maps provide no additional functionality, so their use is never recommended. If one
-		            must be used, a set of links corresponding to each clickable region should be provided so that readers
-		            who cannot interact with the map have equal access to the functionality.</p>
-		        
-		        <p>Note that neither kind of map should be used when a better alternative is available (e.g., to make
-		            an image of text linkable).</p>
-		    </section>
-		    
-		    <section id="refs">
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>An image mapis a context-sensitive image that, depending on where the user clicks, touches or otherwise 
+					activates it, results in a unique operation being performed. Image maps are commonly used to make 
+					two-dimensional images dynamic, to provide more information about points on an infographic, etc.</p>
+				
+				<p class="bridgehead">Client-side v. Server-side</p>
+				
+				<p>There are two ways to create maps: locally using the <code>usemap</code> attribute to reference a
+					<code>map</code> element that defines the clickable region; and remotely by enclosing the image in an
+					<code>a</code> tag and setting the <code>ismap</code> attribute on the <code>img</code> tag.</p>
+				
+				<p>Server-side maps are inherently less accessible, both because they require that the user be able to see
+					the image to discern the regions and also because they require that the user be able to click on the
+					image in an exact spot.</p>
+				
+				<p>Client-side maps make use of an associated <code>map</code> element to define the clickable regions. Each
+					region is specified in an <code>area</code> element, and each <code>area</code> should include an
+					<code>alt</code> attribute that indicates its purpose so that non-visual users can easily discover
+					the functionality. Assistive technologies allow users to iterate over these areas, making them a much
+					friendlier option than server-side maps, and without requiring intrusive fallbacks.</p>
+				
+				<p>In fact, server-side maps provide no additional functionality, so their use is never recommended. If one
+					must be used, a set of links corresponding to each clickable region should be provided so that users
+					who cannot interact with the map have equal access to the functionality.</p>
+				
+				<p>Note that neither kind of map should be used when a better alternative is available (e.g., to make
+					an image of text linkable).</p>
+			</section>
+			
+			<section id="refs">
 				<h3>References</h3>
 
 				<ul>

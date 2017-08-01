@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript">
-            $(document).ready(function () {
-                prettyPrint();
-            });
+			$(document).ready(function () {
+				prettyPrint();
+			});
 		</script>
 	</head>
 
@@ -30,11 +30,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
 			</nav>
@@ -49,19 +49,19 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Set the <code>lang</code> and <code>xml:lang</code> attributes on the root <code>html</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>)</span>
-				        <ul>
-				            <li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H57.html">H57: Using language attributes
-				                on the html element</a></li>
-				        </ul>
-				    </li>
-				    <li>Set the <code>lang</code> and <code>xml:lang</code> attributes whenever the default language changes. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.2</a>)</span>
-				        <ul>
-				            <li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H58.html">H58: Using language attributes
-				                to identify changes in the human language</a></li>
-				        </ul>
-				    </li>
-				    <li>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>)</span></li>
+					<li>Set the <code>lang</code> and <code>xml:lang</code> attributes on the root <code>html</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H57.html">H57: Using language attributes
+								on the html element</a></li>
+						</ul>
+					</li>
+					<li>Set the <code>lang</code> and <code>xml:lang</code> attributes whenever the default language changes. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.2</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H58.html">H58: Using language attributes
+								to identify changes in the human language</a></li>
+						</ul>
+					</li>
+					<li>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>)</span></li>
 				</ul>
 			</section>
 
@@ -72,44 +72,44 @@
 					<pre class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en">
    &#8230;
    &lt;body>
-      &#8230;
-      &lt;p>
-         Harsh gargoyle face that warred against me 
-         over our mess of hash of lights in 
-         &lt;span xml:lang="fr" lang="fr">rue 
-         Saint-André-des-Arts&lt;/span>. In words of
-         words for words, palabras. Oisin with
-         Patrick. Faunman he met in Clamart woods,
-         brandishing a winebottle.
-         &lt;i xml:lang="fr" lang="fr">C'est 
-         vendredi saint!&lt;/i> Murthering Irish.
-         His image, wandering, he met. I mine. I 
-         met a fool i'the forest.
-      &lt;/p>
-      &#8230;
+	  &#8230;
+	  &lt;p>
+		 Harsh gargoyle face that warred against me 
+		 over our mess of hash of lights in 
+		 &lt;span xml:lang="fr" lang="fr">rue 
+		 Saint-André-des-Arts&lt;/span>. In words of
+		 words for words, palabras. Oisin with
+		 Patrick. Faunman he met in Clamart woods,
+		 brandishing a winebottle.
+		 &lt;i xml:lang="fr" lang="fr">C'est 
+		 vendredi saint!&lt;/i> Murthering Irish.
+		 His image, wandering, he met. I mine. I 
+		 met a fool i'the forest.
+	  &lt;/p>
+	  &#8230;
    &lt;/body>
 &lt;/html></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Specifying a document's default language &#8212; as well as any changes within the document, such as
-		            instances of foreign language terms or dialogue or passages in another language &#8212; helps ensure that
-		            assistive technologies can correctly render the text (e.g., that the correct braille characters are
-		            presented, or a voice capable of rendering the language gets used).</p>
-		        
-		        <p>To define the default language for an XHTML document, the <code>lang</code> and <code>xml:lang</code>
-		            language attributes need to be attached to the root <code>html</code> element. The language code defined
-		            in these attributes should match one of the language codes specified in a <code>dc:language</code>
-		            element in the package document's metadata section (<a href="#faq01">see the faq</a> for more
-		            information).</p>
-		        
-		        <p>When attached to elements within the body, the language attributes identify the language of the text
-		            content of that element (i.e., to identify a change in language).</p>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Specifying a document's default language &#8212; as well as any changes within the document, such as
+					instances of foreign language terms or dialogue or passages in another language &#8212; helps ensure that
+					assistive technologies can correctly render the text (e.g., that the correct braille characters are
+					presented, or a voice capable of rendering the language gets used).</p>
+				
+				<p>To define the default language for an XHTML document, the <code>lang</code> and <code>xml:lang</code>
+					language attributes need to be attached to the root <code>html</code> element. The language code defined
+					in these attributes should match one of the language codes specified in a <code>dc:language</code>
+					element in the package document's metadata section (<a href="#faq01">see the faq</a> for more
+					information).</p>
+				
+				<p>When attached to elements within the body, the language attributes identify the language of the text
+					content of that element (i.e., to identify a change in language).</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
@@ -131,7 +131,7 @@
 					<dt>Is it necessary to specify a default language in content files?</dt>
 					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
 							information may not be available to assistive technologies depending on the reading system used.
-							A cloud reader may only have access to the current XHTML content document, for example, in which
+							A cloud user may only have access to the current XHTML content document, for example, in which
 							case the proper language for braille rendering or TTS playback may not be available.</p>
 						<p>In the case of multilingual publications, it additionally may not be clear to any reading system
 							or assistive technology which of the specified languages in the package document is the correct

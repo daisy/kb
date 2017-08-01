@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,11 +29,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
 			</nav>
@@ -42,60 +42,60 @@
 				<h3>Summary</h3>
 				
 				<p>Meta properties and directives that prevent zooming or initiate delayed page refreshes impede access
-				        for readers with low vision and who need additional time to consume the content.</p>
+						for users with low vision and who need additional time to consume the content.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Do not disable zooming with the <code>viewport/user-scalabe=no</code> property.</li>
-				    <li>Do not prevent zooming by setting the <code>viewport/maximum-scale</code> property to a value less than "2.0".</li>
-				    <li>Do not use the <code>meta-refresh</code> pragma directive with a value greater than "0".
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H76.html">H76: Using meta refresh to create an instant client-side redirect</a></li>
-				        </ul>
-				    </li>
+					<li>Do not disable zooming with the <code>viewport/user-scalabe=no</code> property.</li>
+					<li>Do not prevent zooming by setting the <code>viewport/maximum-scale</code> property to a value less than "2.0".</li>
+					<li>Do not use the <code>meta-refresh</code> pragma directive with a value greater than "0".
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H76.html">H76: Using meta refresh to create an instant client-side redirect</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
-		    
+			
 			<section id="ex">
 				<h3>Example</h3>
 				<figure>
 					<figcaption>Example 1 &#8212; Meta viewport</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;meta
-        name="viewport"
-        content="initial-scale=1.0;maximum-scale=5.0"/></code></pre>
+		name="viewport"
+		content="initial-scale=1.0;maximum-scale=5.0"/></code></pre>
 				</figure>
-			    
-			    <figure>
-			        <figcaption>Example 1 &#8212; Meta refresh</figcaption>
-			        <pre class="prettyprint linenums"><code>&lt;meta
-        http-equiv="refresh"
-        content="0;url=new-page.html"/></code></pre>
-			    </figure>
+				
+				<figure>
+					<figcaption>Example 1 &#8212; Meta refresh</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;meta
+		http-equiv="refresh"
+		content="0;url=new-page.html"/></code></pre>
+				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Disabling the ability to zoom a page prevents readers from being able to enlarge the content
-		            to a size that is more comfortable for them to read at. Similarly, setting a maximum scale
-		            less than double the initial size limits minimums for readability required by WCAG.</p>
-		        
-		        <p>It is not normal for publications to make use of page redirects in packaged formats like EPUB.
-		            For web-hosted publications, consider using a HTTP redirect to send users to a replacement
-		            page.</p>
-		        
-		        <p>If it is necessary to refresh the content of a page, provide the user the option to initiate the
-		            refresh.</p>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Disabling the ability to zoom a page prevents users from being able to enlarge the content
+					to a size that is more comfortable for them to read at. Similarly, setting a maximum scale
+					less than double the initial size limits minimums for readability required by WCAG.</p>
+				
+				<p>It is not normal for publications to make use of page redirects in packaged formats like EPUB.
+					For web-hosted publications, consider using a HTTP redirect to send users to a replacement
+					page.</p>
+				
+				<p>If it is necessary to refresh the content of a page, provide the user the option to initiate the
+					refresh.</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
-				    <li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/document-metadata.html#the-meta-element">The
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/document-metadata.html#the-meta-element">The
 								<code>meta</code> element</a></li>
 				</ul>
 			</section>

@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 	<body>
 		<header>
@@ -58,7 +58,7 @@
 					attribute is not recommended, as it has little support in assistive technologies.</p>
 
 				<p>Although natural language descriptions of math equations are a possibility, it is recommended to use <a
-						href="http://www.gh-mathspeak.com/">MathSpeak</a> to write descriptions. Readers already familiar
+						href="http://www.gh-mathspeak.com/">MathSpeak</a> to write descriptions. Users already familiar
 					with math-voicing programs will recognize the conventions used in MathSpeak, and the language removes the
 					potential for ambiguity that natural language can introduce.</p>
 			</section>
@@ -70,15 +70,15 @@
 					<figcaption>Example 1 &#8212; Adding a description using the <code>aria-label</code>
 						attribute</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div role="math"
-     aria-label="Frac Root a EndRoot Over b EndFrac">
+	 aria-label="Frac Root a EndRoot Over b EndFrac">
    &lt;m:math
-      xmlns:m="http://www.w3.org/1998/Math/MathML">
-      &lt;m:mfrac>
-         &lt;m:msqrt>
-            &lt;m:mtext>a&lt;/m:mtext>
-         &lt;/m:msqrt>
-         &lt;m:mi>b&lt;/m:mi>
-      &lt;/m:mfrac>
+	  xmlns:m="http://www.w3.org/1998/Math/MathML">
+	  &lt;m:mfrac>
+		 &lt;m:msqrt>
+			&lt;m:mtext>a&lt;/m:mtext>
+		 &lt;/m:msqrt>
+		 &lt;m:mi>b&lt;/m:mi>
+	  &lt;/m:mfrac>
    &lt;/m:math>
 &lt;/div></code></pre>
 				</figure>
@@ -119,7 +119,7 @@
 							<li>to take the square root of the value a and then divide the resulting value by b.</li>
 							<li>to divide a by b and then take the square root of the resulting value.</li>
 						</ol>
-						<p>A reader who cannot see the visual presentation of the equation is not going to be able to
+						<p>A user who cannot see the visual presentation of the equation is not going to be able to
 							determine which is the correct interpretation with only the description to go by. MathSpeak takes
 							the ambiguity out of the equation by clearly breaking down the components of the equation in a
 							way that doesn't leave ambiguity.</p>
@@ -129,9 +129,9 @@
 							different approaches to voicing equations, MathSpeak is a good reflection of the typical
 							grammar.</p></dd>
 					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
-					<dd><p>The different levels reflect the expected age and proficiency of the reader. A math book geared
-							towards younger readers, or readers new to the topic, would typically employ the verbose grammar.
-							More advanced readers already proficient in math and familiar with the grammar will likely find
+					<dd><p>The different levels reflect the expected age and proficiency of the user. A math book geared
+							towards younger users, or users new to the topic, would typically employ the verbose grammar.
+							More advanced users already proficient in math and familiar with the grammar will likely find
 							the verbose syntax a nuisance, so either the brief or super-brief grammars can be
 						employed.</p></dd>
 				</dl>

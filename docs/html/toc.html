@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,11 +29,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#samp">Samples</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#samp">Samples</a></li>
 					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
@@ -61,18 +61,18 @@
 					<pre class="prettyprint linenums"><code>&lt;package &#8230;>
    &#8230;
    &lt;manifest>
-      &#8230;
-      &lt;item id="htmltoc"
-      	    properties="nav"
-      	    media-type="application/xhtml+xml"
-      	    href="bk01-toc.xhtml"/>
-      &#8230;
+	  &#8230;
+	  &lt;item id="htmltoc"
+	  		properties="nav"
+	  		media-type="application/xhtml+xml"
+	  		href="bk01-toc.xhtml"/>
+	  &#8230;
    &lt;/manifest>
    &#8230;
    &lt;spine>
-      &#8230;
-      &lt;itemref idref="htmltoc" linear="yes"/>
-      &#8230;
+	  &#8230;
+	  &lt;itemref idref="htmltoc" linear="yes"/>
+	  &#8230;
    &lt;/spine>
 &lt;/manifest></code></pre>
 					<p class="ack">See in context in <a
@@ -85,23 +85,23 @@
 					<pre class="prettyprint linenums"><code>&lt;section epub:type="toc">
    &lt;h1>Table of Contents&lt;/h1>
    &lt;nav id="toc">
-      &lt;ol class="toc">
-         &lt;li>
-            &lt;a href="ch01.xhtml">1. Introduction&lt;/a>
-         &lt;/li>
-         &lt;li>
-            &lt;a href="ch02.xhtml">2. Building a 
-               Better EPUB: Fundamental
-               Accessibility&lt;/a>
-         &lt;/li>
-         &lt;li>
-            &lt;a href="ch03.xhtml">3. It’s Alive:
-               Rich Content Accessibility&lt;/a>
-         &lt;/li>
-         &lt;li>
-            &lt;a href="ch04.xhtml">4. Conclusion&lt;/a>
-         &lt;/li>
-      &lt;/ol>
+	  &lt;ol class="toc">
+		 &lt;li>
+			&lt;a href="ch01.xhtml">1. Introduction&lt;/a>
+		 &lt;/li>
+		 &lt;li>
+			&lt;a href="ch02.xhtml">2. Building a 
+			   Better EPUB: Fundamental
+			   Accessibility&lt;/a>
+		 &lt;/li>
+		 &lt;li>
+			&lt;a href="ch03.xhtml">3. It’s Alive:
+			   Rich Content Accessibility&lt;/a>
+		 &lt;/li>
+		 &lt;li>
+			&lt;a href="ch04.xhtml">4. Conclusion&lt;/a>
+		 &lt;/li>
+	  &lt;/ol>
    &lt;/nav>
 &lt;/section></code></pre>
 				</figure>
@@ -110,57 +110,57 @@
 					<figcaption>Example 3 &#8212; A mini table of contents at the start of a section</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;section>
    &lt;header>
-      &lt;h2>
-         3. It’s Alive: Rich Content Accessibility
-      &lt;/h3>
-      &lt;nav id="toc">
-         &lt;ol>
-            &lt;li>
-               &lt;a href="#s01">The Sound and 
-               the Fury: Audio and Video&lt;/a>
-            &lt;/li>
-            &lt;li>
-               &lt;a href="#s02">Talk to Me: 
-               Media Overlays&lt;/a>
-            &lt;/li>
-            &lt;li>
-               &lt;a href="#s03">Tell It Like 
-               It Is: Text-to-Speech (TTS)&lt;/a>
-            &lt;/li>
-            &lt;li>
-               &lt;a href="#s04">The Coded Word:
-               Scripted Interactivity&lt;/a>
-            &lt;/li>
-            &lt;li>
-               &lt;a href="#s05">A Little Help:
-               WAI-ARIA&lt;/a>
-            &lt;/li>
-            &lt;li>
-               &lt;a href="#s06">A Blank Slate:
-               Canvas&lt;/a>
-            &lt;/li>
-         &lt;/ol>
-      &lt;/nav>
+	  &lt;h2>
+		 3. It’s Alive: Rich Content Accessibility
+	  &lt;/h3>
+	  &lt;nav id="toc">
+		 &lt;ol>
+			&lt;li>
+			   &lt;a href="#s01">The Sound and 
+			   the Fury: Audio and Video&lt;/a>
+			&lt;/li>
+			&lt;li>
+			   &lt;a href="#s02">Talk to Me: 
+			   Media Overlays&lt;/a>
+			&lt;/li>
+			&lt;li>
+			   &lt;a href="#s03">Tell It Like 
+			   It Is: Text-to-Speech (TTS)&lt;/a>
+			&lt;/li>
+			&lt;li>
+			   &lt;a href="#s04">The Coded Word:
+			   Scripted Interactivity&lt;/a>
+			&lt;/li>
+			&lt;li>
+			   &lt;a href="#s05">A Little Help:
+			   WAI-ARIA&lt;/a>
+			&lt;/li>
+			&lt;li>
+			   &lt;a href="#s06">A Blank Slate:
+			   Canvas&lt;/a>
+			&lt;/li>
+		 &lt;/ol>
+	  &lt;/nav>
    &lt;/header>
    &#8230;
 &lt;/section></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Although the <a href="../nav/toc.html">EPUB navigation document</a> provides navigation capabilities for
-		            the publication as a whole, embedding tables of contents within the body can further facilitate
-		            comprehension and navigation (e.g., a table of contents in the front matter or a reduced table of
-		            contents or mini tables of contents at the start of each section).</p>
-		        
-		        <p>If you embed other tables of contents in the body of your publication, try to construct them in the same
-		            way as the navigation document &#8212; using the <code>nav</code> element and ordered lists. Lists
-		            simplify access as assistive technologies typically provide hotkeys to move through them more
-		            effectively.</p>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the <a href="../nav/toc.html">EPUB navigation document</a> provides navigation capabilities for
+					the publication as a whole, embedding tables of contents within the body can further facilitate
+					comprehension and navigation (e.g., a table of contents in the front matter or a reduced table of
+					contents or mini tables of contents at the start of each section).</p>
+				
+				<p>If you embed other tables of contents in the body of your publication, try to construct them in the same
+					way as the navigation document &#8212; using the <code>nav</code> element and ordered lists. Lists
+					simplify access as assistive technologies typically provide hotkeys to move through them more
+					effectively.</p>
+			</section>
+			
 			<section id="samp" class="sample">
 				<h3>Samples</h3>
 
@@ -178,7 +178,7 @@
 				<h3>References</h3>
 
 				<ul>
-					<li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/G126.html">G126: Providing a list of
+					<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G126.html">G126: Providing a list of
 							links to all other Web pages</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav">EPUB Navigation
 							Documents</a></li>

@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -111,22 +111,22 @@
 					<dt>What if the order of my ebook doesn't exactly match the order of the print
 						equivalent?</dt>
 					<dd><p>It's sometimes the case when converting to ebooks that front and back matter material gets
-							shuffled around and/or omitted. These changes in content order are not unexpected, and readers
+							shuffled around and/or omitted. These changes in content order are not unexpected, and users
 							will understand that their ebooks may not be formatted exactly the same way as the print, and may
 							not include all the print content.</p>
 						<p>If you do make changes to the content order, do not renumber the existing pagination to return it
-							to sequential order. The purpose of page list navigation is to get the reader to the equivalent
+							to sequential order. The purpose of page list navigation is to get the user to the equivalent
 							point, not to be sequentially correct.</p>
 						<p>Whenever re-ordering or omitting content, consider adding a note to the <code>dc:source</code>
 							element in the package document that identifies the print equivalent:</p>
 						<pre class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
    &lt;dc:source id="pub">
-      urn:isbn:9760123456789
+	  urn:isbn:9760123456789
    &lt;/dc:source>
    &lt;meta
-      refines="#src-pub"
-      property="dc:description">The print index has
-      been omitted from the EPUB version of this book.
+	  refines="#src-pub"
+	  property="dc:description">The print index has
+	  been omitted from the EPUB version of this book.
    &lt;/meta>
 &lt;/metadata></code></pre>
 					</dd>

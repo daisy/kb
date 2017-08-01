@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript">
-            $(document).ready(function () {
-                prettyPrint();
-            });
+			$(document).ready(function () {
+				prettyPrint();
+			});
 		</script>
 	</head>
 
@@ -30,10 +30,10 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
@@ -41,32 +41,32 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Ensure the reader can control audio playback and provide alternatives for readers who cannot hear the audio
-				    or need more time to process the information.</p>
+				<p>Ensure the user can control audio playback and provide alternatives for users who cannot hear the audio
+					or need more time to process the information.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Include a label that describes the audio. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
-				                alternative which is the accepted name or a descriptive name of the non-text content</a></li>
-				        </ul>
-				    </li>
-				    <li>Enable the <code>audio</code> element's native controls by default. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G202.html">G202: Ensuring keyboard control for all functionality</a></li>
-				        </ul>
-				    </li>
-				    <li>Include a transcript. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G69.html">G69: Providing an alternative for time based media</a></li>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G159.html">G159: Providing an alternative for time-based media for video-only content</a></li>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G58.html">G58: Placing a link to the alternative for time-based media immediately next to the non-text content</a></li>
-				        </ul>
-				    </li>
+					<li>Include a label that describes the audio. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
+								alternative which is the accepted name or a descriptive name of the non-text content</a></li>
+						</ul>
+					</li>
+					<li>Enable the <code>audio</code> element's native controls by default. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G202.html">G202: Ensuring keyboard control for all functionality</a></li>
+						</ul>
+					</li>
+					<li>Include a transcript. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G69.html">G69: Providing an alternative for time based media</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G159.html">G159: Providing an alternative for time-based media for video-only content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G58.html">G58: Placing a link to the alternative for time-based media immediately next to the non-text content</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 
@@ -89,40 +89,40 @@
 					<figcaption>Example 3 &#8212; Including a fallback error message</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip12.mp3" controls="controls">
    &lt;div class="err">
-      &lt;p>
-         Sorry, it appears your system 
-         does not support audio playback.
-      &lt;/p>
+	  &lt;p>
+		 Sorry, it appears your system 
+		 does not support audio playback.
+	  &lt;/p>
    &lt;/div>
 &lt;/audio></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>When including audio clips, ensure that the native reading system controls are enabled by default (i.e.,
-		            by setting the <code>controls</code> attribute on the <code>audio</code> element). This practice ensures
-		            that the control are accessible even if scripting is not available. If custom controls are provided and
-		            supported by the reading system, the native controls can be disabled by JavaScript.</p>
-		        
-		        <p>Although the <code>audio</code> element allows child content for fallback purposes, such content is not
-		            intended to serve as an accessible alternative. It is only made available to the reader if the
-		            <code>audio</code> element is not supported by the reading system, which typically only occurs in
-		            EPUB 2 reading systems.</p>
-		        
-		        <p>The following methods for making audio content accessible are instead recommended in the HTML5
-		            specification:</p>
-		        
-		        <ul>
-		            <li>Providing navigation by scene using the <code>track</code> element (i.e., using the
-		                <code>chapters</code> track type).</li>
-		            <li>Providing a link to a transcript.</li>
-		            <li>If captions or a sign language video are available, the <code>video</code> element can be used to
-		                play back the clip synchronously.</li>
-		        </ul>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When including audio clips, ensure that the native reading system controls are enabled by default (i.e.,
+					by setting the <code>controls</code> attribute on the <code>audio</code> element). This practice ensures
+					that the control are accessible even if scripting is not available. If custom controls are provided and
+					supported by the reading system, the native controls can be disabled by JavaScript.</p>
+				
+				<p>Although the <code>audio</code> element allows child content for fallback purposes, such content is not
+					intended to serve as an accessible alternative. It is only made available to the user if the
+					<code>audio</code> element is not supported by the reading system, which typically only occurs in
+					EPUB 2 reading systems.</p>
+				
+				<p>The following methods for making audio content accessible are instead recommended in the HTML5
+					specification:</p>
+				
+				<ul>
+					<li>Providing navigation by scene using the <code>track</code> element (i.e., using the
+						<code>chapters</code> track type).</li>
+					<li>Providing a link to a transcript.</li>
+					<li>If captions or a sign language video are available, the <code>video</code> element can be used to
+						play back the clip synchronously.</li>
+				</ul>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 

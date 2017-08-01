@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -23,13 +23,16 @@
 			<h2>The epub:type attribute</h2>
 
 			<nav class="breadcrumb">
-				<p><a href="../index.html">KB</a> > <a href="index.html">Semantics</a> > <span>The epub:type attribute</span></p>
+				<p><a href="../index.html">KB</a> > <a href="index.html">HTML</a> > <span>The epub:type attribute</span></p>
 			</nav>
 
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
 					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
@@ -38,179 +41,15 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Use the <code>epub:type</code> attribute to enhance the user experience in EPUB reading systems.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Identify structures and links using the <code>epub:type</code> attribute.</li>
 				</ul>
-			</section>
-			
-			<section id="desc">
-				<p>One of the limitations of the core HTML markup grammar is that it is not well-suited for defining rich
-					data structures because of its small set of elements. There may be hundreds of <code>aside</code>
-					elements in a publication, for example, but reliably distinguishing which ones represent notes from
-					sidebars from warnings and alerts has not been possible.</p>
-
-				<p>For sighted readers, the deficiency this causes has been masked by the enhanced visual rendering that CSS
-					style sheets afford (backgrounds, borders and shading are used to convey roles visually). For readers
-					using assistive technologies &#8212; which rely on an understanding of the underlying markup in order to
-					facilitate navigation &#8212; Web-based technologies, like EPUB, have only had limited accessibility
-					because primary and secondary material was often indistinguishable below the visual surface.</p>
-
-				<p>To make ebooks more accessible, you need to consider that many readers will be interacting with the
-					content in non-visual ways, and for that reason the <a href="order.html">logical reading order</a> must
-					be defined at the markup level. To facilitate this discovery, EPUB 3 includes a new
-						<code>epub:type</code> attribute that allows more precise meanings to be applied to the generic tags,
-					a process called <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-semantic-inflection"
-							><em>semantic inflection</em></a>.</p>
-
-				<p>Although critical for accessible navigation, creating semantically-rich data has benefits for all readers.
-					The enabling of specialized behaviors, such as the opening of footnotes, is directly predicated on
-					content being properly identified. Rich data also future-proofs content, both by identifying the original
-					authoring intent, in cases where it may be ambiguous, and by making it simpler to archive and
-					reprocess.</p>
-
-				<div class="note">
-					<p class="label">Note</p>
-					<p>Semantic inflection can only be used to define the nature of structural markup. It is not defined for
-						making associations between your content, a process called <em>semantic enrichment</em>. See the faq
-						for more about the availability of <a href="#faq01">semantic enrichment mechanisms in
-						EPUB</a>.</p>
-				</div>
-
-				<section id="desc-add">
-					<h4>Adding semantics</h4>
-
-					<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document, and it
-						accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
-							Structural Semantics Vocabulary</a> by default.</p>
-
-					<p>For example, the section containing the dedication for the work could be identified as follows:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;section epub:type="dedication">
-   &#8230;
-&lt;section></code></pre>
-
-					<p>The <code class="property">dedication</code> value used in the above example is not just a random
-						string, but is a predictable value that reading systems can expect to encounter across
-						publications.</p>
-
-					<p>Although, in theory, any semantic could be applied to any element, only certain semantics make sense
-						to use on any given tag. Marking an <code>aside</code> element as a footnote is appropriate, for
-						example, but marking a <code>section</code> as a footnote not so much. The Structural Semantics
-						Vocabulary lists the common element(s) each semantic is intended to be used in conjunction with to
-						facilitate this process (although exceptions to the rule may arise).</p>
-
-					<p>You are not limited to making only one statement in the <code>epub:type</code> attribute, either. You
-						could, for example, explicitly note whether a dedication falls in the front or a back matter by
-						including a second space-delimited semantic:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;section epub:type="dedication backmatter">
-   &#8230;
-&lt;section></code></pre>
-
-					<p>Note that the order of the semantics is not important to their processing. Including more than one
-						semantic can affect styling, however. The following CSS rule to match tables of contents:</p>
-
-					<pre class="prettyprint linenums small"><code class="lang-css">section[epub|type='dedication'] {
-   &#8230;
-}</code></pre>
-					<p>would <em>not</em> match the second example, only the first. When using attribute selectors in CSS,
-						you must account for space-separated values by using the <code>~=</code> notation. The following CSS
-						declaration would match <code class="property">dedication</code> in both the preceding markup
-						examples:</p>
-
-					<pre class="prettyprint linenums small"><code class="lang-css">section[epub|type~='dedication'] {
-   &#8230;
-}</code></pre>
-
-					<p>Once a semantic has been defined, the nature of the containing element influences all content defined
-						in it. For example, although the previous example attached the <code class="property"
-							>backmatter</code> semantic to the element containing the dedication, all the back matter
-						sections could be grouped into a parent <code class="property">backmatter</code> section as
-						follows:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;section epub:type="backmatter">
-   &lt;section epub:type="dedication">
-      &#8230;
-   &lt;/section>
-   &lt;section epub:type="index">
-      &#8230;
-   &lt;/section>
-   &#8230;
-&lt;section></code></pre>
-
-					<p>Since front/body/back matter is more of an ephemeral context in which content is used than an actual
-						section of content, a better approach is to include this information on the <code>body</code>
-						tag:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;body epub:type="backmatter">
-   &lt;section epub:type="dedication">
-      &#8230;
-   &lt;/section>
-   &lt;section epub:type="index">
-      &#8230;
-   &lt;/section>
-   &#8230;
-&lt;body></code></pre>
-
-					<p>When processing elements based on their semantics, applications typically will check the entire
-						ancestor chain to determine the applicable relationships.</p>
-				</section>
-
-				<section id="desc-decl">
-					<h4>Declaring the <code>epub</code> namespace</h4>
-
-					<p>When using the <code>epub:type</code> attribute in a content document, the <code>epub</code> namespace
-						must be declared on the element containing the attribute, or on one of its ancestors. The namespace
-						is typically declared once on the root <code>html</code> element, as in the following example:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;html &#8230;
-     xmlns:epub="http://www.idpf.org/2007/ops">
-   &#8230;
-   &lt;dl epub:type="glossary">
-      &#8230;
-   &lt;/dl>
-   &#8230;
-&lt;/html></code></pre>
-
-				</section>
-
-				<section id="desc-custom">
-					<h4>Extended semantics</h4>
-
-					<p>The <code>epub:type</code> attribute is not limited to values defined in the <a
-							href="http://idpf.org/epub/vocab/structure/">EPUB Structural Semantics Vocabulary</a>. Additional
-						terms may be used, whether defined in an RDF vocabulary or not, so long as a unique prefix has been
-						defined in the <code>epub:prefix</code> attribute for them. To use terms from the more expansive <a
-							href="http://www.daisy.org/z3998/2012/vocab/structure/">Z39.98 Structural Semantics
-							Vocabulary</a>, for example, the prefix <code>z3998</code> could be defined as follows:</p>
-
-					<pre class="prettyprint linenums small"><code>&lt;html &#8230;
-     xmlns:epub="http://www.idpf.org/2007/ops"
-     epub:prefix="z3998: http://www.daisy.org/z3998/2012/vocab/structure/#">
-   &#8230;
-   &lt;section epub:type="frontmatter z3998:published-works">
-      &#8230;
-   &lt;/section>
-   &#8230;
-&lt;/html></code></pre>
-
-					<p>The URI associated with a prefix is currently only a unique identifier string; it does not have to
-						resolve to a document. It is recommended that only terms from industry-standard vocabularies and
-						controlled list be used, however, since reading system support for arbitrary values is unlikely (but
-						there is no reason to strip semantics from an internal workflow, for example).</p>
-
-					<div class="note">
-						<p class="label">Note</p>
-						<p>Although the EPUB specification reserves the option to define prefixes for industry-standard
-							vocabularies and controlled lists, none are reserved for content documents at this time.</p>
-					</div>
-				</section>
 			</section>
 
 			<section id="ex">
@@ -219,31 +58,6 @@
 				<figure>
 					<figcaption>Common semantics</figcaption>
 					<dl>
-						<dt id="ex01-cover">Cover</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;body epub:type="cover">
-   &lt;img class="cover-img" src="cover.jpg" alt="Cover Image"/>
-&lt;/body></code></pre>
-						</dd>
-						<dt id="ex01-preface">Preface</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="preface">
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
-						<dt id="ex01-foreword">Foreword</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="foreword">
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
-						<dt id="ex01-part">Part</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="part">
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
-						<dt id="ex01-chapter">Chapter</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="chapter">
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
 						<dt id="ex01-footnote">Footnote and reference</dt>
 						<dd><pre class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a epub:type="noteref" href="#fn01">1&lt;/a>&lt;/p>
 &lt;aside epub:type="footnote">
@@ -252,100 +66,73 @@
 						</dd>
 						<dt id="ex01-endnote">Endnote and reference</dt>
 						<dd><pre class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a epub:type="noteref" href="#en01">1&lt;/a>&lt;/p>
-&lt;aside epub:type="rearnote">
+&lt;aside epub:type="endnote">
    &#8230;
 &lt;/aside></code></pre>
 						</dd>
 						<dt id="ex01-endnotes">Endnotes section</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="rearnotes">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="endnotes">
    &lt;h1>Endnotes&lt;/h1>
    
    &lt;section>
-      &lt;h2>Chapter 1&lt;/h2>
-      &lt;aside epub:type="rearnote">
-         &#8230;
-      &lt;/aside>
-      &#8230;
+	  &lt;h2>Chapter 1&lt;/h2>
+	  &lt;aside epub:type="endnote">
+		 &#8230;
+	  &lt;/aside>
+	  &#8230;
    &lt;/section>
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
-						<dt id="ex01-annotation">Annotation and reference</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;p>
-   &#8230;ipsum.&lt;a epub:type="annoref" href="#a01">1&lt;/a>
-&lt;/p>
-&lt;aside epub:type="annotation">
-   &#8230;
-&lt;/aside></code></pre>
-						</dd>
-						<dt id="ex01-sidebarr">Sidebar</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;aside epub:type="sidebar">
-   &lt;h3>Killer Bee Migration&lt;/h3>
-   &#8230;
-&lt;/aside></code></pre>
-						</dd>
-						<dt id="ex01-glossary">Glossary</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;dl epub:type="glossary">
-   &#8230;
-&lt;/dl></code></pre>
-						</dd>
-						<dt id="ex01-bibliography">Bibliography</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="bibliography">
-   &#8230;
-&lt;/section></code></pre>
-						</dd>
-						<dt id="ex01-index">Index</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section epub:type="index">
    &#8230;
 &lt;/section></code></pre>
 						</dd>
 					</dl>
 				</figure>
 			</section>
-
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Creating semantically-rich data has benefits for all users. The enabling of specialized behaviors, such 
+					as the opening of footnotes, is directly predicated on content being properly identified. Rich data 
+					also future-proofs content, both by identifying the original authoring intent, in cases where it 
+					may be ambiguous, and by making it simpler to archive and reprocess.</p>
+				
+				<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document to add
+					additional semantics. It accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
+						Structural Semantics Vocabulary</a> by default.</p>
+				
+				<p>Only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
+					a footnote is appropriate, for example, but marking a <code>section</code> as a footnote not as much.
+					The Structural Semantics Vocabulary lists the common element(s) each semantic is intended to be used
+					in conjunction with to facilitate this process (although exceptions to the rule may arise).</p>
+				
+			    <div class="note">
+			        <p class="label">Note</p>
+					<p>The <code>epub:type</code> attribute only facilitates reading system behaviors. For more information
+						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
+							<code>role</code> attribute</a>.</p>
+			    	<p>The attribute can be used in conjunction with the <code>role</code> attribute where both accessibility
+			    		and enhanced reading system behaviors overlap.</p>
+			    </div>
+				
+				<div class="note">
+					<p class="label">Note</p>
+					<p>The <code>epub:type</code> attribute is specific to EPUB 3. It serves no function outside this standard.</p>
+				</div>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-content-type-attribute"
 							>The <code>epub:type</code> attribute</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H88.html">H88: Using HTML according to
-							spec</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G115.html">G115: Using semantic elements
-							to mark up structure</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Why not RDFa or microdata?</dt>
-					<dd><p>Support for both RDFa and microdata was added in the 3.0.1 revision, but these metadata frameworks
-							handle semantic enrichment (making the content itself more easily understandable and
-							processable). These technologies do not compete with the <code>epub:type</code> attribute, but
-							complement it.</p>
-					</dd>
-					<dt>What about ARIA role?</dt>
-					<dd>The ARIA role attribute allows a more limited set of semantics to be inflected, but these also
-						enhance the accessibility. You are encouraged to use ARIA semantics where they make sense. The use of
-							<a href="../script/aria.html">ARIA roles for custom controls</a>, for example, is covered later
-						in this guide.</dd>
-					<dt>Can I use microformats for semantics?</dt>
-					<dd><p>Creating meaningful class names for your CSS is certainly encouraged, but reading systems are
-							neither required nor expected to do anything with the <code>class</code> attribute as far as
-							semantic processing goes.</p>
-						<p>Microformats, more generally, are not recommended as they blur the line between content authoring
-							(and styling) and semantic inflection, and appropriate elements and attributes for non-standard
-							uses. This latter use creates problems for accessible processing and rendering of content.</p>
-					</dd>
-				</dl>
 			</section>
 		</section>
 		<footer>
 			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
 				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-		    <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/semantics/epub-type.html">commit log</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/semantics/epub-type.html">commit log</a>.</p>
 			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
 		</footer>
 	</body>

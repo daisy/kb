@@ -1,127 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="utf-8" />
-      <title>Logical Reading Order | Accessible Publishing Knowledge Base</title>
+	  <meta charset="utf-8" />
+	  <title>Logical Reading Order | Accessible Publishing Knowledge Base</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
-      <link type="text/css" rel="stylesheet" href="../../css/kb.css" />
-      <link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
-      <script type="text/javascript" src="../../js/prettify.js"></script>
-      <script type="text/javascript" src="../../js/jquery172min.js"></script>
-      <script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+	  <!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+	  <link type="text/css" rel="stylesheet" href="../../css/kb.css" />
+	  <link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
+	  <script type="text/javascript" src="../../js/prettify.js"></script>
+	  <script type="text/javascript" src="../../js/jquery172min.js"></script>
+	  <script type="text/javascript"> 	// <![CDATA[
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
    </head>
 
    <body>
-      <header>
-         <h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
-         <nav class="breadcrumb">
-            <p>Semantic Markup Practices / Logical Reading Order</p>
-         </nav>
-      </header>
-      <section class="section">
-         <h2>Logical Reading Order</h2>
+	  <header>
+		 <h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
+		 <nav class="breadcrumb">
+			<p>Semantic Markup Practices / Logical Reading Order</p>
+		 </nav>
+	  </header>
+	  <section class="section">
+		 <h2>Logical Reading Order</h2>
 
-			<nav class="breadcrumb">
-				<p><a href="../index.html">KB</a> > <a href="index.html">Semantics</a> > <span>Logical Reading Order</span></p>
-			</nav>
+		<nav class="breadcrumb">
+			<p><a href="../index.html">KB</a> > <a href="index.html">HTML</a> > <span>Logical Reading Order</span></p>
+		</nav>
 
-         <nav class="mini-toc">
-            <h3>In this section:</h3>
-            <ol>
-               <li><a href="#ex">Examples</a></li>
-               <li><a href="#refs">References</a></li>
-               <li><a href="#faq">FAQ</a></li>
-            </ol>
-         </nav>
+		<nav class="mini-toc">
+			<h3>In this section:</h3>
+			<ol>
+				<li><a href="#summary">Summary</a></li>
+				<li><a href="#tech">Techniques</a></li>
+				<li><a href="#ex">Examples</a></li>
+				<li><a href="#desc">Explanation</a></li>
+				<li><a href="#refs">References</a></li>
+			   <li><a href="#faq">FAQ</a></li>
+			</ol>
+		</nav>
 
-			<section id="summary">
-				<h3>Summary</h3>
-				
-				<p>...</p>
-			</section>
+		<section id="summary">
+			<h3>Summary</h3>
 			
-			<section id="tech">
-				<h3>Techniques</h3>
-				
-				<ul>
-					<li>...</li>
-				</ul>
-			</section>
+			<p>...</p>
+		</section>
+		
+		<section id="tech">
+			<h3>Techniques</h3>
 			
-			<section id="desc">
-            <p>Publications typically have a primary narrative that readers are expected to follow from beginning to end, and
-               being able to navigate this dialogue uninterrupted is a key factor in making publications accessible.</p>
+			<ul>
+				<li>...</li>
+				<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G127.html">G127: Identifying a Web page's
+					relationship to a larger collection of Web pages</a></li>
+			</ul>
+		</section>
 
-            <p>There is sometimes no distinction between the narrative and its representation in the markup. A novel, for
-               example, might consist only of sections, headings and paragraphs which are all marked up in order and can be
-               read in order. These cases tend not to be the norm, however, as most publications will have some degree of
-               complexity to their layout.</p>
+		 <section id="ex">
+			<h3>Example</h3>
 
-            <p>More often, publications will include at least some supplementary information, such as footnotes, endnotes,
-               references, sidebars, tables, figures, charts, code samples, warnings, alerts and similar. As this information
-               is interspersed within the content of the body, its markup must inevitably also be interspersed within a
-               content document (e.g., a sidebar may be placed between two paragraphs within a section and the text visually
-               floated around it). If this content is not clearly marked and identifiable as secondary information, readers
-               navigating at the markup level will have the primary narrative interrupted as the reading system attempts to
-               play back the auxiliary content.</p>
-
-            <p>This problem was particularly acute prior to HTML5, as generic <code>div</code> tags we used to group
-               secondary material, which left no way to reliably distinguish its purpose. The result was that readers
-               manually had to try and determine where the content ended in order to continue reading.</p>
-
-            <p>To be accessible to non-visual readers, content must be marked up such that a logical path that excludes the
-               secondary material and orders the primary can be followed: the logical reading order. Rich markup allows
-               secondary materials to be automatically excluded from text-to-speech playback or refreshable braille rendering
-               if the user doesn't want their reading experience interrupted.</p>
-
-            <p>To establish the logical reading order, you need to ensure all of the following:</p>
-
-            <ul>
-               <li>that all complex structures like lists, tables, figures, code samples and the like been properly tagged
-                  using the appropriate structural elements;</li>
-               <li>that the <code>section</code> and <code>aside</code> elements have been appropriately applied to groupings
-                  of primary and secondary content, respectively;</li>
-               <li>that the appropriate semantics have been applied to all elements to disambiguate their use;</li>
-               <li>that the order of content within the markup accurately reflects the natural reading order (i.e., CSS is
-                  not being used to reposition elements in a different sequence for visual readers than can be found in the
-                  markup);</li>
-               <li>that JavaScript is not required to be enabled in order to read a document from beginning to end (e.g.,
-                  scripted links, if present, only enhance standard links, interactive puzzles and games are not required to
-                  be solved to move on, etc.).</li>
-            </ul>
-
-            <p>Although creating the logical reading order is not a complicated requirement, it typically requires manual
-               inspection of your markup. The determination of which content is primary to the narrative flow and which
-               secondary can only be reliably determined by a human, so a successful validation report from a tool like <a
-                  href="http://code.google.com/p/epubcheck/">epubcheck</a>, while helpful, is only a good start.</p>
-
-         </section>
-
-         <section id="ex">
-            <h3>Example</h3>
-
-            <figure>
-               <figcaption>Example 1 &#8212; Semantic markup to enable the discovery of the logical reading
-                  order</figcaption>
-               <p>The narrative flow in the following textbook excerpt is obvious to sighted readers who can distinguish the
-                  images and sidebar it flows around from visual cues.</p>
-               <img src="../../graphics/order.jpg"
-                  alt="Sample textbook page showing figures and asides surrounding the narrative" />
-               <p>The logical reading order would be established using <code>figure</code> tags to offset the images and an
-                     <code>aside</code> for the sidebar, as in the following markup:</p>
-               <pre class="prettyprint linenums"><code>&lt;div epub:type="pagebreak">43&lt;/div>
+			<figure>
+			   <figcaption>Example 1 &#8212; Semantic markup to enable the discovery of the logical reading
+				  order</figcaption>
+			   <p>The narrative flow in the following textbook excerpt is obvious to sighted users who can distinguish the
+				  images and sidebar it flows around from visual cues.</p>
+			   <img src="../../graphics/order.jpg"
+				  alt="Sample textbook page showing figures and asides surrounding the narrative" />
+			   <p>The logical reading order would be established using <code>figure</code> tags to offset the images and an
+					 <code>aside</code> for the sidebar, as in the following markup:</p>
+			   <pre class="prettyprint linenums"><code>&lt;div epub:type="pagebreak">43&lt;/div>
 
 &lt;figure>
    &lt;img src="img01.jpg" alt="&#8230;"/>
    &lt;figcaption>
-      Figure 2.2: Neurons transmit information to 
-      other neurons. Information passes from the 
-      axon of the presynaptic neuron to the 
-      dendrites of the postsynaptic neuron.
+	  Figure 2.2: Neurons transmit information to 
+	  other neurons. Information passes from the 
+	  axon of the presynaptic neuron to the 
+	  dendrites of the postsynaptic neuron.
    &lt;/figcaption>
 &lt;/figure>
 
@@ -156,19 +112,19 @@
 &lt;figure>
    &lt;img src="img02.png" alt="&#8230;"/>
    &lt;figcaption>
-      Figure 2.3: The synapse is the site where 
-      chemical signals pass between neurons. 
-      Neurotransmitters are released from the 
-      presynaptic neuron terminals into the 
-      extracellular space, the synaptic cleft or 
-      synaptic space. The released neurotransmitter
-      molecules can then bind to specific receptors 
-      on the postsynaptic neuron to elicit a 
-      response. Excess neurotransmitter can then be 
-      reabsorbed into the presynaptic neuron through 
-      the action of specific reuptake molecules 
-      called transporters. This process ensures that 
-      the signal is terminated when appropriate.
+	  Figure 2.3: The synapse is the site where 
+	  chemical signals pass between neurons. 
+	  Neurotransmitters are released from the 
+	  presynaptic neuron terminals into the 
+	  extracellular space, the synaptic cleft or 
+	  synaptic space. The released neurotransmitter
+	  molecules can then bind to specific receptors 
+	  on the postsynaptic neuron to elicit a 
+	  response. Excess neurotransmitter can then be 
+	  reabsorbed into the presynaptic neuron through 
+	  the action of specific reuptake molecules 
+	  called transporters. This process ensures that 
+	  the signal is terminated when appropriate.
    &lt;/figcaption>
 &lt;/figure>
 
@@ -199,38 +155,38 @@
 
 &lt;ul>
    &lt;li>
-      support elements in the nervous system, 
-      providing structure and separating and 
-      insulating groups of neurons;
+	  support elements in the nervous system, 
+	  providing structure and separating and 
+	  insulating groups of neurons;
    &lt;/li>
    &lt;li>
-      oligodendrocytes in the central nervous 
-      system and Schwann cells in the peripheral 
-      nervous system, which form myelin, the sheath 
-      that wraps around certain axons;
+	  oligodendrocytes in the central nervous 
+	  system and Schwann cells in the peripheral 
+	  nervous system, which form myelin, the sheath 
+	  that wraps around certain axons;
    &lt;/li>
    &lt;li>
-      scavengers that remove debris after injury 
-      or neuronal death;
+	  scavengers that remove debris after injury 
+	  or neuronal death;
    &lt;/li>
    &lt;li>
-      helpers in regulating the potassium ion 
-      (K<sup>+</sup>) concentration in the 
-      extracellular space and taking up and 
-      removing chemical neurotransmitters from 
-      the extracellular space after synaptic 
-      transmission;
+	  helpers in regulating the potassium ion 
+	  (K<sup>+</sup>) concentration in the 
+	  extracellular space and taking up and 
+	  removing chemical neurotransmitters from 
+	  the extracellular space after synaptic 
+	  transmission;
    &lt;/li>
    &lt;li>
-      guides for the migration of neurons and for 
-      the outgrowth of axons during development; and
+	  guides for the migration of neurons and for 
+	  the outgrowth of axons during development; and
    &lt;/li>
    &lt;li>
-      inducers of the formation of impermeable tight 
-      junctions in endothelial cells that line the 
-      capillaries and venules of the brain to form 
-      the blood-brain barrier.&lt;a epub:type="noteref"
-      href="#fn03">3&lt;/a>
+	  inducers of the formation of impermeable tight 
+	  junctions in endothelial cells that line the 
+	  capillaries and venules of the brain to form 
+	  the blood-brain barrier.&lt;a epub:type="noteref"
+	  href="#fn03">3&lt;/a>
    &lt;/li>	
 &lt;/ul>
 
@@ -238,89 +194,137 @@
    &lt;h3>The Blood-Brain Barrier&lt;/h3>
    
    &lt;p>
-      The blood-brain barrier protects the neurons 
-      and glial cells in the brain from substances 
-      that could harm them. Endothelial cells that 
-      form the capillaries and venules make this 
-      barrier, forming impermeable tight junctions.
+	  The blood-brain barrier protects the neurons 
+	  and glial cells in the brain from substances 
+	  that could harm them. Endothelial cells that 
+	  form the capillaries and venules make this 
+	  barrier, forming impermeable tight junctions.
    &lt;/p> 
    
    &lt;p>
-      Astrocytes surround the endothelial cells 
-      and induce them to form these junctions. 
-      Unlike blood vessels in other parts of the 
-      body that are relatively leaky to a variety 
-      of molecules, the blood-brain barrier keeps 
-      many substances, including toxins, away from 
-      the neurons and glia.
+	  Astrocytes surround the endothelial cells 
+	  and induce them to form these junctions. 
+	  Unlike blood vessels in other parts of the 
+	  body that are relatively leaky to a variety 
+	  of molecules, the blood-brain barrier keeps 
+	  many substances, including toxins, away from 
+	  the neurons and glia.
    &lt;/p>
    
    &lt;p>
-      Most drugs do not get into the brain. Only 
-      drugs that are fat soluble can penetrate the 
-      blood-brain barrier. These include drugs of 
-      abuse as well as drugs that treat mental 
-      and neurological illness. The blood-brain 
-      barrier is important for maintaining the 
-      environment of neurons in the brain, but it 
-      also presents challenges for scientists who 
-      are investigating new treatments for brain 
-      disorders. If a medication cannot get into 
-      the brain, it cannot be effective. 
-      Researchers attempt to circumvent the 
-      problems in different ways. Some techniques 
-      alter the structure of the drug to make it 
-      more lipid soluble. Other strategies attach 
-      potential therapeutic agents to molecules 
-      that pass through the blood-brain barrier,
-      while others attempt to open the blood-brain 
-      barrier.&lt;a epub:type="noteref"
-      href="#fn04">4&lt;/a>
+	  Most drugs do not get into the brain. Only 
+	  drugs that are fat soluble can penetrate the 
+	  blood-brain barrier. These include drugs of 
+	  abuse as well as drugs that treat mental 
+	  and neurological illness. The blood-brain 
+	  barrier is important for maintaining the 
+	  environment of neurons in the brain, but it 
+	  also presents challenges for scientists who 
+	  are investigating new treatments for brain 
+	  disorders. If a medication cannot get into 
+	  the brain, it cannot be effective. 
+	  Researchers attempt to circumvent the 
+	  problems in different ways. Some techniques 
+	  alter the structure of the drug to make it 
+	  more lipid soluble. Other strategies attach 
+	  potential therapeutic agents to molecules 
+	  that pass through the blood-brain barrier,
+	  while others attempt to open the blood-brain 
+	  barrier.&lt;a epub:type="noteref"
+	  href="#fn04">4&lt;/a>
    &lt;/p>
 &lt;/aside>
 </code></pre>
-            </figure>
-         </section>
+			</figure>
+		 </section>
+	  	
+	  	<section id="desc">
+	  		<h3>Explanation</h3>
+	  		<p>Publications typically have a primary narrative that users are expected to follow from beginning to end, and
+	  			being able to navigate this dialogue uninterrupted is a key factor in making publications accessible.</p>
+	  		
+	  		<p>There is sometimes no distinction between the narrative and its representation in the markup. A novel, for
+	  			example, might consist only of sections, headings and paragraphs which are all marked up in order and can be
+	  			read in order. These cases tend not to be the norm, however, as most publications will have some degree of
+	  			complexity to their layout.</p>
+	  		
+	  		<p>More often, publications will include at least some supplementary information, such as footnotes, endnotes,
+	  			references, sidebars, tables, figures, charts, code samples, warnings, alerts and similar. As this information
+	  			is interspersed within the content of the body, its markup must inevitably also be interspersed within a
+	  			content document (e.g., a sidebar may be placed between two paragraphs within a section and the text visually
+	  			floated around it). If this content is not clearly marked and identifiable as secondary information, users
+	  			navigating at the markup level will have the primary narrative interrupted as the reading system attempts to
+	  			play back the auxiliary content.</p>
+	  		
+	  		<p>This problem was particularly acute prior to HTML5, as generic <code>div</code> tags we used to group
+	  			secondary material, which left no way to reliably distinguish its purpose. The result was that users
+	  			manually had to try and determine where the content ended in order to continue reading.</p>
+	  		
+	  		<p>To be accessible to non-visual users, content must be marked up such that a logical path that excludes the
+	  			secondary material and orders the primary can be followed: the logical reading order. Rich markup allows
+	  			secondary materials to be automatically excluded from text-to-speech playback or refreshable braille rendering
+	  			if the user doesn't want their reading experience interrupted.</p>
+	  		
+	  		<p>To establish the logical reading order, you need to ensure all of the following:</p>
+	  		
+	  		<ul>
+	  			<li>that all complex structures like lists, tables, figures, code samples and the like been properly tagged
+	  				using the appropriate structural elements;</li>
+	  			<li>that the <code>section</code> and <code>aside</code> elements have been appropriately applied to groupings
+	  				of primary and secondary content, respectively;</li>
+	  			<li>that the appropriate semantics have been applied to all elements to disambiguate their use;</li>
+	  			<li>that the order of content within the markup accurately reflects the natural reading order (i.e., CSS is
+	  				not being used to reposition elements in a different sequence for visual users than can be found in the
+	  				markup);</li>
+	  			<li>that JavaScript is not required to be enabled in order to read a document from beginning to end (e.g.,
+	  				scripted links, if present, only enhance standard links, interactive puzzles and games are not required to
+	  				be solved to move on, etc.).</li>
+	  		</ul>
+	  		
+	  		<p>Although creating the logical reading order is not a complicated requirement, it typically requires manual
+	  			inspection of your markup. The determination of which content is primary to the narrative flow and which
+	  			secondary can only be reliably determined by a human, so a successful validation report from a tool like <a
+	  				href="http://code.google.com/p/epubcheck/">epubcheck</a>, while helpful, is only a good start.</p>
+	  		
+	  	</section>
+	  	
+		<section id="refs">
+			<h3>References</h3>
 
-         <section id="refs">
-            <h3>References</h3>
+			<ul>
+				<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-content-type-attribute">The
+					<code>epub:type</code> attribute</a></li>
+			</ul>
+		 </section>
 
-            <ul>
-               <li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-content-type-attribute">The
-                        <code>epub:type</code> attribute</a></li>
-               <li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/H88.html">H88: Using HTML according to
-                     spec</a></li>
-            </ul>
-         </section>
+		 <section id="faq" class="faq">
+			<h3>Frequently Asked Questions</h3>
 
-         <section id="faq" class="faq">
-            <h3>Frequently Asked Questions</h3>
-
-            <dl class="faq">
-               <dt>Why does the logical reading order matter?</dt>
-               <dd><p>Consider how someone reading using a text-to-speech engine interacts with your publication. They are
-                     navigating at the markup level, moving from structure to structure and hearing the prose rendered at
-                     each step. That's fine, but now picture having no information about the structure you've just reached.
-                     Are you going to the next paragraph, or is a footnote suddenly going to be read back? Did the last
-                     section end or did you just jump into a sidebar?</p>
-                  <p>Without structure and semantics, there's no way to easily move from one structure to the next. Where
-                     does the sidebar marked as a <code>div</code> end and the next paragraph continue? These questions left
-                     to the reader to puzzle out, leaving them manually navigating the publication to fit together the
-                     elusive reading order from the generic markup. It's also why semantically meaningless markup ruins the
-                     reading experience, if not makes it downright impossible.</p>
-               </dd>
-               <dt>How does semantic markup facilitate reading?</dt>
-               <dd><p>Accessible reading systems typically provide the option for readers to select elements to ignore.
-                     Semantic markup eases this process of identifying and skipping non-essential content. A reader may still
-                     choose to render secondary content as it occurs, but it becomes their choice again, and no longer a
-                     burden to navigate through or around as desired.</p></dd>
-            </dl>
-         </section>
-      </section>
-      <footer>
+			<dl class="faq">
+			   <dt>Why does the logical reading order matter?</dt>
+			   <dd><p>Consider how someone reading using a text-to-speech engine interacts with your publication. They are
+					 navigating at the markup level, moving from structure to structure and hearing the prose rendered at
+					 each step. That's fine, but now picture having no information about the structure you've just reached.
+					 Are you going to the next paragraph, or is a footnote suddenly going to be read back? Did the last
+					 section end or did you just jump into a sidebar?</p>
+				  <p>Without structure and semantics, there's no way to easily move from one structure to the next. Where
+					 does the sidebar marked as a <code>div</code> end and the next paragraph continue? These questions left
+					 to the user to puzzle out, leaving them manually navigating the publication to fit together the
+					 elusive reading order from the generic markup. It's also why semantically meaningless markup ruins the
+					 reading experience, if not makes it downright impossible.</p>
+			   </dd>
+			   <dt>How does semantic markup facilitate reading?</dt>
+			   <dd><p>Accessible reading systems typically provide the option for users to select elements to ignore.
+					 Semantic markup eases this process of identifying and skipping non-essential content. A user may still
+					 choose to render secondary content as it occurs, but it becomes their choice again, and no longer a
+					 burden to navigate through or around as desired.</p></dd>
+			</dl>
+		 </section>
+	  </section>
+	  <footer>
 			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
 				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-          <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/semantics/order.html">commit log</a>.</p>
+		  <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/semantics/order.html">commit log</a>.</p>
 			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
 		</footer>
    </body>

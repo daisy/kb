@@ -1,145 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Accessible Publishing Knowledge Base</title>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Accessible Publishing Knowledge Base</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
-        <link type="text/css" rel="stylesheet" href="../css/kb.css" />
-        <link type="text/css" rel="stylesheet" href="../css/nav.css" />
-    </head>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../css/nav.css" />
+	</head>
 
-    <body>
-        <header>
-            <h1><img class="logo" src="../graphics/daisy_logo.png" alt="DAISY"/> Accessible Publishing Knowledge Base</h1>
-        </header>
-        <nav role="doc-toc" id="toc">
-            <h2>Topics</h2>
-            <section>
-                <h3>HTML</h3>
-                <ol>
-                    <li id="html-accesskeys"><a href="html/accesskeys.html">Access Keys</a></li>
-                    <li id="html-annotations"><a href="html/annotations.html">Annotations</a></li>
-                    <li id="html-role"><a href="html/role.html">ARIA <code>role</code> attribute</a></li>
-                    <li id="html-audio"><a href="html/audio.html">Audio</a></li>
-                    <li id="html-bibliographies"><a href="html/biblio.html">Bibliographies</a></li>
-                    <li id="html-emphasis"><a href="html/emphasis.html">Bolding and Italics</a></li>
-                    <li id="html-context"><a href="html/context.html">Context Breaks</a></li>
-                    <li id="html-descriptions"><a href="html/descriptions.html">Descriptions</a></li>
-                    <li id="epub-type"><a href="html/epub-type.html"><code>epub:type</code> attribute</a></li>
-                    <li id="html-figures"><a href="html/figures.html">Figures</a></li>
-                    <li id="html-notes"><a href="html/notes.html">Footnotes and Endnotes</a></li>
-                    <li id="html-headings"><a href="html/headings.html">Headings</a></li>
-                    <li id="html-ids"><a href="html/ids.html">Identifiers</a></li>
-                    <li id="html-image-maps"><a href="html/maps.html">Image Maps</a></li>
-                    <li id="html-images"><a href="html/images.html">Images</a></li>
-                    <li id="html-iframes"><a href="html/iframes.html">Inline Frames</a></li>
-                    <li id="html-forms"><a href="html/controls.html">Form Controls</a></li>
-                    <li id="html-lang"><a href="html/lang.html">Language</a></li>
-                    <li id="html-links"><a href="html/links.html">Links</a></li>
-                    <li id="html-reading-order"><a href="html/order.html">Logical Reading Order</a></li>
-                    <li id="html-meta"><a href="html/meta.html">Meta</a></li>
-                    <li id="html-object"><a href="html/object.html">Object</a></li>
-                    <li id="html-pagenum"><a href="html/pagenum.html">Page Numbers</a></li>
-                    <li id="html-title"><a href="html/title.html">Page Title</a></li>
-                    <li id="html-sections"><a href="html/sections.html">Parts, Chapters and Sections</a></li>
-                    <li id="html-sep-style"><a href="html/separation.html">Separation of Style</a></li>
-                    <li id="html-tables"><a href="html/tables.html">Tables</a></li>
-                    <li id="html-lists"><a href="html/lists.html">Lists</a></li>
-                    <li id="html-video"><a href="html/video.html">Video</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>CSS</h3>
-                <ol>
-                    <li id="css-backgrounds"><a href="css/backgrounds.html">Background Images</a></li>
-                    <li id="css-color"><a href="css/color.html">Color</a></li>
-                    <li id="css-ref"><a href="css/reference.html">CSS Property Reference</a></li>
-                    <li id="css-hidden"><a href="css/hidden.html">Hidden Content</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>Scripting</h3>
-                <ol>
-                    <li id="script-wai-aria"><a href="script/aria.html">ARIA</a></li>
-                    <li id="script-canvas"><a href="script/canvas.html">Canvas</a></li>
-                    <li id="script-validity"><a href="script/valid.html">Content Validity</a></li>
-                    <li id="script-forms"><a href="script/forms.html">Forms</a></li>
-                    <li id="script-pe"><a href="script/pe.html">Progressive Enhancement</a></li>
-                </ol>
-            </section>
-            <!--
-            <section>
-                <h3>MathML</h3>
-                <ol>
-                    <li id="mathml-desc"><a href="mathml/desc.html">Descriptions</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>SVG</h3>
-                <ol>
-                    <li id="svg-components"><a href="svg/components.html">Components</a></li>
-                    <li id="svg-interactivity"><a href="svg/script.html">Interactivity</a></li>
-                    <li id="svg-lang"><a href="svg/lang.html">Language</a></li>
-                    <li id="svg-linking"><a href="svg/linking.html">Linking</a></li>
-                    <li id="svg-style"><a href="svg/css.html">Styling</a></li>
-                    <li id="svg-text"><a href="svg/text.html">Text Content</a></li>
-                    <li id="svg-desc"><a href="svg/desc.html">Titles and Descriptions</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>Fixed Layouts</h3>
-                <ol>
-                    <li id="fxl-html"><a href="fxl/html.html">HTML</a></li>
-                    <li id="fxl-image"><a href="fxl/img.html">Image</a></li>
-                </ol>
-            </section>
-            -->
-            <section>
-                <h3>Navigation</h3>
-                <ol>
-                    <li id="nav-landmarks"><a href="nav/landmarks.html">Landmarks</a></li>
-                    <li id="nav-loi"><a href="nav/loi.html">List of Illustrations</a></li>
-                    <li id="nav-lot"><a href="nav/lot.html">List of Tables</a></li>
-                    <li id="nav-pagelist"><a href="nav/pagelist.html">Page List</a></li>
-                    <li id="nav-toc"><a href="nav/toc.html">Table of Contents</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>Metadata</h3>
-                <ol>
-                    <li id="meta-onix"><a href="meta/onix.html">ONIX Code List 196</a></li>
-                    <li id="meta-schema.org"><a href="meta/schema.org.html">Schema.org</a></li>
-                </ol>
-            </section>
-            <!--
-            <section>
-                <h3>Media Overlays</h3>
-                <ol>
-                    <li id="mo-overview"><a href="overlays/overview.html">Overview</a></li>
-                    <li id="mo-highlight"><a href="overlays/hilite.html">Highlighting</a></li>
-                    <li id="mo-lists"><a href="overlays/lists.html">Lists</a></li>
-                    <li id="mo-tables"><a href="overlays/tables.html">Tables</a></li>
-                </ol>
-            </section>
-            <section>
-                <h3>Text-to-Speech</h3>
-                <ol>
-                    <li id="tts-overview"><a href="tts/overview.html">Overview</a></li>
-                    <li id="tts-speech"><a href="tts/speech.html">CSS3 Speech</a></li>
-                    <li id="tts-pls"><a href="tts/pls.html">PLS Lexicons</a></li>
-                    <li id="tts-ssml"><a href="tts/ssml.html">SSML</a></li>
-                </ol>
-            </section>
-            -->
-        </nav>
-        <footer>
-            <p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br />To
-                report typos, errors and omissions, please open an issue in the <a
-                    href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-            <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master"
-                    >commit log</a>.</p>
-            <p><a href="http://daisy.org/terms-use">Terms of Use</a></p>
-        </footer>
-    </body>
+	<body>
+		<header>
+			<h1><img class="logo" src="../graphics/daisy_logo.png" alt="DAISY"/> Accessible Publishing Knowledge Base</h1>
+		</header>
+		<nav role="doc-toc" id="toc">
+			<h2>Topics</h2>
+			<section>
+				<h3>HTML</h3>
+				<ol>
+					<li id="html-accesskeys"><a href="html/accesskeys.html">Access Keys</a></li>
+					<li id="html-role"><a href="html/roles.html">ARIA <code>role</code> attribute</a></li>
+					<li id="html-audio"><a href="html/audio.html">Audio</a></li>
+					<li id="html-emphasis"><a href="html/emphasis.html">Bolding and Italics</a></li>
+					<li id="html-context"><a href="html/context.html">Context Breaks</a></li>
+					<li id="epub-type"><a href="html/epub-type.html">EPUB <code>type</code> attribute</a></li>
+					<li id="html-notes"><a href="html/notes.html">Footnotes and Endnotes</a></li>
+					<li id="html-headings"><a href="html/headings.html">Headings</a></li>
+					<li id="html-ids"><a href="html/ids.html">Identifiers</a></li>
+					<li id="html-image-maps"><a href="html/maps.html">Image Maps</a></li>
+					<li id="html-images"><a href="html/images.html">Images</a></li>
+					<li id="html-iframes"><a href="html/iframes.html">Inline Frames</a></li>
+					<li id="html-forms"><a href="html/controls.html">Form Controls</a></li>
+					<li id="html-lang"><a href="html/lang.html">Language</a></li>
+					<li id="html-links"><a href="html/links.html">Links</a></li>
+					<li id="html-reading-order"><a href="html/order.html">Logical Reading Order</a></li>
+					<li id="html-meta"><a href="html/meta.html">Meta</a></li>
+					<li id="html-object"><a href="html/object.html">Object</a></li>
+					<li id="html-pagenum"><a href="html/pagenum.html">Page Numbers</a></li>
+					<li id="html-title"><a href="html/title.html">Page Title</a></li>
+					<li id="html-sections"><a href="html/sections.html">Parts, Chapters and Sections</a></li>
+					<li id="html-sep-style"><a href="html/separation.html">Separation of Style</a></li>
+					<li id="html-tables"><a href="html/tables.html">Tables</a></li>
+					<li id="html-lists"><a href="html/lists.html">Lists</a></li>
+					<li id="html-video"><a href="html/video.html">Video</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>CSS</h3>
+				<ol>
+					<li id="css-backgrounds"><a href="css/backgrounds.html">Background Images</a></li>
+					<li id="css-color"><a href="css/color.html">Color</a></li>
+					<li id="css-ref"><a href="css/reference.html">CSS Property Reference</a></li>
+					<li id="css-hidden"><a href="css/hidden.html">Hidden Content</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>Scripting</h3>
+				<ol>
+					<li id="script-wai-aria"><a href="script/aria.html">ARIA</a></li>
+					<li id="script-canvas"><a href="script/canvas.html">Canvas</a></li>
+					<li id="script-validity"><a href="script/valid.html">Content Validity</a></li>
+					<li id="script-forms"><a href="script/forms.html">Forms</a></li>
+					<li id="script-pe"><a href="script/pe.html">Progressive Enhancement</a></li>
+				</ol>
+			</section>
+			<!--
+			<section>
+				<h3>MathML</h3>
+				<ol>
+					<li id="mathml-desc"><a href="mathml/desc.html">Descriptions</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>SVG</h3>
+				<ol>
+					<li id="svg-components"><a href="svg/components.html">Components</a></li>
+					<li id="svg-interactivity"><a href="svg/script.html">Interactivity</a></li>
+					<li id="svg-lang"><a href="svg/lang.html">Language</a></li>
+					<li id="svg-linking"><a href="svg/linking.html">Linking</a></li>
+					<li id="svg-style"><a href="svg/css.html">Styling</a></li>
+					<li id="svg-text"><a href="svg/text.html">Text Content</a></li>
+					<li id="svg-desc"><a href="svg/desc.html">Titles and Descriptions</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>Fixed Layouts</h3>
+				<ol>
+					<li id="fxl-html"><a href="fxl/html.html">HTML</a></li>
+					<li id="fxl-image"><a href="fxl/img.html">Image</a></li>
+				</ol>
+			</section>
+			-->
+			<section>
+				<h3>Navigation</h3>
+				<ol>
+					<li id="nav-landmarks"><a href="nav/landmarks.html">Landmarks</a></li>
+					<li id="nav-loi"><a href="nav/loi.html">List of Illustrations</a></li>
+					<li id="nav-lot"><a href="nav/lot.html">List of Tables</a></li>
+					<li id="nav-pagelist"><a href="nav/pagelist.html">Page List</a></li>
+					<li id="nav-toc"><a href="nav/toc.html">Table of Contents</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>Metadata</h3>
+				<ol>
+					<li id="meta-onix"><a href="meta/onix.html">ONIX Code List 196</a></li>
+					<li id="meta-schema.org"><a href="meta/schema.org.html">Schema.org</a></li>
+				</ol>
+			</section>
+			<!--
+			<section>
+				<h3>Media Overlays</h3>
+				<ol>
+					<li id="mo-overview"><a href="overlays/overview.html">Overview</a></li>
+					<li id="mo-highlight"><a href="overlays/hilite.html">Highlighting</a></li>
+					<li id="mo-lists"><a href="overlays/lists.html">Lists</a></li>
+					<li id="mo-tables"><a href="overlays/tables.html">Tables</a></li>
+				</ol>
+			</section>
+			<section>
+				<h3>Text-to-Speech</h3>
+				<ol>
+					<li id="tts-overview"><a href="tts/overview.html">Overview</a></li>
+					<li id="tts-speech"><a href="tts/speech.html">CSS3 Speech</a></li>
+					<li id="tts-pls"><a href="tts/pls.html">PLS Lexicons</a></li>
+					<li id="tts-ssml"><a href="tts/ssml.html">SSML</a></li>
+				</ol>
+			</section>
+			-->
+		</nav>
+		<footer>
+			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br />To
+				report typos, errors and omissions, please open an issue in the <a
+					href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master"
+					>commit log</a>.</p>
+			<p><a href="http://daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
 </html>

@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -53,7 +53,7 @@
 				<p>PLS lexicons provide control over the text-to-speech (TTS) playback rendering on conforming reading
 					systems. A lexicon file is like a dictionary or look-up guide, allowing the pronunciations defined in it
 					to be used in place of the default rendering when matching words are encountered. Defining words in a
-					lexicon ensures that readers hear your work played back as expected, not based on the heuristics applied
+					lexicon ensures that users hear your work played back as expected, not based on the heuristics applied
 					by the TTS engine on their reading system.</p>
 
 				<p>Each PLS lexicon is an XML file with a root <code>lexicon</code> element. Lexicons are comprised of one or
@@ -95,8 +95,8 @@
   xml:lang="en"
   xmlns="http://www.w3.org/2005/01/pronunciation-lexicon">
    &lt;lexeme>
-      &lt;grapheme>acetaminophen&lt;/grapheme>
-      &lt;phoneme>@"sit@'mIn@f@n&lt;/phoneme>
+	  &lt;grapheme>acetaminophen&lt;/grapheme>
+	  &lt;phoneme>@"sit@'mIn@f@n&lt;/phoneme>
    &lt;/lexeme>
 &lt;/lexicon></code></pre>
 				</figure>
@@ -140,27 +140,27 @@
 				<figure>
 					<figcaption>Example 6 &#8212; Adding a PLS lexicon to the manifest</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;item
-      id="pls"
-      href="#EPUB/lexicon.pls"
-      media-type="application/pls+xml"/></code></pre>
+	  id="pls"
+	  href="#EPUB/lexicon.pls"
+	  media-type="application/pls+xml"/></code></pre>
 				</figure>
 
 				<figure>
 					<figcaption>Example 7 &#8212; Linking PLS lexicons to a content document</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html … xml:lang="en">
    &lt;head>
-      &#8230;
-      &lt;link
-         rel="pronunciation"
-         href="#lex/en.pls"
-         type="application/pls+xml"
-         hreflang="en" />
-      &lt;link
-         rel="pronunciation"
-         href="#lex/fr.pls"
-         type="application/pls+xml"
-         hreflang="fr" />
-      &#8230;
+	  &#8230;
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en.pls"
+		 type="application/pls+xml"
+		 hreflang="en" />
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/fr.pls"
+		 type="application/pls+xml"
+		 hreflang="fr" />
+	  &#8230;
    &lt;/head>
    &#8230;
 &lt;/html></code></pre>
@@ -220,17 +220,17 @@
 							the other way around).</p>
 					</dd>
 					<dt>Are there any dangers in mixing languages?</dt>
-					<dd><p>Yes, if the rendering engine does not support voicing the specified language, the reader may get
+					<dd><p>Yes, if the rendering engine does not support voicing the specified language, the user may get
 							an error or the text may be silently skipped. Error handling in such situations cannot be
 							guaranteed. Language-specific lexicons will typically not be loaded.</p></dd>
 					<dt>Can I add localizations?</dt>
 					<dd><p>Not within a single PLS file. The <code>phoneme</code> element does not allow an
 								<code>xml:lang</code> to be attached to it. Multiple localized lexicons could be attached to
-							a content document that only specifies the stem language code, so that the reader's localization
+							a content document that only specifies the stem language code, so that the user's localization
 							preference setting can be used to determine the proper lexicon to apply (e.g., the content
 							document specifies it is <code>en</code> and the lexicons specify <code>en-US</code> and
 								<code>en-GB</code>).</p>
-						<p>Care should be taken not to exclude readers by specifying localizations. If a reading system does
+						<p>Care should be taken not to exclude users by specifying localizations. If a reading system does
 							not include a voice that can handle the localizations, the lexicon will not be loaded.</p>
 						<p>A better solution is to define one lexicon for all reading systems that can handle the
 							region-independent language. If the publication is written in US English, for example, it would
@@ -238,22 +238,22 @@
 							specify a locale only for targeted regions:</p>
 						<pre class="prettyprint linenums"><code>&lt;html … xml:lang="en">
    &lt;head>
-      &#8230;
-      &lt;link
-         rel="pronunciation"
-         href="#lex/en.pls"
-         type="application/pls+xml"
-         hreflang="en" />
-      &lt;link
-         rel="pronunciation"
-         href="#lex/en-GB.pls"
-         type="application/pls+xml"
-         hreflang="en-GB" />
-      &#8230;
+	  &#8230;
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en.pls"
+		 type="application/pls+xml"
+		 hreflang="en" />
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en-GB.pls"
+		 type="application/pls+xml"
+		 hreflang="en-GB" />
+	  &#8230;
    &lt;/head>
    &#8230;
 &lt;/html></code></pre>
-						<p>This way any reader with an English-language reading system will at least hear the correct US
+						<p>This way any user with an English-language reading system will at least hear the correct US
 							pronunciations.</p>
 					</dd>
 					<dt>Should I use PLS lexicons or SSML?</dt>

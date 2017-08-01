@@ -8,16 +8,16 @@
 		<link type="text/css" rel="stylesheet" href="../../css/kb.css" />
 		<style type="text/css">
 			dt{
-			    font-weight: bold;
-			    font-size: 95%;
+				font-weight: bold;
+				font-size: 95%;
 			}</style>
 		<link type="text/css" rel="stylesheet" href="../../css/prettify.css" />
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -77,7 +77,7 @@
 					<dd><p>This criteria is not specific to EPUB 3. The enabling or disabling of accessibility features lies
 							with content producers (for example, DRM restrictions). To meet the criteria, do not bundle or
 							distribute your publications with restrictions on them that would disable access to the content
-							by screen readers, etc.</p>
+							by screen users, etc.</p>
 						<pre class="prettyprint linenums"><code>&lt;ProductFormFeature>
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>10&lt;/ProductFormFeatureValue>
@@ -215,7 +215,7 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>94&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    http://standards-org.example.com/book/123/compliance
+	http://standards-org.example.com/book/123/compliance
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -228,7 +228,7 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>95&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    http://intermediary.example.com/book/123/compliance
+	http://intermediary.example.com/book/123/compliance
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -240,7 +240,7 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>96&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    http://publisher.example.com/book/123/compliance
+	http://publisher.example.com/book/123/compliance
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -252,9 +252,9 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>97&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    Content has been tested to work on iBooks,
-    Sony Reader and Adobe Digital Editions in 
-    both scripting enabled and disabled modes.
+	Content has been tested to work on iBooks,
+	Sony User and Adobe Digital Editions in 
+	both scripting enabled and disabled modes.
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -268,7 +268,7 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>98&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    accessinfo@global-library.example.com
+	accessinfo@global-library.example.com
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -280,7 +280,7 @@
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>99&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
-    accessibility-officer@example.com
+	accessibility-officer@example.com
  &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
@@ -294,33 +294,33 @@
 					<figcaption>Example 1 &#8212; Sample ONIX message featuring accessibility information</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;ONIXMessage release="3.0">
   &lt;Header>
-    &#8230;
+	&#8230;
   &lt;/Header>
   &lt;Product>
-    &#8230;
-    &lt;DescriptiveDetail>
-      &lt;ProductFormFeature>
-        &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-        &lt;ProductFormFeatureValue>10&lt;/ProductFormFeatureValue>
-      &lt;/ProductFormFeature>
-      &lt;ProductFormFeature>
-        &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-        &lt;ProductFormFeatureValue>11&lt;/ProductFormFeatureValue>
-      &lt;/ProductFormFeature>
-      &lt;ProductFormFeature>
-        &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-        &lt;ProductFormFeatureValue>13&lt;/ProductFormFeatureValue>
-      &lt;/ProductFormFeature>
-    &lt;/DescriptiveDetail>
-    &#8230;
-    &lt;TitleDetail>
-      &lt;TitleType>01&lt;/TitleType>
-      &lt;TitleElement>
-        &lt;TitleElementLevel>01&lt;/TitleElementLevel>
-        &lt;TitleText>Accessible EPUB 3&lt;/TitleText>
-      &lt;/TitleElement>
-    &lt;/TitleDetail>
-    &#8230;
+	&#8230;
+	&lt;DescriptiveDetail>
+	  &lt;ProductFormFeature>
+		&lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+		&lt;ProductFormFeatureValue>10&lt;/ProductFormFeatureValue>
+	  &lt;/ProductFormFeature>
+	  &lt;ProductFormFeature>
+		&lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+		&lt;ProductFormFeatureValue>11&lt;/ProductFormFeatureValue>
+	  &lt;/ProductFormFeature>
+	  &lt;ProductFormFeature>
+		&lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+		&lt;ProductFormFeatureValue>13&lt;/ProductFormFeatureValue>
+	  &lt;/ProductFormFeature>
+	&lt;/DescriptiveDetail>
+	&#8230;
+	&lt;TitleDetail>
+	  &lt;TitleType>01&lt;/TitleType>
+	  &lt;TitleElement>
+		&lt;TitleElementLevel>01&lt;/TitleElementLevel>
+		&lt;TitleText>Accessible EPUB 3&lt;/TitleText>
+	  &lt;/TitleElement>
+	&lt;/TitleDetail>
+	&#8230;
   &lt;/Product>
 &lt;/ONIXMessage></code></pre>
 				</figure>
@@ -328,14 +328,14 @@
 				<figure>
 					<figcaption>Example 2 &#8212; Linking an ONIX message</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;package … >
-    &lt;metadata>
-        … 
-        &lt;link
-              rel="onix-record"
-              href="#EPUB/meta/onix-9781234567890.xml"/>
-        …
-    &lt;/metadata> 
-    …
+	&lt;metadata>
+		… 
+		&lt;link
+			  rel="onix-record"
+			  href="#EPUB/meta/onix-9781234567890.xml"/>
+		…
+	&lt;/metadata> 
+	…
 &lt;/package></code></pre>
 				</figure>
 			</section>
@@ -365,14 +365,14 @@
 							and extract this information from the message is why ONIX is recommended, plus its prevalence as
 							the metadata format of choice in commercial distribution channels.</p></dd>
 					<dt>How is this metadata useful?</dt>
-					<dd><p>The metadata can be used in distribution channels to allow readers to discover whether the
+					<dd><p>The metadata can be used in distribution channels to allow users to discover whether the
 							publication is suitable for their needs, as one example. A book store search engine could use the
-							information to allow readers to filter the available ebooks to only those that they know will
+							information to allow users to filter the available ebooks to only those that they know will
 							work with their assistive technology.</p>
-						<p>The reading system could similarly present the accessibility information to the reader in advance
+						<p>The reading system could similarly present the accessibility information to the user in advance
 							of reading even if the book has been delivered through a less accessible channel (e.g., enabling
 							a quicker return of the ebook if it's known to be incompatible with their system).</p>
-						<p>Without this information, the reader has no way to distinguish the quality of one EPUB from
+						<p>Without this information, the user has no way to distinguish the quality of one EPUB from
 							another.</p></dd>
 				</dl>
 			</section>
@@ -380,7 +380,7 @@
 		<footer>
 			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
 				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-		    <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/metadata/onix.html">commit log</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/metadata/onix.html">commit log</a>.</p>
 			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
 		</footer>
 	</body>

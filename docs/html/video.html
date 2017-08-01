@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript">
-            $(document).ready(function () {
-                prettyPrint();
-            });
+			$(document).ready(function () {
+				prettyPrint();
+			});
 		</script>
 	</head>
 
@@ -21,74 +21,74 @@
 			<h1><img class="logo" src="../../graphics/daisy_logo.png" alt="DAISY"/> <a href="https://daisy.github.io/a11y-kb/docs/">Accessible Publishing Knowledge Base</a></h1>
 		</header>
 		<section class="section">
-		    <h2>Video</h2>
+			<h2>Video</h2>
 
 			<nav class="breadcrumb">
 				<p><a href="../index.html">KB</a> > <a href="index.html">HTML</a> > <span>Video</span></p>
 			</nav>
-		    
-		    <nav role="doc-toc" class="mini-toc">
+			
+			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
 			<section id="summary">
 				<h3>Summary</h3>
 				
-			    <p>Ensure the reader can control video playback and provide alternatives for readers who cannot see or hear the video
-			        or who need more time to process the information.</p>
+				<p>Ensure the user can control video playback and provide alternatives for users who cannot see or hear the video
+					or who need more time to process the information.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Include a label that describes the video. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
-				                alternative which is the accepted name or a descriptive name of the non-text content</a></li>
-				        </ul>
-				    </li>
-				    <li>Enable the <code>video</code> element's native controls by default. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G202.html">G202: Ensuring keyboard control for all functionality</a></li>
-				        </ul>
-				    </li>
-				    <li>Include audio descriptions if not all information is available in the audio track.
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G78.html">G78: Providing a second,
-				                user-selectable, audio track that includes audio descriptions</a></li>
-				        </ul>
-				    </li>
-				    <li>Include captions for audio content. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G87.html">G87: Providing closed
-				                captions</a></li>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G93.html">G93: Providing open (always
-				                visible) captions</a></li>
-				        </ul>
-				    </li>
-				    <li>Include a transcript. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
-    				    <ul>
-    				        <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G69.html">G69: Providing an alternative for time based media</a></li>
-    				        <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G159.html">G159: Providing an alternative for time-based media for video-only content</a></li>
-    				        <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G58.html">G58: Placing a link to the alternative for time-based media immediately next to the non-text content</a></li>
-    				    </ul>
-				    </li>
-				    <li>Ensure the video does not present the risk of seizures. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#seizure-does-not-violate">WCAG 2.3.1</a> and <a href="https://www.w3.org/TR/WCAG20/#seizure-three-times">WCAG 2.3.2</a>)</span>
-				        <ul>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure
-				                that content does not violate the general flash threshold or red flash threshold</a></li>
-				            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component
-				                of the content flashes more than three times in any 1-second period</a></li>
-				        </ul>
-				    </li>
+					<li>Include a label that describes the video. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
+								alternative which is the accepted name or a descriptive name of the non-text content</a></li>
+						</ul>
+					</li>
+					<li>Enable the <code>video</code> element's native controls by default. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G202.html">G202: Ensuring keyboard control for all functionality</a></li>
+						</ul>
+					</li>
+					<li>Include audio descriptions if not all information is available in the audio track.
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G78.html">G78: Providing a second,
+								user-selectable, audio track that includes audio descriptions</a></li>
+						</ul>
+					</li>
+					<li>Include captions for audio content. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G87.html">G87: Providing closed
+								captions</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G93.html">G93: Providing open (always
+								visible) captions</a></li>
+						</ul>
+					</li>
+					<li>Include a transcript. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt">WCAG 1.2.1</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G69.html">G69: Providing an alternative for time based media</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G159.html">G159: Providing an alternative for time-based media for video-only content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G58.html">G58: Placing a link to the alternative for time-based media immediately next to the non-text content</a></li>
+						</ul>
+					</li>
+					<li>Ensure the video does not present the risk of seizures. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#seizure-does-not-violate">WCAG 2.3.1</a> and <a href="https://www.w3.org/TR/WCAG20/#seizure-three-times">WCAG 2.3.2</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure
+								that content does not violate the general flash threshold or red flash threshold</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component
+								of the content flashes more than three times in any 1-second period</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			
@@ -109,11 +109,11 @@
 						element</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video controls="controls">
    &lt;source
-       src="video/the_general.webm"
-       type="video/webm"/>
+	   src="video/the_general.webm"
+	   type="video/webm"/>
    &lt;source
-       src="video/the_general.mp4"
-       type="video/mp4"/>
+	   src="video/the_general.mp4"
+	   type="video/mp4"/>
    &#8230;
 &lt;/video></code></pre>
 				</figure>
@@ -121,18 +121,18 @@
 				<figure>
 					<figcaption>Example 3 &#8212; Including timed tracks</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video controls="controls">
-       src="video/big-hollywood-blockbuster.mp4"
-       controls="controls">
+	   src="video/big-hollywood-blockbuster.mp4"
+	   controls="controls">
    &lt;track
-       kind="subtitles"
-       src="subtitles.en.vtt"
-       srclang="en"
-       label="English"/>
+	   kind="subtitles"
+	   src="subtitles.en.vtt"
+	   srclang="en"
+	   label="English"/>
    &lt;track
-       kind="captions"
-       src="captions.en.vtt"
-       srclang="en"
-       label="English"/>
+	   kind="captions"
+	   src="captions.en.vtt"
+	   srclang="en"
+	   label="English"/>
 &lt;/video></code></pre>
 				</figure>
 
@@ -149,60 +149,60 @@
 				<figure>
 					<figcaption>Example 5 &#8212; Including a fallback error message</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
-       src="video/the_general.mp4"
-       controls="controls">
+	   src="video/the_general.mp4"
+	   controls="controls">
    &#8230;
    &lt;div class="err">
-      &lt;p>
-         Sorry, it appears your system 
-         either does not support video 
-         playback or cannot play the 
-         MP4 format provided.
-      &lt;/p>
+	  &lt;p>
+		 Sorry, it appears your system 
+		 either does not support video 
+		 playback or cannot play the 
+		 MP4 format provided.
+	  &lt;/p>
    &lt;/div>
 &lt;/video></code></pre>
 				</figure>
 			</section>
 
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>When including video clips, ensure that the native reading system controls are enabled by default (i.e.,
-		            by setting the <code>controls</code> attribute on the <code>video</code> element). This practice ensures
-		            that the control are accessible even if scripting is not available. If custom controls are provided and
-		            supported, the native controls can be disabled by JavaScript.</p>
-		        
-		        <p>Although the <code>video</code> element allows child content for fallback purposes, such content is not
-		            intended to serve as an accessible alternative. It is only made available to the reader if the
-		            <code>video</code> element is not supported (e.g, in EPUB 2 reading systems).</p>
-		        
-		        <p>The following methods for making video content accessible are instead recommended in the HTML5
-		            specification:</p>
-		        
-		        <ul>
-		            <li>Using the <code>track</code> element to include subtitles, captions and descriptions.</li>
-		            <li>Embedding subtitles and captions directly in the video.</li>
-		            <li>Providing navigation by scene using the <code>track</code> element (i.e., using the
-		                <code>chapters</code> track type).</li>
-		            <li>Providing a link to a transcript.</li>
-		        </ul>
-		        
-		        <p>The <code>video</code> element also includes the <code>poster</code> attribute to allow a default image to
-		            be set for display while no data is available. There is currently no way to describe this image, however,
-		            so text fallbacks should be preferred.</p>
-		        
-		        <section>
-		            <h4>EPUB 3</h4>
-		            
-		            <p>Agreement on universal support for a video codec and container could not be reached in HTML5, and is a
-		                similar issue for EPUB 3. Although the EPUB 3 specification technically allows any format (without
-		                fallback), the IDPF recommends one or both of the MP4 and WebM formats be included. While this might not
-		                seem like an accessibility issue, consider that it means that many more readers might be relying on
-		                fallbacks than you might at first anticipate.</p>
-		        </section>
-		    </section>
-		    
-		    <section id="refs">
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When including video clips, ensure that the native reading system controls are enabled by default (i.e.,
+					by setting the <code>controls</code> attribute on the <code>video</code> element). This practice ensures
+					that the control are accessible even if scripting is not available. If custom controls are provided and
+					supported, the native controls can be disabled by JavaScript.</p>
+				
+				<p>Although the <code>video</code> element allows child content for fallback purposes, such content is not
+					intended to serve as an accessible alternative. It is only made available to the user if the
+					<code>video</code> element is not supported (e.g, in EPUB 2 reading systems).</p>
+				
+				<p>The following methods for making video content accessible are instead recommended in the HTML5
+					specification:</p>
+				
+				<ul>
+					<li>Using the <code>track</code> element to include subtitles, captions and descriptions.</li>
+					<li>Embedding subtitles and captions directly in the video.</li>
+					<li>Providing navigation by scene using the <code>track</code> element (i.e., using the
+						<code>chapters</code> track type).</li>
+					<li>Providing a link to a transcript.</li>
+				</ul>
+				
+				<p>The <code>video</code> element also includes the <code>poster</code> attribute to allow a default image to
+					be set for display while no data is available. There is currently no way to describe this image, however,
+					so text fallbacks should be preferred.</p>
+				
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>Agreement on universal support for a video codec and container could not be reached in HTML5, and is a
+						similar issue for EPUB 3. Although the EPUB 3 specification technically allows any format (without
+						fallback), the IDPF recommends one or both of the MP4 and WebM formats be included. While this might not
+						seem like an accessibility issue, consider that it means that many more users might be relying on
+						fallbacks than you might at first anticipate.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
@@ -214,10 +214,10 @@
 			</section>
 		</section>
 		<footer>
-		    <p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
-		        report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-		    <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/html/video.html">commit log</a>.</p>
-		    <p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
+				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/html/video.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
 		</footer>
 	</body>
 </html>

@@ -10,28 +10,28 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 		<style type="text/css">
 			span#secret{
-			    color: rgb(255, 0, 0);
+				color: rgb(255, 0, 0);
 			}
 			
 			div#revealed{
-			    width: 100%;
-			    text-align: center;
+				width: 100%;
+				text-align: center;
 			}
 			
 			span.letter{
-			    font-family: "Times New Roman";
-			    font-size: 240%;
-			    font-weight: bold;
-			    color: rgb(255, 0, 0);
-			    text-shadow: rgb(0, 0, 0) 1px 1px 2px;
-			    animation: bleedin 2s;
-			    -moz-animation: bleedin 2s;
-			    -webkit-animation: bleedin 2s;
+				font-family: "Times New Roman";
+				font-size: 240%;
+				font-weight: bold;
+				color: rgb(255, 0, 0);
+				text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+				animation: bleedin 2s;
+				-moz-animation: bleedin 2s;
+				-webkit-animation: bleedin 2s;
 			}
 			
 			@keyframes bleedin
@@ -109,9 +109,9 @@
 
 				<ul>
 					<li>do not include content that can only be accessed (made visible) through scripted interaction.</li>
-					<li>do not script-enable content based on a reader’s preferences, location, language, or any other
+					<li>do not script-enable content based on a user’s preferences, location, language, or any other
 						setting (without a default rendering).</li>
-					<li>do not require scripting in order for the reader to continue moving through the content (e.g., choose
+					<li>do not require scripting in order for the user to continue moving through the content (e.g., choose
 						your own adventure books).</li>
 				</ul>
 
@@ -148,27 +148,27 @@
    div#revealed { width: 100%; text-align: center; }
    
    span.letter { 
-      font-family: "Times New Roman";
-      font-size: 240%;
-      font-weight: bold;
-      color: rgb(255,0,0);
-      text-shadow: rgb(0,0,0) 1px 1px 2px;
-      animation: bleedin 2s;
+	  font-family: "Times New Roman";
+	  font-size: 240%;
+	  font-weight: bold;
+	  color: rgb(255,0,0);
+	  text-shadow: rgb(0,0,0) 1px 1px 2px;
+	  animation: bleedin 2s;
    }
 
    @keyframes bleedin {
-      from {
-         font-weight: normal;
-         font-size: 0%;
-         background: rgb(255,0,0);
-         text-shadow: rgb(0,0,0) 1px 1px 50px;
-      }
-      to {
-         font-weight: bold;
-         font-size: 240%;
-         background: rgb(255,255,255);
-         text-shadow: rgb(0,0,0) 1px 1px 2px;
-      }
+	  from {
+		 font-weight: normal;
+		 font-size: 0%;
+		 background: rgb(255,0,0);
+		 text-shadow: rgb(0,0,0) 1px 1px 50px;
+	  }
+	  to {
+		 font-weight: bold;
+		 font-size: 240%;
+		 background: rgb(255,255,255);
+		 text-shadow: rgb(0,0,0) 1px 1px 2px;
+	  }
    }
 
 &lt;/style>
@@ -176,35 +176,35 @@
 &lt;script type="text/javascript">
    &lt;![CDATA[
    var code = document.getElementById('code');
-         code.style.color = 'rgb(0,0,200)';
-         code.onclick = function () { revealCode(); };
-         code.setAttribute('role', 'button');
-         code.setAttribute('tabindex', 0);
+		 code.style.color = 'rgb(0,0,200)';
+		 code.onclick = function () { revealCode(); };
+		 code.setAttribute('role', 'button');
+		 code.setAttribute('tabindex', 0);
    
    var secret = document.getElementById('secret'); 
-         secret.style.visibility = 'hidden';
-         secret.style.display = 'none';
-         secret.setAttribute('aria-hidden', true);
+		 secret.style.visibility = 'hidden';
+		 secret.style.display = 'none';
+		 secret.setAttribute('aria-hidden', true);
    
    function revealCode() {
-      var revealed = document.getElementById('revealed');
-      if (revealed.childNodes.length == 0) {
-         var codeArray = 'DEADMAN'.split('');
-         var i = 0;
-         var revealLetters = setInterval(function(){
-            if (i &lt; codeArray.length) {
-               var letter = document.createElement('span');
-               letter.setAttribute('class', 'letter');
-               letter.appendChild(document.createTextNode(codeArray[i]));
-               revealed.appendChild(letter);
-               i++;
-            }
-            
-            else { 
-               clearInterval(revealLetters);
-            }
-         }, 300);
-      }
+	  var revealed = document.getElementById('revealed');
+	  if (revealed.childNodes.length == 0) {
+		 var codeArray = 'DEADMAN'.split('');
+		 var i = 0;
+		 var revealLetters = setInterval(function(){
+			if (i &lt; codeArray.length) {
+			   var letter = document.createElement('span');
+			   letter.setAttribute('class', 'letter');
+			   letter.appendChild(document.createTextNode(codeArray[i]));
+			   revealed.appendChild(letter);
+			   i++;
+			}
+			
+			else { 
+			   clearInterval(revealLetters);
+			}
+		 }, 300);
+	  }
    }
    ]]&gt;
 &lt;/script></code></pre>
@@ -214,37 +214,37 @@
 					<div id="revealed" aria-live="assertive"></div>
 					<script type="text/javascript">
 						//<![CDATA[
-                        var code = document.getElementById('code');
-                        code.style.color = 'rgb(0,0,200)';
-                        code.onclick = function () {
-                            revealCode();
-                        };
-                        code.setAttribute('role', 'button');
-                        code.setAttribute('tabindex', 0);
-                        
-                        var secret = document.getElementById('secret');
-                        secret.setAttribute('hidden', 'hidden');
-                        secret.setAttribute('aria-hidden', true);
-                        
-                        function revealCode() {
-                            var revealed = document.getElementById('revealed');
-                            if (revealed.childNodes.length == 0) {
-                                var codeArray = 'DEADMAN'.split('');
-                                var i = 0;
-                                var revealLetters = setInterval(function () {
-                                    if (i < codeArray.length) {
-                                        var letter = document.createElement('span');
-                                        letter.setAttribute('class', 'letter');
-                                        letter.appendChild(document.createTextNode(codeArray[i]));
-                                        revealed.appendChild(letter);
-                                        i++;
-                                    } else {
-                                        clearInterval(revealLetters);
-                                    }
-                                },
-                                300);
-                            }
-                        }//]]>
+						var code = document.getElementById('code');
+						code.style.color = 'rgb(0,0,200)';
+						code.onclick = function () {
+							revealCode();
+						};
+						code.setAttribute('role', 'button');
+						code.setAttribute('tabindex', 0);
+						
+						var secret = document.getElementById('secret');
+						secret.setAttribute('hidden', 'hidden');
+						secret.setAttribute('aria-hidden', true);
+						
+						function revealCode() {
+							var revealed = document.getElementById('revealed');
+							if (revealed.childNodes.length == 0) {
+								var codeArray = 'DEADMAN'.split('');
+								var i = 0;
+								var revealLetters = setInterval(function () {
+									if (i < codeArray.length) {
+										var letter = document.createElement('span');
+										letter.setAttribute('class', 'letter');
+										letter.appendChild(document.createTextNode(codeArray[i]));
+										revealed.appendChild(letter);
+										i++;
+									} else {
+										clearInterval(revealLetters);
+									}
+								},
+								300);
+							}
+						}//]]>
 					</script>
 				</figure>
 			</section>

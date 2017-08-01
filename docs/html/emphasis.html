@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,25 +29,30 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Proper application of emphasis allows users to distinguish vocal emphasis from keywords from
+					purely stylistic flourishes.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Identify vocal stress using the <code>em</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+					<li>Identify importance using the <code>strong</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+					<li>Identify changes in tone or voice, and keywords, using the <code>i</code> element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+					<li>Identify keywords using <code>b</code> elements. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
+					<li>Use CSS for purely stylistic uses of emphasis and bolding. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
 				</ul>
 			</section>
 
@@ -94,60 +99,60 @@
 &lt;/p></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Bolding and italics are often taken for mere styling elements, but they carry various kinds of information
-		            pertinent to the text: emphasized points, changes in tone or location, special names, etc. Unless the
-		            correct semantic tagging is used to apply this formatting, however, the same information cannot be
-		            conveyed to non-visual readers.</p>
-		        
-		        <p>The following table outlines how to apply the various HTML5 and CSS methods for bolding and italics:</p>
-		        
-		        <table>
-		            <colgroup>
-		                <col style="width: 10em;" />
-		                <col style="width: *;" />
-		            </colgroup>
-		            <tr>
-		                <th>Element/Propety</th>
-		                <th>Purpose</th>
-		            </tr>
-		            <tr>
-		                <td class="center"><code>em</code></td>
-		                <td>The <code>em</code> element indicates the text is to be vocally stressed.</td>
-		            </tr>
-		            <tr>
-		                <td class="center"><code>strong</code></td>
-		                <td>The <code>strong</code> element indicates importance, such as when making imperative statements
-		                    or using signal words like 'warning' and 'alert'.</td>
-		            </tr>
-		            <tr>
-		                <td class="center"><code>i</code></td>
-		                <td>The <code>i</code> element is used when the use of italics indicate a change in tone or voice. An
-		                    example provided in the HTML5 specification is for an extended dream sequence, but could be any
-		                    similar divergence from the main narrative into thought or remembrance. The <code>i</code>
-		                    element is also used whenever there is semantic significance behind the emphasis (e.g., the
-		                    italicized words indicate a technical term, foreign words, etc.).</td>
-		            </tr>
-		            <tr>
-		                <td class="center"><code>b</code></td>
-		                <td>The <code>b</code> element is used whenever the bolding conveys semantic meaning, similar to the
-		                    use of <code>i</code> for semantic tagging (e.g., keywords).</td>
-		            </tr>
-		            <tr>
-		                <td class="center">
-		                    <code class="property">font-style: italic</code><br />
-		                    <code class="property">font-weight: bold</code>
-		                </td>
-		                <td>The CSS properties for bolding and italics should be used whenever the use of bolding and italics
-		                    is presentational (for example, on headings and lead-in words). CSS formatting carries no
-		                    semantics, so the emphasis will not be noted by assistive technologies.</td>
-		            </tr>
-		        </table>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Bolding and italics carry various kinds of information
+					pertinent to the text: emphasized points, changes in tone or location, special names, etc. Unless the
+					correct semantic tagging is used to apply this formatting, however, the same information cannot be
+					conveyed to non-visual users.</p>
+				
+				<p>The following table outlines how to apply the various HTML5 and CSS methods for bolding and italics:</p>
+				
+				<table>
+					<colgroup>
+						<col style="width: 10em;" />
+						<col style="width: *;" />
+					</colgroup>
+					<tr>
+						<th>Element/Propety</th>
+						<th>Purpose</th>
+					</tr>
+					<tr>
+						<td class="center"><code>em</code></td>
+						<td>The <code>em</code> element indicates the text is to be vocally stressed.</td>
+					</tr>
+					<tr>
+						<td class="center"><code>strong</code></td>
+						<td>The <code>strong</code> element indicates importance, such as when making imperative statements
+							or using signal words like 'warning' and 'alert'.</td>
+					</tr>
+					<tr>
+						<td class="center"><code>i</code></td>
+						<td>The <code>i</code> element is used when the use of italics indicate a change in tone or voice. An
+							example provided in the HTML5 specification is for an extended dream sequence, but could be any
+							similar divergence from the main narrative into thought or remembrance. The <code>i</code>
+							element is also used whenever there is semantic significance behind the emphasis (e.g., the
+							italicized words indicate a technical term, foreign words, etc.).</td>
+					</tr>
+					<tr>
+						<td class="center"><code>b</code></td>
+						<td>The <code>b</code> element is used whenever the bolding conveys semantic meaning, similar to the
+							use of <code>i</code> for semantic tagging (e.g., keywords).</td>
+					</tr>
+					<tr>
+						<td class="center">
+							<code class="property">font-style: italic</code><br />
+							<code class="property">font-weight: bold</code>
+						</td>
+						<td>The CSS properties for bolding and italics should be used whenever the use of bolding and italics
+							is presentational (for example, on headings and lead-in words). CSS formatting carries no
+							semantics, so the emphasis will not be noted by assistive technologies.</td>
+					</tr>
+				</table>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
@@ -160,8 +165,6 @@
 								<code>i</code> element</a></li>
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/text-level-semantics.html#the-b-element">The
 								<code>b</code> element</a></li>
-					<li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H49.html">H49: Using semantic markup to
-							mark emphasized or special text</a></li>
 				</ul>
 			</section>
 		</section>

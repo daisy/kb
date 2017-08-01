@@ -10,60 +10,60 @@
 			table,
 			th,
 			td{
-			    border: none;
+				border: none;
 			}
 			table{
-			    width: 95%;
-			    border-bottom: 1px solid rgb(0, 0, 0);
+				width: 95%;
+				border-bottom: 1px solid rgb(0, 0, 0);
 			}
 			
 			tr{
-			    border-top: 1px solid rgb(0, 100, 0);
+				border-top: 1px solid rgb(0, 100, 0);
 			}
 			
 			tr:hover{
-			    background-color: rgb(255, 255, 200);
+				background-color: rgb(255, 255, 200);
 			}
 			
 			th{
-			    color: rgb(0, 0, 0);
-			    background-color: rgb(236, 236, 236);
+				color: rgb(0, 0, 0);
+				background-color: rgb(236, 236, 236);
 			}
 			
 			td{
-			    vertical-align: top;
-			    padding: 0.4em;
+				vertical-align: top;
+				padding: 0.4em;
 			}
 			
 			td.property{
-			    font-size: 90%;
-			    font-weight: bold;
-			    color: rgb(150, 150, 150);
-			    width: 12em;
-			    padding: 0.5em;
-			    border-right: 1px dashed rgb(0, 0, 200);
+				font-size: 90%;
+				font-weight: bold;
+				color: rgb(150, 150, 150);
+				width: 12em;
+				padding: 0.5em;
+				border-right: 1px dashed rgb(0, 0, 200);
 			}
 			
 			td.property ul{
-			    margin: 0em;
-			    padding: 0em;
+				margin: 0em;
+				padding: 0em;
 			}
 			
 			td ul{
-			    margin: 0em;
-			    padding: 0em 0em 0em 1.3em;
+				margin: 0em;
+				padding: 0em 0em 0em 1.3em;
 			}
 			
 			ul.nobull{
-			    list-style-type: none;
+				list-style-type: none;
 			}
 			
 			td.issues{
-			    padding-left: 1em;
+				padding-left: 1em;
 			}
 			
 			td li{
-			    padding-bottom: 0.5em;
+				padding-bottom: 0.5em;
 			}</style>
 	</head>
 
@@ -255,7 +255,7 @@
 							<td class="issues">
 								<ul>
 									<li>When using color to convey meaning, ensure borders are thick enough that visual
-										readers can discern the color</li>
+										users can discern the color</li>
 								</ul>
 							</td>
 						</tr>
@@ -273,7 +273,7 @@
 								<ul>
 									<li>Reading system support for absolute and fixed positioning is not guaranteed</li>
 									<li>Content should not be positioned in a way that makes its discoverability problematic
-										for readers with low vision and/or using zooming software</li>
+										for users with low vision and/or using zooming software</li>
 								</ul>
 							</td>
 						</tr>
@@ -402,7 +402,7 @@
 							<td class="issues">
 								<ul>
 									<li>Elements should not be floated in a way that makes their discoverability problematic
-										for readers with low vision and/or using zooming software</li>
+										for users with low vision and/or using zooming software</li>
 									<li>Ensure sufficient margins exist around floated content so that it is clearly
 										distinguishable from the content that flows around it</li>
 									<li>When floating primary content to the right, ensure that it is not positioned in the
@@ -429,7 +429,7 @@
 									<li>Avoid fonts that do not provide sufficient character differentiation, such as
 										sans-serif fonts that represent capital I, lower-case L and the number 1 as identical
 										(or near-identical) characters (e.g., Arial).</li>
-									<li>Avoid cursive and highly ornamented fonts that can be difficult for readers to
+									<li>Avoid cursive and highly ornamented fonts that can be difficult for users to
 										decipher</li>
 									<li>Try to limit the number of fonts used in any given publication and use families
 										consistently (e.g., one family for headings and one for body content)</li>
@@ -595,7 +595,7 @@
 									<li>Note that reading systems typically restrict the ability to modify body margins</li>
 									<li>Changing margins to move content off screen, common on the Web, is not guaranteed to
 										work in reading systems. This practice is also known to cause problems depending on
-										the reader's preferred reading direction and the placement of the content so is not
+										the user's preferred reading direction and the placement of the content so is not
 										recommended for that reason, as well</li>
 								</ul>
 							</td>
@@ -701,7 +701,7 @@
 									<li>Absolute positioning should not be used to re-order content differently than it is
 										laid out in the markup</li>
 									<li>Elements should not be absolutely positioned in a way that makes their
-										discoverability problematic for readers with low vision and/or using zooming
+										discoverability problematic for users with low vision and/or using zooming
 										software</li>
 									<li>Note that the <code class="value">fixed</code> value is not included in the EPUB 3
 										Style Sheets profile and its use is not recommended (see the <a
@@ -757,7 +757,7 @@
 								<ul>
 									<li>A sometimes used trick to hide text for assistive technologies is to use a large
 										negative value, but like negative margins this technique is not reliable in reading
-										systems and may cause issues depending on the reader's preferred text direction</li>
+										systems and may cause issues depending on the user's preferred text direction</li>
 								</ul>
 							</td>
 						</tr>
@@ -917,7 +917,7 @@
 								<a href="http://www.w3.org/TR/CSS21/selector.html#dynamic-pseudo-classes">:hover</a>
 							</td>
 							<td class="issues"> The <code>:hover</code> pseudo-selector should never be used, as it is not
-								device independent and may not be activatable by many readers as ebook readers typically do
+								device independent and may not be activatable by many users as ebook users typically do
 								not have mice. </td>
 						</tr>
 						<tr>
@@ -964,7 +964,7 @@
 										and <code>:after</code> pseudo-elements.</li>
 									<li>Since the expected behavior is to announce the injected text, avoid the using the
 										pseudo-elements for decorative purposes.</li>
-									<li>Readers without CSS support will not have access to the injected text.</li>
+									<li>Users without CSS support will not have access to the injected text.</li>
 								</ul>
 							</td>
 						</tr>
@@ -985,7 +985,7 @@
 			</section>
 
 			<!--
-		    <section id="css3speech">
+			<section id="css3speech">
 				<h3>CSS Speech Module</h3>
 
 				<p>Note that prefixed properties should be used until the CSS 3 Speech module becomes a recommendation and a

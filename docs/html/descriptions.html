@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,10 +29,10 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
 			</nav>
@@ -40,7 +40,7 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Include an extended description for complex images, tables.</p>
 			</section>
 			
 			<section id="tech">
@@ -52,11 +52,11 @@
 			</section>
 			
 			<section id="desc">
-			    <h3>Explanation</h3>
+				<h3>Explanation</h3>
 
-				<p>There are many reasons why describing content adds to its accessibility for all readers. Although often
-					considered only useful for non-visual readers, descriptions facilitate comprehension and provide context
-					for readers with a wide range of needs. They can also assist readers whose first language may not be that
+				<p>There are many reasons why describing content adds to its accessibility for all users. Although often
+					considered only useful for non-visual users, descriptions facilitate comprehension and provide context
+					for users with a wide range of needs. They can also assist users whose first language may not be that
 					of the text being read.</p>
 
 				<section id="hyperlinks">
@@ -89,12 +89,12 @@
 						example:</p>
 
 					<pre class="prettyprint linenums"><code>&lt;table aria-describedby="table-desc">
-    &#8230;
+	&#8230;
 &lt;table>
 
 &lt;aside id="desc">
-    &lt;p>The table is composed of three smaller tables
-          each of which &#8230; &lt;/p>
+	&lt;p>The table is composed of three smaller tables
+		  each of which &#8230; &lt;/p>
 &lt;/aside></code></pre>
 
 					<p>Note that the ID reference does not include a hash (#) at the start. If the description is spread
@@ -106,7 +106,7 @@
 					<pre class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
 
 &lt;aside id="desc" hidden="hidden">
-    &#8230;
+	&#8230;
 &lt;/aside></code></pre>
 
 					<p>Before using hidden content too extensively, be aware that the ability to navigate the description is
@@ -134,17 +134,16 @@
 
 						<li>Using many <code>iframe</code> elements slows down the loading of documents, since each
 							description must be loaded, unlike proper out-of-band linking mechanisms, which allow the content
-							to only be loaded as requested by the reader.</li>
+							to only be loaded as requested by the user.</li>
 					</ul>
 				</section>
 			</section>
 
 			<section id="refs">
 				<h3>References</h3>
-
 				<ul>
-					<li>WAI &#8212; <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby">WAI-ARIA
-							1.0 - aria-describedby</a></li>
+					<li>ARIA 1.0 &#8212; <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby">The aria-describedby attribute</a></li>
+					<li>ARIA 1.1 &#8212; <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-details">The aria-details attribute</a></li>
 				</ul>
 			</section>
 
@@ -166,7 +165,7 @@
 					<dd>
 						<p>The <code>aria-details</code> attribute is currently under development and not supported by
 							assistive technologies. It will allow an association to be made with a description in a
-								<code>Explanation</code> element. Although similar to <code>aria-describedby</code>, the
+								<code>details</code> element. Although similar to <code>aria-describedby</code>, the
 								<code>aria-details</code> attribute will not result in stringified content (i.e., the user
 							will be able to navigate the description as structured HTML).</p>
 					</dd>

@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,11 +29,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
 
@@ -56,66 +56,66 @@
 
 				<p>Simple list of works</p>
 				<pre class="prettyprint linenums"><code>&lt;html &#8230;
-      epub:prefix="daisy:
-      http://www.daisy.org/z3998/2012/vocab/structure/">
+	  epub:prefix="daisy:
+	  http://www.daisy.org/z3998/2012/vocab/structure/">
    &#8230;
    &lt;section epub:type="daisy:published-works">
-      &lt;h2>Also by the author&lt;/h2>
-      &lt;ul class="works">
-         &lt;li>The Tempest&lt;/li>
-         &lt;li>Henry IV, Part 2&lt;/li>
-         &lt;li>King Lear&lt;/li>
-      &lt;/ul>
+	  &lt;h2>Also by the author&lt;/h2>
+	  &lt;ul class="works">
+		 &lt;li>The Tempest&lt;/li>
+		 &lt;li>Henry IV, Part 2&lt;/li>
+		 &lt;li>King Lear&lt;/li>
+	  &lt;/ul>
    &lt;/section></code></pre>
 
 				<p>Complex list of works</p>
 				<pre class="prettyprint linenums"><code>&lt;html &#8230;
-      epub:prefix="daisy:
-      http://www.daisy.org/z3998/2012/vocab/structure/">
+	  epub:prefix="daisy:
+	  http://www.daisy.org/z3998/2012/vocab/structure/">
    &#8230;
    &lt;section epub:type="daisy:published-works">
-      &lt;h2>Also by the author&lt;/h2>
-         
-      &lt;section>
-         &lt;h3>Comedies&lt;/h3>
-         &lt;ul>
-            &lt;li>The Tempest&lt;/li>
-         &lt;/ul>
-      &lt;/section>
-         
-      &lt;section>
-         &lt;h3>Histories&lt;/h3>
-         &lt;ul>
-            &lt;li>Henry IV, Part 2&lt;/li>
-         &lt;/ul>
-      &lt;/section>
-         
-      &lt;section>
-         &lt;h3>Tragedies&lt;/h3>
-         &lt;ul>
-            &lt;li>King Lear&lt;/li>
-         &lt;/ul>
-      &lt;/section>
+	  &lt;h2>Also by the author&lt;/h2>
+		 
+	  &lt;section>
+		 &lt;h3>Comedies&lt;/h3>
+		 &lt;ul>
+			&lt;li>The Tempest&lt;/li>
+		 &lt;/ul>
+	  &lt;/section>
+		 
+	  &lt;section>
+		 &lt;h3>Histories&lt;/h3>
+		 &lt;ul>
+			&lt;li>Henry IV, Part 2&lt;/li>
+		 &lt;/ul>
+	  &lt;/section>
+		 
+	  &lt;section>
+		 &lt;h3>Tragedies&lt;/h3>
+		 &lt;ul>
+			&lt;li>King Lear&lt;/li>
+		 &lt;/ul>
+	  &lt;/section>
    &lt;/section>
    &#8230;
 &lt;/html></code></pre>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>When including a list of additional works by an author (e.g. on the series title page), use either ordered
-		            or unordered lists to itemize the entries.</p>
-		        
-		        <p>If the list of works conveys information that would be lost if re-ordered (e.g., it represents a
-		            chronological listing by publication date), use an ordered list. If the ordering of the titles does
-		            not have any particular significance (e.g., alphabetical), use an unordered list.</p>
-		        
-		        <p>The <a href="http://www.daisy.org/z3998/2012/vocab/structure/">Z39.98 Structural Semantics Vocabulary</a>
-		            includes a <code class="property">published-works</code> property for identifying the section, but you
-		            will need to define a prefix in order to use it.</p>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When including a list of additional works by an author (e.g. on the series title page), use either ordered
+					or unordered lists to itemize the entries.</p>
+				
+				<p>If the list of works conveys information that would be lost if re-ordered (e.g., it represents a
+					chronological listing by publication date), use an ordered list. If the ordering of the titles does
+					not have any particular significance (e.g., alphabetical), use an unordered list.</p>
+				
+				<p>The <a href="http://www.daisy.org/z3998/2012/vocab/structure/">Z39.98 Structural Semantics Vocabulary</a>
+					includes a <code class="property">published-works</code> property for identifying the section, but you
+					will need to define a prefix in order to use it.</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
@@ -128,7 +128,7 @@
 		<footer>
 			<p>Please ask questions about these guidelines in the <a href="http://daisy.org/forums">DAISY forums</a>.<br/>To
 				report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/a11y-kb/issues">github tracker</a>.</p>
-		    <p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/html/works.html">commit log</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/a11y-kb/commits/master/docs/html/works.html">commit log</a>.</p>
 			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
 		</footer>
 	</body>

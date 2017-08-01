@@ -11,9 +11,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -79,21 +79,21 @@
 &lt;![CDATA[
    function writeResult(pass, msg) {
    
-       /* get the results div */
-       var rDiv = document.getElementById('results');
-       
-       /* create a new span element */
-       var result = document.createElement('span');
-           result.setAttribute('class', pass ? 'win' : 'lose');
-       
-       /* create a text node with the result */
-       var message = document.createTextNode(msg);
-       
-       /* add the message to the span */
-       result.appendChild(message);
-       
-       /* show the new message for to reader */
-       rDiv.appendChild(result);
+	   /* get the results div */
+	   var rDiv = document.getElementById('results');
+	   
+	   /* create a new span element */
+	   var result = document.createElement('span');
+		   result.setAttribute('class', pass ? 'win' : 'lose');
+	   
+	   /* create a text node with the result */
+	   var message = document.createTextNode(msg);
+	   
+	   /* add the message to the span */
+	   result.appendChild(message);
+	   
+	   /* show the new message for to user */
+	   rDiv.appendChild(result);
    
    }
 ]]&gt;
@@ -106,7 +106,7 @@
 					<pre class="prettyprint linenums small bad"><code>&lt;script type="text/javascript">
 &lt;![CDATA[
    var invalid = document.createElement('html');
-       invalid.appendChild(document.createTextNode(msg));
+	   invalid.appendChild(document.createTextNode(msg));
    
    document.body.insertBefore(invalid, document.body.firstChild);
 ]]&gt;
@@ -118,13 +118,13 @@
 				<h3>References</h3>
 
 				<ul>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G134.html">G134: Validating Web
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G134.html">G134: Validating Web
 						pages</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/G192.html">G192: Fully conforming to
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G192.html">G192: Fully conforming to
 							specifications</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/SCR21.html">SCR21: Using functions of the
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR21.html">SCR21: Using functions of the
 							Document Object Model (DOM) to add content to a page</a></li>
-					<li>WCAG 2.0 &#8212; <a href="http://www.w3.org/TR/WCAG20-TECHS/SCR26.html">SCR26: Inserting dynamic
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR26.html">SCR26: Inserting dynamic
 							content into the Document Object Model immediately following its trigger element</a></li>
 				</ul>
 			</section>

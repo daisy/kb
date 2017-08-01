@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -119,7 +119,7 @@
 							<p>Note that the cue property will render the associated audio clip both before and after the
 								heading if only a single value is specified:</p>
 							<pre class="prettyprint linenums"><code class="lang-css">-epub-cue: url('audio/ping.mp3');</code></pre>
-							<p>Readers typically only expect a cue to signal the start, so use the <code class="value"
+							<p>Users typically only expect a cue to signal the start, so use the <code class="value"
 									>null</code> value to disable cues after the associated element has been rendered:</p>
 							<pre class="prettyprint linenums"><code class="lang-css">-epub-cue: url('audio/ping.mp3') null;</code></pre>
 							<p>The aural cue occurs between any <code class="property">pause</code> and <code
@@ -219,8 +219,8 @@
    NOT SUFFICE.
    &lt;/pre>
    &lt;cite>&lt;a 
-      href="http://www.jfklibrary.org/Asset-Viewer/-crU2bLgN0CcGkys8dkuHg.aspx"
-      >September 15, 1963 Telegram&lt;/a>&lt;/cite>
+	  href="http://www.jfklibrary.org/Asset-Viewer/-crU2bLgN0CcGkys8dkuHg.aspx"
+	  >September 15, 1963 Telegram&lt;/a>&lt;/cite>
 &lt;/blockquote></code></pre>
 					<pre class="prettyprint linenums"><code class="lang-css">.silent {
    -epub-speak-as: no-punctuation
@@ -305,7 +305,7 @@
 					<dd>
 						<p>Although most engines will voice significant pause points, such as colons, they will typically not
 							render each punctuation point in a document as it would ruin the reading experience. There are
-							times when it is critical to ensure that the reader is able to hear all the punctuation in a
+							times when it is critical to ensure that the user is able to hear all the punctuation in a
 							sentence or phrase, such as in grammar textbooks, programming guides and the like. (See <a
 								href="#ex03">Example 3</a>.)</p>
 						<p>Accessible technologies also enable the pronunciation of all punctuation by default in elements

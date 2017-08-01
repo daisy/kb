@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,11 +29,11 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
 			</nav>
@@ -42,33 +42,33 @@
 				<h3>Summary</h3>
 				
 				<p>Ensure that inline frames are uniquely titled so that users can decide whether they want to read or interact
-				    with the contents, and that frame content remains consumable after resizing or zooming.</p>
+					with the contents, and that frame content remains consumable after resizing or zooming.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-				    <li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip">WCAG 2.4.1</a> and <a href="https://www.w3.org/TR/WCAG20/#ensure-compat-rsv">WCAG 4.1.2</a>)</span>
-					    <ul>
-					        <li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H64.html">H64: Using the title attribute
-					            of the frame and iframe elements</a></li>
-					    </ul>
+					<li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip">WCAG 2.4.1</a> and <a href="https://www.w3.org/TR/WCAG20/#ensure-compat-rsv">WCAG 4.1.2</a>)</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H64.html">H64: Using the title attribute
+								of the frame and iframe elements</a></li>
+						</ul>
 					</li>
-				    <li>Identify frames not intended for users in their label.</li>
-				    <li>Use relative units to size the <code>iframe</code>.</li>
-				    <li>Set scrolling to <code>auto</code>.</li>
+					<li>Identify frames not intended for users in their label.</li>
+					<li>Use relative units to size the <code>iframe</code>.</li>
+					<li>Set scrolling to <code>auto</code>.</li>
 				</ul>
 			</section>
-		    
+			
 			<section id="ex">
 				<h3>Example</h3>
 				<figure>
 					<figcaption>Example 1 &#8212; An accessible <code>iframe</code></figcaption>
 					<pre class="prettyprint linenums"><code>&lt;iframe
-        href="quiz01.xhtml"
-        title="Quiz 1"
-        class="quiz">
+		href="quiz01.xhtml"
+		title="Quiz 1"
+		class="quiz">
    Your reading system does not support
    inline frames. Please follow &lt;a 
    href="quiz01.xhtml">this link&lt;/a> 
@@ -79,37 +79,37 @@
 				<figure>
 					<figcaption>Example 2 &#8212; An invisible <code>iframe</code></figcaption>
 					<pre class="prettyprint linenums"><code>&lt;iframe
-        href="script.xhtml"
-        title="empty"
-        tabindex="-1"
-        height="0"
-        width="0"
-        class="hidden">
+		href="script.xhtml"
+		title="empty"
+		tabindex="-1"
+		height="0"
+		width="0"
+		class="hidden">
 &lt;/iframe></code></pre>
 				</figure>
 			</section>
-		    
-		    <section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>Inline frames generally integrate well with assistive technologies, but the following accessibility
-		            considerations should always be adhered to when using them:</p>
-		        
-		        <ul>
-		            <li>Each inline frame should include an explanatory title that clearly indicates the purpose of the
-		                embedded content (in a <code>title</code> attribute on the <code>iframe</code> element).</li>
-		            <li>When setting the height and width of the <code>iframe</code>, a relative unit such as percentage or
-		                ems should be used to facilitate resizing.</li>
-		            <li>Scrolling should be set to <code>auto</code> so that if the reader resizes the content in the frame
-		                it can still be accessed if it becomes bigger than the available space.</li>
-		            <li>The <code>iframe</code> element should provide embedded fallback content for reading systems that do
-		                not support inline frames (e.g., a direct link to the content file).</li>
-		            <li>If the frame does not contain content for the reader, indicate as much in the <code>title</code>, set
-		                its CSS <code>display</code> property to <code>none</code>, and height and width to 0. To ensure that
-		                readers cannot tab to the element, set the <code>tabindex</code> attribute to <code>-1</code>.</li>
-		        </ul>
-		    </section>
-		    
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Inline frames generally integrate well with assistive technologies, but the following accessibility
+					considerations should always be adhered to when using them:</p>
+				
+				<ul>
+					<li>Each inline frame should include an explanatory title that clearly indicates the purpose of the
+						embedded content (in a <code>title</code> attribute on the <code>iframe</code> element).</li>
+					<li>When setting the height and width of the <code>iframe</code>, a relative unit such as percentage or
+						ems should be used to facilitate resizing.</li>
+					<li>Scrolling should be set to <code>auto</code> so that if the user resizes the content in the frame
+						it can still be accessed if it becomes bigger than the available space.</li>
+					<li>The <code>iframe</code> element should provide embedded fallback content for reading systems that do
+						not support inline frames (e.g., a direct link to the content file).</li>
+					<li>If the frame does not contain content for the user, indicate as much in the <code>title</code>, set
+						its CSS <code>display</code> property to <code>none</code>, and height and width to 0. To ensure that
+						users cannot tab to the element, set the <code>tabindex</code> attribute to <code>-1</code>.</li>
+				</ul>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 

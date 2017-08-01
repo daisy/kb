@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../js/jquery172min.js"></script>
 		<script type="text/javascript"> 	// <![CDATA[
-            $(document).ready(function () {
-                prettyPrint();
-            });//]]> </script>
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
 	</head>
 
 	<body>
@@ -29,26 +29,26 @@
 			<nav role="doc-toc" class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-				    <li><a href="#summary">Summary</a></li>
-				    <li><a href="#tech">Techniques</a></li>
-				    <li><a href="#ex">Examples</a></li>
-				    <li><a href="#desc">Explanation</a></li>
-				    <li><a href="#reqs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#reqs">References</a></li>
 				</ol>
 			</nav>
 
 			<section id="summary">
-			    <h3>Summary</h3>
-			    
-			    <p>The <code>figure</code> element ...</p>
+				<h3>Summary</h3>
+				
+				<p>Use the <code>figure</code> element to group images and tables with captions, summaries and description</p>
 			</section>
 			
 			<section id="tech">
-			    <h3>Techniques</h3>
-			    
-			    <ul>
-			        <li></li>
-			    </ul>
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li></li>
+				</ul>
 			</section>
 			
 			<section id="ex">
@@ -58,19 +58,19 @@
 					<figcaption>Example 1 &#8212; Image with caption and description</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure>
    &lt;img src="images/blob.jpeg" alt="the blob"
-           aria-describedby="img01-desc"/>
+		   aria-describedby="img01-desc"/>
    &lt;figcaption>
-      Figure 3.7 — The blob is digesting Steve 
-      McQueen in this unreleased ending to the 
-      classic movie.
-      &lt;aside class="hidden id="desc">
-         &lt;p>
-            In the photo, Steve McQueen can be seen
-            floating within the gelatinous body of 
-            the blob as it moves down the main
-            street &#8230;
-         &lt;/p>
-      &lt;/aside>
+	  Figure 3.7 — The blob is digesting Steve 
+	  McQueen in this unreleased ending to the 
+	  classic movie.
+	  &lt;aside class="hidden id="desc">
+		 &lt;p>
+			In the photo, Steve McQueen can be seen
+			floating within the gelatinous body of 
+			the blob as it moves down the main
+			street &#8230;
+		 &lt;/p>
+	  &lt;/aside>
    &lt;/figcaption>
 &lt;/figure></code></pre>
 				</figure>
@@ -81,9 +81,9 @@
    &lt;p>&lt;a href="blob-desc.xhtml">Description&lt;/a>&lt;/p>
    &lt;img src="images/blob.jpeg" alt="the blob"/>
    &lt;figcaption>
-      Figure 3.7 — The blob is digesting Steve 
-      McQueen in this unreleased ending to the 
-      classic movie.
+	  Figure 3.7 — The blob is digesting Steve 
+	  McQueen in this unreleased ending to the 
+	  classic movie.
    &lt;/figcaption>
 &lt;/figure></code></pre>
 				</figure>
@@ -95,47 +95,42 @@
 						rendered.</p>
 					<pre class="prettyprint linenums"><code>&lt;figure>
    &lt;figcaption>
-      Characteristics with positive and 
-      negative sides.
-      &lt;aside class="hidden" id="summary">
-         &lt;p>Summary&lt;/p>
-         &lt;p>
-            Characteristics are given 
-            in the second column…
-         &lt;/p>
-      &lt;/aside>
+	  Characteristics with positive and 
+	  negative sides.
+	  &lt;aside class="hidden" id="summary">
+		 &lt;p>Summary&lt;/p>
+		 &lt;p>
+			Characteristics are given 
+			in the second column…
+		 &lt;/p>
+	  &lt;/aside>
    &lt;/figcaption>
    &lt;table aria-describedby="tbl01-summary">
-      &#8230;
+	  &#8230;
    &lt;/table>
 &lt;/figure></code></pre>
 				</figure>
 			</section>
 
 			<section id="desc">
-		        <h3>Explanation</h3>
-		        
-		        <p>The HTML5 <code>figure</code> element allows an assistive technology to skip secondary content, thereby
-		            enabling readers to continue reading the primary narrative uninterrupted. Because figures are
-		            interspersed within the body, like asides, without being able to clearly identify them the reader would
-		            be constantly interrupted at the points where they occur.</p>
-		        
-		        <p>The <code>figure</code> element can be used to encapsulate images, tables, code snippets and other content
-		            with a related caption, description and/or associated content elements.</p>
-		        
-		        <p>The element should only be used for secondary content that can be read separately from the main narrative.
-		            Do not wrap every <code>img</code> tag in a <code>figure</code>, for example, only the ones that are
-		            offset from the narrative.</p>
-		        
-		        <p>Being able to programmatically determine the caption for a figure is another useful feature introduced in
-		            HTML5. As captions are often placed under the content of the figure, readers in the past have often had
-		            no context for the figure until reaching the descriptive text that followed the image or table.</p>
-		        
-		        <p>The <code>figcaption</code> element can now be used to mark up the caption. This element must be the very
-		            first or last in the <code>figure</code> to be valid to the HTML5 definition.</p>
-		    </section>
-		    
-		    <section id="refs">
+				<h3>Explanation</h3>
+				
+				<p>The <code>figure</code> element can be used to encapsulate images, tables, code snippets and other content
+					with a related caption, description and/or associated content elements.</p>
+				
+				<p>The element should only be used for secondary content that can be read separately from the main narrative.
+					Do not wrap every <code>img</code> tag in a <code>figure</code>, for example, only the ones that are
+					offset from the narrative.</p>
+				
+				<p>Being able to programmatically determine the caption for a figure is another useful feature introduced in
+					HTML5. As captions are often placed under the content of the figure, users in the past have often had
+					no context for the figure until reaching the descriptive text that followed the image or table.</p>
+				
+				<p>The <code>figcaption</code> element can now be used to mark up the caption. This element must be the very
+					first or last in the <code>figure</code> to be valid to the HTML5 definition.</p>
+			</section>
+			
+			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
@@ -143,10 +138,6 @@
 								<code>figure</code> element</a></li>
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/grouping-content.html#the-figcaption-element">The
 								<code>figcaption</code> element</a></li>
-					<li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/H45.html">H45: Using longdesc</a></li>
-					<li>WCAG 2.0 &#8212; <a href="https://www.w3.org/TR/WCAG20-TECHS/G73.html">G73: Providing a long
-							description in another location with a link to it that is immediately adjacent to the non-text
-							content</a></li>
 				</ul>
 			</section>
 		</section>
