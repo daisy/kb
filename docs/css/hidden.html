@@ -46,7 +46,10 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
 					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
@@ -62,50 +65,8 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Avoid hiding content for assistive technologies.</li>
 				</ul>
-			</section>
-			
-			<section id="desc">
-
-				<p>Content should never be hidden by default in EPUBs, as this can make it inaccessible to all users.
-					Users should always have the option to determine what content they wish to read after the content has
-					loaded, and regardless of whether the information is targeted to facilitate reading by specific
-					groups.</p>
-
-				<p>Avoid using CSS solutions for hiding any type of primary content, as they typically don't work as
-					developers expect:</p>
-
-				<ul>
-					<li>Setting the <code class="property">display</code> property to <code class="value">hidden</code> to
-						not render it is the same as telling an assistive technology not to render it</li>
-					<li>The same applies when setting the <code class="property">visibility</code> property to <code
-							class="value">hidden</code></li>
-					<li>The HTML <code>hidden</code> attribute is equivalent to setting the above two properties, so again
-						effects no change</li>
-					<li>Absolute positioning content off-screen and using large negative margins are common Web practices,
-						but are not guaranteed to be supported in reading systems which may not allow positioning outside the
-						boundaries of the viewport. They also take the choice of what content a user wants access to away
-						from the user</li>
-					<li>Clipping content to a single pixel and changing its opacity or color is an equally flawed technique
-						to rely on</li>
-				</ul>
-
-				<p>If content is intended for a specific audience, use the techniques that HTML5 and ARIA make available.
-					Standard hyperlinks to text alternatives, such as transcripts of audio and video tracks, are more broadly
-					usable than hidden content.</p>
-
-				<p>There are going to be cases where some content does need to be legitimately hidden, such as when including
-					interactive features and forms.</p>
-
-				<p>Ensure that such content is not central to understand the publication, and that <a
-						href="../script/pe.html">progressive enhancement</a> techniques have been followed (i.e., the
-					interactive nature of the content that requires the visibility to change is not an impediment to
-					consuming the publication).</p>
-
-				<p>The <code>aria-hidden</code> attribute provides a way to selectively hide visible content from an
-					assistive technology, or expose hidden content. Use this attribute with caution, as toggling content for
-					assistive technologies can have negative effects if not all user groups are taken into consideration.</p>
 			</section>
 
 			<section id="ex">
@@ -393,13 +354,50 @@ End Module</code></pre>
 				</figure>
 
 			</section>
-
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Avoid using CSS solutions for hiding any type of primary content, as they typically don't work as
+					expected:</p>
+				
+				<ul>
+					<li>Setting the <code class="property">display</code> property to <code class="value">hidden</code> to
+						not render it is the same as telling an assistive technology not to render it</li>
+					<li>The same applies when setting the <code class="property">visibility</code> property to <code
+						class="value">hidden</code></li>
+					<li>The HTML <code>hidden</code> attribute is equivalent to setting the above two properties, so again
+						effects no change</li>
+					<li>Absolute positioning content off-screen and using large negative margins are common Web practices,
+						but are not guaranteed to be supported in reading systems which may not allow positioning outside the
+						boundaries of the viewport. They also take the choice of what content a user wants access to away
+						from the user</li>
+					<li>Clipping content to a single pixel and changing its opacity or color is an equally flawed technique
+						to rely on</li>
+				</ul>
+				
+				<p>If content is intended for a specific audience, use the techniques that HTML5 and ARIA make it available.
+					Standard hyperlinks to text alternatives, such as transcripts of audio and video tracks, are more broadly
+					usable than hidden content.</p>
+				
+				<p>There are going to be cases where some content does need to be legitimately hidden, such as when including
+					interactive features and forms.</p>
+				
+				<p>Ensure that such content is not central to understand the publication, and that <a
+					href="../script/pe.html">progressive enhancement</a> techniques have been followed (i.e., the
+					interactive nature of the content that requires the visibility to change is not an impediment to
+					consuming the publication).</p>
+				
+				<p>The <code>aria-hidden</code> attribute provides a way to selectively hide visible content from an
+					assistive technology, or expose hidden content. Use this attribute with caution, as toggling content for
+					assistive technologies can have negative effects if not all user groups are taken into consideration.</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G14.html">G14: Ensuring that information
-							conveyed by color differences is also available in text</a></li>
+					<li></li>
 				</ul>
 			</section>
 

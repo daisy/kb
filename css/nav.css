@@ -12,7 +12,7 @@ nav#toc h2 {
 }
 
 nav > section {
-    margin: 0;
+    margin: 0 0 0 3rem;
     padding: 1rem;
 }
 
@@ -22,10 +22,10 @@ nav > section > h3 {
 
 ol {
 	list-style-type: none;
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
-    max-width: 80rem;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    max-width: 60rem;
 }
 
 a {

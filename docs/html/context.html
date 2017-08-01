@@ -41,14 +41,15 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Use of the <code>hr</code> element to indicate context breaks allows assistive technologies
+					to inform users of the change.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Use the <code>hr</code> element wherever a context break occurs. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span></li>
 				</ul>
 			</section>
 
@@ -58,8 +59,8 @@
 				<figure>
 					<figcaption>Example 1 &#8212; Blank-line context change</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;style type="text/css">hr.transition {
-   width: 0em;
-   margin: 0.5em 0em;
+	width: 0em;
+	margin: 0.5em 0em;
 }
 &lt;/style>
 
@@ -71,10 +72,10 @@
 				<figure>
 					<figcaption>Example 2 &#8212; Asterism (CSS only)</figcaption>
 					<pre class="prettyprint linenums"><code class="language-css">hr.transition {
-   background: url('img/asterisks.gif') no-repeat center;
-   height: 1em;
-   border: none;
-   margin: 0.5em 0em;
+	background: url('img/asterisks.gif') no-repeat center;
+	height: 1em;
+	border: none;
+	margin: 0.5em 0em;
 }</code></pre>
 				</figure>
 			</section>
@@ -116,7 +117,7 @@
 							exporting, but it is inherently inaccessible.</p></dd>
 
 					<dt>Can I insert an <code>img</code> tag to indicate context change?</dt>
-					<dd><p>Again, images are a suboptimal way to indicate a context change because they carry no semantic
+					<dd><p>Images are a suboptimal way to indicate a context change because they carry no semantic
 							information. Unlike pure CSS solutions, the <code>alt</code> attribute can be used to indicate
 							the context change, but that doesn't compensate for the more uniform experience that the
 								<code>hr</code> element can provide.</p></dd>

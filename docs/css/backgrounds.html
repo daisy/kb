@@ -29,7 +29,10 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
 					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
@@ -44,30 +47,18 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
+						ratio of at least 7:1 exists between text (and images of text) and background behind the
+						text</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
+						ratio of at least 4.5:1 exists between text (and images of text) and background behind the
+						text</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
+						ratio of at least 3:1 exists between text (and images of text) and background behind the
+						text</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
+						whenever color cues are used</a></li>
 				</ul>
-			</section>
-			
-			<section id="desc">
-				<p>Ensuring sufficient contrast between background colors and images is necessary to ensure that users who
-					have difficulty distinguishing contrasts are able to read your publication. Avoid overlaying text on
-					noisy (multi-color) background images, and relying on positioning to avoid color contrasts, as different
-					reading system may reflow content in unexpected ways.</p>
-
-				<p>Also ensure that background images do not convey information necessary to understand the publication, or
-					to be able to interact with it. Unlike embedded images, backgrounds cannot be given text alternatives or
-					descriptions and a user will not know a change has occurred.</p>
-
-				<div class="note">
-					<p class="label">Note</p>
-					<p>The <code>background-image</code> property remains largely unsupported because of the reflowable
-						nature of EPUBs. Although support may increase as fixed-layout publications get supported, use of
-						images is not recommended in general, reflowable publications.</p>
-				</div>
-
-				<p>For fixed layout publications, try to limit backgrounds to simple atmospheres. If components of the
-					background are important to comprehension, see if they can be overlaid using <code>img</code> tags so
-					that descriptions can be added.</p>
 			</section>
 
 			<section id="ex">
@@ -149,23 +140,29 @@
 &lt;/html></code></pre>
 				</figure>
 			</section>
-
-			<section id="refs">
-				<h3>References</h3>
-
-				<ul>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
-							ratio of at least 7:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
-							ratio of at least 4.5:1 exists between text (and images of text) and background behind the
-							text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
-							ratio of at least 3:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
-							whenever color cues are used</a></li>
-				</ul>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Ensuring sufficient contrast between background colors and images is necessary to ensure that users who
+					have difficulty distinguishing contrasts are able to read your publication. Avoid overlaying text on
+					noisy (multi-color) background images, and relying on positioning to avoid color contrasts, as different
+					reading system may reflow content in unexpected ways.</p>
+				
+				<p>Also ensure that background images do not convey information necessary to understand the publication, or
+					to be able to interact with it. Unlike embedded images, backgrounds cannot be given text alternatives or
+					descriptions and a user will not know a change has occurred.</p>
+				
+				<div class="note">
+					<p class="label">Note</p>
+					<p>The <code>background-image</code> property remains largely unsupported because of the reflowable
+						nature of EPUBs. Although support may increase as fixed-layout publications get supported, use of
+						images is not recommended in general, reflowable publications.</p>
+				</div>
+				
+				<p>For fixed layout publications, try to limit backgrounds to simple atmospheres. If components of the
+					background are important to comprehension, see if they can be overlaid using <code>img</code> tags so
+					that descriptions can be added.</p>
 			</section>
 		</section>
 		<footer>

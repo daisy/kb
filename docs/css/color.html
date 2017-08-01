@@ -22,25 +22,74 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
-					<li><a href="#refs">References</a></li>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#desc">Explanation</a></li>
 				</ol>
 			</nav>
 
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Do not rely on color to impart information as not all users will be able to see
+					or perceive the colors.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Provide sufficient contrast between foreground and background colors. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 1.4.3</a> and <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7">WCAG 1.4.6</a>)</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
+								ratio of at least 7:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
+								ratio of at least 4.5:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
+								ratio of at least 3:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G174.html">G174: Providing a control with
+								a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient
+								contrast</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G183.html">G183: Using a contrast ratio
+								of 3:1 with surrounding text and providing additional visual cues on focus for links or controls
+								where color alone is used to identify them</a></li>
+						</ul>
+					</li>
+					<li>Provide alternatives to color for identifying information. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color">WCAG 1.4.1</a>)</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G14.html">G14: Ensuring that information
+								conveyed by color differences is also available in text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G111.html">G111: Using color and
+								pattern</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
+								whenever color cues are used</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G182.html">G182: Ensuring that additional
+								visual cues are available when text color differences are used to convey information</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/H92.html">H92: Including a text cue for
+								colored form control labels</a></li>
+						</ul>
+					</li>
+					<li>Use CSS together with semantic markup. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>)</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C22.html">C22: Using CSS to control
+								visual presentation of text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C23.html">C23: Specifying text and
+								background colors of secondary content such as banners, features and navigation in CSS while not
+								specifying text and background colors of the main content</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C25.html">C25: Specifying borders and
+								layout in CSS to delineate areas of a Web page while not specifying text and text-background
+								colors</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			
 			<section id="desc">
+				<h3>Explanation</h3>
+				
 				<p>Although the use of color is a common semantic method for conveying information to sighted users, it
 					should never be used as the sole means of imparting information. Semantic markup should always underlie
 					any use of border colors and shading so that the equal access is provided to users using non-visual
@@ -54,8 +103,7 @@
 
 				<p>Likewise, placing one shade of a color on another is also going to make reading difficult, as will placing
 					two light or dark colors on top of each other (luminosity). A user may be able to fix some of these
-					issues with a configurable reading system, but it is best to avoid them in the first place. Strictly
-					adhering to the color guidelines outlined in WCAG 2.0 is the best first step.</p>
+					issues with a configurable reading system, but it is best to avoid them in the first place.</p>
 
 				<p>Also avoid placing text over noisy (multi-colored) backgrounds. The less uniform the background is the
 					more difficult it can be for any user to follow.</p>
@@ -63,48 +111,6 @@
 				<p>More generally, though, be sure to always cleanly separate styles from content. Separation of styling
 					ensures that users can apply their own style sheets and/or use and built-in color, brightness and
 					contrast controls in their reading system to tailor the display to their needs.</p>
-			</section>
-
-			<section id="refs">
-				<h3>References</h3>
-
-				<ul>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G14.html">G14: Ensuring that information
-							conveyed by color differences is also available in text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
-							ratio of at least 7:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
-							ratio of at least 4.5:1 exists between text (and images of text) and background behind the
-							text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
-							ratio of at least 3:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G111.html">G111: Using color and
-							pattern</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
-							whenever color cues are used</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G174.html">G174: Providing a control with
-							a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient
-							contrast</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G182.html">G182: Ensuring that additional
-							visual cues are available when text color differences are used to convey information</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G183.html">G183: Using a contrast ratio
-							of 3:1 with surrounding text and providing additional visual cues on focus for links or controls
-							where color alone is used to identify them</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/H92.html">H92: Including a text cue for
-							colored form control labels</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C22.html">C22: Using CSS to control
-							visual presentation of text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C23.html">C23: Specifying text and
-							background colors of secondary content such as banners, features and navigation in CSS while not
-							specifying text and background colors of the main content</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C25.html">C25: Specifying borders and
-							layout in CSS to delineate areas of a Web page while not specifying text and text-background
-							colors</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR31.html">SCR31: Using script to change
-							the background color or border of the element with focus</a></li>
-				</ul>
 			</section>
 		</section>
 		<footer>
