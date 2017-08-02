@@ -45,7 +45,6 @@
 					<li><a href="#tech">Techniques</a></li>
 					<li><a href="#ex">Examples</a></li>
 					<li><a href="#desc">Explanation</a></li>
-					<li><a href="#samp">Samples</a></li>
 					<li><a href="#refs">References</a></li>
 				</ol>
 			</nav>
@@ -100,10 +99,10 @@
 				<figure>
 					<figcaption>Example 1 &#8212; Indicating an image represents a button using a role</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img src="controls/start.png"
-	 id="start"
-	 role="button"
-	 tabindex="0"
-	 alt="Start"/></code></pre>
+    id="start"
+    role="button"
+    tabindex="0"
+    alt="Start"/></code></pre>
 				</figure>
 
 				<figure>
@@ -113,19 +112,19 @@
 						control, changing the visual appearance of the buttons. To make this image work with keyboards, the
 						user's keypresses must also be monitored and actions turned on and off.</p>
 					<pre class="prettyprint linenums small"><code>&lt;img src="controls/play.png"
-	 id="start"
-	 alt="Start"
-	 role="button"
-	 aria-disabled="false"
-	 tabindex="0"
-	 onclick="controlPlayback('start')"/>
+    id="start"
+    alt="Start"
+    role="button"
+    aria-disabled="false"
+    tabindex="0"
+    onclick="controlPlayback('start')"/>
 
 &lt;img src="controls/stop.png"
-	 id="stop"
-	 alt="Stop"
-	 role="button"
-	 aria-disabled="true"
-	 tabindex="0"/>
+    id="stop"
+    alt="Stop"
+    role="button"
+    aria-disabled="true"
+    tabindex="0"/>
 
 &lt;script type="text/javascript">
 &lt;![CDATA[
@@ -134,41 +133,41 @@ function controlPlayback(action) {
   var isStart = (action == 'start') ? true : false;
   
   var start_image = isStart ? 
-			  'controls/play-disabled.png' : 
-			  'controls/play.png';
+           'controls/play-disabled.png' : 
+           'controls/play.png';
   
   var stop_image = isStart ? 
-			  'controls/stop.png' : 
-			  'controls/stop-disabled.png';
+           'controls/stop.png' : 
+           'controls/stop-disabled.png';
   
   var start = document.getElementById('audio-start');
-	 start.setAttribute('aria-disabled', 
-				  !start.getAttribute('aria-disabled'));
-	 start.setAttribute('disabled', 
-				  !start.getAttribute('disabled'));
-	 start.onclick = isStart ? 
-				null : 
-				function () { controlPlayback('start'); };
-	 start.setAttribute('src', start_image);
+    start.setAttribute('aria-disabled', 
+              !start.getAttribute('aria-disabled'));
+    start.setAttribute('disabled', 
+              !start.getAttribute('disabled'));
+    start.onclick = isStart ? 
+            null : 
+            function () { controlPlayback('start'); };
+    start.setAttribute('src', start_image);
   
   var stop = document.getElementById('audio-stop');
-	 stop.setAttribute('aria-disabled', 
-				  !stop.getAttribute('aria-disabled'));
-	 stop.setAttribute('disabled', 
-				  !stop.getAttribute('disabled'));
-	 stop.onclick = isStart ? 
-				function () { controlPlayback('stop'); } : 
-				null;
-	 stop.setAttribute('src', stop_image);
+    stop.setAttribute('aria-disabled', 
+              !stop.getAttribute('aria-disabled'));
+    stop.setAttribute('disabled', 
+              !stop.getAttribute('disabled'));
+    stop.onclick = isStart ? 
+            function () { controlPlayback('stop'); } : 
+            null;
+    stop.setAttribute('src', stop_image);
    
    if (isStart) {
-	 start.removeAttribute('onkeypress');
-	 stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
+    start.removeAttribute('onkeypress');
+    stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
    }
    
    else {
-	 stop.removeAttribute('onkeypress');
-	 start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
+    stop.removeAttribute('onkeypress');
+    start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
    }
   
   alert(isStart ? 'Playback started!' : 'Playback stopped!');
@@ -341,14 +340,6 @@ function controlPlayback(action) {
 				<br />
 			</section>
 			
-			<section id="samp" class="sample">
-				<h3>Samples</h3>
-				<ul>
-					<li><a href="http://test.cita.uiuc.edu/aria/">Illinois Center for Information Technology and Web
-							Accessibility &#8212; ARIA Examples</a></li>
-				</ul>
-			</section>
-
 			<section id="refs">
 				<h3>References</h3>
 

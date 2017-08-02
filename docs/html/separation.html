@@ -154,11 +154,11 @@ aside[epub|type~='sidebar'] {
 					<pre class="prettyprint linenums"><code>&lt;aside epub:type="warning">
    &lt;h4>Alert&lt;/h4>
    &lt;p>
-	  Adding acids and bases can cause 
-	  violent reactions!
+     Adding acids and bases can cause 
+     violent reactions!
    &lt;/p>
 &lt;/aside></code></pre>
-					<pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
+               <pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
 aside[epub|type~='warning'] {
    border: solid 2px rgb(200,0,0);
 }
@@ -181,12 +181,12 @@ aside[epub|type~='warning'] h4 {
 					<figcaption>Example 3 &#8212; Linking a style sheet</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
-	  &#8230;
-	  &lt;link
-		   rel="stylesheet"
-		   type="text/css"
-		   href="#css/epub3.css"/>
-	  &#8230;
+     &#8230;
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3.css"/>
+     &#8230;
    &lt;/head>
    &#8230;
 &lt;/html></code></pre>
@@ -196,19 +196,19 @@ aside[epub|type~='warning'] h4 {
 					<figcaption>Example 4 &#8212; Including style overrides for mobile rendering</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
-	  &#8230;
-	  &lt;link
-		   rel="stylesheet"
-		   type="text/css"
-		   href="#css/epub3.css"
-		   media="screen"/>
-	  
-	  &lt;link
-		   rel="stylesheet"
-		   type="text/css"
-		   href="#css/epub3-mobile.css"
-		   media="screen and (max-width:480px)"/>
-	  &#8230;
+     &#8230;
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3.css"
+         media="screen"/>
+     
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3-mobile.css"
+         media="screen and (max-width:480px)"/>
+     &#8230;
    &lt;/head>
    &#8230;
 &lt;/html></code></pre>

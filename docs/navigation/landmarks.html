@@ -29,7 +29,10 @@
 			<nav class="mini-toc">
 				<h3>In this section:</h3>
 				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
 					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 					<li><a href="#faq">FAQ</a></li>
 				</ol>
@@ -38,7 +41,7 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Landmarks provide easy access to major structural sections spread across a multi-document publication.</p>
 			</section>
 			
 			<section id="tech">
@@ -47,26 +50,6 @@
 				<ul>
 					<li>...</li>
 				</ul>
-			</section>
-			
-			<section id="desc">
-				<p>Every EPUB publication should include a guide to all the major landmarks (the <code>landmarks
-					nav</code>).</p>
-
-				<p>The nature of each landmark must be identified in an <code>epub:type</code> attribute on its link element
-						(<code>a</code>). Common landmark properties from the <a href="http://idpf.org/epub/vocab/structure/"
-						>EPUB 3 Structural Semantics Vocabulary</a> include the following:</p>
-
-				<ul>
-					<li>bodymatter</li>
-					<li>toc</li>
-					<li>bibliography</li>
-					<li>index</li>
-					<li>glossary</li>
-				</ul>
-
-				<p>Unlike the <a href="toc.html"><code>toc nav</code></a>, the <code>landmarks nav</code> must only be a
-					single flat listing of links.</p>
 			</section>
 
 			<section id="ex">
@@ -78,46 +61,68 @@
 					<pre class="prettyprint linenums"><code>&lt;nav epub:type="landmarks">
    &lt;h2>Guide&lt;/h2>
    &lt;ol>
-	  &lt;li>
-		 &lt;a 
-			epub:type="toc"
-			href="#toc">Table of Contents&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a
-			epub:type="loi"
-			href="front.html#loi">List of Images&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a
-			epub:type="lot"
-			href="front.html#lot">List of Tables&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a 
-			epub:type="bodymatter"
-			href="c01.html#c01">Start of Content&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a
-			epub:type="glossary"
-			href="gloss.html#gloss">Glossary&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a
-			epub:type="bibliography"
-			href="app.html#biblio">Bibliography&lt;/a>
-	  &lt;/li>
-	  &lt;li>
-		 &lt;a
-			epub:type="index"
-			href="index.html#index">Index&lt;/a>
-	  &lt;/li>
+     &lt;li>
+       &lt;a 
+         epub:type="toc"
+         href="#toc">Table of Contents&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a
+         epub:type="loi"
+         href="front.html#loi">List of Images&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a
+         epub:type="lot"
+         href="front.html#lot">List of Tables&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a 
+         epub:type="bodymatter"
+         href="c01.html#c01">Start of Content&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a
+         epub:type="glossary"
+         href="gloss.html#gloss">Glossary&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a
+         epub:type="bibliography"
+         href="app.html#biblio">Bibliography&lt;/a>
+     &lt;/li>
+     &lt;li>
+       &lt;a
+         epub:type="index"
+         href="index.html#index">Index&lt;/a>
+     &lt;/li>
    &lt;/ol>
 &lt;/nav></code></pre>
 				</figure>
 			</section>
-
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Every EPUB publication should include a guide to all the major landmarks (the <code>landmarks
+					nav</code>).</p>
+				
+				<p>The nature of each landmark must be identified in an <code>epub:type</code> attribute on its link element
+					(<code>a</code>). Common landmark properties from the <a href="http://idpf.org/epub/vocab/structure/"
+						>EPUB 3 Structural Semantics Vocabulary</a> include the following:</p>
+				
+				<ul>
+					<li>bodymatter</li>
+					<li>toc</li>
+					<li>bibliography</li>
+					<li>index</li>
+					<li>glossary</li>
+				</ul>
+				
+				<p>Unlike the <a href="toc.html"><code>toc nav</code></a>, the <code>landmarks nav</code> must only be a
+					single flat listing of links.</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 				<ul>

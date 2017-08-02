@@ -79,21 +79,21 @@
 &lt;![CDATA[
    function writeResult(pass, msg) {
    
-	   /* get the results div */
-	   var rDiv = document.getElementById('results');
-	   
-	   /* create a new span element */
-	   var result = document.createElement('span');
-		   result.setAttribute('class', pass ? 'win' : 'lose');
-	   
-	   /* create a text node with the result */
-	   var message = document.createTextNode(msg);
-	   
-	   /* add the message to the span */
-	   result.appendChild(message);
-	   
-	   /* show the new message for to user */
-	   rDiv.appendChild(result);
+      /* get the results div */
+      var rDiv = document.getElementById('results');
+      
+      /* create a new span element */
+      var result = document.createElement('span');
+         result.setAttribute('class', pass ? 'win' : 'lose');
+      
+      /* create a text node with the result */
+      var message = document.createTextNode(msg);
+      
+      /* add the message to the span */
+      result.appendChild(message);
+      
+      /* show the new message for to user */
+      rDiv.appendChild(result);
    
    }
 ]]&gt;
@@ -106,7 +106,7 @@
 					<pre class="prettyprint linenums small bad"><code>&lt;script type="text/javascript">
 &lt;![CDATA[
    var invalid = document.createElement('html');
-	   invalid.appendChild(document.createTextNode(msg));
+      invalid.appendChild(document.createTextNode(msg));
    
    document.body.insertBefore(invalid, document.body.firstChild);
 ]]&gt;

@@ -88,8 +88,8 @@
 					element, ensuring that when changes do occur they get picked up by the assistive technology.</p>
 
 				<pre class="prettyprint linenums"><code>&lt;div
-	 id="results"
-	 aria-live="assertive"/></code></pre>
+    id="results"
+    aria-live="assertive"/></code></pre>
 
 				<p>When the attribute is set to the value <code class="value">assertive</code> it indicates that changes
 					should be announced to the user as soon as they are written. When set to <code class="value"
@@ -104,9 +104,9 @@
 					attribute is changed back to <code class="value">false</code> before announcing the changes.</p>
 
 				<pre class="prettyprint linenums"><code>&lt;div
-	 id="results"
-	 aria-live="assertive"
-	 aria-busy="false"/></code></pre>
+    id="results"
+    aria-live="assertive"
+    aria-busy="false"/></code></pre>
 
 				<p class="bridgehead">Controlling what's read</p>
 
@@ -116,10 +116,10 @@
 					When set to <code class="value">false</code>, the reading system will only read the changed text.</p>
 
 				<pre class="prettyprint linenums"><code>&lt;div
-	 id="results"
-	 aria-live="assertive"
-	 aria-busy="false"
-	 aria-atomic="true"/></code></pre>
+    id="results"
+    aria-live="assertive"
+    aria-busy="false"
+    aria-atomic="true"/></code></pre>
 
 				<p class="bridgehead">Controlling what gets noticed</p>
 
@@ -130,11 +130,11 @@
 						>all</code>).</p>
 
 				<pre class="prettyprint linenums"><code>&lt;div
-	 id="results"
-	 aria-live="assertive"
-	 aria-busy="false"
-	 aria-atomic="true"
-	 aria-relevant="all"/></code></pre>
+    id="results"
+    aria-live="assertive"
+    aria-busy="false"
+    aria-atomic="true"
+    aria-relevant="all"/></code></pre>
 
 				<p class="bridgehead">Default live regions</p>
 
@@ -143,8 +143,8 @@
 						>marguee</code>, <code class="value">status</code> and <code class="value">timer</code>.</p>
 
 				<pre class="prettyprint linenums"><code>&lt;div
-	 id="results"
-	 role="alert"/></code></pre>
+    id="results"
+    role="alert"/></code></pre>
 			</section>
 
 			<section id="ex">
@@ -153,48 +153,48 @@
 					<figcaption>Example 1 &#8212; A simple form that display the result</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;form>
    &lt;div>
-	  What is the capital of Sweden?
-	  
-	  &lt;label for="q1a">
-		 &lt;input
-				type="radio"
-				id="q1a"
-				name="q1"/>a. Innsbruck
-	  &lt;/label>
-	  
-	  &lt;label for="q1b">
-		 &lt;input
-				type="radio"
-				id="q1b"
-				name="q1"/>b. Oslo
-	  &lt;/label>
-	  
-	  &lt;label for="q1c">
-		 &lt;input
-				type="radio"
-				id="q1c"
-				name="q1"/>c. Stockholm
-	  &lt;/label>
-	  
-	  &lt;label for="q1d">
-		 &lt;input
-				type="radio"
-				id="q1d"
-				name="q1"/>d. Uppsala
-	  &lt;/label>
+     What is the capital of Sweden?
+     
+     &lt;label for="q1a">
+       &lt;input
+            type="radio"
+            id="q1a"
+            name="q1"/>a. Innsbruck
+     &lt;/label>
+     
+     &lt;label for="q1b">
+       &lt;input
+            type="radio"
+            id="q1b"
+            name="q1"/>b. Oslo
+     &lt;/label>
+     
+     &lt;label for="q1c">
+       &lt;input
+            type="radio"
+            id="q1c"
+            name="q1"/>c. Stockholm
+     &lt;/label>
+     
+     &lt;label for="q1d">
+       &lt;input
+            type="radio"
+            id="q1d"
+            name="q1"/>d. Uppsala
+     &lt;/label>
    &lt;/div>
    
    &lt;input
-		  type="button"
-		  value="Verify"
-		  onclick="checkAnswers()"/>
+        type="button"
+        value="Verify"
+        onclick="checkAnswers()"/>
 &lt;/form>
 
 &lt;div
-	 id="result"
-	 aria-live="assertive"
-	 aria-atomic="true"
-	 hidden="hidden">
+    id="result"
+    aria-live="assertive"
+    aria-atomic="true"
+    hidden="hidden">
    Your answer is &lt;span id="answer"/>!
 &lt;/div>
 
@@ -205,7 +205,7 @@ function checkAnswers() {
    var q1ans = document.getElementById('q1-answer');
 
    while (q1ans.hasChildNodes()) {
-	  q1ans.removeChild(q1ans.firstChild);
+     q1ans.removeChild(q1ans.firstChild);
    }
    
    var response = document.getElementById('q1c').checked ? 'correct' : 'incorrect';

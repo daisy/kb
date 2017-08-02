@@ -11,21 +11,29 @@ nav#toc h2 {
     margin-bottom: 2rem;
 }
 
-nav > section {
+nav#toc > section {
     margin: 0 0 0 3rem;
     padding: 1rem;
 }
 
-nav > section > h3 {
-    margin-top: 0;
+nav#toc > section > section {
+	margin: 1rem 0 0 0;
 }
 
-nav[role='doc-toc'] ol {
+nav#toc h3 {
+    margin: 0;
+}
+
+nav#toc h4 {
+	margin: 0 0 0 3rem;
+}
+
+nav#toc ol {
 	list-style-type: none;
 	max-width: 80rem;
 }
 
-nav[role='doc-toc'] li {
+nav#toc li {
 	border: 0.1rem solid rgb(0,0,120);
 	background-color: rgb(247,252,255);
 	border-radius: 0.5rem;
@@ -35,11 +43,11 @@ nav[role='doc-toc'] li {
 	margin: 0.5rem;
 }
 
-nav[role='doc-toc'] li:hover {
+nav#toc li:hover {
 	background-color: rgb(255,255,220);
 }
 
-nav[role='doc-toc'] a {
+nav#toc a {
 	text-decoration: none;
 	color: rgb(0,0,200) !important;
 	border: none !important;

@@ -91,9 +91,9 @@
 					<figcaption>Example 1 &#8212; Wrapping a canvas in a figure</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;figure>
    &lt;figcaption>
-	  &lt;span class="caption">Figure 1 — Sales 
-	  of tablets by manufacturer: Sorny 45%, 
-	  MagnetBox 25%, Panaphonics 30%&lt;/span>
+     &lt;span class="caption">Figure 1 — Sales 
+     of tablets by manufacturer: Sorny 45%, 
+     MagnetBox 25%, Panaphonics 30%&lt;/span>
    &lt;/figcaption>
    &lt;canvas id="piechart" width="400" height="400">&lt;/canvas>
 &lt;/figure>
@@ -101,57 +101,57 @@
 &lt;![CDATA[
    function drawPie() {
    
-	  var mfctr = new Array();
-		  mfctr[0] = new Array();
-		  mfctr[0].name = 'Sorny';
-		  mfctr[0].pct = 45;
-		  mfctr[0].color = 'rgb(0,0,255)';
-		  mfctr[1] = new Array();
-		  mfctr[1].name = 'MagnetBox';
-		  mfctr[1].pct = 25;
-		  mfctr[1].color = 'rgb(0,255,0)';
-		  mfctr[2] = new Array();
-		  mfctr[2].name = 'Panaphonics';
-		  mfctr[2].pct = 30;
-		  mfctr[2].color = 'rgb(255,0,0)';
-	  
-	  var canvas = document.getElementById('piechart');
-	  
-	  var context = canvas.getContext('2d');
-		  context.clearRect(0, 0, canvas.width, canvas.height);
-	  
-	  var lastpos = 0;
-	  var labelpos = 325;
-	  
-	  for (var i = 0; i &lt; mfctr.length; i++) {
-		 
-		 var m = mfctr[i];
-		 
-		 context.fillStyle = m.color;
-		 context.beginPath();
-		 context.moveTo(200,150);
-		 context.arc(200,150,150,lastpos,lastpos+(Math.PI*2*(m.pct/100)),false);
-		 context.lineTo(200,150);
-		 context.fill();
-		 
-		 context.strokeStyle = 'rgb(0,0,0)';
-		 context.stroke();
-		 
-		 context.fillStyle = m.color;
-		 context.font = "16pt Arial";
-		 
-		 var text = m.name;
-		 var offset = context.measureText(text);
-		 context.fillText(text, 0, labelpos);
-		 
-		 var pctlabel = ' -- ' + m.pct + '%';
-		 
-		 context.fillStyle = 'rgb(0,0,0)';
-		 context.fillText(pctlabel, offset.width, labelpos);
-		 
-		 labelpos += 35;
-		 lastpos += Math.PI*2*(m.pct/100);
-	  }
+     var mfctr = new Array();
+        mfctr[0] = new Array();
+        mfctr[0].name = 'Sorny';
+        mfctr[0].pct = 45;
+        mfctr[0].color = 'rgb(0,0,255)';
+        mfctr[1] = new Array();
+        mfctr[1].name = 'MagnetBox';
+        mfctr[1].pct = 25;
+        mfctr[1].color = 'rgb(0,255,0)';
+        mfctr[2] = new Array();
+        mfctr[2].name = 'Panaphonics';
+        mfctr[2].pct = 30;
+        mfctr[2].color = 'rgb(255,0,0)';
+     
+     var canvas = document.getElementById('piechart');
+     
+     var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+     
+     var lastpos = 0;
+     var labelpos = 325;
+     
+     for (var i = 0; i &lt; mfctr.length; i++) {
+       
+       var m = mfctr[i];
+       
+       context.fillStyle = m.color;
+       context.beginPath();
+       context.moveTo(200,150);
+       context.arc(200,150,150,lastpos,lastpos+(Math.PI*2*(m.pct/100)),false);
+       context.lineTo(200,150);
+       context.fill();
+       
+       context.strokeStyle = 'rgb(0,0,0)';
+       context.stroke();
+       
+       context.fillStyle = m.color;
+       context.font = "16pt Arial";
+       
+       var text = m.name;
+       var offset = context.measureText(text);
+       context.fillText(text, 0, labelpos);
+       
+       var pctlabel = ' -- ' + m.pct + '%';
+       
+       context.fillStyle = 'rgb(0,0,0)';
+       context.fillText(pctlabel, offset.width, labelpos);
+       
+       labelpos += 35;
+       lastpos += Math.PI*2*(m.pct/100);
+     }
    }
    
    drawPie();
@@ -225,11 +225,11 @@
 			labelpos += 35;
 			lastpos += Math.PI*2*(m.pct/100);
 		 }
-	  }
-	  
-	  drawPie();
-   //]]>
-   </script>
+	}
+	
+	drawPie();
+	//]]>
+						</script>
 					</figure>
 				</figure>
 			</section>
