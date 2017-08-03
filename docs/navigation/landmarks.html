@@ -48,16 +48,14 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Include a landmarks navigation element. <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.4.5</a>)</span></li>
 				</ul>
 			</section>
 
 			<section id="ex">
 				<h3>Example</h3>
 				<figure>
-					<figcaption>Example 1 &#8212; Landmarks navigation</figcaption>
-					<p>Note in the following example that the <code>landmarks nav</code> references the <code>toc nav</code>
-						in the same file.</p>
+					<figcaption>Example 1 &#8212; Landmarks navigation (EPUB 3)</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;nav epub:type="landmarks">
    &lt;h2>Guide&lt;/h2>
    &lt;ol>
@@ -104,32 +102,48 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>Every EPUB publication should include a guide to all the major landmarks (the <code>landmarks
-					nav</code>).</p>
+				<p>Landmarks navigation enables quick access to major sections of the content. It is similar to ARIA landmarks,
+					but ARIA landmarks are dynamically compiled by an assistive technology for the current page a user is on. 
+					Landmarks navigation, on the other hand, is a static list of locations that allows sections across a multi-document
+					publication to be listed. Also, unlike ARIA landmarks, a landmarks navigation element can be made available 
+					to all users, not just users of assistive technologies.</p>
 				
-				<p>The nature of each landmark must be identified in an <code>epub:type</code> attribute on its link element
-					(<code>a</code>). Common landmark properties from the <a href="http://idpf.org/epub/vocab/structure/"
-						>EPUB 3 Structural Semantics Vocabulary</a> include the following:</p>
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>Every EPUB publication should include a guide to all the major landmarks (the <code>landmarks
+						nav</code>).</p>
+					
+					<p>The nature of each landmark must be identified in an <code>epub:type</code> attribute on its link element
+						(<code>a</code>). Common landmark properties from the <a href="http://idpf.org/epub/vocab/structure/"
+							>EPUB 3 Structural Semantics Vocabulary</a> include the following:</p>
+					
+					<ul>
+						<li>bodymatter</li>
+						<li>toc</li>
+						<li>bibliography</li>
+						<li>index</li>
+						<li>glossary</li>
+					</ul>
+					
+					<p>Unlike the <a href="toc.html"><code>toc nav</code></a>, the <code>landmarks nav</code> must only be a
+						single flat listing of links.</p>
+				</section>
 				
-				<ul>
-					<li>bodymatter</li>
-					<li>toc</li>
-					<li>bibliography</li>
-					<li>index</li>
-					<li>glossary</li>
-				</ul>
-				
-				<p>Unlike the <a href="toc.html"><code>toc nav</code></a>, the <code>landmarks nav</code> must only be a
-					single flat listing of links.</p>
+				<section>
+					<h4>EPUB 2</h4>
+					
+					<p>Landmarks are specified in EPUB 2 using the <code>guide</code> element in the NCX.</p>
+				</section>
 			</section>
 			
 			<section id="refs">
 				<h3>References</h3>
 				<ul>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/sections.html#the-nav-element">The <code>nav</code>
+						element</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-nav-def-types-landmarks"
 							>The <code>landmarks nav</code> Element</a></li>
-					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/sections.html#the-nav-element">The <code>nav</code>
-							element</a></li>
 					<li>EPUB 2 &#8212; <a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">Guide</a></li>
 				</ul>
 			</section>
