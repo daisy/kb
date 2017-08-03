@@ -31,7 +31,6 @@
 				<ol>
 					<li><a href="#summary">Summary</a></li>
 					<li><a href="#tech">Techniques</a></li>
-					<li><a href="#ex">Examples</a></li>
 					<li><a href="#desc">Explanation</a></li>
 					<li><a href="#refs">References</a></li>
 				</ol>
@@ -40,37 +39,40 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Access keys can interfere with key mappings for browsers and assistive technologies so are best avoided.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>... <span class="wcag-level">(<a href="https://www.w3.org/TR/WCAG20/#">WCAG #</a>)</span>
-						<ul>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/X.html">...</a></li>
-						</ul>
-					</li>
+					<li>Ensure that all access keys are unique. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>]</span></li>
+					<li>Avoid conflicts with operating system and assistive technology key mappings. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>]</span></li>
 				</ul>
 			</section>
 
-			<section id="ex">
-				<h3>Examples</h3>
-
-			</section>
-			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>...</p>
+				<p>Access keys allow users to quickly jump to specific locations of the document by pressing the corresponding key
+					combination on their keyboard. Although this seems like a useful feature, in practice access keys cause more problems
+					than they solve.</p>
+				
+				<p>In particular, access keys often conflict with existing key mappings in browsers and assistive technologies. In these
+					cases, the access key is typically ignored, leaving no value for the shortcuts. If they do override the existing 
+					mappings, though, users are unable to access the normal functionality of the combination.</p>
+				
+				<p>Authors also need to ensure that they do not accidentally assign the same access key to more than one element. If this
+					happens, only the first instance will be recognized.</p>
+				
+				<p>As a rule, it is best to avoid access keys when creating content for a broad audience of users.</p>
 			</section>
 			
 			<section id="refs">
 				<h3>References</h3>
 
 				<ul>
-					<li>...</li>
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/editing.html#the-accesskey-attribute">The <code>accesskey</code> attribute</a></li>
 				</ul>
 			</section>
 		</section>
