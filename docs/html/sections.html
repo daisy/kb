@@ -65,24 +65,10 @@
 				<h3>Examples</h3>
 
 				<figure>
-					<figcaption>Example 1 &#8212; Defining a section is a chapter with a heading</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter">
+					<figcaption>Example 1 &#8212; Identifying a section is a chapter</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
    &lt;h1 id="c01h01">Chapter 1. Loomings.&lt;/h1>
    &lt;p>Call me Ishmael. &#8230; &lt;/p>
-   &#8230;
-&lt;/section></code></pre>
-				</figure>
-
-				<figure>
-					<figcaption>Example 2 &#8212; Defining a section is a chapter by attribute</figcaption>
-					<p class="bridgehead"><code>title</code> attribute</p>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter" title="chapter">
-   &lt;p>It was a dark and stormy night &#8230; &lt;/p>
-   &#8230;
-&lt;/section></code></pre>
-					<p class="bridgehead"><code>aria-label</code> attribute</p>
-					<pre class="prettyprint linenums"><code>&lt;section epub:type="chapter" aria-label="chapter">
-   &lt;p>It was a dark and stormy night &#8230; &lt;/p>
    &#8230;
 &lt;/section></code></pre>
 				</figure>
@@ -95,15 +81,15 @@
 					publication's structural hierarchy. Clearly grouping and identifying content enables better navigation by
 					anyone reading using an assistive technology (<a href="#faq03">see also the faq</a>).</p>
 				
-				<p>An <code>epub:type</code> attribute should be attached to each <code>section</code> to indicate the
-					specific nature of the content, when applicable. See the <a href="http://idpf.org/epub/vocab/structure/"
-						>EPUB 3 Structural Semantics Vocabulary</a> for the list of allowed values that can be used with the
-					attribute.</p>
+				<p>The <a href="roles.html"><code>role</code> attribute</a> should be attached to each <code>section</code> to indicate the
+					specific nature of the content, when applicable. See the <a href="https://www.w3.org/TR/dpub-aria-1.0/"
+						>Digital Publishing WAI-ARIA module</a> for a list of values that can be used with the attribute.</p>
 				
-				<p>When the <code>epub:type</code> attribute is not specified, a generic section/subsection nature is assumed
-					based on the nesting level.</p>
+				<p>When the <code>role</code> is not specified, a generic section/subsection nature is assumed based on the nesting
+					level.</p>
 				
-				<p>A <code>section</code> must not have more than one child heading.</p>
+				<p>A <code>section</code> must not have more than one child heading. Do not add subtitles using heading tags,
+					as these will appear as subsections to users of assistive technologies</p>
 				
 				<p>If a section does not have a heading, consider including an <code>aria-label</code> attribute on the
 					<code>section</code> to identify its purpose.</p>
@@ -129,17 +115,17 @@
 							mini-articles, etc. &#8212; should be identified using the <code>aside</code> and
 								<code>article</code> elements, as appropriate.</p>
 					</dd>
-					<dt>How do I handle large sections?</dt>
-					<dd><p>EPUBs are typically broken up into smaller XHTML content files to improve rendering, so it's often
-							the case that an entire part cannot be contained in a single file. The question becomes, how do
+					<dt>How do I handle parts?</dt>
+					<dd><p>Publications are typically broken up into smaller content files to improve rendering speed, so it 
+						is often the case that an entire part cannot be contained in a single file. The question becomes, how do
 							you split the chapters into separate files and still retain the part?</p>
 						<p>There are two approaches you can take to flattening out your content, and neither is optimal
 							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
 							is to include the part heading with the first chapter:</p>
 						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section epub:type="part">
+   &lt;section role="doc-part">
 	  &lt;h1>Part I&lt;/h1>
-	  &lt;section epub:type="chapter">
+	  &lt;section role="doc-chapter">
 		 &lt;h2>Chapter I&lt;/h2>
 	  &lt;/section
    &lt;/section>
@@ -150,29 +136,14 @@
 							user.</p>
 						<p>The other approach is to separate the part heading into its own file:</p>
 						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section epub:type="part">
+   &lt;section role="doc-part">
 	  &lt;h1>Part I&lt;/h1>
    &lt;/section>
 &lt;/body></code></pre>
 						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is
 							subordinate to the part. One advantage of this approach is that reading systems will render the
 							part heading separately from the first chapter content.</p>
-						<p>It would be nice to see a future version of EPUB include a way of retaining information about the
-							document hierarchy regardless of how the content gets broken up into files (e.g., in the spine),
-							but at this time no such mechanism exists.</p>
 					</dd>
-					<dt>Do sections assist in navigation?</dt>
-					<dd><p>Grouping content into <code>section</code> elements more clearly delineates the structure of your
-							document, since there's no ambiguity about where the section begins and ends (e.g., in HTML4,
-							headings were often interspersed throughout the content regardless of relation to structure).
-							This structure allows users using assistive technologies to move from section to section more
-							easily.</p>
-						<p>It's also true that grouping and identifying the nature of each <code>section</code> with an
-								<code>epub:type</code> attribute aids navigation of the document at the markup level (which
-							is where assistive technologies usually operate).</p>
-					</dd>
-					<dt>Should I use numbered headings or generic headings for my sections?</dt>
-					<dd><p>See the <a href="headings.html">Headings section</a> for more information.</p></dd>
 				</dl>
 			</section>
 		</section>

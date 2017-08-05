@@ -365,17 +365,22 @@ div.warning, div.note {
 	margin: 2em 0 2em 3em;
 	padding-left: 1em;
 	width: 80%;
-	border-left: 4px solid rgb(0,220,0);
+	border-left: 4px solid rgb(0,120,0);
+}
+
+div.warning {
+	border-left-color: rgb(120,0,0);
 }
 
 div.warning p.label,
 div.note p.label {
     font-weight: bold;
+	width: 4.1em;
+	color: rgb(0,120,0);
 }
 
-p.label, div.warning p.label {
-	width: 4.1em;
-	color: rgb(190,0,0);
+div.warning p.label {
+	color: rgb(120,0,0);
 }
 
 span.atrisk {

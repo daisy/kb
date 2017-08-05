@@ -110,82 +110,21 @@
 				<h3>Examples</h3>
 
 				<figure>
-					<figcaption>Example 1 &#8212; Using the <code>epub:type</code> attribute to style a sidebar</figcaption>
-					<p>The following CSS would make any <code>aside</code> elements defined as sidebars float to the right of
-						the text:</p>
-					<pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
-aside[epub|type~='sidebar'] {
-   padding: 0.5em;
-   margin-left: 2em;
-   width: 25%;
-   max-width: 15em;
-   background-color: rgb(240,240,240);
-   border: solid 1px; rgb(0,0,0);
-   float: right;
+					<figcaption>Example 1 &#8212; Using the <code>role</code> attribute to add a border to examples</figcaption>
+					<pre class="prettyprint linenums"><code class="lang-css">pre[role~='doc-example'] {
+   border-left: solid 3px; rgb(180,180,180);
 }</code></pre>
-					<p>Aplying to this markup:</p>
-					<pre class="prettyprint linenums"><code>&lt;aside epub:type="sidebar">
-   &lt;h4>UK Prime Ministers&lt;/h4>
-   &lt;ol>
-   	&lt;li>Sir Robert Walpole&lt;/li>
-   	&#8230;
-   &lt;/ol>
-&lt;/aside></code></pre>
-					<p>would result in the following rendering in a publication:</p>
-					<aside class="sidebar">
-						<h4>UK Prime Ministers</h4>
-						<ol>
-							<li>Sir Robert Walpole</li>
-							<li>…</li>
-						</ol>
-					</aside>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-						et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-						qui officia deserunt mollit anim id est laborum.</p>
-					<br />
 				</figure>
-
+				
 				<figure>
-					<figcaption>Example 2 &#8212; Adding a red border to a warning</figcaption>
-					<p>Instead of using style alone to create an alert box, semantic styling could be achieved using the
-							<code>epub:type</code> attribute as follows:</p>
-					<pre class="prettyprint linenums"><code>&lt;aside epub:type="warning">
-   &lt;h4>Alert&lt;/h4>
-   &lt;p>
-     Adding acids and bases can cause 
-     violent reactions!
-   &lt;/p>
-&lt;/aside></code></pre>
-               <pre class="prettyprint linenums"><code class="lang-css">@namespace epub 'http://www.idpf.org/2007/ops'
-aside[epub|type~='warning'] {
-   border: solid 2px rgb(200,0,0);
-}
-
-aside[epub|type~='warning'] h4 {
-   text-indent: 0.5em;
-   width: 4em;
-   margin: -1.25em 0em 0em 1em;
-   background-color: rgb(255,255,200);
-   border: solid 1px rgb(0,0,0);
-}</code></pre>
-					<p>The above markup would render as follows:</p>
-					<aside class="warning">
-						<h4>Alert</h4>
-						<p>Adding acids and bases can cause violent reactions!</p>
-					</aside>
-				</figure>
-
-				<figure>
-					<figcaption>Example 3 &#8212; Linking a style sheet</figcaption>
+					<figcaption>Example 2 &#8212; Linking a style sheet</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
      &#8230;
      &lt;link
          rel="stylesheet"
          type="text/css"
-         href="#css/epub3.css"/>
+         href="css/epub3.css"/>
      &#8230;
    &lt;/head>
    &#8230;
@@ -193,7 +132,7 @@ aside[epub|type~='warning'] h4 {
 				</figure>
 
 				<figure>
-					<figcaption>Example 4 &#8212; Including style overrides for mobile rendering</figcaption>
+					<figcaption>Example 3 &#8212; Including style overrides for mobile rendering</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
      &#8230;
@@ -218,24 +157,18 @@ aside[epub|type~='warning'] h4 {
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>The visual appearance of content is often the only consideration that ebook authors take into account when
+				<p>The visual appearance of content is often the only consideration that authors take into account when
 					producing content, but this focus excludes that many users are not going to be reading visually (e.g.,
 					refreshable braille, text-to-speech playback, etc.). Separating style from markup is consequently not
 					just about keeping CSS in a separate file from your markup, but recognizing that markup must convey
 					meaning to be useful to all users, and that visual rendering is only one possible use case.</p>
 				
-				<p>To create rich markup, EPUB 3 includes <a href="epub-type.html">the <code>epub:type</code> attribute</a>
-					for semantic inflection &#8212; the ability to make statements about the nature of the tagging you're
-					using beyond just the tag name. Using this attribute with the most relevant structural tag is the most
-					effective way to create meaningful structures that promote accessibility regardless of the medium used to
-					read the content &#8212; by establishing the <a href="order.html">logical reading order</a>.</p>
+				<p>Semantically-rich markup enables meaningful styling, and the <a href="roles.html">ARIA <code>role</code> 
+					attribute</a> can be used with CSS selectors to apply styling by purpose. The use of semantic styling 
+					is encouraged as it ensures focus is kept on how the data is represented, not just how it looks when 
+					rendered.</p>
 				
-				<p>Semantically-rich markup also enables meaningful styling, as the <code>epub:type</code> attribute can be
-					used in CSS selectors to apply styling by purpose. (See <a href="#ex02">Example 2</a>.) The use of
-					semantic styling is encouraged as it ensures focus is kept on how the data is represented, not just how
-					it looks when rendered.</p>
-				
-				<p>But also note that the choices that you make for your content are not necessarily the optimal ones for
+				<p>But note that the choices that you make for your content are not necessarily the optimal ones for
 					many visual users. A user may prefer a different color scheme, to increase the contrast levels, to
 					change the justification, fonts or line height to better suit their needs.</p>
 				

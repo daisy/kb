@@ -112,16 +112,14 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>Headings remain one of the primary means of navigation for users of assistive technologies.</p>
+				<p>Headings are one of the primary means of navigation for users of assistive technologies.</p>
 				
 				<p>Each <code>section</code> should have a numbered heading (e.g., <code>h1</code>) that reflects its level
-					in the document hierarchy, as numbered headings allow assistive technologies, regardless of their support
-					for HTML5, to navigate the document structure.</p>
+					in the document hierarchy, as numbered headings allow assistive technologies to navigate the document structure.</p>
 				
 				<p>Each heading element must represent a single heading. Do not break a heading up into separate tags for
 					visual formatting. If you need to include subheadings, incorporate them into the main heading or include
-					them in a subsequent paragraph, using a <code>header</code> tag to encapsulate the full heading (<a
-						href="#ex03">Example 2</a> shows both usage examples).</p>
+					them in a subsequent paragraph, using a <code>header</code> tag to encapsulate the full heading.</p>
 				
 				<p>If a section of text does not have a heading, include a heading in an <code>aria-label</code> attribute on
 					the enclosing element. Assistive technologies will announce this label and alert users that a new section
@@ -150,7 +148,7 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl class="faq">
-					<dt>Why not use generic <code>h1</code> headings?</dt>
+					<dt>Why not use an <code>h1</code> heading for every section?</dt>
 					<dd><p>Reading systems and assistive technologies do not support the outline algorithm defined in HTML5.
 							If you use an <code>h1</code> heading for every section, they will all appear as top-level
 							headings to a user, impeding their ability to navigate.</p>
