@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Progressive Enhancement | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../../css/prettify.css" />
+		<script type="text/javascript" src="../../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
+		<style type="text/css">
+			span#secret{
+				color: rgb(255, 0, 0);
+			}
+			
+			div#revealed{
+				width: 100%;
+				text-align: center;
+			}
+			
+			span.letter{
+				font-family: "Times New Roman";
+				font-size: 240%;
+				font-weight: bold;
+				color: rgb(255, 0, 0);
+				text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+				animation: bleedin 2s;
+				-moz-animation: bleedin 2s;
+				-webkit-animation: bleedin 2s;
+			}
+			
+			@keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}
+			
+			@-moz-keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}
+			
+			@-webkit-keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}</style>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Progressive Enhancement</h2>
+
+			<nav class="breadcrumb">
+				<p><a href="../../index.html">KB</a> > <a href="index.html">Scripting</a> > <span>Progressive Enhancement</span></p>
+			</nav>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#techniques">Techniques</a></li>
+					<li><a href="#desc">Explanation</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Use of progressive enhancement techniques ensures content is available when scripting is not.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Ensure content does not depend on scripting to be revealed or injected. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Ensure linking does not rely on script. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+				</ul>
+			</section>
+
+<!--
+			<section id="ex">
+				<h3>Example</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; An enhanced link</figcaption>
+					<pre class="prettyprint linenums small"><code>&lt;p>
+   The &lt;span id="code">secret code&lt;/span> 
+   &lt;span id="secret">D E A D M A N&lt;/span> had to be
+   spelled out to gain passage to the pirates' lair.
+&lt;/p>
+
+&lt;div id="revealed" aria-live="assertive"/>
+
+&lt;style type="text/css">
+
+   span#secret { color: rgb(255,0,0); }
+   
+   div#revealed { width: 100%; text-align: center; }
+   
+   span.letter { 
+     font-family: "Times New Roman";
+     font-size: 240%;
+     font-weight: bold;
+     color: rgb(255,0,0);
+     text-shadow: rgb(0,0,0) 1px 1px 2px;
+     animation: bleedin 2s;
+   }
+
+   @keyframes bleedin {
+     from {
+       font-weight: normal;
+       font-size: 0%;
+       background: rgb(255,0,0);
+       text-shadow: rgb(0,0,0) 1px 1px 50px;
+     }
+     to {
+       font-weight: bold;
+       font-size: 240%;
+       background: rgb(255,255,255);
+       text-shadow: rgb(0,0,0) 1px 1px 2px;
+     }
+   }
+
+&lt;/style>
+
+&lt;script type="text/javascript">
+   &lt;![CDATA[
+   var code = document.getElementById('code');
+       code.style.color = 'rgb(0,0,200)';
+       code.onclick = function () { revealCode(); };
+       code.setAttribute('role', 'button');
+       code.setAttribute('tabindex', 0);
+   
+   var secret = document.getElementById('secret'); 
+       secret.style.visibility = 'hidden';
+       secret.style.display = 'none';
+       secret.setAttribute('aria-hidden', true);
+   
+   function revealCode() {
+     var revealed = document.getElementById('revealed');
+     if (revealed.childNodes.length == 0) {
+       var codeArray = 'DEADMAN'.split('');
+       var i = 0;
+       var revealLetters = setInterval(function(){
+         if (i &lt; codeArray.length) {
+            var letter = document.createElement('span');
+            letter.setAttribute('class', 'letter');
+            letter.appendChild(document.createTextNode(codeArray[i]));
+            revealed.appendChild(letter);
+            i++;
+         }
+         
+         else { 
+            clearInterval(revealLetters);
+         }
+       }, 300);
+     }
+   }
+   ]]&gt;
+&lt;/script></code></pre>
+					<p>A working example of this code follows:</p>
+					<p> The <span id="code">secret code</span>
+						<span id="secret">D E A D M A N</span> had to be spelled out to gain passage to the pirates' lair. </p>
+					<div id="revealed" aria-live="assertive"></div>
+					<script type="text/javascript">
+						//<![CDATA[
+						var code = document.getElementById('code');
+						code.style.color = 'rgb(0,0,200)';
+						code.onclick = function () {
+							revealCode();
+						};
+						code.setAttribute('role', 'button');
+						code.setAttribute('tabindex', 0);
+						
+						var secret = document.getElementById('secret');
+						secret.setAttribute('hidden', 'hidden');
+						secret.setAttribute('aria-hidden', true);
+						
+						function revealCode() {
+							var revealed = document.getElementById('revealed');
+							if (revealed.childNodes.length == 0) {
+								var codeArray = 'DEADMAN'.split('');
+								var i = 0;
+								var revealLetters = setInterval(function () {
+									if (i < codeArray.length) {
+										var letter = document.createElement('span');
+										letter.setAttribute('class', 'letter');
+										letter.appendChild(document.createTextNode(codeArray[i]));
+										revealed.appendChild(letter);
+										i++;
+									} else {
+										clearInterval(revealLetters);
+									}
+								},
+								300);
+							}
+						}//]]>
+					</script>
+				</figure>
+			</section>
+-->
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although EPUB 3 adds support for scripted interactivity via JavaScript, it also places some constraints on
+					the way you can use interactivity to ensure publications remain accessible. The guiding principle for
+					scripting is that of progressive enhancement, namely:</p>
+				
+				<blockquote>
+					<p>when the document is rendered by a Reading System without scripting support or with scripting support
+						disabled, the top-level document content must retain its integrity, remaining consumable by the User
+						without any information loss or other significant deterioration.</p>
+					<cite><a href="http://idpf.org/epub3/latest/contentdocs#confreq-cd-scripted-spine">EPUB Content Documents
+						3.0</a></cite>
+				</blockquote>
+				
+				<p>Progressive enhancement does not mean that you cannot script content, but that scripting must not be
+					required. It is perfectly valid, for example, to remove content from the default rendering and replace it
+					with an enhanced experience when scripting is available. It is likewise permitted to augment the default
+					rendering with scripted interactivity. What you must avoid doing is scripting content such that without
+					the scripting the primary narrative is not available in whole or part.</p>
+				
+				<p>Validators alone cannot verify conformance to this criteria, so care must be taken when creating content
+					to ensure that the key principles are observed. Notably:</p>
+				
+				<ul>
+					<li>do not include content that can only be accessed (made visible) through scripted interaction.</li>
+					<li>do not script-enable content based on a user’s preferences, location, language, or any other
+						setting (without a default rendering).</li>
+					<li>do not require scripting in order for the user to continue moving through the content (e.g., choose
+						your own adventure books).</li>
+				</ul>
+				
+				<p>Whenever adding script, do so in a way that augments.</p>
+				
+				<p>A common example of a scripted enhancement is the adding line numbering to code snippets. Many content
+					creators like to use ordered lists inside <code>pre</code> tags to emulate line numbers, but an ordered
+					list can be distracting to someone using an assistive technology, and consufing and ugly to someone not
+					using a CSS-enabled reading system.</p>
+				
+				<p>Instead of hard-coding the markup, a progressive enhancement technique would be to lay out your code
+					samples so that they render as expected in the default preformatted view. You can then script, or grab a
+					library, that can dynamically add the ordered list tagging to the element (which is what this site does).
+					This approach ensures a baseline of readability in the most basic reading scenarios, while providing a
+					richer visual view for those who have more advanced reading systems.</p>
+			</section>
+		</section>
+		<footer>
+			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/script/pe.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
+</html>

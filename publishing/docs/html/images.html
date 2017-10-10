@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Images | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../../css/prettify.css" />
+		<script type="text/javascript" src="../../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/docs/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Images</h2>
+
+			<nav class="breadcrumb">
+				<p><a href="../../index.html">KB</a> > <a href="index.html">HTML</a> > <span>Images</span></p>
+			</nav>
+
+			<nav role="doc-toc" class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#summary">Summary</a></li>
+					<li><a href="#tech">Techniques</a></li>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#desc">Explanation</a></li>
+					<li><a href="#refs">References</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure the information a user needs to receive from an image is provided in text form.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Provide alternative text in the <code>alt</code> attribute if the image is not described in the surrounding text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">H37: Using alt attributes on
+								img elements</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H36.html">H36: Using alt attributes on images used as submit buttons</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G94.html">G94: Providing short text
+								alternative for non-text content that serves the same purpose and presents the same information
+								as the non-text content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
+								alternative which is the accepted name or a descriptive name of the non-text content</a></li>
+						</ul>
+					</li>
+					<li>Provide an extended description for complex images. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G73.html">G73: Providing a long
+								description in another location with a link to it that is immediately adjacent to the non-text
+								content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G74.html">G74: Providing a long
+								description in text near the non-text content, with a reference to the location of the long
+								description in the short description</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G92.html">G92: Providing long description
+								for non-text content that serves the same purpose and presents the same information</a></li>
+						</ul>
+					</li>
+					<li>Ensure that decorative images have an empty alt attribute (<code>alt=""</code>). <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H67.html">H67: Using null alt text and no
+								title attribute on img elements for images that AT should ignore</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C9.html">C9: Using CSS to include
+								decorative images</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C18.html">C18: Using CSS margin and
+								padding rules instead of spacer images for layout design</a></li>
+						</ul>
+					</li>
+					<li>Ensure that any animated graphics do not present the risk of seizures. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#seizure-does-not-violate">WCAG 2.3.1</a> and <a href="https://www.w3.org/TR/WCAG20/#seizure-three-times">WCAG 2.3.2</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure
+								that content does not violate the general flash threshold or red flash threshold</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component
+								of the content flashes more than three times in any 1-second period</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure>
+					<figcaption>Example 1 &#8212; Significant simple image (no description required)</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;img
+    src="covers/9781449328030_lrg.jpg"
+    alt="First Edition" /></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Significant complex image (description required)</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;figure>
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      aria-describedby="water-cycle-desc"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+   &lt;figcaption>
+     The hydrologic cycle
+     &lt;aside class="hidden" id="desc">
+       &lt;p>
+         The diagram shows the processes of 
+         evaporation, condensation, 
+         evapotranspiration, water storage 
+         in ice and snow, and precipitation. 
+         A large body of water &#8230;
+       &lt;/p>
+     &lt;/aside>
+   &lt;/figcaption>
+&lt;/figure></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 3 &#8212; Decorative image</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    role="presentation"
+    alt=""/></code></pre>
+				</figure>
+				
+				<figure>
+					<figcaption>Example 3 &#8212; Image input button</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;input
+    type="image"
+    name="submit"
+    src="enter.jpg"
+    alt="Enter to Win!"/></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Images that are central to the understanding of a publication must always include a text alternative in
+					their <code>alt</code> attribute. In the case of complex images, a detailed description should also be
+					added.</p>
+				
+				<p>If the image is purely decorative, the <code>alt</code> attribute should be left empty. For additional
+					insurance that decorative images will not be announced, the ARIA <code>role</code> attribute with the 
+					property <code class="property">presentation</code> can be attached.</p>
+				
+				<aside class="note" aria-labelledby="note1">
+					<p id="note1" class="label">Note</p>
+					<p>If an image is important to the publication, but not required to be read at the point of insertion
+						(i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
+						enclose it.</p>
+				</aside>
+				
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use
+						in content that conforms to EPUB 3.0.1 or earlier versions of the standard. Only EPUB 3.1 and its 
+						successors allow this element.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element">The
+								<code>img</code> element</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer>
+			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/html/images.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
+</html>
