@@ -37,6 +37,7 @@ nav#toc h4 {
 nav#toc ol {
 	list-style-type: none;
 	max-width: 80rem;
+	column-count: 3;
 }
 
 nav#toc li {
