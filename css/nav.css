@@ -13,8 +13,7 @@ nav#toc h2 {
 }
 
 nav#toc > section {
-    margin: 0 0 0 3rem;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 nav#toc > section > section {
