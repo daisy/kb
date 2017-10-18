@@ -56,7 +56,9 @@
 					<p>The following example shows a typical set of metadata for a math textbook with MathML and described
 						images, and that includes accessible scripted content.</p>
 					<pre class="prettyprint linenums small"><code>&lt;metadata>
-  &lt;meta property="schema:accessibilitySummary">This publication conforms to WCAG 2.0 Level AA.&lt;/meta>
+  &lt;meta property="schema:accessibilitySummary">
+     This publication conforms to WCAG 2.0 Level AA.
+  &lt;/meta>
   &lt;meta property="schema:accessMode">textual&lt;/meta>
   &lt;meta property="schema:accessMode">visual&lt;/meta>
   &lt;meta property="schema:accessModeSufficent">textual,visual&lt;/meta>
@@ -103,7 +105,13 @@
 				<dl>
 					<dt id="accessibilitySummary">accessibilitySummary</dt>
 					<dd><p>A brief, human-readable summary of features and/or deficiencies. Often used to indicate
-							conformance to an accessibility standard or point out shortcomings to the standard.</p></dd>
+							conformance to an accessibility standard or point out shortcomings to the standard.</p>
+						<p>Package Document usage:</p>
+						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">This publication conforms to the EPUB Accessibility specification at WCAG Level A.&lt;/meta>
+</code></pre>
+						<p>XHTML Content Documents usage: (RDFa)</p>
+						<pre class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">This document conforms to WCAG 2.0 Level AA.&lt;/p></code></pre>
+					</dd>
 
 					<dt id="accessMode">accessMode</dt>
 					<dd><p>An access mode through which the intellectual content of a described resource or adaptation is
