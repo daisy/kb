@@ -88,7 +88,7 @@
 			</nav>
 
 			<section id="usage">
-				<p>EPUB 3 reading systems that visually render content are expected to provide support for the CSS properties
+				<p>EPUB 3 user agents that visually render content are expected to provide support for the CSS properties
 					listed on this page, but support is not required. Properties not listed here may still be used (e.g.,
 					from evolving CSS 3 modules), but content authors should use due diligence and assess the impact on
 					rendering and accessibility when using such properties.</p>
@@ -271,7 +271,7 @@
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Reading system support for absolute and fixed positioning is not guaranteed</li>
+									<li>User agent support for absolute and fixed positioning is not guaranteed</li>
 									<li>Content should not be positioned in a way that makes its discoverability problematic
 										for users with low vision and/or using zooming software</li>
 								</ul>
@@ -388,7 +388,7 @@
 									<li>Setting the <code class="property">empty-cells</code> property is not required for
 										HTML5 tables, as borders are rendered (do not insert placeholder text such as dashes
 										or non-breaking spaces)</li>
-									<li>For forwards compatibility with EPUB 2 reading systems, the property should be set to
+									<li>For forwards compatibility with EPUB 2 user agents, the property should be set to
 										the value <code class="value">show</code> to ensure table borders are drawn around
 										empty cells</li>
 								</ul>
@@ -592,9 +592,9 @@
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Note that reading systems typically restrict the ability to modify body margins</li>
+									<li>Note that user agents typically restrict the ability to modify body margins</li>
 									<li>Changing margins to move content off screen, common on the Web, is not guaranteed to
-										work in reading systems. This practice is also known to cause problems depending on
+										work in user agents. This practice is also known to cause problems depending on
 										the user's preferred reading direction and the placement of the content so is not
 										recommended for that reason, as well</li>
 								</ul>
@@ -756,8 +756,8 @@
 							<td class="issues">
 								<ul>
 									<li>A sometimes used trick to hide text for assistive technologies is to use a large
-										negative value, but like negative margins this technique is not reliable in reading
-										systems and may cause issues depending on the user's preferred text direction</li>
+										negative value, but like negative margins this technique is not reliable in user
+										agents and may cause issues depending on the user's preferred text direction</li>
 								</ul>
 							</td>
 						</tr>

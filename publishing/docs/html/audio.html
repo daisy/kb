@@ -73,7 +73,7 @@
 			<section id="ex">
 				<h3>Examples</h3>
 				<figure>
-					<figcaption>Example 1 &#8212; Enabling the reading system's default controls</figcaption>
+					<figcaption>Example 1 &#8212; Enabling the user agent's default controls</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip01.mp3" controls="controls"/></code></pre>
 				</figure>
 
@@ -101,14 +101,14 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>When including audio clips, ensure that the native reading system controls are enabled by default (i.e.,
+				<p>When including audio clips, ensure that the native user agent controls are enabled by default (i.e.,
 					by setting the <code>controls</code> attribute on the <code>audio</code> element). This practice ensures
 					that the control are accessible even if scripting is not available. If custom controls are provided and
-					supported by the reading system, the native controls can be disabled by JavaScript.</p>
+					supported by the user agent, the native controls can be disabled by JavaScript.</p>
 				
 				<p>Although the <code>audio</code> element allows child content for fallback purposes, such content is not
 					intended to serve as an accessible alternative. It is only made available to the user if the
-					<code>audio</code> element is not supported by the reading system (e.g., EPUB 2 reading systems).</p>
+					<code>audio</code> element is not supported by the user agent (e.g., EPUB 2 user agents).</p>
 				
 				<p>The following methods for making audio content accessible are instead recommended in the HTML5
 					specification:</p>
