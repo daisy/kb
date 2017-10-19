@@ -89,24 +89,29 @@
 				<h3>Examples</h3>
 
 				<figure>
-					<figcaption>Example 1 &#8212; Multi-row header</figcaption>
-					<p>The following table header</p>
+					<figcaption>Example 1 &#8212; Irregular header</figcaption>
+					<p>The following table has headers that span columns and rows:</p>
 					<table border="1">
+						<colgroup span="2"/>
+						<colgroup span="1"/>
+						<colgroup span="2"/>
+						<colgroup span="2"/>
+						<colgroup span="1"/>
 						<thead>
 							<tr>
-								<th colspan="2">Shipping.</th>
-								<th rowspan="2">Stock.</th>
-								<th colspan="2">Wages.</th>
-								<th colspan="2">Weights.</th>
-								<th rowspan="2">Name of Colony.</th>
+								<th colspan="2" scope="colgroup">Shipping.</th>
+								<th rowspan="2" scope="colgroup">Stock.</th>
+								<th colspan="2" scope="colgroup">Wages.</th>
+								<th colspan="2" scope="colgroup">Weights.</th>
+								<th rowspan="2" scope="colgroup">Name of Colony.</th>
 							</tr>
 							<tr>
-								<th>Book, page.</th>
-								<th>Appx, page.</th>
-								<th>Book, page.</th>
-								<th>Appx, page.</th>
-								<th>Book, page.</th>
-								<th>Appx, page.</th>
+								<th scope="col">Book, page.</th>
+								<th scope="col">Appx, page.</th>
+								<th scope="col">Book, page.</th>
+								<th scope="col">Appx, page.</th>
+								<th scope="col">Book, page.</th>
+								<th scope="col">Appx, page.</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -115,23 +120,28 @@
 							</tr>
 						</tbody>
 					</table>
-					<p>becomes:</p>
+					<p>To make these headings accessible, use <code>colgroup</code> elements with the <code>scope</code> attribute:</p>
 					<pre class="prettyprint linenums"><code>&lt;table border="1">
+   &lt;colgroup span="2"/>
+   &lt;colgroup span="1"/>
+   &lt;colgroup span="2"/>
+   &lt;colgroup span="2"/>
+   &lt;colgroup span="1"/>
    &lt;thead>
      &lt;tr>
-       &lt;th id="ship" colspan="2">Shipping.&lt;/th>
-       &lt;th id="stock" rowspan="2">Stock.&lt;/th>
-       &lt;th id="wages" colspan="2">Wages.&lt;/th>
-       &lt;th id="wt" colspan="2">Weights.&lt;/th>
-       &lt;th id="name" rowspan="2">Name of Colony.&lt;/th>
+       &lt;th id="ship" colspan="2" scope="colgroup">Shipping.&lt;/th>
+       &lt;th id="stock" rowspan="2" scope="colgroup">Stock.&lt;/th>
+       &lt;th id="wages" colspan="2" scope="colgroup">Wages.&lt;/th>
+       &lt;th id="wt" colspan="2" scope="colgroup">Weights.&lt;/th>
+       &lt;th id="name" rowspan="2" scope="colgroup">Name of Colony.&lt;/th>
      &lt;/tr>
      &lt;tr>
-       &lt;th>Book, page.&lt;/th>
-       &lt;th>Appx, page.&lt;/th>
-       &lt;th>Book, page.&lt;/th>
-       &lt;th>Appx, page.&lt;/th>
-       &lt;th>Book, page.&lt;/th>
-       &lt;th>Appx, page.&lt;/th>
+       &lt;th scope="col">Book, page.&lt;/th>
+       &lt;th scope="col">Appx, page.&lt;/th>
+       &lt;th scope="col">Book, page.&lt;/th>
+       &lt;th scope="col">Appx, page.&lt;/th>
+       &lt;th scope="col">Book, page.&lt;/th>
+       &lt;th scope="col">Appx, page.&lt;/th>
      &lt;/tr>
    &lt;/thead>
    &#8230;
@@ -139,8 +149,9 @@
 				</figure>
 
 				<figure>
-					<figcaption>Example 2 &#8212; Ambiguous headings</figcaption>
-					<p>The following table shows a distance chart with the destinations defined at the end of the row:</p>
+					<figcaption>Example 2 &#8212; Complex headings</figcaption>
+					<p>The following table shows a distance chart with the start destinations defined in the first row and 
+						at the end destination at the end of each subsequent row:</p>
 					<table border="1">
 						<tr>
 							<th scope="col">Vancouver</th>
@@ -173,7 +184,8 @@
 							<th scope="row">Montreal</th>
 						</tr>
 					</table>
-					<p>which would be marked up as:</p>
+					<p>Use <code>scope="col"</code> to make the start destinations the column headers and <code>scope="row"</code>
+						to make the end destinations the row headers:</p>
 					<pre class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;th scope="col">Vancouver&lt;/th>
@@ -209,15 +221,15 @@
 				</figure>
 
 				<figure>
-					<figcaption>Example 3 &#8212; Multidirectional headings</figcaption>
-					<p>The following table with headers at the top of each column and beginning of each row:</p>
+					<figcaption>Example 3 &#8212; Layered headings</figcaption>
+					<p>The following table combines headers from the top of each column and beginning of each row:</p>
 					<table border="1">
 						<caption>Table IX.4 Income Distribution Among Families 1929-1997</caption>
 						<tr>
 							<th id="pct">% Families</th>
-							<th id="1929" colspan="2">1929</th>
-							<th id="1970" colspan="2">1970</th>
-							<th id="1997" colspan="2">1997</th>
+							<th id="t4-1929" colspan="2">1929</th>
+							<th id="t4-1970" colspan="2">1970</th>
+							<th id="t4-1997" colspan="2">1997</th>
 						</tr>
 						<tr>
 							<th>Lowest 20%</th>
@@ -232,7 +244,8 @@
 							<td colspan="7" class="center">&#8230;</td>
 						</tr>
 					</table>
-					<p>would be marked up as:</p>
+					<p>The <code>headers</code> attribute is used to provide the IDs of the cells that contain
+						the relevant heading text:</p>
 					<pre class="prettyprint linenums"><code>&lt;table border="1">
    &lt;caption>Table IX.4 Income Distribution Among Families 1929-1997&lt;/caption>
    &lt;tr>
