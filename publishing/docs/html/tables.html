@@ -295,16 +295,17 @@
 					orient themselves as they go. Equivalent information needs to be encoded into the table to facilitate
 					comprehension.</p>
 				
-				<p class="bridgehead">Headers</p>
-				
-				<p>One of the primary aids for table navigation is the proper use of headers. Correctly identified and linked
-					headers provide metadata the user can call up as needed as they navigate the data points.</p>
-				
-				<p>The simplest kinds of tables contain a single header for each column or row, and are typically handled by
-					assistive technologies (AT) without the need for extra information. The header cells need only be marked
-					using the <code>th</code> element and the AT will be able to replay them when requested:</p>
-				
-				<pre class="prettyprint linenums"><code>&lt;table border="1">
+				<section>
+					<h4>Headers</h4>
+					
+					<p>One of the primary aids for table navigation is the proper use of headers. Correctly identified and linked
+						headers provide metadata the user can call up as needed as they navigate the data points.</p>
+					
+					<p>The simplest kinds of tables contain a single header for each column or row, and are typically handled by
+						assistive technologies (AT) without the need for extra information. The header cells need only be marked
+						using the <code>th</code> element and the AT will be able to replay them when requested:</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;th>Heading 1&lt;/th>
      &lt;th>Heading 2&lt;/th>
@@ -317,13 +318,13 @@
    &lt;/tr>
   &#8230;
 &lt;/table></code></pre>
-				
-				<p>If a table's header spans more than one row, a <code>thead</code> element should be used to group all the
-					header rows (see <a href="#ex01">Example 1</a>). When more than one header applies to a column, a
-					<code>headers</code> attribute should be attached to each of its cells to clarify for an AT which
-					headers apply. For example:</p>
-				
-				<pre class="prettyprint linenums"><code>&lt;table border="1">
+					
+					<p>If a table's header spans more than one row, a <code>thead</code> element should be used to group all the
+						header rows (see <a href="#ex01">Example 1</a>). When more than one header applies to a column, a
+						<code>headers</code> attribute should be attached to each of its cells to clarify for an AT which
+						headers apply. For example:</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;table border="1">
    &lt;thead>
      &lt;tr>
        &lt;th id="sales" rowspan="4">Sales&lt;/th>
@@ -349,28 +350,28 @@
    &lt;/thead>
    &#8230;
 &lt;/table></code></pre>
-				
-				<p>The <code>headers</code> attribute identifies the cells that contain the header text by their
-					<code>id</code> attribute value. The order in which the ids are included in the attribute determines
-					how the headings are to be announced or rendered to the user, so care must be taken to ensure logical
-					playback results.</p>
-				
-				<p>The ordering of the headers does not have to exactly match the markup if another ordering would make more
-					sense. In the previous example. it will make more sense to the user to announce "gross sales
-					ultrabooks" than "sales ultrabooks gross".</p>
-				
-				<p>More generally, whenever there is any ambiguity about which headings apply to a cell, a
-					<code>headers</code> attribute should be attached (e.g., headers at the end of a row, mixed heading
-					rows and columns, etc.). (See <a href="#ex03">Example 3</a>.) Note that HTML5 no longer allows
-					the <code>td</code> element to be used for headings (i.e., a <code>td</code> element cannot be referenced
-					from the <code>headers</code> attribute).</p>
-				
-				<p>The <code>scope</code> attribute can also be used to clarify relationships between headers and cells.
-					Whenever the headers are not in the first row or column of a table, this attribute should be attached to
-					the <code>th</code> elements to clarify their directionality (to the row or column they belong to).
-					<code>headers</code> attributes are not needed when the scope is clearly defined.</p>
-				
-				<pre class="prettyprint linenums"><code>&lt;table border="1">
+					
+					<p>The <code>headers</code> attribute identifies the cells that contain the header text by their
+						<code>id</code> attribute value. The order in which the ids are included in the attribute determines
+						how the headings are to be announced or rendered to the user, so care must be taken to ensure logical
+						playback results.</p>
+					
+					<p>The ordering of the headers does not have to exactly match the markup if another ordering would make more
+						sense. In the previous example. it will make more sense to the user to announce "gross sales
+						ultrabooks" than "sales ultrabooks gross".</p>
+					
+					<p>More generally, whenever there is any ambiguity about which headings apply to a cell, a
+						<code>headers</code> attribute should be attached (e.g., headers at the end of a row, mixed heading
+						rows and columns, etc.). (See <a href="#ex03">Example 3</a>.) Note that HTML5 no longer allows
+						the <code>td</code> element to be used for headings (i.e., a <code>td</code> element cannot be referenced
+						from the <code>headers</code> attribute).</p>
+					
+					<p>The <code>scope</code> attribute can also be used to clarify relationships between headers and cells.
+						Whenever the headers are not in the first row or column of a table, this attribute should be attached to
+						the <code>th</code> elements to clarify their directionality (to the row or column they belong to).
+						<code>headers</code> attributes are not needed when the scope is clearly defined.</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;td>1&lt;/td>
      &lt;td>2&lt;/td>
@@ -379,34 +380,41 @@
      &lt;th scope="row">Heading&lt;/th>
    &lt;/tr>
 &lt;/table></code></pre>
+				</section>
 				
-				<p class="bridgehead">Captions and summaries</p>
+				<section>
+					<h4>Captions and summaries</h4>
+					
+					<p>A caption should always be included to give context to a table. Never rely on the text surrounding explain
+						the presence of a table, especially when the table is offset from the content.</p>
+					
+					<p>For complex tables, including a summary of the structure for the user before they enter the content can
+						greatly assist comprehension, as well. The HTML5 specification defines some <a 
+							href="https://www.w3.org/TR/html/tabular-data.html#sec-techniques-for-describing-tables">techniques 
+							for describing tables</a>.</p>
+				</section>
 				
-				<p>A caption should always be included to give context to a table. Never rely on the text surrounding explain
-					the presence of a table, especially when the table is offset from the content.</p>
+				<section>
+					<h4>Secondary content</h4>
+					
+					<p>If a table is not required to be read at the point of insertion (i.e., it is not part of the logical
+						reading order), use a <a href="figures.html">figure</a> tag to enclose it.</p>
+				</section>
 				
-				<p>For complex tables, including a summary of the structure for the user before they enter the content can
-					greatly assist comprehension, as well. The HTML5 specification defines some <a 
-						href="https://www.w3.org/TR/html/tabular-data.html#sec-techniques-for-describing-tables">techniques 
-						for describing tables</a>.</p>
-				
-				<p class="bridgehead">Secondary content</p>
-				
-				<p>If a table is not required to be read at the point of insertion (i.e., it is not part of the logical
-					reading order), use a <a href="figures.html">figure</a> tag to enclose it.</p>
-				
-				<p class="bridgehead">Presentational layout</p>
-				
-				<p>Avoid using tables for layout purposes. If a presentational table layout is unavoidable, consider using 
-					the CSS table layout properties to achieve the effect.</p>
-				
-				<p>When using a table for presentational purposes, the table must not include any data table elements or attributes.
-					These include: the <code>thead</code>, <code>th</code> and <code>caption</code> elements, and <code>headers</code>
-					and <code>scope</code> attributes (also the <code>summary</code> attribute if creating HTML4 or XHTML 1.1 documents).</p>
-				
-				<p>Also avoid using tables when all that the cells contain are lists of information (e.g., for placing information
-					side-by-side, or where the first column in each row is a new unrelated header and the second a list of
-					relevant to that topic). The extra table formatting is an unnecessary encumbrance to navigation.</p>
+				<section>
+					<h4>Presentational layout</h4>
+					
+					<p>Avoid using tables for layout purposes. If a presentational table layout is unavoidable, consider using 
+						the CSS table layout properties to achieve the effect.</p>
+					
+					<p>When using a table for presentational purposes, the table must not include any data table elements or attributes.
+						These include: the <code>thead</code>, <code>th</code> and <code>caption</code> elements, and <code>headers</code>
+						and <code>scope</code> attributes (also the <code>summary</code> attribute if creating HTML4 or XHTML 1.1 documents).</p>
+					
+					<p>Also avoid using tables when all that the cells contain are lists of information (e.g., for placing information
+						side-by-side, or where the first column in each row is a new unrelated header and the second a list of
+						relevant to that topic). The extra table formatting is an unnecessary encumbrance to navigation.</p>
+				</section>
 			</section>
 			
 			<section id="refs">
