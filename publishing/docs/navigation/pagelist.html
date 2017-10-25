@@ -51,6 +51,7 @@
 				<ul>
 					<li>Include a page list when a publication has statically-paginated equivalent. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.4.5</a>]</span></li>
 					<li>Identify <a href="../html/pagenum.html">page break locations</a> in the text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Identify the source of the page breaks in the metadata. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
 				</ul>
 			</section>
 
@@ -88,27 +89,47 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>If a digital publication is produced from the same workflow as a print document, page break locations should be
-					retained. These markers benefit users in mixed print/digital environments, such as a
-					classroom, as the page numbers allow a common point of reference between the two editions.</p>
+				<p>If a reflowable publication is derived from a statically-paginated source, such as a print edition, including
+					a page list allows users to coordinate positions. For example, a student using a digital edition in a class
+					where her peers are using print books would be able to jump to the same pages during instruction.</p>
 				
-				<p>Page break locations can be added to the markup using <code>span</code> and <code>div</code> tags with a
+				<p>The page list itself is a list of links to all the page breaks locations. User agents can use this list to
+					provide automatic page jump functionality, or a user can access it directly to manually select the page they
+					wish to go to.</p>
+				
+				<p>If a digital publication is produced from the same workflow as a print document, page break locations should also be
+					retained (although a page list can be created without explicit page break markers so long as there is some anchor for
+					the link to go to). Page break locations can be added to the markup using <code>span</code> and <code>div</code> tags with a
 					<code>role</code> attribute set to the value <code>doc-pagebreak</code>. To hide the page number from
-					visual viewing, the <code>aria-label</code> attribute can be used.</p>
+					visual viewing, the <code>aria-label</code> attribute can be used to identify the number.</p>
 				
 				<p>An <code>id</code> attribute has to be attached to each page break location to enable 
 					linking to the breaks.</p>
 				
-				<p>When including page numbers, a page list should also be included to faciliate navigation. The page list is a 
-					list of links to all the page breaks. User agents can use this list to provide automatic page jump functionality, 
-					or a user can access it directly to manually select the page they wish to go to.</p>
+				<p>Identifying the source of the pagination in the publication metadata is also important to help users determine the 
+					usability of the pagination (e.g., will it match the print edition being used in a class). This source is typically
+					identified using a <code>dc:source</code> element.</p>
+				
+				<div class="note">
+					<p><strong>Note</strong>: Some publishers include a page list and/or page break markers in digital publications 
+						without paginated equivalents. In these cases, the identifier of the current publication could be identified
+						as the source to avoid confusion and/or the lack of a source could be noted in an accessibility summary.</p>
+				</div>
+				
+				<section>
+					<h4>EPUB 2</h4>
+					
+					<p>In EPUB 2, a page list is expressed using the
+						<a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1.2"><code>pageList</code> element</a>
+						in the NCX file. It is not possible to include a semantic that identifies page break locations in the content,
+						as XHTML 1.1 does not support either the ARIA <code>role</code> or <code>epub:type</code> attributes.</p>
+				</section>
 				
 				<section>
 					<h4>EPUB 3</h4>
 					
-					<p>When including print page references, the EPUB 3 package document metadata should also include <a
-						href="http://idpf.org/epub3/latest/publications#sec-opf-dcsource">a <code>dc:source</code> element
-						identifying the print source</a>.</p>
+					<p>In EPUB 3, the page list is included in the navigation document and identified with the <code>epub:type</code> value
+						<code>page-list</code>.</p>
 				</section>
 			</section>
 
