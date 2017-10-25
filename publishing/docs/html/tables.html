@@ -88,7 +88,7 @@
 			<section id="ex">
 				<h3>Examples</h3>
 
-				<figure>
+				<figure id="ex-01">
 					<figcaption>Example 1 &#8212; Irregular header</figcaption>
 					<p>The following table has headers that span columns and rows:</p>
 					<table border="1">
@@ -148,7 +148,7 @@
 &lt;/table></code></pre>
 				</figure>
 
-				<figure>
+				<figure id="ex-02">
 					<figcaption>Example 2 &#8212; Complex headings</figcaption>
 					<p>The following table shows a distance chart with the start destinations defined in the first row and 
 						at the end destination at the end of each subsequent row:</p>
@@ -220,7 +220,7 @@
 &lt;/table></code></pre>
 				</figure>
 
-				<figure>
+				<figure id="ex-03">
 					<figcaption>Example 3 &#8212; Layered headings</figcaption>
 					<p>The following table combines headers from the top of each column and beginning of each row:</p>
 					<table border="1">
@@ -268,7 +268,7 @@
 					<p class="ack">Excerpt from: Basic Microeconomics &#8212; R. Larry Reynolds</p>
 				</figure>
 
-				<figure>
+				<figure id="ex-04">
 					<figcaption>Example 4 &#8212; Table with footnotes</figcaption>
 					<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be
 						grouped within a <code>figure</code>:</p>
@@ -320,7 +320,7 @@
 &lt;/table></code></pre>
 					
 					<p>If a table's header spans more than one row, a <code>thead</code> element should be used to group all the
-						header rows (see <a href="#ex01">Example 1</a>). When more than one header applies to a column, a
+						header rows (see <a href="#ex-01">Example 1</a>). When more than one header applies to a column, a
 						<code>headers</code> attribute should be attached to each of its cells to clarify for an AT which
 						headers apply. For example:</p>
 					
@@ -362,7 +362,7 @@
 					
 					<p>More generally, whenever there is any ambiguity about which headings apply to a cell, a
 						<code>headers</code> attribute should be attached (e.g., headers at the end of a row, mixed heading
-						rows and columns, etc.). (See <a href="#ex03">Example 3</a>.) Note that HTML5 no longer allows
+						rows and columns, etc.). (See <a href="#ex-02">Example 2</a>.) Note that HTML5 no longer allows
 						the <code>td</code> element to be used for headings (i.e., a <code>td</code> element cannot be referenced
 						from the <code>headers</code> attribute).</p>
 					
