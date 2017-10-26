@@ -1,7 +1,10 @@
 
-window.onload = makeMiniToc();
+window.onload = function () {
+	generateMiniToc();
+}
 
-function makeMiniToc() {
+
+function generateMiniToc() {
 	
 	var main = document.querySelector('main');
 	
