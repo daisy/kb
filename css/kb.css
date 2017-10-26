@@ -119,14 +119,14 @@ footer {
 	background-color: rgb(240,242,244);
 }
 
-section.section {
+main {
 	/* border-right: 1px solid rgb(0,0,0); */
 	padding-bottom: 0.5em;
 	max-width: 48em;
 	margin-left: 5rem;
 }
 
-section.section > section {
+main > section {
 	margin-left: 2em;
 }
 
@@ -209,7 +209,7 @@ section {
 	margin-top: 2.5em;
 }
 
-section.section {
+main {
 	margin-top: 0;
 }
 
