@@ -55,11 +55,11 @@ KB.prototype.setKBInfo = function () {
 
 KB.prototype.generateTitles = function () {
 	
-	document.title = (this.isRootIndex ? '' : page_info['page_title'] + ' / ') + this.kb_name[this.kb_id];
+	document.title = (this.isRootIndex ? '' : page_info['title'] + ' / ') + this.kb_name[this.kb_id];
 	
 	if (!this.isRootIndex) {
 		var h2 = document.createElement('h2');
-			h2.appendChild(document.createTextNode(page_info['page_title']));
+			h2.appendChild(document.createTextNode(page_info['title']));
 		
 		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
 	}
@@ -128,7 +128,7 @@ KB.prototype.generateBreadcrumb = function () {
 		p.appendChild(document.createTextNode(' > '));
 		
 		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(page_info['page_title']));
+			span.appendChild(document.createTextNode(page_info['title']));
 		
 		p.appendChild(span);
 	}
