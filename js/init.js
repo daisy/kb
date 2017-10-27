@@ -1,25 +1,26 @@
 
 window.onload = function () {
-	generateTitles();
-	generateHeader();
-	generateBreadcrumb();
-	generateMiniToc();
-	generateFooter();
+	var kb = new KB();
+		kb.generateTitles();
+		kb.generateHeader();
+		kb.generateBreadcrumb();
+		kb.generateMiniToc();
+		kb.generateFooter();
 }
 
+function KB() {
+	this.kb_name = {
+		'publishing': 'Accessible Publishing Knowledge Base'
+	}
 
-var kb_name = {
-	'publishing': 'Accessible Publishing Knowledge Base'
+	this.kb_repo = {
+		'publishing': 'https://github.com/DAISY/kb/commits/master/publishing/'
+	}
 }
 
-var kb_repo = {
-	'publishing': 'https://github.com/DAISY/kb/commits/master/publishing/'
-}
-
-
-function generateTitles() {
+KB.prototype.generateTitles = function () {
 	
-	document.title = ((kb_info.hasOwnProperty('isRootIndex') && kb_info['isRootIndex']) ? '' : kb_info['page_title'] + ' / ') + kb_name[kb_info['id']];
+	document.title = ((kb_info.hasOwnProperty('isRootIndex') && kb_info['isRootIndex']) ? '' : kb_info['page_title'] + ' / ') + this.kb_name[kb_info['id']];
 	
 	if (!kb_info.hasOwnProperty('isRootIndex') || !kb_info['isRootIndex']) {
 		var h2 = document.createElement('h2');
@@ -30,7 +31,7 @@ function generateTitles() {
 }
 
 
-function generateHeader() {
+KB.prototype.generateHeader = function () {
 
 	var header = document.createElement('header');
 	
@@ -48,7 +49,7 @@ function generateHeader() {
 	
 	var a = document.createElement('a');
 		a.setAttribute('href',kb_info['url']);
-		a.appendChild(document.createTextNode(kb_name[kb_info['id']]));
+		a.appendChild(document.createTextNode(this.kb_name[kb_info['id']]));
 	
 	h1.appendChild(a);
 	
@@ -58,7 +59,7 @@ function generateHeader() {
 }
 
 
-function generateBreadcrumb() {
+KB.prototype.generateBreadcrumb = function () {
 
 	if (kb_info.hasOwnProperty('isRootIndex') && kb_info['isRootIndex']) {
 		return;
@@ -104,7 +105,7 @@ function generateBreadcrumb() {
 }
 
 
-function generateMiniToc() {
+KB.prototype.generateMiniToc = function () {
 	
 	if (window.location.href.indexOf('index.html') > -1 || window.location.href.lastIndexOf('/') == window.location.href.length-1) {
 		// don't build for indexes
@@ -142,7 +143,7 @@ function generateMiniToc() {
 }
 
 
-function generateFooter() {
+KB.prototype.generateFooter = function () {
 	var footer = document.createElement('footer');
 	
 	var typos = document.createElement('p');
@@ -165,7 +166,7 @@ function generateFooter() {
 	page_path = (page_path == '') ? 'index.html' : page_path;
 	
 	var commitlink = document.createElement('a');
-		commitlink.setAttribute('href',kb_repo[kb_info['id']] + page_path);
+		commitlink.setAttribute('href',this.kb_repo[kb_info['id']] + page_path);
 		commitlink.appendChild(document.createTextNode('commit log'));
 	
 		changes.appendChild(commitlink);
