@@ -42,7 +42,7 @@ KB.prototype.setKBInfo = function () {
 	
 	else {
 		var seg = window.location.href.split('/');
-		this.kb_id = seg[seg.length-1] == 'index.html' ? seg[seg.length-2] : seg[seg.length-1];
+		this.kb_id = ((seg[seg.length-1] == '') || (seg[seg.length-1] == 'index.html')) ? seg[seg.length-2] : seg[seg.length-1];
 	}
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
