@@ -162,6 +162,8 @@ function generateFooter() {
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(kb_info['id']+'/')+kb_info['id'].length+1,window.location.href.length);
 	
+	page_path = '' ? 'index.html' : page_path;
+	
 	var commitlink = document.createElement('a');
 		commitlink.setAttribute('href',kb_repo[kb_info['id']] + page_path);
 		commitlink.appendChild(document.createTextNode('commit log'));
