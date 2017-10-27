@@ -1,30 +1,65 @@
 
 window.onload = function () {
 	var kb = new KB();
+	if (kb.setKBInfo()) {
 		kb.generateTitles();
 		kb.generateHeader();
 		kb.generateBreadcrumb();
 		kb.generateMiniToc();
 		kb.generateFooter();
+		kb.prettyPrint();
+	}
 }
 
 function KB() {
+	this.kb_id = '';
+	this.isIndex = false;
+	this.isRootIndex = false;
+	
 	this.kb_name = {
 		'publishing': 'Accessible Publishing Knowledge Base'
 	}
-
-	this.kb_repo = {
-		'publishing': 'https://github.com/DAISY/kb/commits/master/publishing/'
-	}
+	
+	this.kb_url = 'http://kb.daisy.org/';
+	this.kb_repo = 'https://github.com/DAISY/kb/commits/master/';
 }
+
+
+KB.prototype.setKBInfo = function () {
+	
+	var docsMatch = window.location.href.toString().match(/\/docs\//i);
+	
+	if (docsMatch) {
+		var idMatch = window.location.href.toString().match(/\/([A-Z0-9]+)\/docs\//i);
+		
+		if (!idMatch) {
+			console.log('Failed to determine id from path: ' + window.location.href);
+			return false;
+		}
+		
+		this.kb_id = idMatch[1];
+	}
+	
+	else {
+		var seg = window.location.href.split('/');
+		this.kb_id = seg[seg.length-1] == 'index.html' ? seg[seg.length-2] : seg[seg.length-1];
+	}
+	
+	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
+	
+	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
+	
+	return true;
+}
+
 
 KB.prototype.generateTitles = function () {
 	
-	document.title = ((kb_info.hasOwnProperty('isRootIndex') && kb_info['isRootIndex']) ? '' : kb_info['page_title'] + ' / ') + this.kb_name[kb_info['id']];
+	document.title = (this.isRootIndex ? '' : page_info['page_title'] + ' / ') + this.kb_name[this.kb_id];
 	
-	if (!kb_info.hasOwnProperty('isRootIndex') || !kb_info['isRootIndex']) {
+	if (!this.isRootIndex) {
 		var h2 = document.createElement('h2');
-			h2.appendChild(document.createTextNode(kb_info['page_title']));
+			h2.appendChild(document.createTextNode(page_info['page_title']));
 		
 		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
 	}
@@ -37,7 +72,7 @@ KB.prototype.generateHeader = function () {
 	
 	var h1 = document.createElement('h1');
 	
-	var pathUp = (kb_info.hasOwnProperty('isRootIndex') || kb_info['isRootIndex']) ? '../' : '../../../';
+	var pathUp = (this.isRootIndex) ? '../' : '../../../';
 	
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
@@ -48,8 +83,8 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(document.createTextNode(' '));
 	
 	var a = document.createElement('a');
-		a.setAttribute('href',kb_info['url']);
-		a.appendChild(document.createTextNode(this.kb_name[kb_info['id']]));
+		a.setAttribute('href',this.kb_url[this.kb_id] + this.kb_id + '/');
+		a.appendChild(document.createTextNode(this.kb_name[this.kb_id]));
 	
 	h1.appendChild(a);
 	
@@ -61,7 +96,7 @@ KB.prototype.generateHeader = function () {
 
 KB.prototype.generateBreadcrumb = function () {
 
-	if (kb_info.hasOwnProperty('isRootIndex') && kb_info['isRootIndex']) {
+	if (this.isRootIndex) {
 		return;
 	}
 	
@@ -79,7 +114,7 @@ KB.prototype.generateBreadcrumb = function () {
 	
 	if (window.location.href.indexOf('index.html') > -1) {
 		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(kb_info['topic']));
+			span.appendChild(document.createTextNode(page_info['topic']));
 		
 		p.appendChild(span);
 	}
@@ -87,13 +122,13 @@ KB.prototype.generateBreadcrumb = function () {
 	else {
 		var index = document.createElement('a');
 			index.setAttribute('href','index.html');
-			index.appendChild(document.createTextNode(kb_info['topic']))
+			index.appendChild(document.createTextNode(page_info['topic']))
 		
 		p.appendChild(index);
 		p.appendChild(document.createTextNode(' > '));
 		
 		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(kb_info['page_title']));
+			span.appendChild(document.createTextNode(page_info['page_title']));
 		
 		p.appendChild(span);
 	}
@@ -161,12 +196,12 @@ KB.prototype.generateFooter = function () {
 	var changes = document.createElement('p');
 		changes.appendChild(document.createTextNode('For a list of changes to this page, refer to the '));
 	
-	var page_path = window.location.href.substring(window.location.href.indexOf(kb_info['id']+'/')+kb_info['id'].length+1,window.location.href.length);
+	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
 	
 	page_path = (page_path == '') ? 'index.html' : page_path;
 	
 	var commitlink = document.createElement('a');
-		commitlink.setAttribute('href',this.kb_repo[kb_info['id']] + page_path);
+		commitlink.setAttribute('href',this.kb_repo[this.kb_id] + this.kb_id + '/' + page_path);
 		commitlink.appendChild(document.createTextNode('commit log'));
 	
 		changes.appendChild(commitlink);
@@ -183,4 +218,11 @@ KB.prototype.generateFooter = function () {
 	footer.appendChild(termslink);
 	
 	document.body.appendChild(footer);
+}
+
+
+KB.prototype.prettyPrint = function() {
+	if (!this.isIndex) {
+		prettyPrint();
+	}
 }
