@@ -106,7 +106,7 @@ function generateBreadcrumb() {
 
 function generateMiniToc() {
 	
-	if (window.location.href.indexOf('index.html') > -1) {
+	if (window.location.href.indexOf('index.html') > -1 || window.location.href.lastIndexOf('/') == window.location.href.length) {
 		// don't build for index pages
 		return;
 	}
