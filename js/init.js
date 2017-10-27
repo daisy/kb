@@ -124,18 +124,18 @@ KB.prototype.generateMiniToc = function () {
 	
 	var ol = document.createElement('ol');
 	
-	var headings = document.querySelectorAll('h3');
+	var h = document.querySelectorAll('h3');
 	
-	headings.forEach(function(heading) {
+	for (var i = 0; i < h.length; i++) {
 		var li = document.createElement('li');
 		
 		var a = document.createElement('a');
-			a.setAttribute('href','#'+heading.parentNode.id);
-			a.appendChild(document.createTextNode(heading.textContent == 'Frequently Asked Questions' ? 'FAQ' : heading.textContent));
+			a.setAttribute('href','#'+h[i].parentNode.id);
+			a.appendChild(document.createTextNode(h[i].textContent == 'Frequently Asked Questions' ? 'FAQ' : h[i].textContent));
 		 
 		 li.appendChild(a);
 		 ol.appendChild(li);
-	});
+	}
 	
 	nav.appendChild(ol);
 	
