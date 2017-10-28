@@ -112,7 +112,7 @@ KB.prototype.generateBreadcrumb = function () {
 	p.appendChild(home);
 	p.appendChild(document.createTextNode(' > '));
 	
-	if (window.location.href.indexOf('index.html') > -1) {
+	if (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic')) {
 		var span = document.createElement('span');
 			span.appendChild(document.createTextNode(page_info['topic']));
 		
@@ -120,12 +120,15 @@ KB.prototype.generateBreadcrumb = function () {
 	}
 	
 	else {
-		var index = document.createElement('a');
-			index.setAttribute('href','index.html');
-			index.appendChild(document.createTextNode(page_info['topic']))
 		
-		p.appendChild(index);
-		p.appendChild(document.createTextNode(' > '));
+		if (page_info.hasOwnProperty('topic')) {
+			var index = document.createElement('a');
+				index.setAttribute('href','index.html');
+				index.appendChild(document.createTextNode(page_info['topic']))
+			
+			p.appendChild(index);
+			p.appendChild(document.createTextNode(' > '));
+		}
 		
 		var span = document.createElement('span');
 			span.appendChild(document.createTextNode(page_info['title']));
