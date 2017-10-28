@@ -83,7 +83,7 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(document.createTextNode(' '));
 	
 	var a = document.createElement('a');
-		a.setAttribute('href',this.kb_url[this.kb_id] + this.kb_id + '/');
+		a.setAttribute('href',this.kb_url + this.kb_id + '/');
 		a.appendChild(document.createTextNode(this.kb_name[this.kb_id]));
 	
 	h1.appendChild(a);
@@ -201,7 +201,7 @@ KB.prototype.generateFooter = function () {
 	page_path = (page_path == '') ? 'index.html' : page_path;
 	
 	var commitlink = document.createElement('a');
-		commitlink.setAttribute('href',this.kb_repo[this.kb_id] + this.kb_id + '/' + page_path);
+		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
 		commitlink.appendChild(document.createTextNode('commit log'));
 	
 		changes.appendChild(commitlink);
