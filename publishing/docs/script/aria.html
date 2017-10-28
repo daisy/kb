@@ -158,11 +158,11 @@ function controlPlayback(action) {
 &lt;/script></code></pre>
 					<p>The following buttons show this code in action:</p>
 					<div id="ex01-controls">
-						<img src="../../../graphics/play.png" width="32" height="32" id="start" alt="Start" role="button"
+						<img src="../../graphics/play.png" width="32" height="32" id="start" alt="Start" role="button"
 							aria-disabled="false" tabindex="0" onclick="controlPlayback('start')"
 							onkeypress="if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }" />
 
-						<img src="../../../graphics/stop-disabled.png" width="32" height="32" id="stop" alt="Stop"
+						<img src="../../graphics/stop-disabled.png" width="32" height="32" id="stop" alt="Stop"
 							role="button" aria-disabled="true" tabindex="0" />
 					</div>
 					<script type="text/javascript">
@@ -171,8 +171,8 @@ function controlPlayback(action) {
 							
 							var isStart = (action == 'start') ? true: false;
 							
-							var start_image = isStart ? '../../../graphics/play-disabled.png': '../../../graphics/play.png';
-							var stop_image = isStart ? '../../../graphics/stop.png': '../../../graphics/stop-disabled.png';
+							var start_image = isStart ? '../../graphics/play-disabled.png': '../../graphics/play.png';
+							var stop_image = isStart ? '../../graphics/stop.png': '../../graphics/stop-disabled.png';
 							
 							var start = document.getElementById('audio-start');
 							start.setAttribute('aria-disabled', ! start.getAttribute('aria-disabled'));
