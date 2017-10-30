@@ -167,10 +167,10 @@
 				<h3>Frequently Asked Questions</h3>
 				
 				<dl>
-					<dt>Should I put <code>role</code> <code>presentation</code> or <code>none</code> on images?</dt>
+					<dt>Should I put <code>role</code> <code>presentation</code>/<code>none</code> on images?</dt>
 					<dd>
-						<p>It is not necessary to use these roles with images. They are functionally equivalent to
-							using an empty <code>alt</code> attribute.</p>
+						<p>It is best practice to use one of these roles if an image is purely decorative (<code>none</code> is
+							preferred as of ARIA 1.1), but it is not required for conformance with WCAG.</p>
 						
 						<p>Do not use these roles in place of an empty <code>alt</code> attribute. Not only is this not 
 							technically conforming HTML (an <code>alt</code> attribute can only be omitted in very select cases),
