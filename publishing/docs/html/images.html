@@ -81,36 +81,69 @@
 					<figcaption>Example 1 &#8212; Significant simple image (no description required)</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="covers/9781449328030_lrg.jpg"
-    alt="First Edition" /></code></pre>
+    alt="Accessible EPUB 3 - First Edition" /></code></pre>
 				</figure>
 
 				<figure>
-					<figcaption>Example 2 &#8212; Significant complex image (description required)</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;figure>
+					<figcaption>Example 2 &#8212; Extended description as EPUB footnote</figcaption>
+					<p>The following example designates the description as a footnote, allowing EPUB reading systems to
+						create a pop-up note. User agents not aware of EPUB footnotes will treat these as simple hyperlinks.</p>
+					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
-      aria-describedby="water-cycle-desc"
       alt="The hydrologic cycle, showing the 
         circular nature of the process as water 
         evaporates from a body of water and 
         eventually returns to it"/>
    &lt;figcaption>
-     The hydrologic cycle
-     &lt;aside class="hidden" id="desc">
-       &lt;p>
-         The diagram shows the processes of 
-         evaporation, condensation, 
-         evapotranspiration, water storage 
-         in ice and snow, and precipitation. 
-         A large body of water &#8230;
-       &lt;/p>
-     &lt;/aside>
+     The hydrologic cycle. &lt;a epub:type="noteref" role="doc-noteref" href="#desc-01">Description&lt;/a>
    &lt;/figcaption>
-&lt;/figure></code></pre>
+&lt;/figure>
+&#8230;
+&lt;aside epub:type="footnote" role="doc-footnote" id="desc-01">
+   &lt;p>
+     The diagram shows the processes of 
+     evaporation, condensation,
+     evapotranspiration, water storage
+     in ice and snow, and precipitation.
+     A large body of water &#8230;
+  &lt;/p>
+  &lt;p>&lt;a epub:type="backlink" href="#fig-01">Return to figure.&lt;/a>&lt;/p>
+&lt;/aside>
+</code></pre>
 				</figure>
-
+				
 				<figure>
-					<figcaption>Example 3 &#8212; Decorative image</figcaption>
+					<figcaption>Example 3 &#8212; Extended description in <code>details</code></figcaption>
+					<p>The following example uses the HTML <code>details</code> element to create a description
+						that is hidden by default. Note that support for this element is not yet universal, and
+						it is not valid in some versions of EPUB.</p>
+					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+   &lt;figcaption>
+     The hydrologic cycle.
+     &lt;details>
+        &lt;summary>Description&lt;/summary>
+        &lt;p>
+           The diagram shows the processes of 
+           evaporation, condensation,
+           evapotranspiration, water storage
+           in ice and snow, and precipitation.
+           A large body of water &#8230;
+        &lt;/p>
+     &lt;/details>
+   &lt;/figcaption>
+&lt;/figure>
+</code></pre>
+				</figure>
+				
+				<figure>
+					<figcaption>Example 4 &#8212; Decorative image</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="graphics/gothic-border.png"
     role="presentation"
@@ -118,7 +151,7 @@
 				</figure>
 				
 				<figure>
-					<figcaption>Example 3 &#8212; Image input button</figcaption>
+					<figcaption>Example 5 &#8212; Image input button</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;input
     type="image"
     name="submit"
