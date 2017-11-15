@@ -85,9 +85,46 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption>Example 2 &#8212; Extended description via hyperlink / EPUB footnote</figcaption>
-					<p>The following example designates the description as a footnote, allowing EPUB reading systems to
-						create a pop-up note. User agents not aware of EPUB footnotes will treat these as simple hyperlinks.</p>
+					<figcaption>Example 2 &#8212; Extended description via hyperlink</figcaption>
+					<p>The following example uses simple hyperlinks to link to the notes at the end of the chapter.
+						An icon is used for the note reference to make the link less intrusive.</p>
+					<p>Note: the descriptions could also be located in a separate file, but this could have a performance
+						impact for users (i.e., it will require the reading system to unload and reload each document each
+						time the user follows a link).</p>
+					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+   &lt;figcaption>
+     The hydrologic cycle. &lt;a role="doc-noteref" 
+        href="#desc-01">&lt;img src="images/desc.gif"
+        alt="Image description"/>&lt;/a>
+   &lt;/figcaption>
+&lt;/figure>
+&#8230;
+&lt;h2>Image Descriptions&lt;/h2>
+&lt;aside role="doc-footnote" id="desc-01">
+   &lt;p>&lt;a role="doc-backlink" 
+      href="#fig-01">Figure 1.&lt;/a> &#8212; The diagram shows 
+      the processes of evaporation, condensation, 
+      evapotranspiration, water storage in ice and snow, and
+      precipitation. A large body of water &#8230;
+  &lt;/p>
+&lt;/aside>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>Example 3 &#8212; Extended description via hyperlink / EPUB footnote</figcaption>
+					<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB semantics <code>noteref</code>
+						and <code>footnote</code> to the elements so that EPUB reading systems can create pop-up notes out of the descriptions.
+						User agents not aware of EPUB footnotes will still treat these as simple hyperlinks.</p>
+					<p>Note that the use of images for the note reference is not well supported, so a text label is used. iBooks, for example, requires the CSS 
+						<code>pointer-events: none</code> on HTML elements within a note reference to prevent the publication from crashing the application,
+						but this breaks the notes on any device where a mouse is used. Targeting devices is possible with media queries, but unreliable.</p>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
@@ -112,8 +149,8 @@
 </code></pre>
 				</figure>
 				
-				<figure id="ex-03">
-					<figcaption>Example 3 &#8212; Extended description in <code>details</code></figcaption>
+				<figure id="ex-04">
+					<figcaption>Example 4 &#8212; Extended description in <code>details</code></figcaption>
 					<p>The following example uses the HTML <code>details</code> element to create a description
 						that is hidden by default. Note that support for this element is not yet universal, and
 						it is not valid in some versions of EPUB.</p>
@@ -141,16 +178,16 @@
 </code></pre>
 				</figure>
 				
-				<figure id="ex-04">
-					<figcaption>Example 4 &#8212; Decorative image</figcaption>
+				<figure id="ex-05">
+					<figcaption>Example 5 &#8212; Decorative image</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="graphics/gothic-border.png"
     role="presentation"
     alt=""/></code></pre>
 				</figure>
 				
-				<figure id="ex-05">
-					<figcaption>Example 5 &#8212; Image input button</figcaption>
+				<figure id="ex-06">
+					<figcaption>Example 6 &#8212; Image input button</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;input
     type="image"
     name="submit"
