@@ -6,6 +6,6 @@ plugins:
 defaults:
   -
     scope:
-      path: "/publishing/wip/"
+      path: "publishing/wip"
     values:
       sitemap: false
