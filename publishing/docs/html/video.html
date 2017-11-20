@@ -22,8 +22,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Ensure the user can control video playback and provide alternatives for users who cannot see or hear the video
-					or who need more time to process the information.</p>
+				<p>Ensure the video is labeled, the user can control playback, and there are alternatives for users who cannot see
+					or hear the video or who need more time to process the information.</p>
 			</section>
 			
 			<section id="tech">
@@ -80,7 +80,8 @@
 						attribute</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
    src="video/the_general.webm"
-   controls="controls">
+   controls="controls"
+   aria-label="The General">
    &#8230;
 &lt;/video></code></pre>
 				</figure>
@@ -88,7 +89,9 @@
 				<figure>
 					<figcaption>Example 2 &#8212; Including more than one video option using the <code>source</code>
 						element</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;video controls="controls">
+					<pre class="prettyprint linenums"><code>&lt;video
+       controls="controls"
+       aria-label="The General">
    &lt;source
       src="video/the_general.webm"
       type="video/webm"/>
@@ -103,7 +106,8 @@
 					<figcaption>Example 3 &#8212; Including timed tracks</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video controls="controls">
        src="video/big-hollywood-blockbuster.mp4"
-      controls="controls">
+      controls="controls"
+      aria-label="Kaplowy - The movie">
    &lt;track
       kind="subtitles"
       src="subtitles.en.vtt"
@@ -122,7 +126,8 @@
 					<pre class="prettyprint linenums"><code>&lt;video
    src="video/the_general.mp4"
    poster="graphics/the_general.jpg"
-   controls="controls">
+   controls="controls"
+   aria-label="The General">
    &#8230;
 &lt;/video></code></pre>
 				</figure>
@@ -131,7 +136,8 @@
 					<figcaption>Example 5 &#8212; Including a fallback error message</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
       src="video/the_general.mp4"
-      controls="controls">
+      controls="controls"
+      aria-label="The General">
    &#8230;
    &lt;div class="err">
      &lt;p>
