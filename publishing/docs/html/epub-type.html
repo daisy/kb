@@ -29,15 +29,20 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>Identify structures and links using the <code>epub:type</code> attribute.</li>
+					<li>Identify footnotes and endnotes using the <code>epub:type</code> attribute.</li>
 				</ul>
+				
+				<div class="note">
+					<p>No other uses of <code>epub:type</code> are known to provide user enhancements at this time.
+						Please open an issue if any such arise.</p>
+				</div>
 			</section>
 
 			<section id="ex">
 				<h3>Examples</h3>
 
 				<figure>
-					<figcaption>Common semantics</figcaption>
+					<figcaption>Common note semantics</figcaption>
 					<dl>
 						<dt id="ex01-footnote">Footnote and reference</dt>
 						<dd><pre class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a epub:type="noteref" href="#fn01">1&lt;/a>&lt;/p>
@@ -72,33 +77,37 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>Creating semantically-rich data has benefits for all users. The enabling of specialized behaviors, such 
-					as the opening of footnotes, is directly predicated on content being properly identified. Rich data 
-					also future-proofs content, both by identifying the original authoring intent, in cases where it 
-					may be ambiguous, and by making it simpler to archive and reprocess.</p>
+				<p>The enabling of specialized behaviors, such as the opening of footnotes, is directly predicated on content
+					being properly identified.</p>
 				
 				<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document to add
 					additional semantics. It accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
-						Structural Semantics Vocabulary</a> by default.</p>
+						Structural Semantics Vocabulary</a>, but the attribute has limited adoption outside of pop-up footnotes.</p>
 				
 				<p>Only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
 					a footnote is appropriate, for example, but marking a <code>section</code> as a footnote not as much.
-					The Structural Semantics Vocabulary lists the common element(s) each semantic is intended to be used
-					in conjunction with to facilitate this process (although exceptions to the rule may arise).</p>
+					The <a href="https://idpf.github.io/epub-vocabs/structure/">Structural Semantics Vocabulary</a> lists
+					the common element(s) each semantic is intended to be used in conjunction with to facilitate this
+					process (although exceptions to the rule may arise).</p>
 				
 			    <div class="note">
 			        <p class="label">Note</p>
 					<p>The <code>epub:type</code> attribute only facilitates user agent behaviors. For more information
 						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
 							<code>role</code> attribute</a>.</p>
-			    	<p>The attribute can be used in conjunction with the <code>role</code> attribute where both accessibility
-			    		and enhanced user agent behaviors overlap.</p>
+			    	<p>The <code>epub:type</code> attribute can be used in conjunction with the <code>role</code> attribute where
+			    		both accessibility and enhanced user agent behaviors overlap.</p>
 			    </div>
 				
-				<div class="note">
-					<p class="label">Note</p>
+				<section>
+					<h4>EPUB</h4>
+					
+					<p>The <code>epub:type</code> attribute is used to identify structures in many EPUB 3 specifications. The lack of
+						accessibility support for the attribute in HTML documents does not change the need to use this attribute when
+						conformance to such specifications is required.</p>
+					
 					<p>The <code>epub:type</code> attribute is specific to EPUB 3. It serves no function outside this standard.</p>
-				</div>
+				</section>
 			</section>
 			
 			<section id="refs">
