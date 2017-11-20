@@ -30,8 +30,8 @@
 		<main>
 			<section id="summary">
 				<h3>Summary</h3>
-				<p>Include schema.org accessibility metadata with publications to allow discovery no matter how the
-					publication is distributed or consumed.</p>
+				<p>Include schema.org accessibility metadata to enable discovery no matter how the publication is 
+					distributed or consumed.</p>
 			</section>
 			<section id="ex">
 				<h3>Examples</h3>
@@ -82,7 +82,7 @@
 				<h3>Explanation</h3>
 				<p>The <a href="http://www.schema.org/CreativeWork">schema.org CreativeWork class</a> includes properties
 					defined by the <a href="http://www.a11ymetadata.org/">Acessibility Metadata Project</a> that can be used
-					to identify the accessible qualities of a publication. This metadata can be expressed in XHTML content
+					to identify the accessible qualities of a publication. This metadata can be expressed in HTML 
 					documents using RDFa or microdata attributes to identify the accessible qualities of the content (e.g.,
 					videos). It can also be included in the EPUB package document to provide an overall picture of the
 					accessibility of the given rendition of the publication.</p>
@@ -90,18 +90,38 @@
 					<dt id="accessibilitySummary">accessibilitySummary</dt>
 					<dd><p>A brief, human-readable summary of features and/or deficiencies. Often used to indicate
 							conformance to an accessibility standard or point out shortcomings to the standard.</p>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">This publication conforms to the EPUB Accessibility specification at WCAG Level A.&lt;/meta>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-005">Include an accessibility summary</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd>
+								<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
+   This publication conforms to the EPUB Accessibility specification 
+   at WCAG Level A.
+&lt;/meta>
 </code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">This document conforms to WCAG 2.0 Level AA.&lt;/p></code></pre>
+							</dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd>
+								<pre class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+							</dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd>
+								<pre class="prettyprint linenums"><code>&lt;p itemprop="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+							</dd>
+						</dl>
 					</dd>
 
 					<dt id="accessMode">accessMode</dt>
 					<dd><p>An access mode through which the intellectual content of a described resource or adaptation is
 							communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
 							person may process or perceive information). If adaptations for the resource are known, the
-							access modes of those adaptations are not included.</p>
+							access modes of those adaptations are not included (see <a href="#accessModeSufficient">accessModeSufficient</a>.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>auditory</li>
@@ -109,10 +129,17 @@
 							<li>textual</li>
 							<li>visual</li>
 						</ul>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-001">Identify primary access modes</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre></dd>
+						</dl>
 					</dd>
 
 					<dt id="accessModeSufficient">accessModeSufficient</dt>
@@ -121,10 +148,17 @@
 						<p>A resource may have more than one set of sufficient access modes. A publication that contains
 							images with extended descriptions could indicate that it is sufficient for reading as textual and
 							visual content, and also as purely textual content.</p>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual"/></code></pre>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-002">Identify sufficient access modes</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre></dd>
+						</dl>
 					</dd>
 
 					<dt id="accessibilityFeature">accessibilityFeature</dt>
@@ -151,11 +185,19 @@
 							<li>tactileObject</li>
 							<li>transcript</li>
 						</ul>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
-property="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-003">Identify accessibility features</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
+property="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
+itemprop="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
+						</dl>
 					</dd>
 
 					<dt id="accessibilityHazard">accessibilityHazard</dt>
@@ -165,21 +207,25 @@ property="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>flashing</li>
-							<li>motionSimulation</li>
-							<li>sound</li>
+							<li>none</li>
 						</ul>
-						<p>It is recommended that the above properties all be set either in the positive or negative sense.
-							To indicate that no flashing hazard is known to exist, the value would be "noFlashing". The same
-							pattern is used for the other two properties.</p>
-						<p>A publication that omits some or all of these properties is assumed to have not been checked for
-							that hazard.</p>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-004">Identify accessibility hazards</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
 property="accessibilityHazard">flashing&lt;/span> 
 in this video may cause seizures in some 
-individuals.&lt;/p></code></pre>
+individuals.&lt;/p></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
+itemprop="accessibilityHazard">flashing&lt;/span> 
+in this video may cause seizures in some 
+individuals.&lt;/p></code></pre></dd>
+						</dl>
 					</dd>
 
 					<dt id="accessibilityControl">accessibilityControl</dt>
@@ -192,35 +238,39 @@ individuals.&lt;/p></code></pre>
 							<li>fullMouseControl</li>
 							<li>fullTouchControl</li>
 							<li>fullVideoControl</li>
-							<li>timing</li>
 						</ul>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">
-fullKeyboardControl&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (RDFa)</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-007">Identify Input Control Methods</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
+						</dl>
 					</dd>
 
 					<dt id="accessibilityAPI">accessibilityAPI</dt>
 					<dd><p>Indicates that the resource is compatible with the referenced accessibility API.</p>
+						<p>This property is only used when a publication has custom controls and those controls have been made
+							accessible to assistive technologies using ARIA roles, states and properties.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
-							<li>AndroidAccessibility</li>
 							<li>ARIA</li>
-							<li>ATK</li>
-							<li>AT-SPI</li>
-							<li>BlackberryAccessibility</li>
-							<li>iAccessible2</li>
-							<li>iOSAccessibility</li>
-							<li>JavaAccessibility</li>
-							<li>MacOSXAccessibility</li>
-							<li>MSAA</li>
-							<li>UIAutomation</li>
 						</ul>
-						<p>Package Document usage:</p>
-						<pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta></code></pre>
-						<p>XHTML Content Documents usage: (microdata)</p>
-						<pre class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityFeature" content="ARIA"/></code></pre>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-006">Identify ARIA Conformance</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>EPUB 3 Package Document usage:</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessibilityAPI" content="ARIA"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityFeature" content="ARIA"/></code></pre></dd>
+						</dl>
 					</dd>
 				</dl>
 			</section>
