@@ -22,7 +22,7 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Ensure the user can control audio playback and provide alternatives for users who cannot hear the audio
+				<p>Ensure the audio is labeled, the user can control playback, and there are alternatives for users who cannot hear the audio
 					or need more time to process the information.</p>
 			</section>
 			
@@ -55,25 +55,35 @@
 				<h3>Examples</h3>
 				<figure>
 					<figcaption>Example 1 &#8212; Enabling the user agent's default controls</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip01.mp3" controls="controls"/></code></pre>
+					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip01.mp3"
+       controls="controls"
+       aria-label="Moon landing"/></code></pre>
 				</figure>
 
 				<figure>
 					<figcaption>Example 2 &#8212; Including a transcript</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div>
-   &lt;audio src="audio/01.mp3" controls="controls"/>
-   &lt;a href="transcript01.html">Transcript&lt;/a>
+   &lt;audio src="audio/01.mp3"
+          controls="controls"
+          aria-label="Truman's fair deal"/>
+   &lt;a href="transcript01.html">Read the transcript&lt;/a>
 &lt;/div></code></pre>
 				</figure>
 
 				<figure>
 					<figcaption>Example 3 &#8212; Including a fallback error message</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip12.mp3" controls="controls">
+					<pre class="prettyprint linenums"><code>&lt;audio
+       src="audio/clip12.mp3"
+       controls="controls"
+       aria-label="Churchill's 'We Shall Never Surrender' speech">
    &lt;div class="err">
      &lt;p>
-       Sorry, it appears your system 
-       does not support audio playback.
+       Sorry, it appears your system does not support audio playback.
      &lt;/p>
+     &lt;p>
+        This clip is also available for
+        &lt;a href="http://example.com/audio">download&lt;/a>.
+     &lt;/p> 
    &lt;/div>
 &lt;/audio></code></pre>
 				</figure>
