@@ -86,6 +86,12 @@ a {
 	border-bottom: 0.1rem dotted rgb(0,0,220);
 }
 
+nav.breadcrumb a,
+nav.mini-toc a,
+section#tech a {
+	border-bottom: none;
+}
+
 a:link {
 	color: rgb(0,0,200);
 }
@@ -162,7 +168,9 @@ nav.breadcrumb > p > a:first-child {
 	padding: 0 1rem 0 0;
 }
 
-nav.breadcrumb a:hover {
+nav.breadcrumb a:hover,
+nav.mini-toc a:hover,
+section#tech a:hover {
     border-bottom: none;
     text-decoration: underline;
 }
