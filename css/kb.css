@@ -304,7 +304,7 @@ figure {
 	margin: 1.5em;
 }
 
-figcaption {
+figcaption > .label {
 	font-weight: bold;
 	color: rgb(0,0,0);
 	margin: 2.5em 0 1em 0;
