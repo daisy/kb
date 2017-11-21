@@ -54,14 +54,20 @@
 			<section id="ex">
 				<h3>Examples</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Enabling the user agent's default controls</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Enabling native controls</div>
+						<p>Setting the <code>controls</code> attribute enables the native HTML controls by default.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;audio src="audio/clip01.mp3"
        controls="controls"
        aria-label="Moon landing"/></code></pre>
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Including a transcript</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Including a transcript</div>
+						<p>A link to a transcript is provided after the audio clip.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div>
    &lt;audio src="audio/01.mp3"
           controls="controls"
@@ -71,7 +77,12 @@
 				</figure>
 
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; Including a fallback error message</span></figcaption>
+					<figcaption>
+						<div class="label">Example 3 &#8212; Including a fallback error message</div>
+						<p>Content included inside the <code>audio</code> element is only rendered if the element itself
+							is unsupported. The content is not displayed if there are no supported audio formats (the user
+							agent will display its own error message in such cases).</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;audio
        src="audio/clip12.mp3"
        controls="controls"
@@ -80,10 +91,6 @@
      &lt;p>
        Sorry, it appears your system does not support audio playback.
      &lt;/p>
-     &lt;p>
-        This clip is also available for
-        &lt;a href="http://example.com/audio">download&lt;/a>.
-     &lt;/p> 
    &lt;/div>
 &lt;/audio></code></pre>
 				</figure>

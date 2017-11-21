@@ -76,8 +76,10 @@
 			<section id="ex">
 				<h3>Examples</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Enabling native controls with the <code>controls</code>
-						attribute</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Enabling native controls</div>
+						<p>Setting the <code>controls</code> attribute enables the native HTML controls by default.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
    src="video/the_general.webm"
    controls="controls"
@@ -87,8 +89,11 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Including more than one video option using the <code>source</code>
-						element</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Including more than one video option</div>
+						<p>When more than one format is available, the <code>source</code> element can be repeated to declare each.
+							The user agent will pick a supported/preferred format from the list.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
        controls="controls"
        aria-label="The General">
@@ -103,7 +108,12 @@
 				</figure>
 
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; Including timed tracks</span></figcaption>
+					<figcaption>
+						<div class="label">Example 3 &#8212; Including timed tracks</div>
+						<p>The <code>track</code> allows supporting information to be attached to a video, such as 
+							subtitles and captions. The <code>kind</code> attribute designates the nature of the supplied
+							track.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video controls="controls">
        src="video/big-hollywood-blockbuster.mp4"
       controls="controls"
@@ -122,7 +132,11 @@
 				</figure>
 
 				<figure id="ex-04">
-					<figcaption><span class="label">Example 4 &#8212; Including a <code>poster</code> image</span></figcaption>
+					<figcaption>
+						<div class="label">Example 4 &#8212; Including a <code>poster</code> image</div>
+						<p>The <code>poster</code> attribute is used to reference the poster image. This image is displayed
+							when the user first encounters the video.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
    src="video/the_general.mp4"
    poster="graphics/the_general.jpg"
@@ -133,7 +147,12 @@
 				</figure>
 
 				<figure id="ex-05">
-					<figcaption><span class="label">Example 5 &#8212; Including a fallback error message</span></figcaption>
+					<figcaption>
+						<div class="label">Example 5 &#8212; Including a fallback error message</div>
+						<p>Content included inside the <code>video</code> element is only rendered if the element itself
+							is unsupported. The content is not displayed if there are no supported video formats (the user
+							agent will display its own error message in such cases).</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;video
       src="video/the_general.mp4"
       controls="controls"
@@ -142,9 +161,7 @@
    &lt;div class="err">
      &lt;p>
        Sorry, it appears your system 
-       either does not support video 
-       playback or cannot play the 
-       MP4 format provided.
+       does not support video playback.
      &lt;/p>
    &lt;/div>
 &lt;/video></code></pre>
