@@ -250,9 +250,11 @@
 				</figure>
 
 				<figure id="ex-04">
-					<figcaption><span class="label">Example 4 &#8212; Table with footnotes</span></figcaption>
-					<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be
-						grouped within a <code>figure</code>:</p>
+					<figcaption>
+						<div class="label">Example 4 &#8212; Table with footnotes</div>
+						<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be
+							grouped within a <code>figure</code>:</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure>
    &lt;table>
      &lt;tr>
@@ -342,8 +344,7 @@
 						ultrabooks" than "sales ultrabooks gross".</p>
 					
 					<p>More generally, whenever there is any ambiguity about which headings apply to a cell, a
-						<code>headers</code> attribute should be attached (e.g., headers at the end of a row, mixed heading
-						rows and columns, etc.). (See <a href="#ex-02">Example 2</a>.) Note that HTML5 no longer allows
+						<code>headers</code> attribute should be attached. Note that HTML5 no longer allows
 						the <code>td</code> element to be used for headings (i.e., a <code>td</code> element cannot be referenced
 						from the <code>headers</code> attribute).</p>
 					
@@ -366,7 +367,7 @@
 				<section>
 					<h4>Captions and summaries</h4>
 					
-					<p>A caption should always be included to give context to a table. Never rely on the text surrounding explain
+					<p>A caption should always be included to give context to a table. Never rely on the surrounding text to explain
 						the presence of a table, especially when the table is offset from the content.</p>
 					
 					<p>For complex tables, including a summary of the structure for the user before they enter the content can

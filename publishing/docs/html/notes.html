@@ -41,10 +41,15 @@
 				<h3>Examples</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Footnotes in the body</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Footnotes in the body</div>
+						<p>Note that the <code>doc-footnote</code> role is used on an <code>aside</code>. Do not
+							apply it to list items, as it will break the lists they belong to. Use <code>doc-endnote</code>
+							to group notes into lists.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;p>
    In that
-   year&lt;a href="#ft2f" role="doc-noteref epub:type="noteref">2&lt;/a>
+   year&lt;a href="#ft2f" role="doc-noteref" epub:type="noteref">2&lt;/a>
    there were 67 mills engaged in the manufacture of
    cotton goods &#8230;
 &lt;/p>
@@ -62,11 +67,15 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Endnote section</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Grouped notes at the end of a section/work</div>
+						<p>Note that the <code>doc-endnotes</code> and <code>doc-endnote</code> roles are used on a list
+							and list item, respectively. Do not use these roles in any other context.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;section epub:type="endnotes"> 
    &lt;h2>End Notes&lt;/h2>
    &lt;ol role="doc-endnotes">
-     &lt;li epub:type="endnote">
+     &lt;li role="doc-endnote">
        According to the usual nomenclature, the
        branch flowing S.W. is called the Chattooga;
        this unites with the Tallulah to form the 
@@ -85,12 +94,28 @@
    font-size: smaller;
 }</code></pre>
 				</figure>
-
+				
 				<figure id="ex-04">
-					<figcaption><span class="label">Example 4 &#8212; Back-linking notes</span></figcaption>
+					<figcaption>
+						<div class="label">Example 4 &#8212; Backlink from footnote</div>
+						<p>The backlink precedes the note text so that the user will be aware that such a link is
+							available.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;aside role="doc-footnote">
+   &lt;p>&lt;a href="#ref" role="doc-backlink" title="Go to note reference">1.&lt;/a> According to the usual nomenclature, the &#8230;&lt;/p>
+&lt;/li></code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example 5 &#8212; Backlink from endnote</div>
+						<p>The backlink follows the note text to avoid any conflicts with automatic list numbering.
+							The link is placed in its own element so that the user does not have to listen to the note before
+							being able to activate it.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;li role="doc-endnote">
-   &lt;a href="#ref" role="doc-backlink" title="note reference 1">1&lt;/a> 
-   According to the usual nomenclature, the &#8230;
+   &lt;p>According to the usual nomenclature, the &#8230;&lt;/p>
+   &lt;p>&lt;a href="#ref" role="doc-backlink">Go to note reference&lt;/a>&lt;/p>
 &lt;/li></code></pre>
 				</figure>
 
@@ -138,7 +163,7 @@
 				<p class="bridgehead">Back Referencing</p>
 				
 				<p>Although not specifically required to be accessible, it is good practice to backlink groups of notes to
-					their referent locations in the text (see <a href="#ex04">Example 4</a>). If a user is
+					their referent locations in the text (see <a href="#ex-04">Example 4</a>). If a user is
 					surveying the notes, backlinks will allow them to quickly find the text the note refers to.</p>
 			</section>
 			
@@ -146,8 +171,9 @@
 				<h3>References</h3>
 
 				<ul>
-					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/sections.html#the-aside-element">The
-								<code>aside</code> element</a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote"><code>doc-footnote</code></a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote"><code>doc-endnote</code></a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnotes"><code>doc-endnotes</code></a></li>
 				</ul>
 			</section>
 		</main>

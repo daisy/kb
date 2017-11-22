@@ -92,29 +92,22 @@
 				<h3>Examples</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Using the <code>role</code> attribute to add a border to examples</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Adding a border to examples</div>
+						<p>CSS is used to highlight examples with a thick grey left border. The CSS selector finds
+							<code>pre</code> elements whose <code>role</code> attribute contains the value <code>doc-example</code>.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code class="lang-css">pre[role~='doc-example'] {
    border-left: solid 3px; rgb(180,180,180);
 }</code></pre>
 				</figure>
 				
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Linking a style sheet</span></figcaption>
-					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
-   &lt;head>
-     &#8230;
-     &lt;link
-         rel="stylesheet"
-         type="text/css"
-         href="css/epub3.css"/>
-     &#8230;
-   &lt;/head>
-   &#8230;
-&lt;/html></code></pre>
-				</figure>
-
-				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; Including style overrides for mobile rendering</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Including style overrides for mobile rendering</div>
+						<p>The second linked style sheet is only applied when the maximum screen width is no more than
+							480 pixels, allowing styles optimized for mobile devices to override the defaults.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230;>
    &lt;head>
      &#8230;
