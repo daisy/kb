@@ -61,21 +61,25 @@
 				<h3>Examples</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Numbered headings</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Numbered headings</div>
+						<p>The heading number is decreased by one to match each subsection (h1, h2, h3).</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;section role="doc-part">
   &lt;h1>Book One: 1805&lt;/h1>
-     &lt;section role="doc-chapter">
-       &lt;h2>Chapter 1&lt;/h2></code></pre>
+     &lt;section role="doc-part">
+       &lt;h2>Part 1&lt;/h2>
+         &lt;section role="doc-chapter">
+           &lt;h3>Chapter 1&lt;/h3></code></pre>
 				</figure>
-
+				
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Headings and Subtitles</span></figcaption>
-					<p class="bridgehead">Combined</p>
-					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
-   &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.
-   &lt;span role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/span>&lt;/h1>
-</code></pre>
-					<p class="bridgehead">Using <code>header</code></p>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Separate heading and subtitle</div>
+						<p>The title and subtitle are contained in separate elements, but grouped in a <code>header</code>
+							element to better associate them. The role <code>doc-subtitle</code> is used to identify the
+							subtitle.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
    &lt;header>
      &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.&lt;/h1>
@@ -83,9 +87,25 @@
    &lt;/header>
 </code></pre>
 				</figure>
-
+				
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; <code>aria-label</code> attribute for headingless sections</span></figcaption>
+					<figcaption>
+						<div class="label">Example 3 &#8212; Merged heading and subtitle</div>
+						<p>The subtitle is contained within the same heading element as the title, but is identified
+							in a <code>span</code> with the role of <code>doc-subtitle</code>.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
+   &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.
+   &lt;span role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/span>&lt;/h1>
+</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Headingless section</div>
+						<p>The <code>aria-label</code> attribute provides a meaningful title for a section
+							that does not contain a visual heading.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;section aria-label="preamble"></code></pre>
 				</figure>
 			</section>
@@ -129,10 +149,10 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl class="faq">
-					<dt>Why not use an <code>h1</code> heading for every section?</dt>
+					<dt>Can I use an <code>h1</code> heading for every section?</dt>
 					<dd><p>User agents and assistive technologies do not support the outline algorithm defined in HTML5.
 							If you use an <code>h1</code> heading for every section, they will all appear as top-level
-							headings to a user, impeding their ability to navigate.</p>
+							headings to assistive technologies, impeding users' ability to navigate the content.</p>
 					</dd>
 				</dl>
 			</section>

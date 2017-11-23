@@ -22,7 +22,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Ensure the areas of an image map are labelled so that the map is accessible to users who cannot cannot see it or easily activate the regions.</p>
+				<p>Ensure the areas of an image map are labelled so that the map is accessible to users who cannot cannot 
+					see it or easily activate the regions.</p>
 			</section>
 			
 			<section id="tech">
@@ -41,23 +42,34 @@
 			<section id="ex">
 				<h3>Example</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; A client-side map</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; A client-side map</div>
+						<p>Each of the map's <code>area</code> elements contains an alternative text description.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="north-america.png"
     usemap="#na-map"/>
   &lt;map id="map">
-    &lt;area shape="poly" coords="..." href="ca-info.xhtml" alt="Canada"/>
-    &lt;area shape="poly" coords="..." href="us-info.xhtml" alt="US"/>
-    &lt;area shape="poly" coords="..." href="mx-info.xhtml" alt="Mexico"/>
+    &lt;area shape="poly" coords="&#8230;" href="ca-info.xhtml" alt="Canada"/>
+    &lt;area shape="poly" coords="&#8230;" href="us-info.xhtml" alt="US"/>
+    &lt;area shape="poly" coords="&#8230;" href="mx-info.xhtml" alt="Mexico"/>
   &lt;/map>
 </code></pre>
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; A server-side map</span></figcaption>
-					<pre class="prettyprint linenums"><code>&lt;a href="...">&lt;img
+					<figcaption>
+						<div class="label">Example 2 &#8212; A server-side map</div>
+						<p>Links are provided after a server-side map so that users who cannot see the map still have 
+							access to the information.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;figure>&lt;a href="&#8230;">&lt;img
     src="north-america.png"
     ismap="ismap"/>&lt;/a>
+    &lt;p>Regions: &lt;a href="ca-info.xhtml">Canada&lt;/a> | 
+       &lt;a href="us-info.xhtml">US&lt;/a> | 
+       &lt;a href="mx-info.xhtml">Mexico&lt;/a>&lt;/p>
+    &lt;/figure>
 </code></pre>
 				</figure>
 			</section>
@@ -65,7 +77,7 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>An image mapis a context-sensitive image that, depending on where the user clicks, touches or otherwise 
+				<p>An image map is a context-sensitive image that, depending on where the user clicks, touches or otherwise 
 					activates it, results in a unique operation being performed. Image maps are commonly used to make 
 					two-dimensional images dynamic, to provide more information about points on an infographic, etc.</p>
 				
