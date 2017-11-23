@@ -49,6 +49,20 @@
 				<h3>Example</h3>
 
 				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Declaring page language</div>
+						<p>The <code>lang</code> and <code>xml:lang</code> attributes are set on the <code>html</code>
+							element to declare the language for the page.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en"></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Overriding the page language</div>
+						<p>The <code>lang</code> and <code>xml:lang</code> attributes are used on <code>span</code> elements
+							within the <code>body</code> to change the language from English to French.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en">
    &#8230;
    &lt;body>
@@ -110,17 +124,11 @@
 				<dl class="faq">
 					<dt>Is it necessary to specify a default language in content files?</dt>
 					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
-							information may not be available to assistive technologies depending on the user agent used.
-							A cloud user may only have access to the current XHTML content document, for example, in which
-							case the proper language for braille rendering or TTS playback may not be available.</p>
-						<p>In the case of multilingual publications, it additionally may not be clear to any user agent
-							or assistive technology which of the specified languages in the package document is the correct
-							default for any given content document.</p>
-						<p>Best practice is to always specify the language in each content document to ensure proper
-							rendering.</p></dd>
+							information is not used when rendering the content. To ensure the proper language for braille
+							rendering or TTS playback, the language must be set in each document.</p></dd>
 					<dt>Is it necessary to specify both the <code>lang</code> and <code>xml:lang</code>
 						attributes?</dt>
-					<dd><p>Again, for optimal accessibility both should be specified when creating XHTML content. Assistive technologies may
+					<dd><p>For optimal accessibility both should be specified when creating XHTML content. Assistive technologies may
 							only recognize one or the other attribute.</p>
 						<p>In addition, if XHTML documents are rendered as HTML by a user agent, only the
 								<code>lang</code> attribute may be recognized.</p>

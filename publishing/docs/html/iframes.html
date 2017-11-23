@@ -45,7 +45,9 @@
 			<section id="ex">
 				<h3>Example</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; An accessible <code>iframe</code></span></figcaption>
+					<figcaption><span class="label">Example 1 &#8212; A basic <code>iframe</code></span></figcaption>
+					<p>The <code>iframe</code> identifies that it contains a quiz in its <code>title</code> attribute.
+						It includes fallback content to reach the file for reading systems that don't support frames.</p>
 					<pre class="prettyprint linenums"><code>&lt;iframe
       href="quiz01.xhtml"
       title="Quiz 1"
@@ -53,12 +55,14 @@
    Your user agent does not support
    inline frames. Please follow &lt;a 
    href="quiz01.xhtml">this link&lt;/a> 
-   to open the associated content document.
+   to open Quiz 1.
 &lt;/iframe></code></pre>
 				</figure>
 
 				<figure id="ex-02">
 					<figcaption><span class="label">Example 2 &#8212; An invisible <code>iframe</code></span></figcaption>
+					<p>The <code>iframe</code> contains code necessary for the page, so it is visually hidden and a label
+						also identifies that it contains no content.</p>
 					<pre class="prettyprint linenums"><code>&lt;iframe
       href="script.xhtml"
       title="empty"
