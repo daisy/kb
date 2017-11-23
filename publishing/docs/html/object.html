@@ -30,7 +30,7 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>Provide a transcript or description of the media in the body of the <code>object</code>. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a> and <a href="https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc">WCAG 1.2.3</a>]</span>
+					<li>Provide an HTML alternative or description of the object in the body of the <code>object</code>. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a> and <a href="https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc">WCAG 1.2.3</a>]</span>
 						<ul>
 							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H53.html">H53: Using the body of the object element</a></li>
 						</ul>
@@ -42,7 +42,10 @@
 				<h3>Examples</h3>
 				
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Fallback table for an embedded spreadsheet</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Fallback for an embedded spreadsheet</div>
+						<p>A table is include inside the <code>object</code> tag with comparable data.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;object data="data/timesheet.xls">
    &lt;table>
      &lt;thead>
@@ -61,15 +64,6 @@
    &lt;/table>
 &lt;/object></code></pre>
 				</figure>
-				
-				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Transcript for video</span></figcaption>
-					<pre class="prettyprint linenums"><code>&lt;object data="video/speech.flv">
-   &lt;p>[Speaker approaches the podium smiling and waving to the crowd.]&lt;/p>
-   &lt;p>Mr. Doe: Today is a new day. Tomorrow will be a new day. &#8230;&lt;/p>
-   &#8230;
-&lt;/object></code></pre>
-				</figure>
 			</section>
 			
 			<section id="desc">
@@ -79,6 +73,10 @@
 					use for audio and video content is generally discouraged, however, as it lacks the accessible playback
 					controls provided by the <a href="audio.html"><code>audio</code></a>
 					and <a href="video.html"><code>video</code></a> elements.</p>
+				
+				<p>Do not include media alternatives, like transcripts, in the body of an <code>object</code>. If the
+					audio or video format can be played, users who need access to the transcript will not have access
+					to it.</p>
 				
 				<p>As the <code>object</code> element is most often used to embed non-HTML content, a fallback needs to
 					be provided for users who cannot access the content in its native form. The common way to achieve this

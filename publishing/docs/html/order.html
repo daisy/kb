@@ -44,14 +44,16 @@
 				<h3>Example</h3>
 	
 			 	<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Semantic markup to enable the discovery of the logical reading
-						order</span></figcaption>
-					<p>The narrative flow in the following textbook excerpt is obvious to sighted users who can distinguish the
-						images and sidebar it flows around from visual cues.</p>
-					<img src="../../graphics/order.jpg"
-						alt="Sample textbook page showing figures and asides surrounding the narrative" />
-					<p>The logical reading order would be established using <code>figure</code> tags to offset the images and an
-						 <code>aside</code> for the sidebar, as in the following markup:</p>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Semantic markup to enable the discovery of the logical reading
+						order</div>
+						<p>The narrative flow in the following textbook excerpt is obvious to sighted users who can distinguish the
+							images and sidebar it flows around from visual cues.</p>
+						<img src="../../graphics/order.jpg"
+							alt="Sample textbook page showing figures and asides surrounding the narrative" />
+						<p>The logical reading order is established using <code>figure</code> tags to offset the images and an
+							<code>aside</code> for the sidebar, as in the following markup.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div epub:type="pagebreak">43&lt;/div>
 
 &lt;figure>
