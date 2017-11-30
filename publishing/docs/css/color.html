@@ -22,8 +22,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Do not rely on color to impart information as not all users will be able to see
-					or perceive the colors.</p>
+				<p>Ensure sufficient contrast so that text is legible, and do not rely on color to impart information,
+					as not all users will be able to see the colors or perceive the differences.</p>
 			</section>
 			
 			<section id="tech">
@@ -32,11 +32,11 @@
 				<ul>
 					<li>Provide sufficient contrast between foreground and background colors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 1.4.3</a> and <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7">WCAG 1.4.6</a>]</span>
 						<ul>
-							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
-								ratio of at least 7:1 exists between text (and images of text) and background behind the
-								text</a></li>
 							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
 								ratio of at least 4.5:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
+								ratio of at least 7:1 exists between text (and images of text) and background behind the
 								text</a></li>
 							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
 								ratio of at least 3:1 exists between text (and images of text) and background behind the
@@ -76,6 +76,34 @@
 						</ul>
 					</li>
 				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Using borders for links</div>
+						<p>A dotted border is added to all links to avoid completely removing the default underline.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   padding-bottom: 2px;
+   border-bottom: 1px dotted rgb(0,0,238);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; </div>
+					</figcaption>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; </div>
+					</figcaption>
+				</figure>
 			</section>
 			
 			<section id="desc">

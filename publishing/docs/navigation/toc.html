@@ -49,7 +49,10 @@
 				<h3>Examples</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Simple links</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Basic links</div>
+						<p>A table of contents is an ordered list of links into the content.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
 &lt;ol>
   &lt;li>
@@ -61,7 +64,11 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Nested entries</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Nested entries</div>
+						<p>Ordered lists are nested to reproduce the hierarchy of the publication. A <code>span</code>
+							is used to represent an unlinked heading.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
 &lt;ol>
   &#8230;
@@ -86,7 +93,13 @@
 				</figure>
 
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; TOC with hidden branches (EPUB-only)</span></figcaption>
+					<figcaption>
+						<div class="label">Example 3 &#8212; TOC with hidden branches (EPUB-only)</div>
+						<p>The following example hides branches of the table of contents from visual rendering.
+							These branches are normally not accessible to anyone, but in EPUB 3 the <code>hidden</code>
+							attribute has special handling that is supposed to allow the branches to be viewable
+							when the reading system renders the table of contents.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
 &lt;ol>
   &#8230;

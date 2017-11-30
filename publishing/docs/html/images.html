@@ -85,13 +85,15 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Extended description via hyperlink</span></figcaption>
-					<p>The following example uses simple hyperlinks to link to a note at the end of the chapter.</p>
-					<p>The descriptions could also be located in a separate file, but this might have a performance
-						impact for users (i.e., it will require the reading system to unload and reload each document each
-						time the user follows a link).</p>
-					<p>An image could also be used to minimize the appearance of the link, but some reading systems have
-						issues with such links.</p>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Extended description via hyperlink</div>
+						<p>The following example uses simple hyperlinks to link to a note at the end of the chapter.</p>
+						<p>The descriptions could also be located in a separate file, but this might have a performance
+							impact for users (i.e., it will require the reading system to unload and reload each document each
+							time the user follows a link).</p>
+						<p>An image could also be used to minimize the appearance of the link, but some reading systems have
+							issues with such links.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
@@ -118,15 +120,17 @@
 				</figure>
 				
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; Extended description via hyperlink / EPUB footnote</span></figcaption>
-					<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB semantics <code>noteref</code>
-						and <code>footnote</code> to the elements so that EPUB reading systems can create pop-up notes out of the descriptions.
-						User agents not aware of EPUB footnotes will still treat these as simple hyperlinks.</p>
-					<p>Note that the use of images for the note reference is not well supported, so a text label is used. iBooks, for example, requires the CSS 
-						<code>pointer-events: none</code> on HTML elements within a note reference to prevent the publication from crashing the application,
-						but this breaks the notes on any device where a mouse is used. Targeting devices is possible with media queries, but unreliable.</p>
-					<p>CSS can instead be used to style the note reference to make it less intrusive. For example, it could be reduced in size, italicized 
-						and positioned near the image, similar to photo credits.</p>
+					<figcaption>
+						<div class="label">Example 3 &#8212; Extended description via hyperlink / EPUB footnote</div>
+						<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB semantics <code>noteref</code>
+							and <code>footnote</code> to the elements so that EPUB reading systems can create pop-up notes out of the descriptions.
+							User agents not aware of EPUB footnotes will still treat these as simple hyperlinks.</p>
+						<p>Note that the use of images for the note reference is not well supported, so a text label is used. iBooks, for example, requires the CSS 
+							<code>pointer-events: none</code> on HTML elements within a note reference to prevent the publication from crashing the application,
+							but this breaks the notes on any device where a mouse is used. Targeting devices is possible with media queries, but unreliable.</p>
+						<p>CSS can instead be used to style the note reference to make it less intrusive. For example, it could be reduced in size, italicized 
+							and positioned near the image, similar to photo credits.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
@@ -152,10 +156,12 @@
 				</figure>
 				
 				<figure id="ex-04">
-					<figcaption><span class="label">Example 4 &#8212; Extended description in <code>details</code></span></figcaption>
-					<p>The following example uses the HTML <code>details</code> element to create a description
-						that is hidden by default.</p>
-					<p><strong>Note that support for this element is not yet universal, and it is not valid in EPUB 3.0.</strong></p>
+					<figcaption>
+						<div class="label">Example 4 &#8212; Extended description in <code>details</code></div>
+						<p>The following example uses the HTML <code>details</code> element to create a description
+							that is hidden by default.</p>
+						<p><strong>Note that support for this element is not yet universal, and it is not valid in EPUB 3.0.</strong></p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
@@ -181,15 +187,58 @@
 				</figure>
 				
 				<figure id="ex-05">
-					<figcaption><span class="label">Example 5 &#8212; Decorative image</span></figcaption>
+					<figcaption>
+						<div class="label">Example 5 &#8212; Hidden description</div>
+						<p>The following example uses the <code>aria-describedBy</code> element to link to a hidden description,
+							leaving no visual indication at all that a description is available.</p>
+						<p>Note that <strong>support for this attribute is poor</strong>, particularly when referencing hidden content.
+							While valid, it may prevent any users from reaching the description, so should be used with caution. The
+							Open Web Platform is moving away from hidden content that can only be accessed via assistive technologies.</p>
+						<p>It is also a bad choice if the description contains structured markup like tables or lists, as all tagging is
+							stripped and only the text content read to users.</p>
+					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"
+      aria-describedby="desc01"/>
+   &lt;figcaption>
+     The hydrologic cycle.
+     &lt;aside id="desc01" hidden="hidden">
+        &lt;p>
+           The diagram shows the processes of 
+           evaporation, condensation,
+           evapotranspiration, water storage
+           in ice and snow, and precipitation.
+           A large body of water &#8230;
+        &lt;/p>
+     &lt;/details>
+   &lt;/figcaption>
+&lt;/figure>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">Example 6 &#8212; Decorative image</div>
+						<p>An empty <code>alt</code> attribute is complemented by the role <code>presentation</code>
+							to indicate that the image contains no information for users.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="graphics/gothic-border.png"
     role="presentation"
     alt=""/></code></pre>
 				</figure>
 				
-				<figure id="ex-06">
-					<figcaption><span class="label">Example 6 &#8212; Image input button</span></figcaption>
+				<figure id="ex-07">
+					<figcaption>
+						<div class="label">Example 7 &#8212; Image input button</div>
+						<p>The <code>alt</code> attribute can be attached to image <code>input</code> elements to provide
+							an equivalent label.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;input
     type="image"
     name="submit"

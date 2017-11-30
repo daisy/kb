@@ -79,7 +79,11 @@
 			<section id="ex">
 				<h3>Example</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Indicating an image represents a button using a role</span></figcaption>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Identifying a custom button</div>
+						<p>The <code>img</code> elment has the role <code>button</code> which will identify it as a button
+							and not an image to assistive technologies.</p>
+					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img src="controls/start.png"
     id="start"
     role="button"
@@ -88,11 +92,13 @@
 				</figure>
 
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Maintaining state using JavaScript</span></figcaption>
-					<p>The following simple example shows some of the considerations that have to be paid attention to when
-						creating a custom control: setting and unsetting callback functions, enabling and disabling the
-						control, changing the visual appearance of the buttons. To make this image work with keyboards, the
-						user's keypresses must also be monitored and actions turned on and off.</p>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Maintaining state using JavaScript</div>
+						<p>The following simple example shows some of the considerations that have to be paid attention to when
+							creating a custom control: setting and unsetting callback functions, enabling and disabling the
+							control, changing the visual appearance of the buttons. To make this image work with keyboards, the
+							user's keypresses must also be monitored and actions turned on and off.</p>
+					</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;img src="controls/play.png"
     id="start"
     alt="Start"
