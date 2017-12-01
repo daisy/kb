@@ -95,14 +95,31 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; </div>
+						<div class="label">Example 2 &#8212; Using a label for a sidebar</div>
+						<p>The following sidebar is part of a series of historical events identified by green borders.
+							The <code>aria-label</code> attribute is used to add the missing context.</p>
 					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;aside
+       aria-label="historical event series"
+       class="historical">
+   &lt;h4>Battle of Waterloo&lt;/h4>
+   &#8230;
+&lt;/aside></code></pre>
 				</figure>
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; </div>
+						<div class="label">Example 3 &#8212; Including data in a figure caption</div>
+						<p>Data encoded in a pie chart is also available in the caption.</p>
 					</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;figure>
+   &lt;figcaption>
+      &lt;p>Figure 1 &#8212; Political Affiliations&lt;/p>
+      &lt;p>Of 2000 people surveyed, 33% identified themselves as Conservatives,
+         25% as Liberal, 10% as Rhino, 2% as Green and 30% declared no affiliation.&lt;/p>
+   &lt;/figcaption>
+   &lt;img src="poll.jpg" alt="January 2018 political poll results"/>
+&lt;/figure></code></pre>
 				</figure>
 			</section>
 			
