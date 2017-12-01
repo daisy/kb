@@ -36,9 +36,11 @@
 			<section id="ex">
 				<h3>Examples</h3>
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Package Document metadata (EPUB 3)</span></figcaption>
-					<p>The following example shows a typical set of metadata for a math textbook with MathML and described
-						images, and that includes accessible scripted content.</p>
+					<figcaption>
+						<div class="label">Example 1 &#8212; Package Document metadata (EPUB 3)</div>
+						<p>The following example shows a typical set of metadata for a math textbook with MathML and described
+							images, and that includes accessible scripted content.</p>
+					</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;metadata>
   &lt;meta property="schema:accessibilitySummary">
      This publication conforms to WCAG 2.0 Level AA.
@@ -62,17 +64,18 @@
 &lt;/metadata></code></pre>
 				</figure>
 				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Embedded video metadata</span></figcaption>
+					<figcaption>
+						<div class="label">Example 2 &#8212; Embedded metadata (RDFa)</div>
+						<p>Accessibility metadata that describes a single video is included within the body of an HTML document.</p>
+					</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
   &lt;video controls="controls" src="croc.mp4"/>
-  &lt;meta property="accessibilityFeature">captions&lt;/meta>
-  &lt;meta property="accessibilityFeature">transcript&lt;/meta>
-  &lt;meta property="accessibilityControl">fullKeyboardControl&lt;/meta>
-  &lt;meta property="accessibilityControl">fullMouseControl&lt;/meta>
-  &lt;meta property="accessibilityControl">fullTouchControl&lt;/meta>
-  &lt;meta property="accessibilityHazard">noFlashing&lt;/meta>
-  &lt;meta property="accessibilityHazard">noSound&lt;/meta>
-  &lt;meta property="accessibilityHazard">noMotionSimulation&lt;/meta>
+  &lt;meta property="accessibilityFeature" content="captions"/>
+  &lt;meta property="accessibilityFeature" content="transcript"/>
+  &lt;meta property="accessibilityControl" content="fullKeyboardControl"/>
+  &lt;meta property="accessibilityControl" content="fullMouseControl"/>
+  &lt;meta property="accessibilityControl" content="fullTouchControl"/>
+  &lt;meta property="accessibilityHazard" content="none"/>
   &lt;p>A transcript of the video follows:&lt;/p>
   …
 &lt;/div></code></pre>
@@ -88,7 +91,11 @@
 					accessibility of the given rendition of the publication.</p>
 				<dl>
 					<dt id="accessibilitySummary">accessibilitySummary</dt>
-					<dd><p>A brief, human-readable summary of features and/or deficiencies. Often used to indicate
+					<dd><p><em>A human-readable summary of specific accessibility features or deficiencies, consistent with 
+						the other accessibility metadata but expressing subtleties such as "short descriptions are present 
+						but long descriptions will be needed for non-visual users" or "short descriptions are present and no 
+						long descriptions are needed."</em></p>
+						<p>The summary is a brief, human-readable summary of features and/or deficiencies. Often used to indicate
 							conformance to an accessibility standard or point out shortcomings to the standard.</p>
 						<p>For more detailed information on how to use this property, refer to the section
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-005">Include an accessibility summary</a> in the
@@ -118,10 +125,16 @@
 					</dd>
 
 					<dt id="accessMode">accessMode</dt>
-					<dd><p>An access mode through which the intellectual content of a described resource or adaptation is
-							communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
-							person may process or perceive information). If adaptations for the resource are known, the
-							access modes of those adaptations are not included (see <a href="#accessModeSufficient">accessModeSufficient</a>.</p>
+					<dd><p><em>An access mode through which the intellectual content of a described resource or adaptation is
+						communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
+						person may process or perceive information).</em></p>
+						<p>The access modes identify how content has to be consumed by default. Images and video are visual content,
+							for example. Video clips also typically have audio, so have an auditory mode (as do
+							audio clips). Text content is textual.</p>
+						<p>Adaptations are identified as access modes, as they are not the primary way that the content is
+							consumed. If adaptations, such as extended descriptions, are provided for the primary content,
+							they are used in determining the
+							<a href="#accessModeSufficient">sufficient access modes</a>.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>auditory</li>
@@ -143,27 +156,31 @@
 					</dd>
 
 					<dt id="accessModeSufficient">accessModeSufficient</dt>
-					<dd><p>A list of single or combined access modes that are sufficient to understand all the intellectual
-							content of a resource.</p>
-						<p>A resource may have more than one set of sufficient access modes. A publication that contains
-							images with extended descriptions could indicate that it is sufficient for reading as textual and
-							visual content, and also as purely textual content.</p>
+					<dd><p><em>A list of single or combined access modes that are sufficient to understand all the intellectual
+						content of a resource.</em></p>
+						<p>Sufficient access modes identify the different combinations of senses that can be used to sufficiently
+							consume the content. A publication with images and text will require both visual and textual modes to
+							be consumed. If the images are also adequately described (alt text and extended descriptions, as appropriate)
+							a single textual mode would also be sufficient, indicating someone who is blind can consume the content.</p>
 						<p>For more detailed information on how to use this property, refer to the section
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-002">Identify sufficient access modes</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
 							<dt>Package Document usage:</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual visual&lt;/meta>
+&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual visual"/>
+&lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
 							<dt>HTML usage: (microdata)</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre></dd>
+							<dd><pre class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual visual"/>
+&lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre></dd>
 						</dl>
 					</dd>
 
 					<dt id="accessibilityFeature">accessibilityFeature</dt>
-					<dd><p>Content features of the resource, such as accessible media, supported enhancements for
-							accessibility and alternatives.</p>
+					<dd><p><em>Content features of the resource, such as accessible media, supported enhancements for
+						accessibility and alternatives.</em></p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>alternativeText</li>
@@ -201,12 +218,16 @@ itemprop="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityHazard">accessibilityHazard</dt>
-					<dd><p>A characteristic of the described resource that is physiologically dangerous to some users.
-							Related to <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html">WCAG 2.0 guideline
-								2.3</a>.</p>
+					<dd><p><em>A characteristic of the described resource that is physiologically dangerous to some users.
+						Related to <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html">WCAG 2.0 guideline
+							2.3</a>.</em></p>
+						<p>Identifying potential hazards in the content, such as flashing content, allows users with such
+							sensitivities to avoid encountering the danger unwittingly.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>flashing</li>
+							<li>motionSimulation</li>
+							<li>sound</li>
 							<li>none</li>
 						</ul>
 						<p>For more detailed information on how to use this property, refer to the section
@@ -229,8 +250,11 @@ individuals.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityControl">accessibilityControl</dt>
-					<dd><p>Identifies one or more input methods can be used that allow access to all of the application
-							functionality.</p>
+					<dd><p><em>Identifies input methods that are sufficient to control the described resource.</em></p>
+						<p>This property is typically only set when a publication contains scripted content that requires 
+							user interaction (i.e., whether the author has ensured that such content can be controlled by
+							the various input methods). It is not a useful indicator for static content, and is not a
+							guarantee that any user agent is accessible with such controls.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>fullAudioControl</li>
@@ -253,9 +277,12 @@ individuals.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityAPI">accessibilityAPI</dt>
-					<dd><p>Indicates that the resource is compatible with the referenced accessibility API.</p>
-						<p>This property is only used when a publication has custom controls and those controls have been made
-							accessible to assistive technologies using ARIA roles, states and properties.</p>
+					<dd><p><em>Indicates that the resource is compatible with the referenced accessibility API.</em></p>
+						<p>This property is only used when a publication has custom controls (e.g., controls created by scripting
+							non-interactive HTML elements like <code>img</code>, <code>span</code>, <code>div</code>, etc.). Without
+							ARIA roles, states and properties, these elements are not accessible to users of assistive technologies.</p>
+						<p>Native HTML controls (<code>button</code>, <code>input</code>, etc.) do not require ARIA attributes and
+							should always be used whenever possible. If only native controls are used, this property is not applicable.</p>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>ARIA</li>
