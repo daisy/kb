@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Descriptions | Accessible Publishing Knowledge Base</title>
+		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
 		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
@@ -16,91 +16,98 @@
 		</script>
 		<script type="text/javascript" src="../../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
-		<script type="text/javascript"> 	// <![CDATA[
-			$(document).ready(function () {
-				prettyPrint();
-			});//]]> </script>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'MathML',
+				'title': 'Descriptions'
+			};
+		</script>
 	</head>
 	<body>
-		<header>
-			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/">Accessible Publishing Knowledge Base</a></h1>
-		</header>
-		<section class="section">
-			<h2>Descriptions</h2>
-
-			<nav class="breadcrumb">
-				<p><a href="../index.html">KB</a> > <a href="index.html">MathML</a> > <span>Descriptions</span></p>
-			</nav>
-
-			<nav class="mini-toc">
-				<h3>In this section:</h3>
-				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#samp">Samples</a></li>
-					<li><a href="#refs">References</a></li>
-					<li><a href="#faq">FAQ</a></li>
-				</ol>
-			</nav>
-
+		<main>
+			<div class="warning">
+				<p>Alternative approaches for providing math descriptions are currently under development. This guide will
+					be updated once they have matured and are ready for use. See the <a href="#explanation">Explanation</a>
+					section for a description of the issues with current approaches.</p>
+			</div>
+			
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Provide a description for MathML equations for user agents that do not support their rendering.</p>
 			</section>
 			
 			<section id="tech">
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>...</li>
+					<li>Provide an alternative description for MathML markup. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html">ARIA6: Using <code>aria-label</code>
+								to provide labels for objects</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			
-			<section id="desc">
-				<p>Although a benefit of native MathML support in XHTML content documents is the ability to provide voicing
-					based on the markup, reading systems capable of such voicings are rare. It is consequently advisable to
-					include a fallback description.</p>
-
-				<p>A description can be added using the <code>aria-label</code> attribute. The MathML <code>alttext</code>
-					attribute is not recommended, as it has little support in assistive technologies.</p>
-
-				<p>Although natural language descriptions of math equations are a possibility, it is recommended to use <a
-						href="http://www.gh-mathspeak.com/">MathSpeak</a> to write descriptions. Users already familiar
-					with math-voicing programs will recognize the conventions used in MathSpeak, and the language removes the
-					potential for ambiguity that natural language can introduce.</p>
-			</section>
-
 			<section id="ex">
 				<h3>Examples</h3>
-
+				
 				<figure>
 					<figcaption>Example 1 &#8212; Adding a description using the <code>aria-label</code>
 						attribute</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div role="math"
-	 aria-label="Frac Root a EndRoot Over b EndFrac">
-   &lt;m:math
-	  xmlns:m="http://www.w3.org/1998/Math/MathML">
-	  &lt;m:mfrac>
-		 &lt;m:msqrt>
-			&lt;m:mtext>a&lt;/m:mtext>
-		 &lt;/m:msqrt>
-		 &lt;m:mi>b&lt;/m:mi>
-	  &lt;/m:mfrac>
-   &lt;/m:math>
+     aria-label="Frac Root a EndRoot Over b EndFrac">
+   &lt;math
+         xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;mfrac>
+         &lt;msqrt>
+            &lt;mtext>a&lt;/mtext>
+         &lt;/msqrt>
+         &lt;mi>b&lt;/mi>
+      &lt;/mfrac>
+   &lt;/math>
 &lt;/div></code></pre>
 				</figure>
+				
+				<figure>
+					<figcaption>Example 2 &#8212; Adding a description using the MathML <code>alttext</code>
+						attribute</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;math
+         alttext="Frac Root a EndRoot Over b EndFrac"
+         xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;mfrac>
+         &lt;msqrt>
+            &lt;mtext>a&lt;/mtext>
+         &lt;/msqrt>
+      &lt;mi>b&lt;/mi>
+   &lt;/mfrac>
+&lt;/math></code></pre>
+				</figure>
 			</section>
-
-			<section id="samp" class="sample">
-				<h3>Samples</h3>
-
-				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
-					publications that include MathML:</p>
-
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although a benefit of native MathML support in XHTML content documents is the ability to provide voicing
+					based on the markup, user agents capable of such voicings are rare. It is consequently recommended to
+					include a fallback description.</p>
+				
+				<p>The provision of accessible fallback descriptions is unfortunately as problematic as support for MathML
+					in user agents:</p>
+				
 				<ul>
-					<li><a href="http://code.google.com/p/epub-samples/downloads/list">Linear Algebra</a> (No
-						descriptions)</li>
+					<li>the <code>aria-label</code> attribute has the best support for assistive technologies, as it is
+						carried on an HTML element (see <a href="ex-01">Example 1</a>). The problem is that the ARIA
+						<code>math</code> role hides the MathML markup from assistive technologies, so it will not be
+						available even in user agents that support rendering.</li>
+					<li>the MathML <code>alttext</code> is not well supported by assistive technologies, and is transformed
+						into an <code>aria-label</code> by the polyfill MathML renderer MathJax.</li>
 				</ul>
+				
+				<p>It is recommended to use <a href="http://www.gh-mathspeak.com/">MathSpeak</a> to write math descriptions.
+					Users already familiar with math-voicing programs will recognize the conventions used in MathSpeak, and
+					the language removes the potential for ambiguity that natural language can introduce.</p>
 			</section>
 
 			<section id="refs">
@@ -143,11 +150,7 @@
 						employed.</p></dd>
 				</dl>
 			</section>
-		</section>
-		<footer>
-			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
-			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/mathml/desc.html">commit log</a>.</p>
-			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
-		</footer>
+		</main>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</body>
 </html>
