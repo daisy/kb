@@ -371,26 +371,44 @@ aside {
 }
 
 /* warnings */
-div.warning, div.note {
+div.warning,
+div.note {
 	margin: 2em 0 2em 3em;
-	padding-left: 1em;
+	padding: 0;
 	width: 80%;
-	border-left: 4px solid rgb(0,120,0);
+	border-radius: 1rem;
+}
+
+div.note {
+	border-right: 0.1em solid rgb(0,180,0);
+	border-bottom: 0.1em solid rgb(0,180,0);
+	border-left: 0.1em solid rgb(0,180,0);
 }
 
 div.warning {
-	border-left-color: rgb(120,0,0);
+	border-right: 0.1em solid rgb(180,0,0);
+	border-bottom: 0.1em solid rgb(180,0,0);
+	border-left: 0.1em solid rgb(180,0,0);
 }
 
 div.warning p.label,
 div.note p.label {
+	color: rgb(255,255,255);
     font-weight: bold;
-	width: 4.1em;
-	color: rgb(0,120,0);
+    text-indent: 1em;
+	padding: 0.3em;
+	margin: 0;
+	background-color: rgb(0,180,0);
+	border-radius: 0.5em 0.5em 0 0;
 }
 
 div.warning p.label {
-	color: rgb(120,0,0);
+	background-color: rgb(180,0,0);
+}
+
+div.note p:not(.label),
+div.warning p:not(.label) {
+	margin: 1em;
 }
 
 span.atrisk {
