@@ -18,8 +18,8 @@
 		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
 		<script type="text/javascript">
 			var page_info = {
-				'topic': 'MathML',
-				'title': 'Descriptions'
+				'topic': 'HTML',
+				'title': 'MathML'
 			};
 		</script>
 	</head>
@@ -54,7 +54,7 @@
 			<section id="ex">
 				<h3>Examples</h3>
 				
-				<figure>
+				<figure id="ex-01">
 					<figcaption>Example 1 &#8212; Adding a description using the <code>aria-label</code>
 						attribute</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;div role="math"
@@ -71,18 +71,37 @@
 &lt;/div></code></pre>
 				</figure>
 				
-				<figure>
+				<figure id="ex-02">
 					<figcaption>Example 2 &#8212; Adding a description using the MathML <code>alttext</code>
 						attribute</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;math
          alttext="Frac Root a EndRoot Over b EndFrac"
          xmlns="http://www.w3.org/1998/Math/MathML">
+   &lt;mfrac>
+      &lt;msqrt>
+         &lt;mtext>a&lt;/mtext>
+      &lt;/msqrt>
+      &lt;mi>b&lt;/mi>
+   &lt;/mfrac>
+&lt;/math></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>Example 3 &#8212; Adding a description using an <code>annotation-xml</code>
+						element</figcaption>
+					<pre class="prettyprint linenums"><code>&lt;math
+         xmlns="http://www.w3.org/1998/Math/MathML">
+    &lt;semantics>
       &lt;mfrac>
          &lt;msqrt>
             &lt;mtext>a&lt;/mtext>
          &lt;/msqrt>
-      &lt;mi>b&lt;/mi>
-   &lt;/mfrac>
+         &lt;mi>b&lt;/mi>
+      &lt;/mfrac>
+      &lt;annotation-xml encoding="application/xhtml+xml">
+         &lt;img src="math.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
+      &lt;/annotation-xml>
+    &lt;/semantics>
 &lt;/math></code></pre>
 				</figure>
 			</section>
@@ -104,6 +123,9 @@
 						available even in user agents that support rendering.</li>
 					<li>the MathML <code>alttext</code> is not well supported by assistive technologies, and is transformed
 						into an <code>aria-label</code> by the polyfill MathML renderer MathJax.</li>
+					<li>correct rendering of the <code>annotation-xml</code> element is also not fully supported: Internet
+						Explorer will render both the equation and annotation without additional CSS rules; other user agents
+						correctly suppress the unsupported markup.</li>
 				</ul>
 				
 				<p>It is recommended to use <a href="http://www.gh-mathspeak.com/">MathSpeak</a> to write math descriptions.
@@ -140,7 +162,7 @@
 							way that doesn't leave ambiguity.</p>
 					</dd>
 					<dt>Is MathSpeak the only option for describing MathML?</dt>
-					<dd><p>No, but it is the most openly documented format. Although some MathML applications take slightly
+					<dd><p>No, but it is an openly documented format. Although some MathML applications take slightly
 							different approaches to voicing equations, MathSpeak is a good reflection of the typical
 							grammar.</p></dd>
 					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
