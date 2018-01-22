@@ -377,6 +377,7 @@ div.note {
 	padding: 0;
 	width: 80%;
 	border-radius: 1rem;
+	max-width: 48em;
 }
 
 div.note {
