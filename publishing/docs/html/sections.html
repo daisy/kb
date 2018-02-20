@@ -58,8 +58,8 @@
 						<p>The role <code>doc-chapter</code> is applied to the <code>section</code> element to identify that
 							it contains a chapter.</p>
 					</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
-   &lt;h1>Chapter 1. Loomings.&lt;/h1>
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
+   &lt;h1 id="hd01">Chapter 1. Loomings.&lt;/h1>
    &lt;p>Call me Ishmael. &#8230; &lt;/p>
    &#8230;
 &lt;/section></code></pre>
@@ -71,7 +71,7 @@
 						<p>The <code>aria-label</code> attribute is used to identify a section that is only distinguished
 							by color in the text.</p>
 					</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;section aria-label="Self-examination tests">
+					<pre class="prettyprint linenums"><code>&lt;section role="region" aria-label="Self-examination tests">
    &#8230;
 &lt;/section></code></pre>
 				</figure>
@@ -82,8 +82,8 @@
 						<p>The role <code>doc-subtitle</code> is applied to the <code>p</code> element that follows the heading.
 							The two elements are paired inside a <code>header</code> element for additional clarity.</p>
 					</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter">
-   &lt;header>
+					<pre class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd02">
+   &lt;header id="hd02">
       &lt;h1>1. Europe 1930-1935&lt;/h1>
       &lt;p role="doc-subtitle">The Foreshadows of War&lt;/p>
    &lt;/header>
@@ -141,10 +141,10 @@
 							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
 							is to include the part heading with the first chapter:</p>
 						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section role="doc-part">
-	  &lt;h1>Part I&lt;/h1>
-	  &lt;section role="doc-chapter">
-		 &lt;h2>Chapter I&lt;/h2>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
+	  &lt;section role="doc-chapter" aria-labelledby="hd02">
+		 &lt;h2 id="hd02">Chapter I&lt;/h2>
 	  &lt;/section
    &lt;/section>
 &lt;/body></code></pre>
@@ -154,8 +154,8 @@
 							user.</p>
 						<p>The other approach is to separate the part heading into its own file:</p>
 						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section role="doc-part">
-	  &lt;h1>Part I&lt;/h1>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
    &lt;/section>
 &lt;/body></code></pre>
 						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is

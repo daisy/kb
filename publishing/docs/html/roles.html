@@ -53,27 +53,29 @@
 					<figcaption><span class="label">Common semantics</span></figcaption>
 					<dl>
 						<dt id="ex01-cover">Cover</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;body role="doc-cover">
-   &lt;img class="cover-img" src="cover.jpg" alt="Cover Image"/>
-&lt;/body></code></pre>
+						<dd><pre class="prettyprint linenums small"><code>&lt;img role="doc-cover" class="cover-img" src="cover.jpg" alt="Cover Image"/></code></pre>
 						</dd>
 						<dt id="ex01-preface">Preface</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-preface">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-preface" aria-label="Preface">
+   &lt;p>When I first put pen to paper &#8230;&lt;/p>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
 						<dt id="ex01-foreword">Foreword</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-foreword">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-foreword" aria-labelledby="hd01">
+   &lt;h2 id="hd01">Foreword&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
 						<dt id="ex01-part">Part</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-part">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-part" aria-labelledby="hd02">
+   &lt;h2 id="hd02">Book The First&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
 						<dt id="ex01-chapter">Chapter</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-chapter">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby="hd03">
+   &lt;h2 id="hd03">1 - It begins&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
@@ -90,8 +92,8 @@
 &lt;/aside></code></pre>
 						</dd>
 						<dt id="ex01-endnotes">Endnotes section</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-endnotes">
-   &lt;h1>Endnotes&lt;/h1>
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="hd-notes">
+   &lt;h1 id="hd-notes">Endnotes&lt;/h1>
    
    &lt;section>
      &lt;h2>Chapter 1&lt;/h2>
@@ -109,12 +111,14 @@
 &lt;/dl></code></pre>
 						</dd>
 						<dt id="ex01-bibliography">Bibliography</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-bibliography">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="hd05">
+   &lt;h2 id="hd05">Select Bibliography&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
 						<dt id="ex01-index">Index</dt>
-						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-index">
+						<dd><pre class="prettyprint linenums small"><code>&lt;section role="doc-index" aria-labelledby="hd06">
+   &lt;h2 id="hd06">Name Index&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
 						</dd>
