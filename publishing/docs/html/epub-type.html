@@ -91,30 +91,26 @@
 					additional semantics. It accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
 						Structural Semantics Vocabulary</a>, but the attribute has limited adoption outside of pop-up footnotes.</p>
 				
-				<p>Only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
+			    <div class="note">
+			        <p class="label">Note</p>
+					
+			    	<p>The <code>epub:type</code> attribute only facilitates user agent behaviors. For more information
+						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
+							<code>role</code> attribute</a>.</p>
+			    	
+			    	<p>The <code>epub:type</code> attribute can be used in conjunction with the <code>role</code> attribute where
+			    		both accessibility and enhanced user agent behaviors overlap.</p>
+			    	
+			    	<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
+			    		Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
+			    		to the ARIA <code>role</code> attribute.</p>
+			    </div>
+				
+				<p>Note that only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
 					a footnote is appropriate, for example, but marking a <code>section</code> as a footnote not as much.
 					The <a href="https://idpf.github.io/epub-vocabs/structure/">Structural Semantics Vocabulary</a> lists
 					the common element(s) each semantic is intended to be used in conjunction with to facilitate this
 					process (although exceptions to the rule may arise).</p>
-				
-			    <div class="note">
-			        <p class="label">Note</p>
-					<p>The <code>epub:type</code> attribute only facilitates user agent behaviors. For more information
-						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
-							<code>role</code> attribute</a>.</p>
-			    	<p>The <code>epub:type</code> attribute can be used in conjunction with the <code>role</code> attribute where
-			    		both accessibility and enhanced user agent behaviors overlap.</p>
-			    </div>
-				
-				<section>
-					<h4>EPUB</h4>
-					
-					<p>The <code>epub:type</code> attribute is used to identify structures in many EPUB 3 specifications. The lack of
-						accessibility support for the attribute in HTML documents does not change the need to use this attribute when
-						conformance to such specifications is required.</p>
-					
-					<p>The <code>epub:type</code> attribute is specific to EPUB 3. It serves no function outside this standard.</p>
-				</section>
 			</section>
 			
 			<section id="refs">
