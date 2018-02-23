@@ -126,6 +126,60 @@
 				</figure>
 			</section>
 			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt>Should I add a landmark role to every section?</dt>
+					<dd>
+						<p>No, landmarks are designed to allow the reader to quickly move to the primary sections
+							of a publication, not stand in as an alternative to the table of contents.</p>
+						
+						<p>If the <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA vocabulary</a> does not 
+							include a role for a section, consider the impact on navigation before defining a
+							new landmark with a <code>region</code> role. Landmarks are a flat list list of 
+							destinations so overloading the list with subsections will only cause confusion.</p>
+					</dd>
+					
+					<dt>Does adding <code>aria-label</code> or <code>title</code> to an untitled section create
+						a landmark?</dt>
+					<dd>
+						<p>Yes, so care needs to be taken not to overload the landmarks list in this way. When a
+							<code>section</code> element has a label, it is handled as though the
+							<a href="https://www.w3.org/TR/wai-aria-1.1/#region"><code>region</code> role</a>
+							has been applied to it, which makes the section a landmark.</p>
+						<p>If an untitled section does not map to an existing landmark role, such as
+							<code>doc-chapter</code>, consider the impact on navigation before labelling it.
+							In some cases, an <code>aside</code> element might be a more appropriate choice
+							for an untitled section, which would allow a label to be provided without creating
+							a landmark (e.g., for quizzes or learning objectives that are complementary to the text).</p>
+					</dd>
+					
+					<dt>Do I have to label every role?</dt>
+					<dd>
+						<p>No, whether a label is required depends on whether the role requires an accessible name.
+							To determine if an accessible name is required, see the role's definition in the 
+							<a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA</a> or
+							<a href="https://www.w3.org/TR/wai-aria-1.1/#role_definitions">ARIA</a> specification.
+							If the role does not have an "Accessible name required" field in its list of properties,
+							check the role's superclass (the value is inherited).</p>
+					</dd>
+					
+					<dt>Should I always label landmarks?</dt>
+					<dd>
+						<p>Best practice is to provide a label for landmarks using the <code>aria-labelledby</code>
+							(when a heading is present in the text) or <code>aria-label</code> attributes (when a
+							section does not have a visible heading).</p>
+						<p>Although labels are not required for DPUB-ARIA landmarks, support for the vocabulary is 
+							also not yet widespread. Adding a label ensures that default processing rules for HTML
+							will create a landmark even if the vocabulary is not recognized (i.e., adding a label
+							to a <code>section</code> element indicates to browsers to treat the section as an
+							implied <a href="https://www.w3.org/TR/wai-aria-1.1/#region"><code>region</code></a>
+							when creating the accessibility tree).</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -145,13 +199,6 @@
 					be defined at the markup level. To facilitate this discovery, the ARIA
 					<code>role</code> attribute allows more precise meanings to be applied to the generic tags.</p>
 				
-				
-				<div class="note">
-					<p class="label">Note</p>
-					<p>Semantic inflection can only be used to define the nature of structural markup. It is not defined for
-						making associations between your content, a process called <em>semantic enrichment</em>.</p>
-				</div>
-				
 				<section>
 					<h4>EPUB 3</h4>
 					
@@ -163,6 +210,13 @@
 					<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
 						Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
 						to the ARIA <code>role</code> attribute.</p>
+				</section>
+				
+				<section>
+					<h4>EPUB 2</h4>
+					
+					<p>As XHTML 1.0 was released before ARIA 1.0, EPUB 2 does not support the use of ARIA attributes.
+						Inclusion of the attributes will result in validation errors.</p>
 				</section>
 			</section>
 			
