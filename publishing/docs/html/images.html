@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
 		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
 		<link type="text/css" rel="stylesheet" href="../../../css/prettify.css" />
@@ -28,76 +28,79 @@
 		<main>
 			<section id="summary">
 				<h3>Summary</h3>
-				
 				<p>Ensure the information a user needs to receive from an image is provided in text form.</p>
 			</section>
-			
 			<section id="tech">
 				<h3>Techniques</h3>
-				
 				<ul>
-					<li>Provide alternative text in the <code>alt</code> attribute if the image is not described in the surrounding text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+					<li>Provide alternative text in the <code>alt</code> attribute if the image is not described in the
+						surrounding text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all"
+								>WCAG 1.1.1</a>]</span>
 						<ul>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">H37: Using alt attributes on
-								img elements</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H36.html">H36: Using alt attributes on images used as submit buttons</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G94.html">G94: Providing short text
-								alternative for non-text content that serves the same purpose and presents the same information
-								as the non-text content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">H37: Using alt attributes on img
+									elements</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H36.html">H36: Using alt attributes on images
+									used as submit buttons</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G94.html">G94: Providing short text alternative
+									for non-text content that serves the same purpose and presents the same information as
+									the non-text content</a></li>
 							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G100.html">G100: Providing a short text
-								alternative which is the accepted name or a descriptive name of the non-text content</a></li>
-						</ul>
-					</li>
-					<li>Provide an extended description for complex images. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
-						<ul>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G73.html">G73: Providing a long
-								description in another location with a link to it that is immediately adjacent to the non-text
+									alternative which is the accepted name or a descriptive name of the non-text
 								content</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G74.html">G74: Providing a long
-								description in text near the non-text content, with a reference to the location of the long
-								description in the short description</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G92.html">G92: Providing long description
-								for non-text content that serves the same purpose and presents the same information</a></li>
 						</ul>
 					</li>
-					<li>Ensure that decorative images have an empty alt attribute (<code>alt=""</code>). <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+					<li>Provide an extended description for complex images. <span class="wcag-level">[<a
+								href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
 						<ul>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H67.html">H67: Using null alt text and no
-								title attribute on img elements for images that AT should ignore</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C9.html">C9: Using CSS to include
-								decorative images</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C18.html">C18: Using CSS margin and
-								padding rules instead of spacer images for layout design</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G73.html">G73: Providing a long description in
+									another location with a link to it that is immediately adjacent to the non-text
+									content</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G74.html">G74: Providing a long description in
+									text near the non-text content, with a reference to the location of the long description
+									in the short description</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G92.html">G92: Providing long description for
+									non-text content that serves the same purpose and presents the same information</a></li>
 						</ul>
 					</li>
-					<li>Ensure that any animated graphics do not present the risk of seizures. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#seizure-does-not-violate">WCAG 2.3.1</a> and <a href="https://www.w3.org/TR/WCAG20/#seizure-three-times">WCAG 2.3.2</a>]</span>
+					<li>Ensure that decorative images have an empty alt attribute (<code>alt=""</code>). <span
+							class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
 						<ul>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure
-								that content does not violate the general flash threshold or red flash threshold</a></li>
-							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component
-								of the content flashes more than three times in any 1-second period</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H67.html">H67: Using null alt text and no title
+									attribute on img elements for images that AT should ignore</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C9.html">C9: Using CSS to include decorative
+									images</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/C18.html">C18: Using CSS margin and padding rules
+									instead of spacer images for layout design</a></li>
+						</ul>
+					</li>
+					<li>Ensure that any animated graphics do not present the risk of seizures. <span class="wcag-level">[<a
+								href="https://www.w3.org/TR/WCAG20/#seizure-does-not-violate">WCAG 2.3.1</a> and <a
+								href="https://www.w3.org/TR/WCAG20/#seizure-three-times">WCAG 2.3.2</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G15.html">G15: Using a tool to ensure that
+									content does not violate the general flash threshold or red flash threshold</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G19.html">G19: Ensuring that no component of the
+									content flashes more than three times in any 1-second period</a></li>
 						</ul>
 					</li>
 				</ul>
 			</section>
-
 			<section id="ex">
 				<h3>Examples</h3>
-
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Significant simple image (no description required)</span></figcaption>
+					<figcaption><span class="label">Example 1 &#8212; Significant simple image (no description
+							required)</span></figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="covers/9781449328030_lrg.jpg"
     alt="Accessible EPUB 3 - First Edition" /></code></pre>
 				</figure>
-
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Extended description via hyperlink</div>
 						<p>The following example uses simple hyperlinks to link to a note at the end of the chapter.</p>
 						<p>The descriptions could also be located in a separate file, but this might have a performance
-							impact for users (i.e., it will require the reading system to unload and reload each document each
-							time the user follows a link).</p>
+							impact for users (i.e., it will require the reading system to unload and reload each document
+							each time the user follows a link).</p>
 						<p>An image could also be used to minimize the appearance of the link, but some reading systems have
 							issues with such links.</p>
 					</figcaption>
@@ -125,18 +128,20 @@
 &lt;/aside>
 </code></pre>
 				</figure>
-				
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Extended description via hyperlink / EPUB footnote</div>
-						<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB semantics <code>noteref</code>
-							and <code>footnote</code> to the elements so that EPUB reading systems can create pop-up notes out of the descriptions.
-							User agents not aware of EPUB footnotes will still treat these as simple hyperlinks.</p>
-						<p>Note that the use of images for the note reference is not well supported, so a text label is used. iBooks, for example, requires the CSS 
-							<code>pointer-events: none</code> on HTML elements within a note reference to prevent the publication from crashing the application,
-							but this breaks the notes on any device where a mouse is used. Targeting devices is possible with media queries, but unreliable.</p>
-						<p>CSS can instead be used to style the note reference to make it less intrusive. For example, it could be reduced in size, italicized 
-							and positioned near the image, similar to photo credits.</p>
+						<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB
+							semantics <code>noteref</code> and <code>footnote</code> to the elements so that EPUB reading
+							systems can create pop-up notes out of the descriptions. User agents not aware of EPUB footnotes
+							will still treat these as simple hyperlinks.</p>
+						<p>Note that the use of images for the note reference is not well supported, so a text label is used.
+							iBooks, for example, requires the CSS <code>pointer-events: none</code> on HTML elements within a
+							note reference to prevent the publication from crashing the application, but this breaks the
+							notes on any device where a mouse is used. Targeting devices is possible with media queries, but
+							unreliable.</p>
+						<p>CSS can instead be used to style the note reference to make it less intrusive. For example, it
+							could be reduced in size, italicized and positioned near the image, similar to photo credits.</p>
 					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
@@ -161,13 +166,13 @@
 &lt;/aside>
 </code></pre>
 				</figure>
-				
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">Example 4 &#8212; Extended description in <code>details</code></div>
-						<p>The following example uses the HTML <code>details</code> element to create a description
-							that is hidden by default.</p>
-						<p><strong>Note that support for this element is not yet universal, and it is not valid in EPUB 3.0.</strong></p>
+						<p>The following example uses the HTML <code>details</code> element to create a description that is
+							hidden by default.</p>
+						<p><strong>Note that support for this element is not yet universal, and it is not valid in EPUB
+								3.0.</strong></p>
 					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
@@ -192,17 +197,17 @@
 &lt;/figure>
 </code></pre>
 				</figure>
-				
 				<figure id="ex-05">
 					<figcaption>
 						<div class="label">Example 5 &#8212; Hidden description</div>
-						<p>The following example uses the <code>aria-describedBy</code> element to link to a hidden description,
-							leaving no visual indication at all that a description is available.</p>
-						<p>Note that <strong>support for this attribute is poor</strong>, particularly when referencing hidden content.
-							While valid, it may prevent any users from reaching the description, so should be used with caution. The
-							Open Web Platform is moving away from hidden content that can only be accessed via assistive technologies.</p>
-						<p>It is also a bad choice if the description contains structured markup like tables or lists, as all tagging is
-							stripped and only the text content read to users.</p>
+						<p>The following example uses the <code>aria-describedBy</code> element to link to a hidden
+							description, leaving no visual indication at all that a description is available.</p>
+						<p>Note that <strong>support for this attribute is poor</strong>, particularly when referencing
+							hidden content. While valid, it may prevent any users from reaching the description, so should be
+							used with caution. The Open Web Platform is moving away from hidden content that can only be
+							accessed via assistive technologies.</p>
+						<p>This technique is not recommended if the description contains structured markup like tables or
+							lists, as all tagging is stripped and only the text content read to users.</p>
 					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
@@ -227,24 +232,22 @@
 &lt;/figure>
 </code></pre>
 				</figure>
-				
 				<figure id="ex-06">
 					<figcaption>
 						<div class="label">Example 6 &#8212; Decorative image</div>
-						<p>An empty <code>alt</code> attribute is complemented by the role <code>presentation</code>
-							to indicate that the image contains no information for users.</p>
+						<p>An empty <code>alt</code> attribute is complemented by the role <code>presentation</code> to
+							indicate that the image contains no information for users.</p>
 					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;img
     src="graphics/gothic-border.png"
     role="presentation"
     alt=""/></code></pre>
 				</figure>
-				
 				<figure id="ex-07">
 					<figcaption>
 						<div class="label">Example 7 &#8212; Image input button</div>
-						<p>The <code>alt</code> attribute can be attached to image <code>input</code> elements to provide
-							an equivalent label.</p>
+						<p>The <code>alt</code> attribute can be attached to image <code>input</code> elements to provide an
+							equivalent label.</p>
 					</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;input
     type="image"
@@ -253,55 +256,45 @@
     alt="Enter to Win!"/></code></pre>
 				</figure>
 			</section>
-			
 			<section id="desc">
 				<h3>Explanation</h3>
-				
 				<p>Images that are central to the understanding of a publication must always include a text alternative in
 					their <code>alt</code> attribute. In the case of complex images, a detailed description should also be
 					added.</p>
-				
 				<p>If the image is purely decorative, the <code>alt</code> attribute should be left empty. For additional
-					insurance that decorative images will not be announced, the ARIA <code>role</code> attribute with the 
+					insurance that decorative images will not be announced, the ARIA <code>role</code> attribute with the
 					property <code class="property">presentation</code> can be attached.</p>
-				
 				<aside class="note" aria-labelledby="note1">
 					<p id="note1" class="label">Note</p>
 					<p>If an image is important to the publication, but not required to be read at the point of insertion
 						(i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
 						enclose it.</p>
 				</aside>
-				
 				<section>
 					<h4>EPUB 3</h4>
-					
-					<p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use
-						in content that conforms to EPUB 3.0.1 or earlier versions of the standard. Only EPUB 3.1 and its 
+					<p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use in
+						content that conforms to EPUB 3.0.1 or earlier versions of the standard. Only EPUB 3.1 and its
 						successors allow this element.</p>
 				</section>
 			</section>
-			
 			<section id="refs">
 				<h3>References</h3>
-
 				<ul>
-					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element">The
-								<code>img</code> element</a></li>
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element"
+							>The <code>img</code> element</a></li>
 				</ul>
 			</section>
-			
 			<section id="faq">
 				<h3>Frequently Asked Questions</h3>
-				
 				<dl>
-					<dt>Should I put <code>role</code> <code>presentation</code>/<code>none</code> on images?</dt>
+					<dt>Should I put <code>role</code>
+						<code>presentation</code>/<code>none</code> on images?</dt>
 					<dd>
-						<p>It is best practice to use one of these roles if an image is purely decorative (<code>none</code> is
-							preferred as of ARIA 1.1), but it is not required for conformance with WCAG.</p>
-						
-						<p>Do not use these roles in place of an empty <code>alt</code> attribute. Not only is this not 
-							technically conforming HTML (an <code>alt</code> attribute can only be omitted in very select cases),
-							but it may not work with older assistive technologies.</p>
+						<p>It is best practice to use one of these roles if an image is purely decorative (<code>none</code>
+							is preferred as of ARIA 1.1), but it is not required for conformance with WCAG.</p>
+						<p>Do not use these roles in place of an empty <code>alt</code> attribute. Not only is this not
+							technically conforming HTML (an <code>alt</code> attribute can only be omitted in very select
+							cases), but it may not work with older assistive technologies.</p>
 					</dd>
 				</dl>
 			</section>
