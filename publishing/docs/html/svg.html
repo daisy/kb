@@ -36,7 +36,7 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>Identify the default language and any language changes using the <code>lang</code> attribute
+					<li>Identify the default language and any language changes using the <code>lang</code> and <code>xml:lang</code> attributes
 						<span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>]</span></li>
 					<li>Provide a title using the <code>title</code> element
 						<span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title">WCAG 2.4.2</a>]</span></li>
@@ -50,8 +50,8 @@
 						<span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color">WCAG 1.4.1</a>]</span></li>
 				</ul>
 				
-				<p>For a detailed list of accessibility features supported by SVG, also refer to
-					<a href="https://www.w3.org/TR/SVG2/access.html">Appendix D of the SVG 2.0</a></p>
+				<p>For a detailed list of accessibility features supported by SVG, refer to
+					<a href="https://www.w3.org/TR/SVG2/access.html">Appendix D of SVG 2.0</a></p>
 			</section>
 
 			<section id="ex">
@@ -59,18 +59,18 @@
 				
 				<figure id="ex-01">
 					<figcaption>Example 1 &#8212; Default language specification</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" lang="en">
+					<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" lang="en">
    &#8230;
 &lt;/svg></code></pre>
 				</figure>
 				
 				<figure id="ex-02">
 					<figcaption>Example 2 &#8212; Language override</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" lang="en">
+					<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" lang="en">
    &#8230;
    &lt;text &#8230; >I think therefore I am...&lt;/text>
-   &lt;text &#8230; xml:lang="fr">Je pense donc je suis...&lt;/text>
-   &lt;text &#8230; xml:lang="it">Penso dunque sono...&lt;/text>
+   &lt;text &#8230; xml:lang="fr" lang="fr">Je pense donc je suis...&lt;/text>
+   &lt;text &#8230; xml:lang="it" lang="it">Penso dunque sono...&lt;/text>
    &#8230;
 &lt;/svg></code></pre>
 				</figure>
@@ -79,7 +79,7 @@
 					<figcaption>Example 3 &#8212; Including an SVG title and description</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;svg
 	 xmlns="http://www.w3.org/2000/svg"
-	 lang="en">
+	 xml:lang="en" lang="en">
    &lt;title>The New EPUB Logo&lt;/title>
    &lt;desc>
 	  The EPUB logo is a lower-case letter E that has 
@@ -99,7 +99,7 @@
 					<figcaption>Example 4 &#8212; A decorative SVG</figcaption>
 					<pre class="prettyprint linenums"><code>&lt;svg
      xmlns="http://www.w3.org/2000/svg"
-     lang="en"
+     xml:lang="en" lang="en"
      role="presentation">
    &#8230;
 &lt;/svg></code></pre>
@@ -116,6 +116,28 @@
 				</figure>
 			</section>
 			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt>What is the best method for embedding SVGs in HTML?</dt>
+					<dd>
+						<p>The best answer is to embed the SVG markup directly in the HTML document, as it exposes the SVG's
+							DOM to assistive technologies. As embedding is not often feasible, the next best option
+							is to use the <code>object</code> element. Some browser and assistive technology pairings have
+							been reported to have issues with this approach (e.g., not exposing the DOM), but it is generally
+							accessible and a fallback can be provided inside the <code>object</code> element.</p>
+						
+						<p>Although an <code>iframe</code> element might seem like a better choice, the downside of this
+							element is that if the user agent does not support SVG, there is no effective way to provide
+							a fallback.</p>
+						
+						<p>The <code>img</code> tag should only be used for SVGs that a user does not need to interact with
+							and that have no dynamic components (scripting or animation).</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -123,20 +145,22 @@
 					<h4>Language</h4>
 					
 					<p>The language of any text content contained within an SVG image should always be set to ensure that
-						assistive technologies render the content properly.</p>
+						assistive technologies render such content properly.</p>
 					
 					<p>When attached to the root <code>svg</code> element, the <code>xml:lang</code> attribute identifies the
-						default language of any text content in the image.</p>
+						default language of any text content in the image. The <code>lang</code> attribute should also be specified
+						in case the SVG is not interpeted by an XML parser.</p>
 					
-					<p>The <code>xml:lang</code> may also be attached to individual components and text elements within the image
-						to designate that they contain prose in a language other than the default for the image.</p>
+					<p>The <code>xml:lang</code> and <code>lang</code> attribute can also be attached to individual components
+						and text elements within the image to designate that they contain prose in a different language than the
+						default.</p>
 				</section>
 				
 				<section id="desc-title">
 					<h4>Title and Description</h4>
 					
-					<p>SVG images that are significant to the publication should always include embedded titles
-						(<code>title</code>) and descriptions (<code>desc</code>) to aid users using assistive
+					<p>SVG images that are significant to a publication should always include embedded titles
+						(<code>title</code>) and descriptions (<code>desc</code>) to aid users of assistive
 						technologies.</p>
 					
 					<p>The description provided should be commensurate with the information contained in the image: use
@@ -145,7 +169,7 @@
 					<p>If an SVG image is purely decorative, do not include a title or description. The SVG element should
 						additional be identified as presentational using the ARIA <code>role</code> attribute.</p>
 					
-					<p>All significant graphical components within the SVG image should contain their own title and/or
+					<p>All significant graphical components within the SVG image should also contain their own title and/or
 						description to improve the overall accessibility of the image.</p>
 				</section>
 				
@@ -156,10 +180,7 @@
 						assistive technologies. When distorting and changing the appearance of text, using <code>text</code>
 						elements ensures the prose can be made available to anyone who cannot decipher the alterations.</p>
 					
-					<p>The SVG <code>font</code> element can also be used to create custom fonts to avoid drawing text into the
-						image.</p>
-					
-					<p>If the <code>title</code> of a component is also used as text within the component, the <code>tref</code>
+					<p>If the <code>title</code> of a component is included as text in an SVG, the <code>tref</code>
 						element can be used to reference the prose instead of creating a new <code>text</code> node.</p>
 				</section>
 				
@@ -167,16 +188,16 @@
 					<h4>Linking</h4>
 					
 					<p>SVG graphical components can be made linkable by wrapping them in <code>a</code> elements. Linked elements
-						should always include an <code>xlink:title</code> attribute identifying the nature of the referenced
+						should always include a <code>title</code> element identifying the nature of the referenced
 						resource.</p>
 					
 					<p>That certain graphical components are linkable, and others not, also needs to be established for users
 						that may have to zoom the image or otherwise may not be able to ascertain which components are
-						linked.</p>
+						linked (e.g., through underlining or a border).</p>
 				</section>
 				
-				<section id="desc-scripting">
-					<h4>Scripting</h4>
+				<section id="desc-aria">
+					<h4>ARIA</h4>
 					
 					<p>The <code>aria-*</code> attributes can be attached to SVG elements. Properly setting and maintaining
 						roles, properties and states increases the ability of all users to interact with dynamic content (e.g.,
@@ -187,7 +208,11 @@
 					
 					<p>When scripting SVG images, ensure that device-independent events have been used. Not all users will
 						interact with your images in the same way.</p>
+					
+					<p>Use ARIA landmark roles to simplify the navigation of complex images.</p>
 				</section>
+				
+				
 			</section>
 			
 			<section id="refs">
