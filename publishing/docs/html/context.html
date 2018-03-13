@@ -81,6 +81,25 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Why shouldn't I use CSS to increase padding or margins to get the same
+						effect?</dt>
+					<dd><p>Although you may get the same visual effect, the user is given no information that a change in
+						context has occurred. CSS class names carry no semantic meaning.</p>
+						<p>Print-first workflow tools often use this CSS technique to indicate context changes when
+							exporting, but it is inherently inaccessible.</p></dd>
+					
+					<dt>Can I insert an <code>img</code> tag to indicate context change?</dt>
+					<dd><p>Images are a suboptimal way to indicate a context change because they carry no semantic
+						information. Unlike pure CSS solutions, the <code>alt</code> attribute can be used to indicate
+						the context change, but that doesn't compensate for the more uniform experience that the
+						<code>hr</code> element can provide.</p></dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -105,25 +124,6 @@
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/grouping-content.html#the-hr-element">The
 								<code>hr</code> element</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Why shouldn't I use CSS to increase padding or margins to get the same
-						effect?</dt>
-					<dd><p>Although you may get the same visual effect, the user is given no information that a change in
-							context has occurred. CSS class names carry no semantic meaning.</p>
-						<p>Print-first workflow tools often use this CSS technique to indicate context changes when
-							exporting, but it is inherently inaccessible.</p></dd>
-
-					<dt>Can I insert an <code>img</code> tag to indicate context change?</dt>
-					<dd><p>Images are a suboptimal way to indicate a context change because they carry no semantic
-							information. Unlike pure CSS solutions, the <code>alt</code> attribute can be used to indicate
-							the context change, but that doesn't compensate for the more uniform experience that the
-								<code>hr</code> element can provide.</p></dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

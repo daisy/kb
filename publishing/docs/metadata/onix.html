@@ -89,8 +89,34 @@
 &lt;/package></code></pre>
 				</figure>
 			</section>
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				<dl class="faq">
+					<dt>Does the ONIX message have to be included in the EPUB container?</dt>
+					<dd><p>No, ONIX messages are not publication resources so can be hosted outside the container. When
+						considering external hosting of resources, duly consider that not all user agents are
+						connected to the internet; an accessible device may wind up without access to your accessibility
+						information.</p>
+					</dd>
+					<dt>Can I use other metadata standards to include accessibility information?</dt>
+					<dd><p>Yes, schema.org includes a set of <a href="schema-org.html">accessibility properties</a> that
+						enable accessibility metadata to be embedded directly in an EPUB package file.</p></dd>
+					<dt>How is this metadata useful?</dt>
+					<dd><p>The metadata can be used in distribution channels to allow users to discover whether the
+						publication is suitable for their needs, as one example. A book store search engine could use the
+						information to allow users to filter the available ebooks to only those that they know will work
+						with their assistive technology.</p>
+						<p>The user agent could similarly present the accessibility information to the user in advance of
+							reading even if the book has been delivered through a less accessible channel (e.g., enabling a
+							quicker return of the ebook if it's known to be incompatible with their system).</p>
+						<p>Without this information, the user has no way to distinguish the quality of one EPUB from
+							another.</p></dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
+				
 				<p>ONIX Code List 196 enables the inclusion accessibility compliance metadata in an ONIX message. This
 					information can then travel with the publication through distribution channels so that customers can be
 					made aware of the accessible features the EPUB offers. Each success criteria will be handled in turn in
@@ -357,36 +383,13 @@
 					</dd>
 				</dl>
 			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 				<ul>
 					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List 196:
 							E-publication Accessibility Details</a></li>
 				</ul>
-			</section>
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-				<dl class="faq">
-					<dt>Does the ONIX message have to be included in the EPUB container?</dt>
-					<dd><p>No, ONIX messages are not publication resources so can be hosted outside the container. When
-							considering external hosting of resources, duly consider that not all user agents are
-							connected to the internet; an accessible device may wind up without access to your accessibility
-							information.</p>
-					</dd>
-					<dt>Can I use other metadata standards to include accessibility information?</dt>
-					<dd><p>Yes, schema.org includes a set of <a href="schema-org.html">accessibility properties</a> that
-							enable accessibility metadata to be embedded directly in an EPUB package file.</p></dd>
-					<dt>How is this metadata useful?</dt>
-					<dd><p>The metadata can be used in distribution channels to allow users to discover whether the
-							publication is suitable for their needs, as one example. A book store search engine could use the
-							information to allow users to filter the available ebooks to only those that they know will work
-							with their assistive technology.</p>
-						<p>The user agent could similarly present the accessibility information to the user in advance of
-							reading even if the book has been delivered through a less accessible channel (e.g., enabling a
-							quicker return of the ebook if it's known to be incompatible with their system).</p>
-						<p>Without this information, the user has no way to distinguish the quality of one EPUB from
-							another.</p></dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

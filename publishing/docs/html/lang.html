@@ -93,6 +93,25 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Is it necessary to specify a default language in content files?</dt>
+					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
+						information is not used when rendering the content. To ensure the proper language for braille
+						rendering or TTS playback, the language must be set in each document.</p></dd>
+					<dt>Is it necessary to specify both the <code>lang</code> and <code>xml:lang</code>
+						attributes?</dt>
+					<dd><p>For optimal accessibility both should be specified when creating XHTML content. Assistive technologies may
+						only recognize one or the other attribute.</p>
+						<p>In addition, if XHTML documents are rendered as HTML by a user agent, only the
+							<code>lang</code> attribute may be recognized.</p>
+						<p>The <code>xml:lang</code> attribute is not valid in HTML documents, only in XHTML.</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -123,25 +142,6 @@
 					<li><a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC5646 &#8212; Tags for Identifying
 							Languages</a> (BCP 47)</li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Is it necessary to specify a default language in content files?</dt>
-					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
-							information is not used when rendering the content. To ensure the proper language for braille
-							rendering or TTS playback, the language must be set in each document.</p></dd>
-					<dt>Is it necessary to specify both the <code>lang</code> and <code>xml:lang</code>
-						attributes?</dt>
-					<dd><p>For optimal accessibility both should be specified when creating XHTML content. Assistive technologies may
-							only recognize one or the other attribute.</p>
-						<p>In addition, if XHTML documents are rendered as HTML by a user agent, only the
-								<code>lang</code> attribute may be recognized.</p>
-						<p>The <code>xml:lang</code> attribute is not valid in HTML documents, only in XHTML.</p>
-					</dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

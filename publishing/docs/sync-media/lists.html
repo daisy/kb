@@ -29,7 +29,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Identify list structures in the synchronized media format to improve their navigation during
+					synchronized media playback.</p>
 			</section>
 			
 			<section id="tech">
@@ -37,48 +38,6 @@
 				
 				<ul>
 					<li>...</li>
-				</ul>
-			</section>
-			
-			<section id="desc">
-				<p>In order to facilitate the navigation of lists, Media Overlay documents must be marked up so that lists
-					are discoverable &#8212; and consequently escapable and skippable &#8212; by the user without having to
-					drop out of playback mode.</p>
-				
-				<p>Although the basic markup for lists in overlays is the same regardless of list type, HTML5 includes two
-					different types of lists that need to be accommodated.</p>
-				
-				<p class="bridgehead">Ordered and Unordered Lists</p>
-				
-				<p>The HTML <code>ol</code> and <code>ul</code> list elements each represent sets of items, and are marked up
-					similarly as follows:</p>
-				
-				<ul>
-					<li>A single <code>seq</code> element encloses all the items in the list. This <code>seq</code> must have
-						an <code>epub:type</code> attribute specifying the property <code class="property">list</code>.</li>
-					<li>Complex list item (those that contain two or more synchronization points) must also be identified
-						using <code>seq</code> elements. These <code>seq</code> elements must have an <code>epub:type</code>
-						attribute specifying the property <code class="property">list-item</code>. If the list item contains
-						complex structures like sublists or tables, those structures must be marked up as appropriate to
-						ensure escapability and skippability.</li>
-					<li>Simple list items &#8212; containing only a single synchronization point &#8212; can be represented
-						using <code>par</code> elements with an <code>epub:type</code> attribute specifying the property
-						<code class="property">list item</code>.</li>
-				</ul>
-				
-				<p class="bridgehead">Definition Lists</p>
-				
-				<p>HTML definition lists (the <code>dl</code> element) associate one or more names (<code>dt</code> elements)
-					with one or more values (<code>dd</code> elements). When constructing these lists in an overlay document,
-					the following markup rules should be followed:</p>
-				
-				<ul>
-					<li>A single <code>seq</code> element should enclose all the terms and definitions in the list. This
-						<code>seq</code> must have an <code>epub:type</code> attribute specifying the property <code
-							class="property">list</code>, idnetical to ordered and unordered lists.</li>
-					<li>A <code>seq</code> elements should enclose all the related <code>dt</code> and <code>dd</code>
-						pairings, and include an <code>epub:type</code> attribute specifying the property <code
-							class="property">list-item</code>.</li>
 				</ul>
 			</section>
 			
@@ -140,6 +99,50 @@
 &lt;/seq>
 &lt;/seq></code></pre>
 				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>In order to facilitate the navigation of lists, Media Overlay documents must be marked up so that lists
+					are discoverable &#8212; and consequently escapable and skippable &#8212; by the user without having to
+					drop out of playback mode.</p>
+				
+				<p>Although the basic markup for lists in overlays is the same regardless of list type, HTML5 includes two
+					different types of lists that need to be accommodated.</p>
+				
+				<p class="bridgehead">Ordered and Unordered Lists</p>
+				
+				<p>The HTML <code>ol</code> and <code>ul</code> list elements each represent sets of items, and are marked up
+					similarly as follows:</p>
+				
+				<ul>
+					<li>A single <code>seq</code> element encloses all the items in the list. This <code>seq</code> must have
+						an <code>epub:type</code> attribute specifying the property <code class="property">list</code>.</li>
+					<li>Complex list item (those that contain two or more synchronization points) must also be identified
+						using <code>seq</code> elements. These <code>seq</code> elements must have an <code>epub:type</code>
+						attribute specifying the property <code class="property">list-item</code>. If the list item contains
+						complex structures like sublists or tables, those structures must be marked up as appropriate to
+						ensure escapability and skippability.</li>
+					<li>Simple list items &#8212; containing only a single synchronization point &#8212; can be represented
+						using <code>par</code> elements with an <code>epub:type</code> attribute specifying the property
+						<code class="property">list item</code>.</li>
+				</ul>
+				
+				<p class="bridgehead">Definition Lists</p>
+				
+				<p>HTML definition lists (the <code>dl</code> element) associate one or more names (<code>dt</code> elements)
+					with one or more values (<code>dd</code> elements). When constructing these lists in an overlay document,
+					the following markup rules should be followed:</p>
+				
+				<ul>
+					<li>A single <code>seq</code> element should enclose all the terms and definitions in the list. This
+						<code>seq</code> must have an <code>epub:type</code> attribute specifying the property <code
+							class="property">list</code>, idnetical to ordered and unordered lists.</li>
+					<li>A <code>seq</code> elements should enclose all the related <code>dt</code> and <code>dd</code>
+						pairings, and include an <code>epub:type</code> attribute specifying the property <code
+							class="property">list-item</code>.</li>
+				</ul>
 			</section>
 			
 			<section id="refs">

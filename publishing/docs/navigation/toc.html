@@ -125,6 +125,23 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Why does EPUB 3 allow NCX files, and do I need to include one?</dt>
+					<dd><p>The NCX file is allowed for forwards compatibility purposes only. An EPUB 2 user agents may
+						open an EPUB 3 publication, but it will not be able to use the new navigation document
+						format.</p>
+						<p>You can ignore the NCX file if your book won't render properly as EPUB 2 content, or if you aren't
+							targeting cross-compatibility.</p>
+						<p>Your publication may still open on EPUB 2 user agents even without an NCX. Some user
+							agents, like Adobe Digital Editions, will not provide navigation by table of contents but will
+							open the publication.</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -177,23 +194,6 @@
 					<li>Z39.86-2005 &#8212; <a href="http://www.niso.org/workrooms/daisy/Z39-86-2005.html#NCX">Navigation
 							Control File (NCX)</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Why does EPUB 3 allow NCX files, and do I need to include one?</dt>
-					<dd><p>The NCX file is allowed for forwards compatibility purposes only. An EPUB 2 user agents may
-							open an EPUB 3 publication, but it will not be able to use the new navigation document
-							format.</p>
-						<p>You can ignore the NCX file if your book won't render properly as EPUB 2 content, or if you aren't
-							targeting cross-compatibility.</p>
-						<p>Your publication may still open on EPUB 2 user agents even without an NCX. Some user
-							agents, like Adobe Digital Editions, will not provide navigation by table of contents but will
-							open the publication.</p>
-					</dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

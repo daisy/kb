@@ -105,6 +105,36 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Why aren't natural language descriptions advisable?</dt>
+					<dd><p>Consider the simple equation presented in <a href="#ex01">Example 1</a> above. A
+						reasonable natural language description might be "the square root of a over b". But consider that
+						there are two ways that this statement could be interpreted:</p>
+						<ol>
+							<li>to take the square root of the value a and then divide the resulting value by b.</li>
+							<li>to divide a by b and then take the square root of the resulting value.</li>
+						</ol>
+						<p>A user who cannot see the visual presentation of the equation is not going to be able to
+							determine which is the correct interpretation with only the description to go by. MathSpeak takes
+							the ambiguity out of the equation by clearly breaking down the components of the equation in a
+							way that doesn't leave ambiguity.</p>
+					</dd>
+					<dt>Is MathSpeak the only option for describing MathML?</dt>
+					<dd><p>No, but it is an openly documented format. Although some MathML applications take slightly
+						different approaches to voicing equations, MathSpeak is a good reflection of the typical
+						grammar.</p></dd>
+					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
+					<dd><p>The different levels reflect the expected age and proficiency of the user. A math book geared
+						towards younger users, or users new to the topic, would typically employ the verbose grammar.
+						More advanced users already proficient in math and familiar with the grammar will likely find
+						the verbose syntax a nuisance, so either the brief or super-brief grammars can be
+						employed.</p></dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -141,36 +171,6 @@
 					<li><a href="http://www.gh-mathspeak.com/examples/grammar-rules/">MathSpeak™ Core Specification Grammar
 							Rules</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Why aren't natural language descriptions advisable?</dt>
-					<dd><p>Consider the simple equation presented in <a href="#ex01">Example 1</a> above. A
-							reasonable natural language description might be "the square root of a over b". But consider that
-							there are two ways that this statement could be interpreted:</p>
-						<ol>
-							<li>to take the square root of the value a and then divide the resulting value by b.</li>
-							<li>to divide a by b and then take the square root of the resulting value.</li>
-						</ol>
-						<p>A user who cannot see the visual presentation of the equation is not going to be able to
-							determine which is the correct interpretation with only the description to go by. MathSpeak takes
-							the ambiguity out of the equation by clearly breaking down the components of the equation in a
-							way that doesn't leave ambiguity.</p>
-					</dd>
-					<dt>Is MathSpeak the only option for describing MathML?</dt>
-					<dd><p>No, but it is an openly documented format. Although some MathML applications take slightly
-							different approaches to voicing equations, MathSpeak is a good reflection of the typical
-							grammar.</p></dd>
-					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
-					<dd><p>The different levels reflect the expected age and proficiency of the user. A math book geared
-							towards younger users, or users new to the topic, would typically employ the verbose grammar.
-							More advanced users already proficient in math and familiar with the grammar will likely find
-							the verbose syntax a nuisance, so either the brief or super-brief grammars can be
-						employed.</p></dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

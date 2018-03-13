@@ -92,6 +92,47 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Should I use the <code>section</code> element for secondary content?</dt>
+					<dd><p>No, self-contained secondary content &#8212; such as sidebars,
+						mini-articles, etc. &#8212; should be identified using the <code>aside</code> and
+						<code>article</code> elements, as appropriate.</p>
+					</dd>
+					<dt>How do I handle parts?</dt>
+					<dd><p>Publications are typically broken up into smaller content files to improve rendering speed, so it 
+						is often the case that an entire part cannot be contained in a single file. The question becomes, how do
+						you split the chapters into separate files and still retain the part?</p>
+						<p>There are two approaches you can take to flattening out your content, and neither is optimal
+							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
+							is to include the part heading with the first chapter:</p>
+						<pre class="prettyprint linenums"><code>&lt;body>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
+	  &lt;section role="doc-chapter" aria-labelledby="hd02">
+		 &lt;h2 id="hd02">Chapter I&lt;/h2>
+	  &lt;/section
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Each subsequent chapter file would contain a single <code>section</code> with an <code>h2</code>
+							heading. Although this markup approach appears to suggest that the part only contains a single
+							chapter, consistent heading numbering will allow an assistive technology to correctly orient the
+							user.</p>
+						<p>The other approach is to separate the part heading into its own file:</p>
+						<pre class="prettyprint linenums"><code>&lt;body>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is
+							subordinate to the part. One advantage of this approach is that user agents will render the
+							part heading separately from the first chapter content.</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -122,47 +163,6 @@
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/sections.html#headings-and-sections">Headings and
 							sections</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Should I use the <code>section</code> element for secondary content?</dt>
-					<dd><p>No, self-contained secondary content &#8212; such as sidebars,
-							mini-articles, etc. &#8212; should be identified using the <code>aside</code> and
-								<code>article</code> elements, as appropriate.</p>
-					</dd>
-					<dt>How do I handle parts?</dt>
-					<dd><p>Publications are typically broken up into smaller content files to improve rendering speed, so it 
-						is often the case that an entire part cannot be contained in a single file. The question becomes, how do
-							you split the chapters into separate files and still retain the part?</p>
-						<p>There are two approaches you can take to flattening out your content, and neither is optimal
-							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
-							is to include the part heading with the first chapter:</p>
-						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section role="doc-part" aria-labelledby="hd01">
-	  &lt;h1 id="hd01">Part I&lt;/h1>
-	  &lt;section role="doc-chapter" aria-labelledby="hd02">
-		 &lt;h2 id="hd02">Chapter I&lt;/h2>
-	  &lt;/section
-   &lt;/section>
-&lt;/body></code></pre>
-						<p>Each subsequent chapter file would contain a single <code>section</code> with an <code>h2</code>
-							heading. Although this markup approach appears to suggest that the part only contains a single
-							chapter, consistent heading numbering will allow an assistive technology to correctly orient the
-							user.</p>
-						<p>The other approach is to separate the part heading into its own file:</p>
-						<pre class="prettyprint linenums"><code>&lt;body>
-   &lt;section role="doc-part" aria-labelledby="hd01">
-	  &lt;h1 id="hd01">Part I&lt;/h1>
-   &lt;/section>
-&lt;/body></code></pre>
-						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is
-							subordinate to the part. One advantage of this approach is that user agents will render the
-							part heading separately from the first chapter content.</p>
-					</dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

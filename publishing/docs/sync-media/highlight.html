@@ -49,93 +49,52 @@
 							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
 								ratio of at least 7:1 exists between text (and images of text) and background behind the
 								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
+								ratio of at least 3:1 exists between text (and images of text) and background behind the
+								text</a></li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 			
-			<section id="desc">
-				<p>When text is synchronized during playback, it can also be styled to make it more obvious which passage is
-					being narrated. EPUB 3 allows you to define the CSS class to apply to the active element in the package
-					document metadata using the special <code class="property">media:active-class</code> property:</p>
+			<section id="ex">
+				<h3>Examples</h3>
 				
-				<pre class="prettyprint linenums"><code>&lt;meta property="media:active-class">
--epub-overlay-active
-&lt;/meta></code></pre>
-				
-				<p>In this case, the reading system will check all attached CSS files for a class named <code class="value"
-					>-epub-overlay-active</code> and will apply whatever styles are defined in it to each synchronized
-					element for the duration of its playback</p>
-				
-				<div class="note">
-					<p class="label">Note</p>
-					<p>The name that you use for the CSS class is not important. It can be any name you choose, but for
-						clarity a name that indicates its purpose is recommended.</p>
-				</div>
-				
-				<p>For example, to apply a yellow background to the active text a basic rule such as the following could be
-					created:</p>
-				
-				<pre class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
-background-color: rgb(255,255,0);
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Defining the background highlight (EPUB 3)</div>
+					</figcaption>
+					
+					<pre class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   background-color: rgb(255,255,220);
 }</code></pre>
+				</figure>
 				
-				<p>Be aware when applying background shading that it may not contrast well with text colors you've already
-					assigned. If the shading will cause insufficient contrast in some situations, consider also specifying a
-					default color:</p>
-				
-				<pre class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
-color: rgb(0,0,0);
-background-color: rgb(255,255,0);
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Assigning a default color to improve contrast (EPUB 3)</div>
+					</figcaption>
+					
+					<pre class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   color: rgb(0,0,0);
+   background-color: rgb(255,255,0);
 }</code></pre>
-			</section>
-			
-			<section id="samp" class="sample">
-				<h3>Samples</h3>
-				
-				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
-					publications that implement Media Overlays:</p>
-				
-				<ul>
-					<li>Moby Dick: <a
-						href="http://code.google.com/p/epub-samples/source/browse/trunk/30/moby-dick-mo/OPS/package.opf#36"
-						>OPF</a>
-						<a
-							href="http://code.google.com/p/epub-samples/source/browse/trunk/30/moby-dick-mo/OPS/css/stylesheet.css#359"
-							>CSS</a></li>
-				</ul>
-			</section>
-			
-			<section id="refs">
-				<h3>References</h3>
-				
-				<ul>
-					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-docs-assoc-style">Associating
-						Style Information</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
-						ratio of at least 7:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
-						ratio of at least 4.5:1 exists between text (and images of text) and background behind the
-						text</a></li>
-					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
-						ratio of at least 3:1 exists between text (and images of text) and background behind the
-						text</a></li>
-				</ul>
+					
+				</figure>
 			</section>
 			
 			<section id="faq" class="faq">
 				<h3>Frequently Asked Questions</h3>
 				
 				<dl class="faq">
-					<dt>Can I only use background shading with overlays?</dt>
-					<dd><p>No, you can make any changes to the active text, but be aware that the choices you make may impact
-						on the accessibility of the publication.</p>
-						<p>Also consider the ebook medium. Increasing the font size might seem to be a good choice to make
+					<dt>Can I only apply background shading?</dt>
+					<dd><p>No, you can make any changes you like to the active text, but be aware that the choices you make
+						may impact on the accessibility of the publication.</p>
+						<p>Also consider the medium. Increasing the font size might seem to be a good choice to make
 							the active text more pronounced, but the practical result may be text that jumps around on the
-							page. As one paragraph loses focus, for example, its text size will shrink and the next will
-							increase, causing the layout to "move" on the user. It may also be the case that text that was
-							visible when the page was originally rendered will get pushed out of the viewport as the new
+							page in ebooks. As one paragraph loses focus, for example, its text size will shrink and the next
+							will increase, causing the layout to "move" on the user. It may also be the case that text that
+							was visible when the page was originally rendered will get pushed out of the viewport as the new
 							highlighting is applied.</p>
 					</dd>
 					<dt>Can I highlight words within sentences (or within paragraphs) using overlays?</dt>
@@ -160,6 +119,34 @@ background-color: rgb(255,255,0);
 							side of a simple highlighting scheme for the overlays.</p>
 					</dd>
 				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When text is synchronized during playback, it can also be styled to make it more obvious which passage is
+					being narrated.</p>
+				
+				<section id="epub3">
+					<h4>EPUB 3</h4>
+					
+					<p>EPUB 3 allows you to define the CSS class to apply to the active element in the package
+						document metadata using the special <code class="property">media:active-class</code> property:</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;meta property="media:active-class">
+-epub-overlay-active
+&lt;/meta></code></pre>
+					
+					<p>In this case, the reading system will check all attached CSS files for a class named <code class="value"
+						>-epub-overlay-active</code> and will apply whatever styles are defined in it to each synchronized
+						element for the duration of its playback</p>
+					
+					<div class="note">
+						<p class="label">Note</p>
+						<p>The name that you use for the CSS class is not important, but a name that indicates the purpose
+							of the class is recommended for clarity.</p>
+					</div>
+				</section>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

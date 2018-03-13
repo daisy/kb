@@ -126,6 +126,37 @@
 				</figure>
 			</section>
 			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Why can't I use a paragraph/div for each list item?</dt>
+					<dd><p>If you use paragraphs or divs, a user using an assistive technology to navigate the document
+						will have to traverse every item one at a time in order to continue reading. The proper use of
+						lists allows these users to easily skip past the entire list, and move through and jump out of
+						the list at any time.</p>
+						<p>Also, when using paragraphs, any hierarchical relationship is typically lost, as indenting is
+							emulated using CSS.</p>
+						<p>And finally, creating proper lists allows the user agent to announce the total number of items
+							in the list and the user's current position as they navigate through, making it simpler for
+							them to reference the location again should they need.</p>
+					</dd>
+					<dt>Why can't I use <code>br</code> tags to create lists?</dt>
+					<dd><p>Print-first tools often generate lists like this (usually from bad formatting), where single
+						paragraphs contain the entire list and each item is delineated by a hard line break (the
+						<code>br</code> tag). Although this might seem to solve the problem of being able to quickly
+						skip past or escape out of the list, it makes navigating the list quickly by item impossible. The
+						user now has to listen to every <q>item</q> in turn.</p>
+						<p>Using <code>br</code> tags also makes it difficult to return to a specific item, as there is no
+							way to navigate back to the text at a later time but to listen to the content again in full.</p>
+					</dd>
+					<dt>I want to use a custom image for a bullet, can I ignore this rule?</dt>
+					<dd><p>No, for all the reasons above plus CSS has always allowed custom images to be defined for list
+						items without having to resort to the <code>img</code> element. See the CSS
+						<code>list-style-image</code> property.</p></dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
@@ -173,37 +204,6 @@
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/grouping-content.html#the-dl-element">The
 								<code>dl</code> element</a></li>
 				</ul>
-			</section>
-
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-
-				<dl class="faq">
-					<dt>Why can't I use a paragraph/div for each list item?</dt>
-					<dd><p>If you use paragraphs or divs, a user using an assistive technology to navigate the document
-							will have to traverse every item one at a time in order to continue reading. The proper use of
-							lists allows these users to easily skip past the entire list, and move through and jump out of
-							the list at any time.</p>
-						<p>Also, when using paragraphs, any hierarchical relationship is typically lost, as indenting is
-							emulated using CSS.</p>
-						<p>And finally, creating proper lists allows the user agent to announce the total number of items
-							in the list and the user's current position as they navigate through, making it simpler for
-							them to reference the location again should they need.</p>
-					</dd>
-					<dt>Why can't I use <code>br</code> tags to create lists?</dt>
-					<dd><p>Print-first tools often generate lists like this (usually from bad formatting), where single
-							paragraphs contain the entire list and each item is delineated by a hard line break (the
-								<code>br</code> tag). Although this might seem to solve the problem of being able to quickly
-							skip past or escape out of the list, it makes navigating the list quickly by item impossible. The
-							user now has to listen to every <q>item</q> in turn.</p>
-						<p>Using <code>br</code> tags also makes it difficult to return to a specific item, as there is no
-							way to navigate back to the text at a later time but to listen to the content again in full.</p>
-					</dd>
-					<dt>I want to use a custom image for a bullet, can I ignore this rule?</dt>
-					<dd><p>No, for all the reasons above plus CSS has always allowed custom images to be defined for list
-							items without having to resort to the <code>img</code> element. See the CSS
-								<code>list-style-image</code> property.</p></dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>

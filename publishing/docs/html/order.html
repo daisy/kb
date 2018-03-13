@@ -227,36 +227,60 @@
 </code></pre>
 				</figure>
 			 </section>
+			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
 				
-				<section id="desc">
-					<h3>Explanation</h3>
-					
-					<p>Publications typically have a primary narrative that users are expected to follow from beginning to end, and
-						being able to navigate this dialogue uninterrupted is a key factor in making publications accessible.</p>
-					
-					<p>There is sometimes no distinction between the narrative and its representation in the markup. A novel, for
-						example, might consist only of sections, headings and paragraphs which are all marked up in order and can be
-						read in order. These cases tend not to be the norm, however, as most publications will have some degree of
-						complexity to their layout.</p>
-					
-					<p>More often, publications will include at least some supplementary information, such as footnotes, endnotes,
-						references, sidebars, tables, figures, charts, code samples, warnings, alerts and similar. As this information
-						is interspersed within the content of the body, its markup must inevitably also be interspersed within a
-						content document (e.g., a sidebar may be placed between two paragraphs within a section and the text visually
-						floated around it). If this content is not clearly marked and identifiable as secondary information, users
-						navigating at the markup level will have the primary narrative interrupted as the user agent attempts to
-						play back the auxiliary content.</p>
-					
-					<p>This problem was particularly acute prior to HTML5, as generic <code>div</code> tags we used to group
-						secondary material, which left no way to reliably distinguish its purpose. The result was that users
-						manually had to try and determine where the content ended in order to continue reading.</p>
-					
-					<p>To be accessible to non-visual users, content must be marked up such that a logical path that excludes the
-						secondary material and orders the primary can be followed: the logical reading order. Rich markup allows
-						secondary materials to be automatically excluded from text-to-speech playback or refreshable braille rendering
-						if the user doesn't want their reading experience interrupted.</p>
-				</section>
+				<dl class="faq">
+					<dt>Why does the logical reading order matter?</dt>
+					<dd><p>Consider how someone reading using a text-to-speech engine interacts with your publication. They are
+						navigating at the markup level, moving from structure to structure and hearing the prose rendered at
+						each step. That's fine, but now picture having no information about the structure you've just reached.
+						Are you going to the next paragraph, or is a footnote suddenly going to be read back? Did the last
+						section end or did you just jump into a sidebar?</p>
+						<p>Without structure and semantics, there's no way to easily move from one structure to the next. Where
+							does the sidebar marked as a <code>div</code> end and the next paragraph continue? These questions are left
+							to the user to puzzle out, leaving them manually navigating the publication to fit together the
+							elusive reading order from the generic markup. It's also why semantically meaningless markup ruins the
+							reading experience, if not makes it downright impossible.</p>
+					</dd>
+					<dt>How does semantic markup facilitate reading?</dt>
+					<dd><p>Accessible user agents typically provide the option for users to select elements to ignore.
+						Semantic markup eases this process of identifying and skipping non-essential content. A user may still
+						choose to render secondary content as it occurs, but it becomes their choice again, and no longer a
+						burden to navigate through or around as desired.</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
 				
+				<p>Publications typically have a primary narrative that users are expected to follow from beginning to end, and
+					being able to navigate this dialogue uninterrupted is a key factor in making publications accessible.</p>
+				
+				<p>There is sometimes no distinction between the narrative and its representation in the markup. A novel, for
+					example, might consist only of sections, headings and paragraphs which are all marked up in order and can be
+					read in order. These cases tend not to be the norm, however, as most publications will have some degree of
+					complexity to their layout.</p>
+				
+				<p>More often, publications will include at least some supplementary information, such as footnotes, endnotes,
+					references, sidebars, tables, figures, charts, code samples, warnings, alerts and similar. As this information
+					is interspersed within the content of the body, its markup must inevitably also be interspersed within a
+					content document (e.g., a sidebar may be placed between two paragraphs within a section and the text visually
+					floated around it). If this content is not clearly marked and identifiable as secondary information, users
+					navigating at the markup level will have the primary narrative interrupted as the user agent attempts to
+					play back the auxiliary content.</p>
+				
+				<p>This problem was particularly acute prior to HTML5, as generic <code>div</code> tags we used to group
+					secondary material, which left no way to reliably distinguish its purpose. The result was that users
+					manually had to try and determine where the content ended in order to continue reading.</p>
+				
+				<p>To be accessible to non-visual users, content must be marked up such that a logical path that excludes the
+					secondary material and orders the primary can be followed: the logical reading order. Rich markup allows
+					secondary materials to be automatically excluded from text-to-speech playback or refreshable braille rendering
+					if the user doesn't want their reading experience interrupted.</p>
+			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 	
@@ -264,30 +288,6 @@
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/dom.html#aria-role-attribute">ARIA Role attribute</a></li>
 				</ul>
 			 </section>
-	
-			 <section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-	
-				<dl class="faq">
-					<dt>Why does the logical reading order matter?</dt>
-					<dd><p>Consider how someone reading using a text-to-speech engine interacts with your publication. They are
-						 navigating at the markup level, moving from structure to structure and hearing the prose rendered at
-						 each step. That's fine, but now picture having no information about the structure you've just reached.
-						 Are you going to the next paragraph, or is a footnote suddenly going to be read back? Did the last
-						 section end or did you just jump into a sidebar?</p>
-						<p>Without structure and semantics, there's no way to easily move from one structure to the next. Where
-						 does the sidebar marked as a <code>div</code> end and the next paragraph continue? These questions are left
-						 to the user to puzzle out, leaving them manually navigating the publication to fit together the
-						 elusive reading order from the generic markup. It's also why semantically meaningless markup ruins the
-						 reading experience, if not makes it downright impossible.</p>
-					</dd>
-					<dt>How does semantic markup facilitate reading?</dt>
-					<dd><p>Accessible user agents typically provide the option for users to select elements to ignore.
-						 Semantic markup eases this process of identifying and skipping non-essential content. A user may still
-						 choose to render secondary content as it occurs, but it becomes their choice again, and no longer a
-						 burden to navigate through or around as desired.</p></dd>
-				</dl>
-			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>
 	</body>

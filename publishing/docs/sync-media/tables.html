@@ -29,7 +29,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>...</p>
+				<p>Identify table structures in the synchronized media format to improve their navigation during
+					synchronized media playback.</p>
 			</section>
 			
 			<section id="tech">
@@ -40,33 +41,8 @@
 				</ul>
 			</section>
 			
-			<section id="desc">
-				<p>In the same way that XHTML tables provide markup structure that can be navigated by users using
-					assistive technologies, so too must Media Overlay documents provide equivalent skippability and
-					escapability functionality through markup to facilitate playback.</p>
-				
-				<p>This structure can be layered into an overlay using <code>seq</code> elements to represent the
-					corresponding rows and cells in the markup. The typical process for converting table markup to overlay
-					markup follows:</p>
-				
-				<ul>
-					<li>A single <code>seq</code> element encloses the entire table, and includes an <code>epub:type</code>
-						attribute specifying the property <code class="property">table</code>.</li>
-					<li>Each row in the table is represented using a <code>seq</code> element with an <code>epub:type</code>
-						attribute specifying the property <code class="property">table-row</code>.</li>
-					<li>Complex table cells &#8212; those that contain two or more synchronization points &#8212; are
-						identified using <code>seq</code> elements with an <code>epub:type</code> attribute specifying the
-						property <code class="property">table-cell</code>. If the cell contains a complex structure like a
-						nested table or list, that structure must be marked up as appropriate to ensure escapability and
-						skippability from it.</li>
-					<li>Simple table cells containing only a single synchronization point can be represented using
-						<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
-							class="property">table-cell</code>.</li>
-				</ul>
-			</section>
-			
 			<section id="ex">
-				<h3>Example</h3>
+				<h3>Examples</h3>
 				
 				<figure>
 					<p>Example 1 &#8212; A comparison of XHTML table markup to overlay table markup</p>
@@ -101,6 +77,32 @@
 				</figure>
 			</section>
 			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>In the same way that XHTML tables provide markup structure that can be navigated by users using
+					assistive technologies, so too must Media Overlay documents provide equivalent skippability and
+					escapability functionality through markup to facilitate playback.</p>
+				
+				<p>This structure can be layered into an overlay using <code>seq</code> elements to represent the
+					corresponding rows and cells in the markup. The typical process for converting table markup to overlay
+					markup follows:</p>
+				
+				<ul>
+					<li>A single <code>seq</code> element encloses the entire table, and includes an <code>epub:type</code>
+						attribute specifying the property <code class="property">table</code>.</li>
+					<li>Each row in the table is represented using a <code>seq</code> element with an <code>epub:type</code>
+						attribute specifying the property <code class="property">table-row</code>.</li>
+					<li>Complex table cells &#8212; those that contain two or more synchronization points &#8212; are
+						identified using <code>seq</code> elements with an <code>epub:type</code> attribute specifying the
+						property <code class="property">table-cell</code>. If the cell contains a complex structure like a
+						nested table or list, that structure must be marked up as appropriate to ensure escapability and
+						skippability from it.</li>
+					<li>Simple table cells containing only a single synchronization point can be represented using
+						<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
+							class="property">table-cell</code>.</li>
+				</ul>
+			</section>
 			
 			<section id="refs">
 				<h3>References</h3>
@@ -111,7 +113,7 @@
 						<code>par</code> Element</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-skippability"
 						>Skippability</a></li>
-					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-escabaility"
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-escapability"
 						>Escapability</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub/vocab/structure/#h_tables">Stuctural Semantics
 						Vocabulary &#8212; Tables</a></li>

@@ -30,6 +30,7 @@
 				<h3>Summary</h3>
 				<p>Ensure the information a user needs to receive from an image is provided in text form.</p>
 			</section>
+			
 			<section id="tech">
 				<h3>Techniques</h3>
 				<ul>
@@ -85,8 +86,10 @@
 					</li>
 				</ul>
 			</section>
+			
 			<section id="ex">
 				<h3>Examples</h3>
+				
 				<figure id="ex-01">
 					<figcaption><span class="label">Example 1 &#8212; Significant simple image (no description
 							required)</span></figcaption>
@@ -94,6 +97,7 @@
     src="covers/9781449328030_lrg.jpg"
     alt="Accessible EPUB 3 - First Edition" /></code></pre>
 				</figure>
+				
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Extended description via hyperlink</div>
@@ -128,6 +132,7 @@
 &lt;/aside>
 </code></pre>
 				</figure>
+				
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Extended description via hyperlink / EPUB footnote</div>
@@ -166,6 +171,7 @@
 &lt;/aside>
 </code></pre>
 				</figure>
+				
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">Example 4 &#8212; Extended description in <code>details</code></div>
@@ -197,6 +203,7 @@
 &lt;/figure>
 </code></pre>
 				</figure>
+				
 				<figure id="ex-05">
 					<figcaption>
 						<div class="label">Example 5 &#8212; Hidden description</div>
@@ -232,6 +239,7 @@
 &lt;/figure>
 </code></pre>
 				</figure>
+				
 				<figure id="ex-06">
 					<figcaption>
 						<div class="label">Example 6 &#8212; Decorative image</div>
@@ -243,6 +251,7 @@
     role="presentation"
     alt=""/></code></pre>
 				</figure>
+				
 				<figure id="ex-07">
 					<figcaption>
 						<div class="label">Example 7 &#8212; Image input button</div>
@@ -256,6 +265,22 @@
     alt="Enter to Win!"/></code></pre>
 				</figure>
 			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				<dl>
+					<dt>Should I put <code>role</code>
+						<code>presentation</code>/<code>none</code> on images?</dt>
+					<dd>
+						<p>It is best practice to use one of these roles if an image is purely decorative (<code>none</code>
+							is preferred as of ARIA 1.1), but it is not required for conformance with WCAG.</p>
+						<p>Do not use these roles in place of an empty <code>alt</code> attribute. Not only is this not
+							technically conforming HTML (an <code>alt</code> attribute can only be omitted in very select
+							cases), but it may not work with older assistive technologies.</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				<p>Images that are central to the understanding of a publication must always include a text alternative in
@@ -277,26 +302,13 @@
 						successors allow this element.</p>
 				</section>
 			</section>
+			
 			<section id="refs">
 				<h3>References</h3>
 				<ul>
 					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element"
 							>The <code>img</code> element</a></li>
 				</ul>
-			</section>
-			<section id="faq">
-				<h3>Frequently Asked Questions</h3>
-				<dl>
-					<dt>Should I put <code>role</code>
-						<code>presentation</code>/<code>none</code> on images?</dt>
-					<dd>
-						<p>It is best practice to use one of these roles if an image is purely decorative (<code>none</code>
-							is preferred as of ARIA 1.1), but it is not required for conformance with WCAG.</p>
-						<p>Do not use these roles in place of an empty <code>alt</code> attribute. Not only is this not
-							technically conforming HTML (an <code>alt</code> attribute can only be omitted in very select
-							cases), but it may not work with older assistive technologies.</p>
-					</dd>
-				</dl>
 			</section>
 		</main>
 		<script type="text/javascript" src="../../../js/init.js"></script>
