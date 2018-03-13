@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Tables | Accessible Publishing Knowledge Base</title>
+		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
 		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
@@ -16,31 +16,16 @@
 		</script>
 		<script type="text/javascript" src="../../../js/prettify.js"></script>
 		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
-		<script type="text/javascript"> 	// <![CDATA[
-			$(document).ready(function () {
-				prettyPrint();
-			});//]]> </script>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'Synchronized Multimedia',
+				'title': 'Tables'
+			};
+		</script>
 	</head>
 
 	<body>
-		<header>
-			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/">Accessible Publishing Knowledge Base</a></h1>
-		</header>
-		<section class="section">
-			<h2>Tables</h2>
-
-			<nav class="breadcrumb">
-				<p><a href="../index.html">KB</a> > <a href="index.html">Overlays</a> > <span>Tables</span></p>
-			</nav>
-
-			<nav class="mini-toc">
-				<h3>In this section:</h3>
-				<ol>
-					<li><a href="#ex">Examples</a></li>
-					<li><a href="#refs">References</a></li>
-				</ol>
-			</nav>
-
+		<main>
 			<section id="summary">
 				<h3>Summary</h3>
 				
@@ -59,11 +44,11 @@
 				<p>In the same way that XHTML tables provide markup structure that can be navigated by users using
 					assistive technologies, so too must Media Overlay documents provide equivalent skippability and
 					escapability functionality through markup to facilitate playback.</p>
-
+				
 				<p>This structure can be layered into an overlay using <code>seq</code> elements to represent the
 					corresponding rows and cells in the markup. The typical process for converting table markup to overlay
 					markup follows:</p>
-
+				
 				<ul>
 					<li>A single <code>seq</code> element encloses the entire table, and includes an <code>epub:type</code>
 						attribute specifying the property <code class="property">table</code>.</li>
@@ -75,14 +60,14 @@
 						nested table or list, that structure must be marked up as appropriate to ensure escapability and
 						skippability from it.</li>
 					<li>Simple table cells containing only a single synchronization point can be represented using
-							<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
+						<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
 							class="property">table-cell</code>.</li>
 				</ul>
 			</section>
-
+			
 			<section id="ex">
 				<h3>Example</h3>
-
+				
 				<figure>
 					<p>Example 1 &#8212; A comparison of XHTML table markup to overlay table markup</p>
 					<pre class="prettyprint linenums small"><code>&lt;table>
@@ -115,28 +100,24 @@
 &lt;/seq></code></pre>
 				</figure>
 			</section>
-
-
+			
+			
 			<section id="refs">
 				<h3>References</h3>
 				<ul>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-seq-elem">The
-								<code>seq</code> Element</a></li>
+						<code>seq</code> Element</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-smil-par-elem">The
-								<code>par</code> Element</a></li>
+						<code>par</code> Element</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-skippability"
 						>Skippability</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/mediaoverlays#sec-escabaility"
 						>Escapability</a></li>
 					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub/vocab/structure/#h_tables">Stuctural Semantics
-							Vocabulary &#8212; Tables</a></li>
+						Vocabulary &#8212; Tables</a></li>
 				</ul>
 			</section>
-		</section>
-		<footer>
-			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
-			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/overlays/tables.html">commit log</a>.</p>
-			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
-		</footer>
+		</main>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</body>
 </html>
