@@ -500,3 +500,7 @@ body > section > section {
 #tech li {
     margin-top: 1rem !important;
 }
+
+div.related {
+	margin-left: 3rem;
+}

@@ -88,35 +88,14 @@
 				
 				<dl class="faq">
 					<dt>Can I only apply background shading?</dt>
-					<dd><p>No, you can make any changes you like to the active text, but be aware that the choices you make
-						may impact on the accessibility of the publication.</p>
+					<dd><p>No, you can apply any CSS properties to the active text, but be aware that the choices you make
+							may impact on the accessibility of the publication.</p>
 						<p>Also consider the medium. Increasing the font size might seem to be a good choice to make
 							the active text more pronounced, but the practical result may be text that jumps around on the
-							page in ebooks. As one paragraph loses focus, for example, its text size will shrink and the next
+							page in an EPUB. As one paragraph loses focus, for example, its text size will shrink and the next
 							will increase, causing the layout to "move" on the user. It may also be the case that text that
 							was visible when the page was originally rendered will get pushed out of the viewport as the new
 							highlighting is applied.</p>
-					</dd>
-					<dt>Can I highlight words within sentences (or within paragraphs) using overlays?</dt>
-					<dd><p>Yes and no. If you are using pre-recorded audio, you cannot. The playback will only be as granular
-						as your overlay file, as highlighting is applied to each <code>par</code> in turn.</p>
-						<p>Highlighting at both the sentence and word level is common in reading systems that provide
-							text-to-speech playback. This rendering is typical a combination of heuristic lookaheads to
-							determine each sentence (or part of a sentence) combined with word-level highlighting as each
-							word is fed to the TTS engine for rendering.</p>
-						<p>Overlays can take advantage of TTS playback to offer similar functionality, but at the price of
-							audio quality (synthesized voices) and assurance that the content will render (not all reading
-							systems provide TTS voicing). If no <code>audio</code> element is provided in a <code>par</code>,
-							the reading system is expected to render text content synthetically (audio/video content
-							referenced from the <code>text</code> element would be initiated). Any word-by-word highlighting
-							offered by the TTS engine would compliment the active overlay highlighting.</p>
-						<p>But choosing this kind of playback is suboptimal for the pitfalls already listed and because of
-							the further conflicts that may arise between the highlighting you apply and the highlighting the
-							reading system applies during TTS playback. Color clashes could make the text illegible for
-							users.</p>
-						<p>When mixing overlays and TTS technologies is necessary (e.g., to narrate the body and
-							synthetically render indexes and other tedious to narrate backmatter), it's best to err on the
-							side of a simple highlighting scheme for the overlays.</p>
 					</dd>
 				</dl>
 			</section>
