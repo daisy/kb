@@ -1,0 +1,65 @@
+
+body {
+}
+
+nav#toc {
+	margin: 2em 0 0 2em;
+	padding: 0em;
+}
+
+nav#toc h2 {
+	color: rgb(27, 95, 161);
+    margin: 2rem 0rem;
+    font-size: 150% !important;
+}
+
+nav#toc > section {
+    padding: 0 1rem;
+	background-color: rgb(247,252,255);
+	border: 0.1rem solid rgb(60,120,255);
+	border-radius: 1rem;
+}
+
+nav#toc > section > section {
+	margin: 1rem 0 0 0;
+}
+
+nav#toc h3 {
+	color: rgb(0,0,0);
+	margin: 0 0 0 3rem;
+}
+
+nav#toc h3::before {
+	content: '';
+}
+
+nav#toc h4 {
+	margin: 0 0 0 3rem;
+}
+
+nav#toc ol {
+	list-style-type: none;
+	max-width: 80rem;
+	column-count: 3;
+}
+
+nav#toc li {
+	font-size: 120%;
+	padding: 0.5rem;
+	display: inline-block;
+	width: 20rem;
+	margin: 0.5rem;
+}
+
+nav#toc a:hover {
+	text-decoration: underline;
+	color: rgb(240,0,0) !important;
+}
+
+nav#toc a {
+	text-decoration: none;
+	color: rgb(0,0,200) !important;
+	border: none !important;
+	display: inline-block;
+	width: 20rem;
+}
