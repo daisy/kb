@@ -7,14 +7,18 @@
 		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
 		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
 		<style type="text/css">
-			dt{
+			section > dl > dt {
 				font-weight: bold;
-				font-size: 105%;
+				font-size: 110%;
 				padding-top: 2em;
 			}
-			span.draft{
-				color: rgb(190, 0, 0);
-			}</style>
+			section > dl > dd > dl > dt {
+				font-weight: bold;
+			}
+			blockquote {
+				margin-left: 1rem;
+			}
+		</style>
 		<link type="text/css" rel="stylesheet" href="../../../css/prettify.css" />
 		<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-327448-3"></script>
 		<script>
@@ -98,10 +102,13 @@
 					accessibility of the given rendition of the publication.</p>
 				<dl>
 					<dt id="accessibilitySummary">accessibilitySummary</dt>
-					<dd><p><em>A human-readable summary of specific accessibility features or deficiencies, consistent with 
-						the other accessibility metadata but expressing subtleties such as "short descriptions are present 
-						but long descriptions will be needed for non-visual users" or "short descriptions are present and no 
-						long descriptions are needed."</em></p>
+					<dd>
+						<blockquote>
+							<p><em>A human-readable summary of specific accessibility features or deficiencies, consistent with 
+								the other accessibility metadata but expressing subtleties such as "short descriptions are present 
+								but long descriptions will be needed for non-visual users" or "short descriptions are present and no 
+								long descriptions are needed."</em></p>
+						</blockquote>
 						<p>The summary is a brief, human-readable summary of features and/or deficiencies. Often used to indicate
 							conformance to an accessibility standard or point out shortcomings to the standard.</p>
 						<p>For more detailed information on how to use this property, refer to the section
@@ -132,9 +139,12 @@
 					</dd>
 
 					<dt id="accessMode">accessMode</dt>
-					<dd><p><em>An access mode through which the intellectual content of a described resource or adaptation is
-						communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
-						person may process or perceive information).</em></p>
+					<dd>
+						<blockquote>
+							<p><em>An access mode through which the intellectual content of a described resource or adaptation is
+								communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
+								person may process or perceive information).</em></p>
+						</blockquote>
 						<p>The access modes identify how content has to be consumed by default. Images and video are visual content,
 							for example. Video clips also typically have audio, so have an auditory mode (as do
 							audio clips). Text content is textual.</p>
@@ -163,8 +173,11 @@
 					</dd>
 
 					<dt id="accessModeSufficient">accessModeSufficient</dt>
-					<dd><p><em>A list of single or combined access modes that are sufficient to understand all the intellectual
-						content of a resource.</em></p>
+					<dd>
+						<blockquote>
+							<p><em>A list of single or combined access modes that are sufficient to understand all the intellectual
+								content of a resource.</em></p>
+						</blockquote>
 						<p>Sufficient access modes identify the different combinations of senses that can be used to sufficiently
 							consume the content. A publication with images and text will require both visual and textual modes to
 							be consumed. If the images are also adequately described (alt text and extended descriptions, as appropriate)
@@ -186,8 +199,11 @@
 					</dd>
 
 					<dt id="accessibilityFeature">accessibilityFeature</dt>
-					<dd><p><em>Content features of the resource, such as accessible media, supported enhancements for
-						accessibility and alternatives.</em></p>
+					<dd>
+						<blockquote>
+							<p><em>Content features of the resource, such as accessible media, supported enhancements for
+								accessibility and alternatives.</em></p>
+						</blockquote>
 						<p>The following values are recommended for this property:</p>
 						<ul>
 							<li>alternativeText</li>
@@ -225,9 +241,12 @@ itemprop="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityHazard">accessibilityHazard</dt>
-					<dd><p><em>A characteristic of the described resource that is physiologically dangerous to some users.
-						Related to <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html">WCAG 2.0 guideline
-							2.3</a>.</em></p>
+					<dd>
+						<blockquote>
+							<p><em>A characteristic of the described resource that is physiologically dangerous to some users.
+								Related to <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html">WCAG 2.0 guideline
+									2.3</a>.</em></p>
+						</blockquote>
 						<p>Identifying potential hazards in the content, such as flashing content, allows users with such
 							sensitivities to avoid encountering the danger unwittingly.</p>
 						<p>The following values are recommended for this property:</p>
@@ -257,7 +276,10 @@ individuals.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityControl">accessibilityControl</dt>
-					<dd><p><em>Identifies input methods that are sufficient to control the described resource.</em></p>
+					<dd>
+						<blockquote>
+							<p><em>Identifies input methods that are sufficient to control the described resource.</em></p>
+						</blockquote>
 						<p>This property is typically only set when a publication contains scripted content that requires 
 							user interaction (i.e., whether the author has ensured that such content can be controlled by
 							the various input methods). It is not a useful indicator for static content, and is not a
@@ -284,7 +306,10 @@ individuals.&lt;/p></code></pre></dd>
 					</dd>
 
 					<dt id="accessibilityAPI">accessibilityAPI</dt>
-					<dd><p><em>Indicates that the resource is compatible with the referenced accessibility API.</em></p>
+					<dd>
+						<blockquote>
+							<p><em>Indicates that the resource is compatible with the referenced accessibility API.</em></p>
+						</blockquote>
 						<p>This property is only used when a publication has custom controls (e.g., controls created by scripting
 							non-interactive HTML elements like <code>img</code>, <code>span</code>, <code>div</code>, etc.). Without
 							ARIA roles, states and properties, these elements are not accessible to users of assistive technologies.</p>
