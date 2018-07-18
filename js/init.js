@@ -3,6 +3,7 @@ window.onload = function () {
 	var kb = new KB();
 	if (kb.setKBInfo()) {
 		kb.generateTitles();
+		kb.generateMeta();
 		kb.generateHeader();
 		kb.generateBreadcrumb();
 		kb.generateMiniToc();
@@ -65,6 +66,14 @@ KB.prototype.generateTitles = function () {
 	}
 }
 
+
+KB.prototype.generateMeta = function () {
+	if (page_info.hasOwnProperty('description')) {
+		var meta = document.createElement('meta');
+			meta.setAttribute('name','description');
+			meta.setAttribute('value',page_info['description']);
+	}
+}
 
 KB.prototype.generateHeader = function () {
 
