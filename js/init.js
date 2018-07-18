@@ -69,9 +69,10 @@ KB.prototype.generateTitles = function () {
 
 KB.prototype.generateMeta = function () {
 	if (page_info.hasOwnProperty('description')) {
-		var meta = document.createElement('meta');
-			meta.setAttribute('name','description');
-			meta.setAttribute('value',page_info['description']);
+		var description = document.createElement('meta');
+			description.setAttribute('name','description');
+			description.setAttribute('value',page_info['description']);
+		document.querySelector('title').insertAdjacentElement('afterEnd', description);
 	}
 }
 
