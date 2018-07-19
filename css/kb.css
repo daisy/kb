@@ -213,6 +213,36 @@ nav.mini-toc a {
 }
 
 
+/* applicable technologies */
+
+aside.applies-to {
+	float: right;
+	padding: 0.75rem 1.5rem;
+	margin-top: -5rem;
+	font-size: 1.3rem;
+	background-color: rgb(250,250,250);
+	border: 0.1rem solid lightgray;
+}
+
+aside.applies-to > h3:before {
+	content: '';
+}
+
+aside.applies-to > h3 {
+	margin: 0;
+}
+
+aside.applies-to > ul {
+	padding-left: 1.5rem;
+}
+
+aside.applies-to a {
+	text-decoration: none;
+	color: rgb(0,0,200);
+	border-bottom: none;
+}
+
+
 /* section spacing */
 
 section {

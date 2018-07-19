@@ -7,6 +7,7 @@ window.onload = function () {
 		kb.generateHeader();
 		kb.generateBreadcrumb();
 		kb.generateMiniToc();
+		kb.generateAppliesTo();
 		kb.generateFooter();
 		kb.prettyPrint();
 	}
@@ -188,6 +189,45 @@ KB.prototype.generateMiniToc = function () {
 	nav.appendChild(ol);
 	
 	document.querySelector('main > nav.breadcrumb').insertAdjacentElement('afterEnd', nav);
+}
+
+
+KB.prototype.generateAppliesTo = function () {
+	
+	if (window.location.href.indexOf('index.html') > -1 || window.location.href.lastIndexOf('/') == window.location.href.length-1) {
+		// don't build for indexes
+		return;
+	}
+	
+	if (!page_info.hasOwnProperty('appliesTo')) {
+		return;
+	}
+	
+	var aside = document.createElement('aside');
+		aside.setAttribute('class', 'applies-to');
+	
+	/* add section heading */
+	var h3 = document.createElement('h3');
+		h3.appendChild(document.createTextNode('Applies to:'));
+	
+	aside.appendChild(h3);
+	
+	var ol = document.createElement('ul');
+	
+	for (var i = 0; i < page_info.appliesTo.length; i++) {
+		var li = document.createElement('li');
+		
+		var a = document.createElement('a');
+			a.setAttribute('href', (page_info.appliesTo[i] == 'EPUB3' ? 'https://www.idpf.org/epub3/latest' : (page_info.appliesTo[i] == 'EPUB2' ? 'http://idpf.org/epub/201' : '#')));
+			a.appendChild(document.createTextNode(page_info.appliesTo[i]));
+		 
+		 li.appendChild(a);
+		 ol.appendChild(li);
+	}
+	
+	aside.appendChild(ol);
+	
+	document.querySelector('main > nav.mini-toc').insertAdjacentElement('afterEnd', aside);
 }
 
 
