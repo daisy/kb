@@ -309,7 +309,7 @@ function copyExample(ex_id) {
 	var pre = document.querySelector('pre#'+ex_id);
 	
 	var textArea = document.createElement("textarea");
-		textArea.value = pre.textContent;
+		textArea.value = pre.textContent.replace(/([ ]{3,})/g, '\n$1');
 	
 	document.body.appendChild(textArea);
 	
