@@ -10,6 +10,7 @@ window.onload = function () {
 		kb.generateAppliesTo();
 		kb.generateFooter();
 		kb.prettyPrint();
+		kb.addExampleCopy();
 	}
 }
 
@@ -278,4 +279,48 @@ KB.prototype.prettyPrint = function() {
 	if (!this.isIndex) {
 		prettyPrint();
 	}
+}
+
+
+KB.prototype.addExampleCopy = function() {
+	var ex = document.querySelectorAll('section#ex > figure > pre');
+	
+	for (var i = 0; i < ex.length; i++) {
+		
+		var input = document.createElement('input');
+			input.setAttribute('type','button');
+			input.setAttribute('value','Copy to clipboard');
+			
+			input.addEventListener('click', copyExampleDelegate(ex[i].id), false);
+		
+		ex[i].insertAdjacentElement('afterEnd', input);
+	}
+}
+
+
+function copyExampleDelegate(ex_id) {
+	return function(){
+		copyExample(ex_id);
+	}
+}
+
+function copyExample(ex_id) {
+
+	var pre = document.querySelector('pre#'+ex_id);
+	
+	var textArea = document.createElement("textarea");
+		textArea.value = pre.textContent;
+	
+	document.body.appendChild(textArea);
+	
+	textArea.select();
+	
+	try {
+		document.execCommand('copy');
+	}
+	catch (err) {
+		console.error('Copy failed: ', err);
+	}
+	
+	document.body.removeChild(textArea);
 }

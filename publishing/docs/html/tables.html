@@ -111,7 +111,7 @@
 						</tbody>
 					</table>
 					<p>To make these headings accessible, use <code>colgroup</code> elements with the <code>scope</code> attribute:</p>
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;colgroup span="2"/>
    &lt;colgroup span="1"/>
    &lt;colgroup span="2"/>
@@ -176,7 +176,7 @@
 					</table>
 					<p>Use <code>scope="col"</code> to make the start destinations the column headers and <code>scope="row"</code>
 						to make the end destinations the row headers:</p>
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;th scope="col">Vancouver&lt;/th>
      &lt;th scope="col">Calgary&lt;/th>
@@ -236,7 +236,7 @@
 					</table>
 					<p>The <code>headers</code> attribute is used to provide the IDs of the cells that contain
 						the relevant heading text:</p>
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;caption>Table IX.4 Income Distribution Among Families 1929-1997&lt;/caption>
    &lt;tr>
      &lt;th id="t4-pct">% Families&lt;/th>
@@ -264,7 +264,7 @@
 						<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be
 							grouped within a <code>figure</code>:</p>
 					</figcaption>
-					<pre class="prettyprint linenums"><code>&lt;figure>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure>
    &lt;table>
      &lt;tr>
        &lt;th>Population&lt;/th>
@@ -320,7 +320,7 @@
 						assistive technologies (AT) without the need for extra information. The header cells need only be marked
 						using the <code>th</code> element and the AT will be able to replay them when requested:</p>
 					
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;th>Heading 1&lt;/th>
      &lt;th>Heading 2&lt;/th>
@@ -339,7 +339,7 @@
 						<code>headers</code> attribute should be attached to each of its cells to clarify for an AT which
 						headers apply. For example:</p>
 					
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;thead>
      &lt;tr>
        &lt;th id="sales" rowspan="4">Sales&lt;/th>
@@ -385,7 +385,7 @@
 						the <code>th</code> elements to clarify their directionality (to the row or column they belong to).
 						<code>headers</code> attributes are not needed when the scope is clearly defined.</p>
 					
-					<pre class="prettyprint linenums"><code>&lt;table border="1">
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;table border="1">
    &lt;tr>
      &lt;td>1&lt;/td>
      &lt;td>2&lt;/td>

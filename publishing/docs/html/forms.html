@@ -76,7 +76,7 @@
 				<p>One of the biggest impediments to using forms effectively is understanding and navigating their layout. To
 					assist users, always clearly label form controls using the <code>label</code> element:</p>
 
-				<pre class="prettyprint linenums"><code>&lt;label id="label" for="fname">First name:&lt;/label>
+				<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;label id="label" for="fname">First name:&lt;/label>
 
 &lt;input type="text"
       id="fname"
@@ -85,7 +85,7 @@
 				<p>The <code>for</code> attribute is used to explicitly tie the label to its control. This attribute should
 					be included even if the <code>label</code> also contain its control:</p>
 
-				<pre class="prettyprint linenums"><code>&lt;label id="label" for="q1a">
+				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label id="label" for="q1a">
    &lt;input type="radio"
         id="q1a"
         name="q1-answer"/> a. Apples
@@ -102,7 +102,7 @@
 					When this is not possible, attach an <code>aria-describedby</code> attribute to the control identifying
 					the element containing the additional instructions:</p>
 
-				<pre class="prettyprint linenums"><code>&lt;label for="uname">User name:&lt;/label>
+				<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;label for="uname">User name:&lt;/label>
 
 &lt;input type="text"
       id="uname"
@@ -117,7 +117,7 @@
 				<p>The HTML5 <code>required</code> attribute should always be attached to required fields so users using
 					assistive technologies can be made aware in the absence of visual cues:</p>
 
-				<pre class="prettyprint linenums"><code>&lt;input type="text"
+				<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input type="text"
       id="uname"
       name="username"
       aria-describedby="username-req"
@@ -137,7 +137,7 @@
 					the fields and move the user to them:</p>
 
 
-				<pre class="prettyprint linenums"><code>if (country.value == 'US' &amp;&amp; zip.value = '') {
+				<pre id="ex-05-src" class="prettyprint linenums"><code>if (country.value == 'US' &amp;&amp; zip.value = '') {
    zip.setAttribute('aria-invalid', true);
 }
 
@@ -154,7 +154,7 @@ else {
 					attached whenever using <code>pattern</code> validation to explain the requirement. A username field
 					could restrict the number and type of characters as follows:</p>
 
-				<pre class="prettyprint linenums small"><code>&lt;input type="text"
+				<pre id="ex-05-src" class="prettyprint linenums small"><code>&lt;input type="text"
       id="uname"
       name="username"
       aria-labelledby="username-label"

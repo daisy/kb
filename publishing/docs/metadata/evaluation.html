@@ -53,7 +53,7 @@
 						<p>The following example shows a complete set of evaluation metadata for a publication that conforms
 							to the EPUB Accessibility specification at WCAG Level AA.</p>
 					</figcaption>
-					<pre class="prettyprint linenums small"><code>&lt;metadata>
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata>
   &lt;link property="dcterms:conformsTo"
         href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/>
   &lt;meta property="a11y:certifiedBy">Dewey, Checkett and Howe&lt;/meta>
@@ -75,7 +75,7 @@
 							as errors, as they are unaware of newer additions. Declaring the prefix ensures there will not
 							be validation issues.</p>
 						<p>The <code>a11y:</code> prefix is declared as follows:</p>
-						<pre class="prettyprint linenums"><code>&lt;package … prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#"></code></pre>
+						<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package … prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#"></code></pre>
 					</dd>
 				</dl>
 			</section>
@@ -105,7 +105,7 @@
 						<dl>
 							<dt>Package Document usage:</dt>
 							<dd>
-								<pre class="prettyprint linenums small"><code>&lt;link property="dcterms:conformsTo"
+								<pre id="expl-01-src" class="prettyprint linenums small"><code>&lt;link property="dcterms:conformsTo"
       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/>
 </code></pre>
 							</dd>
@@ -123,7 +123,7 @@
 							be set even when the publication does not meet accessibility requirements.</p>
 						<dl>
 							<dt>Package Document usage:</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedBy">Dewey, Checkett and Howe&lt;/meta></code></pre></dd>
+							<dd><pre id="ex-02-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedBy">Dewey, Checkett and Howe&lt;/meta></code></pre></dd>
 						</dl>
 					</dd>
 
@@ -139,7 +139,7 @@
 							to a description of the credential.</p>
 						<dl>
 							<dt>Package Document usage:</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedCredential">Certifiably Accessible&lt;/meta>
+							<dd><pre id="ex-03-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedCredential">Certifiably Accessible&lt;/meta>
 &lt;link property="a11y:certifiedCredential"
       href="https://example.com/a11y/credential"/></code></pre></dd>
 						</dl>
@@ -157,7 +157,7 @@
 							about the title.</p>
 						<dl>
 							<dt>Package Document usage:</dt>
-							<dd><pre class="prettyprint linenums"><code>&lt;link property="a11y:certifierReport"
+							<dd><pre id="ex-04-src" class="prettyprint linenums"><code>&lt;link property="a11y:certifierReport"
       href="https://example.com/reports/a11y/pub.html"/></code></pre></dd>
 						</dl>
 					</dd>
