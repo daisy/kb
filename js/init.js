@@ -306,10 +306,17 @@ function copyExampleDelegate(ex_id) {
 
 function copyExample(ex_id) {
 
-	var pre = document.querySelector('pre#'+ex_id);
+	var pre_orig = document.querySelector('pre#'+ex_id);
+	var pre = pre_orig.cloneNode(true);
+	
+	var li = pre.querySelectorAll('li');
+	
+	for (var i = 0; i < li.length; i++) {
+		li[i].appendChild(document.createTextNode('\n'));
+	}
 	
 	var textArea = document.createElement("textarea");
-		textArea.value = pre.textContent.replace(/([ ]{3,})/g, '\n$1');
+		textArea.value = pre.textContent;
 	
 	document.body.appendChild(textArea);
 	
