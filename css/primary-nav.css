@@ -15,8 +15,7 @@ nav#toc h2 {
 
 nav#toc > section {
     padding: 0 1rem;
-	background-color: rgb(247,252,255);
-	border: 0.1rem solid rgb(60,120,255);
+	border: 0.1rem solid rgb(220,220,220);
 	border-radius: 1rem;
 }
 
