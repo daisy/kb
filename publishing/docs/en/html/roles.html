@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ARIA role Attribute</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the enhancing digital publications with ARIA roles, states and properties.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Use the ARIA <code>role</code> attribute to provide more information about the structure of a
+					document for users of assistive technologies.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Identify page regions. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA11.html">ARIA11: Using ARIA landmarks to identify regions of a page</a></li>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA13.html">ARIA13: Using aria-labelledby to name regions and landmarks</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption><span class="label">Common semantics</span></figcaption>
+					<dl>
+						<dt id="ex01-cover">Cover</dt>
+						<dd><pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;img role="doc-cover" class="cover-img" src="cover.jpg" alt="Cover Image"/></code></pre>
+						</dd>
+						<dt id="ex01-preface">Preface</dt>
+						<dd><pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;section role="doc-preface" aria-label="Preface">
+   &lt;p>When I first put pen to paper &#8230;&lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-foreword">Foreword</dt>
+						<dd><pre id="ex-01b-src" class="prettyprint linenums small"><code>&lt;section role="doc-foreword" aria-labelledby="hd01">
+   &lt;h2 id="hd01">Foreword&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-part">Part</dt>
+						<dd><pre id="ex-01c-src" class="prettyprint linenums small"><code>&lt;section role="doc-part" aria-labelledby="hd02">
+   &lt;h2 id="hd02">Book The First&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-chapter">Chapter</dt>
+						<dd><pre id="ex-01d-src" class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby="hd03">
+   &lt;h2 id="hd03">1 - It begins&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-footnote">Footnote and reference</dt>
+						<dd><pre id="ex-01e-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a role="doc-noteref" href="#fn01">1&lt;/a>&lt;/p>
+&lt;aside role="doc-footnote">
+   &#8230;
+&lt;/aside></code></pre>
+						</dd>
+						<dt id="ex01-endnote">Endnote and reference</dt>
+						<dd><pre id="ex-01f-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a role="doc-noteref" href="#en01">1&lt;/a>&lt;/p>
+&lt;aside role="doc-endnote">
+   &#8230;
+&lt;/aside></code></pre>
+						</dd>
+						<dt id="ex01-endnotes">Endnotes section</dt>
+						<dd><pre id="ex-01g-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="hd-notes">
+   &lt;h1 id="hd-notes">Endnotes&lt;/h1>
+   
+   &lt;section>
+     &lt;h2>Chapter 1&lt;/h2>
+     &lt;ol>
+      &lt;li role="doc-endnote">&#8230;&lt;/li>
+      &#8230;
+     &lt;/ol>
+   &lt;/section>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-glossary">Glossary</dt>
+						<dd><pre id="ex-01h-src" class="prettyprint linenums small"><code>&lt;dl role="doc-glossary">
+   &#8230;
+&lt;/dl></code></pre>
+						</dd>
+						<dt id="ex01-bibliography">Bibliography</dt>
+						<dd><pre id="ex-01i-src" class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="hd05">
+   &lt;h2 id="hd05">Select Bibliography&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-index">Index</dt>
+						<dd><pre id="ex-01j-src" class="prettyprint linenums small"><code>&lt;section role="doc-index" aria-labelledby="hd06">
+   &lt;h2 id="hd06">Name Index&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+					</dl>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt>Should I add a landmark role to every section?</dt>
+					<dd>
+						<p>No, landmarks are designed to allow the reader to quickly move to the primary sections
+							of a publication, not stand in as an alternative to the table of contents.</p>
+						
+						<p>If the <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA vocabulary</a> does not 
+							include a role for a section, consider the impact on navigation before defining a
+							new landmark with a <a href="https://www.w3.org/TR/wai-aria-1.1/#region"><code>region</code>
+								role</a>. Landmarks are a flat list list of destinations so overloading the list with
+							subsections will only cause confusion.</p>
+					</dd>
+					
+					<dt>Does adding <code>aria-label</code> or <code>title</code> to an untitled section create
+						a landmark?</dt>
+					<dd>
+						<p>Yes, so care needs to be taken not to overload the landmarks list in this way. When a
+							<code>section</code> element has a label, it is handled as though the
+							<a href="https://www.w3.org/TR/wai-aria-1.1/#region"><code>region</code> role</a>
+							has been applied to it, which makes the section a landmark.</p>
+						<p>If an untitled section does not map to an existing landmark role, such as
+							<code>doc-chapter</code>, consider the impact on navigation before labelling it.</p>
+					</dd>
+					
+					<dt>Do I have to label every role?</dt>
+					<dd>
+						<p>No, whether a label is required depends on whether the role requires an accessible name.
+							To determine if an accessible name is required, see the role's definition in the 
+							<a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA</a> or
+							<a href="https://www.w3.org/TR/wai-aria-1.1/#role_definitions">ARIA</a> specification.
+							If the role does not have an "Accessible name required" field in its list of properties,
+							check the role's superclass (the value is inherited).</p>
+					</dd>
+					
+					<dt>Should I always label landmarks?</dt>
+					<dd>
+						<p>Best practice is to provide a label for landmarks using the <code>aria-labelledby</code>
+							(when a heading is present in the text) or <code>aria-label</code> attributes (when a
+							section does not have an explicit heading).</p>
+						<p>Although labels are not required for DPUB-ARIA landmarks, support for the vocabulary is 
+							also not yet widespread. Adding a label ensures that default processing rules for HTML
+							will create a landmark even if the vocabulary is not recognized (i.e., adding a label
+							to a <code>section</code> element indicates to browsers to treat the section as an
+							implied <a href="https://www.w3.org/TR/wai-aria-1.1/#region"><code>region</code></a>
+							when creating the accessibility tree).</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>A limitation of the core HTML markup grammar is that it is not well-suited for identifying common
+					publishing structures because of its small set of elements. There may be hundreds of <code>aside</code>
+					elements in a publication, for example, but reliably distinguishing which ones represent notes from
+					sidebars from warnings and alerts has not been possible.</p>
+				
+				<p>For sighted users, the deficiency this causes has been masked by the enhanced visual rendering that CSS
+					style sheets afford (backgrounds, borders and shading are used to convey roles visually). For users
+					of assistive technologies &#8212; which rely on an understanding of the underlying markup in order to
+					facilitate navigation &#8212; Web-based technologies have only had limited accessibility
+					because primary and secondary material was often indistinguishable below the visual surface.</p>
+				
+				<p>To make publications more accessible, you need to consider that many users will be interacting with the
+					content in non-visual ways, and for that reason the <a href="order.html">logical reading order</a> must
+					be defined at the markup level. To facilitate this discovery, the ARIA
+					<code>role</code> attribute allows more precise meanings to be applied to the generic tags.</p>
+				
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>The <a href="epub-type.html"><code>epub:type</code> attribute</a> was intended to serve a similar 
+						function to the ARIA <code>role</code> attribute in EPUB 3, but accessibility support never materialized.
+						The attribute is useful for enabling certain user agent behaviors, such as pop-up footnotes, but 
+						should not be used with expectations of enhancing the accessibility of publications.</p>
+					
+					<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
+						Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
+						to the ARIA <code>role</code> attribute.</p>
+				</section>
+				
+				<section>
+					<h4>EPUB 2</h4>
+					
+					<p>As XHTML 1.0 was released before ARIA 1.0, EPUB 2 does not support the use of ARIA attributes.
+						Inclusion of the attributes will result in validation errors.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li><a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing WAI-ARIA Module</a></li>
+					<li><a href="https://www.w3.org/TR/wai-aria-1.1/#role_definitions">WAI-ARIA roles</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

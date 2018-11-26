@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>MathML</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the provision of accessible MathML content.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<div class="warning">
+				<p class="label">Warning</p>
+				<p>Alternative approaches for providing math descriptions are currently under development. This guide will
+					be updated once they are ready for use. See the <a href="#explanation">Explanation</a> section for a 
+					description of the issues with current approaches.</p>
+			</div>
+			
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Provide a description for MathML equations for user agents that do not support their rendering.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Provide an alternative description for MathML markup. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#text-equiv-all">WCAG 1.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html">ARIA6: Using <code>aria-label</code>
+								to provide labels for objects</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>Example 1 &#8212; Adding a description using the <code>aria-label</code>
+						attribute</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;div role="math"
+     aria-label="Frac Root a EndRoot Over b EndFrac">
+   &lt;math xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;mfrac>
+         &lt;msqrt>
+            &lt;mtext>a&lt;/mtext>
+         &lt;/msqrt>
+         &lt;mi>b&lt;/mi>
+      &lt;/mfrac>
+   &lt;/math>
+&lt;/div></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>Example 2 &#8212; Adding a description using the MathML <code>alttext</code>
+						attribute</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+      alttext="Frac Root a EndRoot Over b EndFrac">
+   &lt;mfrac>
+      &lt;msqrt>
+         &lt;mtext>a&lt;/mtext>
+      &lt;/msqrt>
+      &lt;mi>b&lt;/mi>
+   &lt;/mfrac>
+&lt;/math></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>Example 3 &#8212; Adding a description using an <code>annotation-xml</code>
+						element</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;math xmlns="http://www.w3.org/1998/Math/MathML">
+    &lt;semantics>
+      &lt;mfrac>
+         &lt;msqrt>
+            &lt;mtext>a&lt;/mtext>
+         &lt;/msqrt>
+         &lt;mi>b&lt;/mi>
+      &lt;/mfrac>
+      &lt;annotation-xml encoding="application/xhtml+xml">
+         &lt;img xmlns="http://www.w3.org/1999/xhtml
+              src="math.jpg"
+              alt="Frac Root a EndRoot Over b EndFrac" />
+      &lt;/annotation-xml>
+    &lt;/semantics>
+&lt;/math></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Why aren't natural language descriptions advisable?</dt>
+					<dd><p>Consider the simple equation presented in <a href="#ex01">Example 1</a> above. A
+						reasonable natural language description might be "the square root of a over b". But consider that
+						there are two ways that this statement could be interpreted:</p>
+						<ol>
+							<li>to take the square root of the value a and then divide the resulting value by b.</li>
+							<li>to divide a by b and then take the square root of the resulting value.</li>
+						</ol>
+						<p>A user who cannot see the visual presentation of the equation is not going to be able to
+							determine which is the correct interpretation with only the description to go by. MathSpeak takes
+							the ambiguity out of the equation by clearly breaking down the components of the equation in a
+							way that doesn't leave ambiguity.</p>
+					</dd>
+					<dt>Is MathSpeak the only option for describing MathML?</dt>
+					<dd><p>No, but it is an openly documented format. Although some MathML applications take slightly
+						different approaches to voicing equations, MathSpeak is a good reflection of the typical
+						grammar.</p></dd>
+					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
+					<dd><p>The different levels reflect the expected age and proficiency of the user. A math book geared
+						towards younger users, or users new to the topic, would typically employ the verbose grammar.
+						More advanced users already proficient in math and familiar with the grammar will likely find
+						the verbose syntax a nuisance, so either the brief or super-brief grammars can be
+						employed.</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although a benefit of native MathML support in XHTML content documents is the ability to provide voicing
+					based on the markup, user agents capable of such voicings are rare. It is consequently recommended to
+					include a fallback description.</p>
+				
+				<p>The provision of accessible fallback descriptions is unfortunately as problematic as support for MathML
+					in user agents:</p>
+				
+				<ul>
+					<li>the <code>aria-label</code> attribute has the best support for assistive technologies, as it is
+						carried on an HTML element (see <a href="ex-01">Example 1</a>). The problem is that the ARIA
+						<code>math</code> role hides the MathML markup from assistive technologies, so it will not be
+						available even in user agents that support rendering.</li>
+					<li>the MathML <code>alttext</code> is not well supported by assistive technologies, and is transformed
+						into an <code>aria-label</code> by the polyfill MathML renderer MathJax.</li>
+					<li>correct rendering of the <code>annotation-xml</code> element is also not fully supported: Internet
+						Explorer will render both the equation and annotation without additional CSS rules; other user agents
+						correctly suppress the unsupported markup.</li>
+				</ul>
+				
+				<p>It is recommended to use <a href="http://www.gh-mathspeak.com/">MathSpeak</a> to write math descriptions.
+					Users already familiar with math-voicing programs will recognize the conventions used in MathSpeak, and
+					the language removes the potential for ambiguity that natural language can introduce.</p>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>MathML &#8212; <a href="http://www.w3.org/TR/MathML3/">Mathematical Markup Language (MathML) Version
+							3.0</a></li>
+					<li><a href="http://www.gh-mathspeak.com/examples/grammar-rules/">MathSpeak™ Core Specification Grammar
+							Rules</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
