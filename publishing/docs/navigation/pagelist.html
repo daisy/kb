@@ -35,11 +35,13 @@
 
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Page list navigation</div>
+						<div class="label">Example 1 &#8212; Page list (EPUB-only)</div>
 						<p>The page list is a simple ordered list of links to the page break locations. It is identified
-							by the role <code>doc-pagelist</code>.</p>
+							by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
+						<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
+							not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
 					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list" epub:type="page-list">
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden">
  &lt;ol>
    &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
    &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
@@ -54,8 +56,24 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Page break marker</div>
-						<p>An empty <code>span</code> element provides an anchor for the page break. It
+						<div class="label">Example 2 &#8212; Page list (Web)</div>
+						<p>A page list for use on the Web generally is identified by the <code>role</code> attribute 
+							value <code>doc-pagelist</code>. The <code>aria-label</code> attribute is used to provide
+							a title for the navigation element, but an explicit heading is also valid.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list">
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &#8230;
+ &lt;/ol>
+&lt;/nav></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Page break marker (inline)</div>
+						<p>An empty <code>span</code> element identifies a page break inside a block element. It
 							is identified as a page break using the <code>role</code> attribute with the value
 							<code>doc-pagebreak</code>. The <code>aria-label</code> attribute provides an
 							announceable value.</p>
@@ -69,6 +87,16 @@
    &#8230;
 &lt;/p></code></pre>
 				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Page break marker (block)</div>
+						<p>A <code>div</code> element identifies a page break where inline elements are not allowed.
+							This example shows an example of a page number that is intended to be visible in the
+							content.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" id="pg24">24&lt;/div></code></pre>
+				</figure>
 			</section>
 			
 			<section id="faq" class="faq">
@@ -81,15 +109,12 @@
 						shuffled around and/or omitted. These changes in content order are not unexpected, and users
 						will understand that their ebooks may not be formatted exactly the same way as the print, and may
 						not include all the print content.</p>
-						<p>If you do make changes to the content order, do not renumber the existing pagination to return it
-							to sequential order. The purpose of page list navigation is to get the user to the equivalent
-							point, not to be sequentially correct.</p>
 					</dd>
 					<dt>Does the page number reflect the page that is ending or the page that is
 						starting?</dt>
 					<dd><p>The page number always reflects the page that is starting.</p>
 					</dd>
-					<dt>Does the page break marker placement follow the print position?</dt>
+					<dt>Should the page break marker placement follow the print position?</dt>
 					<dd><p>No, page break markers are always placed at the start of the page's content, regardless of whether
 						the page number is printed at the top or bottom of the page in the print edition. When a user
 						jumps to a specific page, they want to jump to the start of the content for that page, not the
@@ -133,6 +158,9 @@
 							often not visible content, an empty list item will be confusing to all users and may alter the
 							meaning of the list.</p>
 					</dd>
+					<dt>Where do I put the page break if a word is hyphenated across a page?</dt>
+					<dd><p>Place the page marker after the word. Do not retain the print hyphenation and insert
+						the number in the middle of the word.</p></dd>
 					<dt>Can I use <code>a</code> tags for page numbers?</dt>
 					<dd><p>The <code>a</code> element has two specific uses defined in HTML5: for links when the
 						<code>href</code> attribute is present, and for placeholder links when it is not (e.g., a
