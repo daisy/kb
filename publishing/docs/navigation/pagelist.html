@@ -40,6 +40,8 @@
 							by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
 						<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
 							not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
+						<p>An ARIA <code>role</code> attribute (see the <a href="#ex-02">next example</a>) is not necessary if the 
+							page list is always hidden from users or the EPUB navigation document is not included in the spine.</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden">
  &lt;ol>
