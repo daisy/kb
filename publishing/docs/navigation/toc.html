@@ -41,13 +41,17 @@
 
 			<section id="ex">
 				<h3>Examples</h3>
-
+				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Basic links</div>
+						<div class="label">Example 1 &#8212; Basic table of contents</div>
 						<p>A table of contents is an ordered list of links into the content.</p>
+						<p>Note that the <code>epub:type</code> attribute is not used outside of EPUB. Similarly,
+							the <code>role</code> attribute is not necessary in EPUB unless the navigation document
+							is included in the spine.</p>
 					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" aria-label="Table of contents" epub:type="toc" id="toc">
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
 &lt;ol>
   &lt;li>
 	&lt;a href="s01.xhtml">A simple link&lt;/a>
@@ -56,14 +60,15 @@
 &lt;/ol>
 &lt;/nav></code></pre>
 				</figure>
-
+				
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Nested entries</div>
 						<p>Ordered lists are nested to reproduce the hierarchy of the publication. A <code>span</code>
 							is used to represent an unlinked heading.</p>
 					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" aria-label="Table of contents" epub:type="toc" id="toc">
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
 &lt;ol>
   &#8230;
   &lt;li>
@@ -94,7 +99,8 @@
 							attribute has special handling that is supposed to allow the branches to be viewable
 							when the reading system renders the table of contents.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" aria-label="Table of contents" epub:type="toc" id="toc">
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
 &lt;ol>
   &#8230;
   &lt;li>
