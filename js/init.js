@@ -1,4 +1,88 @@
 
+var kbHD = document.getElementsByTagName('head')[0];
+
+if (document.location.host == 'kb.daisy.org' || document.location.host == 'localhost') {
+	writeMeta();
+	writeShiv();
+	writeTag('css', '../../../css/kb.css');
+	writeTag('css', '../../../css/prettify.css');
+	writeTag('js', '../../../js/prettify.js');
+	writeTag('js', '../../../js/jquery172min.js');
+	writeGoogleAnalytics();
+}
+
+else {
+	// Ace integration calls
+}
+
+
+function writeMeta() {
+	var charset = document.createElement('meta');
+		charset.setAttribute('charset', 'utf-8');
+	kbHD.appendChild(charset);
+	
+	var viewport = document.createElement('meta');
+		viewport.setAttribute('name', 'viewport');
+		viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+	kbHD.appendChild(viewport);
+}
+
+
+
+function writeShiv() {
+	var shiv = document.createComment('[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script> <![endif]');
+	kbHD.appendChild(shiv);
+}
+
+
+
+function writeTag(type, path, options) {
+
+	var tag;
+	
+	if (type=="css") {
+		tag = document.createElement('link');
+		tag.setAttribute('rel', 'stylesheet');
+		tag.setAttribute('type', 'text/css');
+		tag.setAttribute('href', path);
+	}
+	
+	else if (type == 'js') {
+		tag = document.createElement('script');
+		tag.setAttribute('type', 'text/javascript');
+		tag.setAttribute('src', path);
+		
+		if (options) { 
+			for (var property in options) {
+				if (options.hasOwnProperty(property)) {
+					tag.setAttribute(property, options[property]);
+				}
+			}
+		}
+	}
+	
+	kbHD.appendChild(tag);
+}
+
+
+
+function writeGoogleAnalytics() {
+
+	writeTag('js', 'https://www.googletagmanager.com/gtag/js?id=UA-327448-3', {async: 'async'});
+	
+	var ga = document.createElement('script');
+		ga.setAttribute('type', 'text/javascript');
+		ga.appendChild(document.createTextNode("\
+			window.dataLayer = window.dataLayer || [];\
+			function gtag(){dataLayer.push(arguments);}\
+			gtag('js', new Date());\
+			gtag('config', 'UA-327448-3');\
+		"));
+	
+	kbHD.appendChild(ga);
+}
+
+
 window.onload = function () {
 	var kb = new KB();
 	if (kb.setKBInfo()) {
@@ -18,6 +102,7 @@ function KB() {
 	this.kb_id = '';
 	this.isIndex = false;
 	this.isRootIndex = false;
+	this.title = document.title;
 	
 	this.kb_name = {
 		'publishing': 'Accessible Publishing Knowledge Base'
@@ -58,14 +143,14 @@ KB.prototype.setKBInfo = function () {
 
 KB.prototype.generateTitles = function () {
 	
-	document.title = (this.isRootIndex ? '' : page_info['title'] + ' / ') + this.kb_name[this.kb_id];
-	
 	if (!this.isRootIndex) {
 		var h2 = document.createElement('h2');
-			h2.appendChild(document.createTextNode(page_info['title']));
+			h2.appendChild(document.createTextNode(this.title));
 		
 		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
 	}
+	
+	document.title = (this.isRootIndex ? '' : this.title + ' / ') + this.kb_name[this.kb_id];
 }
 
 
@@ -143,7 +228,7 @@ KB.prototype.generateBreadcrumb = function () {
 		}
 		
 		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(page_info['title']));
+			span.appendChild(document.createTextNode(this.title));
 		
 		p.appendChild(span);
 	}
