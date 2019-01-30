@@ -10,7 +10,7 @@ var msg = {};
 	msg.UI.m03 = 'In this section:'
 	
 	msg.footer = {};
-	msg.footer.m01 = 'To report typos, errors and omissions, please open an issue in the ';
-	msg.footer.m02 = 'GitHub tracker';
-	msg.footer.m03 = 'For a list of changes to this page, refer to the ';
-	msg.footer.m04 = 'Terms of Use';
+	msg.footer.m01 = 'Pour signaler des fautes de frappe, des erreurs et des omissions, veuillez ouvrir un numéro dans la';
+	msg.footer.m02 = 'GitHub traquer';
+	msg.footer.m03 = 'Pour une liste des modifications apportées à cette page, reportez-vous à la';
+	msg.footer.m04 = 'Conditions d\'utilisation';
