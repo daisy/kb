@@ -359,7 +359,7 @@ KB.prototype.generateFooter = function () {
 	
 	var commitlink = document.createElement('a');
 		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
-		commitlink.appendChild(document.createTextNode('commit log'));
+		commitlink.appendChild(document.createTextNode(msg.footer.m04));
 	
 		changes.appendChild(commitlink);
 		changes.appendChild(document.createTextNode('.'));
@@ -370,7 +370,7 @@ KB.prototype.generateFooter = function () {
 	
 	var termslink = document.createElement('a');
 		termslink.setAttribute('href','http://www.daisy.org/terms-use');
-		termslink.appendChild(document.createTextNode(msg.footer.m04));
+		termslink.appendChild(document.createTextNode(msg.footer.m05));
 	
 	footer.appendChild(termslink);
 	

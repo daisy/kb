@@ -12,4 +12,5 @@ var msg = {};
 	msg.footer.m01 = 'To report typos, errors and omissions, please open an issue in the ';
 	msg.footer.m02 = 'GitHub tracker';
 	msg.footer.m03 = 'For a list of changes to this page, refer to the ';
-	msg.footer.m04 = 'Terms of Use';
+	msg.footer.m04 = 'commit log';
+	msg.footer.m05 = 'Terms of Use';
