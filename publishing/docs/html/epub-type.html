@@ -1,12 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/html/epub-type.html'" /> 
+		<title>The epub:type Attribute</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for using the epub:type attribute to identify document structures.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/html/epub-type.html">http://kb.daisy.org/publishing/en/html/epub-type.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Use the <code>epub:type</code> attribute to enhance the user experience in EPUB user agents.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Identify footnotes and endnotes using the <code>epub:type</code> attribute.</li>
+				</ul>
+				
+				<div class="note">
+					<p>No other uses of <code>epub:type</code> are known to provide user enhancements at this time.
+						Please open an issue if any such arise.</p>
+				</div>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption><span class="label">Common note semantics</span></figcaption>
+					<dl>
+						<dt id="ex01-footnote">Footnote and reference</dt>
+						<dd><pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a epub:type="noteref" href="#fn01">1&lt;/a>&lt;/p>
+&lt;aside epub:type="footnote">
+   &#8230;
+&lt;/aside></code></pre>
+						</dd>
+						<dt id="ex01-endnote">Endnote and reference</dt>
+						<dd><pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;p>lorum ipsum.&lt;a epub:type="noteref" href="#en01">1&lt;/a>&lt;/p>
+&lt;aside epub:type="endnote">
+   &#8230;
+&lt;/aside></code></pre>
+						</dd>
+						<dt id="ex01-endnotes">Endnotes section</dt>
+						<dd><pre id="ex-01b-src" class="prettyprint linenums small"><code>&lt;section epub:type="endnotes">
+   &lt;h1>Endnotes&lt;/h1>
+   
+   &lt;section>
+     &lt;h2>Chapter 1&lt;/h2>
+     &lt;aside epub:type="endnote">
+       &#8230;
+     &lt;/aside>
+     &#8230;
+   &lt;/section>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+					</dl>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The enabling of specialized behaviors, such as the opening of footnotes, is directly predicated on content
+					being properly identified.</p>
+				
+				<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document to add
+					additional semantics. It accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
+						Structural Semantics Vocabulary</a>, but the attribute has limited adoption outside of pop-up footnotes.</p>
+				
+			    <div class="note">
+			        <p class="label">Note</p>
+					
+			    	<p>The <code>epub:type</code> attribute only facilitates user agent behaviors. For more information
+						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
+							<code>role</code> attribute</a>.</p>
+			    	
+			    	<p>The <code>epub:type</code> attribute can be used in conjunction with the <code>role</code> attribute where
+			    		both accessibility and enhanced user agent behaviors overlap.</p>
+			    	
+			    	<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
+			    		Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
+			    		to the ARIA <code>role</code> attribute.</p>
+			    </div>
+				
+				<p>Note that only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
+					a footnote is appropriate, for example, but marking a <code>section</code> as a footnote not as much.
+					The <a href="https://idpf.github.io/epub-vocabs/structure/">Structural Semantics Vocabulary</a> lists
+					the common element(s) each semantic is intended to be used in conjunction with to facilitate this
+					process (although exceptions to the rule may arise).</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/contentdocs#sec-xhtml-content-type-attribute"
+							>The <code>epub:type</code> attribute</a></li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>

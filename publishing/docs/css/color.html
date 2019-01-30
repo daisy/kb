@@ -1,12 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/css/color.html'" /> 
+		<title>Color</title>
+		<script>
+			var page_info = {
+				'topic': 'CSS',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/css/color.html">http://kb.daisy.org/publishing/en/css/color.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure sufficient contrast so that text is legible, and do not rely on color to impart information,
+					as not all users will be able to see the colors or perceive the differences.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Provide sufficient contrast between foreground and background colors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 1.4.3</a> and <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7">WCAG 1.4.6</a>]</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18.html">G18: Ensuring that a contrast
+								ratio of at least 4.5:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17.html">G17: Ensuring that a contrast
+								ratio of at least 7:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G145.html">G145: Ensuring that a contrast
+								ratio of at least 3:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G174.html">G174: Providing a control with
+								a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient
+								contrast</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G183.html">G183: Using a contrast ratio
+								of 3:1 with surrounding text and providing additional visual cues on focus for links or controls
+								where color alone is used to identify them</a></li>
+						</ul>
+					</li>
+					<li>Provide alternatives to color for identifying information. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color">WCAG 1.4.1</a>]</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G14.html">G14: Ensuring that information
+								conveyed by color differences is also available in text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G111.html">G111: Using color and
+								pattern</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G138.html">G138: Using semantic markup
+								whenever color cues are used</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G182.html">G182: Ensuring that additional
+								visual cues are available when text color differences are used to convey information</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/H92.html">H92: Including a text cue for
+								colored form control labels</a></li>
+						</ul>
+					</li>
+					<li>Use CSS together with semantic markup. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span>
+						<ul>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C22.html">C22: Using CSS to control
+								visual presentation of text</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C23.html">C23: Specifying text and
+								background colors of secondary content such as banners, features and navigation in CSS while not
+								specifying text and background colors of the main content</a></li>
+							<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C25.html">C25: Specifying borders and
+								layout in CSS to delineate areas of a Web page while not specifying text and text-background
+								colors</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Using borders for links</div>
+						<p>A dotted border is added to all links to avoid completely removing the default underline.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   padding-bottom: 2px;
+   border-bottom: 1px dotted rgb(0,0,238);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Using a label for a sidebar</div>
+						<p>The following sidebar is part of a series of historical events identified by green borders.
+							The <code>aria-label</code> attribute is used to add the missing context.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside
+       aria-label="historical event series"
+       class="historical">
+   &lt;h4>Battle of Waterloo&lt;/h4>
+   &#8230;
+&lt;/aside></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Including data in a figure caption</div>
+						<p>Data encoded in a pie chart is also available in the caption.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure>
+   &lt;figcaption>
+      &lt;p>Figure 1 &#8212; Political Affiliations&lt;/p>
+      &lt;p>Of 2000 people surveyed, 33% identified themselves as Conservatives,
+         25% as Liberal, 10% as Rhino, 2% as Green and 30% declared no affiliation.&lt;/p>
+   &lt;/figcaption>
+   &lt;img src="poll.jpg" alt="January 2018 political poll results"/>
+&lt;/figure></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the use of color is a common semantic method for conveying information to sighted users, it
+					should never be used as the sole means of imparting information. Semantic markup should always underlie
+					any use of border colors and shading so that the equal access is provided to users using non-visual
+					playback methods.</p>
+
+				<p>But color is problematic for more than just the problems that arise conveying semantic meaning. The
+					contrast between foregrounds and backgrounds can make reading difficult. Green text on red backgrounds
+					(and vice-versa) can be unreadable for some people, and can generally cause what's known as visual
+					vibrations. Red and black can also be indistinguishable to many users. Black text on bright white
+					backgrounds can lead to eye strain and headaches.</p>
+
+				<p>Likewise, placing one shade of a color on another is also going to make reading difficult, as will placing
+					two light or dark colors on top of each other (luminosity). A user may be able to fix some of these
+					issues with a configurable user agent, but it is best to avoid them in the first place.</p>
+
+				<p>Also avoid placing text over noisy (multi-colored) backgrounds. The less uniform the background is the
+					more difficult it can be for any user to follow.</p>
+
+				<p>More generally, though, be sure to always cleanly separate styles from content. Separation of styling
+					ensures that users can apply their own style sheets and/or use and built-in color, brightness and
+					contrast controls in their user agent to tailor the display to their needs.</p>
+			</section>
+		</main>
 	</body>
 </html>

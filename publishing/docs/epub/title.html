@@ -1,12 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/epub/title.html'" /> 
+		<title>Publication Title</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'EPUB',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/epub/title.html">http://kb.daisy.org/publishing/en/epub/title.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Meaningful titles allow users to discover and organize their EPUB publications.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li><p>Provide a descriptive title in the <code>dc:title</code> element.</p> 
+						<div class="related">
+							<p>Related to <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title">WCAG 2.4.2</a>:</p>
+							<ul>
+								<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H25.html">H25: Providing a title using the title element</a></li>
+								<li><a href="https://www.w3.org/TR/WCAG20-TECHS/G88.html">G88: Providing descriptive titles for Web pages</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">Example 1 &#8212; Simple publication title</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/" &#8230;>
+   &lt;dc:title>Alice's Adventures in Wonderland&lt;/dc:title>
+   &#8230;
+&lt;/metadata>
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>A title is a required element in all versions of EPUB. It is expressed in the package document's metadata
+					section in a Dublin Core <code>title</code> element.</p>
+				
+				<p>This title is typically used to identify the publication in user agents (vendor systems may use other
+					metadata, such as that supplied directly by publishers). The title enables the user not only to know what
+					publication they have in their bookshelf or library, but allows the publication to be easily found again.</p>
+				
+				<p>When a title is omitted, user agents will normally generate a generic name, such as "Untitled."
+					The more publications like this a user loads, the harder it becomes to distinguish which is which.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>EPUB 3 &#8212; <a href="http://idpf.org/epub3/latest/packages/#sec-opf-dctitle">The
+						<code>title</code> element</a></li>
+					<li>EPUB 2 &#8212; 
+						<a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.1">&lt;title>&lt;/title></a></li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>

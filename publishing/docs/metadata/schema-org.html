@@ -1,12 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/metadata/schema-org.html'" /> 
+		<title>Schema.org Accessibility Metadata</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'Metadata',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
+		<style type="text/css">
+			section > dl > dt {
+				font-weight: bold;
+				font-size: 110%;
+				padding-top: 2em;
+			}
+			section > dl > dd > dl > dt {
+				font-weight: bold;
+			}
+			blockquote {
+				margin-left: 1rem;
+			}
+		</style>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/metadata/schema-org.html">http://kb.daisy.org/publishing/en/metadata/schema-org.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Include schema.org accessibility metadata to enable discovery no matter how the publication is 
+					distributed or consumed.</p>
+			</section>
+			<section id="ex">
+				<h3>Examples</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Package Document metadata (EPUB 3)</div>
+						<p>The following example shows a typical set of metadata for a math textbook with MathML and described
+							images, and that includes accessible scripted content.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta property="schema:accessibilitySummary">
+     This publication conforms to WCAG 2.0 Level AA.
+  &lt;/meta>
+  &lt;meta property="schema:accessMode">textual&lt;/meta>
+  &lt;meta property="schema:accessMode">visual&lt;/meta>
+  &lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
+  &lt;meta property="schema:accessModeSufficient">textual&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">structuralNavigation&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">MathML&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">longDescriptions&lt;/meta>
+  &lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta>
+  &lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta>
+  &lt;meta property="schema:accessibilityControl">fullMouseControl&lt;/meta>
+  &lt;meta property="schema:accessibilityControl">fullTouchControl&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noFlashing&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noSound&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noMotionSimulation&lt;/meta>
+  …
+&lt;/metadata></code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Embedded metadata (RDFa)</div>
+						<p>Accessibility metadata that describes a single video is included within the body of an HTML document.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
+  &lt;video controls="controls" src="croc.mp4"/>
+  &lt;meta property="accessibilityFeature" content="captions"/>
+  &lt;meta property="accessibilityFeature" content="transcript"/>
+  &lt;meta property="accessibilityControl" content="fullKeyboardControl"/>
+  &lt;meta property="accessibilityControl" content="fullMouseControl"/>
+  &lt;meta property="accessibilityControl" content="fullTouchControl"/>
+  &lt;meta property="accessibilityHazard" content="none"/>
+  &lt;p>A transcript of the video follows:&lt;/p>
+  …
+&lt;/div></code></pre>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				<p>The <a href="http://www.schema.org/CreativeWork">schema.org CreativeWork class</a> includes properties
+					defined by the <a href="http://www.a11ymetadata.org/">Acessibility Metadata Project</a> that can be used
+					to identify the accessible qualities of a publication. This metadata can be expressed in HTML 
+					documents using RDFa or microdata attributes to identify the accessible qualities of the content (e.g.,
+					videos). It can also be included in the EPUB package document to provide an overall picture of the
+					accessibility of the given rendition of the publication.</p>
+				<dl>
+					<dt id="accessibilitySummary">accessibilitySummary</dt>
+					<dd>
+						<blockquote>
+							<p><em>A human-readable summary of specific accessibility features or deficiencies, consistent with 
+								the other accessibility metadata but expressing subtleties such as "short descriptions are present 
+								but long descriptions will be needed for non-visual users" or "short descriptions are present and no 
+								long descriptions are needed."</em></p>
+						</blockquote>
+						<p>The summary is a brief, human-readable summary of features and/or deficiencies. Often used to indicate
+							conformance to an accessibility standard or point out shortcomings to the standard.</p>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-005">Include an accessibility summary</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd>
+								<pre id="a11y-01-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
+   This publication conforms to the EPUB Accessibility specification 
+   at WCAG Level A.
+&lt;/meta>
+</code></pre>
+							</dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd>
+								<pre id="a11y-02-src" class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+							</dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd>
+								<pre id="a11y-03-src" class="prettyprint linenums"><code>&lt;p itemprop="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt id="accessMode">accessMode</dt>
+					<dd>
+						<blockquote>
+							<p><em>An access mode through which the intellectual content of a described resource or adaptation is
+								communicated (i.e., the human sensory perceptual system or cognitive faculty through which a
+								person may process or perceive information).</em></p>
+						</blockquote>
+						<p>The access modes identify how content has to be consumed by default. Images and video are visual content,
+							for example. Video clips also typically have audio, so have an auditory mode (as do
+							audio clips). Text content is textual.</p>
+						<p>Adaptations are identified as access modes, as they are not the primary way that the content is
+							consumed. If adaptations, such as extended descriptions, are provided for the primary content,
+							they are used in determining the
+							<a href="#accessModeSufficient">sufficient access modes</a>.</p>
+						<p>The following values are recommended for this property:</p>
+						<ul>
+							<li>auditory</li>
+							<li>tactile</li>
+							<li>textual</li>
+							<li>visual</li>
+						</ul>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-001">Identify primary access modes</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre id="a11y-04-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-05-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-06-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre></dd>
+						</dl>
+					</dd>
+
+					<dt id="accessModeSufficient">accessModeSufficient</dt>
+					<dd>
+						<blockquote>
+							<p><em>A list of single or combined access modes that are sufficient to understand all the intellectual
+								content of a resource.</em></p>
+						</blockquote>
+						<p>Sufficient access modes identify the different combinations of senses that can be used to sufficiently
+							consume the content. A publication with images and text will require both visual and textual modes to
+							be consumed. If the images are also adequately described (alt text and extended descriptions, as appropriate)
+							a single textual mode would also be sufficient, indicating someone who is blind can consume the content.</p>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-002">Identify sufficient access modes</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre id="a11y-07-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual visual&lt;/meta>
+&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-08-src" class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual visual"/>
+&lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-09-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual visual"/>
+&lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre></dd>
+						</dl>
+					</dd>
+
+					<dt id="accessibilityFeature">accessibilityFeature</dt>
+					<dd>
+						<blockquote>
+							<p><em>Content features of the resource, such as accessible media, supported enhancements for
+								accessibility and alternatives.</em></p>
+						</blockquote>
+						<p>The following values are recommended for this property:</p>
+						<ul>
+							<li>alternativeText</li>
+							<li>audioDescription</li>
+							<li>braille</li>
+							<li>captions</li>
+							<li>ChemML</li>
+							<li>displayTransformability</li>
+							<li>enhancedAudio</li>
+							<li>highContrast</li>
+							<li>largePrint</li>
+							<li>latex</li>
+							<li>longDescription</li>
+							<li>MathML</li>
+							<li>resizeText</li>
+							<li>signLanguage</li>
+							<li>structuralNavigation</li>
+							<li>tactileGraphic</li>
+							<li>tactileObject</li>
+							<li>transcript</li>
+						</ul>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-003">Identify accessibility features</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre id="a11y-10-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-11-src" class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
+property="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-12-src" class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
+itemprop="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
+						</dl>
+					</dd>
+
+					<dt id="accessibilityHazard">accessibilityHazard</dt>
+					<dd>
+						<blockquote>
+							<p><em>A characteristic of the described resource that is physiologically dangerous to some users.
+								Related to <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html">WCAG 2.0 guideline
+									2.3</a>.</em></p>
+						</blockquote>
+						<p>Identifying potential hazards in the content, such as flashing content, allows users with such
+							sensitivities to avoid encountering the danger unwittingly.</p>
+						<p>The following values are recommended for this property:</p>
+						<ul>
+							<li>flashing</li>
+							<li>motionSimulation</li>
+							<li>sound</li>
+							<li>none</li>
+						</ul>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-004">Identify accessibility hazards</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-14-src" class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
+property="accessibilityHazard">flashing&lt;/span> 
+in this video may cause seizures in some 
+individuals.&lt;/p></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-15-src" class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
+itemprop="accessibilityHazard">flashing&lt;/span> 
+in this video may cause seizures in some 
+individuals.&lt;/p></code></pre></dd>
+						</dl>
+					</dd>
+
+					<dt id="accessibilityControl">accessibilityControl</dt>
+					<dd>
+						<blockquote>
+							<p><em>Identifies input methods that are sufficient to control the described resource.</em></p>
+						</blockquote>
+						<p>This property is typically only set when a publication contains scripted content that requires 
+							user interaction (i.e., whether the author has ensured that such content can be controlled by
+							the various input methods). It is not a useful indicator for static content, and is not a
+							guarantee that any user agent is accessible with such controls.</p>
+						<p>The following values are recommended for this property:</p>
+						<ul>
+							<li>fullAudioControl</li>
+							<li>fullKeyboardControl</li>
+							<li>fullMouseControl</li>
+							<li>fullTouchControl</li>
+							<li>fullVideoControl</li>
+						</ul>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-007">Identify Input Control Methods</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>Package Document usage:</dt>
+							<dd><pre id="a11y-16-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-17-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-18-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
+						</dl>
+					</dd>
+
+					<dt id="accessibilityAPI">accessibilityAPI</dt>
+					<dd>
+						<blockquote>
+							<p><em>Indicates that the resource is compatible with the referenced accessibility API.</em></p>
+						</blockquote>
+						<p>This property is only used when a publication has custom controls (e.g., controls created by scripting
+							non-interactive HTML elements like <code>img</code>, <code>span</code>, <code>div</code>, etc.). Without
+							ARIA roles, states and properties, these elements are not accessible to users of assistive technologies.</p>
+						<p>Native HTML controls (<code>button</code>, <code>input</code>, etc.) do not require ARIA attributes and
+							should always be used whenever possible. If only native controls are used, this property is not applicable.</p>
+						<p>The following values are recommended for this property:</p>
+						<ul>
+							<li>ARIA</li>
+						</ul>
+						<p>For more detailed information on how to use this property, refer to the section
+							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-006">Identify ARIA Conformance</a> in the
+							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+						<dl>
+							<dt>EPUB 3 Package Document usage:</dt>
+							<dd><pre id="a11y-19-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta></code></pre></dd>
+							<dt>HTML usage: (RDFa)</dt>
+							<dd><pre id="a11y-20-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityAPI" content="ARIA"/></code></pre></dd>
+							<dt>HTML usage: (microdata)</dt>
+							<dd><pre id="a11y-21-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityFeature" content="ARIA"/></code></pre></dd>
+						</dl>
+					</dd>
+				</dl>
+			</section>
+			<section id="refs">
+				<h3>References</h3>
+				<ul>
+					<li><a href="http://www.a11ymetadata.org">a11ymetadata project</a></li>
+					<li><a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model Version
+							3.0 Specification</a></li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>

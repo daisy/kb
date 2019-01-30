@@ -1,12 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/html/notes.html'" /> 
+		<title>Notes</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the identifying and structuring footnotes and endnotes.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/html/notes.html">http://kb.daisy.org/publishing/en/html/notes.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Identifying notes and placing them at logical breaks in the text minimizes their
+					impact on the reading of the primary text.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Identify footnotes within the text using the <code>aside</code> element. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Group footnotes or endnotes at the end of a section or work in lists. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Link note references to their notes. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Backlink notes at the end of a section or work to their references. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Footnotes in the body</div>
+						<p>Note that the <code>doc-footnote</code> role is used on an <code>aside</code>. Do not
+							apply it to list items, as it will break the lists they belong to. Use <code>doc-endnote</code>
+							to group notes into lists.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p>
+   In that
+   year&lt;a href="#ft2f" role="doc-noteref" epub:type="noteref">2&lt;/a>
+   there were 67 mills engaged in the manufacture of
+   cotton goods &#8230;
+&lt;/p>
+
+&lt;aside id="ft2f" role="doc-footnote" epub:type="footnote">
+   &lt;p>
+     2 The manufacturing statistics for 1900 which
+     follow are not those given in the Twelfth
+     Census, but are taken from the 
+     &lt;em>Census of Manufactures&lt;/em> &#8230;
+   &lt;/p>
+&lt;/aside>
+
+&lt;p>&#8230;&lt;/p></code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Grouped notes at the end of a section/work</div>
+						<p>Note that the <code>doc-endnotes</code> and <code>doc-endnote</code> roles are used on a list
+							and list item, respectively. Do not use these roles in any other context.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section epub:type="endnotes"> 
+   &lt;h2>End Notes&lt;/h2>
+   &lt;ol role="doc-endnotes">
+     &lt;li role="doc-endnote">
+       According to the usual nomenclature, the
+       branch flowing S.W. is called the Chattooga;
+       this unites with the Tallulah to form the 
+       Tugaloo, which &#8230;
+     &lt;/li>
+     &#8230;
+   &lt;/ol>   
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption><span class="label">Example 3 &#8212; CSS to superscript note references</span></figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code class="language-css">a[role~='doc-noteref'] {
+   vertical-align: super;
+   line-height: normal;
+   font-size: smaller;
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Backlink from footnote</div>
+						<p>The backlink precedes the note text so that the user will be aware that such a link is
+							available.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside role="doc-footnote">
+   &lt;p>&lt;a href="#ref" role="doc-backlink" title="Go to note reference">1.&lt;/a> According to the usual nomenclature, the &#8230;&lt;/p>
+&lt;/li></code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example 5 &#8212; Backlink from endnote</div>
+						<p>The backlink follows the note text to avoid any conflicts with automatic list numbering.
+							The link is placed in its own element so that the user does not have to listen to the note before
+							being able to activate it.</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;li role="doc-endnote">
+   &lt;p>According to the usual nomenclature, the &#8230;&lt;/p>
+   &lt;p>&lt;a href="#ref" role="doc-backlink">Go to note reference&lt;/a>&lt;/p>
+&lt;/li></code></pre>
+				</figure>
+
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Footnotes and endnotes have proven an impediment to the reading experience because they interrupt the
+					narrative flow. When footnotes are placed immediately following the paragraph that references them,
+					users had to manually navigate past them each time, as they are typically indistinguishable from text
+					content. Even endnotes, grouped at the end of the section, require the user to jump past them.</p>
+				
+				<p>The HTML5 structural elements, together with the <code>role</code> attribute, provide a means of
+					alleviating this problem, by clearly marking individual footnotes and endnotes, and sections of them. Not
+					only does this allow accessible user agents to ignore the notes except when followed from their
+					referents, but it allows any user agent to handle them more intelligently (e.g., as pop-ups).</p>
+				
+				<p>Notes placed within the primary narrative should be tagged using the HTML5 <code>aside</code> element (see
+					<a href="#ex01">Example 1</a>). This usage ensures that even if their semantics are not
+					recognized, the notes will still be treated as secondary content due the nature of the HTML5
+					<code>aside</code> element.</p>
+				
+				<p>Notes that are grouped at the end of a section do not need to be individually tagged as
+					<code>aside</code>, but should be grouped using the appropriate footnotes or endnotes semantic (see <a
+							href="#ex02">Example 2</a>). Lists are an effective means of representing groups of notes in
+					these sections, as they allow users to move through them more effectively (e.g., each list item number
+					will typically correspond sequentially to the contained note number, and users should have the ability
+					to jump through more than one list item at a time when there are many notes).</p>
+				
+				<p class="bridgehead">Notes in Tables</p>
+				
+				<p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
+					summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
+					a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
+				
+				<p class="bridgehead">Note References</p>
+				
+				<p>Note references must be tagged using the HTML5 <code>a</code> element.</p>
+				
+				<p>Do not use the <code>sup</code> element to superscript note references, as it is redundant presentational
+					tagging. The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
+					elements (see <a href="#ex03">Example 3</a>).</p>
+				
+				<p class="bridgehead">Back Referencing</p>
+				
+				<p>Although not specifically required to be accessible, it is good practice to backlink groups of notes to
+					their referent locations in the text (see <a href="#ex-04">Example 4</a>). If a user is
+					surveying the notes, backlinks will allow them to quickly find the text the note refers to.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote"><code>doc-footnote</code></a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote"><code>doc-endnote</code></a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnotes"><code>doc-endnotes</code></a></li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>

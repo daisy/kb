@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta http-equiv="refresh" content="0;URL='http://kb.daisy.org/publishing/en/html/accesskeys.html'" /> 
+		<title>Access Keys</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Recommendation against the use of access keys.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
 	</head>
 	
 	<body>
-		<p>Redirecting to <a href="http://kb.daisy.org/publishing/en/html/accesskeys.html">http://kb.daisy.org/publishing/en/html/accesskeys.html</a></p>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Access keys can interfere with key mappings for browsers and assistive technologies so are best avoided.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Ensure that all access keys are unique. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>]</span></li>
+					<li>Avoid conflicts with operating system and assistive technology key mappings. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable">WCAG 2.1.1</a>]</span></li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Jumping to a table of contents</div>
+						<p>Activating the access key will automatically take the user to the table of contents. 
+							The key <code>1</code> is chosen as numeric keys are less likely to conflict with browser or
+							user agent shortcut combinations.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;a href="toc.html" accesskey="1">Table of Contents&lt;/a></code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Access keys allow users to quickly jump to specific locations of the document by pressing the corresponding key
+					combination on their keyboard. Although this seems like a useful feature, in practice access keys cause more problems
+					than they solve.</p>
+				
+				<p>In particular, access keys often conflict with existing key mappings in browsers and assistive technologies. In these
+					cases, the access key is typically ignored, leaving no value for the shortcuts. If they do override the existing 
+					mappings, though, users are unable to access the normal functionality of the combination.</p>
+				
+				<p>Authors also need to ensure that they do not accidentally assign the same access key to more than one element. If this
+					happens, only the first instance will be recognized.</p>
+				
+				<p>As a rule, it is best to avoid access keys when creating content for a broad audience of users.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/editing.html#the-accesskey-attribute">The <code>accesskey</code> attribute</a></li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>
