@@ -271,7 +271,7 @@ KB.prototype.generateMiniToc = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode(msg.UI.m03));
+		h3.appendChild(document.createTextNode(msg.UI.m02));
 	
 	nav.appendChild(h3);
 	
@@ -312,7 +312,7 @@ KB.prototype.generateAppliesTo = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode(msg.UI.m02));
+		h3.appendChild(document.createTextNode(msg.UI.m01));
 	
 	aside.appendChild(h3);
 	

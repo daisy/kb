@@ -5,9 +5,8 @@ var msg = {};
 	msg.kb_name.publishing =  'Base de Connaissance sur L\'edition Accessible';
 	
 	msg.UI = {};
-	msg.UI.m01 = 'Frequently Asked Questions';
-	msg.UI.m02 = 'Applies to:';
-	msg.UI.m03 = 'In this section:'
+	msg.UI.m01 = 'S\'applique à:';
+	msg.UI.m02 = 'Dans cette section:'
 	
 	msg.footer = {};
 	msg.footer.m01 = 'Pour signaler des fautes de frappe, des erreurs et des omissions, veuillez ouvrir un numéro dans la ';

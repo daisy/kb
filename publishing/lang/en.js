@@ -4,9 +4,8 @@ var msg = {};
 	msg.kb_name.publishing =  'Accessible Publishing Knowledge Base';
 	
 	msg.UI = {};
-	msg.UI.m01 = 'Frequently Asked Questions';
-	msg.UI.m02 = 'Applies to:';
-	msg.UI.m03 = 'In this section:'
+	msg.UI.m01 = 'Applies to:';
+	msg.UI.m02 = 'In this section:'
 	
 	msg.footer = {};
 	msg.footer.m01 = 'To report typos, errors and omissions, please open an issue in the ';
