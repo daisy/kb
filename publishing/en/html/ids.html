@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Identifiers</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for ensuring that identifiers do not conflict.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensuring all identifiers are unique prevents problems navigating and accessing the content.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Verify that all <code>id</code> attributes have unique values. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#ensure-compat-parses">WCAG 4.1.1</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H93.html">H93: Ensuring that id attributes are unique on a Web page</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Using <a href="https://tools.ietf.org/html/rfc4122">UUIDs</a> for uniqueness</div>
+						<p>A UUID is used in the <code>id</code> attribute because it has a very high probability of being unique.
+							In (X)HTML5 the UUID can start with a letter or number, but in XML formats it must start with a letter.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section id="fad1bb2a-ecdc-4cb5-886f-aedbd7cb2adb"></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Using mnemonics</div>
+						<p>A mnemonic is a naming convention that helps identify the content. In this case, <code>c01</code> is used
+							for "Chapter 1". Mnemonics are often a bad choice, as they have to be updated whenever content is shifted
+							or remixed.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section id="c01">
+   &lt;h2>Chapter 1&lt;/h2></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>If all the <code>id</code> attributes in a document are not unique, the user agent will not understand
+					which one is being referred to. For example, if a user is trying to navigate to a specific section,
+					the user agent will not be able to determine which one to go to. It might take the user
+					to the first section with the identifier, or it might leave the user at the top of document.</p>
+				
+				<p>Other than being unique, the only requirement for identifiers in (X)HTML5 is that they not contain spaces.</p>
+				
+				<p>Identifiers do not have to be unique across documents, although it is good practice to ensure uniqueness
+					of all identifiers.</p>
+				
+				<section id="epub">
+					<h4>EPUB</h4>
+					
+					<p>Although (X)HTML5 allows any character string as an identifier, XML and XHTML 1.1 rules are stricter
+						rules (e.g., identifiers cannot start with a number or include colons). Invalid identifiers in these
+						cases, such as in EPUB 2 publications, cause XML errors that may lead to errors being display instead
+						of content.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="https://www.w3.org/TR/html/dom.html#the-id-attribute">The
+						<code>id</code> attribute</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

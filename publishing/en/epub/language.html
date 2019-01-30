@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Language</title>
+		<script type="text/javascript">
+			var page_info = {
+				'topic': 'EPUB',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script type="text/javascript" src="../../../js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Setting the language ensures that assistive technologies correctly interpret and render the text,
+					and that reading systems can make language enhancements available for users.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Set the <code>xml:lang</code> attribute on the package document's <code>package</code> element.</p>
+						<div class="related">
+							<p>Related to <a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>:</p>
+							<ul>
+								<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H57.html">H57: Using language attributes
+									on the html element</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<p>Set the <code>xml:lang</code> attribute on package document elements whenever the default language changes.</p>
+						<div class="related">
+							<p>Related to <a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.2</a>:</p>
+							<ul>
+								<li><a href="https://www.w3.org/TR/WCAG20-TECHS/H58.html">H58: Using language attributes
+									to identify changes in the human language</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>Identify the primary languages of the publication in <code>dc:language</code> elements in package document's metadata section.
+							<span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>]</span>
+					</li>
+					<li>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>.
+							<span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id">WCAG 3.1.1</a>]</span></li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Example</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Declaring the package language</div>
+						<p>The <code>xml:lang</code> attribute is set to English on the <code>package</code> element
+							to ensure the metadata in the package is correctly interpreted.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en"></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Overriding the default package language</div>
+						<p>The <code>xml:lang</code> attribute is used on <code>meta</code> elements
+							within the <code>metadata</code> section to change the language from English to Japanese.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en">
+   &lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+     &#8230;
+     &lt;dc:creator id="creator">Haruki Murakami&lt;/dc:creator>
+     &lt;meta property="alternate-script" xml:lang="ja">村上 春樹&lt;/meta>
+     &#8230;
+   &lt;/metadata>
+   &#8230;
+&lt;/package></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Identifying the primary languages of the publication</div>
+						<p>The <code>dc:language</code> attribute is used to indicate the primary languages of the content
+							are French and English.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+     &#8230;
+     &lt;dc:language>fr&lt;/dc:language>
+     &lt;dc:language>en&lt;/dc:language>
+     &#8230;
+   &lt;/metadata></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt>Do I need to list every language used in the publication?</dt>
+					<dd><p>No, the <code>dc:language</code> elements should only list the primary languages
+						that the content is written in. If a publication contains a few phrases in a foreign
+						language, for example, that language is not listed.</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Specifying the default language of the package document &#8212; as well as any changes within the document &#8212;
+					helps ensure that assistive technologies can correctly render the publication's metadata (e.g., its title and authors).
+					Without this information, communication of the information in a bookshelf could be compromised, for example.</p>
+				
+				<p>Identifying the primary languages of the publication provides reading systems the ability to improve the user
+					experience. With this information, the reading system could provide access to custom dictionaries, optimize
+					pan-publication search capabilities, or preload text-to-speech language packs to speed up playback.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li><a href="http://www.idpf.org/epub3/latest/packages/#sec-opf-dclanguage">EPUB 3 &#8212; The 
+						<code>language</code> element</a></li>
+					<li><a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.12">EPUB 2 &#8212; 
+						<code>&lt;language> &lt;/language></code></a></li>
+					<li><a href="https://www.w3.org/International/articles/language-tags/">Language tags in HTML and
+						xml</a></li>
+					<li><a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC5646 &#8212; Tags for Identifying
+							Languages</a> (BCP 47)</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
