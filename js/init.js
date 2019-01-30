@@ -1,13 +1,15 @@
 
 var kbHD = document.getElementsByTagName('head')[0];
+var kbLang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
 
 if (document.location.host == 'kb.daisy.org' || document.location.host == 'localhost') {
 	writeMeta();
 	writeShiv();
-	writeTag('css', '../../../css/kb.css');
-	writeTag('css', '../../../css/prettify.css');
-	writeTag('js', '../../../js/prettify.js');
-	writeTag('js', '../../../js/jquery172min.js');
+	writeTag('js', '/publishing/lang/'+kbLang+'.js');
+	writeTag('css', '/css/kb.css');
+	writeTag('css', '/css/prettify.css');
+	writeTag('js', '/js/prettify.js');
+	writeTag('js', '/js/jquery172min.js');
 	writeGoogleAnalytics();
 }
 
@@ -98,15 +100,30 @@ window.onload = function () {
 	}
 }
 
+
+
+
+
+
+
+
+
+/* 
+ * 
+ * 
+ * KB Class
+ * 
+ * 
+ */
+
+
+
 function KB() {
 	this.kb_id = '';
 	this.isIndex = false;
+	this.isHomePage = false;
 	this.isRootIndex = false;
 	this.title = document.title;
-	
-	this.kb_name = {
-		'publishing': 'Accessible Publishing Knowledge Base'
-	}
 	
 	this.kb_url = 'http://kb.daisy.org/';
 	this.kb_repo = 'https://github.com/DAISY/kb/commits/master/';
@@ -115,10 +132,11 @@ function KB() {
 
 KB.prototype.setKBInfo = function () {
 	
-	var docsMatch = window.location.href.toString().match(/\/docs\//i);
+	// need better method for future localization 
+	var docsMatch = window.location.href.toString().toLowerCase().match(/\/(docs|fr)\//i);
 	
 	if (docsMatch) {
-		var idMatch = window.location.href.toString().match(/\/([A-Z0-9]+)\/docs\//i);
+		var idMatch = window.location.href.toString().toLowerCase().match(/\/([A-Z0-9]+)\/(docs|fr)\//i);
 		
 		if (!idMatch) {
 			console.log('Failed to determine id from path: ' + window.location.href);
@@ -137,20 +155,22 @@ KB.prototype.setKBInfo = function () {
 	
 	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
 	
+	this.isHomePage = page_info.hasOwnProperty('isHomePage') && page_info['isHomePage'] ? true : false;
+	
 	return true;
 }
 
 
 KB.prototype.generateTitles = function () {
-	
-	if (!this.isRootIndex) {
+
+	if (!this.isHomePage && !this.isRootIndex) {
 		var h2 = document.createElement('h2');
 			h2.appendChild(document.createTextNode(this.title));
 		
 		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
+		
+		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
 	}
-	
-	document.title = (this.isRootIndex ? '' : this.title + ' / ') + this.kb_name[this.kb_id];
 }
 
 
@@ -169,19 +189,17 @@ KB.prototype.generateHeader = function () {
 	
 	var h1 = document.createElement('h1');
 	
-	var pathUp = (this.isRootIndex) ? '../' : '../../../';
-	
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
-		logo.setAttribute('src',pathUp+'graphics/daisy_logo.png');
+		logo.setAttribute('src','/graphics/daisy_logo.png');
 		logo.setAttribute('alt','DAISY')
 	
 	h1.appendChild(logo);
 	h1.appendChild(document.createTextNode(' '));
 	
 	var a = document.createElement('a');
-		a.setAttribute('href',this.kb_url + this.kb_id + '/');
-		a.appendChild(document.createTextNode(this.kb_name[this.kb_id]));
+		a.setAttribute('href','/' + this.kb_id + '/');
+		a.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
 	
 	h1.appendChild(a);
 	
@@ -193,7 +211,7 @@ KB.prototype.generateHeader = function () {
 
 KB.prototype.generateBreadcrumb = function () {
 
-	if (this.isRootIndex) {
+	if (this.isHomePage || this.isRootIndex) {
 		return;
 	}
 	
@@ -203,7 +221,7 @@ KB.prototype.generateBreadcrumb = function () {
 	var p = document.createElement('p');
 	
 	var home = document.createElement('a');
-		home.setAttribute('href','../../index.html');
+		home.setAttribute('href','../index.html');
 		home.appendChild(document.createTextNode('KB'))
 	
 	p.appendChild(home);
@@ -253,7 +271,7 @@ KB.prototype.generateMiniToc = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode('In this section:'));
+		h3.appendChild(document.createTextNode(msg.UI.m03));
 	
 	nav.appendChild(h3);
 	
@@ -294,7 +312,7 @@ KB.prototype.generateAppliesTo = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode('Applies to:'));
+		h3.appendChild(document.createTextNode(msg.UI.m02));
 	
 	aside.appendChild(h3);
 	
@@ -321,11 +339,11 @@ KB.prototype.generateFooter = function () {
 	var footer = document.createElement('footer');
 	
 	var typos = document.createElement('p');
-		typos.appendChild(document.createTextNode('To report typos, errors and omissions, please open an issue in the '));
+		typos.appendChild(document.createTextNode(msg.footer.m01));
 	
 	var issuelink = document.createElement('a');
 		issuelink.setAttribute('href','https://github.com/DAISY/kb/issues');
-		issuelink.appendChild(document.createTextNode('GitHub tracker'));
+		issuelink.appendChild(document.createTextNode(msg.footer.m02));
 	
 		typos.appendChild(issuelink);
 		typos.appendChild(document.createTextNode('.'));
@@ -333,7 +351,7 @@ KB.prototype.generateFooter = function () {
 	footer.appendChild(typos);
 	
 	var changes = document.createElement('p');
-		changes.appendChild(document.createTextNode('For a list of changes to this page, refer to the '));
+		changes.appendChild(document.createTextNode(msg.footer.m03));
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
 	
@@ -352,7 +370,7 @@ KB.prototype.generateFooter = function () {
 	
 	var termslink = document.createElement('a');
 		termslink.setAttribute('href','http://www.daisy.org/terms-use');
-		termslink.appendChild(document.createTextNode('Terms of Use'));
+		termslink.appendChild(document.createTextNode(msg.footer.m04));
 	
 	footer.appendChild(termslink);
 	
@@ -361,7 +379,7 @@ KB.prototype.generateFooter = function () {
 
 
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex) {
+	if (!this.isIndex || !this.isHomePage) {
 		prettyPrint();
 	}
 }
