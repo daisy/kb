@@ -1,6 +1,5 @@
 var msg = {};
 	
-	msg.fr = {};
 	msg.kb_name = {};
 	msg.kb_name.publishing =  'Base de Connaissance sur L\'edition Accessible';
 	
