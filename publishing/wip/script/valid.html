@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Content Validity | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
+		<link type="text/css" rel="stylesheet" href="../../../css/prettify.css" />
+		<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-327448-3"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-327448-3');
+		</script>
+		<script type="text/javascript" src="../../../js/prettify.js"></script>
+		<script type="text/javascript" src="../../../js/jquery172min.js"></script>
+		<script type="text/javascript"> 	// <![CDATA[
+			$(document).ready(function () {
+				prettyPrint();
+			});//]]> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Content Validity</h2>
+
+			<nav class="breadcrumb">
+				<p><a href="../index.html">KB</a> > <a href="index.html">Scripting</a> > <span>Content Validity</span></p>
+			</nav>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#ex">Examples</a></li>
+					<li><a href="#refs">References</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<p>Although it is possible for validators to check the initial state of an EPUB prior to its being loaded and
+					consumed in a reading system, it is not so easy to determine whether scripted interactions will result in
+					invalid markup being injected into a publication.</p>
+
+				<p>Developers should note that the <code>write</code> method is <a
+						href="http://www.w3.org/MarkUp/2004/xhtml-faq#docwrite">not available in XHTML</a>. New elements must
+					be created using DOM node functionality. The <code>innerHTML</code> function for writing strings of
+					markup is similarly not available.</p>
+
+				<p>Using DOM methods will ensure that you create well-formed markup, but the JavaScript functions do not
+					check if the content is valid at the point of insertion (or leaves valid markup after a deletion). A
+					simple typo, for example, might result in a table cell being added to a forced line break
+						(<code>br</code>), instead of a table row (<code>tr</code>).</p>
+
+				<p>While many developers only look at the visual result of their actions, consideration must be given to how
+					an assistive technology will process such aberrations. In some cases the mistakes might be benign, but
+					often they result in unexpected behaviors being triggered at unexpected times, and can limit, or take
+					away, access to the content.</p>
+				<br />
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				<figure>
+					<figcaption>Example 1 &#8212; Adding text via the DOM</figcaption>
+					<pre class="prettyprint linenums small"><code>&lt;script type="text/javascript">
+&lt;![CDATA[
+   function writeResult(pass, msg) {
+   
+      /* get the results div */
+      var rDiv = document.getElementById('results');
+      
+      /* create a new span element */
+      var result = document.createElement('span');
+         result.setAttribute('class', pass ? 'win' : 'lose');
+      
+      /* create a text node with the result */
+      var message = document.createTextNode(msg);
+      
+      /* add the message to the span */
+      result.appendChild(message);
+      
+      /* show the new message for to user */
+      rDiv.appendChild(result);
+   
+   }
+]]&gt;
+&lt;/script></code></pre>
+				</figure>
+
+				<figure>
+					<figcaption>Example 2 &#8212; Invalid use of the DOM</figcaption>
+					<p>The following example inserts a new <code>html</code> element at the start of the body.</p>
+					<pre class="prettyprint linenums small bad"><code>&lt;script type="text/javascript">
+&lt;![CDATA[
+   var invalid = document.createElement('html');
+      invalid.appendChild(document.createTextNode(msg));
+   
+   document.body.insertBefore(invalid, document.body.firstChild);
+]]&gt;
+&lt;/script></code></pre>
+				</figure>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G134.html">G134: Validating Web
+						pages</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G192.html">G192: Fully conforming to
+							specifications</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR21.html">SCR21: Using functions of the
+							Document Object Model (DOM) to add content to a page</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR26.html">SCR26: Inserting dynamic
+							content into the Document Object Model immediately following its trigger element</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer>
+			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/script/valid.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
+</html>

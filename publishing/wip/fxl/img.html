@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Image Fixed Layouts | Accessible Publishing Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!--[if lt IE 9]> 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="../../../css/kb.css" />
+		<script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-327448-3"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-327448-3');
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h1><img class="logo" src="../../../graphics/daisy_logo.png" alt="DAISY"/> <a href="http://kb.daisy.org/publishing/">Accessible Publishing Knowledge Base</a></h1>
+		</header>
+		<section class="section">
+			<h2>Image Fixed Layouts</h2>
+
+			<nav class="breadcrumb">
+				<p><a href="../index.html">KB</a> > <a href="index.html">Fixed Layouts</a> > <span>Image Fixed Layouts</span></p>
+			</nav>
+
+			<nav class="mini-toc">
+				<h3>In this section:</h3>
+				<ol>
+					<li><a href="#samp">Samples</a></li>
+					<li><a href="#refs">References</a></li>
+				</ol>
+			</nav>
+
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>...</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>...</li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<p>Although image formats can be used to create fixed layouts, doing so can greatly reduce the accessibility
+					of the publication. When using images, keep the following guidelines in mind:</p>
+
+				<ul>
+					<li>Avoid empty files that set an image to render using the CSS <code class="property"
+							>background-image</code> property. Not only does it leave the image without a description, but
+						any user without a CSS-aware reading system will see an empty document (note that even if the
+						system does not handle fixed layout metadata, it will still render the publication). See the <a
+							href="../style/backgrounds.html">section on background images</a> for more information.</li>
+					<li>Avoid embedding text into images. Doing so removes access from assistive technologies. Use the CSS
+							<code class="property">z-index</code> property to define layering and position of text as needed
+						on the image.</li>
+					<li>Whenever possible, use figures and captions to add images to the fixed layout document (including the
+						description in the caption). If you are using fixed layouts to facilitate the rendering of image
+						galleries, plates and similar, you can use scipting to enahnce the default experience and remove the
+						caption from visual display. The caption will be accessible to those who need and can also be
+						presented generally in interesting ways (see the <a href="#samp">Samples</a> section for an
+						interesting implementation using this technique).</li>
+					<li>Add a text serialization of the work if it is completely visual in nature. It's not true that users
+						who are blind or have low vision are not interested in reading these works, but fully representing
+						the publication typically requires more than image descriptions.</li>
+				</ul>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>Samples</h3>
+
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following
+					publications that include image fixed layouts:</p>
+
+				<ul>
+					<li><a href="http://code.google.com/p/epub-samples/downloads/list">Cole Voyage of Life</a> (with the -tol
+						extension)</li>
+				</ul>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>HTML5 &#8212; <a href="http://www.w3.org/TR/html/semantics-embedded-content.html#the-img-element">The
+								<code>img</code> element</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/C27.html">C27: Making the DOM order match
+							the visual order</a></li>
+					<li><a href="http://www.w3.org/TR/WCAG20-TECHS/G57.html">G57: Ordering the content in a
+							meaningful sequence</a></li>
+				</ul>
+			</section>
+		</section>
+		<footer>
+			<p>To report typos, errors and omissions, please open an issue in the <a href="https://github.com/DAISY/kb/issues">github tracker</a>.</p>
+			<p>For a list of changes to this page, refer to the <a href="https://github.com/DAISY/kb/commits/master/docs/fixed-layouts/img.html">commit log</a>.</p>
+			<p><a href="http://www.daisy.org/terms-use">Terms of Use</a></p>
+		</footer>
+	</body>
+</html>
