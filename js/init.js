@@ -1,48 +1,103 @@
 
-var kbHD = document.getElementsByTagName('head')[0];
-var kbLang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
+/* 
+ * 
+ * This file contains the KB class of functions, a set of callbacks
+ * for copying examples, and the initiation code for each page.
+ * It is only required that each page that needs formatting include
+ * a reference to this script in its head - no further initiation
+ * is needed.
+ * 
+ */
 
-if (document.location.host == 'kb.daisy.org' || document.location.host == 'localhost') {
-	writeMeta();
-	writeShiv();
-	writeTag('js', '/publishing/lang/'+kbLang+'.js');
-	writeTag('css', '/css/kb.css');
-	writeTag('css', '/css/prettify.css');
-	writeTag('js', '/js/prettify.js');
-	writeTag('js', '/js/jquery172min.js');
-	writeGoogleAnalytics();
+
+
+/* 
+ * 
+ * 
+ * KB Class
+ * - consider importing this over embedding if IE ever dies
+ * 
+ * 
+ */
+
+
+
+function KB() {
+	
+	this.kb_url = 'http://kb.daisy.org/';
+	this.kb_repo = 'https://github.com/DAISY/kb/commits/master/';
+	this.kb_id = (window.location.href.split('/'))[3];
+	this.host = '';
+	
+	this.page_hd = document.getElementsByTagName('head')[0];
+	this.lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en'
+	
+	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
+	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
+	
+	this.title = document.title;
 }
 
-else {
-	// Ace integration calls
+
+/* 
+ * Generates the header meta, css and js tags needed to generate the template
+ */
+
+KB.prototype.initializePage = function (type) {
+	if (type == 'kb') {
+		this.host = 'kb';
+		this.writeCoreMeta();
+		this.writeShiv();
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
+		this.writeHeadTag('css', '/css/kb.css');
+		this.writeHeadTag('css', '/css/prettify.css');
+		this.writeHeadTag('js', '/js/prettify.js');
+		this.writeHeadTag('js', '/js/jquery172min.js');
+		this.writeGoogleAnalytics();
+	}
+	else {
+		this.host = 'ace';
+		// add ace desired heading tags here
+	}
 }
 
 
-function writeMeta() {
+/* 
+ * writes meta/charset and meta/viewport tags
+ */
+
+KB.prototype.writeCoreMeta = function () {
 	var charset = document.createElement('meta');
 		charset.setAttribute('charset', 'utf-8');
-	kbHD.appendChild(charset);
+	this.page_hd.appendChild(charset);
 	
 	var viewport = document.createElement('meta');
 		viewport.setAttribute('name', 'viewport');
 		viewport.setAttribute('content', 'width=device-width, initial-scale=1');
-	kbHD.appendChild(viewport);
+	this.page_hd.appendChild(viewport);
 }
 
 
+/* 
+ * write the html5 shim file to enable tag support in older IE browsers
+ */
 
-function writeShiv() {
+KB.prototype.writeShiv = function() {
 	var shiv = document.createComment('[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script> <![endif]');
-	kbHD.appendChild(shiv);
+	this.page_hd.appendChild(shiv);
 }
 
 
+/* 
+ * generic function that write a meta or link tag depending on the type of file being referenced
+ */
 
-function writeTag(type, path, options) {
+KB.prototype.writeHeadTag = function (type, path, options) {
 
 	var tag;
 	
-	if (type=="css") {
+	if (type == "css") {
+		// generate a link tag for css references
 		tag = document.createElement('link');
 		tag.setAttribute('rel', 'stylesheet');
 		tag.setAttribute('type', 'text/css');
@@ -50,9 +105,15 @@ function writeTag(type, path, options) {
 	}
 	
 	else if (type == 'js') {
+		// generate a script tag for js references
 		tag = document.createElement('script');
 		tag.setAttribute('type', 'text/javascript');
 		tag.setAttribute('src', path);
+		
+		/* 
+		 * options can be used if additional attribute are needed (e.g., async)
+		 * - must contain an array of attribute names and values
+		 */
 		
 		if (options) { 
 			for (var property in options) {
@@ -63,14 +124,19 @@ function writeTag(type, path, options) {
 		}
 	}
 	
-	kbHD.appendChild(tag);
+	// add the generated tag to the page header
+	this.page_hd.appendChild(tag);
 }
 
 
 
-function writeGoogleAnalytics() {
+/* 
+ * writes the google analytics code
+ */
 
-	writeTag('js', 'https://www.googletagmanager.com/gtag/js?id=UA-327448-3', {async: 'async'});
+KB.prototype.writeGoogleAnalytics = function () {
+
+	this.writeHeadTag('js', 'https://www.googletagmanager.com/gtag/js?id=UA-327448-3', {async: 'async'});
 	
 	var ga = document.createElement('script');
 		ga.setAttribute('type', 'text/javascript');
@@ -81,13 +147,16 @@ function writeGoogleAnalytics() {
 			gtag('config', 'UA-327448-3');\
 		"));
 	
-	kbHD.appendChild(ga);
+	this.page_hd.appendChild(ga);
 }
 
 
-window.onload = function () {
-	var kb = new KB();
-	if (kb.setKBInfo()) {
+/* 
+ * reformats the page for visual display depending on the hosting location (on the web or inside an ace browser view)
+ */
+
+KB.prototype.writeTemplate = function () {
+	if (this.host == 'kb') {
 		kb.generateTitles();
 		kb.generateMeta();
 		kb.generateHeader();
@@ -98,81 +167,35 @@ window.onload = function () {
 		kb.prettyPrint();
 		kb.addExampleCopy();
 	}
-}
-
-
-
-
-
-
-
-
-
-/* 
- * 
- * 
- * KB Class
- * 
- * 
- */
-
-
-
-function KB() {
-	this.kb_id = '';
-	this.isIndex = false;
-	this.isHomePage = false;
-	this.isRootIndex = false;
-	this.title = document.title;
-	
-	this.kb_url = 'http://kb.daisy.org/';
-	this.kb_repo = 'https://github.com/DAISY/kb/commits/master/';
-}
-
-
-KB.prototype.setKBInfo = function () {
-	
-	// need better method for future localization 
-	var docsMatch = window.location.href.toString().toLowerCase().match(/\/(docs|fr)\//i);
-	
-	if (docsMatch) {
-		var idMatch = window.location.href.toString().toLowerCase().match(/\/([A-Z0-9]+)\/(docs|fr)\//i);
-		
-		if (!idMatch) {
-			console.log('Failed to determine id from path: ' + window.location.href);
-			return false;
-		}
-		
-		this.kb_id = idMatch[1];
-	}
 	
 	else {
-		var seg = window.location.href.split('/');
-		this.kb_id = ((seg[seg.length-1] == '') || (seg[seg.length-1] == 'index.html')) ? seg[seg.length-2] : seg[seg.length-1];
+		// add template for use in ace
 	}
-	
-	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
-	
-	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
-	
-	this.isHomePage = page_info.hasOwnProperty('isHomePage') && page_info['isHomePage'] ? true : false;
-	
-	return true;
 }
 
+
+/* generates the page title and header */
 
 KB.prototype.generateTitles = function () {
 
-	if (!this.isHomePage && !this.isRootIndex) {
+	// this processing is skipped for the master list of topics
+	if (!this.isRootIndex) {
+		// create the h2 from the contents of the page title
 		var h2 = document.createElement('h2');
 			h2.appendChild(document.createTextNode(this.title));
 		
 		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
 		
+		// append the kb name to the page title
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
 	}
 }
 
+
+/* 
+ * generates additional meta tags from the page_info
+ * - currently only supports adding descriptions 
+ */
 
 KB.prototype.generateMeta = function () {
 	if (page_info.hasOwnProperty('description')) {
@@ -183,12 +206,16 @@ KB.prototype.generateMeta = function () {
 	}
 }
 
+
+/* generates the standard page header */
+
 KB.prototype.generateHeader = function () {
 
 	var header = document.createElement('header');
 	
 	var h1 = document.createElement('h1');
 	
+	// add the daisy logo
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
 		logo.setAttribute('src','/graphics/daisy_logo.png');
@@ -197,6 +224,7 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(logo);
 	h1.appendChild(document.createTextNode(' '));
 	
+	// add the kb name
 	var a = document.createElement('a');
 		a.setAttribute('href','/' + this.kb_id + '/');
 		a.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
@@ -209,9 +237,11 @@ KB.prototype.generateHeader = function () {
 }
 
 
+/* creates the breadcrumb to the current location */
+
 KB.prototype.generateBreadcrumb = function () {
 
-	if (this.isHomePage || this.isRootIndex) {
+	if (this.isRootIndex) {
 		return;
 	}
 	
@@ -220,14 +250,16 @@ KB.prototype.generateBreadcrumb = function () {
 	
 	var p = document.createElement('p');
 	
+	// add link to the top-level index
 	var home = document.createElement('a');
 		home.setAttribute('href','../index.html');
-		home.appendChild(document.createTextNode('KB'))
+		home.appendChild(document.createTextNode(msg.UI.m01))
 	
 	p.appendChild(home);
 	p.appendChild(document.createTextNode(' > '));
 	
 	if (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic')) {
+		// if on an index page, just add the topic as a span
 		var span = document.createElement('span');
 			span.appendChild(document.createTextNode(page_info['topic']));
 		
@@ -235,7 +267,7 @@ KB.prototype.generateBreadcrumb = function () {
 	}
 	
 	else {
-		
+		// otherwise add a link to the topic index and a span with the current topic title
 		if (page_info.hasOwnProperty('topic')) {
 			var index = document.createElement('a');
 				index.setAttribute('href','index.html');
@@ -258,10 +290,13 @@ KB.prototype.generateBreadcrumb = function () {
 }
 
 
+/* 
+ * generate the list of links to the sections on the page
+ */
+
 KB.prototype.generateMiniToc = function () {
 	
-	if (window.location.href.indexOf('index.html') > -1 || window.location.href.lastIndexOf('/') == window.location.href.length-1) {
-		// don't build for indexes
+	if (this.isIndex || this.isRootIndex) {
 		return;
 	}
 	
@@ -277,14 +312,21 @@ KB.prototype.generateMiniToc = function () {
 	
 	var ol = document.createElement('ol');
 	
+	// grab all the subsection headings on the page
 	var h = document.querySelectorAll('h3');
 	
+	// iterate each heading and add a link to it
 	for (var i = 0; i < h.length; i++) {
 		var li = document.createElement('li');
 		
 		var a = document.createElement('a');
 			a.setAttribute('href','#'+h[i].parentNode.id);
-			a.appendChild(document.createTextNode(h[i].textContent == 'Frequently Asked Questions' ? 'FAQ' : h[i].textContent));
+			
+			// if a short form of a title is necessary for the menu, add to the shortForm section of the messages file
+			var sectionName = h[i].textContent.trim();
+				sectionName = msg.shortForm.hasOwnProperty(h[i].textContent) ? msg.shortForm[h[i].textContent] : h[i].textContent;
+			
+			a.appendChild(document.createTextNode(sectionName));
 		 
 		 li.appendChild(a);
 		 ol.appendChild(li);
@@ -296,10 +338,11 @@ KB.prototype.generateMiniToc = function () {
 }
 
 
+/* generates the box that identifies what format the topic applies to */
+
 KB.prototype.generateAppliesTo = function () {
 	
-	if (window.location.href.indexOf('index.html') > -1 || window.location.href.lastIndexOf('/') == window.location.href.length-1) {
-		// don't build for indexes
+	if (this.isRootIndex || this.isIndex) {
 		return;
 	}
 	
@@ -312,12 +355,13 @@ KB.prototype.generateAppliesTo = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode(msg.UI.m01));
+		h3.appendChild(document.createTextNode(msg.UI.m03));
 	
 	aside.appendChild(h3);
 	
 	var ol = document.createElement('ul');
 	
+	// add an entry for each format identified in the page_info
 	for (var i = 0; i < page_info.appliesTo.length; i++) {
 		var li = document.createElement('li');
 		
@@ -335,8 +379,12 @@ KB.prototype.generateAppliesTo = function () {
 }
 
 
+/* create the default footer for the pages */
+
 KB.prototype.generateFooter = function () {
 	var footer = document.createElement('footer');
+	
+	// add the link to the issue tracker
 	
 	var typos = document.createElement('p');
 		typos.appendChild(document.createTextNode(msg.footer.m01));
@@ -349,6 +397,8 @@ KB.prototype.generateFooter = function () {
 		typos.appendChild(document.createTextNode('.'));
 	
 	footer.appendChild(typos);
+	
+	// add the link to the commit log
 	
 	var changes = document.createElement('p');
 		changes.appendChild(document.createTextNode(msg.footer.m03));
@@ -366,6 +416,8 @@ KB.prototype.generateFooter = function () {
 	
 	footer.appendChild(changes);
 	
+	// add the link to the terms of use
+	
 	var terms = document.createElement('p');
 	
 	var termslink = document.createElement('a');
@@ -378,12 +430,16 @@ KB.prototype.generateFooter = function () {
 }
 
 
+/* call the google pretty print function for examples */
+
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex || !this.isHomePage) {
+	if (!this.isIndex && !this.isRootIndex) {
 		prettyPrint();
 	}
 }
 
+
+/* add buttons to copy example text */
 
 KB.prototype.addExampleCopy = function() {
 	var ex = document.querySelectorAll('section#ex > figure > pre');
@@ -401,6 +457,15 @@ KB.prototype.addExampleCopy = function() {
 }
 
 
+
+
+/* 
+ * 
+ * Example copying callback functions
+ * 
+ */
+
+
 function copyExampleDelegate(ex_id) {
 	return function(){
 		copyExample(ex_id);
@@ -409,15 +474,21 @@ function copyExampleDelegate(ex_id) {
 
 function copyExample(ex_id) {
 
+	// select the example
 	var pre_orig = document.querySelector('pre#'+ex_id);
+	
+	// create a clone of the element to operate on
 	var pre = pre_orig.cloneNode(true);
 	
+	// grab all the list items in the example (each li is a pretty-printed line of code)
 	var li = pre.querySelectorAll('li');
 	
+	// add a line break to the end of each list item so formatting is retained when the li tags are stripped later
 	for (var i = 0; i < li.length; i++) {
 		li[i].appendChild(document.createTextNode('\n'));
 	}
 	
+	// create a temporary textarea to copy the example out of and paste the text content of the example into it to remove any tags
 	var textArea = document.createElement("textarea");
 		textArea.value = pre.textContent;
 	
@@ -425,6 +496,7 @@ function copyExample(ex_id) {
 	
 	textArea.select();
 	
+	// copy the example to the clipboard
 	try {
 		document.execCommand('copy');
 	}
@@ -432,5 +504,37 @@ function copyExample(ex_id) {
 		console.error('Copy failed: ', err);
 	}
 	
+	// discard the textarea
 	document.body.removeChild(textArea);
+}
+
+
+
+
+
+/* 
+ * 
+ * 
+ * INITIALIZATION
+ * 
+ * 
+ * 
+ */
+
+
+var kb = new KB();
+
+// write the header tags immediately so that js and css are processed
+if (document.location.host == 'kb.daisy.org' || document.location.host == 'localhost') {
+	kb.initializePage('kb');
+}
+
+else {
+	// not yet implemented, but allows use in ace without web wrapper
+	kb.initializePage('ace');
+}
+
+/* delay loading the template until the page has loaded so that the page elements are all available */
+window.onload = function () {
+	kb.writeTemplate();
 }
