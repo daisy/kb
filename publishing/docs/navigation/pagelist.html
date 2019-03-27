@@ -148,16 +148,14 @@
 							that ends the page:</p>
 						<pre><code>&lt;li>&#8230;.&lt;span
      epub:type="pagebreak"
-    
-     title="24"/>&lt;/li>
+     aria-label="24"/>&lt;/li>
    &lt;li>&#8230;&lt;/li>
 </code></pre>
 						<p>or to place it as the very first element in the list item that starts the page</p>
 						<pre><code>&lt;li>&#8230;.&lt;/li>
    &lt;li>&lt;span
      epub:type="pagebreak"
-    
-     title="24"/>&#8230;&lt;/li>
+     aria-label="24"/>&#8230;&lt;/li>
 </code></pre>
 						<p>One practice to avoid is creating a new list item just for the page break. As page breaks are
 							often not visible content, an empty list item will be confusing to all users and may alter the
@@ -170,8 +168,8 @@
 					<dd><p>The <code>a</code> element has two specific uses defined in HTML5: for links when the
 						<code>href</code> attribute is present, and for placeholder links when it is not (e.g., a
 						link that might be active in another context or after some interaction by the user). As page
-						breaks are not links, and are never intended to be activated as links, it is  incorrect to 
-						use them for page breaks markers.</p>
+						breaks are not links, and are never intended to be activated as links, it is not recommended to 
+						use them for page break markers.</p>
 					</dd>
 				</dl>
 			</section>
