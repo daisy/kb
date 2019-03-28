@@ -139,6 +139,13 @@
 							to provide the functionality using JavaScript. A script could be included in each document to
 							show/hide the numbers.</p>
 					</dd>
+					<dt>Should I use the <code>aria-label</code> or <code>title</code> attribute for the page number?</dt>
+					<dd>
+						<p>The use of <code>aria-label</code> is recommended when the page number is not included as text
+							content, but both attributes can be used. <code>aria-label</code> has higher precedence than
+							<code>title</code> in the <a href="https://www.w3.org/TR/accname-1.1/">accessible name computation
+								algorithm</a>.</p>
+					</dd>
 					<dt>Where do I put a page number when the page break occurs in the middle of a
 						list?</dt>
 					<dd><p>Lists often break across pages, with one item ending at the bottom of one and a new item starting
