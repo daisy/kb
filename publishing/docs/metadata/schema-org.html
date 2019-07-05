@@ -55,9 +55,9 @@
   &lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta>
   &lt;meta property="schema:accessibilityControl">fullMouseControl&lt;/meta>
   &lt;meta property="schema:accessibilityControl">fullTouchControl&lt;/meta>
-  &lt;meta property="schema:accessibilityHazard">noFlashing&lt;/meta>
-  &lt;meta property="schema:accessibilityHazard">noSound&lt;/meta>
-  &lt;meta property="schema:accessibilityHazard">noMotionSimulation&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noFlashingHazard&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noSoundHazard&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noMotionSimulationHazard&lt;/meta>
   …
 &lt;/metadata></code></pre>
 				</figure>
@@ -174,13 +174,13 @@
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
 							<dt>Package Document usage:</dt>
-							<dd><pre id="a11y-07-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual visual&lt;/meta>
+							<dd><pre id="a11y-07-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
 &lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
-							<dd><pre id="a11y-08-src" class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual visual"/>
+							<dd><pre id="a11y-08-src" class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual,visual"/>
 &lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
 							<dt>HTML usage: (microdata)</dt>
-							<dd><pre id="a11y-09-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual visual"/>
+							<dd><pre id="a11y-09-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual,visual"/>
 &lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre></dd>
 						</dl>
 					</dd>
