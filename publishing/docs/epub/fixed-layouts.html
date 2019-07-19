@@ -9,14 +9,21 @@
 				'appliesTo': ['EPUB3']
 			};
 		</script>
-		<script src="../../../js/init.js"></script>
+		<script src="/js/init.js"></script>
+		<style>
+			tr > td:first-child {
+				width: 33%;
+			}
+			hr {
+				margin: 4rem 0;
+			}
+		</style>
 	</head>
 	<body>
 		<main>
 			<section id="summary">
 				<h3>Summary</h3>
-
-				<p>Avoid fixed-layout publications as they are typically not possible to make accessible.</p>
+				<p>Avoid the use of fixed layouts when content has to be broadly accessible.</p>
 			</section>
 
 			<section id="desc">
@@ -24,22 +31,24 @@
 
 				<p>A fixed-layout publication is one where each page has a fixed size (height and width) and the content
 					is precisely laid out at specific locations. Fixed layouts are commonly created using images, but
-					can also be achieved through the use of absolute positioning with CSS. Fixed layouts are commonly
-					used to create comics, children's story books, cookooks and textbooks, but can be found in any
-					material trying to reproduce pixel-precise layouts.</p>
+					can also be achieved in HTML through the use of absolute positioning with CSS. They are typically
+					used to create comics, manga, children's story books, cookooks and textbooks, but can be found in
+					any material trying to reproduce pixel-precise layouts.</p>
 
 				<p>The use of fixed layouts presents a number of challenges for accessibility. The use of images, for
-					examples, typically limits access to the text. Similarly, changes to the default fonts and zooming
-					of a page can lead to excessive scrolling or text to be cut off entirely. Content spread across two
+					example, typically limits access to the text. Similarly, changes to the default fonts and zooming of
+					a page can lead to excessive scrolling or text to be cut off entirely. Content spread across two
 					pages can lose all meaning when only half the information is available at any given time.</p>
 
-				<p>This section does not attempt to provide solutions to these problems, as many of them can only be
+				<p>This document does not attempt to provide solutions to these problems, as many of them can only be
 					solved by designing content to reflow. It instead intends to serve as a reference to the various
 					issues that arise from fixed layouts as they pertain to meeting WCAG conformance requirements.</p>
 
 				<p>The following table identifies some of the most common level A and AA success criteria that fail due
 					to the use of fixed layouts.</p>
 
+				<hr/>
+				
 				<table>
 					<thead>
 						<tr>
