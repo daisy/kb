@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Schema.org Accessibility Metadata</title>
-		<script type="text/javascript">
+		<script>
 			var page_info = {
 				'topic': 'Metadata',
 				'appliesTo': ['EPUB3','EPUB2']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
-		<style type="text/css">
+		<script src="/js/init.js"></script>
+		<style>
 			section > dl > dt {
 				font-weight: bold;
 				font-size: 110%;
@@ -63,10 +63,23 @@
 				</figure>
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Embedded metadata (RDFa)</div>
+						<div class="label">Example 2 &#8212; Package Document metadata (EPUB 2)</div>
+						<p>The following is a partial rendering of <a href="#ex-01">Example 1</a> that shows
+							the slight different syntax used in the EPUB 2 package document (i.e., the use of
+							<code>name</code> and <code>content</code> attributes.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta name="schema:accessibilitySummary" content="This publication conforms to WCAG 2.0 Level AA."/>
+  &lt;meta name="schema:accessMode" content="textual"/>
+  …
+&lt;/metadata></code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Embedded metadata (RDFa)</div>
 						<p>Accessibility metadata that describes a single video is included within the body of an HTML document.</p>
 					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
+					<pre id="ex-03-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
   &lt;video controls="controls" src="croc.mp4"/>
   &lt;meta property="accessibilityFeature" content="captions"/>
   &lt;meta property="accessibilityFeature" content="transcript"/>
@@ -102,13 +115,17 @@
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-005">Include an accessibility summary</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd>
 								<pre id="a11y-01-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
    This publication conforms to the EPUB Accessibility specification 
    at WCAG Level A.
 &lt;/meta>
 </code></pre>
+							</dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd>
+								<pre id="a11y-01-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilitySummary" content="This publication conforms to the EPUB Accessibility specification at WCAG Level A."/></code></pre>
 							</dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd>
@@ -150,8 +167,10 @@
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-001">Identify primary access modes</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-04-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-04-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-05-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre></dd>
 							<dt>HTML usage: (microdata)</dt>
@@ -173,9 +192,12 @@
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-002">Identify sufficient access modes</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-07-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
 &lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-07-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessModeSufficient" content="textual,visual"/>
+&lt;meta name="schema:accessModeSufficient" content="textual"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-08-src" class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual,visual"/>
 &lt;meta property="accessModeSufficient" content="textual"/></code></pre></dd>
@@ -216,8 +238,10 @@
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-003">Identify accessibility features</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-10-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-10-e3-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature" content="captions"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-11-src" class="prettyprint linenums"><code>&lt;p>Video includes &lt;span 
 property="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
@@ -247,8 +271,10 @@ itemprop="accessibilityFeature">captions&lt;/span>.&lt;/p></code></pre></dd>
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-004">Identify accessibility hazards</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-13-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityHazard" content="flashing"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-14-src" class="prettyprint linenums"><code>&lt;p>&lt;strong>Warning&lt;/strong>: &lt;span
 property="accessibilityHazard">flashing&lt;/span> 
@@ -283,8 +309,10 @@ individuals.&lt;/p></code></pre></dd>
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-007">Identify Input Control Methods</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-16-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-16-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-17-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre></dd>
 							<dt>HTML usage: (microdata)</dt>
@@ -310,8 +338,10 @@ individuals.&lt;/p></code></pre></dd>
 							<a href="http://www.idpf.org/epub/a11y/techniques/#meta-006">Identify ARIA Conformance</a> in the
 							<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
 						<dl>
-							<dt>EPUB 3 Package Document usage:</dt>
+							<dt>EPUB 3 usage:</dt>
 							<dd><pre id="a11y-19-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta></code></pre></dd>
+							<dt>EPUB 2 usage:</dt>
+							<dd><pre id="a11y-19-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityAPI" content="ARIA"/></code></pre></dd>
 							<dt>HTML usage: (RDFa)</dt>
 							<dd><pre id="a11y-20-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityAPI" content="ARIA"/></code></pre></dd>
 							<dt>HTML usage: (microdata)</dt>
