@@ -15,18 +15,167 @@
 		<main>
 			<section id="summary">
 				<h3>Summary</h3>
-				<p></p>
+
+				<p>The <a href="https://www.idpf.org/epub/a11y">EPUB Accessibility specification</a> defines
+					discoverability requirements and accessibility conformance for EPUB publications.</p>
 			</section>
 
-			<section id="refs">
-				<h3>References</h3>
+			<section id="overview">
+				<h3>Overview</h3>
+
+				<p>As EPUB is built on Open Web Platform technologies, like HTML and CSS, the EPUB Accessibility
+					specification builds on the <a href="wcag.html">Web Content Accessibility Guidelines (WCAG)</a> to
+					define accessibility conformance for EPUB publications.</p>
+
+				<p>The primary advantage of this approach to accessibility is that it keeps EPUB aligned with the body
+					of work that has already been done to make web content accessible. It also immediately makes web
+					content accessibility specialists knowledgeable about the issues involved in ebook production. And,
+					more generally, it means that content creators seeking to discover how to make their publications
+					more accessible have a wealth of general resources available to them beyond this knowledge base.</p>
+
+				<p>But EPUB is also its own unique format, and WCAG is not a simple blanket set of practices that all
+					apply in every situation. The knowledge base aims to bridge this gap for EPUB content by focusing on
+					how to make rich publications that adhere to WCAG. Unlike the general web, where each site's design
+					often brings its own unique issues, books are more often composed of the same sets of building
+					blocks, making accessibility mappings useful to a broad range of publishers.</p>
+			</section>
+
+			<section id="conformance">
+				<h3>Conformance</h3>
+
+				<p>The EPUB Accessibility specification defines three key areas for conformance:</p>
+
+				<dl>
+					<dt>1. Discoverability</dt>
+					<dd>
+						<p>The <a href="http://www.idpf.org/epub/a11y/#sec-discovery">discovery section of the
+								specification</a> identifies <a href="https://www.w3.org/wiki/WebSchemas/Accessibility"
+								>schema.org accessibility metadata</a> that has to be included in the EPUB package
+							document.</p>
+
+						<p>It is required that all publications include the following:</p>
+
+						<ul>
+							<li>A summary describing their accessibility in human-readable language.</li>
+							<li>A list of all accessibility features.</li>
+							<li>The modes in which the content is expressed (e.g., textual, visual).</li>
+							<li>Any potential physical hazards the content might present (e.g., risk of seizure).</li>
+						</ul>
+
+						<p>A more complete overview of this metadata is provided in the <a>Schema.org Metadata</a>
+							section of this knowledge base.</p>
+
+						<p>The inculsion of this metadata allows EPUB publications to be self-descriptive about their
+							accessibility conformance, or lack thereof.</p>
+					</dd>
+
+					<dt>2. Accesibility</dt>
+					<dd>
+						<p>The <a href="http://www.idpf.org/epub/a11y/#sec-access-pub">accessibility section of the
+								specification</a> describes content conformance requirements. These requirements break
+							down into two sections:</p>
+						<dl>
+							<dt>WCAG Conformance</dt>
+							<dd>
+								<p>EPUB publications must meet <a href="wcag.html">WCAG</a> Level A or AA in order to
+									conform to the specification, with AA being the recommended conformance level.</p>
+							</dd>
+							<dt>EPUB-specific Conformance</dt>
+							<dd>
+								<p>The specification defines two conformance criteria that are currently specific to
+									EPUB: <a href="http://www.idpf.org/epub/a11y/#sec-page-nav">page navigation</a> and
+										<a href="http://www.idpf.org/epub/a11y/#sec-mo">synchronized media
+									playback</a>.</p>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt>3. Optimizations</dt>
+					<dd>
+						<p>A third section of the specification deals with "<a
+								href="http://www.idpf.org/epub/a11y/#sec-opt-pubs">optimized publications</a>". These
+							are publications that do not meet the WCAG definition of being widely accessible but that
+							are optimized for users with very specific needs. An example of this type of publication is
+							an audio book. Audio books are accessible for persons who are blind, for example, but not
+							for the deaf. Optimized publications are expected to conform to a standard for their target
+							audience, but the accessibility specification does not specify these standards (i.e., this
+							conformance is outside the scope of the specification).</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="reporting">
+				<h3>Reporting</h3>
+
+				<p>The accessibility specification defines the following <a
+						href="http://www.idpf.org/epub/a11y/#sec-conf-reporting">reporting metadata for EPUB
+						publications</a>:</p>
 
 				<ul>
-					<li>
-						<a href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-metadata-fxl">EPUB 3
-							Packages - Fixed Layout Properties</a>
-					</li>
+					<li>What version of the specification and what <a href="wcag.html">WCAG</a> level was met.</li>
+					<li>Who evaluated the publication.</li>
+					<li>What credentials the evaluator has, if any.</li>
+					<li>Where to find a more in-depth evaluation report.</li>
 				</ul>
+
+				<p>A complete listing of this metadata and how to use it is provided in the <a
+						href="../metadata/evaluation.html">Evaluation Metadata</a> section of this knowledge base.</p>
+			</section>
+
+			<section id="distribution">
+				<h3>Distribution</h3>
+
+				<p>The <a href="http://www.idpf.org/epub/a11y/#sec-distribution">distribution section of the
+						specification</a> dives into issues in the distribution chain that can limit the accessiblity of
+					a publication.</p>
+
+				<p>The most important of these issues is to not apply digital rights management schemes to a publication
+					that limit access to the content. When this occurs, a perfectly accessible publication might no
+					longer be readable at all if, for example, assistive technologies are prevented from reading out the
+					text.</p>
+
+				<p>The other requirement is to provide accessibility metadata in whatever format a vendor uses to ingest
+					the publication. It is common in trade publishing, for example, for ONIX records to be provided to
+					distributors, which is also where they will harvest metadata about the publication. If the ONIX
+					accessibility fields are not completed, users may lose the ability to search and discover the
+					accessibility properties.</p>
+			</section>
+
+			<section id="techniques">
+				<h3>Techniques</h3>
+
+				<p>The EPUB Accessibility was published together with a set of <a
+						href="http://www.idpf.org/epub/a11y/techniques/">advisory techniques</a> that explain how to
+					meet its requirements. The techniques do not delve into issues already covered by WCAG, but are
+					primarily limited to explaining how to understand WCAG's requirements where they might be confusing
+					when applied to EPUB publications.</p>
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt>What tools are available to check conformance?</dt>
+					<dd>
+						<p>The DAISY Consortium maintains two tools to help check conformance of EPUB publications:</p>
+						<dl>
+							<dt>
+								<a href="https://daisy.github.io/ace/">Ace</a>
+							</dt>
+							<dd>
+								<p>The Ace tool provides automated checking and reporting on a number of WCAG
+									requirements. Passing the Ace validation tool is not sufficient to claim conformance
+									to the specification, however, as not all WCAG requirements can be checked by
+									machine.</p>
+							</dd>
+							<dt>
+								<a href="https://smart.daisy.org">SMART</a>
+							</dt>
+							<dd>The SMART tool is a complement to the Ace tool that helps evaluators walk through all of
+								the manual checks needed to ensure conformance to the accessibility specification.</dd>
+						</dl>
+					</dd>
+				</dl>
 			</section>
 		</main>
 	</body>
