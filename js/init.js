@@ -100,14 +100,12 @@ KB.prototype.writeHeadTag = function (type, path, options) {
 		// generate a link tag for css references
 		tag = document.createElement('link');
 		tag.setAttribute('rel', 'stylesheet');
-		tag.setAttribute('type', 'text/css');
 		tag.setAttribute('href', path);
 	}
 	
 	else if (type == 'js') {
 		// generate a script tag for js references
 		tag = document.createElement('script');
-		tag.setAttribute('type', 'text/javascript');
 		tag.setAttribute('src', path);
 		
 		/* 
@@ -139,7 +137,6 @@ KB.prototype.writeGoogleAnalytics = function () {
 	this.writeHeadTag('js', 'https://www.googletagmanager.com/gtag/js?id=UA-327448-3', {async: 'async'});
 	
 	var ga = document.createElement('script');
-		ga.setAttribute('type', 'text/javascript');
 		ga.appendChild(document.createTextNode("\
 			window.dataLayer = window.dataLayer || [];\
 			function gtag(){dataLayer.push(arguments);}\
