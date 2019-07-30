@@ -36,7 +36,7 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>Enable interaction using roles, states and properties. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#ensure-compat-rsv">WCAG 4.1.2</a>]</span>
+					<li>Enable interaction using roles, states and properties. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#ensure-compat-rsv">WCAG 4.1.2</a>]</span>
 						<ul>
 							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA4.html">ARIA4: Using a WAI-ARIA role to expose the role of a user interface component</a></li>
 							<li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA2.html">ARIA2: Identifying a required field with the aria-required property</a></li>
@@ -108,7 +108,7 @@
     aria-disabled="true"
     tabindex="0"/>
 
-&lt;script type="text/javascript">
+&lt;script>
 &lt;![CDATA[
 function controlPlayback(action) {
 
@@ -122,7 +122,7 @@ function controlPlayback(action) {
            'controls/stop.png' : 
            'controls/stop-disabled.png';
   
-  var start = document.getElementById('audio-start');
+  var start = document.getElementById('start');
     start.setAttribute('aria-disabled', 
               !start.getAttribute('aria-disabled'));
     start.setAttribute('disabled', 
@@ -132,7 +132,7 @@ function controlPlayback(action) {
             function () { controlPlayback('start'); };
     start.setAttribute('src', start_image);
   
-  var stop = document.getElementById('audio-stop');
+  var stop = document.getElementById('stop');
     stop.setAttribute('aria-disabled', 
               !stop.getAttribute('aria-disabled'));
     stop.setAttribute('disabled', 
@@ -165,7 +165,7 @@ function controlPlayback(action) {
 						<img src="../../../graphics/stop-disabled.png" width="32" height="32" id="stop" alt="Stop"
 							role="button" aria-disabled="true" tabindex="0" />
 					</div>
-					<script type="text/javascript">
+					<script>
 						//<![CDATA[
 						function controlPlayback(action) {
 							
@@ -174,7 +174,7 @@ function controlPlayback(action) {
 							var start_image = isStart ? '../../../graphics/play-disabled.png': '../../../graphics/play.png';
 							var stop_image = isStart ? '../../../graphics/stop.png': '../../../graphics/stop-disabled.png';
 							
-							var start = document.getElementById('audio-start');
+							var start = document.getElementById('start');
 							start.setAttribute('aria-disabled', ! start.getAttribute('aria-disabled'));
 							start.setAttribute('disabled', ! start.getAttribute('disabled'));
 							start.onclick = isStart ? null: function () {
@@ -182,7 +182,7 @@ function controlPlayback(action) {
 							};
 							start.setAttribute('src', start_image);
 							
-							var stop = document.getElementById('audio-stop');
+							var stop = document.getElementById('stop');
 							stop.setAttribute('aria-disabled', ! stop.getAttribute('aria-disabled'));
 							stop.setAttribute('disabled', ! stop.getAttribute('disabled'));
 							stop.onclick = isStart ? function () {
