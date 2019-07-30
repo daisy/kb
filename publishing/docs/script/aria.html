@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>ARIA</title>
-		<script type="text/javascript">
+		<script>
 			var page_info = {
 				'topic': 'Scripting',
 				'appliesTo': ['EPUB3']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
-		<style type="text/css">
+		<script src="/js/init.js"></script>
+		<style>
 			div#sc015-ex01-controls{
 				margin-left: 5em;
 				padding: 0.2em;
@@ -236,9 +236,12 @@ function controlPlayback(action) {
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#radio">radio</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#radiogroup">radiogroup</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#scrollbar">scrollbar</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/roles#searchbox">searchbox</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/roles#separator">separator</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#slider">slider</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#spinbutton">spinbutton</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#status">status</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/roles#switch">switch</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#tab">tab</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#tablist">tablist</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/roles#tabpanel">tabpanel</a></li>
@@ -276,42 +279,57 @@ function controlPlayback(action) {
 						>aria-busy (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-checked" class="state-reference"
 						>aria-checked (state)</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-colcount">aria-colcount</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-colindex">aria-colindex</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-colspan">aria-colspan</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-controls">aria-controls</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-current">aria-current (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby"
 						>aria-describedby</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-details"
+						>aria-details</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled" class="state-reference"
 						>aria-disabled (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-dropeffect"
-						>aria-dropeffect</a></li>
+						>aria-dropeffect (state) [deprecated]</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-errormessage"
+						>aria-errormessage</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded" class="state-reference"
 						>aria-expanded (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-flowto">aria-flowto</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-grabbed" class="state-reference"
-						>aria-grabbed (state)</a></li>
+						>aria-grabbed (state) [deprecated]</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-haspopup">aria-haspopup</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-hidden" class="state-reference"
 						>aria-hidden (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-invalid" class="state-reference"
 						>aria-invalid (state)</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-keyshortcuts">aria-keyshortcuts</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-label">aria-label</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby"
 						>aria-labelledby</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-level">aria-level</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-live">aria-live</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-modal">aria-modal</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-multiline">aria-multiline</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-multiselectable"
 						>aria-multiselectable</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-orientation"
 						>aria-orientation</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-owns">aria-owns</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-placeholder">aria-placeholder</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset">aria-posinset</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed" class="state-reference"
 						>aria-pressed (state)</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-readonly">aria-readonly</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-relevant">aria-relevant</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-required">aria-required</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-rowcount">aria-rowcount</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-rowindex">aria-rowindex</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-rowspan">aria-rowspan</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected" class="state-reference"
 						>aria-selected (state)</a></li>
+					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-roledescription">aria-roledescription</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize">aria-setsize</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-sort">aria-sort</a></li>
 					<li><a href="http://www.w3.org/TR/wai-aria/states_and_properties#aria-valuemax">aria-valuemax</a></li>
