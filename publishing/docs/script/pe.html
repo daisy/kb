@@ -8,8 +8,16 @@
 				'appliesTo': ['EPUB3','EPUB2']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
-		<style type="text/css">
+		<script src="/js/init.js"></script>
+		<style>
+			@font-face{
+			    font-family: 'Bloody';
+			    src: url(/fonts/BLOODY.ttf) format('truetype');
+			    font-weight: normal;
+			    font-style: normal;
+			}
+			
+			
 			span#secret{
 				color: rgb(255, 0, 0);
 			}
@@ -20,7 +28,7 @@
 			}
 			
 			span.letter{
-				font-family: "Times New Roman";
+				font-family: "Bloody";
 				font-size: 240%;
 				font-weight: bold;
 				color: rgb(255, 0, 0);
@@ -66,11 +74,15 @@
 				</ul>
 			</section>
 
-<!--
 			<section id="ex">
 				<h3>Example</h3>
 				<figure>
-					<figcaption><span class="label">Example 1 &#8212; An enhanced link</span></figcaption>
+					<figcaption>
+						<span class="label">Example 1 &#8212; An enhanced link</span>
+						<p>In the following example, the secret code is only hidden and made activatable when scripting 
+							is available. Otherwise, the text will appear as part of the paragraph so that users can
+							read it regardless of scripting support.</p>
+					</figcaption>
 					<pre class="prettyprint linenums small"><code>&lt;p>
    The &lt;span id="code">secret code&lt;/span> 
    &lt;span id="secret">D E A D M A N&lt;/span> had to be
@@ -150,7 +162,7 @@
 					<p> The <span id="code">secret code</span>
 						<span id="secret">D E A D M A N</span> had to be spelled out to gain passage to the pirates' lair. </p>
 					<div id="revealed" aria-live="assertive"></div>
-					<script type="text/javascript">
+					<script>
 						//<![CDATA[
 						var code = document.getElementById('code');
 						code.style.color = 'rgb(0,0,200)';
@@ -186,7 +198,6 @@
 					</script>
 				</figure>
 			</section>
--->
 
 			<section id="desc">
 				<h3>Explanation</h3>
