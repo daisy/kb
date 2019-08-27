@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Forms</title>
-		<script type="text/javascript">
+		<script>
 			var page_info = {
 				'topic': 'HTML',
 				'description': 'Guidelines for the creation of accessible forms.',
 				'appliesTo': ['EPUB3','EPUB2']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
+		<script src="/js/init.js"></script>
 	</head>
 	
 	<body>
@@ -94,7 +94,7 @@
 &lt;input type="text"
       id="uname"
       name="username"
-      aria-describedby="username-req" />
+      aria-describedby="req" />
 
 &lt;span id="req">
    User names must be between 8 and 16 characters in 
@@ -107,7 +107,7 @@
 				<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input type="text"
       id="uname"
       name="username"
-      aria-describedby="username-req"
+      aria-describedby="req"
       required="required"
       aria-required="true"/></code></pre>
 
@@ -141,7 +141,7 @@ else {
 					attached whenever using <code>pattern</code> validation to explain the requirement. A username field
 					could restrict the number and type of characters as follows:</p>
 
-				<pre id="ex-05-src" class="prettyprint linenums small"><code>&lt;input type="text"
+				<pre id="ex-06-src" class="prettyprint linenums small"><code>&lt;input type="text"
       id="uname"
       name="username"
       aria-labelledby="username-label"
