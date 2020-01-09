@@ -230,7 +230,18 @@
 						<p>The <code>body</code> element has the special role <code>document</code> which cannot be
 							overridden by any other role. For more information about the implicit roles of HTML
 							elements, refer to the <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
-							document. </p>
+							document.</p>
+					</dd>
+					<dt>What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
+					<dd>
+						<p>ARIA landmarks are compiled for individual web pages, so they do not persist from one
+							document to the next. As EPUB publications consist of many documents, reading systems need
+							an effective way to locate key content across the entire publication. EPUB's <a
+								href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-nav-landmarks"
+								>landmarks (EPUB 3)</a> and <a
+								href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">guide</a> (EPUB 2)
+							were designed to solve this problem of landmarks spread across many documents.</p>
+						<p>For maximum interoperability, it is recommended to provide both types of landmarks.</p>
 					</dd>
 				</dl>
 			</section>
