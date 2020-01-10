@@ -36,6 +36,10 @@
 								href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG
 								1.3.1</a>]</span>
 						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6.html">Using aria-label to
+									provide labels for objects</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9.html">Using aria-labelledby
+									to concatenate a label from several text nodes</a></li>
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13.html">Using
 									aria-labelledby to name regions and landmarks</a></li>
 						</ul>
@@ -53,10 +57,10 @@
 							attribute (the value is the ID of the element containing the label, in this case the
 								<code>h2</code>).</p>
 					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;aside role="doc-endnotes" aria-labelledby="note_hd">
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-endnotes" aria-labelledby="note_hd">
     &lt;h2 id="note_hd">End Notes&lt;/h2>
     &#8230;
-&lt;/aside>
+&lt;/section>
 </code></pre>
 				</figure>
 
@@ -81,6 +85,22 @@
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="Chapter 21">
     &lt;p>I awoke to find &#8230;&lt;/p>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Landmark without a unique label</div>
+						<p>The following landmark does not have a unique label (i.e., there is more than one of the same
+							landmark in the document with the same title). To differentiate the landmark, a sequential
+							number is provided for AT using the <code>hidden</code> attribute (hidden text is used in
+							computing the name). Ideally, each landmark would be given a visible sequence number for the
+							benefit of all users.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2">
+    &lt;h4 id="pp2">Practice Problem &lt;span hidden="">2&lt;/span>&lt;/h4>
     &#8230;
 &lt;/section>
 </code></pre>
@@ -158,13 +178,44 @@
 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-prologue">doc-prologue</a>
 					</li>
 				</ul>
+				<br />
+
+				<p>In addition, the following roles in the core ARIA specification are landmarks:</p>
+
+				<ul class="multicol">
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#banner">banner</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#complementary">complementary</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#contentinfo">contentinfo</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#form">form</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#main">main</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#navigation">navigation</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#region">region</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#search">search</a>
+					</li>
+				</ul>
+				<br />
 			</section>
 
 			<section id="faq">
 				<h3>Frequently Asked Questions</h3>
 
-				<dl>
-					<dt>Does every chapter/section need to be a landmark?</dt>
+				<dl class="faq">
+					<dt id="faq01">Does every chapter/section need to be a landmark?</dt>
 					<dd>
 						<p>Landmarks should not be used as an alternative table of contents as the heading structure of
 							the document is not preserved. Try to limit the use of landmarks to the components within
@@ -175,64 +226,16 @@
 							already available to do so. Only identify the major section(s) of content within a document,
 							if necessary (i.e., the chapters or top-level sections, not every subsection).</p>
 					</dd>
-					<dt>Why does <code>aside</code> require a label but not <code>section</code>?</dt>
-					<dd>
-						<p>Due to the general misuse of <code>section</code> element like its a <code>div</code>, the
-							element does not have a default role.</p>
-
-						<p>As a result, the following examples <strong>is not a landmark</strong>, even though there is
-							a heading:</p>
-
-						<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;section>
-    &lt;h2>Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
-    &#8230;
-&lt;/section>
-</code></pre>
-						<p>If you assign a label to the element, however, it assumes the role of <code>region</code> and
-							becomes a landmark:</p>
-
-
-						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311">
-    &lt;h2 id="s311">Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
-    &#8230;
-&lt;/section>
-</code></pre>
-
-						<p>The <code>aside</code> element</p>
-					</dd>
-					<dt>Why should landmark names need to be unique?</dt>
+					<dt id="faq02">Why should landmark names be unique?</dt>
 					<dd>
 						<p>When there is more than one type of the same landmark in a document, providing unique names
-							avoids confusion about which particular one is being accessed. Ideally, the titles of each
-							component will make clear the purpose of each, but if the same name is reused for each
-							(e.g., multiple "practice problem" sidebars), a unique identifier would improve the
-							usability. The identifier should be something helpful, such as the subsection the component
-							belongs to or the page it is found on in a print addition</p>
+							avoids confusion about which particular one is being accessed. Ideally, the title of each
+							component will make clear its purpose, but if the same name is reused for each (e.g.,
+							multiple "practice problem" sidebars), a unique identifier would improve the usability. The
+							identifier should be something helpful, such as the subsection the component belongs to or
+							the page it is found on in a print addition.</p>
 					</dd>
-					<dt>Should I use the <code>title</code> attribute or <code>aria-label</code>?</dt>
-					<dd>
-						<p>If a label is not available in the text, preference should always be given to the
-								<code>aria-label</code> attribute. It is given higher precedence in the calculation of
-							accessible names for elements and controls and <code>title</code> has a history of poor
-							support.</p>
-					</dd>
-					<dt>Why can't I use the <code>landmark</code> role?</dt>
-					<dd>
-						<p>The <code>landmark</code> role is what the WAI-ARIA specification refers to as an <a
-								href="https://www.w3.org/TR/wai-aria/#abstract_roles">abstract role</a>. It is not meant
-							to be implemented directly, but used as the top-level definition from which the roles you
-							can use inherit.</p>
-						<p>For landmarks without a specific role, the <code>region</code> role can be used with an
-							meaningful label.</p>
-					</dd>
-					<dt>Why can't I use landmarks on the <code>body</code> element?</dt>
-					<dd>
-						<p>The <code>body</code> element has the special role <code>document</code> which cannot be
-							overridden by any other role. For more information about the implicit roles of HTML
-							elements, refer to the <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
-							document.</p>
-					</dd>
-					<dt>What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
+					<dt id="faq03">What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
 					<dd>
 						<p>ARIA landmarks are compiled for individual web pages, so they do not persist from one
 							document to the next. As EPUB publications consist of many documents, reading systems need
@@ -242,6 +245,61 @@
 								href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">guide</a> (EPUB 2)
 							were designed to solve this problem of landmarks spread across many documents.</p>
 						<p>For maximum interoperability, it is recommended to provide both types of landmarks.</p>
+					</dd>
+					<dt id="faq04">Should I use the <code>title</code> attribute or <code>aria-label</code>?</dt>
+					<dd>
+						<p>If a label is not available in the text, preference should always be given to the
+								<code>aria-label</code> attribute. It is given higher precedence in the calculation of
+							accessible names for elements and controls and <code>title</code> has a history of poor
+							support.</p>
+					</dd>
+					<dt id="faq05">Why can't I use the <code>landmark</code> role?</dt>
+					<dd>
+						<p>The <code>landmark</code> role is what the WAI-ARIA specification refers to as an <a
+								href="https://www.w3.org/TR/wai-aria/#abstract_roles">abstract role</a>. It is not meant
+							to be implemented directly, but used as the top-level definition from which the roles you
+							can use inherit.</p>
+						<p>For landmarks without a specific role, the <code>region</code> role can be used with an
+							meaningful label.</p>
+					</dd>
+					<dt id="faq06">Why does <code>aside</code> require a label but not <code>section</code>?</dt>
+					<dd>
+						<p>Due to the general misuse of <code>section</code> element like its a <code>div</code>, the
+							element does not have a default role.</p>
+
+						<p>As a result, the following example <strong>is not a landmark</strong>, even though there is a
+							heading:</p>
+
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section>
+    &lt;h2>Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+						<p>If you assign a label to the element, however, it assumes the role of <code>region</code> and
+							becomes a landmark:</p>
+
+
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311">
+    &lt;h2 id="s311">Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+
+						<p>Conversely, the <code>aside</code> element has the implicit role of
+								<code>complementary</code> so requires a label. For more information about the implicit
+							roles of HTML elements, refer to the <a href="https://www.w3.org/TR/html-aria/">ARIA in
+								HTML</a> document.</p>
+					</dd>
+					<dt id="faq07">Why can't I use landmarks on element X?</dt>
+					<dd>
+						<p>Some HTML elements are restricted in what roles they accept to prevent overriding necessary
+							semantics.</p>
+
+						<p>In particular, the <code>body</code> element has the special role <code>document</code> which
+							cannot be overridden by any other role.</p>
+
+						<p>Complete information about what roles are allowed on what elements is provided in the <a
+								href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document.</p>
 					</dd>
 				</dl>
 			</section>
