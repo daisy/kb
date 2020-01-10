@@ -95,12 +95,14 @@
 						<div class="label">Example 4 &#8212; Landmark without a unique label</div>
 						<p>The following landmark does not have a unique label (i.e., there is more than one of the same
 							landmark in the document with the same title). To differentiate the landmark, a sequential
-							number is provided for AT using the <code>hidden</code> attribute (hidden text is used in
-							computing the name). Ideally, each landmark would be given a visible sequence number for the
-							benefit of all users.</p>
+							number is provided for AT using the <code>hidden</code> attribute. Because this element is
+							hidden, it also needs to be referenced from the <code>aria-labelledby</code> attribute
+							(i.e., hidden descendant content is ignored, so an explicit reference is needed to capture
+							the number). Ideally, each landmark would be given a visible sequence number for the benefit
+							of all users.</p>
 					</figcaption>
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2">
-    &lt;h4 id="pp2">Practice Problem &lt;span hidden="">2&lt;/span>&lt;/h4>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2 pp2-num">
+    &lt;h4 id="pp2">Practice Problem &lt;span id="pp2-num" hidden="">2&lt;/span>&lt;/h4>
     &#8230;
 &lt;/section>
 </code></pre>
