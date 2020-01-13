@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Digital Publishing Roles</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guide to using the DPUB-ARIA roles module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>The Digital Publishing WAI-ARIA module (DPUB-ARIA) provides a set of publishing-specific roles for
+					use with the <a href="roles.html">ARIA <code>role</code> attribute</a>.</p>
+			</section>
+
+			<section id="roles">
+				<h3>Roles</h3>
+
+				<dl>
+					<dt>
+						<code>doc-abstract</code>
+					</dt>
+					<dd>A short summary of the principle ideas, concepts and conclusions of the work, or of a section or
+						excerpt within it.</dd>
+					<dt>
+						<code>doc-acknowledgments</code>
+					</dt>
+					<dd>A section or statement that acknowledges significant contributions by persons, organizations,
+						governments and other entities to the realization of the work.</dd>
+					<dt>
+						<code>doc-afterword</code>
+					</dt>
+					<dd>A closing statement from the author or a person of importance, typically providing insight into
+						how the content came to be written, its significance, or related events that have transpired
+						since its timeline.</dd>
+					<dt>
+						<code>doc-appendix</code>
+					</dt>
+					<dd>A section of supplemental information located after the primary content that informs the content
+						but is not central to it.</dd>
+					<dt>
+						<code>doc-backlink</code>
+					</dt>
+					<dd>A link that allows the user to return to a related location in the content (e.g., from a
+						footnote to its reference or from a glossary definition to where a term is used).</dd>
+					<dt>
+						<code>doc-biblioentry</code>
+					</dt>
+					<dd>A single reference to an external source in a bibliography. A biblioentry typically provides
+						more detailed information than its reference(s) in the content (e.g., full title, author(s),
+						publisher, publication date, etc.).</dd>
+					<dt>
+						<code>doc-bibliography</code>
+					</dt>
+					<dd>A list of external references cited in the work, which may be to print or digital sources.</dd>
+					<dt>
+						<code>doc-biblioref</code>
+					</dt>
+					<dd>A reference to a bibliography entry.</dd>
+					<dt>
+						<code>doc-chapter</code>
+					</dt>
+					<dd>A major thematic section of content in a work.</dd>
+					<dt>
+						<code>doc-colophon</code>
+					</dt>
+					<dd>A short section of production notes particular to the edition (e.g., describing the typeface
+						used), often located at the end of a work.</dd>
+					<dt>
+						<code>doc-conclusion</code>
+					</dt>
+					<dd>A concluding section or statement that summarizes the work or wraps up the narrative.</dd>
+					<dt>
+						<code>doc-cover</code>
+					</dt>
+					<dd>An image that sets the mood or tone for the work and typically includes the title and
+						author.</dd>
+					<dt>
+						<code>doc-credit</code>
+					</dt>
+					<dd>An acknowledgment of the source of integrated content from third-party sources, such as photos.
+						Typically identifies the creator, copyright and any restrictions on reuse.</dd>
+					<dt>
+						<code>doc-credits</code>
+					</dt>
+					<dd>A collection of credits.</dd>
+					<dt>
+						<code>doc-dedication</code>
+					</dt>
+					<dd>An inscription at the front of the work, typically addressed in tribute to one or more persons
+						close to the author.</dd>
+					<dt>
+						<code>doc-endnote</code>
+					</dt>
+					<dd>One of a collection of notes that occur at the end of a work, or a section within it, that
+						provides additional context to a referenced passage of text.</dd>
+					<dt>
+						<code>doc-endnotes</code>
+					</dt>
+					<dd>A collection of notes at the end of a work or a section within it.</dd>
+					<dt>
+						<code>doc-epigraph</code>
+					</dt>
+					<dd>A quotation set at the start of the work or a section that establishes the theme or sets the
+						mood.</dd>
+					<dt>
+						<code>doc-epilogue</code>
+					</dt>
+					<dd>A concluding section of narrative that wraps up or comments on the actions and events of the
+						work, typically from a future perspective.</dd>
+					<dt>
+						<code>doc-errata</code>
+					</dt>
+					<dd>A set of corrections discovered after initial publication of the work, sometimes referred to as
+						corrigenda.</dd>
+					<dt>
+						<code>doc-example</code>
+					</dt>
+					<dd>An illustratration of a key concept of the work, such as a code listing, case study or
+						problem.</dd>
+					<dt>
+						<code>doc-footnote</code>
+					</dt>
+					<dd>Ancillary information, such as a citation or commentary, that provides additional context to a
+						referenced passage of text.</dd>
+					<dt>
+						<code>doc-foreword</code>
+					</dt>
+					<dd>An introductory section that precedes the work, typically not written by the author of the
+						work.</dd>
+					<dt>
+						<code>doc-glossary</code>
+					</dt>
+					<dd>A brief dictionary of new, uncommon or specialized terms used in the content.</dd>
+					<dt>
+						<code>doc-glossref</code>
+					</dt>
+					<dd>A reference to a glossary definition.</dd>
+					<dt>
+						<code>doc-index</code>
+					</dt>
+					<dd>A navigational aid that provides a detailed list of links to key subjects, names and other
+						important topics covered in the work.</dd>
+					<dt>
+						<code>doc-introduction</code>
+					</dt>
+					<dd>A preliminary section that typically introduces the scope or nature of the work.</dd>
+					<dt>
+						<code>doc-noteref</code>
+					</dt>
+					<dd>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in
+						the main body of text.</dd>
+					<dt>
+						<code>doc-notice</code>
+					</dt>
+					<dd>Notifies the user of consequences that might arise from an action or event. Examples include
+						warnings, cautions and dangers.</dd>
+					<dt>
+						<code>doc-pagebreak</code>
+					</dt>
+					<dd>A separator denoting the position before which a break occurs between two contiguous pages in a
+						statically paginated version of the content.</dd>
+					<dt>
+						<code>doc-pagelist</code>
+					</dt>
+					<dd>A navigational aid that provides a list of links to the pagebreaks in the content.</dd>
+					<dt>
+						<code>doc-part</code>
+					</dt>
+					<dd>A major structural division in a work that contains a set of related sections dealing with a
+						particular subject, narrative arc or similar encapsulated theme.</dd>
+					<dt>
+						<code>doc-preface</code>
+					</dt>
+					<dd>An introductory section that precedes the work, typically written by the author of the
+						work.</dd>
+					<dt>
+						<code>doc-prologue</code>
+					</dt>
+					<dd>An introductory section that sets the background to a work, typically part of the
+						narrative.</dd>
+					<dt>
+						<code>doc-pullquote</code>
+					</dt>
+					<dd>A distinctively placed or highlighted quotation from the current content designed to draw
+						attention to a topic or highlight a key point.</dd>
+					<dt>
+						<code>doc-qna</code>
+					</dt>
+					<dd>A section of content structured as a series of questions and answers, such as an interview or
+						list of frequently asked questions.</dd>
+					<dt>
+						<code>doc-subtitle</code>
+					</dt>
+					<dd>An explanatory or alternate title for the work, or a section or component within it.</dd>
+					<dt>
+						<code>doc-tip</code>
+					</dt>
+					<dd>Helpful information that clarifies some aspect of the content or assists in its
+						comprehension.</dd>
+					<dt>
+						<code>doc-toc</code>
+					</dt>
+					<dd>A navigational aid that provides an ordered list of links to the major sectional headings in the
+						content. A table of contents may cover an entire work, or only a smaller section of it.</dd>
+				</dl>
+
+				<figure id="ex-01">
+					<dl>
+						<dt id="ex01-cover">Cover</dt>
+						<dd>
+							<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;img role="doc-cover" class="cover-img" src="cover.jpg" alt="Cover Image"/></code></pre>
+						</dd>
+						<dt id="ex01-preface">Preface</dt>
+						<dd>
+							<pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;section role="doc-preface" aria-label="Preface">
+   &lt;p>When I first put pen to paper &#8230;&lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-foreword">Foreword</dt>
+						<dd>
+							<pre id="ex-01b-src" class="prettyprint linenums small"><code>&lt;section role="doc-foreword" aria-labelledby="hd01">
+   &lt;h2 id="hd01">Foreword&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-glossary">Glossary</dt>
+						<dd>
+							<pre id="ex-01h-src" class="prettyprint linenums small"><code>&lt;dl role="doc-glossary">
+   &#8230;
+&lt;/dl></code></pre>
+						</dd>
+						<dt id="ex01-bibliography">Bibliography</dt>
+						<dd>
+							<pre id="ex-01i-src" class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="hd05">
+   &lt;h2 id="hd05">Select Bibliography&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+						<dt id="ex01-index">Index</dt>
+						<dd>
+							<pre id="ex-01j-src" class="prettyprint linenums small"><code>&lt;section role="doc-index" aria-labelledby="hd06">
+   &lt;h2 id="hd06">Name Index&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						</dd>
+					</dl>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p></p>
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt>Should I include backup roles?</dt>
+					<dd>
+						<p>As assistive technology support for the DPUB ARIA roles is still a work in progress, it is
+							possible the roles will not always be recognized. To handle this scenario, it is possible to
+							include a second, fallback role from the ARIA specification. Although not perfect
+							substitutes, backup roles will ensure that the functionality of the role is not lost.</p>
+
+						<figure id="faq-ex-01">
+							<figcaption>
+								<p>The following example shows how the <code>listitem</code> role can be used as a
+									fallback for the DPUB ARIA <code>doc-endnote</code> role.</p>
+							</figcaption>
+							<pre id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-endnote listitem"></code></pre>
+						</figure>
+
+						<p>Whether a fallback role is necessary depends on the semantics of the underlying element. In
+							the <a href="faq-ex-01">preceding example</a>, using the fallback role <code>listitem</code>
+							ensures that when <code>div</code> elements are used for endnotes, they will still be
+							represented as a list by assistive technologies.</p>
+
+						<p>If the <code>doc-endnote</code> role had been used on an <code>li</code> element, however,
+							there would not be the same need for a fallback, as the list nature is not lost if the role
+							is not recognized.</p>
+					</dd>
+
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA Module</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
