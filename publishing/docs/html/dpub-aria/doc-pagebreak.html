@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-pagebreak</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-pagebreak role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A separator denoting the position before which a break occurs between two contiguous
+					pages in a statically paginated version of the content.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Pagebreak using <code>hr</code> element</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;hr id="pg004" role="doc-pagebreak" aria-label="4"></code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Pagebreak with explicit number</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;div id="pg032" role="doc-pagebreak">32&lt;/div></code></pre>
+				</figure>
+
+				<figure id="ex-003">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Pagebreak inline in a paragraph</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-003-src" class="prettyprint linenums small"><code>&lt;p> &#8230; the &lt;span id="pg159" role="doc-pagebreak" aria-label="159"/>
+   interregnum period was characterized by &#8230;&lt;/p></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-pagebreak</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#separator">separator role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-pagebreak</code> is typically used on <code>hr</code>, <code>div</code> and
+						<code>span</code> elements. The page number must be clearly expressed either in an
+						<code>aria-label</code> attribute or as the text content of the element. While using a prefix
+					like "page" or "pg" is common in the id for the element, do not include such prefixes in the label
+					(i.e., the label should only include a number unless the source also includes a prefix).</p>
+
+				<details>
+					<summary>List of all elements allowed on</summary>
+					<ul class="multicol">
+						<li>a (without an href attribute)</li>
+						<li>abbr</li>
+						<li>address</li>
+						<li>b</li>
+						<li>bdi</li>
+						<li>bdo</li>
+						<li>blockquote</li>
+						<li>br</li>
+						<li>canvas</li>
+						<li>cite</li>
+						<li>code</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>div</li>
+						<li>em</li>
+						<li>hr</li>
+						<li>i</li>
+						<li>img (with alt text)</li>
+						<li>ins</li>
+						<li>kbd</li>
+						<li>mark</li>
+						<li>output</li>
+						<li>p</li>
+						<li>pre</li>
+						<li>q</li>
+						<li>rp</li>
+						<li>rt</li>
+						<li>ruby</li>
+						<li>s</li>
+						<li>samp</li>
+						<li>small</li>
+						<li>span</li>
+						<li>strong</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>table</li>
+						<li>tbody</li>
+						<li>td</li>
+						<li>tfoot</li>
+						<li>thead</li>
+						<li>th</li>
+						<li>tr</li>
+						<li>time</li>
+						<li>u</li>
+						<li>var</li>
+						<li>wbr</li>
+					</ul>
+					<br />
+				</details>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagebreak">DPUB-ARIA &#8212;
+								<code>doc-pagebreak</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

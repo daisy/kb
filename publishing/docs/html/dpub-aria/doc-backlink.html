@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-backlink</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-backlink role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A link that allows the user to return to a related location in the content (e.g., from a
+					footnote to its reference or from a glossary definition to where a term is used).</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Backlink to a note's reference</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p role="doc-endnote">
+   1. The first of three instances is the last to end up in &#8230;
+   &lt;a href="s01.html#fnref-01" role="doc-backlink">[note 1 reference]&lt;/a>
+&lt;/p></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-baclink</code> inherits its semantics from the a <a
+					href="https://www.w3.org/TR/wai-aria/#link">link role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-backlink</code> is typically used on <code>a</code> elements.</p>
+				
+				<details>
+					<summary>List of all elements allowed on</summary>
+					<ul class="multicol">
+						<li>a</li>
+						<li>abbr</li>
+						<li>address</li>
+						<li>b</li>
+						<li>bdi</li>
+						<li>bdo</li>
+						<li>blockquote</li>
+						<li>br</li>
+						<li>canvas</li>
+						<li>cite</li>
+						<li>code</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>div</li>
+						<li>em</li>
+						<li>i</li>
+						<li>img (with alt text)</li>
+						<li>ins</li>
+						<li>kbd</li>
+						<li>mark</li>
+						<li>output</li>
+						<li>p</li>
+						<li>pre</li>
+						<li>q</li>
+						<li>rp</li>
+						<li>rt</li>
+						<li>ruby</li>
+						<li>s</li>
+						<li>samp</li>
+						<li>small</li>
+						<li>span</li>
+						<li>strong</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>table</li>
+						<li>tbody</li>
+						<li>td</li>
+						<li>tfoot</li>
+						<li>thead</li>
+						<li>th</li>
+						<li>tr</li>
+						<li>time</li>
+						<li>u</li>
+						<li>var</li>
+						<li>wbr</li>
+					</ul>
+					<br />
+				</details>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-backlink">DPUB-ARIA &#8212;
+								<code>doc-backlink</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

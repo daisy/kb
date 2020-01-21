@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-pullquote</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-pullquote role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A distinctively placed or highlighted quotation from the current content designed to
+					draw attention to a topic or highlight a key point.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Pullquote identified in the text</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p>With a deafening crack, 
+   &lt;span role="doc-pullquote presentation" id="pq01">a
+   cornice broke free high above, unleashing a massive 
+   avalanche&lt;/span>. &#8230; &lt;/p></code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Pullquote duplicated from the text</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;blockquote role="doc-pullquote presentation" aria-hidden="true">
+   there are few things as important as toast
+&lt;/blockquote></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-pullquote</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#none">none role</a> (i.e., it is presentational).</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p>The role is typically used on <code>span</code> elements when the pullquote is tagged within the
+					content of the publication (i.e., the text will be extracted and formatted later by script to make
+					the presentational pullquote).</p>
+
+				<p><code>doc-pullquote</code> is typically used on <code>blockquote</code>, <code>aside</code> and
+						<code>div</code> elements when the quote is duplicated in a separate element. The addition of an
+						<code>aria-hidden</code> attribute in these cases prevents the content from being read again to
+					users of assistive technologies. A future version of ARIA is expected to introduce a new role for
+					repeated content such as pullquotes that will allow them to be ignored by default but still be
+					accessed by users interested in skimming the quotes.</p>
+
+				<p><strong>Note:</strong> the ARIA 1.1 specification currently advises adding the backup role of
+						<code>presentation</code> until support for <code>none</code> becomes more prevalent. As
+						<code>doc-pullquote</code> inherits from <code>none</code>, the same advice applies for this
+					role.</p>
+
+				<details>
+					<summary>List of all elements allowed on</summary>
+					<ul class="multicol">
+						<li>a (without an href attribute)</li>
+						<li>abbr</li>
+						<li>address</li>
+						<li>aside</li>
+						<li>b</li>
+						<li>bdi</li>
+						<li>bdo</li>
+						<li>blockquote</li>
+						<li>br</li>
+						<li>canvas</li>
+						<li>cite</li>
+						<li>code</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>div</li>
+						<li>em</li>
+						<li>i</li>
+						<li>img (with alt text)</li>
+						<li>ins</li>
+						<li>kbd</li>
+						<li>mark</li>
+						<li>output</li>
+						<li>p</li>
+						<li>pre</li>
+						<li>q</li>
+						<li>rp</li>
+						<li>rt</li>
+						<li>ruby</li>
+						<li>s</li>
+						<li>samp</li>
+						<li>section</li>
+						<li>small</li>
+						<li>span</li>
+						<li>strong</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>table</li>
+						<li>tbody</li>
+						<li>td</li>
+						<li>tfoot</li>
+						<li>thead</li>
+						<li>th</li>
+						<li>tr</li>
+						<li>time</li>
+						<li>u</li>
+						<li>var</li>
+						<li>wbr</li>
+					</ul>
+					<br />
+				</details>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pullquote">DPUB-ARIA &#8212;
+								<code>doc-pullquote</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

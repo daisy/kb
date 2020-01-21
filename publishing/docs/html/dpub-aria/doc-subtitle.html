@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-subtitle</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-subtitle role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">An explanatory or alternate title for the work, or a section or component within it.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Subtitle in a header</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;header>
+   &lt;h2>Section 1 &#8212; Applied Metaphysics&lt;/h2>
+   &lt;p role="doc-subtitle">Who makes up this stuff?&lt;/p>
+   &#8230;
+&lt;/header></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-subtitle</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#sectionhead">sectionhead role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-subtitle</code> is typically used on <code>p</code> and <code>div</code> elements. For more
+					information on authoring subtitles, see the section <a
+						href="https://www.w3.org/TR/html51/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines"
+						>Subheadings, subtitles, alternative titles and taglines</a> in the HTML 5.1 specification.</p>
+
+				<details>
+					<summary>List of all elements allowed on</summary>
+					<ul class="multicol">
+						<li>a (without an href attribute)</li>
+						<li>abbr</li>
+						<li>address</li>
+						<li>b</li>
+						<li>bdi</li>
+						<li>bdo</li>
+						<li>blockquote</li>
+						<li>br</li>
+						<li>canvas</li>
+						<li>cite</li>
+						<li>code</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>div</li>
+						<li>em</li>
+						<li>h1-h6</li>
+						<li>i</li>
+						<li>img (with alt text)</li>
+						<li>ins</li>
+						<li>kbd</li>
+						<li>mark</li>
+						<li>output</li>
+						<li>p</li>
+						<li>pre</li>
+						<li>q</li>
+						<li>rp</li>
+						<li>rt</li>
+						<li>ruby</li>
+						<li>s</li>
+						<li>samp</li>
+						<li>small</li>
+						<li>span</li>
+						<li>strong</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>table</li>
+						<li>tbody</li>
+						<li>td</li>
+						<li>tfoot</li>
+						<li>thead</li>
+						<li>th</li>
+						<li>tr</li>
+						<li>time</li>
+						<li>u</li>
+						<li>var</li>
+						<li>wbr</li>
+					</ul>
+					<br />
+				</details>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-subtitle">DPUB-ARIA &#8212;
+								<code>doc-subtitle</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

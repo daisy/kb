@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-endnote</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-endnote role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section aria-label="usage">
+				<p>Use of the <code>doc-endnote</code> role is <strong>not recommended</strong> as recent
+					updates to the ARIA specification have resulted in it no longer being compatible with ARIA's
+					core list role requirements (i.e., <code>list</code> must only contain <code>listitem</code>
+					roles). A future version of the DPUB-ARIA module is expected to deprecate this role.</p>
+				
+				<p>If an endnotes section does not use a list to represent its entries, the core
+					<code>list</code> and <code>listitem</code> roles should be used instead:</p>
+				
+				<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="endnotes" aria-labelledby="note-hd">
+   &lt;h2 id="note-hd">Notes&lt;/h2>
+   
+   &lt;div role="list">
+      &lt;p id="n001" role="listitem">1. In the far reaches of space &#8230;&lt;/p>
+      &#8230;
+   &lt;/div>
+&lt;/section></code></pre>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote">DPUB-ARIA &#8212;
+							<code>doc-endnote</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

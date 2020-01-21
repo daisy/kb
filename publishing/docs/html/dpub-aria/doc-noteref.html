@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>doc-noteref</title>
+		<script>
+			var page_info = {
+				'topic': 'DPUB-ARIA',
+				'description': 'The doc-noteref role from the WAI-ARIA Digital Publishing module.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A reference to a footnote or endnote, typically appearing as a superscripted number or
+					symbol in the main body of text.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Reference to a footnote</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p> &#8230; as exhibited in the work of Prof.
+   Farnsworth.&lt;a role="doc-noteref" href="#fn-01" class="sup">1&lt;/a>
+&lt;/p>
+&lt;aside id="fn-01" role="doc-footnote">
+   &lt;p>1. The Fing-Longer is one of the &#8230;&lt;/p>
+&lt;/aside></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-noteref</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#link">link role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-noteref</code> is typically used on <code>a</code> elements.</p>
+
+				<details>
+					<summary>List of all elements allowed on</summary>
+					<ul class="multicol">
+						<li>a</li>
+						<li>abbr</li>
+						<li>address</li>
+						<li>b</li>
+						<li>bdi</li>
+						<li>bdo</li>
+						<li>blockquote</li>
+						<li>br</li>
+						<li>canvas</li>
+						<li>cite</li>
+						<li>code</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>div</li>
+						<li>em</li>
+						<li>i</li>
+						<li>img (with alt text)</li>
+						<li>ins</li>
+						<li>kbd</li>
+						<li>mark</li>
+						<li>output</li>
+						<li>p</li>
+						<li>pre</li>
+						<li>q</li>
+						<li>rp</li>
+						<li>rt</li>
+						<li>ruby</li>
+						<li>s</li>
+						<li>samp</li>
+						<li>small</li>
+						<li>span</li>
+						<li>strong</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>table</li>
+						<li>tbody</li>
+						<li>td</li>
+						<li>tfoot</li>
+						<li>thead</li>
+						<li>th</li>
+						<li>tr</li>
+						<li>time</li>
+						<li>u</li>
+						<li>var</li>
+						<li>wbr</li>
+					</ul>
+					<br />
+				</details>
+			</section>
+			<section id="ref">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-noteref">DPUB-ARIA &#8212;
+								<code>doc-noteref</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
