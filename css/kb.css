@@ -391,6 +391,23 @@ p.switch {
 	margin-left: 1.8em;
 }
 
+p.desc {
+	font-style: italic;
+}
+
+#roles code {
+	background-color: inherit;
+	border: none;
+	font-weight: bold;
+	color: rgb(0, 0, 120);
+}
+#roles code {
+	font-weight: normal;
+	color: rgb(0, 0, 0);
+	font-size: 1.4rem;
+	padding: 0;
+}
+
 /* general directionality */
 .center {
 	text-align: center;
