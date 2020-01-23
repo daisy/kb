@@ -21,14 +21,14 @@
 					provides an additional set of publishing-specific roles for use with the <a href="roles.html">ARIA
 							<code>role</code> attribute</a>.</p>
 
-				<p>The publishing roles are intended to improve the usability of publications both by providing AT with
-					additional information about important structures and by ensuring that common publishing markup
-					idioms are accessible.</p>
+				<p>The publishing roles are intended to improve the usability of publications both by providing
+					assistive technologies (AT) with additional information about important structures and by ensuring
+					that common publishing markup idioms are accessible.</p>
 
 				<p>The roles are not intended as a mechanism for workflow semantics so do not provide the same breadth
 					of coverage as, for example, the <a href="https://idpf.github.io/epub-vocabs/structure/">EPUB
 						Structural Semantics vocabulary</a>. Care needs to be taken both with the number of roles used
-					and the manner in which they are used, as incorrect use will actually impair the ability of users to
+					and the manner in which they are used, as incorrect use can impair the ability of users to
 					accessibly consume a publication.</p>
 			</section>
 
@@ -165,51 +165,52 @@
 				<dl class="faq">
 					<dt id="faq01">What are implicit roles and why do they matter?</dt>
 					<dd>
-						<p>Many HTML elements have default accessibility semantics so don't require a an explicit role.
-							The <code>nav</code> element, for example, has the implicit role <code>navigation</code>, as
-							you might expect. Similarly, the <code>aside</code> element has the implicit role
-								<code>complementary</code>. For the complete list of elements and their implicit roles,
-							please see the <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document.</p>
+						<p>Many HTML elements have default accessibility semantics so do not require a an explicit role.
+							The <code>nav</code> element, for example, has the implicit role <code>navigation</code>.
+							Similarly, the <code>aside</code> element has the implicit role <code>complementary</code>.
+							(For the complete list of elements and their implicit roles, please see the <a
+								href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document.)</p>
 
-						<p>A feature of these implicit roles is that if an assigned role is not recognized, AT are
-							expected to ignore the unknown role and default to the implicit. This ensures that AT can
-							still make sense of the document when encountering, for example, new roles they are not
-							aware of.</p>
+						<p>A feature of these implicit roles is that if an assigned role is not recognized, assistive
+							technologies are expected to ignore the unknown role and default to the implicit. This
+							ensures that assistive technologies can still make sense of the document when encountering,
+							for example, new roles they are not aware of.</p>
 
-						<p>To avoid problems with AT not recognizing the DPUB ARIA roles, it is recommended that when an
-							element has an implicit role you ensure that the role you are using has the same ancestor
-							role (e.g., use navigation roles with the <code>nav</code> element).</p>
+						<p>To avoid problems with assistive technologies not recognizing the DPUB ARIA roles, it is
+							recommended that when an element has an implicit role you ensure that the role you are using
+							has the same ancestor role (e.g., use navigation roles with the <code>nav</code>
+							element).</p>
 
-						<p>This issue will diminish as support for the module gains traction now that is a formal
-							specification. It also is imperfect, as there have been reports that implicit roles are not
-							always recognized.</p>
+						<p>This issue will diminish as support for the DPUB ARIA module gains traction. The solution is
+							also imperfect, as there have been reports that implicit roles are not always
+							recognized.</p>
 					</dd>
 					<dt id="faq02">When should I include fallback roles?</dt>
 					<dd>
 						<p>When an HTML element does not have an implicit role (e.g., <code>span</code> and
 								<code>div</code>), it is recommended to include a fallback role from the <a
 								href="https://www.w3.org/TR/wai-aria/">core ARIA specification</a> for whichever role
-							you are using from the DPUB ARIA module. This ensures that even if the DPUB semantic is not
-							yet understood by the AT, it will still understand the purpose of the role.</p>
+							you are using from the DPUB ARIA module. This ensures that even if the DPUB role is not yet
+							understood by an assistive technology, it will still understand the general purpose of the
+							role.</p>
 
 						<p>The <code>role</code> attribute accepts multiple roles separated by spaces, so the ARIA
 							fallback role can be added after the DPUB ARIA role.</p>
 
 						<figure id="faq-ex-01">
 							<figcaption>
-								<p>The following example shows how the <code>listitem</code> role can be used as a
-									fallback for the DPUB ARIA <code>doc-endnote</code> role so that it is still
-									recognized as a list item.</p>
+								<p><strong>Example</strong>: The <code>note</code> role can be used as a fallback for
+									the DPUB ARIA <code>doc-tip</code> role.</p>
 							</figcaption>
-							<pre role="doc-example" id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-endnote listitem"></code></pre>
+							<pre role="doc-example" id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-tip note"></code></pre>
 						</figure>
 
-						<p>The order of roles is important, so do no add the ARIA role before the DPUB role or the DPUB
-							role will never be recognized.</p>
+						<p>The order of roles is important so do not add ARIA roles before the DPUB roles or the DPUB
+							roles will never be recognized.</p>
 
 						<p>Similar to the issue of <a href="#faq01">matching implied semantics</a>, the need for
-							fallback semantics will also diminish with time. The use of fallback semantics is also known
-							to be imperfect, as the fallbacks are not recognized in all cases.</p>
+							fallback semantics will diminish with time. The use of fallback semantics is also known to
+							be imperfect, as the fallbacks are not recognized in all cases.</p>
 					</dd>
 
 					<dt>Why shouldn't every section of a publication be a landmark?</dt>
@@ -225,14 +226,14 @@
 							section).</p>
 					</dd>
 
-					<dd>Why isn't there a role for every semantic in the EPUB Structural Semantic vocabulary?</dd>
+					<dt>Why isn't there a role for every semantic in the EPUB Structural Semantic vocabulary?</dt>
 					<dd>
 						<p>The EPUB Structural Semantic vocabulary was designed primarily to provide semantics for
-							publishers' internal workflows. It was hoped at the time that the attribute would be able to
-							serve a dual purpose of providing accessibility mappings for useful roles, but this hope
-							never materialized into a workable solution. Assistive technologies are not aware of the
+							publishers' internal workflows. It was hoped that the attribute would be able to serve a
+							dual purpose of providing accessibility mappings for useful roles, but this hope never
+							materialized into a workable solution. Assistive technologies are not aware of the
 								<code>epub:type</code> attribute and there is no interest in trying to reconcile it with
-							the existing ARIA solution.</p>
+							the existing ARIA roles.</p>
 
 						<p>The result is that the EPUB vocabulary contains far more semantics than will ever be
 							necessary to improve the actual usability of publications. Implementing all of the semantics
