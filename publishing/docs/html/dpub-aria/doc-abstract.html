@@ -24,8 +24,7 @@
 
 				<figure id="ex-001">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Abstract with a heading</div>
-						<p>The label is identified in the <code>aria-labelledby</code> attribute.</p>
+						<div class="label">Example 1 &#8212; Abstract paragraph within an article</div>
 					</figcaption>
 					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;article aria-labelledby="hd">
    &lt;h2 id="hd">Deoxyribonucleic Acid Self-Replication&lt;/h2>
@@ -36,13 +35,13 @@
 
 				<figure id="ex-002">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Abstract without heading</div>
+						<div class="label">Example 2 &#8212; Multi-paragraph abstract</div>
 						<p>A label is provided for the abstact in the <code>aria-label</code> attribute.</p>
 					</figcaption>
-					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;section role="doc-abstract" aria-label="abstract">
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;div role="doc-abstract" aria-label="abstract">
    &lt;p>This paper examines the effects of &#8230;&lt;/p>
    &#8230;
-&lt;/section></code></pre>
+&lt;/div></code></pre>
 				</figure>
 			</section>
 
@@ -57,9 +56,9 @@
 			<section id="usage">
 				<h3>Usage</h3>
 
-				<p><code>doc-abstract</code> is typically used on <code>section</code> and <code>div</code> elements
-					when it consists of more than one paragraph, but can be used on a <code>p</code> tag when the
-					abstract is a single paragraph.</p>
+				<p><code>doc-abstract</code> is typically used on <code>div</code> elements when it consists of more
+					than one paragraph, but can be used on a <code>p</code> tag when the abstract is a single
+					paragraph.</p>
 
 				<details>
 					<summary>List of all elements allowed on</summary>
