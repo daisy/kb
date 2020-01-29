@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Glossary</title>
+		<script>
+			var page_info = {
+				'topic': 'Glossary',
+				'isIndex': true,
+				'description': 'Glossary of terms used in the publishing knowledge base',
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="terms" aria-labelledby="gloss-hd">
+				<h3 id="gloss-hd">Terms</h3>
+
+				<section>
+					<h4>A</h4>
+					<dl>
+						<dt id="at">Assistive Technology (AT)</dt>
+						<dd>
+							<p>An assistive technology, in the context of EPUB 3, is either a device or software program
+								capable of rendering content in ways that facilitate reading by persons with
+								disabilities. An assistive technology may be fully integrated into the reading system
+								(an accessible reading system) or may work in conjunction with hardware and software to
+								provide a reading experience better tailored to the reader's preferred modality (e.g.,
+								screen-reading software, content zooming technologies and refreshable braille
+								displays).</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>C</h4>
+					<dl>
+						<dt id="author">Content Author (or Author)</dt>
+						<dd>
+							<p>The person or organization directly responsible for creating an EPUB publication and
+								ensuring the quality and accessibility of the final product.</p>
+						</dd>
+						<dt id="provider">Content Provider</dt>
+						<dd>
+							<p>The organization directly responsible for providing EPUB content to readers, whether
+								through an online bookstore, corporate Web site, library lending program or
+								otherwise.</p>
+						</dd>
+						<dt id="cmt">Core Media Type</dt>
+						<dd>
+							<p>A content format that all EPUB reading systems must support to ensure interoperability of
+								content across devices. All compliant devices are required to be able to process XHTML5
+								and SVG documents, MP3 and MP4 audio, a variety of common image formats, etc. For a
+								complete list, see <a
+									href="http://idpf.org/epub3/latest/publications#sec-core-media-types">Section
+									5.1</a> of the EPUB Publications 3.0.1 specification.</p>
+							<p>An EPUB publication can contain other content formats, but must provide a fallback that
+								is in one of the supported Core Media Types.</p>
+						</dd>
+						<dt id="css">CSS (Cascading Style Sheets)</dt>
+						<dd>
+							<p>The Cascading Style Sheet language is used to control the rendering of content on reading
+								systems with a visual display screen, but does provide capabilities for rendering in
+								other media such as braille and aural.</p>
+						</dd>
+						<dt id="css-viewport">CSS Viewport</dt>
+						<dd>
+							<p>A screen on a reading system capable of visually rendering the EPUB using the defined CSS
+								styles.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>D</h4>
+					<dl>
+						<dt id="daisy">DAISY (Digital Accessible Information System)</dt>
+						<dd>
+							<p>The DAISY Consortium is an organization that has been advocating for accessible
+								publishing practices, and that has developed a talking book format specially designed to
+								enable reading by readers with print disabilities. The functionality provided in the
+								ANSI/NISO Z39.86 standard maintained by the Consortium has been fully integrated in EPUB
+								3.</p>
+						</dd>
+						<dt id="diagram">DIAGRAM (Digital Image and Graphic Resources for Accessible Materials)</dt>
+						<dd>
+							<p>The DIAGRAM project seeks to make image and graphic content more accessible by defining a
+								content model for writing descriptions and including alternate representations. More
+								information can be found at the <a href="http://www.diagramcenter.org">DIAGRAM Center
+									Web site</a>.</p>
+						</dd>
+						<dt id="dom">DOM (Document Object Model)</dt>
+						<dd>
+							<p>The document object model is how the markup content you create gets internalized by a
+								processing agent such as a reading system or browser. Instead of tags and attributes,
+								the DOM is typically likened to a tree full of branches, where each branch represents
+								the parent/child relationships of the document.</p>
+							<p>When talking about how reading system and assistive technologies interact with content,
+								it is more appropriate to relate behaviors to the DOM, since the DOM is not necessarily
+								an exact representation of the originating content (e.g., a reading system may
+								standardize the HTML markup as it process a document or an assistive technology may
+								enahnce the information to facilitate rendering and interaction).</p>
+						</dd>
+
+					</dl>
+				</section>
+
+				<section>
+					<h4>E</h4>
+					<dl>
+						<dt id="ebook">ebook</dt>
+						<dd>
+							<p>Any book produced in an electronic format is an ebook. Ebooks may be in EPUB, Microsoft
+								Word, PDF, text, MOBI or a wide variety of other formats.</p>
+						</dd>
+						<dt id="escapable">Escapable</dt>
+						<dd>
+							<p>The ability for non-visual readers to leave the current structure that is being read and
+								continue reading at the next logical spot. Readers will often not want to listen to
+								entire tables and lists being read out, but will expect the reading system to provide a
+								means to jumping out from them at any point.</p>
+						</dd>
+						<dt id="epub">EPUB</dt>
+						<dd>EPUB is the ebook format maintained by the <a href="#idpf">IDPF</a>.</dd>
+						<dt id="container">EPUB Container (or Container)</dt>
+						<dd>
+							<p>The container is the ZIP file format and metadata used to bundle all the resources that
+								make up an EPUB for distribution (the .epub file that readers receive when they purchase
+								or otherwise obtain the publication). The container format is defined in the <a
+									href="http://idpf.org/epub3/latest/ocf">EPUB Open Container Format (OCF) 3.0.1</a>
+								specification.</p>
+						</dd>
+						<dt id="contentdoc">EPUB Content Document</dt>
+						<dd>
+							<p>EPUB content documents are what get rendered to readers. They can be in either XHTML5 or
+								SVG. Other formats may also be included, but a fallback in one of these two formats is
+								required by the <a href="#cmt">core media type</a> restrictions.</p>
+						</dd>
+						<dt id="nav">EPUB Navigation Document</dt>
+						<dd>
+							<p>The EPUB navigation document provides structural navigation for readers. The document is
+								designed to be rendered by reading systems for navigation purposes (i.e., the table of
+								contents option offered by the reading system itself), but by using the XHTML5 grammar
+								the documents can also be embedded as table of contents within the publication
+								itself.</p>
+						</dd>
+						<dt id="pub">EPUB Publication (or Publication)</dt>
+						<dd>
+							<p>An EPUB publication is the </p>
+						</dd>
+						<dt id="rs">EPUB Reading System (or Reading System)</dt>
+						<dd>
+							<p>An EPUB reading system is a device capable of rendering an EPUB. A reading system may be
+								a single dedicated device or it could be a combination of hardware and software and
+								assistive technology. An iPad on its own is not a reading system, for example, but when
+								iBooks is run on it the hardware and software constitute a reading system. Discussions
+								about accessible reading systems are complicated by the wide variety of interplay that
+								is possible between devices and software.</p>
+						</dd>
+						<dt id="epubcss">EPUB Style Sheet (or Style Sheet)</dt>
+						<dd>
+							<p>The CSS styles that reading systems are expected to support. These are defined in <a
+									href="http://idpf.org/epub3/latest/contentdocs#sec-css">Section 3</a> of tbe EPUB
+								Content Documents 3.0 specification.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>F</h4>
+					<dl>
+						<dt id="foreign">Foreign Resource</dt>
+						<dd>
+							<p>Foreign resources are the opposite of <a href="#cmt">core media types</a>: resources that
+								are not supported by all EPUB reading systems so require fallbacks. Foreign does not
+								mean that these resources can be hosted outside the <a href="#container"
+								>container</a>.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>H</h4>
+					<dl>
+						<dt id="outline">HTML5 Outlining Algorithm</dt>
+						<dd>
+							<p>A new algorithm defined in HTML5 for creating a document outline from the headings used
+								in a document. Unless enclosed in an <code>hgroup</code> tag, each heading defines a new
+								section, regardless of whether the author explicitly included section tags or not.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>I</h4>
+					<dl>
+						<dt id="idpf">IDPF (International Digital Publishing Forum)</dt>
+						<dd>
+							<p>The International Digital Publishing Forum (IDPF) is the global trade and standards
+								organization dedicated to the development and promotion of electronic publishing and
+								content consumption.</p>
+							<p>The work of the IDPF promotes the development of electronic publishing applications and
+								products that will benefit creators of content, makers of reading systems, and
+								consumers. The IDPF develops and maintains the EPUB content publication standard that
+								enables the creation and transport of reflowable digital books and other types of
+								content as digital publications that are interoperable between disparate EPUB-compliant
+								reading devices and applications.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>M</h4>
+					<dl>
+						<dt id="manifest">Manifest</dt>
+						<dd>
+							<p>The manifest is the section of the package document that lists all the resources in the
+								EPUB.</p>
+						</dd>
+						<dt id="mathml">MathML</dt>
+						<dd>
+							<p>A markup grammar for tagging mathmatical equations, enabling both their visual rendering
+								and voicing for more accurate and accessible comprehension.</p>
+						</dd>
+						<dt id="mathspeak">MathSpeak</dt>
+						<dd>
+							<p><a href="http://www.gh-mathspeak.com/">MathSpeak</a> is natural language grammar for
+								voicing MathML elements.</p>
+						</dd>
+						<dt id="overlay">Media Overlay Document</dt>
+						<dd>
+							<p>Media overlays define the sequence of text/audio synchronization points used to traverse
+								the documents in a publication. When the reader turns on playback, the reading system
+								uses these documents to resynchronize the visual display with the audio playback.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>N</h4>
+					<dl>
+						<dt id="ncx">NCX (Navigation Control file for XML Applications)</dt>
+						<dd>
+							<p>The EPUB 2.0 equivalent of the EPUB navigation document. Although no longer a part of
+								EPUB 3, NCX documents can be included to enable forwards-compatibility in older reading
+								systems that may not recognize all of EPUB 3 but are able to render most of the XHTML
+								content.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>O</h4>
+					<dl>
+						<dt id="ocf">OCF</dt>
+						<dd>
+							<p>OCF is another name for the <a href="#container">EPUB container</a>.</p>
+						</dd>
+						<dt id="oebps">OEBPS</dt>
+						<dd>
+							<p>OEBPS stands for Open EBook Publication Structure, which was the precursor specification
+								to EPUB 2.0. This acronym was often found used as the directory name where EPUB 2.0
+								content was stored in the container, but was never required and is not recommended
+								moving forward.</p>
+						</dd>
+						<dt id="ops">OPS</dt>
+						<dd>
+							<p>OPS stands for Open Publication Structure. This specification has been renamed to EPUB
+								Publications 3.0. Similar to <a href="#oebps">OEBPS</a>, OPS was often used as the
+								directory name where EPUB 2.0 content was stored.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>P</h4>
+					<dl>
+						<dt id="package">Package Document</dt>
+						<dd>
+							<p>The package document is an XML file that contains metadata about the publication, the
+								resource list (<a href="#manifest">manifest</a>) and the spine.</p>
+						</dd>
+						<dt id="opf">Package File (or OPF file)</dt>
+						<dd>
+							<p>The package document was called the package file in EPUB 2.0. It is still often referred
+								to as the OPF file because of the name of the specification it was defined in in EPUB
+								2.0 (the Open Packaging Format).</p>
+						</dd>
+						<dt id="pubres">Publication Resource</dt>
+						<dd>
+							<p>A resource that is required in order to render the publication. Most publication
+								resources are bundled in the container, but some &#8212; like audio and video &#8212;
+								can be hosted on the Web.</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>R</h4>
+					<dl>
+						<dt id="reader">Reader</dt>
+						<dd>
+							<p>The person who consumes an EPUB.</p>
+						</dd>
+						<dt id="remoteres">Remote Resource</dt>
+						<dd>
+							<p>A publication resource that is not included in the container. Audio and video resources
+								are allowed to be housed on the Web because of their potential size. Resources
+								referenced in package document <code>link</code> elements can also live outside the
+								contianer (e.g., metadata records).</p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>S</h4>
+					<dl>
+						<dt>Semantic Inflection</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>Scripted Content Document</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>Skippable</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>SMIL</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>Spine</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>SVG</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>SVG Content Document</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>SVG Viewport</dt>
+						<dd>
+							<p></p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>T</h4>
+					<dl>
+						<dt>Text-to-Speech (TTS)</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>Top-level Content Document</dt>
+						<dd>
+							<p></p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>V</h4>
+					<dl>
+						<dt>Viewport</dt>
+						<dd>
+							<p></p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>W</h4>
+					<dl>
+						<dt>WAI-ARIA (Web Accessibility Initiative &#8211; Accessible Rich Internet Applications)</dt>
+						<dd>
+							<p></p>
+						</dd>
+						<dt>WCAG (Web Content Accessibility Guidelines)</dt>
+						<dd>
+							<p></p>
+						</dd>
+					</dl>
+				</section>
+
+				<section>
+					<h4>X</h4>
+					<dl>
+						<dt>XHTML Content Document</dt>
+						<dd>
+							<p></p>
+						</dd>
+					</dl>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
