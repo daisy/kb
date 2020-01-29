@@ -51,6 +51,11 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
+		
+		if (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic')) {
+			this.writeHeadTag('css', '/css/primary-nav.css');
+		}
+		
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeHeadTag('js', '/js/jquery172min.js');
 		this.writeGoogleAnalytics();
