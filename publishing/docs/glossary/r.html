@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>R</title>
+		<script>
+			var page_info = {
+				'isIndex': true,
+				'topic': 'Glossary',
+				'description': 'Glossary of terms starting with the letter R'
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="reader">
+						<dfn>Reader</dfn>
+					</dt>
+					<dd>
+						<p>The person who consumes an EPUB.</p>
+
+						<p>Not to be confused with a <a role="doc-glossref" href="#rs">reading system</a>, which is the
+							application used to read a publication.</p>
+					</dd>
+
+					<dt id="rs">
+						<dfn>Reading System</dfn>
+					</dt>
+					<dd>
+						<p>Reading system is a term commonly used with EPUB to describe the application that a user uses
+							to read their digital publication.</p>
+
+						<p>An EPUB reading system is a device capable of rendering an EPUB. A reading system may be a
+							single dedicated device or it could be a combination of hardware and software and assistive
+							technology. An iPad on its own is not a reading system, for example, but when iBooks is run
+							on it the hardware and software constitute a reading system. Discussions about accessible
+							reading systems are complicated by the wide variety of interplay that is possible between
+							devices and software.</p>
+					</dd>
+
+					<dt id="remoteres">
+						<dfn>Remote Resource</dfn>
+					</dt>
+					<dd>
+						<p>A publication resource that is not included in the container. Audio and video resources are
+							allowed to be housed on the Web because of their potential size. Resources referenced in
+							package document <code>link</code> elements can also live outside the contianer (e.g.,
+							metadata records).</p>
+					</dd>
+
+					<dt id="rendition">
+						<dfn>Rendition</dfn>
+					</dt>
+					<dd>
+						<p>A rendition of a publication is one presentation of its content.</p>
+
+						<p>All publications consist of one default presentation, but it is technically possible for more
+							than one presentation to be bundled together. For example, a digital publication could have
+							separate English and French versions, or a fixed layout and reflowable version for readers
+							to choose from. EPUB 2 even allows alternative formats, such as a PDF version of the
+							content, to be bundled inside the <a role="doc-glossref" href="c.html#container"
+								>container</a>.</p>
+
+						<p>A publication that, for example, has both English and French versions together in a single
+							presentation is not a multiple rendition publication. Each rendition has to be unique
+							&#8212; in EPUB, this means that each has its own <a role="doc-glossref"
+								href="p.html#package">package document</a>.</p>
+
+						<p>In practice, however, renditions are more theoretical than practical at this time. A means of
+							selecting between possible renditions was developed for EPUB 3, but has never gained any
+							traction either with publishers or <a role="doc-glossref" href="#rs">reading system</a>
+							developers.</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

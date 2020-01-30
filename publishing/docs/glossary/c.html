@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>C</title>
+		<script>
+			var page_info = {
+				'isIndex': true,
+				'topic': 'Glossary',
+				'description': 'Glossary of terms starting with the letter C'
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="container">
+						<dfn>Container</dfn>
+					</dt>
+					<dd>
+						<p>Digital publications are made up of many different files: HTML documents, images, <a
+								href="#css">CSS files</a> and scripts, among others. In order to simplify their
+							distribution, they are all bundled together in a single container file.</p>
+
+						<p>EPUB, for example, uses ZIP for its container format. EPUB files can be opened by any ZIP
+							tools, an operation that is made even easier by changing their extension from
+								<code>.epub</code> to <code>.zip</code> (i.e., most computer operating systems have
+							built-in tools to open files with <code>.zip</code> extensions).</p>
+
+						<p>Another common name for the EPUB container file is the "OCF file" or "OCF Container", as the
+							requirements for zipping the content files together is defined in the <a
+								href="http://idpf.org/epub3/latest/ocf">EPUB Open Container Format (OCF)</a>
+							specification.</p>
+					</dd>
+					<dt id="provider">
+						<dfn>Content Provider</dfn>
+					</dt>
+					<dd>
+						<p>The organization directly responsible for providing EPUB content to readers, whether through
+							an online bookstore, corporate Web site, library lending program or otherwise.</p>
+					</dd>
+
+					<dt id="cmt">
+						<dfn>Core Media Type</dfn>
+					</dt>
+					<dd>
+						<p>A <a href="#media-type">media type</a> that all <a role="doc-glossref" href="#rs">reading
+								systems</a> must support to ensure interoperability of content. For example, EPUB 3
+							requires reading systems be able to render XHTML5 and SVG documents, MP3 and MP4 audio, a
+							variety of image formats, etc. Therefore, these are all core media types of EPUB 3.</p>
+
+						<p>If the media type of a resource is not core, it is considered a <a href="#foreign-resource"
+								>foreign resource</a>.</p>
+					</dd>
+
+					<dt id="css">
+						<dfn>
+							<abbr title="Cascading Style Sheets">CSS</abbr>
+						</dfn>
+					</dt>
+					<dd>
+						<p>The Cascading Style Sheet language is used to control the rendering of content on reading
+							systems with a visual display screen, but does provide capabilities for rendering in other
+							media such as braille and aural.</p>
+					</dd>
+
+					<dt id="css-viewport">
+						<dfn>CSS Viewport</dfn>
+					</dt>
+					<dd>
+						<p>A screen on a reading system capable of visually rendering the EPUB using the defined CSS
+							styles.</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

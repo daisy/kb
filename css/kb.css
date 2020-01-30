@@ -511,7 +511,7 @@ pre li {
 }
 
 
- * /* annotations */
+/* annotations */
 
 ruby {
 	text-decoration: underline;
@@ -523,6 +523,24 @@ rt {
 }
 
 
+/* glossary */
+
+.glossary dt {
+	font-family: 'Raleway',Helvetica,Arial,sans-serif;
+	font-size: 2rem;
+	color: rgb(0,0,180);
+	margin-top: 3rem;
+}
+
+a[role='doc-glossref'] {
+	color: rgb(90,90,90);
+	border-bottom: 0.1rem dotted rgb(90,90,90);
+}
+
+a[role='doc-glossref']:hover {
+	color: rgb(180,0,0);
+	border-bottom: 0.1rem dotted rgb(180,0,0);
+}
 
 
 q {
