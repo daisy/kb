@@ -13,30 +13,81 @@
 	</head>
 	<body>
 		<main id="roles">
-			<section aria-label="usage">
-				<p>Use of the <code>doc-endnote</code> role is <strong>not recommended</strong> as recent
-					updates to the ARIA specification have resulted in it no longer being compatible with ARIA's
-					core list role requirements (i.e., <code>list</code> must only contain <code>listitem</code>
-					roles). A future version of the DPUB-ARIA module is expected to deprecate this role.</p>
-				
-				<p>If an endnotes section does not use a list to represent its entries, the core
-					<code>list</code> and <code>listitem</code> roles should be used instead:</p>
-				
-				<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="endnotes" aria-labelledby="note-hd">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">One of a collection of notes that occur at the end of a work, or a section within it,
+					that provides additional context to a referenced passage of text.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Explicit list of endnotes</div>
+						<p>This example uses an <code>ol</code> list element to express the list.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="note-hd">
+   &lt;h2 id="note-hd">Notes&lt;/h2>
+   
+   &lt;ol>
+      &lt;li id="n001">
+         &lt;p role="doc-endnote">1. In the far reaches of space &#8230;&lt;/p>
+      &lt;/li>
+      &#8230;
+   &lt;/ol>
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Implied list of endnotes</div>
+						<p>This example defines a list using the ARIA <code>list</code> and <code>listitem</code>
+							roles.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="note-hd">
    &lt;h2 id="note-hd">Notes&lt;/h2>
    
    &lt;div role="list">
-      &lt;p id="n001" role="listitem">1. In the far reaches of space &#8230;&lt;/p>
+      &lt;div role="listitem" id="n001">
+         &lt;p role="doc-endnote">1. In the far reaches of space &#8230;&lt;/p>
+      &lt;/div>
       &#8230;
    &lt;/div>
 &lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-endnote</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#listitem">listitem role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p>Use of the <code>doc-endnote</code> role is <strong>not recommended</strong> on list item elements as
+					defined in the DPUB-ARIA specification. The role is not compatible with changes to ARIA's
+					inheritance model (i.e., <code>list</code> must only contain <code>listitem</code> roles) and has to
+					be changed in a future version.</p>
+
+				<p>To use the role in a list, insert it on an element inside the list item, as displayed in <a
+						href="#ex-001">Example 1</a> above.</p>
+
+				<p>If an endnotes section does not use a list to represent its entries, the core <code>list</code> and
+						<code>listitem</code> roles should be used instead. (See <a href="#ex-002">Example 2</a>).</p>
 			</section>
 			<section id="ref">
 				<h3>References</h3>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote">DPUB-ARIA &#8212;
-							<code>doc-endnote</code></a>
+								<code>doc-endnote</code></a>
 					</li>
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
