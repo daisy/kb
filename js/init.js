@@ -52,7 +52,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
-		if (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic')) {
+		if (this.isRootIndex || (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic'))) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
