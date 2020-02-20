@@ -15,34 +15,90 @@
 		<main>
 			<section aria-label="Terms">
 				<dl class="glossary">
-					<dt id="daisy">DAISY (Digital Accessible Information System)</dt>
+					<dt id="daisy">
+						<dfn>DAISY Consortium</dfn>
+					</dt>
 					<dd>
-						<p>The DAISY Consortium is an organization that has been advocating for accessible
-							publishing practices, and that has developed a talking book format specially designed to
-							enable reading by readers with print disabilities. The functionality provided in the
-							ANSI/NISO Z39.86 standard maintained by the Consortium has been fully integrated in EPUB
-							3.</p>
+						<p>The DAISY Consortium is a global consortium of organizations committed to the common vision
+							of ensuring that that information and knowledge is accessible to all. The Consortium's
+							mission is to develop global solutions for accessible publishing and reading. (See the <a
+								href="https://daisy.org/about-us/governance/vision-mission/">DAISY Consortium's Vision
+								and Mission</a> for more information.)</p>
+
+						<p>The DAISY Consortium has played a key role in the development of <a role="doc-glossref"
+								href="e.html#epub">EPUB</a> &#8212; not only in the authoring of the standard itself,
+							but also in the development of major projects such as the <a role="doc-glossref"
+								href="e.html#epubcheck">epubcheck validation tool</a>, the <a role="doc-glossref"
+								href="a.html#ace">Ace accessibility checker</a>, <a role="doc-glossref" href="r.html#rs"
+								>reading system</a> accessibility reviews, and development of best practices.</p>
 					</dd>
-					
-					<dt id="diagram">DIAGRAM (Digital Image and Graphic Resources for Accessible Materials)</dt>
+
+					<dt id="dtb" class="alt-term">
+						<dfn>DAISY Digital Talking Books</dfn>
+					</dt>
+					<dt id="daisy-format">
+						<dfn>DAISY Format</dfn>
+					</dt>
 					<dd>
-						<p>The DIAGRAM project seeks to make image and graphic content more accessible by defining a
-							content model for writing descriptions and including alternate representations. More
-							information can be found at the <a href="http://www.diagramcenter.org">DIAGRAM Center
-								Web site</a>.</p>
+						<p>The <a role="doc-glossref" href="#daisy">DAISY Consortium</a> was originally formed to
+							develop a talking book standard for readers with print disabilities. Two versions of the
+							format, <a href="https://daisy.org/activities/standards/daisy/daisy-2/">DAISY 2</a> (built
+							on <a role="doc-glossref" href="x.html#xhtml">XHTML</a> and <a role="doc-glossref"
+								href="s.html#smil">SMIL</a>) and <a
+								href="https://daisy.org/activities/standards/daisy/daisy-3/">DAISY 3</a> (built on a
+							custom XML grammar and SMIL), are still widely produced.</p>
+
+						<p>The DAISY Consortium no longer develops a separate talking book standard as <a
+								role="doc-glossref" href="e.html#epub">EPUB 3</a> includes accessibility features that
+							allow <a role="doc-glossref" href="a.html#author">authors</a> to create a single format that
+							can be accessible to a wide range of user needs. EPUB 3 is considered the successor format
+							to DAISY 3.</p>
 					</dd>
-					
-					<dt id="dom">DOM (Document Object Model)</dt>
+
+					<dt id="diagram">
+						<dfn>DIAGRAM</dfn>
+					</dt>
 					<dd>
-						<p>The document object model is how the markup content you create gets internalized by a
-							processing agent such as a reading system or browser. Instead of tags and attributes,
-							the DOM is typically likened to a tree full of branches, where each branch represents
-							the parent/child relationships of the document.</p>
-						<p>When talking about how reading system and assistive technologies interact with content,
-							it is more appropriate to relate behaviors to the DOM, since the DOM is not necessarily
-							an exact representation of the originating content (e.g., a reading system may
-							standardize the HTML markup as it process a document or an assistive technology may
-							enahnce the information to facilitate rendering and interaction).</p>
+						<p>The Digital Image and Graphic Resources for Accessible Materials (DIAGRAM) project was
+							originally undertaken to make image and graphic content more accessible by defining a
+							content model for writing descriptions and including alternate representations.</p>
+
+						<p>The mandate of the project has since been increased and the <a
+								href="http://diagramcenter.org/">DIAGRAM Centre</a> now provides tutorials and best
+							practices not only for producing accessible image content but also for math content and for
+							accessible publishing in general.</p>
+					</dd>
+
+					<dt id="digital-pub">
+						<dfn>Digital Publication</dfn>
+					</dt>
+					<dd>
+						<p>The name digital publication is used to refer to any publication in a digital format without
+							having to specify the specific format. It also avoids the baggage of content-specific names,
+							like "<a role="doc-glossref" href="e.html#ebook">ebook</a>".</p>
+
+						<p>Digital publication is used in the <a href="https://www.w3.org/TR/pub-manifest">Publication
+								Manifest</a> specification, for example, because that specification only defines a
+							manifest format that other formats can build on.</p>
+					</dd>
+
+					<dt id="dom">
+						<dfn>Document Object Model</dfn>
+					</dt>
+					<dd>
+						<p>The document object model, or DOM, is the structure produced when a <a role="doc-glossref"
+								href="u.html#ua">user agent</a> (e.g., a reading system or browser) processes the markup
+							in a web document. The DOM is typically likened to a tree of branches, where each branch
+							represents the parent/child relationships of all the elements in the source document.</p>
+
+						<p>The DOM is what allows scripts to operate on web documents &#8212; to change the styles of
+							elements, to add or remove content, etc. &#8212; as the information about the document is
+							stored in an abstract and language-independent way.</p>
+
+						<p>For more information about the DOM, refer to the <a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
+									><abbr title="Mozilla Developer's Network">MDN</abbr> article <cite>Introduction to
+									the DOM</cite></a>.</p>
 					</dd>
 				</dl>
 			</section>

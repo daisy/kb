@@ -527,9 +527,18 @@ rt {
 
 .glossary dt {
 	font-family: 'Raleway',Helvetica,Arial,sans-serif;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	color: rgb(0,0,180);
 	margin-top: 3rem;
+	border-bottom: 0.1rem solid blue;
+}
+
+.glossary dt + dt {
+	margin-top: 1rem;
+}
+
+.glossary dt.alt-term {
+	border-bottom: none;
 }
 
 a[role='doc-glossref'] {

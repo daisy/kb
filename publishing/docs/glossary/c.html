@@ -19,14 +19,18 @@
 						<dfn>Container</dfn>
 					</dt>
 					<dd>
-						<p>Digital publications are made up of many different files: HTML documents, images, <a
-								href="#css">CSS files</a> and scripts, among others. In order to simplify their
-							distribution, they are all bundled together in a single container file.</p>
+						<p><a role="doc-glossref" href="d.html#digital-pub">Digital publications</a> are made up of many
+							different files: <a href="h.html#html">HTML</a> documents, images, <a role="doc-glossref"
+								href="#css">CSS files</a> and scripts, among others. In order to simplify distribution,
+							the files are all bundled together in a single container file so <a role="doc-glossref"
+								href="u.html#user">users</a> only have to download the one file to obtain the entire
+							publication.</p>
 
-						<p>EPUB, for example, uses ZIP for its container format. EPUB files can be opened by any ZIP
-							tools, an operation that is made even easier by changing their extension from
-								<code>.epub</code> to <code>.zip</code> (i.e., most computer operating systems have
-							built-in tools to open files with <code>.zip</code> extensions).</p>
+						<p><a role="doc-glossref" href="e.html#epub">EPUB</a>, for example, uses <a href="z.html#zip"
+								>ZIP</a> as its container format. EPUB files can be opened by any ZIP tools, an
+							operation that is made even easier by changing their extension from <code>.epub</code> to
+								<code>.zip</code> (i.e., most computer operating systems have built-in tools to open
+							files with <code>.zip</code> extensions).</p>
 
 						<p>Another common name for the EPUB container file is the "OCF file" or "OCF Container", as the
 							requirements for zipping the content files together is defined in the <a
@@ -37,40 +41,50 @@
 						<dfn>Content Provider</dfn>
 					</dt>
 					<dd>
-						<p>The organization directly responsible for providing EPUB content to readers, whether through
-							an online bookstore, corporate Web site, library lending program or otherwise.</p>
+						<p>The organization responsible for providing a digital publication to <a role="doc-glossref"
+								href="u.html#user">users</a>, whether through an sale in online bookstore, by download
+							from a corporate Web site, through a library lending program, or otherwise.</p>
 					</dd>
 
 					<dt id="cmt">
 						<dfn>Core Media Type</dfn>
 					</dt>
 					<dd>
-						<p>A <a href="#media-type">media type</a> that all <a role="doc-glossref" href="#rs">reading
-								systems</a> must support to ensure interoperability of content. For example, EPUB 3
-							requires reading systems be able to render XHTML5 and SVG documents, MP3 and MP4 audio, a
-							variety of image formats, etc. Therefore, these are all core media types of EPUB 3.</p>
+						<p>In <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>, a core media type is a file format
+							that has to be supported to ensure that publications are readable in whatever <a
+								role="doc-glossref" href="#rs">reading system</a> a <a role="doc-glossref"
+								href="u.html#user">user</a> happens to use.</p>
 
-						<p>If the media type of a resource is not core, it is considered a <a href="#foreign-resource"
-								>foreign resource</a>.</p>
+						<p>For example, EPUB 3 requires reading systems be able to render <a role="doc-glossref"
+								href="x.html#xhtml">XHTML5</a> and <a role="doc-glossref" href="s.html#svg">SVG</a>
+							documents, MP3 and MP4 audio, a variety of image formats, etc. Therefore, these are all core
+							media types.</p>
+
+						<p>If the <a href="#media-type">media type</a> of a resource is not listed as core, it is
+							considered a <a href="#foreign-resource">foreign resource</a> (i.e., reading systems might
+							support it, but are not guaranteed to).</p>
+
+						<p>The list of <a href="https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported"
+								>core media types supported in EPUB 3</a> is provided in the <a
+								href="https://www.w3.org/publishing/epub3/epub-spec.html">EPUB 3 specification</a>.</p>
 					</dd>
 
 					<dt id="css">
-						<dfn>
-							<abbr title="Cascading Style Sheets">CSS</abbr>
-						</dfn>
+						<dfn>CSS</dfn>
 					</dt>
 					<dd>
-						<p>The Cascading Style Sheet language is used to control the rendering of content on reading
-							systems with a visual display screen, but does provide capabilities for rendering in other
-							media such as braille and aural.</p>
-					</dd>
+						<p>The Cascading Style Sheet (CSS) language is used to control the presentation of <a
+								role="doc-glossref" href="h.html#html">HTML</a> and <a role="doc-glossref"
+								href="s.html#svg">SVG</a> documents.</p>
 
-					<dt id="css-viewport">
-						<dfn>CSS Viewport</dfn>
-					</dt>
-					<dd>
-						<p>A screen on a reading system capable of visually rendering the EPUB using the defined CSS
-							styles.</p>
+						<p>CSS is used to specify fonts, colours, borders and other display aspects based on a set of
+							rules defined by the <a role="doc-glossref" href="a.html#author">author</a>.</p>
+
+						<p>A common complaint with <a role="doc-glossref" href="d.html#digital-pub">digital
+								publications</a>, however is that <a role="doc-glossref" href="r.html#rs">reading
+								systems</a> do not support, or ignore, author rules, or apply their own. The result is
+							that publications often do not look as intended, and differ in appearance from reading
+							system to reading system.</p>
 					</dd>
 				</dl>
 			</section>
