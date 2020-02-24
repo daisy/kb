@@ -15,70 +15,86 @@
 		<main>
 			<section aria-label="Terms">
 				<dl class="glossary">
-					<dt id="reader">
-						<dfn>Reader</dfn>
-					</dt>
-					<dd>
-						<p>The person who consumes an EPUB.</p>
-
-						<p>Not to be confused with a <a role="doc-glossref" href="#rs">reading system</a>, which is the
-							application used to read a publication.</p>
-					</dd>
-
 					<dt id="rs">
 						<dfn>Reading System</dfn>
 					</dt>
 					<dd>
-						<p>Reading system is a term commonly used with EPUB to describe the application that a user uses
-							to read their digital publication.</p>
+						<p>Reading system is the generic term used in <a role="doc-glossref" href="e.html#epub">EPUB</a>
+							to describe the application used to read or process a publication.</p>
 
-						<p>An EPUB reading system is a device capable of rendering an EPUB. A reading system may be a
-							single dedicated device or it could be a combination of hardware and software and assistive
-							technology. An iPad on its own is not a reading system, for example, but when iBooks is run
-							on it the hardware and software constitute a reading system. Discussions about accessible
-							reading systems are complicated by the wide variety of interplay that is possible between
-							devices and software.</p>
+						<p>A reading system can be a dedicated device like an eInk tablet or could be an application
+							(like Kobo Books, Google Play Books and Apple iBooks) that runs in a tablet, phone or on a
+							computer.</p>
 					</dd>
 
-					<dt id="remoteres">
+					<dt id="remote-res">
 						<dfn>Remote Resource</dfn>
 					</dt>
 					<dd>
-						<p>A publication resource that is not included in the container. Audio and video resources are
-							allowed to be housed on the Web because of their potential size. Resources referenced in
-							package document <code>link</code> elements can also live outside the contianer (e.g.,
-							metadata records).</p>
+						<p>In <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>, a remote resource is a <a
+								role="doc-glossref" href="#resource">resource</a> that lives on the Web instead inside
+								<a role="doc-glossref" href="c.html#container">container</a>.</p>
+
+						<p>Audio, video and fonts are examples or resources that are allowed to be located on the Web
+							because of their potential size.</p>
+					</dd>
+
+					<dt id="render">
+						<dfn>Render</dfn>
+					</dt>
+					<dd>
+						<p>Render is a presentation-neutral term used to describe how a <a role="doc-glossref"
+								href="#rs">reading system</a> makes a <a role="doc-glossref" href="p.html#publication"
+								>publication</a> readable for a user.</p>
+
+						<p>For visual reading, for example, rendering entails the visual lay out and styling of the
+							content on a screen. For auditory reading, rendering involves playing back pre-recorded
+							audio or generating <a role="doc-glossref" href="t.html#tts">text-to-speech</a>
+							playback.</p>
 					</dd>
 
 					<dt id="rendition">
 						<dfn>Rendition</dfn>
 					</dt>
 					<dd>
-						<p>A rendition of a publication is one presentation of its content.</p>
+						<p>In <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>, a rendition of a publication is one
+							presentation of its content.</p>
 
 						<p>All publications consist of one default presentation, but it is technically possible for more
 							than one presentation to be bundled together. For example, a digital publication could have
 							separate English and French versions, or a fixed layout and reflowable version for readers
-							to choose from. EPUB 2 even allows alternative formats, such as a PDF version of the
-							content, to be bundled inside the <a role="doc-glossref" href="c.html#container"
-								>container</a>.</p>
-
-						<p>A publication that, for example, has both English and French versions together in a single
-							presentation is not a multiple rendition publication. Each rendition has to be unique
-							&#8212; in EPUB, this means that each has its own <a role="doc-glossref"
-								href="p.html#package">package document</a>.</p>
+							to choose from.</p>
 
 						<p>In practice, however, renditions are more theoretical than practical at this time. A means of
 							selecting between possible renditions was developed for EPUB 3, but has never gained any
 							traction either with publishers or <a role="doc-glossref" href="#rs">reading system</a>
 							developers.</p>
+						
+						<p>A rendition is not the same things as its possible <a href="#render">renderings</a>. Each
+							rendition could be rendered multiple ways (e.g., visually, aurally, tactilely)</p>
 					</dd>
-					
+
+					<dt id="resource">
+						<dfn>Resource</dfn>
+					</dt>
+					<dd>
+						<p>Resource is a generic term used to refer to anything used in the rendering of a <a
+								role="doc-glossref" href="d.html#digital-pub">digital publication</a>. Resources include
+							the files in a <a role="doc-glossref" href="c.html#container">container</a> or anything that
+							can be obtained from the web.</p>
+
+						<p>Although it might be simpler to think of resources as "files", the word file is generally
+							avoided because publication resources may not exist until they are retrieved (e.g., a script
+							might dynamically generate a resource to return to a <a role="doc-glossref" href="r.html#rs"
+								>reading system</a>).</p>
+					</dd>
+
 					<dt id="roles">
 						<dfn>Roles, States and Properties</dfn>
 					</dt>
 					<dd>
-						<p>The <a role="doc-glossref" href="a.html#aria">ARIA</a> specification defines roles, states</p>
+						<p>The <a role="doc-glossref" href="a.html#aria">ARIA</a> specification defines roles,
+							states</p>
 					</dd>
 				</dl>
 			</section>

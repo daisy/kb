@@ -22,46 +22,56 @@
 						<dfn>OCF Container</dfn>
 					</dt>
 					<dd>
-						<p>OCF stands for Open Container Format, which is the specification that defines the EPUB <a
-								role="doc-glossref" href="c.html#container">container</a> format.</p>
+						<p>The Open Container Format (OCF) is the name of the <a role="doc-glossref" href="z.html#zip"
+								>ZIP</a> file <a role="doc-glossref" href="c.html#container">container</a> that holds
+							the resources of an EPUB publication (for both <a role="doc-glossref" href="e.html#epub2"
+								>EPUB 2</a> and <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>).</p>
 
 						<p>OCF, Container, EPUB Container and OCF Container Pare used interchangeably to talk about the
 							ZIP file container for EPUBs.</p>
+
+						<p>Refer to the <a href="https://www.w3.org/publishing/epub3/epub-ocf.html">Open Container
+								Format specification</a> for more information.</p>
 					</dd>
 
 					<dt id="oebps">OEBPS</dt>
 					<dd>
-						<p>OEBPS stands for Open EBook Publication Structure, which was the precursor specification to
-							EPUB 2.0.</p>
+						<p>OEBPS stands for Open EBook Publication Structure, the predecessor to <a role="doc-glossref"
+								href="e.html#epub2">EPUB 2</a>.</p>
 
-						<p>The acronym OEBPS is sometimes still found used as the directory name where EPUB content is
-							stored in the <a role="doc-glossref" href="c.html#container">container</a> but is not
-							recommended.</p>
+						<p>Older applications still sometimes use the acronym OEBPS as the directory name where EPUB
+							content is stored in the <a role="doc-glossref" href="c.html#OCF">OCF container</a>, but it
+							is otherwise rare to encounter.</p>
 					</dd>
 
-					<dt id="opf">
-						<dfn>OPF</dfn>
-					</dt>
 					<dt id="opf-file">
 						<dfn>OPF file</dfn>
 					</dt>
 					<dd>
-						<p></p>
+						<p>OPF file is the abbreviated name sometimes used to refer to the <a role="doc-glossref"
+								href="e.html#epub2">EPUB 2</a>
+							<a role="doc-glossref" href="p.html#package-doc">package document</a>.</p>
+
+						<p>The acronym OPF comes from the name of the specification that defines the package document,
+							the <a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm">Open Packaging
+							Format</a>.</p>
 					</dd>
 
-					<dt id="ops">
-						<dfn>OPS</dfn>
-					</dt>
 					<dt id="ops-doc">
 						<dfn>OPS Content Document</dfn>
 					</dt>
 					<dd>
-						<p>OPS stands for Open Publication Structure, which is the EPUB 2 equivalent specification of
-							the <a href="https://www.w3.org/publishing/epub3/epub-contentdocs.html">EPUB Content
-								Documents 3 specification</a>.</p>
+						<p>An OPS Content Document is the <a role="doc-glossref" href="e.html#epub2">EPUB 2</a> version
+							of the <a href="https://www.w3.org/publishing/epub3/epub-contentdocs.html">EPUB 3 Content
+								Document</a>.</p>
 
-						<p>Similar to <a role="doc-glossref" href="#oebps">OEBPS</a>, OPS is sometimes found as the
-							directory name where EPUB content is stored but is no longer recommended.</p>
+						<p>Unlike EPUB 3 that allows both <a role="doc-glossref" href="x.html#xhtml5">XHTML5</a> and <a
+								role="doc-glossref" href="s.html#svg">SVG</a>, OPS Content Documents are limited to <a
+								role="doc-glossref" href="x.html#xhtml11">XHTML 1.1</a></p>
+
+						<p>The acronym OPS comes from the name of the specification that defines EPUB 2 content
+							documents, the <a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm">Open Publication
+								Structure</a>.</p>
 					</dd>
 
 					<dt id="outline-algo">
@@ -69,9 +79,10 @@
 					</dt>
 					<dd>
 						<p>The <a href="https://html.spec.whatwg.org/#outlines">outline algorithm</a> defines a way to
-							create a document outline from the headings in an <a role="doc-glossref" href="h.html#html"
-								>HTML</a> document. It was an attempt to correct the mess of headings and inconsistent
-							use of numbering that are often found in documents and produce a consistent hierarchy.</p>
+							create the structure of an <a role="doc-glossref" href="h.html#html">HTML</a> document from
+							the headings it contains. It was an attempt to correct the misuse of headings and
+							inconsistent numbering that are often found in documents and produce a consistent
+							hierarchy.</p>
 
 						<p>The algorithm proved to be confusing for authors, however, and went unimplemented in <a
 								href="u.html#ua">user agents</a>, so is largely only considered as a theory anymore.

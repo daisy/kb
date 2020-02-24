@@ -15,12 +15,38 @@
 		<main>
 			<section aria-label="Terms">
 				<dl class="glossary">
+					<dt id="scripted-doc">
+						<dfn>Scripted Content Document</dfn>
+					</dt>
+					<dd>
+						<p></p>
+					</dd>
+					
 					<dt id="semantic-inflection">
 						<dfn>Semantic Inflection</dfn>
 					</dt>
 					<dd>
-						<p>Semantic inflection is the process of layering extra information about the role that elements
-							serve in markup languages such as <a role="doc-glossref" href="h.html#html">HTML</a>.</p>
+						<p>Semantic inflection is a <a role="doc-glossref" href="#semantics">semantic markup</a>
+							techniques that involves the layering extra information about the role that elements serve
+							in markup languages such as <a role="doc-glossref" href="h.html#html">HTML</a>.</p>
+
+						<p>Although markup elements often have implied semantics (e.g., <code>&lt;table></code> for
+							tables) many are generic in nature (e.g., <code>&lt;div></code> for a block of content or
+								<code>&lt;span></code> for a run of inline text). Semantic inflection is the process of
+							adding more specific information to these elements using attributes like <a
+								role="doc-glossref" href="e.html#epub-type"><code>epub:type</code></a>.</p>
+
+						<p>For example, the <code>epub:type</code> attribute could be used to indicate that a section
+							contains a book's frontmatter like this: <code>&lt;section epub:type="frontmatter"></code>.
+							(See the <a href="https://idpf.github.io/epub-vocabs/structure/">EPUB Structural Semantics
+								Vocabulary</a> for more information.)</p>
+
+						<p>Although the <a href="a.html#aria">ARIA</a>
+							<code>role</code> attribute is used to provide additional context, it plays a more important
+							function in making documents accessible for assistive technologies. It is not a general
+							purpose semantic inflection mechanism, as the roles that can be used, and where they can be
+							used, are restricted. The misapplication of roles can negatively affect the readability of
+							documents.</p>
 					</dd>
 
 					<dt id="semantics">
@@ -39,13 +65,6 @@
 								technologies</a> to provide more intelligent navigation of the content (e.g., by making
 							content <a role="doc-glossref" href="e.html#escapable">escapable</a> and <a
 								role="doc-glossref" href="#skippable">skippable</a>).</p>
-					</dd>
-
-					<dt id="scripted-doc">
-						<dfn>Scripted Content Document</dfn>
-					</dt>
-					<dd>
-						<p></p>
 					</dd>
 
 					<dt id="skippable">
