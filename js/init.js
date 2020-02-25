@@ -168,6 +168,7 @@ KB.prototype.writeTemplate = function () {
 		kb.generateFooter();
 		kb.prettyPrint();
 		kb.addExampleCopy();
+		kb.addHeadingDestinations();
 	}
 	
 	else {
@@ -458,6 +459,22 @@ KB.prototype.addExampleCopy = function() {
 	}
 }
 
+
+/* add reference links */
+
+KB.prototype.addHeadingDestinations = function() {
+
+	var h3 = document.querySelectorAll('section > h3');
+	
+	for (var i = 0; i < h3.length; i++) {
+		var dest = document.createElement('a');
+			dest.setAttribute('class','dest');
+			dest.href = '#' + h3[i].parentNode.id;
+			dest.appendChild(document.createTextNode('\u00a7'));
+		h3[i].prepend(document.createTextNode('\u00a0\u00a0'));
+		h3[i].prepend(dest);
+	}
+}
 
 
 
