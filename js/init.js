@@ -168,7 +168,10 @@ KB.prototype.writeTemplate = function () {
 		kb.generateFooter();
 		kb.prettyPrint();
 		kb.addExampleCopy();
-		kb.addHeadingDestinations();
+		
+		if (!this.isRootIndex || (window.location.href.indexOf('index.html') != -1)) {
+			kb.addHeadingDestinations();
+		}
 	}
 	
 	else {
