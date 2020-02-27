@@ -22,9 +22,9 @@
 						<p>Any book produced in an digital format is an ebook. Ebooks may be created in EPUB, Microsoft
 							Word, PDF, text, MOBI or a wide variety of other formats.</p>
 
-						<p>Due to the book-centric nature of the term, the name is almost never used in standards
-							development. "Ebook" formats are often just as capable of being used for journals, articles
-							and magazines, but the name detracts from these uses. The term <a href="d.html#digital-pub"
+						<p>Due to the book-centric nature of the term, it is almost never used in standards development.
+							"Ebook" formats are often just as capable of being used for journals, articles and
+							magazines, but the name detracts from these uses. The term <a href="d.html#digital-pub"
 								>digital publication</a> is more commonly used to refer any type of publication in a
 							digital format.</p>
 					</dd>
@@ -34,9 +34,9 @@
 					</dt>
 					<dd>
 						<p>EPUB is a distribution and interchange format for <a role="doc-glossref"
-								href="d.html#digital-pub">digital publications</a>. It provides a means of representing,
-							packaging and encoding structured and semantically enhanced Web content — including <a
-								role="doc-glossref" href="h.html#html">HTML</a>, <a role="doc-glossref"
+								href="d.html#digital-pub">digital publications</a>. It provides the ability to
+							represent, package and encode structured and semantically enhanced Web content — including
+								<a role="doc-glossref" href="h.html#html">HTML</a>, <a role="doc-glossref"
 								href="c.html#css">CSS</a>, <a role="doc-glossref" href="s.html#svg">SVG</a> and other
 							resources — for distribution in a single-file <a role="doc-glossref" href="c.html#container"
 								>container</a>.</p>
@@ -50,9 +50,9 @@
 						<dfn>EPUB 2</dfn>
 					</dt>
 					<dd>
-						<p>EPUB 2 is the first version of <a href="#epub">EPUB</a> introduced in 2007.</p>
+						<p>EPUB 2 was the first version of <a href="#epub">EPUB</a> introduced in 2007.</p>
 
-						<p>EPUB 2 uses <a role="doc-glossref" href="x.html#xhtml">XHTML 1.1</a> as the markup standard
+						<p>EPUB 2 used <a role="doc-glossref" href="x.html#xhtml">XHTML 1.1</a> as the markup standard
 							for content, but notably omits support for the modules that provide interactive and
 							server-side functionality (i.e., scripting, forms, events and server-side maps).</p>
 
@@ -60,8 +60,7 @@
 							many limitations (poor styling support, limited accessibility features, rudimentary support
 							for international languages, etc.).</p>
 
-						<p>A format called the Open Ebook Publication Structure was the predecessor to EPUB 2 and where
-							the "2" comes from.</p>
+						<p>A format called the Open Ebook Publication Structure was the predecessor to EPUB 2.</p>
 
 						<p>Refer to the <a href="http://idpf.org/epub/201">EPUB 2 specification</a> for more
 							information.</p>
@@ -88,22 +87,23 @@
 						<dfn>EPUB Container</dfn>
 					</dt>
 					<dd>
-						<p>See <a role="doc-glossref" href="c.html#container">Container</a>.</p>
+						<p>See <a role="doc-glossref" href="o.html#ocf">OCF Container</a>.</p>
 					</dd>
 
 					<dt id="contentdoc">
 						<dfn>EPUB Content Document</dfn>
 					</dt>
 					<dd>
-						<p>Although an <a href="#publication">EPUB publication</a> appears like a single document when
-							read, the content is typically broken up into many separate documents inside the <a
-								role="doc-glossref" href="c.html#container">container</a>. These documents are referred
-							to as content documents and come in one of two formats: <a role="doc-glossref"
-								href="x.html#xhtml5">XHTML5</a> and <a role="doc-glossref" href="s.html#svg"
-							>SVG</a>.</p>
+						<p>EPUB content document is the generic name used for either an <a role="doc-glossref"
+								href="x.html#xhtml">XHTML</a> or <a role="doc-glossref" href="s.html#svg">SVG</a>
+							document that conforms to the requirements of the <a role="doc-glossref" href="#epub"
+								>EPUB</a> specification.</p>
 
-						<p>A feature of the <a role="doc-glossref" href="p.html#package-doc">package document</a> called
-							the <a role="doc-glossref" href="s.html#spine">spine</a> defines the order to present the
+						<p>Although an <a href="#publication">EPUB publication</a> appears like a single document when
+							read, the content is typically broken up into many separate content documents inside the <a
+								role="doc-glossref" href="c.html#container">container</a>. A feature of the <a
+								role="doc-glossref" href="p.html#package-doc">package document</a> called the <a
+								role="doc-glossref" href="s.html#spine">spine</a> defines the order to present the
 							content documents in, giving the illusion of a single seamless document.</p>
 					</dd>
 
@@ -113,7 +113,8 @@
 					<dd>
 						<p>The EPUB navigation document is a special document in an <a role="doc-glossref"
 								href="#publication">EPUB publication</a> that provides the main navigation aids (e.g.,
-							the table of contents, page list and landmarks).</p>
+							the table of contents, <a role="doc-glossref" href="p.html#pagelist">page list</a> and <a
+								role="doc-glossref" href="l.html#landmarks">landmarks</a>).</p>
 
 						<p>The document is primarily intended to for use by <a role="doc-glossref" href="r.html#rs"
 								>reading systems</a>. When a user clicks a button to open a table of contents, for
@@ -128,7 +129,8 @@
 						<dfn>EPUB Publication</dfn>
 					</dt>
 					<dd>
-						<p>See <a href="p.html#publication">Publication</a>.</p>
+						<p>A <a role="doc-glossref" href="d.html#digital-pub">digital publication</a> in the <a
+								href="#epub">EPUB</a> format.</p>
 					</dd>
 
 					<dt id="epubcss">
@@ -164,7 +166,11 @@
 
 						<p>Although initially hoped that the attribute would provide a bridge between publisher in-house
 								<a role="doc-glossref" href="s.html#semantics">semantic markup</a> needs and
-							accessibility, the attribute never gained traction for accessibility.</p>
+							accessibility, the attribute never gained traction for accessibility and is no longer
+							recommended for this purpose.</p>
+
+						<p>Refer to the <a href="../html/epub-type.html"><code>epub:type</code> page</a> in the
+							knowledge base for more information.</p>
 					</dd>
 
 					<dt id="epubcheck">

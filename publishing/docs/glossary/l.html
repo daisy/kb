@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>L</title>
+		<script>
+			var page_info = {
+				'isIndex': true,
+				'topic': 'Glossary',
+				'description': 'Glossary of terms starting with the letter L'
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="landmarks">Landmarks</dt>
+					<dd>
+						<p>Landmarks are key locations in a publication that a user is likely to want to have quick
+							access to. They include the table of contents, glossaries, bibliographies and other similar
+							navigation and informative aids.</p>
+
+						<p>Both <a role="doc-glossref" href="a.html#aria">ARIA</a> and <a role="doc-glossref"
+								href="e.html#epub">EPUB</a> define methods for expressing landmarks:</p>
+
+						<ul>
+							<li>
+								<p>ARIA landmarks are expressed using the <code>role</code> attibute and only exist
+									within the document they are defined in (see <a href="../html/landmarks.html">ARIA
+										Landmarks</a> for more information).</p>
+							</li>
+							<li>
+								<p>EPUB uses a special navigation aid in the <a role="doc-glossref" href="e.html#navdoc"
+										>navigation document</a> to define where the landmarks are, as the landmarks are
+									usually spread across many documents (see <a href="../navigation/landmarks.html"
+										>EPUB Landmarks</a> for more information).</p>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

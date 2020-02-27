@@ -20,17 +20,14 @@
 						<dfn>Accessibility tree</dfn>
 					</dt>
 					<dd>
-						<p>When users navigate a web document using an <a role="doc-glossref" href="#at">assistive
-								technology</a> they are not moving over exactly the same structure used to render the
-							document in a browser. The browser instead generates a slightly different representation of
-							the content called the accessibility tree and this is what it exposes to assistive
-							technologies.</p>
+						<p>The accessibilty tree is a representation of a web document created by browsers that is
+							optimized for navigation by <a role="doc-glossref" href="#at">assistive technology</a>.</p>
 
-						<p>The accessibility tree is similar to the HTML <a role="doc-glossref" href="d.html#dom"
-								>DOM</a>, but it includes additional information such as accessible names and
-							descriptions. When interactive content takes advantage of <a role="doc-glossref"
-								href="#aria">ARIA</a> roles, states and properties, the browser can ensure that the
-							accessibility tree is kept up to date with changes.</p>
+						<p>The accessibility tree is essentially a modified version of the <a role="doc-glossref"
+								href="h.html#html">HTML</a>
+							<a role="doc-glossref" href="d.html#dom">DOM</a>. It includes additional information, such
+							as accessible names and descriptions, and also omit some unnecessary information that is
+							only useful for visual <a role="doc-glossref" href="r.html#render">rendering</a>.</p>
 					</dd>
 
 					<dt id="ace">
@@ -57,15 +54,15 @@
 							making modern script-heavy web applications accessible for users of <a role="doc-glossref"
 								href="#at">assistive technologies</a>. These applications often do not use the built-in
 							HTML elements, like buttons, in their interfaces, but turn otherwise static content, like
-							images, into objects that users can click on to perform actions. While this is often done to
-							make the interfaces more visually appealing, prior to ARIA the scripting necessary to make
-							these features work were not reflected to users of assistive technologies. The result was to
-							make such interfaces impossible to use.</p>
+							images, into objects that users can click on to perform actions. While this is done to make
+							the interfaces more visually appealing, prior to ARIA the scripting necessary to make these
+							features work were not reflected in the <a role="doc-glossref" href="#a11y-tree"
+								>accessibility tree</a>. The result was to make such interfaces impossible to use.</p>
 
 						<p>ARIA addresses this problem by defining <a href="r.html#roles-states-props">roles, states and
-								properties</a> so that the static elements can be presented in the <a href="#a11y-tree"
-								>accessibility tree</a> like their more natural counterparts (e.g., a role of button can
-							be assigned to an image so that assistive technologies can make it interactive).</p>
+								properties</a> so that the static elements can be presented like their more natural
+							counterparts (e.g., a role of button can be assigned to an image so that assistive
+							technologies can make it interactive).</p>
 
 						<p>Refer to the <a href="https://www.w3.org/TR/wai-aria/">ARIA specification</a> for more
 							information.</p>
@@ -75,14 +72,15 @@
 						<dfn>Assistive Technology</dfn>
 					</dt>
 					<dd>
-						<p>An assistive technology (AT) is a device or software program capable of rendering content in
-							ways that facilitate reading by persons with disabilities.</p>
+						<p>An assistive technology (AT) is a device or software program capable of <a
+								role="doc-glossref" href="r.html#render">rendering</a> content in ways that facilitate
+							reading by persons with disabilities.</p>
 
 						<p>An assistive technology may be fully integrated into a <a role="doc-glossref"
-								href="r.html#rs">reading system</a> (iBooks with VoiceOver) or may work in conjunction
-							with hardware and software to provide a reading experience better tailored to the reader's
-							preferred modality (e.g., screen-reading software like JAWS and NVDA, content zooming
-							technologies and refreshable braille displays).</p>
+								href="r.html#rs">reading system</a> or may work in conjunction with hardware and
+							software to provide a reading experience better tailored to the reader's preferred modality
+							(e.g., screen-reading software like JAWS and NVDA, content zooming technologies and
+							refreshable braille displays).</p>
 					</dd>
 
 					<dt id="author">
@@ -93,8 +91,8 @@
 							ensuring the quality and accessibility of the final product.</p>
 
 						<p>In the context of digital publication specifications and documentation, the "author" does not
-							refer to the person who wrote the publication. It is commonly used to avoid personal
-							pronouns (specifically "you"), as personal pronouns make translation to other languages more
+							refer to the person who wrote a publication. It is used to avoid personal pronouns
+							(specifically "you"), as personal pronouns make translation to other languages more
 							complex.</p>
 					</dd>
 				</dl>
