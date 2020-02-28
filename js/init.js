@@ -247,7 +247,7 @@ KB.prototype.generateHeader = function () {
 		glossary.setAttribute('class','glosslink');
 	
 	var gloss_a = document.createElement('a');
-		gloss_a.setAttribute('href', kb_link + '/glossary/index.html');
+		gloss_a.setAttribute('href', kb_link + 'glossary/index.html');
 		gloss_a.appendChild(document.createTextNode('Glossary'));
 	
 	glossary.appendChild(gloss_a);
