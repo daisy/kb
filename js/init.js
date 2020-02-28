@@ -231,8 +231,11 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(document.createTextNode(' '));
 	
 	// add the kb name
+	var kb_link = '/' + this.kb_id + '/';
+		kb_link += this.lang == 'en' ? 'docs/' : this.lang + '/';
+	
 	var a = document.createElement('a');
-		a.setAttribute('href','/' + this.kb_id + '/');
+		a.setAttribute('href',kb_link);
 		a.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
 	
 	h1.appendChild(a);
@@ -244,7 +247,7 @@ KB.prototype.generateHeader = function () {
 		glossary.setAttribute('class','glosslink');
 	
 	var gloss_a = document.createElement('a');
-		gloss_a.setAttribute('href','/' + this.kb_id + '/docs/glossary/index.html');
+		gloss_a.setAttribute('href','/' + this.kb_id + 'glossary/index.html');
 		gloss_a.appendChild(document.createTextNode('Glossary'));
 	
 	glossary.appendChild(gloss_a);
