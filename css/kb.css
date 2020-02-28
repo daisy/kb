@@ -142,6 +142,24 @@ main > section {
 	margin-left: 2em;
 }
 
+/* glossary link */
+
+div.glosslink {
+	font-size: 90%;
+	max-width: 54em;
+	margin-top: -2.4rem;
+}
+
+div.glosslink > a {
+	float: right;
+	color: rgb(255,255,255);
+}
+
+div.glosslink > a:hover {
+	color: rgb(255,255,255);
+	text-decoration: underline;
+}
+
 /* breadcrumb nav */
 
 nav.breadcrumb {

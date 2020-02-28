@@ -239,6 +239,18 @@ KB.prototype.generateHeader = function () {
 	
 	header.appendChild(h1);
 	
+	// add the glossary link
+	var glossary = document.createElement('div');
+		glossary.setAttribute('class','glosslink');
+	
+	var gloss_a = document.createElement('a');
+		gloss_a.setAttribute('href','/' + this.kb_id + '/docs/glossary/index.html');
+		gloss_a.appendChild(document.createTextNode('Glossary'));
+	
+	glossary.appendChild(gloss_a);
+	
+	header.appendChild(glossary);
+	
 	document.body.insertAdjacentElement('afterBegin',header);
 }
 
