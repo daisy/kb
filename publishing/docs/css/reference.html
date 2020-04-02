@@ -5,11 +5,12 @@
 		<script>
 			var page_info = {
 				'topic': 'CSS',
+				'description': 'Guidelines for using CSS properties accessibly',
 				'appliesTo': ['EPUB3','EPUB2']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
-		<style type="text/css">
+		<script src="/js/init.js"></script>
+		<style>
 			table,
 			th,
 			td{
@@ -91,26 +92,29 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background">background</a>
+							<td class="property" id="background">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background">background</a>
 							</td>
-							<td class="issues"> The <code class="property">background</code> property is a shorthand for
-								defining one or more properties. Refer to each individual background-* property for potential
-								issues.<br /> Note that background properties are largely unsupported at this time outside of
-								fixed layouts. </td>
+							<td class="issues">
+								<p>The <code class="property">background</code> property is a shorthand for
+									defining one or more properties. Refer to each individual <code>background-*</code>
+									property for potential issues.</p>
+								<p>Note that background properties are largely unsupported in EPUB 3 at this time
+									outside of fixed layouts.</p>
+							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-attachment"
+							<td class="property" id="background-attachment">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background-attachment"
 									>background-attachment</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-color"
+							<td class="property" id="background-color">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background-color"
 									>background-color</a>
 							</td>
 							<td class="issues">
@@ -121,71 +125,72 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-image"
+							<td class="property" id="background-image">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background-image"
 									>background-image</a>
 							</td>
 							<td class="issues">
 								<ul>
 									<li>Ensure sufficient contrast with content color (text and graphic)</li>
-									<li>High mix of gradients and colors in images can make reading overlaid text
-										difficult</li>
+									<li>High mix of gradients and colors in images can make reading text that
+										is overlaid difficult</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-position"
+							<td class="property" id="background-position">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background-position"
 									>background-position</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-repeat"
+							<td class="property" id="background-repeat">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-background-repeat"
 									>background-repeat</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="border">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border">border</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-top">border-top</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-right"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border">border</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-top">border-top</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-right"
 										>border-right</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-bottom"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-bottom"
 										>border-bottom</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-left"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-left"
 										>border-left</a></li>
 								</ul>
 							</td>
 							<td class="issues"> These <code class="property">border</code> properties are shorthands for
-								defining one or more properties. Refer to each individual border-* property for issues </td>
+								defining one or more properties. Refer to each individual <code>border-*</code> property
+								for issues </td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/tables.html#propdef-border-collapse">border-collapse</a>
+							<td class="property" id="border-collapse">
+								<a href="http://www.w3.org/TR/CSS22/tables.html#propdef-border-collapse">border-collapse</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="border-color">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-color"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-color"
 										>border-color</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-top-color"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-top-color"
 											>border-top-color</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-right-color"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-right-color"
 											>border-right-color</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-bottom-color"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-color"
 											>border-bottom-color</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-left-color"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-left-color"
 											>border-left-color</a></li>
 								</ul>
 							</td>
@@ -198,24 +203,24 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/tables.html#propdef-border-spacing">border-spacing</a>
+							<td class="property" id="border-spacing">
+								<a href="http://www.w3.org/TR/CSS22/tables.html#propdef-border-spacing">border-spacing</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="border-style">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-style"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-style"
 										>border-style</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-top-style"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-top-style"
 											>border-top-style</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-right-style"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-right-style"
 											>border-right-style</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-bottom-style"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-style"
 											>border-bottom-style</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-left-style"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-left-style"
 											>border-left-style</a></li>
 								</ul>
 							</td>
@@ -223,17 +228,17 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="border-width">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-width"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-width"
 										>border-width</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-top-width"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-top-width"
 											>border-top-width</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-right-width"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-right-width"
 											>border-right-width</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-bottom-width"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-width"
 											>border-bottom-width</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-border-left-width"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-border-left-width"
 											>border-left-width</a></li>
 								</ul>
 							</td>
@@ -246,17 +251,17 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="top-bot-right-left">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-bottom">bottom</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-left">left</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-right">right</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-top">top</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-bottom">bottom</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-left">left</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-right">right</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-top">top</a></li>
 								</ul>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>User agent support for absolute and fixed positioning is not guaranteed</li>
+									<li>User agent support for absolute and fixed positioning in EPUB is not guaranteed</li>
 									<li>Content should not be positioned in a way that makes its discoverability problematic
 										for users with low vision and/or using zooming software</li>
 								</ul>
@@ -264,35 +269,36 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/tables.html#propdef-caption-side">caption-side</a>
+							<td class="property" id="caption-side">
+								<a href="http://www.w3.org/TR/CSS22/tables.html#propdef-caption-side">caption-side</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-clear">clear</a>
+							<td class="property" id="clear">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-clear">clear</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visufx.html#propdef-clip">clip</a>
+							<td class="property" id="clip">
+								<a href="http://www.w3.org/TR/CSS22/visufx.html#propdef-clip">clip</a>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Although clipping content to 1 pixel is sometimes used on the Web to hide content,
-										support for the property and its reliance on absolute positioning makes the practice
-										not recommended in EPUBs</li>
+									<li>Although clipping content to 1 pixel is used on the Web to hide content that
+										is only intended for users of assistive technoloies, support for the practice 
+										in EPUB reading systems remains inconsistent. Expect your hidden content to
+										be visible in some reading systems.</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/colors.html#propdef-color">color</a>
+							<td class="property" id="color">
+								<a href="http://www.w3.org/TR/CSS22/colors.html#propdef-color">color</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -303,23 +309,23 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-content">content</a>
+							<td class="property" id="content">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-content">content</a>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Any content inserted using this property should be purely presentational, as it
-										typically won't be available to assistive technologies</li>
+									<li>See the <a href="#before-after"><code>:before</code> and <code>:after</code>
+										pseudo-elements</a></li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="counter">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/generate.html#propdef-counter-increment"
+									<li><a href="http://www.w3.org/TR/CSS22/generate.html#propdef-counter-increment"
 											>counter-increment</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/generate.html#propdef-counter-reset"
+									<li><a href="http://www.w3.org/TR/CSS22/generate.html#propdef-counter-reset"
 											>counter-reset</a></li>
 								</ul>
 							</td>
@@ -327,8 +333,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/ui.html#propdef-cursor">cursor</a>
+							<td class="property" id="cursor">
+								<a href="http://www.w3.org/TR/CSS22/ui.html#propdef-cursor">cursor</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -339,34 +345,40 @@
 						</tr>
 
 						<tr>
-							<td class="property"> direction </td>
-							<td class="issues"> The <code class="property">direction</code> property is not supported in EPUB
-								3. HTML5 markup, such as the <code><a
-										href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdi-element"
-									>bdi</a></code> and <code><a
-										href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdo-element"
-									>bdo</a></code> elements and <code><a
-										href="http://www.w3.org/TR/html/dom.html#the-dir-attribute">dir</a></code>
-								attribute, should be used to express directionality </td>
+							<td class="property" id="direction">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-direction">direction</a>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>The <code class="property">direction</code> property is not supported in EPUB
+										3. HTML5 markup, such as the <code><a
+											href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdi-element"
+											>bdi</a></code> and <code><a
+												href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdo-element"
+												>bdo</a></code> elements and <code><a
+													href="http://www.w3.org/TR/html/dom.html#the-dir-attribute">dir</a></code>
+										attribute, are used to express directionality</li>
+								</ul>
+							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-display">display</a>
+							<td class="property" id="display">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>
 							</td>
 							<td class="issues">
 								<ul>
 									<li>Setting the <code class="property">display</code> property to the value <code
 											class="value">none</code> removes the element from rendering both visually and to
 										assistive technologies. It is not a mechanism for hiding content from visual display
-										that should be rendered by ATs.</li>
+										that should be rendered by assistive technologies.</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/tables.html#propdef-empty-cells">empty-cells</a>
+							<td class="property" id="empty-cells">
+								<a href="http://www.w3.org/TR/CSS22/tables.html#propdef-empty-cells">empty-cells</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -381,8 +393,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-float">float</a>
+							<td class="property" id="float">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-float">float</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -398,16 +410,16 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font">font</a>
+							<td class="property" id="font">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font">font</a>
 							</td>
 							<td class="issues"> The <code class="property">font</code> property is a shorthand for defining
 								one or more properties. Refer to each individual font-* property for issues </td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font-family">font-family</a>
+							<td class="property" id="font-family">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font-family">font-family</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -424,8 +436,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font-size">font-size</a>
+							<td class="property" id="font-size">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font-size">font-size</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -438,8 +450,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font-style">font-style</a>
+							<td class="property" id="font-style">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font-style">font-style</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -453,21 +465,20 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font-variant">font-variant</a>
+							<td class="property" id="font-variant">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font-variant">font-variant</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font-weight">font-weight</a>
+							<td class="property" id="font-weight">
+								<a href="http://www.w3.org/TR/CSS22/fonts.html#propdef-font-weight">font-weight</a>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Use CSS to apply bolding only for decorative purposes (similar to using the
-											<code>b</code> element). Use <code>strong</code> tags if the words are to be
-										stressed</li>
+									<li>Use CSS to apply bolding only for decorative purposes. Use <code>strong</code>
+										tags if the words are to be stressed or <code>b</code> for keywords</li>
 									<li>Avoid lengthy use of decorative bolding, as bolded words can be harder to read than
 										roman face</li>
 								</ul>
@@ -475,8 +486,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-height">height</a>
+							<td class="property" id="height">
+								<a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-height">height</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -488,8 +499,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-letter-spacing">letter-spacing</a>
+							<td class="property" id="letter-spacing">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-letter-spacing">letter-spacing</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -503,8 +514,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-line-height">line-height</a>
+							<td class="property" id="line-height">
+								<a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-line-height">line-height</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -517,8 +528,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style">list-style</a>
+							<td class="property" id="list-style">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-list-style">list-style</a>
 							</td>
 							<td class="issues"> The <code class="property">list-style</code> property is a shorthand for
 								defining one or more properties. Refer to each individual list-style-* property for issues
@@ -526,8 +537,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style-image"
+							<td class="property" id="list-style-image">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-list-style-image"
 									>list-style-image</a>
 							</td>
 							<td class="issues">
@@ -541,16 +552,16 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style-position"
+							<td class="property" id="list-style-positin">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-list-style-position"
 									>list-style-position</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style-type"
+							<td class="property" id="list-style-type">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-list-style-type"
 									>list-style-type</a>
 							</td>
 							<td class="issues">
@@ -563,39 +574,37 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="margin">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin">margin</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin-top">margin-top</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin-right"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-margin">margin</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-margin-top">margin-top</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-margin-right"
 										>margin-right</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin-bottom"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-margin-bottom"
 										>margin-bottom</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin-left"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-margin-left"
 										>margin-left</a></li>
 								</ul>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Note that user agents typically restrict the ability to modify body margins</li>
-									<li>Changing margins to move content off screen, common on the Web, is not guaranteed to
-										work in user agents. This practice is also known to cause problems depending on
-										the user's preferred reading direction and the placement of the content so is not
-										recommended for that reason, as well</li>
+									<li>Changing margins to move content off screen, while common on the Web, is not guaranteed to
+										work in EPUB user agents. This practice is also known to cause problems depending on
+										the user's preferred reading direction and the placement of the content</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="max-min-wh">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-max-height"
+									<li><a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-max-height"
 										>max-height</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-max-width"
+									<li><a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-max-width"
 										>max-width</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-min-height"
+									<li><a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-min-height"
 										>min-height</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-min-width"
+									<li><a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-min-width"
 										>min-width</a></li>
 								</ul>
 							</td>
@@ -603,24 +612,24 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="orphans-widows">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/page.html#propdef-orphans">orphans</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/page.html#propdef-widows">widows</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/page.html#propdef-orphans">orphans</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/page.html#propdef-widows">widows</a></li>
 								</ul>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="outline">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/ui.html#propdef-outline">outline</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/ui.html#propdef-outline-color"
+									<li><a href="http://www.w3.org/TR/CSS22/ui.html#propdef-outline">outline</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/ui.html#propdef-outline-color"
 										>outline-color</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/ui.html#propdef-outline-style"
+									<li><a href="http://www.w3.org/TR/CSS22/ui.html#propdef-outline-style"
 										>outline-style</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/ui.html#propdef-outline-width"
+									<li><a href="http://www.w3.org/TR/CSS22/ui.html#propdef-outline-width"
 										>outline-width</a></li>
 								</ul>
 							</td>
@@ -635,8 +644,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visufx.html#propdef-overflow">overflow</a>
+							<td class="property" id="overflow">
+								<a href="http://www.w3.org/TR/CSS22/visufx.html#propdef-overflow">overflow</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -647,16 +656,16 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="padding">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-padding">padding</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-padding-top"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-padding">padding</a></li>
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-padding-top"
 										>padding-top</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-padding-right"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-padding-right"
 										>padding-right</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-padding-bottom"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-padding-bottom"
 											>padding-bottom</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/box.html#propdef-padding-left"
+									<li><a href="http://www.w3.org/TR/CSS22/box.html#propdef-padding-left"
 										>padding-left</a></li>
 								</ul>
 							</td>
@@ -664,13 +673,13 @@
 						</tr>
 
 						<tr>
-							<td class="property">
+							<td class="property" id="page-break">
 								<ul class="nobull">
-									<li><a href="http://www.w3.org/TR/CSS21/page.html#propdef-page-break-after"
+									<li><a href="http://www.w3.org/TR/CSS22/page.html#propdef-page-break-after"
 											>page-break-after</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/page.html#propdef-page-break-before"
+									<li><a href="http://www.w3.org/TR/CSS22/page.html#propdef-page-break-before"
 											>page-break-before</a></li>
-									<li><a href="http://www.w3.org/TR/CSS21/page.html#propdef-page-break-inside"
+									<li><a href="http://www.w3.org/TR/CSS22/page.html#propdef-page-break-inside"
 											>page-break-inside</a></li>
 								</ul>
 							</td>
@@ -678,8 +687,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-position">position</a>
+							<td class="property" id="position">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-position">position</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -688,32 +697,27 @@
 									<li>Elements should not be absolutely positioned in a way that makes their
 										discoverability problematic for users with low vision and/or using zooming
 										software</li>
-									<li>Note that the <code class="value">fixed</code> value is not included in the EPUB 3
-										Style Sheets profile and its use is not recommended (see the <a
-											href="http://idpf.org/epub3/latest/contentdocs#sec-css-oeb-head-foot"
-											>oeb-page-head and oeb-page-foot</a> custom properties for including static
-										headers and footers)</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/generate.html#propdef-quotes">quotes</a>
+							<td class="property" id="quotes">
+								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-quotes">quotes</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/tables.html#propdef-table-layout">table-layout</a>
+							<td class="property" id="table-layout">
+								<a href="http://www.w3.org/TR/CSS22/tables.html#propdef-table-layout">table-layout</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-text-align">text-align</a>
+							<td class="property" id="text-align">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-text-align">text-align</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -724,8 +728,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-text-decoration">text-decoration</a>
+							<td class="property" id="text-decoration">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-text-decoration">text-decoration</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -735,21 +739,22 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-text-indent">text-indent</a>
+							<td class="property" id="text-indent">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-text-indent">text-indent</a>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>A sometimes used trick to hide text for assistive technologies is to use a large
-										negative value, but like negative margins this technique is not reliable in user
-										agents and may cause issues depending on the user's preferred text direction</li>
+									<li>A technique used to hide text for assistive technologies is to use a large
+										negative value for the indent, but like negative margins this technique is not 
+										reliable in EPUB user agents and may cause issues depending on the user's 
+										preferred text direction</li>
 								</ul>
 							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-text-transform">text-transform</a>
+							<td class="property" id="text-transform">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-text-transform">text-transform</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -760,27 +765,33 @@
 						</tr>
 
 						<tr>
-							<td class="property"> unicode-bidi </td>
-							<td class="issues"> The <code class="property">unicode-bidi</code> property is not supported in
-								EPUB 3. HTML5 markup, such as the <code><a
-										href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdi-element"
-									>bdi</a></code> and <code><a
-										href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdo-element"
-									>bdo</a></code> elements and <code><a
-										href="http://www.w3.org/TR/html/dom.html#the-dir-attribute">dir</a></code>
-								attribute, should be used to express directionality </td>
+							<td class="property" id="unicode-bidi">
+								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-unicode-bidi">unicode-bidi</a>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>The <code class="property">unicode-bidi</code> property is not supported in
+										EPUB 3. HTML5 markup, such as the <code><a
+											href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdi-element"
+											>bdi</a></code> and <code><a
+												href="http://www.w3.org/TR/html/text-level-semantics.html#the-bdo-element"
+												>bdo</a></code> elements and <code><a
+													href="http://www.w3.org/TR/html/dom.html#the-dir-attribute">dir</a></code>
+										attribute, should be used to express directionality</li>
+								</ul>
+							</td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align">vertical-align</a>
+							<td class="property" id="vertical-align">
+								<a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-vertical-align">vertical-align</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visufx.html#propdef-visibility">visibility</a>
+							<td class="property" id="visibility">
+								<a href="http://www.w3.org/TR/CSS22/visufx.html#propdef-visibility">visibility</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -791,15 +802,15 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-white-space">white-space</a>
+							<td class="property" id="white-space">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-white-space">white-space</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visudet.html#propdef-width">width</a>
+							<td class="property" id="width">
+								<a href="http://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -811,8 +822,8 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/text.html#propdef-word-spacing">word-spacing</a>
+							<td class="property" id="word-spacing">
+								<a href="http://www.w3.org/TR/CSS22/text.html#propdef-word-spacing">word-spacing</a>
 							</td>
 							<td class="issues">
 								<ul>
@@ -825,12 +836,12 @@
 						</tr>
 
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/visuren.html#propdef-z-index">z-index</a>
+							<td class="property" id="z-index">
+								<a href="http://www.w3.org/TR/CSS22/visuren.html#propdef-z-index">z-index</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
-						<tr>
+						<tr id="aural">
 							<td class="property">
 								<ul class="nobull">
 									<li>azimuth</li>
@@ -857,10 +868,8 @@
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Properties from the <a href="http://www.w3.org/TR/CSS21/aural.html">CSS 2.1 Aural
-											style sheets informative appendix</a> should not be used in EPUB 3. The 'aural'
-										media type was deprecated by the same appendix, and the <a href="#css3speech"
-											>CSS 3 Speech module</a> defines the properties for the new 'speech' type.</li>
+									<li>Properties from the <a href="http://www.w3.org/TR/CSS22/aural.html">CSS 2.1 Aural
+											style sheets informative appendix</a> should not be used.</li>
 								</ul>
 							</td>
 						</tr>
@@ -880,46 +889,45 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#dynamic-pseudo-classes">:active</a>
+							<td class="property" id="active">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:active</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#first-child">:first-child</a>
+							<td class="property" id="first-child">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#first-child">:first-child</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#dynamic-pseudo-classes">:focus</a>
+							<td class="property" id="focus">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:focus</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#dynamic-pseudo-classes">:hover</a>
+							<td class="property" id="hover">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:hover</a>
 							</td>
-							<td class="issues"> The <code>:hover</code> pseudo-selector should never be used, as it is not
-								device independent and may not be activatable by many users as ebook users typically do
-								not have mice. </td>
+							<td class="issues">The <code>:hover</code> pseudo-selector should never be used, as it is not
+								device independent and may not be activatable by many users</td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#lang">:lang</a>
-							</td>
-							<td class="issues"> </td>
-						</tr>
-						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#link-pseudo-classes">:link</a>
+							<td class="property" id="lang">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#lang">:lang</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#link-pseudo-classes">:visited</a>
+							<td class="property" id="link">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#link-pseudo-classes">:link</a>
+							</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="visited">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#link-pseudo-classes">:visited</a>
 							</td>
 							<td class="issues"> </td>
 						</tr>
@@ -939,14 +947,14 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#before-and-after">:before</a><br />and<br />
-								<a href="http://www.w3.org/TR/CSS21/selector.html#before-and-after">:after</a>
+							<td class="property" id="before-after">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#before-and-after">:before</a><br />and<br />
+								<a href="http://www.w3.org/TR/CSS22/selector.html#before-and-after">:after</a>
 							</td>
 							<td class="issues">
 								<ul>
-									<li>Not all assistive technologies announce text injected using the <code>:before</code>
-										and <code>:after</code> pseudo-elements.</li>
+									<li>Assistive technologies will typically announce text injected using the <code>:before</code>
+										and <code>:after</code> pseudo-elements with the exception of the IE 11 and Edge browsers.</li>
 									<li>Since the expected behavior is to announce the injected text, avoid the using the
 										pseudo-elements for decorative purposes.</li>
 									<li>Users without CSS support will not have access to the injected text.</li>
@@ -954,14 +962,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#first-letter">:first-letter</a>
+							<td class="property" id="first-letter">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#first-letter">:first-letter</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
 						<tr>
-							<td class="property">
-								<a href="http://www.w3.org/TR/CSS21/selector.html#first-line-pseudo">:first-line</a>
+							<td class="property" id="first-line">
+								<a href="http://www.w3.org/TR/CSS22/selector.html#first-line-pseudo">:first-line</a>
 							</td>
 							<td class="issues"></td>
 						</tr>
