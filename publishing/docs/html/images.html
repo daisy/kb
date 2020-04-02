@@ -271,18 +271,21 @@
 			
 			<section id="desc">
 				<h3>Explanation</h3>
+				
 				<p>Images that are central to the understanding of a publication must always include a text alternative in
 					their <code>alt</code> attribute. In the case of complex images, a detailed description should also be
 					added.</p>
+				
 				<p>If the image is purely decorative, the <code>alt</code> attribute should be left empty. For additional
 					insurance that decorative images will not be announced, the ARIA <code>role</code> attribute with the
 					property <code class="property">presentation</code> can be attached.</p>
-				<aside class="note" aria-labelledby="note1">
-					<p id="note1" class="label">Note</p>
+				
+				<div class="note" role="note" aria-labelledby="note-1">
+					<p id="note-1" class="label">Note</p>
 					<p>If an image is important to the publication, but not required to be read at the point of insertion
 						(i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
 						enclose it.</p>
-				</aside>
+				</div>
 				<section>
 					<h4>EPUB 3</h4>
 					<p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use in

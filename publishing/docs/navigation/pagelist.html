@@ -25,7 +25,7 @@
 				
 				<ul>
 					<li>Include a page list when a publication has statically-paginated equivalent. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.4.5</a>]</span></li>
-					<li>Identify <a href="../html/pagenum.html">page break locations</a> in the text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
+					<li>Identify page break locations in the text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
 					<li>Identify the source of the page breaks in the metadata. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic">WCAG 1.3.1</a>]</span></li>
 				</ul>
 			</section>
@@ -61,9 +61,18 @@
 						<div class="label">Example 2 &#8212; Page list (Web)</div>
 						<p>A page list for use on the Web generally is identified by the <code>role</code> attribute 
 							value <code>doc-pagelist</code>. The <code>aria-label</code> attribute is used to provide
-							a title for the navigation element, but an explicit heading is also valid.</p>
+							a title for the navigation element, but an explicit heading can also be used.</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list">
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &#8230;
+ &lt;/ol>
+&lt;/nav>
+
+&lt;nav role="doc-pagelist" aria-labelledby="pg-hd">
+ &lt;h2 id="pg-hd">Page List&lt;/h2>
  &lt;ol>
    &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
    &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
@@ -93,11 +102,16 @@
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">Example 4 &#8212; Page break marker (block)</div>
+						
 						<p>A <code>div</code> element identifies a page break where inline elements are not allowed.
 							This example shows an example of a page number that is intended to be visible in the
 							content.</p>
+						
+						<p>(Note that the <code>aria-label</code> is currently required even when the number is visible.
+							A future version of the DPUB-ARIA module is expected to fix this so that the page number
+							is automatically obtained from the content of the element when a label is not specified.)</p>
 					</figcaption>
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" id="pg24">24&lt;/div></code></pre>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24">24&lt;/div></code></pre>
 				</figure>
 			</section>
 			
@@ -153,16 +167,12 @@
 						two list items, as it is not valid for a list to contain anything but list items.</p>
 						<p>The obvious solutions are to either insert the page number as the very last element in the item
 							that ends the page:</p>
-						<pre><code>&lt;li>&#8230;.&lt;span
-     epub:type="pagebreak"
-     aria-label="24"/>&lt;/li>
-   &lt;li>&#8230;&lt;/li>
+						<pre><code>&lt;li>&#8230;. &lt;span role="doc-pagebreak" aria-label="24"/>&lt;/li>
+&lt;li>&#8230;&lt;/li>
 </code></pre>
 						<p>or to place it as the very first element in the list item that starts the page</p>
-						<pre><code>&lt;li>&#8230;.&lt;/li>
-   &lt;li>&lt;span
-     epub:type="pagebreak"
-     aria-label="24"/>&#8230;&lt;/li>
+						<pre><code>&lt;li>&#8230;&lt;/li>
+&lt;li>&lt;span role="doc-pagebreak" aria-label="24"/> &#8230; &lt;/li>
 </code></pre>
 						<p>One practice to avoid is creating a new list item just for the page break. As page breaks are
 							often not visible content, an empty list item will be confusing to all users and may alter the
@@ -205,8 +215,9 @@
 					usability of the pagination (e.g., will it match the print edition being used in a class). This source is typically
 					identified using a <code>dc:source</code> element.</p>
 				
-				<div class="note">
-					<p><strong>Note</strong>: Some publishers include a page list and/or page break markers in digital publications 
+				<div class="note" role="note" aria-labelledby="note-1">
+					<p id="note-1" class="label">Note</p>
+					<p>Some publishers include a page list and/or page break markers in digital publications 
 						without paginated equivalents. In these cases, the identifier of the current publication could be identified
 						as the source to avoid confusion and/or the lack of a source could be noted in an accessibility summary.</p>
 				</div>
