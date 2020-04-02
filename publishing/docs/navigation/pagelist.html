@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<title>Page Navigation</title>
-		<script type="text/javascript">
+		<script>
 			var page_info = {
 				'topic': 'Navigation',
 				'appliesTo': ['EPUB3','EPUB2']
 			};
 		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
+		<script src="/js/init.js"></script>
 	</head>
 	
 	<body>
@@ -35,7 +35,7 @@
 
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Page list (EPUB-only)</div>
+						<div class="label">Example 1 &#8212; Page list (EPUB 3)</div>
 						<p>The page list is a simple ordered list of links to the page break locations. It is identified
 							by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
 						<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
@@ -83,13 +83,45 @@
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Page break marker (inline)</div>
+						<div class="label">Example 3 &#8212; Page list (EPUB 2 and DAISY 3)</div>
+						<p>The page list in EPUB 2 and DAISY 3 publications is expressed using a custom XML grammar
+							called the NCX.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;ncx xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
+     xmlns="http://www.daisy.org/z3986/2005/ncx/"
+     version="2005-1" xml:lang="en">
+    &#8230;
+    &lt;pageList>
+        &lt;navLabel>
+            &lt;text>Pages&lt;/text>
+        &lt;/navLabel>
+        &lt;pageTarget type="normal" id="page752" value="752" playOrder="1">
+            &lt;navLabel>
+                &lt;text>752&lt;/text>
+            &lt;/navLabel>
+            &lt;content src="georgia.xhtml#page752"/>
+        &lt;/pageTarget>
+        &lt;pageTarget type="normal" id="page753" value="753" playOrder="2">
+            &lt;navLabel>
+                &lt;text>753&lt;/text>
+            &lt;/navLabel>
+            &lt;content src="georgia.xhtml#page753"/>
+        &lt;/pageTarget>
+        &#8230;
+    &lt;/pageList>
+&lt;/ncx></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Page break marker (inline)</div>
 						<p>An empty <code>span</code> element identifies a page break inside a block element. It
 							is identified as a page break using the <code>role</code> attribute with the value
 							<code>doc-pagebreak</code>. The <code>aria-label</code> attribute provides an
 							announceable value.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;p>
    &#8230;
    &lt;span
        role="doc-pagebreak"
@@ -99,9 +131,9 @@
 &lt;/p></code></pre>
 				</figure>
 				
-				<figure id="ex-04">
+				<figure id="ex-05">
 					<figcaption>
-						<div class="label">Example 4 &#8212; Page break marker (block)</div>
+						<div class="label">Example 5 &#8212; Page break marker (block)</div>
 						
 						<p>A <code>div</code> element identifies a page break where inline elements are not allowed.
 							This example shows an example of a page number that is intended to be visible in the
@@ -111,7 +143,7 @@
 							A future version of the DPUB-ARIA module is expected to fix this so that the page number
 							is automatically obtained from the content of the element when a label is not specified.)</p>
 					</figcaption>
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24">24&lt;/div></code></pre>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24">24&lt;/div></code></pre>
 				</figure>
 			</section>
 			
