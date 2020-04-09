@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>accessibilityAPI</title>
+		<script>
+			var page_info = {
+				'topic': ['Metadata', 'Schema.org'],
+				'description': 'Guidelines for using the schema.org accessibilityAPI property',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+
+				<p class="desc">Indicates that the resource is compatible with the referenced accessibility API.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<dl>
+					<dt>EPUB 3 usage:</dt>
+					<dd>
+						<pre id="a11y-19-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta></code></pre>
+					</dd>
+					
+					<dt>EPUB 2 usage:</dt>
+					<dd>
+						<pre id="a11y-19-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityAPI" content="ARIA"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (RDFa)</dt>
+					<dd>
+						<pre id="a11y-20-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityAPI" content="ARIA"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (microdata)</dt>
+					<dd>
+						<pre id="a11y-21-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityFeature" content="ARIA"/></code></pre>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>This property is only used when a publication has custom controls (e.g., controls created by
+					scripting non-interactive HTML elements like <code>img</code>, <code>span</code>, <code>div</code>,
+					etc.). Without ARIA roles, states and properties, these elements are not accessible to users of
+					assistive technologies.</p>
+
+				<p>Native HTML controls (<code>button</code>, <code>input</code>, etc.) do not require ARIA attributes
+					and should always be used whenever possible. If only native controls are used, this property is not
+					applicable.</p>
+
+				<p>The following values are recommended for this property:</p>
+
+				<ul>
+					<li>ARIA</li>
+				</ul>
+				<p>For more detailed information on how to use this property, refer to the section <a
+						href="http://www.idpf.org/epub/a11y/techniques/#meta-006">Identify ARIA Conformance</a> in the
+						<a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>accessibilityControl</title>
+		<script>
+			var page_info = {
+				'topic': ['Metadata', 'Schema.org'],
+				'description': 'Guidelines for using the schema.org accessibilityControl property',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Identifies input methods that are sufficient to control the described resource.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<dl>
+					<dt>EPUB 3 usage:</dt>
+					<dd>
+						<pre id="a11y-16-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre>
+					</dd>
+					
+					<dt>EPUB 2 usage:</dt>
+					<dd>
+						<pre id="a11y-16-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityControl" content="fullKeyboardControl"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (RDFa)</dt>
+					<dd>
+						<pre id="a11y-17-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (microdata)</dt>
+					<dd>
+						<pre id="a11y-18-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityControl" content="fullKeyboardControl"/></code></pre>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>This property is typically only set when a publication contains scripted content that requires user
+					interaction (i.e., whether the author has ensured that such content can be controlled by the various
+					input methods). It is not a useful indicator for static content, and is not a guarantee that any
+					user agent is accessible with such controls.</p>
+				
+				<p>The following values are recommended for this property:</p>
+				
+				<ul>
+					<li>fullAudioControl</li>
+					<li>fullKeyboardControl</li>
+					<li>fullMouseControl</li>
+					<li>fullTouchControl</li>
+					<li>fullVideoControl</li>
+				</ul>
+				
+				<p>For more detailed information on how to use this property, refer to the section <a
+						href="http://www.idpf.org/epub/a11y/techniques/#meta-007">Identify Input Control Methods</a> in
+					the <a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

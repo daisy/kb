@@ -266,38 +266,77 @@ KB.prototype.generateBreadcrumb = function () {
 		return;
 	}
 	
+	if (page_info.hasOwnProperty('topic')) {
+		if (!Array.isArray(page_info.topic)) {
+			page_info.topic = [page_info.topic];
+		}
+	}
+	else {
+		page_info.topic = [];
+	}
+
+	
 	var breadcrumb = document.createElement('nav');
 		breadcrumb.setAttribute('class','breadcrumb');
 	
 	var p = document.createElement('p');
 	
+	var kb_url = '../';
+	
+	if (page_info.topic.length > 1) {
+		for (var z = page_info.topic.length-1; z > 0; z--) {
+			kb_url += '../';
+		}
+	}
+	
+	kb_url += 'index.html';
+	
 	// add link to the top-level index
 	var home = document.createElement('a');
-		home.setAttribute('href','../index.html');
+		home.setAttribute('href',kb_url);
 		home.appendChild(document.createTextNode(msg.UI.m01))
 	
 	p.appendChild(home);
 	p.appendChild(document.createTextNode(' > '));
 	
-	if (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic')) {
-		// if on an index page, just add the topic as a span
-		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(page_info['topic']));
-		
-		p.appendChild(span);
+	if (page_info.topic.length > 0) {
+	
+		for (var x = 0; x < page_info['topic'].length; x++) {
+			
+			if (window.location.href.indexOf('index.html') > -1 && x == page_info.topic.length -1) {
+				// if on an index page, add the final topic as a span
+				var span = document.createElement('span');
+					span.appendChild(document.createTextNode(page_info.topic[x]));
+				
+				p.appendChild(span);
+			}
+			
+			else {
+				// otherwise add a link to the topic index and a span with the current topic title
+				
+				var index_url = '';
+				
+				// if more than one topic, need to add ../ to reach the right page
+				if (page_info.topic.length > 1) {
+					for (var y = page_info.topic.length-1; y > x; y--) {
+						index_url += '../';
+					}
+				}
+				
+				index_url += 'index.html'
+				
+				var index = document.createElement('a');
+					index.setAttribute('href',index_url);
+					index.appendChild(document.createTextNode(page_info.topic[x]))
+				
+				p.appendChild(index);
+				p.appendChild(document.createTextNode(' > '));
+			}
+		}
 	}
 	
-	else {
-		// otherwise add a link to the topic index and a span with the current topic title
-		if (page_info.hasOwnProperty('topic')) {
-			var index = document.createElement('a');
-				index.setAttribute('href','index.html');
-				index.appendChild(document.createTextNode(page_info['topic']))
-			
-			p.appendChild(index);
-			p.appendChild(document.createTextNode(' > '));
-		}
-		
+	if (window.location.href.indexOf('index.html') == -1) {
+		// add page title for content pages
 		var span = document.createElement('span');
 			span.appendChild(document.createTextNode(this.title));
 		

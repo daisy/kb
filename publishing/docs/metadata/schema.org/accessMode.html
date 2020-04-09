@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>accessMode</title>
+		<script>
+			var page_info = {
+				'topic': ['Metadata', 'Schema.org'],
+				'description': 'Guidelines for using the schema.org accessMode property',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">An access mode through which the intellectual content of a described resource or adaptation
+					is communicated (i.e., the human sensory perceptual system or cognitive faculty through
+					which a person may process or perceive information).</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<dl>
+					<dt>EPUB 3 usage:</dt>
+					<dd>
+						<pre id="a11y-04-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre>
+					</dd>
+					
+					<dt>EPUB 2 usage:</dt>
+					<dd>
+						<pre id="a11y-04-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (RDFa)</dt>
+					<dd>
+						<pre id="a11y-05-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre>
+					</dd>
+					
+					<dt>HTML usage: (microdata)</dt>
+					<dd>
+						<pre id="a11y-06-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The access modes identify how content has to be consumed by default. Images and video are visual
+					content, for example. Video clips also typically have audio, so have an auditory mode (as do audio
+					clips). Text content is textual.</p>
+				
+				<p>Adaptations are identified as access modes, as they are not the primary way that the content is
+					consumed. If adaptations, such as extended descriptions, are provided for the primary content, they
+					are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
+				
+				<p>The following values are recommended for this property:</p>
+				
+				<ul>
+					<li>auditory</li>
+					<li>tactile</li>
+					<li>textual</li>
+					<li>visual</li>
+				</ul>
+				
+				<p>For more detailed information on how to use this property, refer to the section <a
+						href="http://www.idpf.org/epub/a11y/techniques/#meta-001">Identify primary access modes</a> in
+					the <a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

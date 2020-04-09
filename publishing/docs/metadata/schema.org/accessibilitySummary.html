@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>accessibilitySummary</title>
+		<script>
+			var page_info = {
+				'topic': ['Metadata', 'Schema.org'],
+				'description': 'Guidelines for using the schema.org accessibilitySummary property',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+
+				<p class="desc">A human-readable summary of specific accessibility features or deficiencies, consistent
+					with the other accessibility metadata but expressing subtleties such as "short descriptions are
+					present but long descriptions will be needed for non-visual users" or "short descriptions are
+					present and no long descriptions are needed."</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
+   This publication conforms to the EPUB Accessibility specification 
+   at WCAG Level A.
+&lt;/meta>
+</code></pre>
+				</figure>
+
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilitySummary"
+      content="This publication conforms to the EPUB Accessibility specification at WCAG Level A."/></code></pre>
+				</figure>
+
+				<figure id="ex-rdfa">
+					<figcaption>
+						<div class="label">Example 3 &#8212; HTML with RDFa</div>
+					</figcaption>
+
+					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+				</figure>
+
+				<figure id="ex-micro">
+					<figcaption>
+						<div class="label">Example 4 &#8212; HTML with microdata</div>
+					</figcaption>
+
+					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;p itemprop="accessibilitySummary">
+   This document conforms to WCAG 2.0 Level AA.
+&lt;/p></code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example 5 &#8212; Summary in multiple languages (EPUB 3)</div>
+						<p>In this example, the <code>xml:lang</code> attribute is used to identify the language of the
+							summary.</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary" xml:lang="en">
+   &lt;!-- English language summary --> 
+&lt;/meta>
+
+&lt;meta property="schema:accessibilitySummary" xml:lang="fr">
+   &lt;!-- French language summary --> 
+&lt;/meta></code></pre>
+				</figure>
+			</section>
+
+			<section id="value">
+				<h3>Value</h3>
+
+				<p>The summary is a brief, human-readable summary of features and/or deficiencies. It is used to
+					indicate conformance to an accessibility standard or point out shortcomings to the standard.</p>
+
+				<p>The summary should not be a simple repetition of all the <a href="accessibilityFeature.html"
+						>accessibility features</a> and <a href="accessibilityHazard.html">hazards</a>.</p>
+
+				<p>Do not repeat this property unless it contains the summary in another language. In the case of
+					multiple summaries, use the <code>xml:lang</code> and/or <code>lang</code> attributes to
+					differentiate the language.</p>
+			</section>
+
+			<section id="refs">
+				<h3>References</h3>
+
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

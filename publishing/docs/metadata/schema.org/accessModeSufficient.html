@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>accessModeSufficient</title>
+		<script>
+			var page_info = {
+				'topic': ['Metadata', 'Schema.org'],
+				'description': 'Guidelines for using the schema.org accessModeSuficient property',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+
+				<p class="desc">A list of single or combined access modes that are sufficient to understand all the
+					intellectual content of a resource.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<dl>
+					<dt>EPUB 3 usage:</dt>
+					<dd>
+						<pre id="a11y-07-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
+&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre>
+					</dd>
+
+					<dt>EPUB 2 usage:</dt>
+					<dd>
+						<pre id="a11y-07-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessModeSufficient" content="textual,visual"/>
+&lt;meta name="schema:accessModeSufficient" content="textual"/></code></pre>
+					</dd>
+
+					<dt>HTML usage: (RDFa)</dt>
+					<dd>
+						<pre id="a11y-08-src" class="prettyprint linenums"><code>&lt;meta property="accessModeSufficient" content="textual,visual"/>
+&lt;meta property="accessModeSufficient" content="textual"/></code></pre>
+					</dd>
+
+					<dt>HTML usage: (microdata)</dt>
+					<dd>
+						<pre id="a11y-09-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessModeSufficient" content="textual,visual"/>
+&lt;meta itemprop="accessModeSufficient" content="textual"/></code></pre>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>Sufficient access modes identify the different combinations of senses that can be used to
+					sufficiently consume the content. A publication with images and text will require both visual and
+					textual modes to be consumed. If the images are also adequately described (alt text and extended
+					descriptions, as appropriate) a single textual mode would also be sufficient, indicating someone who
+					is blind can consume the content.</p>
+
+				<p>For more detailed information on how to use this property, refer to the section <a
+						href="http://www.idpf.org/epub/a11y/techniques/#meta-002">Identify sufficient access modes</a>
+					in the <a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
