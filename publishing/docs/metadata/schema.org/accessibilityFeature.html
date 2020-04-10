@@ -110,8 +110,11 @@
 							<figcaption>
 								<p class="label">A presentational image.</p>
 							</figcaption>
-							<pre id="ex-alt-02-src" class="prettyprint">&lt;img src="spacer.jpg" alt="" /></pre>
+							<pre id="ex-alt-02-src" class="prettyprint">&lt;img src="spacer.jpg" alt="" role="presentation" /></pre>
 						</figure>
+
+						<p>See the <a href="../../html/images.html">page navigation knowledge base page</a> for more
+							information.</p>
 					</dd>
 
 					<dt id="annotations">annotations</dt>
@@ -358,6 +361,9 @@
 								>techniques for WCAG success criterion 1.1.1</a> for more information on when extended
 							descriptions are needed.</p>
 
+						<p>See the <a href="../../html/images.html">images knowledge base page</a> for more
+							information.</p>
+
 						<figure id="ex-ld-01">
 							<figcaption>
 								<p class="label">Long description included in an HTML <code>details</code> element.</p>
@@ -397,6 +403,9 @@
 
 						<p>The <code>MathML</code> value is often paired with the <a href="#describedMath">describedMath
 								value</a> when fallback descriptions are provided.</p>
+
+						<p>See the <a href="../../html/mathml.html">MathML knowledge base page</a> for more
+							information.</p>
 
 						<figure id="ex-mml">
 							<figcaption>
@@ -455,6 +464,9 @@
 							coordinate their locations with print users. In these cases, the <a href="#printPageNumbers"
 									><code>printPageNumbers</code></a> value is also set.</p>
 
+						<p>See the <a href="../../navigation/pagelist.html">page navigation knowledge base page</a> for
+							more information.</p>
+
 						<figure id="ex-pgl">
 							<figcaption>
 								<p class="label">EPUB 3 page list.</p>
@@ -480,6 +492,8 @@
 							typically accompanied by a <a href="#pageList">page list</a> that allows users to quickly
 							navigate to a specific location.</p>
 
+						<p>See the <a href="../../navigation/pagelist.html">page navigation knowledge base page</a> for
+							more information.</p>
 
 						<figure>
 							<figcaption>
@@ -508,6 +522,9 @@
 						<p>Fixed-layout publications tend to be the most problematic due to the fixed positioning of
 							elements and having to represent secondary content that spans two pages, but it is possible
 							for fixed layouts to have a logical reading progression if care is taken.</p>
+
+						<p>See the <a href="../../html/order.html">logical reading order knowledge base page</a> for
+							more information.</p>
 					</dd>
 
 					<dt id="rubyAnnotations">rubyAnnotations</dt>
@@ -553,10 +570,13 @@
 							to quickly move through the different levels of the book without having to traverse the
 							table of contents.</p>
 
+						<p>See the <a href="../../html/headings.html">HTML headings knowledge base page</a> for more
+							information.</p>
+
 						<figure id="ex-sn-01">
 							<figcaption>
-								<p class="label">Headings expressed using the HTML <code>h1</code> through
-										<code>h6</code> tags.</p>
+								<p class="label">Headings incremented for each subsection using the HTML <code>h1</code>
+									through <code>h6</code> tags.</p>
 							</figcaption>
 							<pre id="ex-sn-01-src" class="prettyprint"><code>&lt;section>
    &lt;h1>Section 1&lt;/h1>
@@ -568,20 +588,6 @@
    &lt;/section>
 &lt;/section></code></pre>
 						</figure>
-
-						<figure id="ex-sn-02">
-							<figcaption>
-								<p class="label">Level 2 heading expressed using the ARIA role <code>heading</code> with
-									an <code>aria-level</code> value.</p>
-							</figcaption>
-							<pre id="ex-sn-02-src" class="prettyprint"><code>&lt;p role="heading" aria-level="2">Section 1.1&lt;/p></code></pre>
-						</figure>
-
-						<div class="note" role="note" aria-labelledby="hd-note">
-							<p id="hd-note" class="label">Note</p>
-							<p>The use of ARIA attributes to represent headings is not recommended. The native HTML
-								headings elements should be used whenever needed.</p>
-						</div>
 					</dd>
 
 					<dt id="synchronizedAudioText">synchronizedAudioText</dt>
@@ -597,6 +603,9 @@
 
 						<p>Text and audio synchronization is typically provided using the SMIL language (e.g., in DAISY
 							talking books and EPUB 3 media overlays).</p>
+
+						<p>See the <a href="../../sync-media/overlays.html">media overlays knowledge base page</a> for
+							more information.</p>
 
 						<figure id="ex-sat">
 							<figcaption>
@@ -634,18 +643,24 @@
 							(e.g., includes at least all the top-level headings), otherwise it is incorrect to set this
 							value.</p>
 
+						<p>See the <a href="../../navigation/toc.html">table of contents knowledge base page</a> for
+							more information.</p>
+
 						<figure id="ex-toc">
 							<figcaption>
 								<p class="label">EPUB 3 table of contents</p>
 							</figcaption>
-							<pre id="ex-toc-src" class="prettyprint"><code>&lt;nav epub:type="toc" id="toc">         
+							<pre id="ex-toc-src" class="prettyprint"><code>&lt;nav epub:type="toc" role="doc-toc" aria-labelledby="toc-hd">
+   &lt;h2 id="toc-hd">Contents&lt;/h2>
    &lt;ol>
-      &lt;li>&lt;a href="wasteland.xhtml#ch1">I. THE BURIAL OF THE DEAD&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="wasteland.xhtml#ch2">II. A GAME OF CHESS&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="wasteland.xhtml#ch3">III. THE FIRE SERMON&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="wasteland.xhtml#ch4">IV. DEATH BY WATER&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="wasteland.xhtml#ch5">V. WHAT THE THUNDER SAID&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="wasteland.xhtml#rearnotes">NOTES ON "THE WASTE LAND"&lt;/a>&lt;/li>
+      &lt;li>
+      	&lt;a href="s04.xhtml">SECTION IV FAIRY STORIES—MODERN FANTASTIC TALES&lt;/a>
+      	&lt;ol>
+      	   &lt;li>&lt;a href="s04.xhtml#intro">INTRODUCTORY&lt;/a>
+             &#8230;
+      	&lt;/ol>
+      &lt;/li>
+      &#8230;
    &lt;/ol>         
 &lt;/nav></code></pre>
 						</figure>
@@ -657,9 +672,10 @@
 							to improve its readability.</p>
 
 						<p>Accessibility tags are a way of labeling the components of a PDF to try and retain some of
-							the semantics.</p>
+							the semantics that are otherwise only visually present. They are a key part of the PDF
+							Universal Accessibility (PDF/UA) standard.</p>
 
-						<p>This value is not relevant to Web-based publication formats such as EPUB so is never found in
+						<p>This value is not relevant to Web-based publication formats such as EPUB so is not used in
 							metadata.</p>
 					</dd>
 
@@ -734,6 +750,14 @@
 						<p>DRM schemes are often applied to digital publications to protect them from being copied, but
 							these schemes, or the rights applied to the content, can sometimes interfere with the
 							ability of assistive technologies to access or play back the text.</p>
+
+						<div class="note" role="note" aria-labelledby="un-note">
+							<p id="un-note" class="label">Note</p>
+							<p>It is often vendors who apply DRM schemes to publications before distributing them to
+								users. As a result, before setting this value, authors need to ensure that the
+								publication will not subsequently have DRM applied. The pubication has to be guaranteed
+								to be unlocked after distribution.</p>
+						</div>
 					</dd>
 				</dl>
 			</section>
