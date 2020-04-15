@@ -16,65 +16,93 @@
 		<main>
 			<section id="def">
 				<h3>Definition</h3>
-				
+
 				<p class="desc">Identifies input methods that are sufficient to control the described resource.</p>
 			</section>
-			
+
 			<section id="ex">
 				<h3>Examples</h3>
-				
-				<dl>
-					<dt>EPUB 3 usage:</dt>
-					<dd>
-						<pre id="a11y-16-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre>
-					</dd>
-					
-					<dt>EPUB 2 usage:</dt>
-					<dd>
-						<pre id="a11y-16-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityControl" content="fullKeyboardControl"/></code></pre>
-					</dd>
-					
-					<dt>HTML usage: (RDFa)</dt>
-					<dd>
-						<pre id="a11y-17-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre>
-					</dd>
-					
-					<dt>HTML usage: (microdata)</dt>
-					<dd>
-						<pre id="a11y-18-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityControl" content="fullKeyboardControl"/></code></pre>
-					</dd>
-				</dl>
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta></code></pre>
+				</figure>
+
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityControl" content="fullKeyboardControl"/></code></pre>
+				</figure>
+
+				<figure id="ex-rdfa">
+					<figcaption>
+						<div class="label">Example 3 &#8212; HTML with RDFa</div>
+					</figcaption>
+					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityControl" content="fullKeyboardControl"/></code></pre>
+				</figure>
+
+				<figure id="ex-micro">
+					<figcaption>
+						<div class="label">Example 4 &#8212; HTML with microdata</div>
+					</figcaption>
+					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityControl" content="fullKeyboardControl"/></code></pre>
+				</figure>
 			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
+
+			<section id="value">
+				<h3>Values</h3>
+
 				<p>This property is typically only set when a publication contains scripted content that requires user
 					interaction (i.e., whether the author has ensured that such content can be controlled by the various
 					input methods). It is not a useful indicator for static content, and is not a guarantee that any
 					user agent is accessible with such controls.</p>
-				
+
 				<p>The following values are recommended for this property:</p>
-				
-				<ul>
-					<li>fullAudioControl</li>
-					<li>fullKeyboardControl</li>
-					<li>fullMouseControl</li>
-					<li>fullTouchControl</li>
-					<li>fullVideoControl</li>
-				</ul>
-				
-				<p>For more detailed information on how to use this property, refer to the section <a
-						href="http://www.idpf.org/epub/a11y/techniques/#meta-007">Identify Input Control Methods</a> in
-					the <a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
+
+				<dl>
+					<dt>fullAudioControl</dt>
+					<dd>
+						<p>The <code>fullAudioControl</code> value is used to indicate that the content can be
+							controlled using only speech recognition software (e.g., Dragon).</p>
+					</dd>
+
+					<dt>fullKeyboardControl</dt>
+					<dd>
+						<p>The <code>fullKeyboardControl</code> value is used to indicate that the content can be
+							controlled using only a keyboard (e.g., for users who require adaptive keyboards).</p>
+					</dd>
+
+					<dt>fullMouseControl</dt>
+					<dd>
+						<p>The <code>fullMouseControl</code> value is used to indicate that the content can be
+							controlled using only a mouse (e.g., for users who require a trackball mouse).</p>
+					</dd>
+
+					<dt>fullTouchControl</dt>
+					<dd>
+						<p>The <code>fullTouchControl</code> value is used to indicate that the content can be
+							controlled using only touch devices (e.g., for users who require a mouth stick or head
+							wand).</p>
+					</dd>
+
+					<dt>fullVideoControl</dt>
+					<dd>
+						<p>The <code>fullVideoControl</code> value is used to indicate that the content can be
+							controlled using video recognition devices (e.g., eye tracking).</p>
+					</dd>
+				</dl>
 			</section>
-			
+
 			<section id="refs">
 				<h3>References</h3>
-				
+
 				<ul>
 					<li>
-						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+						<a href="https://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas Wiki &#8212; Accessibility
+							metadata definitions</a>
 					</li>
 					<li>
 						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS

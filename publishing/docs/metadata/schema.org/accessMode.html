@@ -16,69 +16,111 @@
 		<main>
 			<section id="def">
 				<h3>Definition</h3>
-				
-				<p class="desc">An access mode through which the intellectual content of a described resource or adaptation
-					is communicated (i.e., the human sensory perceptual system or cognitive faculty through
+
+				<p class="desc">An access mode through which the intellectual content of a described resource or
+					adaptation is communicated (i.e., the human sensory perceptual system or cognitive faculty through
 					which a person may process or perceive information).</p>
 			</section>
-			
+
 			<section id="ex">
 				<h3>Examples</h3>
-				
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre>
+				</figure>
+
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/></code></pre>
+				</figure>
+
+				<figure id="ex-rdfa">
+					<figcaption>
+						<div class="label">Example 3 &#8212; HTML with RDFa</div>
+					</figcaption>
+					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre>
+				</figure>
+
+				<figure id="ex-micro">
+					<figcaption>
+						<div class="label">Example 4 &#8212; HTML with microdata</div>
+					</figcaption>
+					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre>
+				</figure>
+			</section>
+
+			<section id="value">
+				<h3>Values</h3>
+
+				<p>The access mode values identify the default nature of the content. Images and video are visual
+					content, for example. Video clips also typically have audio, so have an auditory mode (as do audio
+					clips). Text content is textual.</p>
+
+				<p>Adaptations are not identified using this property, as they are not the primary way that the content
+					is consumed. If adaptations, such as extended descriptions, are provided for the primary content,
+					they are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
+
+				<p>The following values are recommended for this property:</p>
+
 				<dl>
-					<dt>EPUB 3 usage:</dt>
+					<dt>auditory</dt>
 					<dd>
-						<pre id="a11y-04-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre>
+						<p>The <code>auditory</code> value is used to indicate that there is an auditory component to
+							the content (e.g., audio tracks on their own or as part of a video, or an audiobook).</p>
+
+						<p>The <code>auditory</code> value does not have to be set if the audio does not include
+							information necessary to understand the content (e.g., background noises in an interactive
+							game or mood music).</p>
 					</dd>
-					
-					<dt>EPUB 2 usage:</dt>
+
+					<dt>tactile</dt>
 					<dd>
-						<pre id="a11y-04-e2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/></code></pre>
+						<p>The <code>tactile</code> value is used to indicate that a publication contains tactile
+							content (e.g., braille-formatted text or tactile images or objects).</p>
+
+						<p>This value is typically not applicable outside of accessible republishing.</p>
+
+						<p>The value is <strong>not</strong> used to indicate that text content can be converted to
+							tactile (e.g., using a refreshable braille display).</p>
 					</dd>
-					
-					<dt>HTML usage: (RDFa)</dt>
+
+					<dt>textual</dt>
 					<dd>
-						<pre id="a11y-05-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre>
+						<p>The <code>textual</code> value is used to indicate that a publication contains text
+							content.</p>
+
+						<p>This value is the most commonly used for digital publications, as most pubications contain at
+							least some text content.</p>
+
+						<p>If a publication contains images of text, the <a href="#visual"><code>visual</code></a>
+							access mode is also set (or set instead, if the publication only contains images of text).
+							If, however, an image format allows the text content to be retained in text form (e.g.,
+							SVG), the <code>textual</code> value is also specified.</p>
 					</dd>
-					
-					<dt>HTML usage: (microdata)</dt>
+
+					<dt>visual</dt>
 					<dd>
-						<pre id="a11y-06-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre>
+						<p>The <code>visual</code> value is used to indicate that a publication contains visual content
+							such as images, grapics and video.</p>
+
+						<p>This value is not set if the visual content does not contain any information necessary to
+							understanding the content (e.g., decorative images).</p>
 					</dd>
 				</dl>
 			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>The access modes identify how content has to be consumed by default. Images and video are visual
-					content, for example. Video clips also typically have audio, so have an auditory mode (as do audio
-					clips). Text content is textual.</p>
-				
-				<p>Adaptations are identified as access modes, as they are not the primary way that the content is
-					consumed. If adaptations, such as extended descriptions, are provided for the primary content, they
-					are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
-				
-				<p>The following values are recommended for this property:</p>
-				
-				<ul>
-					<li>auditory</li>
-					<li>tactile</li>
-					<li>textual</li>
-					<li>visual</li>
-				</ul>
-				
-				<p>For more detailed information on how to use this property, refer to the section <a
-						href="http://www.idpf.org/epub/a11y/techniques/#meta-001">Identify primary access modes</a> in
-					the <a href="http://www.idpf.org/epub/a11y/techniques">EPUB Accessibility Techniques</a>.</p>
-			</section>
-			
+
 			<section id="refs">
 				<h3>References</h3>
-				
+
 				<ul>
 					<li>
-						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+						<a href="https://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas Wiki &#8212; Accessibility
+							metadata definitions</a>
 					</li>
 					<li>
 						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
