@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>CSS Speech</title>
+		<title>CSS3 Speech</title>
 		<script>
 			var page_info = {
 				'topic': 'Text-to-Speech',
@@ -15,13 +15,13 @@
 		<main>
 			<div class="warning" aria-labelledby="note-hd">
 				<p id="note-hd" class="label">Caution</p>
-				<p>There is no support for CSS 3 Speech properties in reading systems at this time.</p>
+				<p>There is no support for CSS3 Speech properties in reading systems at this time.</p>
 			</div>
 
 			<section id="summary">
 				<h3>Summary</h3>
 
-				<p>CSS 3 Speech properties offer the promise of improved aural rendering.</p>
+				<p>CSS3 Speech properties offer the promise of improved aural rendering.</p>
 			</section>
 
 			<section id="ex">
@@ -194,24 +194,13 @@
 						<code>none</code> value disables rendering on an element, and setting the <code>normal</code>
 					value enables.</p>
 
-				<p>The following table lists the remaining properties from the Speech module that are supported in EPUB
-					3. These properties are focused on non-prosodic aspects of TTS playback.</p>
+				<p>The following properties are focused on non-prosodic aspects of TTS playback.</p>
 
-				<table border="1">
-					<caption>Additional EPUB 3-supported Speech module properties</caption>
-					<colgroup>
-						<col style="width: 10%; max-width: 8em;" />
-						<col style="width: 90%;" />
-					</colgroup>
-					<tr>
-						<td></td>
-						<th>Description</th>
-					</tr>
-					<tr>
-						<th>
+					<dl>
+						<dt>
 							<code class="property">pause</code>
-						</th>
-						<td>
+						</dt>
+						<dd>
 							<p>The <code class="property">pause</code> property controls the amount of pause that occurs
 								before and after the element that it is applied to. Pauses are typically used to
 								identify transitions between major structures, such as between paragraphs and when new
@@ -234,13 +223,12 @@
 								and <code class="property">rest</code> at the start of the associated element, and after
 								any <code class="property">rest</code> and <code class="property">cue</code> at the end
 								of the element.</p>
-						</td>
-					</tr>
-					<tr>
-						<th>
+						</dd>
+						
+						<dt>
 							<code class="property">cue</code>
-						</th>
-						<td>
+						</dt>
+						<dd>
 							<p>The <code class="property">cue</code> property provides the ability to uniquely identify
 								elements with an aural sound. Cues are helpful in distinguishing new headings, for
 								example, as pauses alone are not a good indicator.</p>
@@ -260,13 +248,12 @@
 									class="property">rest</code> at the start of the associated element, and between any
 									<code class="property">rest</code> and <code class="property">cue</code> at the end
 								of the element.</p>
-						</td>
-					</tr>
-					<tr>
-						<th>
+						</dd>
+							
+						<dt>
 							<code class="property">rest</code>
-						</th>
-						<td>
+						</dt>
+						<dd>
 							<p>The <code class="property">rest</code> property controls the pause that occurs between
 								the any aural cues and the rendering of the associated element, both before and
 								after.</p>
@@ -287,13 +274,12 @@
 									<code class="property">cue</code> at the start of the associated element, and before
 								any <code class="property">cue</code> and <code class="property">pause</code> at the end
 								of the element.</p>
-						</td>
-					</tr>
-					<tr>
-						<th>
+						</dd>
+						
+						<dt>
 							<code class="property">voice-family</code>
-						</th>
-						<td>
+						</dt>
+						<dd>
 							<p>The <code class="property">voice-family</code> property provides control over the gender
 								and type of voice used for TTS playback, allowing content producers to create more
 								realistic TTS playback (e.g., alternating gender to match the character).</p>
@@ -318,9 +304,8 @@
 									class="value">female</code> or <code class="value">neutral</code>; and, when
 								specified, the integer indicates the ordinal position of the voice to use (i.e., when
 								more than one matching voice is available).</p>
-						</td>
-					</tr>
-				</table>
+						</dd>
+					</dl>
 			</section>
 
 			<section id="faq" class="faq">
