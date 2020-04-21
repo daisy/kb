@@ -152,7 +152,7 @@ div.glosslink {
 
 div.glosslink > a {
 	float: right;
-	color: rgb(255,255,255);
+	color: rgb(255,255,200);
 }
 
 div.glosslink > a:hover {
