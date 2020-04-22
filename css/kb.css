@@ -300,11 +300,8 @@ pre > ol > li {
 
 code {
 	font-size: 90%;
-	color: rgb(0,0,0);
-	background-color: rgb(245,247,249);
-	border: 0.1rem solid rgb(226,226,226);
+	color: rgb(255,69,0);
 	padding: 0.4rem 0.4rem 0.2rem 0.4rem;
-	border-radius: 0.3rem;
 }
 
 pre code {
