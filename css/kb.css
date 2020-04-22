@@ -574,7 +574,8 @@ a[role='doc-glossref']:hover {
 
 /* value lists */
 
-#value dt {
+#value dt,
+dl.value dt {
 	font-size: 2rem;
 	color: rgb(20, 100, 240);
 	margin-left: 1rem;
@@ -588,6 +589,10 @@ a[role='doc-glossref']:hover {
 	margin: 3rem 0;
 	border: 0.1rem solid grey;
 	background-color: rgb(240, 245, 250);
+}
+
+dl.value pre {
+	margin-left: 3rem;
 }
 
 #value dd figcaption > p.label {
