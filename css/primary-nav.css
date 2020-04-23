@@ -38,7 +38,7 @@ nav#toc h4 {
 
 nav#toc ol {
 	list-style-type: none;
-	max-width: 80rem;
+	max-width: 90rem;
 	column-count: 3;
 }
 
@@ -46,7 +46,7 @@ nav#toc li {
 	font-size: 120%;
 	padding: 0.5rem;
 	display: inline-block;
-	width: 20rem;
+	width: 30rem;
 	margin: 0.5rem;
 }
 
@@ -60,5 +60,5 @@ nav#toc a {
 	color: rgb(0,0,200) !important;
 	border: none !important;
 	display: inline-block;
-	width: 20rem;
+	width: 30rem;
 }

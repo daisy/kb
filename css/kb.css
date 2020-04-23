@@ -26,7 +26,7 @@ html, body {
 
 body {
 	font-family: Calibri,Helvetica,Arial,sans-serif;
-	font-size: 1.6rem;
+	font-size: 2rem;
 	background-color: rgb(251,252,253);
 	color: rgb(0,0,0);
 }
@@ -240,8 +240,8 @@ nav.mini-toc a {
 aside.applies-to {
 	float: right;
 	padding: 0.75rem 1.5rem;
-	margin-top: -5rem;
-	font-size: 1.3rem;
+	margin-top: -10rem;
+	font-size: 1.5rem;
 	background-color: rgb(250,250,250);
 	border: 0.1rem solid lightgray;
 }
@@ -576,7 +576,7 @@ a[role='doc-glossref']:hover {
 
 #value dt,
 dl.value dt {
-	font-size: 2rem;
+	font-size: 2.2rem;
 	color: rgb(20, 100, 240);
 	margin-left: 1rem;
 	margin-top: 3rem;
