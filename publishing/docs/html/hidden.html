@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hidden Content</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the accessible hiding of content.',
+				'appliesTo':[ 'EPUB3', 'EPUB2']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Introduction">
+				<p>This page explores the accessibility and impacts of a number of techniques used to hide and minimize
+					content in digital publications.</p>
+				
+				<p>It is generally advised to avoid including hidden content that is only intended for users of
+					assistive technologies, however, except where the content is not central to understanding the
+					publication. Standard hyperlinks to text alternatives and declarative approaches to minimizing
+					content (e.g., the <a href="#details"><code>details</code> element</a>) are more broadly usable than
+					hidden content, as not everyone who can benefit from this content uses an assistive technology.</p>
+				
+				<p>When content has to be selectively made to appear, ensure that <a href="../script/pe.html"
+						>progressive enhancement</a> techniques are followed.</p>
+			</section>
+			
+			<section id="html">
+				<h3>HTML</h3>
+				
+				<dl class="value">
+					<dt id="hidden">The <code>hidden</code> attribute</dt>
+					<dd>
+						<p>HTML5 introduced the <code>hidden</code> attribute as a way to declaratively hide content
+							(i.e., to hide content without relying on other technologies like CSS). When the attribute
+							is set on an element, its content will not be rendered in any presentation.</p>
+						
+						<pre id="ex-hidden-01-src" class="prettyprint linenums"><code>&lt;div hidden="">
+   &#8230;
+&lt;/div></code></pre>
+						
+						<p>The value of attribute has to be either an empty string, as in the previous example, or the
+							value "<code>hidden</code>" (<code>hidden="hidden"</code>). Although referred to as a
+							"boolean" attribute, its value cannot be set to "true" or "false". To make content visible
+							again, the <code>hidden</code> attribute has to be removed from the element.</p>
+						
+						<p>The <code>hidden</code> attribute is most appropriate to author directly on an element when
+							its content will never be made visible. See the <a href="#script">scripting section</a> on
+							dynamically setting the attribute if content will be toggled between visible and hidden
+							states.</p>
+						
+						<p>The <code>hidden</code> attribute is most commonly used with the <a href="#aria">ARIA
+								attributes</a> that do not require visible content (e.g., <a
+								href="#aria-label-labelledby"><code>aria-labelledby</code></a> and <a
+								href="#aria-describedby"><code>aria-describedby</code></a>).</p>
+						
+						<p>The effect of setting this attribute is the equivalent of setting the <a href="#display">CSS
+									<code>display</code> property</a> to "<code>none</code>". It is more reliable than
+							CSS options in modern browsers, however, as not all user agents support CSS styling.</p>
+					</dd>
+					
+					<dt id="details">The <code>details</code> element</dt>
+					<dd>
+						<p>The <code>details</code> element does not strictly meet the requirement of hiding content,
+							but it does provide the ability to collapse content down to just the label specified in the
+								<code>summary</code> tag.</p>
+						
+						<pre id="ex-details-01-src" class="prettyprint linenums"><code>&lt;details>
+   &lt;summary>Description&lt;/summary>
+   &lt;p>The first of the three gas giants is &#8230;&lt;/p>
+&lt;/details></code></pre>
+						
+						<p>One advantage of this approach to hiding is that it does not require scripting support, which
+							is often lacking in EPUB reading systems, to expand and collapse the content.</p>
+						
+						<p>A current limitation, however, is that reading systems do always not repaginate well when the
+							content is expanded. Expanding may force content below the element off the bottom of the
+							current page, making it unavailable to sighted readers. The attribute is also not well
+							supported in older browsers, including not at all in Internet Explorer versions, so requires
+							a polyfill to work.</p>
+						
+						<p>The element can be paired with the <a href="#aria-details"><code>aria-details</code>
+								attribute</a> to associate descriptions with elements.</p>
+						
+						<pre id="ex-details-02-src" class="prettyprint linenums"><code>&lt;img src="dollars.jpg" alt="&#8230;" aria-details="dollar-desc"/>
+
+&lt;details id="dollar-desc">
+   &lt;summary>Description&lt;/summary>
+   &#8230;
+&lt;/details></code></pre>
+						
+						<p>Note that the use of "details" in the element and attribute names is somewhat coincidental.
+							The <code>aria-details</code> element can refer to any element containing additional
+							information.</p>
+					</dd>
+				</dl>
+			</section>
+			<section id="css">
+				<h3>CSS</h3>
+				
+				<p>CSS provides a number of approaches to hiding content visually. Each of these is explored below.</p>
+				
+				<dl class="value">
+					<dt id="clip">Clipping</dt>
+					<dd>
+						<p>CSS clipping is a technique that reduces content to a single pixel so that visual users are
+							not aware that that the additional content is present.</p>
+						
+						<p>The advantage of clipping content instead of hiding it completely is that assistive
+							technologies will read the clipped content, whereas they ignore content set or styled to be
+							hidden.</p>
+						
+						<p>The CSS properties typically used to achieve this effect are as follows:</p>
+						
+						<pre id="ex-clip-01-src" class="prettyprint linenums"><code>.clip {
+   clip-path: inset(100%);
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}</code></pre>
+						
+						<p>While this technique works well in web browsers, support in EPUB reading systems is
+							inconsistent. Support for the clipping properties is not widespread, and absolute
+							positioning is often ignored outside of fixed-layout publications.</p>
+					</dd>
+					
+					<dt id="display">The <code>display</code> property</dt>
+					<dd>
+						<p>The <code>display</code> property is a widespread method used to visually hide content, as
+							its origins go back much further than <a href="#hidden">the <code>hidden</code>
+								attribute</a>. Setting its value to <code>none</code> causes the element it is carried
+							on to be removed from visual display (i.e., not only does the content not display, but
+							unlike <a href="#visibility">the <code>visibility</code> property</a> any space it would
+							occupy is collapsed).</p>
+						
+						<pre id="ex-display-01-src" class="prettyprint linenums"><code>.hide {
+   display: none;
+}</code></pre>
+						
+						<p>Assistive technologies ignore content hidden using the <code>display</code> property; the
+							primary problem with using CSS to hide content is that CSS is not always supported. As a
+							result, there is no guarantee that the content will be hidden from any users depending on
+							the type of user agent they are using. The <code>hidden</code> attribute is more reliable in
+							this regard.</p>
+						
+						<p>Like with the <code>hidden</code> attribute, content that is hidden using the
+								<code>display</code> property can be accessed by <a href="#aria">ARIA attributes</a>
+							that accept hidden content. The same flaw that this approach hides useful information from
+							users who do not use assistive technologies also applies, however.</p>
+					</dd>
+					
+					<dt id="visibility">The <code>visibility</code> property</dt>
+					<dd>
+						<p>The <code>visibility</code> property is not commonly used to hide content in digital
+							publications, as unlike <a href="#display">the <code>display</code> property</a> it leaves a
+							space in the rendered content where the element would appear.</p>
+						
+						<pre id="ex-visibility-01-src" class="prettyprint linenums"><code>.hide {
+   visibility: hidden;
+}</code></pre>
+						
+						<p>The property is more commonly used on the Web to avoid the other content on the page shifting
+							around when an element is hidden or made visible (e.g., to prevent a page footer from being
+							pulled up from the bottom of the page).</p>
+						
+						<p>Similar to the <code>display</code> property, content hidden this way is hidden to assistive
+							technologies unless it is referenced from an <a href="#aria">ARIA attribute</a> that allows
+							hidden content.</p>
+					</dd>
+					
+					<dt id="indent">The <code>text-indent</code> property</dt>
+					<dd>
+						<p>The <code>text-indent</code> property is sometimes used to push content out of the visible
+							area of the screen by giving it a large negative number.</p>
+						
+						<pre id="ex-indent-01-src" class="prettyprint linenums"><code>.hide {
+   text-indent: -9999px;
+}</code></pre>
+						
+						<p>This allows the content to be read by assistive technologies, even though it is not visually
+							present, as they ignore indenting.</p>
+						
+						<p>This technique tends to be unreliable, however, as even in browsers it has been noted that it
+							can cause a large scrollbar to appear to allow users to reach the content (specifically for
+							those who read right-to-left). The more common issue with EPUB reading systems is that they
+							ignore negative indents and other attempts to manipulate content outside the viewing
+							area.</p>
+					</dd>
+					
+					<dt id="abs-pos">Absolute positioning</dt>
+					<dd>
+						<p>Absolute positioning content off-screen is another common Web practice to hide it visually
+							while leaving it for assistive technologies to announce.</p>
+						
+						<pre id="ex-abs-pos-01-src" class="prettyprint linenums"><code>.hide {
+   position: absolute;
+   left: -9999px;
+}</code></pre>
+						
+						<p>Absolute positioning of content in EPUB reading systems is often disabled outside of fixed
+							layout publications, however, as it complicates the rendering and paginating of what is
+							expected to be reflowable content. As a result, the content may appear fixed in an
+							unexpected position on the page, potentially obscuring the other content for visual
+							readers.</p>
+					</dd>
+				</dl>
+			</section>
+			<section id="aria">
+				<h3>ARIA</h3>
+				
+				<p>Although ARIA does not influence the display of content, it contains a number of attributes that can
+					be used both to hide content from, and make hidden content accessible to, assistive
+					technologies.</p>
+				
+				<dl class="value">
+					<dt id="aria-hidden">The <code>aria-hidden</code> attribute</dt>
+					<dd>
+						<p>Despite its name, the <code>aria-hidden</code> attribute does not control the visual
+							rendering of content. When set, it indicates that the designated content is not to be
+							rendered by an assistive technology (i.e., it is not to be included in the accessibility
+							tree).</p>
+						
+						<pre id="ex-aria-hidden-01-src" class="prettyprint linenums"><code>&lt;div aria-hidden="true">
+   &#8230;
+&lt;/div></code></pre>
+						
+						<p>Unlike the <code>hidden</code> attribute, the value must be "<code>true</code>" or
+								"<code>false</code>". An empty value (<code>aria-hidden=""</code>) is the same as not
+							specifying the attribute.</p>
+						
+						<p>The <code>aria-hidden</code> attribute should rarely be needed in digital publications,
+							however. It is only of use if there is redundant or extraneous visual content, like
+							pull quotes.</p>
+						
+						<p>Note that ARIA attributes that can reference hidden content (e.g., <a
+								href="#aria-describedby"><code>aria-describedby</code></a> and <a
+								href="#aria-label-labelledby"><code>aria-labelledby</code></a>) ignore this attribute
+							this attribute &#8212; they will include the text like with any other hidden content.</p>
+					</dd>
+					
+					<dt id="aria-describedby">The <code>aria-describedby</code> attribute</dt>
+					<dd>
+						<p>The <code>aria-describedby</code> attribute is commonly used to associate hidden descriptions
+							with an element.</p>
+						
+						<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
+&lt;p id="img-desc" hidden="hidden">The infographic shows &#8230;&lt;/p></code></pre>
+						
+						<p>The value of the attribute is the ID of the element that contains the description. Note that
+							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
+							character (<code>#</code>) at the start, as would be expected in a hyperlink). The element
+							may reference more than one element if the description is broken up across elements.</p>
+						
+						<p>The problem with using <code>aria-describedby</code> to reference any content, hidden or not,
+							is that it reduces that content to a simple text string (i.e., there is no way to
+							effectively move through the description). Users of assistive technologies consequently have
+							to listen to that entire string of text before they can move on, which can be a frustrating
+							experience.</p>
+						
+						<p>The use of <code>aria-describedby</code> with hidden content also limits access to the
+							description to users of assistive technologies when there will be many users who could
+							benefit from access.</p>
+					</dd>
+					
+					<dt id="aria-details">The <code>aria-details</code> attribute</dt>
+					<dd>
+						<p>The <code>aria-details</code> attribute is similar to <code>aria-describedby</code> in that
+							both identify additional information about the content of an element, but there are a couple
+							of key differences:</p>
+						
+						<ol>
+							<li>It is not intended to reference hidden content.</li>
+							<li>It does not reduce the referenced content to a simple text string &#8212; users are able
+								to navigate the structure of the referenced content.</li>
+						</ol>
+						
+						<p>The attribute is commonly used to reference the collapsible <a href="#details"
+									><code>details</code> element</a>. This use makes it one of the best options for
+							providing descriptions in as minimally obtrusive a manner as possible for all users.</p>
+						<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="rings-of-hell.jpg" alt="&#8230;" aria-details="rings-desc"/>
+
+&lt;details id="rings-desc">
+   &lt;summary>Description&lt;/summary>
+   &#8230;
+&lt;/details></code></pre>
+						
+						<p>The value of the attribute is the ID of the element that contains the description. Note that
+							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
+							character (<code>#</code>) at the start, as would be expected in a hyperlink).</p>
+						
+						<p>The <code>aria-details</code> attribute can reference only a <strong>single</strong>
+							element.</p>
+					</dd>
+					
+					<dt id="aria-label-labelledby">The <code>aria-label</code> and <code>aria-labelledby</code>
+						attributes</dt>
+					<dd>
+						<p>The <code>aria-label</code> and <code>aria-labelledby</code> attribute both allow an
+							accessible name to be provided for an element.</p>
+						
+						<p><code>aria-label</code> allows a hidden name to be specified.</p>
+						
+						<pre id="ex-aria-label-01-src" class="prettyprint linenums"><code>&lt;section aria-label="Explanation"></code></pre>
+						
+						<p>The attribute is useful in digital publishing where only whitespace has been used to indicate
+							new sections (e.g., headingless front matter sections, groups of index or bibliography
+							entries). It is important that these sections be given a name, as without an explicit
+							heading a <code>section</code> will not be navigable by assistive technology.</p>
+						
+						<p>The <code>aria-labelledby</code> attribute serves an identical purpose, but it allows the
+							name to be included in another element (which can be hidden).</p>
+						
+						<pre id="ex-aria-labelledby-01-src" class="prettyprint linenums"><code>&lt;div role="note" aria-labelledby="note-hd">
+   &lt;p id="note-hd" class="hd">Warning!&lt;/p>
+   &#8230;
+&lt;/div></code></pre>
+						
+						<p>The value of the <code>aria-labelledby</code> attribute is the ID of the element that
+							contains the name. Note that the value <strong>is not</strong> a fragment identifier (i.e.,
+							it does not include a hash character (<code>#</code>) at the start, as would be expected in
+							a hyperlink). The attribute may reference more than one element if the label is split across
+							multiple elements.</p>
+						
+						<p>It is not strictly necessary to use the <code>aria-labelledby</code> attribute when a section
+							of content has an explicit heading.</p>
+						
+						<pre id="ex-aria-labelledby-02-src" class="prettyprint linenums"><code>&lt;section>
+   &lt;h2>Definitions&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+						
+						<p>Assistive technologies will associate the first heading element with the section. It can help
+							with older browsers and assistive technologies to explicitly associate headings,
+							however.</p>
+					</dd>
+					
+					<dt id="presentation">The <code>presentation</code> role</dt>
+					<dd>
+						<p>A common misconception is that adding the <code>presentation</code> role to an element is a
+							way to hide content from assistive technologies. <strong>It is not!</strong></p>
+						
+						<p>This misconception arises in part because this role is often applied to images that users do
+							not need to encounter.</p>
+						
+						<pre id="ex-presentation-01-src" class="prettyprint linenums"><code>&lt;img src="spacer.href" alt="" role="presentation"/></code></pre>
+						
+						<p>In fact, it is the empty <code>alt</code> attribute that signals to assistive technologies
+							that there is no content and the image can be safely ignored.</p>
+						
+						<p>Setting <code>role="presentation"</code> on any element only removes its semantics. The
+							content of the element is untouched.</p>
+						
+						<div class="note" role="note" aria-labelledby="note-hd">
+							<p id="note-hd" class="label">Note</p>
+							<p>The ARIA working group is moving to replace the <code>presentation</code> role with
+									<code>none</code> to better reflect that it is the semantics of the element that are
+								ignored, not the content.</p>
+						</div>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="script">
+				<h3>Scripting</h3>
+				
+				<p>Although JavaScript does not provide any new abilities of its own to hide content, it allows
+					developers to manipulate a document to hide content using all of the techniques mentioned on this
+					page. Developers can dynamically add and remove the <code>hidden</code> attribute, for example, or
+					assign CSS classes to elements. And ARIA, of course, is designed to be modified by script.</p>
+				
+				<pre id="ex-script-pos-01-src" class="prettyprint linenums"><code>   /* set the hidden attribute */
+   document.getElementById('hideyho').setAttribute('hidden','');
+   /* set a css class */
+   document.getElementById('hideyho').classList.add('hide');</code></pre>
+				
+				<p>The one advantage that JavaScript has over using native techniques directly is that it allows for
+					progressive enhancement when hiding content. There are times when content may need to be toggled on
+					and off depending on user preference.</p>
+				
+				<p>For example, a book on programming might include examples in multiple languages, allowing the user to
+					selectively enable only the language they are most comfortable with. Using HTML or CSS techniques to
+					hide one language by default could lead to those examples never being available to a user without
+					scripting support (i.e., the scripts to toggle the choice will not work). By instead using
+					JavaScript when the page loads, nothing will be hidden from users if scripting is not available; the
+					scripting fails gracefully without loss of information.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>HTML &#8212; <a
+							href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute">The
+								<code>hidden</code> attribute</a>
+					<li>HTML &#8212; <a
+							href="https://html.spec.whatwg.org/multipage/rendering.html#the-details-and-summary-elements"
+							>The <code>details</code> and <code>summary</code> elements</a>
+					<li>WCAG 2.1 &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C7">Using CSS to hide a
+							portion of the link text</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#x17">The 'display'
+						property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visufx.html#x10">Visibility: the 'visibility'
+							property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/text.html#x0">Indentation: the 'text-indent'
+							property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#x27">Choosing a positioning
+							scheme: 'position' property</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-hidden">aria-hidden (state)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-describedby">aria-describedby
+							(property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-details">aria-details
+						(property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label (property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby
+							(property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby
+						(property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#presentation">presentation (role)</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
