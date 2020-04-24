@@ -217,6 +217,30 @@
 					technologies.</p>
 				
 				<dl class="value">
+					<dt id="aria-describedby">The <code>aria-describedby</code> attribute</dt>
+					<dd>
+						<p>The <code>aria-describedby</code> attribute is commonly used to associate hidden descriptions
+							with an element.</p>
+						
+						<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
+&lt;p id="img-desc" hidden="hidden">The infographic shows &#8230;&lt;/p></code></pre>
+						
+						<p>The value of the attribute is the ID of the element that contains the description. Note that
+							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
+							character (<code>#</code>) at the start, as would be expected in a hyperlink). The element
+							may reference more than one element if the description is broken up across elements.</p>
+						
+						<p>The problem with using <code>aria-describedby</code> to reference any content, hidden or not,
+							is that it reduces that content to a simple text string (i.e., there is no way to
+							effectively move through the description). Users of assistive technologies consequently have
+							to listen to that entire string of text before they can move on, which can be a frustrating
+							experience.</p>
+						
+						<p>The use of <code>aria-describedby</code> with hidden content also limits access to the
+							description to users of assistive technologies when there will be many users who could
+							benefit from access.</p>
+					</dd>
+					
 					<dt id="aria-details">The <code>aria-details</code> attribute</dt>
 					<dd>
 						<p>The <code>aria-details</code> attribute is similar to <code>aria-describedby</code> in that
@@ -245,30 +269,6 @@
 						
 						<p>The <code>aria-details</code> attribute can reference only a <strong>single</strong>
 							element.</p>
-					</dd>
-					
-					<dt id="aria-describedby">The <code>aria-describedby</code> attribute</dt>
-					<dd>
-						<p>The <code>aria-describedby</code> attribute is commonly used to associate hidden descriptions
-							with an element.</p>
-						
-						<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
-&lt;p id="img-desc" hidden="hidden">The infographic shows &#8230;&lt;/p></code></pre>
-						
-						<p>The value of the attribute is the ID of the element that contains the description. Note that
-							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
-							character (<code>#</code>) at the start, as would be expected in a hyperlink). The element
-							may reference more than one element if the description is broken up across elements.</p>
-						
-						<p>The problem with using <code>aria-describedby</code> to reference any content, hidden or not,
-							is that it reduces that content to a simple text string (i.e., there is no way to
-							effectively move through the description). Users of assistive technologies consequently have
-							to listen to that entire string of text before they can move on, which can be a frustrating
-							experience.</p>
-						
-						<p>The use of <code>aria-describedby</code> with hidden content also limits access to the
-							description to users of assistive technologies when there will be many users who could
-							benefit from access.</p>
 					</dd>
 					
 					<dt id="aria-hidden">The <code>aria-hidden</code> attribute</dt>
