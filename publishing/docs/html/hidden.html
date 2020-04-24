@@ -217,29 +217,34 @@
 					technologies.</p>
 				
 				<dl class="value">
-					<dt id="aria-hidden">The <code>aria-hidden</code> attribute</dt>
+					<dt id="aria-details">The <code>aria-details</code> attribute</dt>
 					<dd>
-						<p>Despite its name, the <code>aria-hidden</code> attribute does not control the visual
-							rendering of content. When set, it indicates that the designated content is not to be
-							rendered by an assistive technology (i.e., it is not to be included in the accessibility
-							tree).</p>
+						<p>The <code>aria-details</code> attribute is similar to <code>aria-describedby</code> in that
+							both identify additional information about the content of an element, but there are a couple
+							of key differences:</p>
 						
-						<pre id="ex-aria-hidden-01-src" class="prettyprint linenums"><code>&lt;div aria-hidden="true">
+						<ol>
+							<li>It is not intended to reference hidden content.</li>
+							<li>It does not reduce the referenced content to a simple text string &#8212; users are able
+								to navigate the structure of the referenced content.</li>
+						</ol>
+						
+						<p>The attribute is commonly used to reference the collapsible <a href="#details"
+							><code>details</code> element</a>. This use makes it one of the best options for
+							providing descriptions in as minimally obtrusive a manner as possible for all users.</p>
+						<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="rings-of-hell.jpg" alt="&#8230;" aria-details="rings-desc"/>
+
+&lt;details id="rings-desc">
+   &lt;summary>Description&lt;/summary>
    &#8230;
-&lt;/div></code></pre>
+&lt;/details></code></pre>
 						
-						<p>Unlike the <code>hidden</code> attribute, the value must be "<code>true</code>" or
-								"<code>false</code>". An empty value (<code>aria-hidden=""</code>) is the same as not
-							specifying the attribute.</p>
+						<p>The value of the attribute is the ID of the element that contains the description. Note that
+							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
+							character (<code>#</code>) at the start, as would be expected in a hyperlink).</p>
 						
-						<p>The <code>aria-hidden</code> attribute should rarely be needed in digital publications,
-							however. It is only of use if there is redundant or extraneous visual content, like
-							pull quotes.</p>
-						
-						<p>Note that ARIA attributes that can reference hidden content (e.g., <a
-								href="#aria-describedby"><code>aria-describedby</code></a> and <a
-								href="#aria-label-labelledby"><code>aria-labelledby</code></a>) ignore this attribute
-							this attribute &#8212; they will include the text like with any other hidden content.</p>
+						<p>The <code>aria-details</code> attribute can reference only a <strong>single</strong>
+							element.</p>
 					</dd>
 					
 					<dt id="aria-describedby">The <code>aria-describedby</code> attribute</dt>
@@ -266,34 +271,29 @@
 							benefit from access.</p>
 					</dd>
 					
-					<dt id="aria-details">The <code>aria-details</code> attribute</dt>
+					<dt id="aria-hidden">The <code>aria-hidden</code> attribute</dt>
 					<dd>
-						<p>The <code>aria-details</code> attribute is similar to <code>aria-describedby</code> in that
-							both identify additional information about the content of an element, but there are a couple
-							of key differences:</p>
+						<p>Despite its name, the <code>aria-hidden</code> attribute does not control the visual
+							rendering of content. When set, it indicates that the designated content is not to be
+							rendered by an assistive technology (i.e., it is not to be included in the accessibility
+							tree).</p>
 						
-						<ol>
-							<li>It is not intended to reference hidden content.</li>
-							<li>It does not reduce the referenced content to a simple text string &#8212; users are able
-								to navigate the structure of the referenced content.</li>
-						</ol>
-						
-						<p>The attribute is commonly used to reference the collapsible <a href="#details"
-									><code>details</code> element</a>. This use makes it one of the best options for
-							providing descriptions in as minimally obtrusive a manner as possible for all users.</p>
-						<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="rings-of-hell.jpg" alt="&#8230;" aria-details="rings-desc"/>
-
-&lt;details id="rings-desc">
-   &lt;summary>Description&lt;/summary>
+						<pre id="ex-aria-hidden-01-src" class="prettyprint linenums"><code>&lt;div aria-hidden="true">
    &#8230;
-&lt;/details></code></pre>
+&lt;/div></code></pre>
 						
-						<p>The value of the attribute is the ID of the element that contains the description. Note that
-							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
-							character (<code>#</code>) at the start, as would be expected in a hyperlink).</p>
+						<p>Unlike the <code>hidden</code> attribute, the value must be "<code>true</code>" or
+								"<code>false</code>". An empty value (<code>aria-hidden=""</code>) is the same as not
+							specifying the attribute.</p>
 						
-						<p>The <code>aria-details</code> attribute can reference only a <strong>single</strong>
-							element.</p>
+						<p>The <code>aria-hidden</code> attribute should rarely be needed in digital publications,
+							however. It is only of use if there is redundant or extraneous visual content, like
+							pull quotes.</p>
+						
+						<p>Note that ARIA attributes that can reference hidden content (e.g., <a
+								href="#aria-describedby"><code>aria-describedby</code></a> and <a
+								href="#aria-label-labelledby"><code>aria-labelledby</code></a>) ignore this attribute
+							this attribute &#8212; they will include the text like with any other hidden content.</p>
 					</dd>
 					
 					<dt id="aria-label-labelledby">The <code>aria-label</code> and <code>aria-labelledby</code>
