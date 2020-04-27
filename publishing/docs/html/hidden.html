@@ -9,6 +9,65 @@
 				'appliesTo':[ 'EPUB3', 'EPUB2']
 			};</script>
 		<script src="/js/init.js"></script>
+		<style>
+			nav#topics {
+				background-color: rgb(251,251,251);
+				border: 0.1rem solid rgb(0,0,0);
+				padding-bottom: 1rem;
+			}
+			nav#topics ol > li > ol {
+				list-style-type: none;
+			}
+			nav#topics h4 {
+				border-left: 0.5rem solid rgb(0,0,180);
+				background-color: rgb(240,240,240);
+				width: 73rem;
+				padding: 1rem 0 1rem 2rem;
+				margin-top: 0;
+			}
+			ol.multicol {
+				width: 100%;
+				margin-left: 0;
+			}
+			
+			ol.multicol li {
+				float: left;
+				width: 20em;
+			}
+			.figlabel {
+				font-weight: bold;
+			}
+			.clip {
+				clip-path: inset(100%);
+				clip: rect(1px, 1px, 1px, 1px);
+				height: 1px;
+				overflow: hidden;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+			.zero-height-width {
+				height: 0;
+				width: 0;
+			}
+			.display-none {
+				display: none;
+			}
+			.visibility-hidden {
+				visibility: hidden;
+			}
+			.negative-indent {
+				text-indent: -9999px;
+			}
+			.abs-negative-indent {
+				text-indent: -9999px;
+				position: absolute;
+			}
+			.abs-position {
+				position: absolute;
+				left: 9999px;
+			}
+		</style>
 	</head>
 	<body>
 		<main>
@@ -24,21 +83,67 @@
 				
 				<p>When content has to be selectively made to appear, ensure that <a href="../script/pe.html"
 						>progressive enhancement</a> techniques are followed.</p>
+				
+				<nav id="topics" role="doc-toc">
+					<h4>Topics</h4>
+					<ol class="multicol">
+						<li><a href="#html">HTML Techniques</a>
+							<ol>
+								<li><a href="#hidden">The <code>hidden</code> attribute</a></li>
+								<li><a href="#details">The <code>details</code> element</a></li>
+							</ol>
+						</li>
+						<li><a href="#css">CSS Techniques</a>
+							<ol>
+								<li><a href="#clip">Clipping</a></li>
+								<li><a href="#zero-height-width">Zero <code>height</code> and <code>width</code></a></li>
+								<li><a href="#display">Setting <code>display</code> to <code>none</code></a></li>
+								<li><a href="#visibility">Setting <code>visibility</code> to <code>hidden</code></a></li>
+								<li><a href="#text-indent">Negative <code>text-indent</code></a></li>
+								<li><a href="#abs-pos">Absolute positioning</a></li>
+								<li><a href="#"></a></li>
+								<li><a href="#"></a></li>
+							</ol>
+						</li>
+						<li><a href="#aria">ARIA Techniques</a>
+							<ol>
+								<li><a href="#aria-describedby">The <code>aria-describedby</code> attribute</a></li>
+								<li><a href="#aria-details">The <code>aria-details</code> attribute</a></li>
+								<li><a href="#aria-hidden">The <code>aria-hidden</code> attribute</a></li>
+								<li><a href="#aria-label-labelledby">The <code>aria-label</code> and <code>aria-labelledby</code> attributes</a></li>
+								<li><a href="#presentation">The <code>presentation</code> role</a></li>
+							</ol>
+						</li>
+						<li><a href="#script">Scripting Techniques</a></li>
+					</ol>
+					<br/>
+				</nav>
 			</section>
 			
 			<section id="html">
-				<h3>HTML</h3>
+				<h3>HTML Techniques</h3>
 				
 				<dl class="value">
 					<dt id="hidden">The <code>hidden</code> attribute</dt>
 					<dd>
 						<p>HTML5 introduced the <code>hidden</code> attribute as a way to declaratively hide content
 							(i.e., to hide content without relying on other technologies like CSS). When the attribute
-							is set on an element, its content will not be rendered in any presentation.</p>
+							is set on an element, its content will not be rendered in any presentation, so <strong>will
+							not be read by assistive technologies</strong>.</p>
 						
-						<pre id="ex-hidden-01-src" class="prettyprint linenums"><code>&lt;div hidden="">
-   &#8230;
-&lt;/div></code></pre>
+						<figure id="ex-hidden-01">
+							<figcaption>
+								<p class="label">Example 1 &#8212; Effect of the <code>hidden</code> attribute</p>
+								<p>In the following example, the <code>hidden</code> attribute is used to hide the
+									<span>span</span> containing the words "not the".</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-hidden-01-src" class="prettyprint linenums"><code>&lt;p>This is &lt;span hidden="">not the&lt;/span> content.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This is <span hidden="">not the</span> content.</p>
+						</figure>
 						
 						<p>The value of attribute has to be either an empty string, as in the previous example, or the
 							value "<code>hidden</code>" (<code>hidden="hidden"</code>). Although referred to as a
@@ -56,7 +161,7 @@
 								href="#aria-describedby"><code>aria-describedby</code></a>).</p>
 						
 						<p>The effect of setting this attribute is the equivalent of setting the <a href="#display">CSS
-									<code>display</code> property</a> to "<code>none</code>". It is more reliable than
+									<code>display</code> property</a> to <code>none</code>. It is more reliable than
 							CSS options in modern browsers, however, as not all user agents support CSS styling.</p>
 					</dd>
 					
@@ -66,29 +171,57 @@
 							but it does provide the ability to collapse content down to just the label specified in the
 								<code>summary</code> tag.</p>
 						
-						<pre id="ex-details-01-src" class="prettyprint linenums"><code>&lt;details>
+						<figure id="ex-details-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of the <code>details</code> element</p>
+								<p>The following examples shows a collapsed <code>details</code> element. Clicking
+									on the label expands the content.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-details-01-src" class="prettyprint linenums"><code>&lt;details>
    &lt;summary>Description&lt;/summary>
    &lt;p>The first of the three gas giants is &#8230;&lt;/p>
 &lt;/details></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<details>
+								<summary>Description</summary>
+								<p>The first of the three gas giants is &#8230;</p>
+							</details>
+						</figure>
 						
 						<p>One advantage of this approach to hiding is that it does not require scripting support, which
 							is often lacking in EPUB reading systems, to expand and collapse the content.</p>
 						
+						<p>It is also not required that the content begin in a collapsed state. By adding the
+							<code>open</code> attribute, the content will initially be expanded (the attribute is also
+							a boolean, like <a href="#hidden">the <code>hidden</code> attribute</a>, so its value is
+							either an empty string or the value <code>open</code>).
+						
 						<p>A current limitation, however, is that reading systems do always not repaginate well when the
-							content is expanded. Expanding may force content below the element off the bottom of the
-							current page, making it unavailable to sighted readers. The attribute is also not well
+							content is expanded or collapsed. Expanding may force content below the element off the bottom
+							of the current page, making it unavailable to sighted readers. The attribute is also not well
 							supported in older browsers, including not at all in Internet Explorer versions, so requires
 							a polyfill to work.</p>
 						
 						<p>The element can be paired with the <a href="#aria-details"><code>aria-details</code>
 								attribute</a> to associate descriptions with elements.</p>
 						
-						<pre id="ex-details-02-src" class="prettyprint linenums"><code>&lt;img src="dollars.jpg" alt="&#8230;" aria-details="dollar-desc"/>
+						<figure id="ex-details-02">
+							<figcaption>
+								<p class="label">Example &#8212; Adding a description for an image</p>
+								<p>The <code>aria-details</code> attribute references the ID of the <code>details</code>
+									element to identify its contents as the description for the image.</p>
+							</figcaption>
+							<pre id="ex-details-02-src" class="prettyprint linenums"><code>&lt;img src="dollars.jpg" alt="&#8230;"
+     aria-details="dollar-desc"/>
 
 &lt;details id="dollar-desc">
    &lt;summary>Description&lt;/summary>
    &#8230;
 &lt;/details></code></pre>
+						</figure>
 						
 						<p>Note that the use of "details" in the element and attribute names is somewhat coincidental.
 							The <code>aria-details</code> element can refer to any element containing additional
@@ -96,10 +229,24 @@
 					</dd>
 				</dl>
 			</section>
+			
 			<section id="css">
-				<h3>CSS</h3>
+				<h3>CSS Techniques</h3>
 				
-				<p>CSS provides a number of approaches to hiding content visually. Each of these is explored below.</p>
+				<p>Although CSS provides a number of approaches to hiding content visually, the primary problems with
+					using it are that:</p>
+				
+				<ol>
+					<li>CSS is not always supported in user agents, and can often be disabled by users in those that
+						do.</li>
+					<li>CSS support often takes a long time to develop and many newer properties never get supported in
+						older user agents, making their use unreliable.</li>
+					<li>User agents, particularly EPUB reading systems, often supply their own styling, so authored
+						styling may be ignored or overridden.</li>
+				</ol>
+				
+				<p>As a result, there is no guarantee that the content will be hidden from any users depending on
+					the user agent they are using. <a href="#html">HTML techniques</a> are more reliable.</p>
 				
 				<dl class="value">
 					<dt id="clip">Clipping</dt>
@@ -107,13 +254,21 @@
 						<p>CSS clipping is a technique that reduces content to a single pixel so that visual users are
 							not aware that that the additional content is present.</p>
 						
-						<p>The advantage of clipping content instead of hiding it completely is that assistive
-							technologies will read the clipped content, whereas they ignore content set or styled to be
-							hidden.</p>
+						<p>The advantage of clipping content instead of hiding it completely is that <strong>assistive
+							technologies will read the clipped content</strong>, whereas they ignore content set or
+							styled to be hidden.</p>
 						
-						<p>The CSS properties typically used to achieve this effect are as follows:</p>
+						<p>The CSS properties typically used to achieve this effect are shown in the following example.</p>
 						
-						<pre id="ex-clip-01-src" class="prettyprint linenums"><code>.clip {
+						<figure id="ex-clip-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of clipping</p>
+								<p>The <code>span</code> containing the text "and ths is not" will not be visible when
+									the contet is rendered, but the text will still be read by an assistive technology.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-clip-01-src" class="prettyprint linenums"><code>.clip {
    clip-path: inset(100%);
    clip: rect(1px, 1px, 1px, 1px);
    height: 1px;
@@ -121,31 +276,81 @@
    position: absolute;
    white-space: nowrap;
    width: 1px;
-}</code></pre>
+}
+
+&lt;p>This is the visible text&lt;span class="clip"> and
+     this is not&lt;/span>.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This is the visible text<span class="clip"> and
+								this is not</span>.</p>
+						</figure>
 						
 						<p>While this technique works well in web browsers, support in EPUB reading systems is
 							inconsistent. Support for the clipping properties is not widespread, and absolute
 							positioning is often ignored outside of fixed-layout publications.</p>
 					</dd>
 					
-					<dt id="display">The <code>display</code> property</dt>
+					<dt id="zero-height-width">Zero <code>height</code> and <code>width</code></dt>
+					<dd>
+						<p>Setting an element's <code>height</code> and <code>width</code> properties is similar to
+							the <a href="#clipping">clipping technique</a>, except that <strong>assistive technologies 
+							typically will not read the content</strong> of elements without any size dimensions.</p>
+						
+						<figure id="ex-hw0-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of zero height and width</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-hw0-01-src" class="prettyprint linenums"><code>.zero-height-width {
+   height: 0;
+   width: 0;
+}
+
+&lt;p>This is the visible
+   text&lt;span class="zero-height-width"> and this
+   is not&lt;/span>.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This is the visible text<span class="clip"> and
+								this is not</span>.</p>
+						</figure>
+						
+						<p>Even though setting an element's dimensions to zero does not remove the content from
+							accessibility tree, assistive technologies are often optimized to ignore content styled
+							this way (it is why the clipping technique only reduces the size to one pixel, for
+							example). This behavior is not universal, however, so the content may be read in some
+							cases.</p>
+					</dd>
+					
+					<dt id="display">Setting <code>display</code> to <code>none</code></dt>
 					<dd>
 						<p>The <code>display</code> property is a widespread method used to visually hide content, as
 							its origins go back much further than <a href="#hidden">the <code>hidden</code>
-								attribute</a>. Setting its value to <code>none</code> causes the element it is carried
-							on to be removed from visual display (i.e., not only does the content not display, but
-							unlike <a href="#visibility">the <code>visibility</code> property</a> any space it would
-							occupy is collapsed).</p>
+								attribute</a> and it is more direct and easily manipulable than setting
+							<a href="zero-height-width">the height and width of elements</a>. Setting the
+							<code>display</code> to <code>none</code> causes the element it is carried on to be removed
+							from visual display and the accessibilty tree, so <strong>assistive technologies will not
+								read the content</strong>.</p>
 						
-						<pre id="ex-display-01-src" class="prettyprint linenums"><code>.hide {
+						<figure id="ex-display-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of no display</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-display-01-src" class="prettyprint linenums"><code>.display-none {
    display: none;
-}</code></pre>
-						
-						<p>Assistive technologies ignore content hidden using the <code>display</code> property; the
-							primary problem with using CSS to hide content is that CSS is not always supported. As a
-							result, there is no guarantee that the content will be hidden from any users depending on
-							the type of user agent they are using. The <code>hidden</code> attribute is more reliable in
-							this regard.</p>
+}
+
+&lt;p>This is the visible
+   text&lt;span class="display-none"> and this is 
+   not&lt;/span>.&lt;/p></code></pre>
+							<p class="label">Demo:</p>
+							<p>This is the visible text<span class="display-none"> and
+								this is not</span>.</p>
+						</figure>
 						
 						<p>Like with the <code>hidden</code> attribute, content that is hidden using the
 								<code>display</code> property can be accessed by <a href="#aria">ARIA attributes</a>
@@ -153,15 +358,43 @@
 							users who do not use assistive technologies also applies, however.</p>
 					</dd>
 					
-					<dt id="visibility">The <code>visibility</code> property</dt>
+					<dt id="visibility">Setting <code>visibility</code> to <code>hidden</code></dt>
 					<dd>
 						<p>The <code>visibility</code> property is not commonly used to hide content in digital
-							publications, as unlike <a href="#display">the <code>display</code> property</a> it leaves a
-							space in the rendered content where the element would appear.</p>
+							publications, as unlike <a href="#display">the <code>display</code> property</a> it leaves
+							a space in the rendered content where the element would appear. <strong>The content is not
+								read by assistive technologies</strong>, despite the visible space.</p>
 						
-						<pre id="ex-visibility-01-src" class="prettyprint linenums"><code>.hide {
+						<figure id="ex-visibility-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of hidden visibility</p>
+								<p>In the following example, a space the length of the text " and this is not"
+									occurs where the hidden <code>span</code> is. Click the button in the demo
+									to toggle the visibility.</p>
+							</figcaption>
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-visibility-01-src" class="prettyprint linenums"><code>.vis-hidden {
    visibility: hidden;
-}</code></pre>
+}
+
+&lt;p>This is the visible
+   text&lt;span class="vis-hidden"> and this is 
+   not&lt;/span> but now with space.&lt;/p></code></pre>
+							<p class="figlabel">Demo:</p>
+							<p>This is the visible text<span id="vis-test" class="visibility-hidden"> and this is not</span> but now with space.</p>
+							<p><input type="button" value="Toggle Visibility" onclick="toggleVisibility()"/></p>
+							<script>
+								function toggleVisibility() {
+									var span = document.getElementById('vis-test');
+										if (span.classList.contains('visibility-hidden')) {
+											span.classList.remove('visibility-hidden');
+										}
+										else {
+											span.classList.add('visibility-hidden');
+										}
+								}
+							</script>
+						</figure>
 						
 						<p>The property is more commonly used on the Web to avoid the other content on the page shifting
 							around when an element is hidden or made visible (e.g., to prevent a page footer from being
@@ -172,45 +405,109 @@
 							hidden content.</p>
 					</dd>
 					
-					<dt id="indent">The <code>text-indent</code> property</dt>
+					<dt id="indent">Negative <code>text-indent</code></dt>
 					<dd>
 						<p>The <code>text-indent</code> property is sometimes used to push content out of the visible
-							area of the screen by giving it a large negative number.</p>
+							area of the screen by giving it a large negative number. Using a large number allows the
+							text to be rendered on a single line and not reach the visible area of the sreen.
+							<strong>The content is still read by assistive technologies</strong>, even though it is not
+							visually present.</p>
 						
-						<pre id="ex-indent-01-src" class="prettyprint linenums"><code>.hide {
+						<figure id="ex-indent-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of negative indenting</p>
+								
+								<p>In the following example, the negative indent on the second paragraph forces it
+									to be rendered off-screen, giving the appearance it is no longer there. Click the
+									button in the demo to toggle the indent.</p>
+							</figcaption>
+							
+							<p class="figlabe">Markup:</p>
+							<pre id="ex-indent-01-src" class="prettyprint linenums"><code>.negative-indent {
    text-indent: -9999px;
-}</code></pre>
+}
+
+&lt;p>This line appears.&lt;/p>
+&lt;p class="negative-indent">While this one is pushed
+   off screen.&lt;/p>
+&lt;p>But the space the element occupied remains.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This line appears.</p>
+							<p id="neg-test" class="negative-indent">While this one is pushed off screen.</p>
+							<p>But the space the element occupied remains.</p>
+							<p><input type="button" value="Toggle Indent" onclick="toggleIndent()"/></p>
+							<script>
+								function toggleIndent() {
+									var span = document.getElementById('neg-test');
+										if (span.classList.contains('negative-indent')) {
+											span.classList.remove('negative-indent');
+										}
+										else {
+											span.classList.add('negative-indent');
+										}
+								}
+							</script>
+						</figure>
 						
-						<p>This allows the content to be read by assistive technologies, even though it is not visually
-							present, as they ignore indenting.</p>
+						<p>Even among CSS techniques, negative indents tends to be particularly unreliable. It has been
+							noted that it can cause a large scrollbar to appear in browsers, for example, to allow
+							users to reach the content (specifically for those who read right-to-left). The more common
+							issue with EPUB reading systems is that they ignore negative indents and other attempts to
+							manipulate content outside the viewing area.</p>
 						
-						<p>This technique tends to be unreliable, however, as even in browsers it has been noted that it
-							can cause a large scrollbar to appear to allow users to reach the content (specifically for
-							those who read right-to-left). The more common issue with EPUB reading systems is that they
-							ignore negative indents and other attempts to manipulate content outside the viewing
-							area.</p>
+						<p>It also normally requires other tandem properties, like shrunken font sizes or changes to
+							the element height, to collapse the white space that results from simply moving the first
+							line back. These may not be well-supported in EPUB reading systems, either.</p>
+						
+						<div class="note" role="note" aria-labelledby="indent-note-hd">
+							<p id="indent-note-hd" class="label">Note</p>
+							<p>A similar technique employing an indent of <code>100%</code> to push the code off-screen
+								in the other direction has also been suggested for browsers, but this will also fail in
+								reading systems that prevent content from being positioned off-screen.
+						</div>
 					</dd>
 					
 					<dt id="abs-pos">Absolute positioning</dt>
 					<dd>
 						<p>Absolute positioning content off-screen is another common Web practice to hide it visually
-							while leaving it for assistive technologies to announce.</p>
+							while leaving it for assistive technologies to announce. As it is only the visual position
+							of the content that changes, <strong>assistive technoogies will still read the
+								text</strong>.</p>
 						
-						<pre id="ex-abs-pos-01-src" class="prettyprint linenums"><code>.hide {
+						<figure>
+							<figcaption>
+								<p class="label">Example &#8212; Effect of absolute positioning</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-abs-pos-01-src" class="prettyprint linenums"><code>.abs-position {
    position: absolute;
-   left: -9999px;
-}</code></pre>
+   left: 9999px;
+}
+
+&lt;p>This line appears.&lt;/p>
+&lt;p class="abs-position">While this one is positioned
+   off screen.&lt;/p>
+&lt;p>But there is no space between.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This line appears.</p>
+							<p class="abs-position">While this one is positioned off screen.</p>
+							<p>But there is no space between.</p>
+						</figure>
 						
-						<p>Absolute positioning of content in EPUB reading systems is often disabled outside of fixed
-							layout publications, however, as it complicates the rendering and paginating of what is
-							expected to be reflowable content. As a result, the content may appear fixed in an
-							unexpected position on the page, potentially obscuring the other content for visual
-							readers.</p>
+						<p>Using absolute positioning to place content off-screen is very unreliable in EPUB reading
+							systems, however. Absolute positioning of content is often disabled outside of fixed
+							layout publications, as it complicates the rendering and paginating of reflowable content.
+							As a result, the content may appear fixed in an unexpected position on the page,
+							potentially obscuring the other content for visual readers.</p>
 					</dd>
 				</dl>
 			</section>
+			
 			<section id="aria">
-				<h3>ARIA</h3>
+				<h3>ARIA Techniques</h3>
 				
 				<p>Although ARIA does not influence the display of content, it contains a number of attributes that can
 					be used both to hide content from, and make hidden content accessible to, assistive
@@ -222,8 +519,10 @@
 						<p>The <code>aria-describedby</code> attribute is commonly used to associate hidden descriptions
 							with an element.</p>
 						
-						<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
+						<figure>
+							<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img &#8230; aria-describedby="img-desc"/>
 &lt;p id="img-desc" hidden="hidden">The infographic shows &#8230;&lt;/p></code></pre>
+						</figure>
 						
 						<p>The value of the attribute is the ID of the element that contains the description. Note that
 							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
@@ -256,12 +555,15 @@
 						<p>The attribute is commonly used to reference the collapsible <a href="#details"
 							><code>details</code> element</a>. This use makes it one of the best options for
 							providing descriptions in as minimally obtrusive a manner as possible for all users.</p>
-						<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="rings-of-hell.jpg" alt="&#8230;" aria-details="rings-desc"/>
+						
+						<figure>
+							<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="rings-of-hell.jpg" alt="&#8230;" aria-details="rings-desc"/>
 
 &lt;details id="rings-desc">
    &lt;summary>Description&lt;/summary>
    &#8230;
 &lt;/details></code></pre>
+						</figure>
 						
 						<p>The value of the attribute is the ID of the element that contains the description. Note that
 							the value <strong>is not</strong> a fragment identifier (i.e., it does not include a hash
@@ -278,9 +580,11 @@
 							rendered by an assistive technology (i.e., it is not to be included in the accessibility
 							tree).</p>
 						
-						<pre id="ex-aria-hidden-01-src" class="prettyprint linenums"><code>&lt;div aria-hidden="true">
+						<figure>
+							<pre id="ex-aria-hidden-01-src" class="prettyprint linenums"><code>&lt;div aria-hidden="true">
    &#8230;
 &lt;/div></code></pre>
+						</figure>
 						
 						<p>Unlike the <code>hidden</code> attribute, the value must be "<code>true</code>" or
 								"<code>false</code>". An empty value (<code>aria-hidden=""</code>) is the same as not
@@ -304,7 +608,9 @@
 						
 						<p><code>aria-label</code> allows a hidden name to be specified.</p>
 						
-						<pre id="ex-aria-label-01-src" class="prettyprint linenums"><code>&lt;section aria-label="Explanation"></code></pre>
+						<figure>
+							<pre id="ex-aria-label-01-src" class="prettyprint linenums"><code>&lt;section aria-label="Explanation"></code></pre>
+						</figure>
 						
 						<p>The attribute is useful in digital publishing where only whitespace has been used to indicate
 							new sections (e.g., headingless front matter sections, groups of index or bibliography
@@ -314,10 +620,12 @@
 						<p>The <code>aria-labelledby</code> attribute serves an identical purpose, but it allows the
 							name to be included in another element (which can be hidden).</p>
 						
-						<pre id="ex-aria-labelledby-01-src" class="prettyprint linenums"><code>&lt;div role="note" aria-labelledby="note-hd">
+						<figure>
+							<pre id="ex-aria-labelledby-01-src" class="prettyprint linenums"><code>&lt;div role="note" aria-labelledby="note-hd">
    &lt;p id="note-hd" class="hd">Warning!&lt;/p>
    &#8230;
 &lt;/div></code></pre>
+						</figure>
 						
 						<p>The value of the <code>aria-labelledby</code> attribute is the ID of the element that
 							contains the name. Note that the value <strong>is not</strong> a fragment identifier (i.e.,
@@ -328,10 +636,12 @@
 						<p>It is not strictly necessary to use the <code>aria-labelledby</code> attribute when a section
 							of content has an explicit heading.</p>
 						
-						<pre id="ex-aria-labelledby-02-src" class="prettyprint linenums"><code>&lt;section>
+						<figure>
+							<pre id="ex-aria-labelledby-02-src" class="prettyprint linenums"><code>&lt;section>
    &lt;h2>Definitions&lt;/h2>
    &#8230;
 &lt;/section></code></pre>
+						</figure>
 						
 						<p>Assistive technologies will associate the first heading element with the section. It can help
 							with older browsers and assistive technologies to explicitly associate headings,
@@ -346,7 +656,9 @@
 						<p>This misconception arises in part because this role is often applied to images that users do
 							not need to encounter.</p>
 						
-						<pre id="ex-presentation-01-src" class="prettyprint linenums"><code>&lt;img src="spacer.href" alt="" role="presentation"/></code></pre>
+						<figure>
+							<pre id="ex-presentation-01-src" class="prettyprint linenums"><code>&lt;img src="spacer.href" alt="" role="presentation"/></code></pre>
+						</figure>
 						
 						<p>In fact, it is the empty <code>alt</code> attribute that signals to assistive technologies
 							that there is no content and the image can be safely ignored.</p>
@@ -365,17 +677,19 @@
 			</section>
 			
 			<section id="script">
-				<h3>Scripting</h3>
+				<h3>Scripting Techniques</h3>
 				
 				<p>Although JavaScript does not provide any new abilities of its own to hide content, it allows
 					developers to manipulate a document to hide content using all of the techniques mentioned on this
 					page. Developers can dynamically add and remove the <code>hidden</code> attribute, for example, or
 					assign CSS classes to elements. And ARIA, of course, is designed to be modified by script.</p>
 				
-				<pre id="ex-script-pos-01-src" class="prettyprint linenums"><code>   /* set the hidden attribute */
+				<figure>
+					<pre id="ex-script-pos-01-src" class="prettyprint linenums"><code>   /* set the hidden attribute */
    document.getElementById('hideyho').setAttribute('hidden','');
    /* set a css class */
    document.getElementById('hideyho').classList.add('hide');</code></pre>
+				</figure>
 				
 				<p>The one advantage that JavaScript has over using native techniques directly is that it allows for
 					progressive enhancement when hiding content. There are times when content may need to be toggled on

@@ -241,7 +241,8 @@ nav.mini-toc a {
 aside.applies-to {
 	float: right;
 	padding: 0.75rem 1.5rem;
-	margin-top: -10rem;
+	margin-top: -12.9rem;
+	padding-bottom: 0;
 	font-size: 1.5rem;
 	background-color: rgb(250,250,250);
 	border: 0.1rem solid lightgray;
@@ -256,7 +257,8 @@ aside.applies-to > h3 {
 }
 
 aside.applies-to > ul {
-	padding-left: 1.5rem;
+	padding: 0 0 0 1.5rem;
+	margin: 0;
 }
 
 aside.applies-to a {
@@ -326,6 +328,21 @@ pre.prettyprint {
 pre.prettyprint * {
 	background-color: inherit !important;
 }
+
+
+/* examples outside the examples section */
+
+section:not([id='ex']) figure {
+	border: 0.1rem solid rgb(0,0,90);
+	background-color: rgb(248,252,255);
+	padding: 1rem;
+}
+section:not([id='ex']) figcaption > p.label {
+	padding: 0;
+	margin: 0;
+}
+
+
 
 /* sample section styles */
 
