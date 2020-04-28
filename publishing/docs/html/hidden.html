@@ -11,6 +11,7 @@
 		<script src="/js/init.js"></script>
 		<style>
 			nav#topics {
+				width: 90rem;
 				background-color: rgb(251,251,251);
 				border: 0.1rem solid rgb(0,0,0);
 				padding-bottom: 1rem;
@@ -21,18 +22,15 @@
 			nav#topics h4 {
 				border-left: 0.5rem solid rgb(0,0,180);
 				background-color: rgb(240,240,240);
-				width: 73rem;
+				width: 87.5rem;
 				padding: 1rem 0 1rem 2rem;
 				margin-top: 0;
 			}
-			ol.multicol {
-				width: 100%;
-				margin-left: 0;
-			}
-			
-			ol.multicol li {
-				float: left;
-				width: 20em;
+			ol.col {
+				height: 45rem;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
 			}
 			.figlabel {
 				font-weight: bold;
@@ -67,7 +65,34 @@
 				position: absolute;
 				left: 9999px;
 			}
+			.transparent {
+				opacity: 0;
+			}
+			.scale {
+				transform: scale(0);
+			}
+			.translate {
+				transform: translate(-9999px,0);
+			}
+			.color-match {
+				color: rgb(255,255,255);
+				background-color: rgb(255,255,255);
+			}
+			.white {
+				background-color: rgb(255,255,255);
+			}
 		</style>
+		<script>
+			function toggleCSS(elem_id, class_name) {
+				var elem = document.getElementById(elem_id);
+					if (elem.classList.contains(class_name)) {
+						elem.classList.remove(class_name);
+					}
+					else {
+						elem.classList.add(class_name);
+					}
+			}
+		</script>
 	</head>
 	<body>
 		<main>
@@ -86,7 +111,7 @@
 				
 				<nav id="topics" role="doc-toc">
 					<h4>Topics</h4>
-					<ol class="multicol">
+					<ol class="col">
 						<li><a href="#html">HTML Techniques</a>
 							<ol>
 								<li><a href="#hidden">The <code>hidden</code> attribute</a></li>
@@ -100,9 +125,10 @@
 								<li><a href="#display">Setting <code>display</code> to <code>none</code></a></li>
 								<li><a href="#visibility">Setting <code>visibility</code> to <code>hidden</code></a></li>
 								<li><a href="#text-indent">Negative <code>text-indent</code></a></li>
-								<li><a href="#abs-pos">Absolute positioning</a></li>
-								<li><a href="#"></a></li>
-								<li><a href="#"></a></li>
+								<li><a href="#abs-pos">Absolute <code>position</code></a></li>
+								<li><a href="#opacity">Transparent <code>opacity</code></a></li>
+								<li><a href="#transform">Transformations</a></li>
+								<li><a href="#color">Matching <code>color</code> with background</a></li>
 							</ol>
 						</li>
 						<li><a href="#aria">ARIA Techniques</a>
@@ -133,7 +159,7 @@
 						
 						<figure id="ex-hidden-01">
 							<figcaption>
-								<p class="label">Example 1 &#8212; Effect of the <code>hidden</code> attribute</p>
+								<p class="label">Example &#8212; Effect of the <code>hidden</code> attribute</p>
 								<p>In the following example, the <code>hidden</code> attribute is used to hide the
 									<span>span</span> containing the words "not the".</p>
 							</figcaption>
@@ -382,18 +408,7 @@
    not&lt;/span> but now with space.&lt;/p></code></pre>
 							<p class="figlabel">Demo:</p>
 							<p>This is the visible text<span id="vis-test" class="visibility-hidden"> and this is not</span> but now with space.</p>
-							<p><input type="button" value="Toggle Visibility" onclick="toggleVisibility()"/></p>
-							<script>
-								function toggleVisibility() {
-									var span = document.getElementById('vis-test');
-										if (span.classList.contains('visibility-hidden')) {
-											span.classList.remove('visibility-hidden');
-										}
-										else {
-											span.classList.add('visibility-hidden');
-										}
-								}
-							</script>
+							<p><input type="button" value="Toggle Visibility" onclick="toggleCSS('vis-test','visibility-hidden')"/></p>
 						</figure>
 						
 						<p>The property is more commonly used on the Web to avoid the other content on the page shifting
@@ -427,27 +442,16 @@
    text-indent: -9999px;
 }
 
-&lt;p>This line appears.&lt;/p>
+&lt;p>This paragraph appears.&lt;/p>
 &lt;p class="negative-indent">While this one is pushed
    off screen.&lt;/p>
 &lt;p>But the space the element occupied remains.&lt;/p></code></pre>
 							
 							<p class="figlabel">Demo:</p>
-							<p>This line appears.</p>
+							<p>This paragraph appears.</p>
 							<p id="neg-test" class="negative-indent">While this one is pushed off screen.</p>
 							<p>But the space the element occupied remains.</p>
-							<p><input type="button" value="Toggle Indent" onclick="toggleIndent()"/></p>
-							<script>
-								function toggleIndent() {
-									var span = document.getElementById('neg-test');
-										if (span.classList.contains('negative-indent')) {
-											span.classList.remove('negative-indent');
-										}
-										else {
-											span.classList.add('negative-indent');
-										}
-								}
-							</script>
+							<p><input type="button" value="Toggle Indent" onclick="toggleCSS('neg-test','negative-indent')"/></p>
 						</figure>
 						
 						<p>Even among CSS techniques, negative indents tends to be particularly unreliable. It has been
@@ -468,14 +472,14 @@
 						</div>
 					</dd>
 					
-					<dt id="abs-pos">Absolute positioning</dt>
+					<dt id="abs-pos">Absolute <code>position</code></dt>
 					<dd>
 						<p>Absolute positioning content off-screen is another common Web practice to hide it visually
 							while leaving it for assistive technologies to announce. As it is only the visual position
 							of the content that changes, <strong>assistive technoogies will still read the
 								text</strong>.</p>
 						
-						<figure>
+						<figure id="ex-abs-pos-01">
 							<figcaption>
 								<p class="label">Example &#8212; Effect of absolute positioning</p>
 							</figcaption>
@@ -486,13 +490,13 @@
    left: 9999px;
 }
 
-&lt;p>This line appears.&lt;/p>
+&lt;p>This paragraph appears.&lt;/p>
 &lt;p class="abs-position">While this one is positioned
    off screen.&lt;/p>
 &lt;p>But there is no space between.&lt;/p></code></pre>
 							
 							<p class="figlabel">Demo:</p>
-							<p>This line appears.</p>
+							<p>This paragraph appears.</p>
 							<p class="abs-position">While this one is positioned off screen.</p>
 							<p>But there is no space between.</p>
 						</figure>
@@ -502,6 +506,168 @@
 							layout publications, as it complicates the rendering and paginating of reflowable content.
 							As a result, the content may appear fixed in an unexpected position on the page,
 							potentially obscuring the other content for visual readers.</p>
+					</dd>
+					
+					<dt id="opacity">Transparent <code>opacity</code></dt>
+					<dd>
+						<p>Changing the <code>opacity</code> of an element to 0 makes it completely transparent to
+							users, but <strong>assistive technologies will still read the text</strong>.</p>
+						
+						<figure id="ex-opacity-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of full opacity</p>
+								<p>In the following example, the second paragraph has its opacity set to <code>0</code>
+									to make it transparent, but there is still space where it is located.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-opacity-01-src" class="prettyprint linenums"><code>.transparent {
+   opacity: 0;
+}
+
+&lt;p>This paragraph appears.&lt;/p>
+&lt;p class="transparent">While this one is made fully
+   opaque.&lt;/p>
+&lt;p>So there is space between.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This paragraph appears.</p>
+							<p class="transparent">While this one is made fully opaque.</p>
+							<p>So there is space between.</p>
+						</figure>
+						
+						<p>The primary issues with the use of <code>opacity</code> are support in EPUB reading systems
+							and that it leaves space where the opaque text is.</p>
+						
+						<div class="note" role="note" aria-labelledby="op-note">
+							<p id="op-note" class="label">Note</p>
+							<p>It is also possible to change the opacity of just the text of an element by setting the
+								alpha channel to be transparent (e.g., using the <code>rgba()</code> or
+								<code>#RRGGBBAA</code> value syntax). Support for alpha channel values is also not
+								widespread in EPUB, however.</p>
+						</div>
+					</dd>
+					
+					<dt id="transform">Transformations</dt>
+					<dd>
+						<p>The <code>transform</code> property provides two options for hiding content: one is to scale
+							the element to zero, and the other is to translate it off screen. In both cases,
+							<strong>assistive technologies will still read the text</strong>.</p>
+						
+						<p>Using the <code>scale</code> transform essentially shrinks the referenced element down until
+							it occupies no space. It is similar in effect to <a href="#zero-height-width">setting the
+								height and width to zero</a>, except that the full space the element would occupy does
+							not disappear when scaling.</p>
+						
+						<figure id="ex-transform-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of scaling</p>
+								<p>In the following example, the second paragraph is scaled to zero, but the space
+									it occupies remains. Click the button in the demo to toggle the scaling.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-transform-01-src" class="prettyprint linenums"><code>.scale {
+   transform: scale(0);
+}
+
+&lt;p>This paragraph appears.&lt;/p>
+&lt;p class="scale">While this one is scaled.&lt;/p>
+&lt;p>So there is space between.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This paragraph appears.</p>
+							<p id="scale-test" class="scale">While this one is scaled.</p>
+							<p>So there is space between.</p>
+							<p><input type="button" value="Toggle Scaling" onclick="toggleCSS('scale-test','scale')"/></p>
+						</figure>
+						
+						<p>Using the <code>translate</code> transform is similar in effect to <a href="#abs-pos">absolute
+							positioning content off screen</a>, except that the full space the element would occupy does
+							not disappear. The value is the <code>x</code> and <code>y</code> coordinates of the
+							translating vector.</p>
+						
+						<figure id="ex-transform-02">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of translating</p>
+								<p>In the following example, the second paragraph is translated off screen using a
+									an x-coordinate of <code>-9999px</code> and y-coordinate of <code>0</code>. The 
+									space the element occupies remains, however. Click the button in the demo to toggle
+									the effect.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-transform-02-src" class="prettyprint linenums"><code>.translate {
+   transform: translate(-9999px);
+}
+
+&lt;p>This paragraph appears.&lt;/p>
+&lt;p class="translate">While this one is translated
+   off screen.&lt;/p>
+&lt;p>So there is space between.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<p>This paragraph appears.</p>
+							<p id="translate-test" class="translate">While this one is translated off screen.</p>
+							<p>So there is space between.</p>
+							<p><input type="button" value="Toggle Translation" onclick="toggleCSS('translate-test','translate')"/></p>
+						</figure>
+						
+						<p>Similar to the <code>opacity</code>, the primary issues with using <code>transform</code> is
+							that such animations are not well supported in EPUB reading systems and they leave space
+							where the transformed text originated.</p>
+					</dd>
+					
+					<dt id="color">Matching <code>color</code> with background</dt>
+					<dd>
+						<p>Although it is possible to hide content by making the foreground color match the background,
+							it is one of the worst options available for EPUB content. <strong>Assistive technologies
+								will read text hidden this way</strong>, as changing the color does not actually
+							remove it.</p>
+						
+						<figure id="ex-color-01">
+							<figcaption>
+								<p class="label">Example &#8212; Effect of matching text with background</p>
+								<p>In the following example, both the <code>color</code> and
+									<code>background-color</code> properties are set to white to obscure
+									the text.</p>
+							</figcaption>
+							
+							<p class="figlabel">Markup:</p>
+							<pre id="ex-color-01-src" class="prettyprint linenums"><code>.color-match {
+   color: rgb(255,255,255);
+   background-color: rgb(255,255,255);
+}
+
+&lt;p>This paragraph appears.&lt;/p>
+&lt;p class="color-match">While this one is colored to
+   be hidden.&lt;/p>
+&lt;p>So there is space between.&lt;/p></code></pre>
+							
+							<p class="figlabel">Demo:</p>
+							<div class="white">
+								<p>This paragraph appears.</p>
+								<p class="color-match">While this one colored to be hidden.</p>
+								<p>So there is space between.</p>
+							</div>
+						</figure>
+						
+						<p>The problems with hiding content this way in EPUB include:</p>
+						
+						<ul>
+							<li>Reading systems often apply their own foreground and background colors so that
+								all publications have the same look and feel. As a result, there is no guarantee the
+								text will actually be hidden.</li>
+							<li>Similarly, reading systems often provide users the option to change their color
+								preference for foreground and background text.</li>
+							<li>Reading systems often offer multiple reading modes (e.g., night reading) that reset
+								the foreground and background colors, which will reveal the text even if it is hidden
+								by default.</li>
+						</ul>
+						
+						<p>A more common problem across any user agent is that this method of hiding only obscures
+							the text. Like with <a href="#visibility">changing the visibility</a>, the area the text
+							occupies is still visible.</p>
 					</dd>
 				</dl>
 			</section>
