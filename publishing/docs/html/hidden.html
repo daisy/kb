@@ -1057,6 +1057,8 @@
 							systems that do not support scripting. When scripting is supported, the <code>details</code>
 							element is hidden and a set of radio buttons are enabled instead, with a message about
 							whether the answer is correct or not being dynamically generated.</p>
+						<p>There are buttons after the demo to reset the question and toggle between the dynamic
+							and static versions.</p>
 					</figcaption>
 					
 					<p class="figlabel">Markup:</p>
@@ -1083,12 +1085,11 @@
       &lt;/li>
    &lt;/ul>
    &lt;div id="q1-result" aria-live="assertive" hidden="">&lt;/div>
+   &lt;details id="q1-static-ans">
+      &lt;summary>Answer&lt;/summary>
+      &lt;p>A - Water&lt;/p>
+   &lt;/details>
 &lt;/fieldset>
-
-&lt;details id="q1-static-ans">
-   &lt;summary>Answer&lt;/summary>
-   &lt;p>A - Water&lt;/p>
-&lt;/details>
 
 &lt;script>
 document.onload = configureTest();
@@ -1119,11 +1120,15 @@ function revealResult(correct) {
 							<li><input type="radio" id="q1-c" name="q1-ans" value="c" onclick="revealResult(false)" hidden="" autocomplete="off"> C - Steam</li>
 						</ul>
 						<div id="q1-result" aria-live="assertive" hidden=""></div>
+						<details id="q1-static-ans">
+							<summary>Answer</summary>
+							<p>A - Water</p>
+						</details>
+						<div style="margin-top: 1rem;">
+							<input type="button" value="Reset" onclick="resetQ()"/>
+							<input type="button" value="Toggle View" onclick="toggleQ()"/>
+						</div>
 					</fieldset>
-					<details id="q1-static-ans">
-						<summary>Answer</summary>
-						<p>A - Water</p>
-					</details>
 					<script>
 						document.onload = configureTest();
 						
@@ -1141,6 +1146,33 @@ function revealResult(correct) {
 							var result = correct ? 'Correct!' : 'Sorry, try again!';
 							res_elem.textContent = '';
 							res_elem.appendChild(document.createTextNode(result));
+						}
+						
+						function resetQ() {
+							var ans = document.getElementsByName("q1-ans");
+							for (var i = 0; i < ans.length; i++) {
+								ans[i].checked = false;
+							}
+							document.getElementById('q1-result').textContent = '';
+						}
+						
+						function toggleQ() {
+							if (document.getElementById('q1-result').hidden) {
+								resetQ();
+								configureTest();
+							}
+							else {
+								configureStaticTest();
+							}
+						}
+						
+						function configureStaticTest() {
+							document.getElementById('q1-static-ans').classList.remove('hidden');
+							document.getElementById('q1-result').setAttribute('hidden','');
+							var q1_ans = document.getElementsByName('q1-ans');
+							q1_ans.forEach( function(checkbox) {
+								checkbox.setAttribute('hidden','');
+							});
 						}
 					</script>
 				</figure>
