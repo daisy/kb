@@ -385,7 +385,9 @@ figcaption > .label {
 	margin: 2.5em 0 1em 0;
 }
 
-figure p {
+figure p,
+figure details,
+figure div {
 	margin-left: 2em;
 }
 
