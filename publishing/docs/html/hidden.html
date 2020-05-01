@@ -32,6 +32,28 @@
 				flex-direction: column;
 				flex-wrap: wrap;
 			}
+			.summary {
+				font-size: small;
+				float: right;
+				margin-left: 5rem;
+				border: 0.2rem solid rgb(220,235,255);
+				background-color: rgb(250,250,250);
+			}
+			.summary h4 {
+				text-indent: 1rem;
+				margin: 0;
+				background-color: rgb(120,220,255);
+			}
+			.summary ul {
+				list-style-type: none;
+				margin-left: 0;
+				padding: 1rem;
+			}
+			.summary .hd {
+				display: inline-block;
+				width: 10rem;
+				font-weight: bold;
+			}
 			.figlabel {
 				font-weight: bold;
 			}
@@ -80,6 +102,9 @@
 			}
 			.white {
 				background-color: rgb(255,255,255);
+			}
+			ul.q {
+				list-style-type: none;
 			}
 		</style>
 		<script>
@@ -152,10 +177,20 @@
 				<dl class="value">
 					<dt id="hidden">The <code>hidden</code> attribute</dt>
 					<dd>
-						<p>HTML5 introduced the <code>hidden</code> attribute as a way to declaratively hide content
-							(i.e., to hide content without relying on other technologies like CSS). When the attribute
-							is set on an element, its content will not be rendered in any presentation, so <strong>will
-							not be read by assistive technologies</strong>.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Good</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text not read</span></li>
+							</ul>
+						</aside>
+						
+						<p>HTML5 introduced <a
+							href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute">the
+							<code>hidden</code> attribute</a> as a way to declaratively hide content (i.e., to hide
+							content without relying on other technologies like CSS). When the attribute is set on an
+							element, its content will not be rendered in any presentation, so will not be read by
+							assistive technologies.</p>
 						
 						<figure id="ex-hidden-01">
 							<figcaption>
@@ -193,9 +228,21 @@
 					
 					<dt id="details">The <code>details</code> element</dt>
 					<dd>
-						<p>The <code>details</code> element does not strictly meet the requirement of hiding content,
-							but it does provide the ability to collapse content down to just the label specified in the
-								<code>summary</code> tag.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
+						<p>The <a
+							href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>
+							element</a> does not strictly meet the requirement of hiding content. What it does provide
+							is the ability to collapse content down to just the label specified in the
+							<code>summary</code> tag. One advantage of the element is that it does not require
+							scripting support, which is often lacking in EPUB reading systems, to expand and collapse
+							the content.</p>
 						
 						<figure id="ex-details-01">
 							<figcaption>
@@ -217,10 +264,7 @@
 							</details>
 						</figure>
 						
-						<p>One advantage of this approach to hiding is that it does not require scripting support, which
-							is often lacking in EPUB reading systems, to expand and collapse the content.</p>
-						
-						<p>It is also not required that the content begin in a collapsed state. By adding the
+						<p>It is not required that the content begin in a collapsed state. By adding the
 							<code>open</code> attribute, the content will initially be expanded (the attribute is also
 							a boolean, like <a href="#hidden">the <code>hidden</code> attribute</a>, so its value is
 							either an empty string or the value <code>open</code>).
@@ -277,14 +321,24 @@
 				<dl class="value">
 					<dt id="clip">Clipping</dt>
 					<dd>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
 						<p>CSS clipping is a technique that reduces content to a single pixel so that visual users are
 							not aware that that the additional content is present.</p>
 						
-						<p>The advantage of clipping content instead of hiding it completely is that <strong>assistive
-							technologies will read the clipped content</strong>, whereas they ignore content set or
-							styled to be hidden.</p>
+						<p>The advantage of clipping content instead of hiding it completely is that assistive
+							technologies will read the clipped content, whereas they ignore content set or styled to be
+							hidden.</p>
 						
-						<p>The CSS properties typically used to achieve this effect are shown in the following example.</p>
+						<p>The <a href="https://drafts.fxtf.org/css-masking-1/#the-clip-path"><code>clip-path</code>
+							property</a> is the primary property used to achieve this effect, but a number of others
+							are also required (some as fallbacks), as depicted in the following example.</p>
 						
 						<figure id="ex-clip-01">
 							<figcaption>
@@ -312,16 +366,37 @@
 								this is not</span>.</p>
 						</figure>
 						
+						<div class="note" role="note" aria-labelledby="clip-note">
+							<p id="clip-note" class="label">Note</p>
+							<p>The older <a 
+								href="https://drafts.fxtf.org/css-masking-1/#clip-property"><code>clip</code>
+								property</a> is now deprecated. It is included as a fallback for
+								older browsers.</p>
+						</div>
+						
 						<p>While this technique works well in web browsers, support in EPUB reading systems is
-							inconsistent. Support for the clipping properties is not widespread, and absolute
-							positioning is often ignored outside of fixed-layout publications.</p>
+							inconsistent. Support for the new <code>clip-path</code> property is not widespread, and
+							neither is support for older <code>clip</code> property as it requires absolute
+							positioning.</p>
 					</dd>
 					
 					<dt id="zero-height-width">Zero <code>height</code> and <code>width</code></dt>
 					<dd>
-						<p>Setting an element's <code>height</code> and <code>width</code> properties is similar to
-							the <a href="#clipping">clipping technique</a>, except that <strong>assistive technologies 
-							typically will not read the content</strong> of elements without any size dimensions.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Good</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text not read</span></li>
+							</ul>
+						</aside>
+						
+						<p>Setting an element's <a
+							href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property"><code>height</code></a>
+							and <a
+								href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property"><code>width</code></a>
+							properties is similar to the <a href="#clipping">clipping technique</a>, except that
+							assistive technologies typically will not read the content of elements without any size
+							dimensions.</p>
 						
 						<figure id="ex-hw0-01">
 							<figcaption>
@@ -352,13 +427,21 @@
 					
 					<dt id="display">Setting <code>display</code> to <code>none</code></dt>
 					<dd>
-						<p>The <code>display</code> property is a widespread method used to visually hide content, as
-							its origins go back much further than <a href="#hidden">the <code>hidden</code>
-								attribute</a> and it is more direct and easily manipulable than setting
-							<a href="zero-height-width">the height and width of elements</a>. Setting the
-							<code>display</code> to <code>none</code> causes the element it is carried on to be removed
-							from visual display and the accessibilty tree, so <strong>assistive technologies will not
-								read the content</strong>.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Good</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text not read</span></li>
+							</ul>
+						</aside>
+						
+						<p>The <a href="https://www.w3.org/TR/CSS22/visuren.html#display-prop"><code>display</code>
+							property</a> is a widespread method used to visually hide content, as its origins go back
+							much further than <a href="#hidden">the <code>hidden</code> attribute</a> and it is more
+							direct and easily manipulable than setting <a href="zero-height-width">the height and width
+							of elements</a>. Setting the <code>display</code> to <code>none</code> causes the element
+							it is carried on to be removed from visual display and the accessibilty tree, so assistive
+							technologies will not read the content.</p>
 						
 						<figure id="ex-display-01">
 							<figcaption>
@@ -386,10 +469,20 @@
 					
 					<dt id="visibility">Setting <code>visibility</code> to <code>hidden</code></dt>
 					<dd>
-						<p>The <code>visibility</code> property is not commonly used to hide content in digital
-							publications, as unlike <a href="#display">the <code>display</code> property</a> it leaves
-							a space in the rendered content where the element would appear. <strong>The content is not
-								read by assistive technologies</strong>, despite the visible space.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Good</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text not read</span></li>
+							</ul>
+						</aside>
+						
+						<p>The <a
+							href="https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility"><code>visibility</code>
+							property</a> is not commonly used to hide content in digital publications, as unlike
+							<a href="#display">the <code>display</code> property</a> it leaves a space in the rendered
+							content where the element would appear. The content is not read by assistive technologies,
+							despite the visible space.</p>
 						
 						<figure id="ex-visibility-01">
 							<figcaption>
@@ -422,11 +515,20 @@
 					
 					<dt id="indent">Negative <code>text-indent</code></dt>
 					<dd>
-						<p>The <code>text-indent</code> property is sometimes used to push content out of the visible
-							area of the screen by giving it a large negative number. Using a large number allows the
-							text to be rendered on a single line and not reach the visible area of the sreen.
-							<strong>The content is still read by assistive technologies</strong>, even though it is not
-							visually present.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
+						<p>The <a
+							href="https://www.w3.org/TR/CSS22/text.html#indentation-prop"><code>text-indent</code>
+							property</a> is sometimes used to push content out of the visible area of the screen by
+							giving it a large negative number. Using a large number allows the text to be rendered on a
+							single line and not reach the visible area of the sreen. The content is still read by
+							assistive technologies, even though it is not visually present.</p>
 						
 						<figure id="ex-indent-01">
 							<figcaption>
@@ -474,10 +576,19 @@
 					
 					<dt id="abs-pos">Absolute <code>position</code></dt>
 					<dd>
-						<p>Absolute positioning content off-screen is another common Web practice to hide it visually
-							while leaving it for assistive technologies to announce. As it is only the visual position
-							of the content that changes, <strong>assistive technoogies will still read the
-								text</strong>.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
+						<p>Absolute positioning content off-screen using the <a
+							href="https://www.w3.org/TR/CSS22/visuren.html#choose-position"><code>position</code>
+							property</a> is another common Web practice to hide it visually while leaving it for
+							assistive technologies to announce. As it is only the visual position of the content
+							that changes, assistive technoogies will still read the text.</p>
 						
 						<figure id="ex-abs-pos-01">
 							<figcaption>
@@ -510,8 +621,18 @@
 					
 					<dt id="opacity">Transparent <code>opacity</code></dt>
 					<dd>
-						<p>Changing the <code>opacity</code> of an element to 0 makes it completely transparent to
-							users, but <strong>assistive technologies will still read the text</strong>.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
+						<p>Setting the <a
+							href="https://www.w3.org/TR/css-color-3/#transparency"><code>opacity</code></a> property of
+							an element to <code>0</code> makes it completely transparent to users, but assistive
+							technologies will still read the text.</p>
 						
 						<figure id="ex-opacity-01">
 							<figcaption>
@@ -550,9 +671,19 @@
 					
 					<dt id="transform">Transformations</dt>
 					<dd>
-						<p>The <code>transform</code> property provides two options for hiding content: one is to scale
-							the element to zero, and the other is to translate it off screen. In both cases,
-							<strong>assistive technologies will still read the text</strong>.</p>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Inconsistent</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
+						<p>The <a
+							href="https://www.w3.org/TR/css-transforms-1/#transform-property"><code>transform</code>
+							property</a> provides two options for hiding content: one is to scale the element to zero,
+							and the other is to translate it off screen. In both cases, assistive technologies will
+							still read the text.</p>
 						
 						<p>Using the <code>scale</code> transform essentially shrinks the referenced element down until
 							it occupies no space. It is similar in effect to <a href="#zero-height-width">setting the
@@ -620,17 +751,26 @@
 					
 					<dt id="color">Matching <code>color</code> with background</dt>
 					<dd>
+						<aside class="summary">
+							<h4>Summary</h4>
+							<ul>
+								<li><span class="hd"><abbr title="reading system">RS</abbr> Support:</span> <span class="value">Poor</span></li>
+								<li><span class="hd"><abbr title="assistive technology">AT</abbr> behavior:</span> <span class="value">Text read</span></li>
+							</ul>
+						</aside>
+						
 						<p>Although it is possible to hide content by making the foreground color match the background,
-							it is one of the worst options available for EPUB content. <strong>Assistive technologies
-								will read text hidden this way</strong>, as changing the color does not actually
-							remove it.</p>
+							it is one of the worst options available for EPUB content. Assistive technologies will read
+							text hidden this way, as changing the color does not actually remove it.</p>
 						
 						<figure id="ex-color-01">
 							<figcaption>
 								<p class="label">Example &#8212; Effect of matching text with background</p>
-								<p>In the following example, both the <code>color</code> and
-									<code>background-color</code> properties are set to white to obscure
-									the text.</p>
+								<p>In the following example, both the <a
+									href="https://www.w3.org/TR/CSS22/colors.html#colors"><code>color</code></a> and
+									<a 
+									href="https://www.w3.org/TR/CSS22/colors.html#background-properties"><code>background-color</code></a>
+									properties are set to white to obscure the text.</p>
 							</figcaption>
 							
 							<p class="figlabel">Markup:</p>
@@ -850,8 +990,14 @@
 					page. Developers can dynamically add and remove the <code>hidden</code> attribute, for example, or
 					assign CSS classes to elements. And ARIA, of course, is designed to be modified by script.</p>
 				
-				<figure>
-					<pre id="ex-script-pos-01-src" class="prettyprint linenums"><code>   /* set the hidden attribute */
+				<figure id="ex-script-01">
+					<figcaption>
+						<p class="label">Example &#8212; Setting attributes and classes</p>
+						<p>The following example shows how the <code>hidden</code> attribute can be added to an element
+							using the JavaScript <code>setAttribute</code> function and the class <code>hide</code> can
+							be added using <code>classList.add</code>.</p>
+					</figcaption>
+					<pre id="ex-script-01-src" class="prettyprint linenums"><code>   /* set the hidden attribute */
    document.getElementById('hideyho').setAttribute('hidden','');
    /* set a css class */
    document.getElementById('hideyho').classList.add('hide');</code></pre>
@@ -867,6 +1013,104 @@
 					scripting support (i.e., the scripts to toggle the choice will not work). By instead using
 					JavaScript when the page loads, nothing will be hidden from users if scripting is not available; the
 					scripting fails gracefully without loss of information.</p>
+				
+				<p>Similarly, if the answers to questions in a textbook are only revealed using script, they will not
+					be accessible to any users.</p>
+				
+				<figure id="ex-script-02">
+					<figcaption>
+						<p class="label">Example &#8212; Progressive enhancement</p>
+						<p>The following example uses the <code>details</code> element to hide the answer in reading
+							systems that do not support scripting. When scripting is supported, the <code>details</code>
+							element is hidden and a set of radio buttons are enabled instead, with a message about
+							whether the answer is correct or not being dynamically generated.</p>
+					</figcaption>
+					
+					<p class="figlabel">Markup:</p>
+					
+					<pre id="ex-script-02-src" class="prettyprint linenums"><code>&lt;fieldset>
+   &lt;label>Which of the following is a liquid?&lt;/label>
+   &lt;ul class="q">
+      &lt;li>
+         &lt;input type="radio" name="q1-ans" value="a"
+            onclick="revealResult(true)" hidden="hidden">
+         A - Water
+      &lt;/li>
+         
+      &lt;li>
+         &lt;input type="radio" name="q1-ans" value="b"
+            onclick="revealResult(false)" hidden="hidden">
+         B - Ice
+      &lt;/li>
+         
+      &lt;li>
+         &lt;input type="radio" name="q1-ans" value="c"
+            onclick="revealResult(false)" hidden="hidden">
+         C - Steam
+      &lt;/li>
+   &lt;/ul>
+   &lt;div id="q1-result" aria-live="assertive" hidden="">&lt;/div>
+&lt;/fieldset>
+
+&lt;details id="q1-static-ans">
+   &lt;summary>Answer&lt;/summary>
+   &lt;p>A - Water&lt;/p>
+&lt;/details>
+
+&lt;script>
+document.onload = configureTest();
+
+function configureTest() {
+  document.getElementById('q1-static-ans').classList.add('hidden');
+  document.getElementById('q1-result').removeAttribute('hidden');
+  var q1_ans = document.getElementsByName('q1-ans');
+  q1_ans.forEach( function(checkbox) {
+    checkbox.removeAttribute('hidden');
+  });
+}
+
+function revealResult(correct) {
+  var res_elem = document.getElementById('q1-result');
+  var result = correct ? 'Correct!' : 'Sorry, try again!';
+  res_elem.textContent = '';
+  res_elem.appendChild(document.createTextNode(result));
+}
+&lt;/script></code></pre>
+					
+					<p class="figlabel">Demo:</p>
+					<fieldset>
+						<label>Which of the following is a liquid?</label>
+						<ul class="q">
+							<li><input type="radio" id="q1-a" name="q1-ans" value="a" onclick="revealResult(true)" hidden="" autocomplete="off"> A - Water</li>
+							<li><input type="radio" id="q1-b" name="q1-ans" value="b" onclick="revealResult(false)" hidden="" autocomplete="off"> B - Ice</li>
+							<li><input type="radio" id="q1-c" name="q1-ans" value="c" onclick="revealResult(false)" hidden="" autocomplete="off"> C - Steam</li>
+						</ul>
+						<div id="q1-result" aria-live="assertive" hidden=""></div>
+					</fieldset>
+					<details id="q1-static-ans">
+						<summary>Answer</summary>
+						<p>A - Water</p>
+					</details>
+					<script>
+						document.onload = configureTest();
+						
+						function configureTest() {
+							document.getElementById('q1-static-ans').classList.add('hidden');
+							document.getElementById('q1-result').removeAttribute('hidden');
+							var q1_ans = document.getElementsByName('q1-ans');
+							q1_ans.forEach( function(checkbox) {
+								checkbox.removeAttribute('hidden');
+							});
+						}
+						
+						function revealResult(correct) {
+							var res_elem = document.getElementById('q1-result');
+							var result = correct ? 'Correct!' : 'Sorry, try again!';
+							res_elem.textContent = '';
+							res_elem.appendChild(document.createTextNode(result));
+						}
+					</script>
+				</figure>
 			</section>
 			
 			<section id="refs">
@@ -877,18 +1121,30 @@
 							href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute">The
 								<code>hidden</code> attribute</a>
 					<li>HTML &#8212; <a
-							href="https://html.spec.whatwg.org/multipage/rendering.html#the-details-and-summary-elements"
-							>The <code>details</code> and <code>summary</code> elements</a>
+						href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"
+							>The <code>details</code> element</a>
 					<li>WCAG 2.1 &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C7">Using CSS to hide a
 							portion of the link text</a></li>
-					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#x17">The 'display'
+					<li>CSS &#8212; <a href="https://drafts.fxtf.org/css-masking-1/#the-clip-path">Clipping Shape: the
+						clip-path property</a>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">Content
+						height: the 'height' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">Content
+						width: the 'width' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#display-prop">The 'display'
 						property</a></li>
-					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visufx.html#x10">Visibility: the 'visibility'
-							property</a></li>
-					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/text.html#x0">Indentation: the 'text-indent'
-							property</a></li>
-					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#x27">Choosing a positioning
-							scheme: 'position' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility">Visibility:
+						the 'visibility' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/text.html#indentation-prop">Indentation: the
+						'text-indent' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">Choosing a
+						positioning scheme: 'position' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/css-color-3/#transparency">Transparency: the
+						'opacity' property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/css-transforms-1/#transform-property">The
+						'transform' Property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/colors.html#colors">Foreground color: the
+						'color' property</a></li>
 					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-hidden">aria-hidden (state)</a></li>
 					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-describedby">aria-describedby
 							(property)</a></li>
