@@ -13,6 +13,6 @@ var msg = {};
 	msg.footer.m02 = 'GitHub traquer';
 	msg.footer.m03 = 'Pour une liste des modifications apportées à cette page, reportez-vous à la ';
 	msg.footer.m04 = 'journal de commit'
-	msg.footer.m05 = 'Conditions d\'utilisation';
+	msg.footer.m05 = 'Conditions générales d\'utilisation';
 	
 	msg.shortForm = {};
