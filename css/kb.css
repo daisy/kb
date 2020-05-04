@@ -145,18 +145,21 @@ main > section {
 
 /* glossary link */
 
-div.glosslink {
-	font-size: 90%;
-	max-width: 54em;
-	margin-top: -2.4rem;
+div.toplinks {
+	font-size: 80%;
+	max-width: 60em;
+	margin-top: -3.2rem;
 }
 
-div.glosslink > a {
+div.toplinks > a {
 	float: right;
 	color: rgb(255,255,200);
+	margin-right: 2rem;
+	padding: 0 0.4rem;
+	border-bottom: 0.1rem solid rgb(255,255,200);
 }
 
-div.glosslink > a:hover {
+div.toplinks > a:hover {
 	color: rgb(255,255,255);
 	text-decoration: underline;
 }
@@ -630,6 +633,10 @@ dl.value pre {
 
 
 /* to classify */
+
+span.date {
+	color: rgb(0,0,180);
+}
 
 q {
 	quotes: '"' '"';
