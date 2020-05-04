@@ -248,17 +248,24 @@ KB.prototype.generateHeader = function () {
 	
 	header.appendChild(h1);
 	
-	// add the glossary link
-	var glossary = document.createElement('div');
-		glossary.setAttribute('class','glosslink');
+	var top_links = document.createElement('div');
+		top_links.setAttribute('class','toplinks');
 	
+	// add the what's new link
+	var whatsnew_a = document.createElement('a');
+		whatsnew_a.setAttribute('href', kb_link + 'new/index.html');
+		whatsnew_a.appendChild(document.createTextNode("What's New"));
+	
+	top_links.appendChild(whatsnew_a);
+	
+	// add the glossary link
 	var gloss_a = document.createElement('a');
 		gloss_a.setAttribute('href', kb_link + 'glossary/index.html');
 		gloss_a.appendChild(document.createTextNode('Glossary'));
 	
-	glossary.appendChild(gloss_a);
+	top_links.appendChild(gloss_a);
 	
-	header.appendChild(glossary);
+	header.appendChild(top_links);
 	
 	document.body.insertAdjacentElement('afterBegin',header);
 }
