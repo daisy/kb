@@ -496,7 +496,9 @@ div.warning p.label {
 }
 
 div.note p:not(.label),
-div.warning p:not(.label) {
+div.warning p:not(.label),
+div.note li,
+div.warning li {
 	margin: 1em;
 	font-size: 1.4rem;
 }
@@ -532,8 +534,15 @@ caption {
 
 figure img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1em auto;
+}
+
+figure > img + details {
+	margin-top: -1em;
+}
+
+figure > img + details > summary {
+	font-size: small;
 }
 
 /* lists */

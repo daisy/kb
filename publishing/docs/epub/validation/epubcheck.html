@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>EPUBCheck</title>
+		<script>
+			var page_info = {
+				'topic': ['EPUB','Validation'],
+				'appliesTo': ['EPUB3','EPUB2'],
+				'description': 'Overview of using the EPUBCheck validator to verify conformance'
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			pre.console {
+				color: rgb(255,255,255);
+				background-color: rgb(0,0,90);
+				padding: 1em;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="epubcheck">
+				<h3>Getting Started</h3>
+				
+				<p><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a> is a free command line validation
+					tool that automatically checks publications for conformance to the EPUB standard. It will report
+					issues with a publication that are in violation of the requirements and/or that could cause the
+					publication not to render in reading systems.</p>
+				
+				<div class="note" role="note" aria-labelledby="ec-note-01">
+					<p id="ec-note-01" class="label">Note</p>
+					
+					<p>Instructions on how to obtain and configure a system to run EPUBCheck are available from the <a
+						href="https://github.com/w3c/epubcheck/wiki">EPUBCheck Usage wiki</a>.</p>
+				</div>
+				
+				<p>EPUBCheck is a Java library, so running it requires some basic knowledge of running instructions
+					from a command line. Which type you use depends on your operating system. On Windows, both the
+					Command Prompt (<code>cmd.exe</code>) and PowerShell (<code>powershell.exe</code>) can be
+					used to run EPUBCheck. On Macs, the Terminal app can be used.</p>
+				
+				<p>To run EPUBCheck, the <code>java</code> command is called with a minimum of two arguments:</p>
+				
+				<ol>
+					<li><code>-jar path\to\epubcheck.jar</code> &#8212; In Java, jar files contain the program code
+						that is to be run. In this case, the <code>epubcheck.jar</code> file is specified (the exact
+						path used depends on where you installed EPUBCheck).</li>
+					
+					<li><code>publication.epub</code> &#8212; The second argument is the name of the packaged EPUB
+						publication to check. The path to the file also has to be specified if the file is not in the
+						same directory where the command line is positioned.</li>
+				</ol>
+				
+				<p>The following is an example of how EPUBCheck could be called from the command line on Windows:</p>
+				
+				<pre class="console">> java -jar c:\epubcheck\epubcheck.jar c:\epubs\accessible_epub_3.epub</pre>
+				
+				<div class="note" role="note" aria-labelledby="ec-note-02">
+					<p id="ec-note-02" class="label">Note</p>
+					<p>Full paths to the <code>epubcheck.jar</code> file and publication to be checked are omitted from
+						the rest of the examples on this page for simplicity.</p>
+				</div>
+				
+				<p>If EPUBCheck does not detect any problems, it will emit a series of messages like the following:</p>
+				
+				<pre class="console">Validating using EPUB version 3.2 rules.
+No errors or warnings detected.
+Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
+
+EPUBCheck completed</pre>
+				
+				<p>The first line specifies what version of EPUB is being validated. In the case of the preceding
+					example, the prorgam is checking against the requirements of EPUB 3.2.</p>
+				
+				<p>The next line two lines indicate that no issues were found, but this is where any issues will be
+					reported when there are problems.</p>
+				
+				<p>The final statement just lets you know that the program has terminated successfully.</p>
+				
+				<p>This is the result you typically want to get before moving on to the additonal validation steps.
+					EPUBCheck will often uncover warnings and errors that need fixing, however. The following is an
+					example of a report containing a markup error:</p>
+				
+				<pre class="console">Validating using EPUB version 3.2 rules.
+ERROR(RSC-005): accessible_epub_3.epub/EPUB/ch01.xhtml(98,5): Error while
+parsing file: element "p" not allowed here; expected the element end-tag
+
+Check finished with errors
+Messages: 0 fatals / 1 error / 0 warnings / 0 infos
+
+EPUBCheck completed</pre>
+				
+				<p>The EPUBCheck error message idntifies both the file containing the error
+					(<code>accessible_epub_3.epub/EPUB/ch01.xhtml</code>) as well as the line number (<code>98</code>)
+					and character offset (<code>5</code>) where it occurs. It also provides a brief message explaining
+					the problem &#8212; in this case, a <code>p</code> tag is used where it is not allowed.</p>
+				
+				<p>Unfortunately, not every message is as easy to understand as this one, and there are times when
+					EPUBCheck will not provide useful a line number or character offset (e.g., it often reports
+					<code>(-1,-1)</code> when a problem cannot be traced to a specific location. Fixing errors often
+					requires some sleuth work.</p>
+				
+				<p>The count of each type of message is more of a convenience for tracking that problems are being
+					solved than something to be too concerned about. The numbers reported can often be misleading.
+					For example, one markup error could be the cause of many other errors, so fixing one problem can
+					lead to many or all the other problems disappearing. It is recommended to re-validate publications
+					often when fixing bugs to avoid spending time look for problems that have already been solved.</p>
+			</section>
+			
+			<section id="messages">
+				<h3>Messages</h3>
+				
+				<p>EPUBCheck reports five different types of messages &#8212; four are output by default and one type
+					(usage messages) has to be turned on in the <a href="#arg">options</a>.</p>
+				
+				<p>A summary of the total number of each is provided when EPUBCheck finishes validating:</p>
+				
+				<pre class="console">Messages: 2 fatals / 4 error / 18 warnings / 1 infos / 147 usages</pre>
+				
+				<p>The message types reflect the severity of the problem being reported. An explanation of each
+					type of message is provided in the following list.</p>
+				
+				<dl class="value">
+					<dt>Fatal</dt>
+					<dd>
+						<p>Fatal errors are emitted for the most severe problems. A fatal error is one that will
+							prevent reading systems from opening a publication (e.g., packaging problems), or that will
+							prevent the content from being readable (e.g., critical xml errors in the content).</p>
+						
+						<p>Fatal errors must be corrected to ensure the usability of the publication.</p>
+					</dd>
+					
+					<dt>Error</dt>
+					<dd>
+						<p>Errors represent the next lower severity level. Errors identify where a publication deviates
+							from the requirements of the EPUB standard. They typically will not prevent an EPUB
+							publication from being opened, but they often lead to unintended consequences (e.g.,
+							content not rendering as expected).</p>
+						
+						<p>Errors must be corrected to ensure the usability of the publication.</p>
+					</dd>
+					
+					<dt>Warning</dt>
+					<dd>
+						<p>Warnings are a level below Errors. They identify deviations from recomended practices in
+							the EPUB standard. A publication with warnings is not invalid, and may have no unintended
+							rendering issues, but not following recommended practices can lead to interoperability
+							issues.</p>
+						
+						<p>Warnings do not have to be corrected, but it is generally advised to follow recommended
+							practices. Many vendors will not accept publications with warnings.</p>
+					</dd>
+					
+					<dt>Info</dt>
+					<dd>
+						<p>Info messages are the lowest level message output by default by EPUBCheck. These messages
+							usually provide alerts about issues with EPUBCheck itself (e.g., that it might not be able
+							to decrypt a file to check it, or that a potential issue is under discussion). They are not
+							common.</p>
+						
+						<p>Info messages do not necessarily require any action, but are important to review to discover
+							what EPUBCheck has had a problem with.</p>
+					</dd>
+					
+					<dt>Usage</dt>
+					<dd>
+						<p>Usage messages are like best practices: they idenify preferred practices, but it is not
+							strictly necessary to follow the guidance. Depending on the publication, EPUBCheck may
+							emit a large number of these messages so they are turned off by default.</p>
+						
+						<p>To get a list of usage messages, the <a>usage flag</a> (<code>-u</code>) has to be set when
+							starting EPUBCheck.</p>
+						
+						<p>It is not required to fix all usage messages, but consideration should be given to following
+							the best practices they highlight.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="arg">
+				<h3>Arguments</h3>
+				
+				<p>An argument is an additional option that can be specified when EPUBCheck is run. Arguments are
+					typically included after calling the EPUBCheck jar file and before specify the publication or file
+					to validate.</p>
+				
+				<p>The following example shows how to request that EPUBCheck include usage message in its output
+					using the <code>-u</code> argument:</p>
+				
+				<pre class="console">java -jar epubcheck.jar -u accessible_epub_3.epub</pre>
+				
+				<p>Many of EPUBCheck's arguments have both a verbose and compact form. The verbose form has two dashes
+					in front of the name, while the compact is a single dash followed by a letter. Having EPUBCheck
+					output usage messages can be accomplished either using the compact <code>-u</code> argument, as in
+					the last example, or the verbose <code>--usage</code>.
+				
+				<p>Although EPUBCheck includes many arguments that allow it to be run in different ways and for
+					different purposes, this section only identfies some of the most useful.</p>
+				
+				<div class="note" role="note" aria-labelledby="arg-note">
+					<p id="arg-note" class="label">Note</p>
+					<p>For a complete list of all the arguments EPUBCheck accepts, run the program with only the help
+						(<code>-h</code>) argument (<code>java -jar epubcheck.jar -h</code>).</p>
+				</div>
+				
+				<dl class="value">
+					<dt id="arg-version">Version (<code>-v</code>)</dt>
+					<dd>
+						<p>The version argument is used to specify what version of EPUB to validate against. It takes
+							either the value "<code>2.0</code>" or "<code>3.0</code>" to indicate whether the content
+							conforms to EPUB 2 or EPUB 3:</p>
+						
+						<pre class="console">java -jar epubcheck.jar -v 2.0 ...</pre>
+						
+						<p>It is not necessary to specify this argument when validating full publications as EPUBCheck
+							will automatically determine the correct version from the package document. It is used with
+							the <a href="#mode">mode argument</a> to validate individual files within a publication.</p>
+						
+						<p>The version argument <strong>does not</strong> have a verbose form. The use of
+							<code>--version</code> is reserved for discovering which version of EPUBCheck is
+							installed.</p>
+					</dd>
+					
+					<dt id="arg-mode">Mode (<code>--mode</code> or <code>-m</code>)</dt>
+					<dd>
+						<p>EPUBCheck is capable of running on more than just packaged EPUB files. The mode argument
+							is used in these cases to guide the program to the correct type of validation to
+							perform.</p>
+						
+						<p>The mode argument is typically paired with a <a href="#version">version argument</a> as in
+							the following example for validating an EPUB 2 package document:</p>
+						
+						<pre class="console">java -jar epubcheck.jar -mode opf -v 2.0 package.xml</pre>
+						
+						<p>The various mode values are explained in the following list.</p>
+						
+						<dl>
+							<dt id="mode-opf">opf</dt>
+							<dd>
+								<p>The <code>opf</code> value indicates that an EPUB 2 or 3 package document is to be
+									validated.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode opf -v 3.0 package.xml</pre>
+							</dd>
+							
+							<dt id="mode-xhtml">xhtml</dt>
+							<dd>
+								<p>The <code>xhtml</code> value indicates that an EPUB 2 or 3 XHTML content document is
+									to be validated.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode xhtml -v 3.0 chapter01.xhtml</pre>
+							</dd>
+							
+							<dt id="mode-svg">svg</dt>
+							<dd>
+								<p>The <code>svg</code> value indicates that an EPUB 2 or 3 SVG content document is
+									to be validated.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode svg -v 2.0 heart.svg</pre>
+							</dd>
+							
+							<dt id="mode-nav">nav</dt>
+							<dd>
+								<p>The <code>nav</code> value indicates that an EPUB 3 navigation document is to be
+									validated. EPUBCheck <strong>does not</strong> validate individual EPUB 2 NCX
+									documents.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode nav nav.xhtml</pre>
+							</dd>
+							
+							<dt id="mode-mo">mo</dt>
+							<dd>
+								<p>The <code>mo</code> value indicates that an EPUB 3 media overlays is to be
+									validated. EPUB 2 does not have an equivalent feature.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode mo chapter01.smil</pre>
+							</dd>
+							
+							<dt id="mode-exp">exp</dt>
+							<dd>
+								<p>The <code>exp</code> value is used to indicate that an unpackaged EPUB 2 or 3
+									publication is to be validated (i.e., the contents are "expanded" in their own
+									directory). In this mode, the directory containing the unzipped files is used
+									instead of a file name.</p>
+								
+								<pre class="console">java -jar epubcheck.jar -mode exp accessible_epub_3</pre>
+							</dd>
+						</dl>
+					</dd>
+					
+					<dt id="arg-usage">Usage Messages (<code>--usage</code> or <code>-u</code>)</dt>
+					<dd>
+						<p>As covered in the section on <code>message severity</code>, usage messages are not turned on
+							by default. The usage argument must be specified to enable them.</p>
+						
+						<pre class="console">java -jar epubcheck.jar -u accessible_epub_3.epub</pre>
+					</dd>
+					
+					<dt id="arg-save">Save (<code>--save</code> or <code>-s</code>)</dt>
+					<dd>
+						<p>The save agument provides a helpful option to create a packaged EPUB file from an expanded
+							directory, avoiding the troubles that can arise from manually zipping an EPUB. It only
+							works when the <a href="#mode-exp">expanded mode argument</a> is specified:</p>
+						
+						<pre class="console">java -jar epubcheck.jar -mode exp -s accessible_epub_3</pre>
+						
+						<p>If EPUBCheck completes without any fatal error or error messages, it will put a copy of the
+							zipped EPUB file in the same directory that contains the folder with the publication (e.g.,
+							if run on the folder <code>c:\epubs\accessible_epub_3</code> the saved file will be located
+							at <code>c:\epubs\accessible_epub_3.epub</code>).</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="limitations">
+				<h3>Limitations</h3>
+				
+				<p>Although EPUBCheck is capable of capturing the most serious issues that can arise with EPUB
+					publications, it has a number of limitations in terms of what it can effectively check. These
+					include:</p>
+				
+				<ul>
+					<li>It provides only limited validation of some technologies, notably CSS, which could cause issues
+						with the presentation.</li>
+					<li>It is not able to verify whether scripts will negatively affect the structure or usability of a
+						publication.</li>
+					<li>It does not include many accessibility-related checks. Those that it does, like the correct use
+						of ARIA roles, states and properties, may not be complete due to complexities in the code used
+						to check them.</li>
+				</ul>
+				
+				<p>As a result, manual checking of EPUBs for usability in reading systems is always recommended.</p>
+				
+				<p>And, more importantly, to ensure the accessibility of publications, the <a href="ace.html">Ace</a>
+					and <a href="smart.html">SMART</a> tools also need to be run. Refer to their respective pages in
+					the knowledge base for more information on testing for accessibility.</p>
+			</section>
+			
+			<section id="alt">
+				<h3>Alternatives</h3>
+					
+				<p>If the idea of running a command-line tool is overwhelming, there are simpler options available.
+					The following are some commonly used alternatives:</p>
+				
+				<ul>
+					<li><a href="http://validator.idpf.org/">EPUB Validator</a> &#8212; An free online validator
+						maintained by the DAISY Consortium. Uploaded files are validated against EPUBCheck and the
+						results are returned in a new web page. (Not for commercial publishing use.)</li>
+					
+					<li><a href="https://www.oxygenxml.com/xml_editor.html">Oxygen Editor</a> &#8212; A commercial
+						editor that includes a built-in version of EPUBCheck for checking packaged EPUB publications.
+						The program also provides real-time validation and code completion for EPUB-specific files,
+						such as the package document and container file.</li>
+					
+					<li><a href="https://ebookflightdeck.com/">FlightDeck</a> &#8212; A web-based commercial validator
+						that also focuses on vendor-specific content rules. Includes additional helpful information on
+						how to solve EPUBCheck errors.</li>
+				</ul>
+			</section>
+			
+			<section id="ref">
+				<h3>References</h3>
+				
+				<ul>
+					<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
+					<li>EPUBCheck &#8212; <a href="https://github.com/w3c/epubcheck/wiki">Usage</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
