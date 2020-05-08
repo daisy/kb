@@ -470,9 +470,9 @@ div.note {
 }
 
 div.note {
-	border-right: 0.1em solid rgb(220,220,220);
-	border-bottom: 0.1em solid rgb(220,220,220);
-	border-left: 0.1em solid rgb(220,220,220);
+	border-right: 0.1em solid rgb(200,255,200);
+	border-bottom: 0.1em solid rgb(200,255,200);
+	border-left: 0.1em solid rgb(200,255,200);
 }
 
 div.warning {
@@ -484,12 +484,12 @@ div.warning {
 div.warning p.label,
 div.note p.label {
 	color: rgb(0,0,0);
-	font-size: 1.4rem;
+	font-size: 1.6rem;
     font-weight: bold;
     text-indent: 1em;
 	padding: 0.3em;
 	margin: 0;
-	background-color: rgb(220,220,220);
+	background-color: rgb(200,255,200);
 	border-radius: 0.5em 0.5em 0 0;
 }
 
@@ -499,9 +499,11 @@ div.warning p.label {
 }
 
 div.note p:not(.label),
-div.warning p:not(.label) {
+div.warning p:not(.label),
+div.note li,
+div.warning li {
 	margin: 1em;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 
 span.atrisk {
@@ -535,8 +537,15 @@ caption {
 
 figure img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1em auto;
+}
+
+figure > img + details {
+	margin-top: -1em;
+}
+
+figure > img + details > summary {
+	font-size: small;
 }
 
 /* lists */
