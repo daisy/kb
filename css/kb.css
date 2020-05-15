@@ -283,7 +283,7 @@ aside.applies-to {
 	float: right;
 	padding: 0.75rem 1.5rem;
 	margin-top: -12.9rem;
-	padding-bottom: 0;
+	padding-bottom: 1rem;
 	font-size: 1.5rem;
 	background-color: rgb(250,250,250);
 	border: 0.1rem solid lightgray;
@@ -294,12 +294,22 @@ aside.applies-to > h3:before {
 }
 
 aside.applies-to > h3 {
+	font-size: 105%;
 	margin: 0;
 }
 
 aside.applies-to > ul {
-	padding: 0 0 0 1.5rem;
+	list-style-type: none;
+	padding: 0 0 0 0.5rem;
 	margin: 0;
+}
+
+aside.applies-to > ul  > li:before {
+	content: ' - '
+}
+
+aside.applies-to > ul  > li {
+	line-height: normal;
 }
 
 aside.applies-to a {

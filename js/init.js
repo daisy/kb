@@ -440,7 +440,7 @@ KB.prototype.generateAppliesTo = function () {
 		
 		var a = document.createElement('a');
 			a.setAttribute('href', (page_info.appliesTo[i] == 'EPUB3' ? 'https://www.idpf.org/epub3/latest' : (page_info.appliesTo[i] == 'EPUB2' ? 'http://idpf.org/epub/201' : '#')));
-			a.appendChild(document.createTextNode(page_info.appliesTo[i]));
+			a.appendChild(document.createTextNode(page_info.appliesTo[i].replace(/EPUB([2-3])/,'EPUB $1')));
 		 
 		 li.appendChild(a);
 		 ol.appendChild(li);
