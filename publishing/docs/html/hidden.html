@@ -10,27 +10,11 @@
 			};</script>
 		<script src="/js/init.js"></script>
 		<style>
-			nav#topics {
+			details#topics {
 				width: 90rem;
-				background-color: rgb(251,251,251);
-				border: 0.1rem solid rgb(0,0,0);
-				padding-bottom: 1rem;
 			}
-			nav#topics ol > li > ol {
-				list-style-type: none;
-			}
-			nav#topics h4 {
-				border-left: 0.5rem solid rgb(0,0,180);
-				background-color: rgb(240,240,240);
+			details#topics summary {
 				width: 87.5rem;
-				padding: 1rem 0 1rem 2rem;
-				margin-top: 0;
-			}
-			ol.col {
-				height: 45rem;
-				display: flex;
-				flex-direction: column;
-				flex-wrap: wrap;
 			}
 			.summary {
 				font-size: small;
@@ -134,41 +118,43 @@
 				<p>When content has to be selectively made to appear, ensure that <a href="../script/pe.html"
 						>progressive enhancement</a> techniques are followed.</p>
 				
-				<nav id="topics" role="doc-toc">
-					<h4>Topics</h4>
-					<ol class="col">
-						<li><a href="#html">HTML Techniques</a>
-							<ol>
-								<li><a href="#hidden">The <code>hidden</code> attribute</a></li>
-								<li><a href="#details">The <code>details</code> element</a></li>
-							</ol>
-						</li>
-						<li><a href="#css">CSS Techniques</a>
-							<ol>
-								<li><a href="#display">Setting <code>display</code> to <code>none</code></a></li>
-								<li><a href="#clip">Clipping</a></li>
-								<li><a href="#zero-height-width">Zero <code>height</code> and <code>width</code></a></li>
-								<li><a href="#opacity">Transparent <code>opacity</code></a></li>
-								<li><a href="#transform">Transformations</a></li>
-								<li><a href="#visibility">Setting <code>visibility</code> to <code>hidden</code></a></li>
-								<li><a href="#abs-pos">Absolute <code>position</code></a></li>
-								<li><a href="#text-indent">Negative <code>text-indent</code></a></li>
-								<li><a href="#color">Matching <code>color</code> with background</a></li>
-							</ol>
-						</li>
-						<li><a href="#aria">ARIA Techniques</a>
-							<ol>
-								<li><a href="#aria-describedby">The <code>aria-describedby</code> attribute</a></li>
-								<li><a href="#aria-details">The <code>aria-details</code> attribute</a></li>
-								<li><a href="#aria-hidden">The <code>aria-hidden</code> attribute</a></li>
-								<li><a href="#aria-label-labelledby">The <code>aria-label</code> and <code>aria-labelledby</code> attributes</a></li>
-								<li><a href="#presentation">The <code>presentation</code> role</a></li>
-							</ol>
-						</li>
-						<li><a href="#script">Scripting Techniques</a></li>
-					</ol>
-					<br/>
-				</nav>
+				<details id="topics" open="open">
+					<summary id="toc-hd">Table of Contents</summary>
+					
+					<nav role="doc-toc" aria-labelledby="toc-hd">
+						<ol class="col">
+							<li><a href="#html">HTML Techniques</a>
+								<ol>
+									<li><a href="#hidden">The <code>hidden</code> attribute</a></li>
+									<li><a href="#details">The <code>details</code> element</a></li>
+								</ol>
+							</li>
+							<li><a href="#css">CSS Techniques</a>
+								<ol>
+									<li><a href="#display">Setting <code>display</code> to <code>none</code></a></li>
+									<li><a href="#clip">Clipping</a></li>
+									<li><a href="#zero-height-width">Zero <code>height</code> and <code>width</code></a></li>
+									<li><a href="#opacity">Transparent <code>opacity</code></a></li>
+									<li><a href="#transform">Transformations</a></li>
+									<li><a href="#visibility">Setting <code>visibility</code> to <code>hidden</code></a></li>
+									<li><a href="#abs-pos">Absolute <code>position</code></a></li>
+									<li><a href="#text-indent">Negative <code>text-indent</code></a></li>
+									<li><a href="#color">Matching <code>color</code> with background</a></li>
+								</ol>
+							</li>
+							<li><a href="#aria">ARIA Techniques</a>
+								<ol>
+									<li><a href="#aria-describedby">The <code>aria-describedby</code> attribute</a></li>
+									<li><a href="#aria-details">The <code>aria-details</code> attribute</a></li>
+									<li><a href="#aria-hidden">The <code>aria-hidden</code> attribute</a></li>
+									<li><a href="#aria-label-labelledby">The <code>aria-label</code> and <code>aria-labelledby</code> attributes</a></li>
+									<li><a href="#presentation">The <code>presentation</code> role</a></li>
+								</ol>
+							</li>
+							<li><a href="#script">Scripting Techniques</a></li>
+						</ol>
+					</nav>
+				</details>
 			</section>
 			
 			<section id="html">

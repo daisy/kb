@@ -63,9 +63,18 @@ h2 {
 
 
 h3 {
-	font-size: 120%;
+	font-size: 140%;
 	color: rgb(0,0,100);
 	margin-top: 1.75em;
+}
+
+h4 {
+	font-size: 125%;
+}
+
+h5 {
+	font-size: 115%;
+	color: rgb(0,0,180);
 }
 
 a.dest {
@@ -139,7 +148,8 @@ main {
 	margin-left: 5rem;
 }
 
-main > section {
+main > section,
+main > details {
 	margin-left: 2em;
 }
 
@@ -236,6 +246,34 @@ nav.mini-toc li {
 
 nav.mini-toc a {
 	font-size: 0.9em;
+}
+
+
+/* topic lists */
+
+details#topics {
+	width: 60rem;
+	background-color: rgb(251,251,251);
+	border: 0.1rem solid rgb(0,0,0);
+	padding-bottom: 1rem;
+	margin-top: 4rem;
+}
+details#topics ol > li > ol {
+	list-style-type: none;
+}
+details#topics summary {
+	border-left: 0.5rem solid rgb(0,0,180);
+	background-color: rgb(240,240,240);
+	width: 57.5rem;
+	padding: 1rem 0 1rem 2rem;
+	margin-top: 0;
+}
+ol.col {
+	height: 45rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-bottom: 0;
 }
 
 
@@ -547,6 +585,16 @@ figure > img + details {
 figure > img + details > summary {
 	font-size: small;
 }
+
+
+/* console output */
+
+pre.console {
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 90);
+	padding: 1em;
+}
+
 
 /* lists */
 
