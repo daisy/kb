@@ -171,7 +171,8 @@ div.toplinks > a {
 
 div.toplinks > a:hover {
 	color: rgb(255,255,255);
-	text-decoration: underline;
+	text-decoration: none;
+	border-bottom: 0.1rem solid rgb(255,255,255);
 }
 
 /* breadcrumb nav */
