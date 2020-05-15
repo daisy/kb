@@ -12,6 +12,12 @@
 	</head>
 	<body>
 		<main>
+			<div class="note" role="note" aria-labelledby="ace-note-01">
+				<p id="ace-note-01" class="label">Note</p>
+				<p>This guide does not cover installing the Ace by DAISY program. Instructions on how to obtain and
+					install Ace are available from the <a href="https://daisy.github.io/ace/getting-started/ace-app/"
+						>Ace app home page</a>.</p>
+			</div>
 			<details id="topics" open="open">
 				<summary id="toc-hd">Table of Contents</summary>
 				<nav role="doc-toc" aria-labelledby="toc-hd">
@@ -73,39 +79,34 @@
 					</ol>
 				</nav>
 			</details>
-			<section id="getting-started" aria-labelledby="start-hd">
-				<h3 id="start-hd">Getting Started</h3>
-				<div class="note" role="note" aria-labelledby="ace-note-01">
-					<p id="ace-note-01" class="label">Note</p>
-					<p>This guide does not cover installing the Ace by DAISY program. Instructions on how to obtain and
-						install Ace are available from the <a
-							href="https://daisy.github.io/ace/getting-started/ace-app/">Ace app home page</a>.</p>
-				</div>
+			<section id="getting-started">
+				<h3>Getting Started</h3>
 				<p><a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">Ace by DAISY</a> is a free
 					validation tool that checks EPUB publications for accessibility issues. It is based on the <a
 						href="https://www.deque.com/axe/">axe accessibility checker</a> but has been tailored to run on
 					EPUB publications and include EPUB-specific checks.</p>
 				<p>Ace has both a graphical user interface, as explained in this section, and can also be <a
-						href="#ace-clie">run from the command line</a>, as explained later on this page. Both versions
-					perform the same checks and output the same information, so it does not matter which version is
-					used.</p>
+						href="#ace-clie">run from the command line</a>. Both versions perform the same checks and output
+					the same information, so it does not matter which is used.</p>
 				<section id="ace-gui">
 					<h4>Application Layout</h4>
 					<img src="../../../../graphics/publishing/ace/ace-gui.png" width="650" alt="Ace graphical interface" />
-					<p>When the Ace application is first opened, there are three key areas to note:</p>
+					<p>When the Ace application is first opened, there are four key areas to note:</p>
 					<ol>
-						<li>On the left-hand side is a set of quick-access options. Initially, only the option to
-							evaluate a packaged EPUB publication is available (Check EPUB) along with the ability to
+						<li>At the top of the appplication is a menu bar that provides access to all the major features
+							of the application, as well as important information about Ace and how to use it.</li>
+						<li>Below the menu bar on the left-hand side is a quick access bar. Initially, only the option
+							to evaluate a packaged EPUB publication is available (Check EPUB) along with the ability to
 							change some of Ace's default settings (Settings). The Rerun and Export options become
 							available as publications are validated.</li>
-						<li>On the right-hand side is the results area. When the application first launches, however,
-							only a message that files and folders can be dragged and dropped onto the area to run the
-							validator is shown.</li>
-						<li>At the bottom of the application is a message console. When Ace runs an evaluation, it emits
-							various messages about the operations it is performing into this area. In general, the only
-							time the messages in the console matter is when Ace encounters an error. The errors may
-							contain some useful information about what went wrong and help to include when <a
-								href="https://github.com/daisy/ace-gui/issues">reporting bugs</a>.</li>
+						<li>On the right-hand side of the quick access bar is the results area. When the application
+							first launches, however, only a message that files and folders can be dragged and dropped
+							onto the area to run the validator appears.</li>
+						<li>Finally, at the bottom of the application is a message console. When Ace runs an evaluation,
+							it emits various messages about the operations it is performing into this area. In general,
+							the only time the messages in the console matter is when Ace encounters an internal problem.
+							The errors may contain some useful information about what went wrong and help to include
+							when <a href="https://github.com/daisy/ace-gui/issues">reporting bugs</a>.</li>
 					</ol>
 				</section>
 				<section id="ace-lang">
@@ -121,7 +122,8 @@
 							likely to change in the future release of Ace.</p>
 					</div>
 					<p>A new dialog window will open with the application settings that can be changed.</p>
-					<img src="../../../../graphics/publishing/ace/ace-settings.png" width="350" alt="Ace settings dialog" />
+					<img src="../../../../graphics/publishing/ace/ace-settings.png" width="350"
+						alt="Ace settings dialog" />
 					<p>Select the new language for the application from the Language section at the bottom of the dialog
 						and click the Save button. The Ace interface will automatically update to the new language and
 						the new preference will be retained the next the program is opened.</p>
@@ -134,40 +136,42 @@
 				</section>
 				<section id="ace-eval">
 					<h4>Evaluating Files and Folders</h4>
-					<p>There are four ways to start Ace checking an EPUB file or folder when the application first
-						starts:</p>
+					<p>There are four ways to start Ace checking an EPUB file or folder:</p>
 					<ol>
-						<li>A file or folder can be dragged and dropped into the result area.</li>
-						<li>A file or folder can be selected from the links in the result area.</li>
-						<li>A file can be selected from the "Check EPUB" link in the quick-access area.</li>
+						<li>A file or folder can be dragged and dropped into the results area.</li>
+						<li>A file or folder can be selected from the links in the results area.</li>
+						<li>A file can be selected from the "Check EPUB" link in the quick access bar.</li>
 						<li>A file or folder can be selected from the File menu at the top of the application.</li>
 					</ol>
 					<p>To use the drag and drop feature, the file or folder containing the publication needs to be on
 						the desktop or open in a directory window. Click on the publication and keep the mouse button
 						held down. It can now be dragged into the Ace application. The Ace display will change to show a
-						dark gray background with a lighter gray dotted border, as show in the following image.</p>
+						dark gray background with a lighter gray dotted border, as shown in the following image.</p>
 					<img src="../../../../graphics/publishing/ace/ace-drop.png" width="650" alt="File drop indicator" />
 					<p>Release the mouse button to drop the file and Ace will begin its evaluation.</p>
 					<p>The other options to start an evaluation all open either a file or folder selection dialog.</p>
-					<img src="../../../../graphics/publishing/ace/ace-file-select.png" width="550" alt="File select dialog" />
+					<img src="../../../../graphics/publishing/ace/ace-file-select.png" width="550"
+						alt="File select dialog" />
 					<p>Locate and select the file or folder containing the publication and click the Check button to
 						begin an evaluation.</p>
 				</section>
 				<section id="ace-reports">
 					<h4>Evaluation Reports</h4>
-					<img src="../../../../graphics/publishing/ace/ace-report.png" width="550" alt="Ace evaluation report" />
+					<img src="../../../../graphics/publishing/ace/ace-report.png" width="550"
+						alt="Ace evaluation report" />
 					<p>After Ace completes an evaluation, it displays a report containing the following tabs of
 						data:</p>
 					<ul>
-						<li>Summary &#8212; the summary tab is displayed by default and contains individual and total
-							counts of each type and severity of issue.</li>
-						<li>Violations &#8212; the violations tab lists each of the problems that need fixing.</li>
-						<li>Metadata &#8212; the metadata tab lists relevant package metadata found in the publication
-							for review.</li>
-						<li>Outlines &#8212; the outlines tab shows the table of contents and heading structure found in
-							the publication.</li>
-						<li>Images &#8212; the images tab shows any images found in the publication along with their
-							alternative text and descriptions (when identifiable).</li>
+						<li><a href="#ace-report-summary">Summary</a> &#8212; the summary tab is displayed by default
+							and contains individual and total counts of each type and severity of issue.</li>
+						<li><a href="#ace-report-violations">Violations</a> &#8212; the violations tab lists each of the
+							issues that need fixing.</li>
+						<li><a href="#ace-report-metadata">Metadata</a> &#8212; the metadata tab lists relevant package
+							metadata found in the publication for review.</li>
+						<li><a href="#ace-report-outlines">Outlines</a> &#8212; the outlines tab shows the table of
+							contents and heading structure found in the publication.</li>
+						<li><a href="#ace-report-images">Images</a> &#8212; the images tab shows any images found in the
+							publication along with their alternative text and descriptions (when identifiable).</li>
 					</ul>
 					<p>The following sections cover each of these tabs in more detail.</p>
 					<section id="ace-report-summary">
@@ -178,37 +182,40 @@
 							each value of the matrix represents the count for one type and severity of issue (e.g., the
 							first number in the grid represents critical WCAG 2 Level A violations).</p>
 						<p>The final row and column of the matrix provide the total counts for each separate type of
-							issue and severity, with the last number in the last row and column representing the total
-							number of violations found.</p>
-						<p>Ace currently reports three types of violations: to WCAG 2 Level A (wcag2a); to WCAG 2 Level
-							AA (wcag2aa); to the specific requirements of the EPUB Accessibility specification (EPUB).
-							It also identifies best practices, which are not violations but recommendations on possible
-							improvements, and has an "other" category for messages that do not fit in any specific
+							issue and severity, with the number in the last row and column representing the total number
+							of violations found.</p>
+						<p>Ace currently reports three types of violations: to WCAG 2 Level A (wcag2a), to WCAG 2 Level
+							AA (wcag2aa), and to the specific requirements of the EPUB Accessibility specification
+							(EPUB). It also identifies best practices, which are not violations but recommendations on
+							possible improvements, and has an "other" category for messages that do not fit a specific
 							category.</p>
 						<p>The severity classifications are an attempt to indicate the impact that the violations have
-							on users. They are not widely accepted definitions, however, and violations must be fixed
-							regardless of the stated severity.</p>
+							on users. The classifications are only informational, however, and violations must be fixed
+							regardless of the stated severity to ensure usability.</p>
 						<p>The summary table is helpful in terms of getting an overall picture of the violations in a
-							publication, but it does not provide any useful information in terms of what they are or how
-							to fix them. For that, the <a href="#ace-report-violations">Violations tab</a> needs to be
-							reviewed.</p>
+							publication, but it does not provide any useful information about what they are or how to
+							fix them. That is where the <a href="#ace-report-violations">Violations tab</a> comes
+							in.</p>
 					</section>
 					<section id="ace-report-violations">
 						<h5>Violations</h5>
-						<img src="../../../../graphics/publishing/ace/ace-violations.png" width="750" alt="Ace violations tab" />
-						<p>The Ace Violations tab provides detailed information about each issue found in the
-							publication.</p>
+						<img src="../../../../graphics/publishing/ace/ace-violations.png" width="750"
+							alt="Ace violations tab" />
+						<p>The Ace Violations tab provides a table with detailed information about all the issues found
+							in the publication.</p>
 						<p>The first two columns in the table identify the severity of the message (Impact) and what
-							standard the issue is defined in (Ruleset).</p>
+							standard defines the problem (Ruleset).</p>
 						<p>The next column (Rule) identifies the short name of the rule and whether it is defined by Ace
-							or the underlying axe checker. This field is useful for grouping issues of the same type,
-							but it is not necessary to understand the short names.</p>
+							or the underlying axe validator. This field is useful for sorting issues of the same type,
+							but it is not necessary to understand the short names &#8212; they are part of an internal
+							classification system the program uses.</p>
 						<p>The Location column provides details about where the issue is located. It consists of a file
 							name and EPUB Canonical Fragment identifier. <a
 								href="http://matt.garrish.ca/2013/03/navigating-cfis-part-1/">Reading canonical fragment
 								identifiers</a> is not a simple task, so a snippet of the offending markup is also
 							included. Opening the file and searching for the tagging is generally faster than trying to
-							follow the fragment.</p>
+							follow the fragment identifier. (The fragment identifiers may be used in a future version of
+							Ace to support editing.)</p>
 						<p>Finally, the Details column provides information about how to solve the issue. The exact
 							solution to the problem may not be determinable by machine, or there may be more than one
 							possible solution, so the Details column may include many suggestions.</p>
@@ -223,7 +230,8 @@
 					</section>
 					<section id="ace-report-metadata">
 						<h5>Metadata</h5>
-						<img src="../../../../graphics/publishing/ace/ace-metadata.png" width="550" alt="Ace metadata tab" />
+						<img src="../../../../graphics/publishing/ace/ace-metadata.png" width="550"
+							alt="Ace metadata tab" />
 						<p>The Metadata tab is the first of three review tabs Ace provides to help manually assess
 							accessibility issues. This tab lists key metadata about the publication found in the package
 							document.</p>
@@ -251,48 +259,80 @@
 					</section>
 					<section id="ace-report-outlines">
 						<h5>Outlines</h5>
-						<img src="../../../../graphics/publishing/ace/ace-outlines.png" width="650" alt="Ace outlines tab" />
+						<img src="../../../../graphics/publishing/ace/ace-outlines.png" width="650"
+							alt="Ace outlines tab" />
 						<p>The outlines tab provides a side-by-side comparison of the structure of the publication as
-							expressed in the table of contents, the heading structure in the markup and the HTML
-							outline.</p>
+							expressed in the table of contents, the heading structure in the markup and the <a
+								href="https://html.spec.whatwg.org/multipage/sections.html#outlines">HTML
+							outline</a>.</p>
 						<p>These outlines can be compared for discrepancies that need correcting (e.g., if the HTML
 							tagging does not match the level of a heading in the table of contents, or if heading tags
 							have not been used for items listed in the table of contents).</p>
+						<div class="note" role="note" aria-labelledby="outline-hd">
+							<p id="outline-hd" class="label">Note</p>
+							<p>The HTML outline is not implemented by browsers or assistive technologies. It is likely
+								to be removed from Ace in a future release due to the general confusion it causes.</p>
+						</div>
 					</section>
 					<section id="ace-report-images">
 						<h5>Images</h5>
 						<img src="../../../../graphics/publishing/ace/ace-images.png" width="750" alt="Ace images tab" />
-						<p>The images tab provides a quick reference to all the images found in the publication.</p>
+						<p>The images tab provides a reference to all the images found in the publication.</p>
+						<p>The first column of the table shows the image and the second provides the value of the
+							alternative text (the <code>alt</code> attribute value).</p>
+						<p>If the <code>aria-describedby</code> attribute has been used to provided an extended
+							description, the value of the referenced content is listed in the third column.</p>
+						<p>If the image is in a <code>figure</code> tag, the value of the figure's caption is provided
+							in the fourth column.</p>
+						<p>Where the image is located in the publication is provided in the fifth column, and if an ARIA
+							role is associated with the image it is provided in the final column.</p>
+						<p>Although this information is helpful for asssesing images, manual inspection will often still
+							be necessary. There are more ways to adequately describe an image than Ace currently
+							displays or can detect (e.g., the image may be described in the surrounding text or might be
+							associated by the <code>aria-details</code> attribute).</p>
 					</section>
 				</section>
 				<section id="ace-export">
 					<h4>Exporting Reports</h4>
 					<img src="../../../../graphics/publishing/ace/ace-export.png" width="250" alt="Export link" />
-					<p>Although Ace provides the option to rerun reports &#8212; either through the quick link or from
-						the menu bar &#8212; it only runs on the temporary files the program creates. If the
-						accessibility metadata is changed using the editor in the <a href="#ace-report-metadata"
-							>metadata tab</a>, for example, the update publication can be rerun.</p>
+					<p>Ace provides the option to export the validation report either through the quick link or from the
+						menu bar. When this option is selected, Ace generates a ZIP file containing the following files
+						and folders:</p>
+					<ul>
+						<li><code>report.html</code> &#8212; An HTML version of the report tabs.</li>
+						<li><code>report.json</code> &#8212; A JSON-encoded file containing the report information.</li>
+						<li><code>data</code> &#8212; An optional folder containing any data extracted from the
+							publicaton for the report (e.g., the images).</li>
+					</ul>
+					<p>One key reason to export a report is to start a new evaluation in the <a href="smart.html">SMART
+							tool</a>. The JSON file exported from Ace is used to prepopulate the manual evaluation
+						form.</p>
+					<p>Another reason to export an evaluation is to open it in a browser. The HTML version may be easier
+						to use in some cases than the application.</p>
 				</section>
 				<section id="ace-rerun">
 					<h4>Rerunning Reports</h4>
 					<img src="../../../../graphics/publishing/ace/ace-rerun.png" width="250" alt="Rerun link" />
-					<p>Ace provides the option to export the validation report either through the quick link or from the
-						menu bar.</p>
-					<p>The exported JSON file is used to initiate a new evaluation in the <a href="smart.html">SMART
-							tool</a>, for example.</p>
-					<p>Another reason to export an evaluation is to open it in a browser. Ace exports an HTML page with
-						the same set of tabs as the application. The browser-based version may be easier to use in some
-						cases than the application.</p>
+					<p>Although Ace provides the option to rerun reports &#8212; either through the quick link or from
+						the menu bar &#8212; it only runs on the temporary files the program creates. If the
+						accessibility metadata is changed using the editor in the <a href="#ace-report-metadata"
+							>metadata tab</a>, for example, the update publication can be rerun.</p>
+					<div class="note" role="note" aria-labelledby="rerun-hd">
+						<p id="rerun-hd" class="label">Note</p>
+						<p>Ace is expected to be updated to make the rerun option rerun the file or folder originally
+							selected instead of the temporary folder, as the current behavior often leads to
+							confusion.</p>
+					</div>
 				</section>
 			</section>
 			<section id="cli">
 				<h3>Command Line</h3>
 				<section id="ace-cli">
 					<h4>Calling Ace</h4>
-					<p>Like the EPUBCheck tool, Ace can also be run from a command line interface, allowing it to be
-						integrated into automated workflows. Some users also prefer the command line as it allows the
-						HTML report to output and opened in a browser without having to go through the graphical
-						interface.</p>
+					<p>Like the <a href="epubcheck.html">EPUBCheck tool</a>, Ace can also be run from a command line
+						interface, allowing it to be integrated into automated workflows. Some users also prefer the
+						command line as it allows the <a href="#ace-export">HTML report</a> to output and opened in a
+						browser without having to go through the graphical interface.</p>
 					<div class="note" role="note" aria-labelledby="cli-note">
 						<p id="cli-note" class="label">Note</p>
 						<p>Refer to the <a href="epubcheck.html#getting-started">EPUBCheck page</a> for information on
@@ -315,12 +355,12 @@ info:    Consolidating results...
 }
 info:    Done.</pre>
 					<p>The more typical way to call Ace is to include an output directory so that both the JSON and HTML
-						reports are saved. When the <code>--outdir</code> argument is set, Ace will output the reports
-						to the specified location. For example, to output the files to a new folder called
-							<code>ace_report</code>, Ace can be invoked like this:</p>
+						reports are saved. When the <a href="#outdir"><code>--outdir</code> argument</a> is set, Ace
+						will output the reports to the specified location. For example, to output the files to a new
+						folder called <code>ace_report</code>, Ace can be invoked like this:</p>
 					<pre class="console">> ace accessible_epub_3.epub --outdir ace_report</pre>
 					<p>Note, however, that by not specifying a full path for the output directory, the directory will be
-						created wherever the command line interface is currently located. (See the <a
+						created relative to wherever the command line interface is currently located. (See the <a
 							href="epubcheck.html#getting-started">EPUBCheck page</a> for how to change directories.)</p>
 					<p>When an output directory is specified, Ace only writes processing messages to the command line.
 						Instead of outputting the JSON report at the end, it will note that the JSON and HTML report
@@ -348,9 +388,9 @@ info:    Done.</pre>
 							<p>The force argument is used to overwrite existing report files (e.g., when you run Ace
 								again after correcting issues).</p>
 							<pre class="console">> ace accessible_epub_3.epub -o ace_report -f</pre>
-							<p>If an <a href="#outdir">output directory</a> is specified that already contains HTML and
-								JSON report files, Ace will not run unless this argument is specified to avoid
-								accidentally deleting your data.</p>
+							<p>If an <a href="#outdir">output directory</a> is specified that already contains report
+								files, Ace will not run unless this argument is specified to avoid accidentally deleting
+								data.</p>
 						</dd>
 						<dt id="verbose">Verbose output (<code>--verbose</code> or <code>-V</code>)</dt>
 						<dd>
@@ -360,8 +400,7 @@ info:    Done.</pre>
 								more useful information about where and why it crashed).</p>
 							<pre class="console">> ace accessible_epub_3.epub --verbose</pre>
 							<p>Note that the shorthand form of the argument is a <strong>capital "V"</strong>;
-								specifying a lowercase "v" outputs the version of Ace. Avoid the shorthand whenever
-								possible.</p>
+								specifying a lowercase "v" outputs the version of Ace.</p>
 							<p>The verbose argument only affects the messages Ace writes to the command line. It does
 								not affect the information in the JSON or HTML reports.</p>
 						</dd>
@@ -385,10 +424,10 @@ info:    Done.</pre>
 					to be aware of:</p>
 				<ol>
 					<li>Passing Ace validation is not the same as meeting requirements of <abbr
-							title="W3C Web Content Accessibility Guidelines">WCAG</abbr> (i.e., the publication may not
-						be accessible). A clean report only means the issues Ace can check for have passed. A <a
-							href="https://daisy.github.io/ace/rules/">complete list of rules</a> checked is maintained
-						on the Ace web site.</li>
+							title="W3C Web Content Accessibility Guidelines">WCAG</abbr>. A clean report only means the
+						issues Ace can check for have passed (i.e., the publication stil may not be accessible). A <a
+							href="https://daisy.github.io/ace/rules/">complete list of rules</a> that Ace can check for
+						is maintained on the Ace web site.</li>
 					<li>Ace is not currently integrated with <a href="epubcheck.html">EPUBCheck</a>, so publications
 						also need to be validated with that tool to ensure conformance to the standard.</li>
 				</ol>
