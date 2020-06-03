@@ -17,7 +17,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Use the <code>epub:type</code> attribute to enhance the user experience in EPUB user agents.</p>
+				<p>The <code>epub:type</code> attribute can enhance the user experience in EPUB reading systems but
+					<strong>does not</strong> improve the accessibility in assistive technologies.</p>
 			</section>
 			
 			<section id="tech">
@@ -29,8 +30,7 @@
 				
 				<div class="note" role="note" aria-labelledby="note-1">
 					<p id="note-1" class="label">Note</p>
-					<p>No other uses of <code>epub:type</code> are known to provide user enhancements at this time.
-						Please open an issue if any such arise.</p>
+					<p>No other uses of <code>epub:type</code> are known to provide user enhancements at this time.</p>
 				</div>
 			</section>
 
@@ -73,33 +73,37 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>The enabling of specialized behaviors, such as the opening of footnotes, is directly predicated on content
-					being properly identified.</p>
+				<p>The enabling of specialized behaviors, such as the opening of footnotes, requires that content be
+					properly identified for reading systems.</p>
 				
 				<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document to add
 					additional semantics. It accepts any of the terms defined in the <a href="http://idpf.org/epub/vocab/structure/">EPUB
 						Structural Semantics Vocabulary</a>, but the attribute has limited adoption outside of pop-up footnotes.</p>
 				
-				<div class="note" role="note" aria-labelledby="note-2">
-			        <p id="note-2" class="label">Note</p>
+				<p>Note that only certain semantics make sense to use on any given tag. Marking an <code>aside</code>
+					element as a footnote is appropriate, for example, but marking a <code>section</code> as a footnote
+					not as much. The <a href="https://idpf.github.io/epub-vocabs/structure/">Structural Semantics
+						Vocabulary</a> lists the common element(s) each semantic is intended to be used in conjunction
+					with to facilitate this process (although exceptions to the rule may arise).</p>
+			</section>
+			
+			<section id="a11y">
+				<h3>Comparison to ARIA roles</h3>
 					
-			    	<p>The <code>epub:type</code> attribute only facilitates user agent behaviors. For more information
-						about using semantic inflection to make documents more accessible, see the <a href="roles.html">ARIA
-							<code>role</code> attribute</a>.</p>
-			    	
-			    	<p>The <code>epub:type</code> attribute can be used in conjunction with the <code>role</code> attribute where
-			    		both accessibility and enhanced user agent behaviors overlap.</p>
-			    	
-			    	<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
-			    		Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
-			    		to the ARIA <code>role</code> attribute.</p>
-			    </div>
+				<p>The <code>epub:type</code> attribute only facilitates user agent behaviors like pop-up notes. It was
+					hoped it would bridge the need for publisher workflow semantics with accessibility, but did not
+					succeed. It <strong>does not</strong> improve the accessibility of publications on its own.</p>
 				
-				<p>Note that only certain semantics make sense to use on any given tag. Marking an <code>aside</code> element as
-					a footnote is appropriate, for example, but marking a <code>section</code> as a footnote not as much.
-					The <a href="https://idpf.github.io/epub-vocabs/structure/">Structural Semantics Vocabulary</a> lists
-					the common element(s) each semantic is intended to be used in conjunction with to facilitate this
-					process (although exceptions to the rule may arise).</p>
+				<p>The attribute may still be useful for internal workflows as a means of generating <a
+					href="roles.html">ARIA roles</a>, but in these cases the requirements of the ARIA specification
+					must be closely followed. The use of roles is much more restrictive than <code>epub:type</code>.</p>
+				
+				<p>It is also possible to use both the <code>epub:type</code> and <code>role</code> attributes
+					where both accessibility and enhanced user agent behaviors overlap.</p>
+				
+				<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role 
+					Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code>
+					to the ARIA <code>role</code> attribute.</p>
 			</section>
 			
 			<section id="refs">
