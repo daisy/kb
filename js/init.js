@@ -78,9 +78,10 @@ KB.prototype.initializePage = function (type) {
  */
 
 KB.prototype.writeCoreMeta = function () {
+	/* insert the charset first */
 	var charset = document.createElement('meta');
 		charset.setAttribute('charset', 'utf-8');
-	this.page_hd.appendChild(charset);
+	this.page_hd.insertBefore(charset, this.page_hd.firstChild);
 	
 	var viewport = document.createElement('meta');
 		viewport.setAttribute('name', 'viewport');
@@ -175,7 +176,11 @@ KB.prototype.writeTemplate = function () {
 		kb.prettyPrint();
 		kb.addExampleCopy();
 		
-		if (!this.isRootIndex || (window.location.href.indexOf('index.html') != -1)) {
+		var cur_href = window.location.href.toString();
+		var href_len = cur_href.length - 1;
+		var last_slash = cur_href.lastIndexOf('/')
+		
+		if (!this.isRootIndex && cur_href.indexOf('index.html') == -1 && last_slash != href_len) {
 			kb.addHeadingDestinations();
 		}
 	}
