@@ -58,7 +58,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
-		if (this.isRootIndex || (window.location.href.indexOf('index.html') > -1 && page_info.hasOwnProperty('topic'))) {
+		if (this.isIndex) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
@@ -378,39 +378,42 @@ KB.prototype.generateMiniToc = function () {
 		return;
 	}
 	
+	// grab all the subsection headings on the page
+	var h = document.querySelectorAll('h3');
+	
 	var nav = document.createElement('nav');
 		nav.setAttribute('role', 'doc-toc');
 		nav.setAttribute('class', 'mini-toc');
 	
-	/* add section heading */
-	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode(msg.UI.m02));
+	if (h.length > 0) {
 	
-	nav.appendChild(h3);
-	
-	var ol = document.createElement('ol');
-	
-	// grab all the subsection headings on the page
-	var h = document.querySelectorAll('h3');
-	
-	// iterate each heading and add a link to it
-	for (var i = 0; i < h.length; i++) {
-		var li = document.createElement('li');
+		/* add section heading */
+		var h3 = document.createElement('h3');
+			h3.appendChild(document.createTextNode(msg.UI.m02));
 		
-		var a = document.createElement('a');
-			a.setAttribute('href','#'+h[i].parentNode.id);
+		nav.appendChild(h3);
+		
+		var ol = document.createElement('ol');
+		
+		// iterate each heading and add a link to it
+		for (var i = 0; i < h.length; i++) {
+			var li = document.createElement('li');
 			
-			// if a short form of a title is necessary for the menu, add to the shortForm section of the messages file
-			var sectionName = h[i].textContent.trim();
-				sectionName = msg.shortForm.hasOwnProperty(h[i].textContent) ? msg.shortForm[h[i].textContent] : h[i].textContent;
-			
-			a.appendChild(document.createTextNode(sectionName));
-		 
-		 li.appendChild(a);
-		 ol.appendChild(li);
+			var a = document.createElement('a');
+				a.setAttribute('href','#'+h[i].parentNode.id);
+				
+				// if a short form of a title is necessary for the menu, add to the shortForm section of the messages file
+				var sectionName = h[i].textContent.trim();
+					sectionName = msg.shortForm.hasOwnProperty(h[i].textContent) ? msg.shortForm[h[i].textContent] : h[i].textContent;
+				
+				a.appendChild(document.createTextNode(sectionName));
+			 
+			 li.appendChild(a);
+			 ol.appendChild(li);
+		}
+		
+		nav.appendChild(ol);
 	}
-	
-	nav.appendChild(ol);
 	
 	document.querySelector('main > nav.breadcrumb').insertAdjacentElement('afterEnd', nav);
 }
