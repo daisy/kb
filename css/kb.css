@@ -354,7 +354,7 @@ pre > ol > li {
 
 code {
 	font-size: 90%;
-	color: rgb(255,69,0);
+	color: rgb(198,58,2);
 	padding: 0.4rem 0.4rem 0.2rem 0.4rem;
 }
 
@@ -746,4 +746,11 @@ body > section > section {
 
 div.related {
 	margin-left: 3rem;
+}
+
+
+/* google search override */
+
+table.gsc-search-box td {
+	border: none;
 }
