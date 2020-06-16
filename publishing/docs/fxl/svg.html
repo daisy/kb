@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SVG</title>
+		<script>
+			var page_info = {
+				'topic': 'Fixed Layouts',
+				'appliesTo': ['EPUB3'],
+				'description': 'Overview of SVG-based EPUB fixed layout publications.'
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="overview">
+				<h3>Overview</h3>
+				<p>Fixed-layout publications can be created using SVG to combine text and images. Each image is assigned
+					a fixed height and width, and content is positioned within this canvas area.</p>
+				<p>The advantage of using SVG for fixed layouts over other image formats is that SVG allows text content
+					to be embedded instead of written into the image data. This ensures that any text marked up this way
+					is available to be read by assistive technologies. SVG also allows provides options for including
+					alternative text and extended descriptions for images.</p>
+				<p>The scalability of SVG images also has advantages for readers with low vision as it allows the
+					content to be zoomed without becoming pixelated and difficult to read.</p>
+			</section>
+			<section id="epub">
+				<h3>EPUB</h3>
+				<p>Although SVG is a natural fit for fixed layout content, web browsers are not optimized for rendering
+					them as part of a publication. Control over the size and orientation are limited, for example.</p>
+				<p>To fix this problem for publishing, EPUB 3 introduced metadata to aid reading systems in creating the
+					appropriate display area and characteristics for each fixed layout page.</p>
+				<p>EPUB publications can consist entirely of fixed layout SVG pages or there may only be a few fixed
+					layout pages interspersed in a reflowable publication.</p>
+				<p>It is also possible to mix fixed-layout SVG pages with fixed-layout <a href="html.html">XHTML
+						pages</a>, or with <a href="img.html">images directly in the EPUB reading order</a>.</p>
+				<div class="note" role="note" aria-labelledby="create-note">
+					<p id="create-note" class="label">Note</p>
+					<p>Refer to the <a href="index.html#creation">fixed layouts overview page</a> for more information
+						about how fixed-layout publications are created.</p>
+				</div>
+			</section>
+			<section id="a11y">
+				<h3>Accessibility</h3>
+				<p>The same practices that make reflowable publications accessible are used to create fixed layout SVG
+					pages with the greatest accessibility. Some key practices include:</p>
+				<ul>
+					<li>Ensuring the <a href="../html/order.html">logical reading order</a> &#8212; The order of text
+						content within the SVG must match the order that the user would logically be expected to
+						encounter it on the page.</li>
+					<li>Describing the image and any components &#8212; The SVG <code>title</code> and <code>desc</code>
+						elements can be used to describe both the full page as well as any image components within the
+						document.</li>
+					<li>Avoiding images of text &#8212; Text content can be included and styled in SVG; it does not have
+						to be drawn.</li>
+					<li>Ensuring <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">text contrast</a> &#8212; It is
+						important to ensure that the text components of the SVG are visually distinguishable from the
+						background.</li>
+				</ul>
+				<p>If SVG is used solely as a wrapper for a non-scaling image formats (e.g., JPEG, GIF, PNG), the
+					scaling benefit of the format is lost. SVG does not make these image formats scale any better. An
+					HTML wrapper is often the better choice, as it provides more options for describing the images.</p>
+				<p>Despite the accessibility features SVG provide, it often will not be possible to create SVG pages
+					that are fully accessible due to the image-based nature of SVG content. Restrictions that EPUB 3
+					reading systems place on modifying the appearance of fixed layout publications will also impede
+					their readability.</p>
+			</section>
+		</main>
+	</body>
+</html>

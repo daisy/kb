@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WCAG Conformance</title>
+		<script>
+			var page_info = {
+				'topic': 'Fixed Layouts',
+				'appliesTo': ['EPUB3'],
+				'description': 'Overview of WCAG issues related to EPUB fixed layout publications.'
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			aside.applies-to {
+				margin-top: -8.9rem !important;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="comp" aria-label="Evaluation">
+				<p>Although it may be possible to create fixed-layout EPUB publications that conform to WCAG 2.0,
+					conforming to the latest versions of the standard is much more difficult due to the reflow
+					requirement that was added in 2.1.</p>
+				<p>The following table identifies some of the most common level A and AA success criteria that fail due
+					to the use of fixed layouts.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Success Criterion</th>
+							<th>Required for WCAG</th>
+							<th>Problems</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#non-text-content">1.1.1 Non-text Content (A)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Image-based fixed layouts, such as comics and manga, typically fail this requirement
+									as alternative text and descriptions cannot capture all of the story conveyed
+									through the imagery. A separate serialization of the story is often required.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">1.3.1 Info and
+									Relationships (A)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Generic elements, like <code>span</code> and <code>div</code> are often used to style
+									and position text statically within a page, leaving the user with few structural
+									aids to navigate the content (e.g., no headings, no tables).</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#meaningful-sequence">1.3.2 Meaningful Sequence
+									(A)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Because content elements can be visually placed wherever needed, care is not always
+									taken to ensure that a logical sequence is maintained in the markup. When an
+									assistive technology reads such a work, information and dialogue are rendered out of
+									sequence.</p>
+								<p>In the case where content is laid out over two pages, the logical sequence may
+									require a visual reader to move back and forth from page to page. This type of
+									sequence cannot be represented in the markup.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#orientation">1.3.4 Orientation (AA)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Fixed-layout pages are usually designed to be rendered in a specific orientation, and
+									authors may indicate that reading systems should only render the content in that
+									orientation.</p>
+								<p>To meet WCAG 2.0, however, the orientation of the content must not affect its
+									readability.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#contrast-minimum">1.4.3 Contrast (Minimum) (AA)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>The overlaying of text on images in fixed layouts can cause insufficient contrast,
+									making it difficult for readers to perceive the text.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#resize-text">1.4.4 Resize Text (AA)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Users are typically prevented by reading systems from changing the fonts of
+									fixed-layout publications to ensure the content is rendered how the author designed
+									it.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#images-of-text">1.4.5 Images of Text (AA)</a>
+							</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Images of text are often used to prevent users from changing the font and altering
+									the design of fixed-layout pages.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#reflow">1.4.10 Reflow (AA)</a>
+							</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>Due to the fixed dimensions of a fixed-layout page, the zoom requirement of this
+									success criterion typically results in the user having to scroll both axes to read
+									the content.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="https://www.w3.org/TR/WCAG/#text-spacing">1.4.12 Text Spacing (AA)</a>
+							</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>Even if users are allowed to change the appearance, adding spacing can force text to
+									exceed the boundaries of its container element and/or page. In this case, the
+									overflow text is often hidden from sight.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</body>
+</html>

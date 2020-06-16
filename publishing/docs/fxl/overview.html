@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Overview</title>
+		<script>
+			var page_info = {
+				'topic': 'Fixed Layouts',
+				'appliesTo': ['EPUB3'],
+				'description': 'Overview of accessibility issues related to EPUB fixed layout publications.'
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="layouts">
+				<h3>Layouts</h3>
+				<p>A fixed-layout publication is one where each page has a fixed size (height and width). The content of
+					these pages is laid out in a pixel-precise manner &#8212; elements have fixed coordinates where they
+					are to render.</p>
+				<p>Fixed layouts are commonly created using images but can also be achieved in HTML through the use of
+					absolute positioning with CSS. They are typically used to create comics, manga, children's story
+					books, cookbooks and textbooks, but can be found in any material trying to reproduce pixel-precise
+					layouts.</p>
+				<p>EPUB supports two primary approaches to creating fixed layouts:</p>
+				<ol>
+					<li><a href="html.html">HTML-based layouts</a> &#8212; the HTML page is given a set height and width
+						and content is positioned within the area.</li>
+					<li><a href="svg.html">SVG-based layouts</a> &#8212; image formats (e.g., SVG, JPEG, PNG) are used
+						to create the content.</li>
+				</ol>
+				<p>In some cases, these approaches are mixed. An HTML or SVG document might be used to display an image
+					format, for example, so that alternative text and extended descriptions can also be provided.</p>
+				<div class="note" role="note" aria-labelledby="img-note">
+					<p id="img-note" class="label">Note</p>
+					<p>An alternative to HTML and SVG fixed layouts is to include images directly in the EPUB spine. As
+						support for, and accessibility of, this approach is limited, this topic is only minimally
+						covered on the <a href="img.html">images in spine page</a>.</p>
+				</div>
+			</section>
+			<section id="creation">
+				<h3>Creation</h3>
+				<section id="creation-package-meta">
+					<h4>Package Metadata</h4>
+					<p>The only difference between a primarily fixed-layout publication and one with only a few pages is
+						in the package document metadata.</p>
+					<p>When the publication consists entirely, or predominantly, of fixed layout pages, a single global
+						declaration of the <a href="https://www.w3.org/publishing/epub3/epub-packages.html#layout"
+								><code>rendition:layout</code> property</a> is all that is needed:</p>
+					<pre id="ex-cr-01" class="prettyprint linenums"><code>&lt;metadata>
+   &lt;meta property="rendition:layout">pre-paginated&lt;/meta>
+   &#8230;
+&lt;/metadata></code></pre>
+					<p>If a document is reflowable, it can be overridden using the
+							<code>rendition:layout-reflowable</code> property on its spine item reference:</p>
+					<pre id="ex-cr-02" class="prettyprint linenums"><code>&lt;spine>
+   &#8230;
+   &lt;itemref ref="p211"/>
+   &lt;itemref ref="index" property="rendition:layout-reflowable"/>
+&lt;/spine></code></pre>
+					<p>If only a few pages use fixed layouts, the preceding process is simply reversed. Although it is
+						not necessary to specify a global <code>rendition:layout</code> property for reflowable
+						publications (this is the default in EPUB), one can be added as follows:</p>
+					<pre id="ex-cr-03" class="prettyprint linenums"><code>&lt;metadata>
+   &lt;meta property="rendition:layout">reflowable&lt;/meta>
+   &#8230;
+&lt;/metadata></code></pre>
+					<p>The fixed layout pages then override this setting using the
+							<code>rendition:layout-pre-paginated</code> value on their relevant spine item
+						references:</p>
+					<pre id="ex-cr-04" class="prettyprint linenums"><code>&lt;spine>
+   &#8230;
+   &lt;itemref ref="c01"/>
+   &lt;itemref ref="plate-01" property="rendition:layout-pre-paginated"/>
+   &lt;itemref ref="plate-02" property="rendition:layout-pre-paginated"/>
+   &lt;itemref ref="c02"/>
+   &#8230;
+&lt;/spine></code></pre>
+				</section>
+				<section id="creation-dimensions">
+					<h4>Page Dimensions</h4>
+					<p>The package metadata declarations only tell reading systems which pages to render as fixed
+						layouts. It is still necessary to identify the dimensions of the page so that the reading system
+						renders the page in an appropriately sized area.</p>
+					<p>The dimensions for fixed layout XHTML and SVG differ as each relies on the markup capabilities of
+						its respective format.</p>
+					<p>For HTML layouts, the height and width of the page is specified in pixels using a
+							<code>viewport</code> declaration in the HTML header.</p>
+					<pre id="ex-dim-01" class="prettyprint linenums"><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+   &lt;head>
+      &lt;title>Page 1&lt;/title>
+      &lt;meta name="viewport" content="height=1200,width=800"/>
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+					<p>For SVG layouts, the height and width of the page is specified in pixels using the
+							<code>viewBox</code> attribute.</p>
+					<pre id="ex-dim-02" class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+   &#8230;
+&lt;/svg></code></pre>
+				</section>
+			</section>
+			<section id="display-meta">
+				<h3>Display Metadata</h3>
+				<p>EPUB 3 provides the following metadata properties to control the layout and appearance of
+					fixed-layout pages:</p>
+				<dl class="value">
+					<dt id="rendition-orientation">rendition:orientation</dt>
+					<dd>
+						<p>The <a href="https://www.w3.org/publishing/epub3/epub-packages.html#orientation"
+									><code>rendition:orientation</code> property</a> specifies the author's preferred
+							orientation for displaying the fixed-layout page(s).</p>
+						<p>The value can be one of <code>portrait</code>, <code>landscape</code>, or <code>auto</code>
+							for no preference.</p>
+						<p>The property can be declared globally for all pages using a <code>meta</code> tag:</p>
+						<pre id="ex-o01" class="prettyprint linenums"><code>&lt;meta property="rendition:orientation">landscape&lt;/meta></code></pre>
+						<p>Or can be set for specific pages in the spine using the <code>properties</code>
+							attribute:</p>
+						<pre id="ex-o02" class="prettyprint linenums"><code>&lt;itemref idref="pg22" <strong>properties="rendition:orientation-portrait"</strong></code></pre>
+					</dd>
+					<dt id="rendition-spread">rendition:spread</dt>
+					<dd>
+						<p>The <a href="https://www.w3.org/publishing/epub3/epub-packages.html#spread"
+									><code>rendition:spread</code> property</a> specifies the author's preference for
+							when a reading should display the fixed-layout page(s) in a <a href="spreads.html">synthetic
+								spread</a> (i.e., side-by-side in two-page layout).</p>
+						<p>The value can be one of <code>landscape</code> (only when the device is held in landscape
+							orientation), <code>both</code> (when the device is in either landscape or portrait
+							orientation), <code>auto</code> (no preference), or <code>none</code>.</p>
+						<p>The property can be declared globally for all pages using a <code>meta</code> tag:</p>
+						<pre id="ex-s01" class="prettyprint linenums"><code>&lt;meta property="rendition:spread">landscape&lt;/meta></code></pre>
+						<p>Or can be set for specific pages in the spine using the <code>properties</code>
+							attribute:</p>
+						<pre id="ex-s02" class="prettyprint linenums"><code>&lt;itemref idref="pg124" <strong>properties="rendition:spread-both"</strong>/></code></pre>
+					</dd>
+					<dt id="rendition-page-spread">rendition:page-spread-left, -right and -center</dt>
+					<dd>
+						<p>The <a href="https://www.w3.org/publishing/epub3/epub-packages.html#page-spread"
+									><code>rendition:page-spread-*</code> properties</a> specify the author's preference
+							for which slot in a two-page spread the reading should display the fixed-layout page.</p>
+						<p>Unlike the right- and left-hand properties, <code>page-spread-center</code> property is used
+							to indicate that only a single, centred slot should be used to display the page.</p>
+						<p>The page-spread properties can only be set for specific pages in the spine using the
+								<code>properties</code> attribute:</p>
+						<pre id="ex-pss01" class="prettyprint linenums"><code>&lt;itemref idref="pg2" <strong>properties="rendition:page-spread-left"</strong>/>
+&lt;itemref idref="pg3" <strong>properties="rendition:page-spread-right"</strong>/></code></pre>
+					</dd>
+				</dl>
+			</section>
+			<section id="a11y">
+				<h3>Accessibility</h3>
+				<p>Fixed-layout publications present a number of challenges for accessibility. These include:</p>
+				<ul>
+					<li>the incorrect ordering of HTML markup in order to visually display content, leading to a
+						confusing reading experience when read by assistive technology (AT);</li>
+					<li>content spread across multiple pages, making for an incoherent reading order;</li>
+					<li>images of text being used without text alternatives, leaving no content to be read by AT;</li>
+					<li>text or image content that cannot be zoomed, or that requires scrolling when zoomed, making
+						reading by persons with low vision difficult to impossible.</li>
+				</ul>
+				<p>The degree of accessibility that can be achieved depends heavily on a combination of the type of
+					layout used and the complexity of the content. It is likely going to be easier to make a simple
+					children's book accessible, for example, than it is to make a complex textbook. Often, fixed-layout
+					content will only be accessible if an alternative serialization is provided.</p>
+				<div class="note" role="note" aria-labelledby="wcag-note">
+					<p id="wcag-note" class="label">Note</p>
+					<p>WCAG 2.1 introduces a new <a href="https://www.w3.org/TR/WCAG21/#reflow">reflowable success
+							criterion</a> for level AA conformance, which will make it difficult for most fixed layout
+						publications to conform to that standard.</p>
+				</div>
+				<p>This section of the knowledge base explores techniques for improving the accessibility of
+					fixed-layout publications, but it is generally recommended to create reflowable content when a
+					publication has to be broadly accessible.</p>
+			</section>
+			<section id="refs">
+				<h3>References</h3>
+				<ol>
+					<li>EPUB 3 &#8212; <a
+							href="https://www.w3.org/publishing/epub3/epub-contentdocs.html#sec-fixed-layouts">Fixed
+							Layouts</a></li>
+					<li>EPUB 3 &#8212; <a
+							href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-metadata-fxl"
+							>Fixed-Layout Properties</a></li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>

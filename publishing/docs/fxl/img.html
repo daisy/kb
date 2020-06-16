@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Images</title>
+		<script>
+			var page_info = {
+				'topic': 'Fixed Layouts',
+				'appliesTo': ['EPUB3'],
+				'description': 'Overview of issues using images for fixed layout pages.'
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="desc">
+				<h3>Overview</h3>
+				<p>Images are often an integral part of fixed layout publications. Fixed layout publications sometimes
+					consist entirely of images, in the case of comics, or images may be used as backgrounds to a story,
+					as in children's books.</p>
+				<p>Ensuring that the information conveyed in the images is available to users who may not be able to
+					perceive the background or may have difficulty processing it, is consequently of high priority in
+					making fixed layouts as accessible as possible.</p>
+				<p>The <a href="../html/images.html">basic requirements for all images</a>, to provide alt text and
+					extended descriptions when they contain information necessary to understanding the publication,
+					applies to fixed layouts. For example, while a reader may be able to follow the dialogue of a story
+					when it is overlaid as text, only the placement on image might give context to what character is
+					saying what.</p>
+				<p>The challenge with fixed layouts is finding ways to describe the image and provide context given that
+					there is no extra area on the page users can access in which to place a description.</p>
+			</section>
+			<section id="svg">
+				<h3>SVG</h3>
+				<p>SVG provides two elements for describing images:</p>
+				<ul>
+					<li><code>title</code> &#8212; the equivalent of the HTML <code>alt</code> attribute; it is used to
+						provide alternative text for an entire SVG image and individual components within it.</li>
+					<li><code>desc</code> &#8212; used to provide an extended description for the entire SVG image and
+						individual components within it.</li>
+				</ul>
+				<p>When a publication is made of <a href="svg.html">fixed-layout SVG pages</a> these two elements can be
+					used to describe the content. Note that ARIA attributes (<code>role</code> and
+						<code>aria-describedby</code>) are added to improve support in assistive technologies as SVG is
+					still not well supported.</p>
+				<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" &#8230;
+     <strong>role="group" aria-describedby="svgtitle svgdesc"</strong>>
+   &lt;title id="svgtitle">The Hydrologic Cycle&lt;/title>
+   &lt;desc id="svgdesc">The continuous cycle by which water &#8230;&lt;/desc>
+   &#8230;
+&lt;/svg></code></pre>
+				<div class="note" role="note" aria-labelledby="svg-role">
+					<p id="svg-role" class="label">Note</p>
+					<p>The role <code>group</code> is given to the image because it contains additional text content
+						(not shown) that the user will interact with. If the image were entirely graphical, the role
+							<code>img</code> would be used instead.</p>
+				</div>
+				<p>The <code>title</code> and <code>desc</code> elements can also be used to annotate components of a
+					larger image.</p>
+				<pre class="prettyprint linenums"><code>&lt;g fill="lightgray" stroke="gray" role="img" aria-describedby="gtitle">
+      &lt;title id="gtitle">Rain clouds&lt;/title>
+      &#8230;
+&lt;/g></code></pre>
+				<p>The one problem with using these elements to annotate SVG images is that their content is typically
+					only made available to users of assistive technologies.</p>
+				<p>A more advanced approach would be to add a link or button to view the description using script or
+					animations (e.g., open the description like a pop-out). EPUB reading system support for such
+					approaches is likely to be limited, however, as animations, for example, were completely restricted
+					until EPUB 3.2.</p>
+			</section>
+			<section id="html">
+				<h3>HTML</h3>
+				<p>When an image is embedded in an HTML fixed layout page, there are more options available for
+					including accessible descriptions. As with SVG fixed layouts, the primary consideration is once
+					again the limitation of having only limited screen space in which to include the description.</p>
+				<p>For this reason, descriptions are typically hidden from view using a variety of HTML, ARIA and CSS
+					techniques. Descriptions can be hidden, clipped, made opaque, layered under an image, etc. The <a
+						href="../html/hidden.html">knowledge base page on hidden content</a> delves into these
+					possibilities in more detail.</p>
+				<p>Support for scripting in XHTML content documents in EPUB is generally much better than is available
+					for SVG, so there are more reliable techniques that can be used to make the descriptions viewable by
+					a wider range of users. Clicking or tapping on an image can be used to show its description, for
+					example. The <a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol"
+						>Voyage of Life sample EPUB</a> contains an experimental example of this technique.</p>
+				<p>Unlike reflowable publications, the CSS <code class="property">background-image</code> property can
+					be used with fixed layouts to set the background image for a page. It is best to limit this practice
+					to backgrounds that are purely presentational as much as possible, however, as it complicates the
+					ability to provide a description that any user will be able to reach (i.e., it often involves hiding
+					the description only for assistive technologies).</p>
+			</section>
+		</main>
+	</body>
+</html>
