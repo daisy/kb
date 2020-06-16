@@ -8,15 +8,16 @@ nav#toc {
 }
 
 nav#toc h2 {
-	color: rgb(27, 95, 161);
-    margin: 0rem;
+    margin: 1rem;
     font-size: 135% !important;
+    padding: 1rem;
 }
 
 nav#toc > section {
     padding: 0 1rem;
 	border: 0.1rem solid rgb(220,220,220);
 	border-radius: 1rem;
+	background-color: rgb(255,253,255);
 }
 
 nav#toc > section > section {
@@ -24,9 +25,9 @@ nav#toc > section > section {
 }
 
 nav#toc h3 {
-	color: rgb(0,0,0);
-	margin: 0 0 0 3rem;
+	margin: 2rem 0 1rem 3rem;
 	font-size: 125%;
+	font-weight: normal;
 }
 
 nav#toc h3::before {
