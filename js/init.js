@@ -41,6 +41,7 @@ function KB() {
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
 	this.noBreadcrumb = (page_info.hasOwnProperty('breadcrumb') && !page_info['breadcrumb']) ? true : false;
+	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
 	this.title = document.title;
 }
@@ -471,6 +472,11 @@ KB.prototype.generateAppliesTo = function () {
 /* create the default footer for the pages */
 
 KB.prototype.generateFooter = function () {
+	
+	if (this.noFooter) {
+		return;
+	}
+	
 	var footer = document.createElement('footer');
 	
 	// add the link to the issue tracker
