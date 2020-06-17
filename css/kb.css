@@ -40,7 +40,7 @@ h1 {
 	text-indent: 4.5rem;
 	color: rgb(255,255,255);
 	margin: 0;
-	padding: 0.4rem 0 0.2rem 0;
+	padding: 1rem 0;
 	background-color: rgb(27,95,161);
 	height: 36px;
 }
@@ -97,7 +97,6 @@ p.bridgehead {
 
 a {
     text-decoration: none;
-	border-bottom: 0.1rem dotted rgb(0,0,220);
 }
 
 nav.breadcrumb a,
@@ -112,13 +111,11 @@ a:link {
 
 a:visited {
 	color: rgb(102,51,102);
-	border-bottom: 0.1rem dotted rgb(102,51,102);
 }
 
 a:hover,
 a:visited:hover {
 	color: rgb(180,0,0);
-	border-bottom: 0.1rem dotted rgb(180,0,0);
 }
 
 h1 a, nav a {
@@ -157,22 +154,19 @@ main > details {
 
 div.toplinks {
 	font-size: 80%;
-	max-width: 60em;
-	margin-top: -3.2rem;
+	background-color: rgb(49,49,49);
+	border-bottom: 0.1rem solid rgb(180,180,180);
+	padding-left: 5rem;
 }
 
 div.toplinks > a {
-	float: right;
-	color: rgb(255,255,200);
+	color: rgb(255,255,255);
+	text-decoration: none;
 	margin-right: 2rem;
-	padding: 0 0.4rem;
-	border-bottom: 0.1rem solid rgb(255,255,200);
 }
 
 div.toplinks > a:hover {
-	color: rgb(255,255,255);
 	text-decoration: none;
-	border-bottom: 0.1rem solid rgb(255,255,255);
 }
 
 /* breadcrumb nav */
