@@ -162,10 +162,11 @@ div.toplinks {
 div.toplinks > a {
 	color: rgb(255,255,255);
 	text-decoration: none;
-	margin-right: 2rem;
+	margin-right: 3rem;
 }
 
 div.toplinks > a:hover {
+	color: rgb(255,255,200);
 	text-decoration: none;
 }
 
