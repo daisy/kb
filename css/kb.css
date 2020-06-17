@@ -745,6 +745,11 @@ div.related {
 
 /* google search override */
 
-table.gsc-search-box td {
+#search table,
+#search td {
 	border: none;
+}
+
+#search div {
+	background-color: rgb(251,252,253);
 }

@@ -40,6 +40,7 @@ function KB() {
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
+	this.noBreadcrumb = (page_info.hasOwnProperty('breadcrumb') && !page_info['breadcrumb']) ? true : false;
 	
 	this.title = document.title;
 }
@@ -270,6 +271,13 @@ KB.prototype.generateHeader = function () {
 	
 	top_links.appendChild(gloss_a);
 	
+	// add search link
+	var srch_a = document.createElement('a');
+		srch_a.setAttribute('href', kb_link + '/search/index.html');
+		srch_a.appendChild(document.createTextNode('Search'));
+	
+	top_links.appendChild(srch_a);
+	
 	header.appendChild(top_links);
 	
 	document.body.insertAdjacentElement('afterBegin',header);
@@ -280,7 +288,7 @@ KB.prototype.generateHeader = function () {
 
 KB.prototype.generateBreadcrumb = function () {
 
-	if (this.isRootIndex) {
+	if (this.isRootIndex || this.noBreadcrumb) {
 		return;
 	}
 	
