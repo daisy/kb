@@ -153,7 +153,7 @@ main > details {
 /* glossary link */
 
 div.toplinks {
-	font-size: 80%;
+	font-size: 75%;
 	background-color: rgb(49,49,49);
 	border-bottom: 0.1rem solid rgb(180,180,180);
 	padding-left: 5rem;
@@ -163,6 +163,9 @@ div.toplinks > a {
 	color: rgb(255,255,255);
 	text-decoration: none;
 	margin-right: 3rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
 }
 
 div.toplinks > a:hover {
