@@ -37,6 +37,7 @@ body {
 h1 {
 	font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
 	font-size: 130%;
+	letter-spacing: 0.15rem;
 	text-indent: 4.5rem;
 	color: rgb(255,255,255);
 	margin: 0;
