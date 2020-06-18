@@ -199,7 +199,7 @@
 				<figure id="ex-05">
 					<figcaption>
 						<div class="label">Example 5 &#8212; Hidden description</div>
-						<p>The following example uses the <code>aria-describedBy</code> element to link to a hidden
+						<p>The following example uses the <code>aria-describedBy</code> attribute to link to a hidden
 							description, leaving no visual indication at all that a description is available.</p>
 						<p>Note that <strong>support for this attribute is poor</strong>, particularly when referencing
 							hidden content. While valid, it may prevent any users from reaching the description, so should be
@@ -255,6 +255,25 @@
     name="submit"
     src="enter.jpg"
     alt="Enter to Win!"/></code></pre>
+				</figure>
+				
+				<figure id="ex-08">
+					<figcaption>
+						<div class="label">Example 8 &#8212; Image with label and caption on opposite sides</div>
+						<p>The following example shows a figure with its label above the the image and its caption below.
+							The <code>aria-labelledBy</code> attribute is used to associate the label with the figure
+							so that this information can still be readily presented to users.</p>
+					</figcaption>
+					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;figure id="fig-01" aria-labelledBy="fig1-label">
+   &lt;p class="label" id="fig1-label">Figure 1. Prime Mover&lt;/p>
+   &lt;img
+      src="graphics/prime_mover.jpg"
+      alt="The universe in motion through its attraction to the prime mover"/>
+   &lt;figcaption>
+      &lt;p>The primer mover is shown to be a &#8212;&lt;/p>
+   &lt;/figcaption>
+&lt;/figure>
+</code></pre>
 				</figure>
 			</section>
 			
