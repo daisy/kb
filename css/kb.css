@@ -110,14 +110,28 @@ a:link {
 	color: rgb(0,0,200);
 }
 
+main section a:link {
+	border-bottom: 0.1rem dotted rgb(0,0,200);
+}
+
 a:visited {
 	color: rgb(102,51,102);
+}
+
+main section a:visited {
+	border-bottom: 0.1rem dotted rgb(102,51,102);
 }
 
 a:hover,
 a:visited:hover {
 	color: rgb(180,0,0);
 }
+
+main section a:hover,
+main section a:visited:hover {
+	border-bottom: 0.1rem dotted rgb(180,0,0);
+}
+
 
 h1 a, nav a {
 	text-decoration: none;
