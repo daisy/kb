@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Contrast</title>
+		<script>
+			var page_info = {
+				'topic': 'CSS',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.figlabel {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure sufficient contrast when setting background colors and images through CSS.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure minimum contrast between foreground text and background. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#contrast-minimum">WCAG 1.4.3</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that a contrast
+								ratio of at least 4.5:1 exists between text (and images of text) and background behind the
+								text</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G145">G145: Ensuring that a contrast
+								ratio of at least 3:1 exists between text (and images of text) and background behind the
+								text</a></li>
+						</ul>
+					</li>
+					<li>
+						<p>Consider enhanced contrast between foreground text and background. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#contrast-enhanced">WCAG 1.4.3</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that a contrast
+								ratio of at least 7:1 exists between text (and images of text) and background behind the
+								text</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">Example 1 &#8212; Setting default foreground and background text</p>
+						<p>The following example creates a contrast of 19.2:1.</p>
+					</figcaption>
+					<p class="figlabel">CSS</p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>body {
+   color: rgb(0,0,0);
+   background-color: rgb(251,245,224);
+}</code></pre>
+					<p class="figlabel">Demo</p>
+					<p style="padding: 0.3rem; color: rgb(0,0,0); background-color: rgb(251,245,224)">Call me Ishmael, Dummy.</p>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Contrast, as it relates to accessible reading, is the difference in luminance (amount of light emitted)
+					between the foreground text and the background behind it. By taking the <a
+						href="https://www.w3.org/TR/WCAG/#relativeluminancedef">relative luminance</a> of each, a
+					contrast ratio between 1:1 (no contrast) and 21:1 (darkest black on whitest white) can be
+					determined.</p> 
+				
+				<p>Ensuring sufficient contrast between the foreground text and background colors and images is
+					necessary to ensure that users with low vision and color deficiencies can read the publication.</p>
+				
+				<p>The minimum contrast to meet WCAG level AA guidelines is 4.5:1, but this drops to 3:1 for text that
+					is at least 18 point in size by default (or 14 point when bolded). The contrast requirement does
+					not apply to logos (e.g., for the publisher or imprint) or text that is included in decorative
+					images.</p>
+				
+				<p>To meet WCAG AAA, the minimum contrast requirement increases to 7:1 and the large test requirement
+					to 4.5:1. While it is not required to meet this contrast level, the better the contrast that can be
+					achieved the greater the audience that will be able to read the publication.</p>
+				
+				<p>Avoid overlaying text on noisy (multi-color) background images, and relying on
+					positioning to avoid color contrasts, as different reading system may reflow content in unexpected
+					ways.</p>
+				
+				<p>Calculating the contrast ratio is mostly easily and accurately done by machine and there are a number
+					of free applications available, including:</p>
+				
+				<ul>
+					<li><a href="../epub/validation/ace.html">Ace</a> &#8212; The Ace validator checks EPUB publications
+						for various WCAG violations including contrast issues. Ace is the only tool that checks entire
+						publications.</li>
+					<li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> &#8212; Lighthouse
+						is a developer tool built into Chromium-based browsers such as Chrome and Edge. It checks
+						individual HTML pages for accessibility problems including contrast issues.
+					<li><a href="https://developer.paciellogroup.com/resources/contrastanalyser/">Color Contrast
+						Analyzer (CCA)</a> &#8212; CCA is a helpful tool that tests the contrast ratio between manually
+						input colors. It can quicken the process of solving contrast issues as an entire publication
+						does not need to be rechecked to determine if a new combination is compliant.</li>
+				</ul>
+				
+				<p>Although these tools are useful at comparing CSS color declarations for problems, they typically are
+					not able to check for problems with text overlaying background images (or images with text). It is
+					generally advised not to use background images in reflowable publications as support is often poor,
+					but text on images is very common in <a href="../fxl/overview.html">fixed layout publications</a>.</p>
+				
+				<p>When text is placed over an image, or is part of an image, manual verification of the contrast is
+					necessary.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>References</h3>
+				
+				<ul>
+					<li>CSS &#8212; <a
+						href="https://www.w3.org/TR/CSS22/colors.html#colors">Foreground color: the 'color'
+						property</a></li>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/colors.html#background">The
+						background</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

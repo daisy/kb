@@ -25,26 +25,6 @@
 				
 				<ul>
 					<li>
-						<p>Provide sufficient contrast between foreground and background colors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#contrast-minimum">WCAG 1.4.3</a> and <a href="https://www.w3.org/TR/WCAG/#contrast-enhanced">WCAG 1.4.6</a>]</span></p>
-						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that a contrast
-								ratio of at least 4.5:1 exists between text (and images of text) and background behind the
-								text</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that a contrast
-								ratio of at least 7:1 exists between text (and images of text) and background behind the
-								text</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G145">G145: Ensuring that a contrast
-								ratio of at least 3:1 exists between text (and images of text) and background behind the
-								text</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G174">G174: Providing a control with
-								a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient
-								contrast</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G183">G183: Using a contrast ratio
-								of 3:1 with surrounding text and providing additional visual cues on focus for links or controls
-								where color alone is used to identify them</a></li>
-						</ul>
-					</li>
-					<li>
 						<p>Provide alternatives to color for identifying information. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#use-of-color">WCAG 1.4.1</a>]</span></p>
 						<ul>
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G14">G14: Ensuring that information
@@ -124,26 +104,24 @@
 				<h3>Explanation</h3>
 				
 				<p>Although the use of color is a common semantic method for conveying information to sighted users, it
-					should never be used as the sole means of imparting information. Semantic markup should always underlie
-					any use of border colors and shading so that the equal access is provided to users using non-visual
-					playback methods.</p>
-
-				<p>But color is problematic for more than just the problems that arise conveying semantic meaning. The
-					contrast between foregrounds and backgrounds can make reading difficult. Green text on red backgrounds
-					(and vice-versa) can be unreadable for some people, and can generally cause what's known as visual
-					vibrations. Red and black can also be indistinguishable to many users. Black text on bright white
-					backgrounds can lead to eye strain and headaches.</p>
-
-				<p>Likewise, placing one shade of a color on another is also going to make reading difficult, as will placing
-					two light or dark colors on top of each other (luminosity). A user may be able to fix some of these
-					issues with a configurable user agent, but it is best to avoid them in the first place.</p>
-
-				<p>Also avoid placing text over noisy (multi-colored) backgrounds. The less uniform the background is the
-					more difficult it can be for any user to follow.</p>
+					should never be used as the sole means of imparting information. Semantic markup should always
+					underlie any use of border colors and shading so that the equal access is provided to users using
+					non-visual playback methods.</p>
 
 				<p>More generally, though, be sure to always cleanly separate styles from content. Separation of styling
 					ensures that users can apply their own style sheets and/or use and built-in color, brightness and
 					contrast controls in their user agent to tailor the display to their needs.</p>
+				
+				<p>But color is problematic for more than just the problems that arise conveying semantic meaning.
+					Green text on red backgrounds (and vice-versa) can be unreadable for some people, and can generally
+					cause what is known as visual vibrations. Red and black can also be indistinguishable to many
+					users. Black text on bright white backgrounds can lead to eye strain and headaches.</p>
+				
+				<p>Likewise, placing one shade of a color on another is also going to make reading difficult, as will
+					placing two light or dark colors on top of each other (luminosity).</p>
+				
+				<p>A user may be able to fix some of these issues with a configurable user agent, but it is better to
+					avoid them in the first place.</p>
 			</section>
 		</main>
 	</body>
