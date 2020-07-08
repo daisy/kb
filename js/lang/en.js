@@ -14,6 +14,7 @@ var msg = {};
 	msg.footer.m03 = 'Privacy Policy';
 	msg.footer.m04 = 'Change Log\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
 	msg.footer.m05 = 'Report typos and request pages';
+	msg.footer.m06 = 'Back to Top \u2191';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';

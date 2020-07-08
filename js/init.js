@@ -477,6 +477,21 @@ KB.prototype.generateFooter = function () {
 		return;
 	}
 	
+	// add back to top link
+	
+	document.body.setAttribute('id','top')
+	
+	var top = document.createElement('p');
+		top.setAttribute('class','backtotop');
+	
+	var toplink = document.createElement('a');
+		toplink.setAttribute('href','#top');
+		toplink.appendChild(document.createTextNode(msg.footer.m06));
+	
+	top.appendChild(toplink);
+
+	document.body.appendChild(top);
+	
 	var footer = document.createElement('footer');
 	
 	// add the copyright

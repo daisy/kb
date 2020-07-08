@@ -780,3 +780,11 @@ div.related {
 #search div {
 	background-color: rgb(251,252,253);
 }
+
+/* back to top links */
+
+p.backtotop {
+	text-align: right;
+	max-width: 48em;
+	line-height: 1rem;
+}
