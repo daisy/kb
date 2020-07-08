@@ -306,7 +306,8 @@ aside.applies-to {
 	padding-bottom: 1rem;
 	font-size: 1.5rem;
 	background-color: rgb(250,250,250);
-	border: 0.1rem solid lightgray;
+	border: 0.1rem solid cornflowerblue;
+	border-radius: 1.3rem;
 }
 
 aside.applies-to > h3:before {
