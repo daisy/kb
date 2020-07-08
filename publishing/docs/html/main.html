@@ -63,7 +63,8 @@
 				
 				<p>The <code>main</code> element is treated by assistive technologies as a
 					<a href="landmarks.html">landmark</a>, so users are able to jump directly to the element when
-					it is present.</p>
+					it is present. It is equivalent to the <a href="https://www.w3.org/TR/wai-aria/#main">ARIA
+						<code>main</code> role</a>.</p>
 				
 				<p>The need for bypass links in digital publications is not nearly as common as it is on the web
 					generally, however. As publications are not wrapped inside of web page site trappings, there are
@@ -77,12 +78,14 @@
 					chapter, but none of these are repeated content. They are unique to each chapter. Placing them
 					before the <code>main</code> element may cause users to miss them.</p>
 				
-				<p>It is not necessary to provide a label for the main content, but one can be provided using either
-					the <code>aria-label</code> or <code>aria-labelledby</code> attributes.</p>
+				<p>Note that the HTML <code>body</code> element can only have one <code>main</code> element without
+					a <code>hidden</code> attribute specified on it. It is also not possible for sectioning content
+					such as <code>article</code> or <code>aside</code> to have their own <code>main</code> content
+					sections.</p>
 				
-				<p>Note that the HTML <code>body</code> element can only have one <code>main</code> element. It is
-					also not possible for an sectioning content such as <code>article</code> or <code>aside</code> to
-					have their own <code>main</code> content sections.</p>
+				<p>It is not necessary to provide a label for the <code>main</code> element when there is only one
+					instance, but one can be provided using either the <code>aria-label</code> or
+					<code>aria-labelledby</code> attributes when there are multiple.</p>
 			</section>
 			
 			<section id="refs">
@@ -92,6 +95,7 @@
 					<li>HTML &#8212; <a
 						href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element"
 							>The main element</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#main">main (role)</a></li>
 				</ul>
 			</section>
 		</main>
