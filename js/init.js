@@ -479,24 +479,30 @@ KB.prototype.generateFooter = function () {
 	
 	var footer = document.createElement('footer');
 	
-	// add the link to the issue tracker
+	// add the copyright
 	
-	var typos = document.createElement('p');
-		typos.appendChild(document.createTextNode(msg.footer.m01));
+	var daisy = document.createElement('p');
+		daisy.appendChild(document.createTextNode(msg.footer.m01));
 	
-	var issuelink = document.createElement('a');
-		issuelink.setAttribute('href','https://github.com/DAISY/kb/issues');
-		issuelink.appendChild(document.createTextNode(msg.footer.m02));
+	// add the link to the terms of use and privacy policy
 	
-		typos.appendChild(issuelink);
-		typos.appendChild(document.createTextNode('.'));
+	var termslink = document.createElement('a');
+		termslink.setAttribute('href','http://www.daisy.org/terms-use');
+		termslink.appendChild(document.createTextNode(msg.footer.m02));
 	
-	footer.appendChild(typos);
+	daisy.appendChild(termslink);
 	
-	// add the link to the commit log
+	var privacylink = document.createElement('a');
+		privacylink.setAttribute('href','https://daisy.org/about-us/terms-and-conditions/privacy/');
+		privacylink.appendChild(document.createTextNode(msg.footer.m03));
 	
-	var changes = document.createElement('p');
-		changes.appendChild(document.createTextNode(msg.footer.m03));
+	daisy.appendChild(privacylink);
+	
+	footer.appendChild(daisy);
+
+	// add the github links
+	
+	var github = document.createElement('p');
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
 	
@@ -506,20 +512,15 @@ KB.prototype.generateFooter = function () {
 		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
 		commitlink.appendChild(document.createTextNode(msg.footer.m04));
 	
-		changes.appendChild(commitlink);
-		changes.appendChild(document.createTextNode('.'));
+	github.appendChild(commitlink);
 	
-	footer.appendChild(changes);
+	var buglink = document.createElement('a');
+		buglink.setAttribute('href','https://github.com/DAISY/kb/issues');
+		buglink.appendChild(document.createTextNode(msg.footer.m05));
 	
-	// add the link to the terms of use
+	github.appendChild(buglink);
 	
-	var terms = document.createElement('p');
-	
-	var termslink = document.createElement('a');
-		termslink.setAttribute('href','http://www.daisy.org/terms-use');
-		termslink.appendChild(document.createTextNode(msg.footer.m05));
-	
-	footer.appendChild(termslink);
+	footer.appendChild(github);
 	
 	document.body.appendChild(footer);
 }

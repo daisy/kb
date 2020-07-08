@@ -150,7 +150,13 @@ footer {
 	margin: 3em 0 0 0;
 	padding-bottom: 0.5em;
 	border-top: 2px solid rgb(240,240,255);
-	background-color: rgb(240,242,244);
+	background-color: rgb(27,95,161);
+	color: rgb(255,255,255);
+	font-family: Arial, sans-serif;
+}
+
+footer a {
+	color: rgb(255,255,255) !important;
 }
 
 main {

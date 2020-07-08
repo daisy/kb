@@ -9,11 +9,11 @@ var msg = {};
 	msg.UI.m03 = 'Applies to:';
 	
 	msg.footer = {};
-	msg.footer.m01 = 'To report typos, errors and omissions, please open an issue in the ';
-	msg.footer.m02 = 'GitHub tracker';
-	msg.footer.m03 = 'For a list of changes to this page, refer to the ';
-	msg.footer.m04 = 'commit log';
-	msg.footer.m05 = 'Terms of Use';
+	msg.footer.m01 = '\u00a9 Copyright The DAISY Consortium\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
+	msg.footer.m02 = 'Terms of Use\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
+	msg.footer.m03 = 'Privacy Policy';
+	msg.footer.m04 = 'Change Log\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
+	msg.footer.m05 = 'Report typos and request pages';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
