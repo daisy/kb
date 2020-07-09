@@ -37,6 +37,8 @@ function KB() {
 	
 	this.page_hd = document.getElementsByTagName('head')[0];
 	this.lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en'
+
+	this.kb_root = '/' + this.kb_id + '/' + (this.lang == 'en' ? 'docs/' : this.lang + '/');
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
@@ -243,12 +245,8 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(logo);
 	h1.appendChild(document.createTextNode(' '));
 	
-	// add the kb name
-	var kb_link = '/' + this.kb_id + '/';
-		kb_link += this.lang == 'en' ? 'docs/' : this.lang + '/';
-	
 	var a = document.createElement('a');
-		a.setAttribute('href',kb_link);
+		a.setAttribute('href',this.kb_root);
 		a.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
 	
 	h1.appendChild(a);
@@ -260,21 +258,21 @@ KB.prototype.generateHeader = function () {
 	
 	// add the what's new link
 	var whatsnew_a = document.createElement('a');
-		whatsnew_a.setAttribute('href', kb_link + 'new/index.html');
+		whatsnew_a.setAttribute('href', this.kb_root + 'new/index.html');
 		whatsnew_a.appendChild(document.createTextNode("What's New"));
 	
 	top_links.appendChild(whatsnew_a);
 	
 	// add the glossary link
 	var gloss_a = document.createElement('a');
-		gloss_a.setAttribute('href', kb_link + 'glossary/index.html');
+		gloss_a.setAttribute('href', this.kb_root + 'glossary/index.html');
 		gloss_a.appendChild(document.createTextNode('Glossary'));
 	
 	top_links.appendChild(gloss_a);
 	
 	// add search link
 	var srch_a = document.createElement('a');
-		srch_a.setAttribute('href', kb_link + '/search/index.html');
+		srch_a.setAttribute('href', this.kb_root + '/search/index.html');
 		srch_a.appendChild(document.createTextNode('Search'));
 	
 	top_links.appendChild(srch_a);
@@ -484,24 +482,53 @@ KB.prototype.generateFooter = function () {
 	
 	var toplink = document.createElement('a');
 		toplink.setAttribute('href','#');
-		toplink.appendChild(document.createTextNode(msg.footer.m06));
+		toplink.appendChild(document.createTextNode(msg.footer.m07));
 	
 	top.appendChild(toplink);
 
 	document.body.appendChild(top);
 	
 	var footer = document.createElement('footer');
+	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
+	
+	// add the github links
+	
+	var github = document.createElement('p');
+	
+	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
+	
+	page_path = (page_path == '') ? 'index.html' : page_path;
+	
+	var commitlink = document.createElement('a');
+		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
+		commitlink.appendChild(document.createTextNode(msg.footer.m04 + spacer));
+	
+	github.appendChild(commitlink);
+	
+	var buglink = document.createElement('a');
+		buglink.setAttribute('href', this.kb_root + 'reporting/#bugs');
+		buglink.appendChild(document.createTextNode(msg.footer.m05 + spacer));
+	
+	github.appendChild(buglink);
+	
+	var newlink = document.createElement('a');
+		newlink.setAttribute('href', this.kb_root + 'reporting/#new');
+		newlink.appendChild(document.createTextNode(msg.footer.m06));
+	
+	github.appendChild(newlink);
+	
+	footer.appendChild(github);
 	
 	// add the copyright
 	
 	var daisy = document.createElement('p');
-		daisy.appendChild(document.createTextNode(msg.footer.m01));
+		daisy.appendChild(document.createTextNode(msg.footer.m01 + spacer));
 	
 	// add the link to the terms of use and privacy policy
 	
 	var termslink = document.createElement('a');
 		termslink.setAttribute('href','http://www.daisy.org/terms-use');
-		termslink.appendChild(document.createTextNode(msg.footer.m02));
+		termslink.appendChild(document.createTextNode(msg.footer.m02 + spacer));
 	
 	daisy.appendChild(termslink);
 	
@@ -513,28 +540,6 @@ KB.prototype.generateFooter = function () {
 	
 	footer.appendChild(daisy);
 
-	// add the github links
-	
-	var github = document.createElement('p');
-	
-	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
-	
-	page_path = (page_path == '') ? 'index.html' : page_path;
-	
-	var commitlink = document.createElement('a');
-		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
-		commitlink.appendChild(document.createTextNode(msg.footer.m04));
-	
-	github.appendChild(commitlink);
-	
-	var buglink = document.createElement('a');
-		buglink.setAttribute('href','https://github.com/DAISY/kb/issues');
-		buglink.appendChild(document.createTextNode(msg.footer.m05));
-	
-	github.appendChild(buglink);
-	
-	footer.appendChild(github);
-	
 	document.body.appendChild(footer);
 }
 

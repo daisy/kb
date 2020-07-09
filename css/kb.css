@@ -539,9 +539,7 @@ div.note {
 }
 
 div.note {
-	border-right: 0.1em solid rgb(200,255,200);
-	border-bottom: 0.1em solid rgb(200,255,200);
-	border-left: 0.1em solid rgb(200,255,200);
+	border: 0.1em solid rgb(0,160,255);
 }
 
 div.warning {
@@ -558,7 +556,7 @@ div.note p.label {
     text-indent: 1em;
 	padding: 0.3em;
 	margin: 0;
-	background-color: rgb(200,255,200);
+	background-color: rgb(191,231,254);
 	border-radius: 0.5em 0.5em 0 0;
 }
 

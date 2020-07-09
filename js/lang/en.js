@@ -9,12 +9,13 @@ var msg = {};
 	msg.UI.m03 = 'Applies to:';
 	
 	msg.footer = {};
-	msg.footer.m01 = '\u00a9 Copyright The DAISY Consortium\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
-	msg.footer.m02 = 'Terms of Use\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
+	msg.footer.m01 = '\u00a9 Copyright The DAISY Consortium';
+	msg.footer.m02 = 'Terms of Use';
 	msg.footer.m03 = 'Privacy Policy';
-	msg.footer.m04 = 'Change Log\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
-	msg.footer.m05 = 'Report typos and request pages';
-	msg.footer.m06 = 'Back to Top \u2191';
+	msg.footer.m04 = 'Revision History';
+	msg.footer.m05 = 'Report Errors';
+	msg.footer.m06 = 'Request a Topic';
+	msg.footer.m07 = 'Back to Top \u2191';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
