@@ -64,3 +64,13 @@ nav#toc a {
 	display: inline-block;
 	width: 30rem;
 }
+
+
+@media only screen 
+  and (max-device-width: 480px) {
+  
+  nav#toc ol {
+  	column-count: unset;
+  }
+  	
+}
