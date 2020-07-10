@@ -259,21 +259,21 @@ KB.prototype.generateHeader = function () {
 	// add the what's new link
 	var whatsnew_a = document.createElement('a');
 		whatsnew_a.setAttribute('href', this.kb_root + 'new/index.html');
-		whatsnew_a.appendChild(document.createTextNode("What's New"));
+		whatsnew_a.appendChild(document.createTextNode(msg.header.m01));
 	
 	top_links.appendChild(whatsnew_a);
 	
 	// add the glossary link
 	var gloss_a = document.createElement('a');
 		gloss_a.setAttribute('href', this.kb_root + 'glossary/index.html');
-		gloss_a.appendChild(document.createTextNode('Glossary'));
+		gloss_a.appendChild(document.createTextNode(msg.header.m02));
 	
 	top_links.appendChild(gloss_a);
 	
 	// add search link
 	var srch_a = document.createElement('a');
 		srch_a.setAttribute('href', this.kb_root + '/search/index.html');
-		srch_a.appendChild(document.createTextNode('Search'));
+		srch_a.appendChild(document.createTextNode(msg.header.m03));
 	
 	top_links.appendChild(srch_a);
 	

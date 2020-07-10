@@ -8,6 +8,11 @@ var msg = {};
 	msg.UI.m02 = 'In this section:'
 	msg.UI.m03 = 'Applies to:';
 	
+	msg.header = {};
+	msg.header.m01 = 'What\'s New';
+	msg.header.m02 = 'Glossary';
+	msg.header.m03 = 'Search';
+	
 	msg.footer = {};
 	msg.footer.m01 = '\u00a9 Copyright The DAISY Consortium';
 	msg.footer.m02 = 'Terms of Use';
