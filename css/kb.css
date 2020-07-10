@@ -823,9 +823,13 @@ p.backtotop {
 @media only screen 
   and (max-device-width: 480px) {
 	h1 {
-		text-indent: inherit;
+		text-indent: 1em;
 	}
 	main {
 		margin-left: 1rem;
+	}
+	aside.applies-to {
+		float: none;
+		margin-top: inherit;
 	}
 }
