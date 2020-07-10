@@ -43,7 +43,6 @@ h1 {
 	margin: 0;
 	padding: 1rem 0;
 	background-color: rgb(27,95,161);
-	height: 36px;
 }
 
 h1 a {
@@ -817,4 +816,16 @@ p.backtotop {
 	text-align: right;
 	max-width: 48em;
 	line-height: 1rem;
+}
+
+
+
+@media only screen 
+  and (max-device-width: 480px) {
+	h1 {
+		text-indent: inherit;
+	}
+	main {
+		margin-left: 1rem;
+	}
 }

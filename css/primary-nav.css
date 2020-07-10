@@ -69,8 +69,10 @@ nav#toc a {
 @media only screen 
   and (max-device-width: 480px) {
   
-  nav#toc ol {
-  	column-count: unset;
-  }
-  	
+	nav#toc {
+		margin: 2em 0 0 0;
+	}
+	nav#toc ol {
+		column-count: unset;
+	}
 }
