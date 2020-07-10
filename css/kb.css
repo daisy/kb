@@ -819,21 +819,23 @@ p.backtotop {
 }
 
 
+/* mobile fixes to display */
 
 @media only screen 
   and (max-device-width: 480px) {
 	h1 {
 		text-indent: 1em;
 	}
-	main {
-		margin-left: 1rem;
+	div.toplinks {
+		font-size: 70%;
+		padding-left: 2rem;
 	}
 	aside.applies-to {
 		float: none;
 		margin-top: inherit;
+		margin-top: 3rem;
 	}
-	div.toplinks {
-		font-size: 70%;
-		padding-left: 1rem;
+	main {
+		margin-left: 1rem;
 	}
 }

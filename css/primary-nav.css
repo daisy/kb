@@ -66,6 +66,8 @@ nav#toc a {
 }
 
 
+/* mobile fixes to display */
+
 @media only screen 
   and (max-device-width: 480px) {
   
