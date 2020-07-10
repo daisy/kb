@@ -832,4 +832,8 @@ p.backtotop {
 		float: none;
 		margin-top: inherit;
 	}
+	div.toplinks {
+		font-size: 70%;
+		padding-left: 1rem;
+	}
 }
