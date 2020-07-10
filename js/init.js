@@ -482,7 +482,7 @@ KB.prototype.generateFooter = function () {
 	
 	var toplink = document.createElement('a');
 		toplink.setAttribute('href','#');
-		toplink.appendChild(document.createTextNode(msg.footer.m07));
+		toplink.appendChild(document.createTextNode(msg.footer.m08));
 	
 	top.appendChild(toplink);
 
@@ -491,9 +491,53 @@ KB.prototype.generateFooter = function () {
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
 	
+	// add link lists
+	
+	var linklists = document.createElement('div');
+		linklists.setAttribute('class','footer-lists');
+	
+	// add how-to links
+	
+	var help = document.createElement('div');
+		help.setAttribute('class','footer-list');
+	
+	var helphd = document.createElement('div');
+		helphd.appendChild(document.createTextNode(msg.footer.m09));
+	help.appendChild(helphd);
+	
+	var helplist = document.createElement('ul')
+	
+	var bugitem = document.createElement('li');
+	var buglink = document.createElement('a');
+		buglink.setAttribute('href', this.kb_root + 'reporting/#bugs');
+		buglink.appendChild(document.createTextNode(msg.footer.m05));
+	
+	bugitem.appendChild(buglink);
+	helplist.appendChild(bugitem);
+	
+	var topicitem = document.createElement('li');
+	var newlink = document.createElement('a');
+		newlink.setAttribute('href', this.kb_root + 'reporting/#new');
+		newlink.appendChild(document.createTextNode(msg.footer.m06));
+	
+	topicitem.appendChild(newlink);
+	helplist.appendChild(topicitem);
+	help.appendChild(helplist);
+	
+	linklists.appendChild(help);
+	
 	// add the github links
 	
-	var github = document.createElement('p');
+	var github = document.createElement('div');
+		github.setAttribute('class','footer-list');
+	
+	var githd = document.createElement('div');
+		githd.appendChild(document.createTextNode(msg.footer.m10));
+	github.appendChild(githd);
+	
+	var gitlist = document.createElement('ul')
+	
+	var commititem = document.createElement('li');
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
 	
@@ -501,29 +545,64 @@ KB.prototype.generateFooter = function () {
 	
 	var commitlink = document.createElement('a');
 		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
-		commitlink.appendChild(document.createTextNode(msg.footer.m04 + spacer));
+		commitlink.appendChild(document.createTextNode(msg.footer.m04));
 	
-	github.appendChild(commitlink);
+	commititem.appendChild(commitlink);
+	gitlist.appendChild(commititem);
 	
-	var buglink = document.createElement('a');
-		buglink.setAttribute('href', this.kb_root + 'reporting/#bugs');
-		buglink.appendChild(document.createTextNode(msg.footer.m05 + spacer));
+	var repoitem = document.createElement('li');
+	var repolink = document.createElement('a');
+		repolink.setAttribute('href', 'https://github.com/daisy/kb/issues');
+		repolink.appendChild(document.createTextNode(msg.footer.m07));
 	
-	github.appendChild(buglink);
+	repoitem.appendChild(repolink);
+	gitlist.appendChild(repoitem);
 	
-	var newlink = document.createElement('a');
-		newlink.setAttribute('href', this.kb_root + 'reporting/#new');
-		newlink.appendChild(document.createTextNode(msg.footer.m06));
+	github.appendChild(gitlist);
 	
-	github.appendChild(newlink);
+	linklists.appendChild(github);
 	
-	footer.appendChild(github);
+	footer.appendChild(linklists);
 	
-	// add the copyright
+	// add specification links
+	
+	var spec = document.createElement('div');
+		spec.setAttribute('class','footer-list');
+	
+	var spechd = document.createElement('div');
+		spechd.appendChild(document.createTextNode(msg.footer.m11));
+	spec.appendChild(spechd);
+	
+	var speclist = document.createElement('ul')
+	
+	var a11yitem = document.createElement('li');
+	var a11ylink = document.createElement('a');
+		a11ylink.setAttribute('href', 'http://www.idpf.org/epub/a11y/');
+		a11ylink.appendChild(document.createTextNode(msg.footer.m12));
+	
+	a11yitem.appendChild(a11ylink);
+	speclist.appendChild(a11yitem);
+	
+	var epubitem = document.createElement('li');
+	var epublink = document.createElement('a');
+		epublink.setAttribute('href', 'http://www.idpf.org/epub3/latest/');
+		epublink.appendChild(document.createTextNode(msg.footer.m13));
+	
+	epubitem.appendChild(epublink);
+	speclist.appendChild(epubitem);
+	spec.appendChild(speclist);
+	
+	linklists.appendChild(spec);
+	
+	// add daisy links
 	
 	var daisy = document.createElement('p');
-		daisy.appendChild(document.createTextNode(msg.footer.m01 + spacer));
+		daisy.setAttribute('class','copy');
+
+	// add the copyright
 	
+	daisy.appendChild(document.createTextNode(msg.footer.m01 + spacer));
+
 	// add the link to the terms of use and privacy policy
 	
 	var termslink = document.createElement('a');

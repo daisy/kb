@@ -147,13 +147,45 @@ header {
 
 footer {
 	font-size: 90%;
-	text-align: center;
 	margin: 3em 0 0 0;
-	padding-bottom: 0.5em;
+	padding-bottom: 0;
 	border-top: 2px solid rgb(240,240,255);
-	background-color: rgb(27,95,161);
+	background-color: rgb(47,115,181);
 	color: rgb(255,255,255);
 	font-family: Arial, sans-serif;
+}
+
+footer > * {
+	padding-left: 5em;
+}
+
+.footer-lists {
+	margin-top: 2em;
+}
+
+.footer-list {
+	float: left;
+}
+
+.footer-list > div {
+	color: rgb(255,255,200);
+}
+
+.footer-list > ul {
+	list-style-type: none;
+	padding-left: 0.1em;
+	margin-right: 5em;
+}
+
+footer p {
+	clear: both;
+}
+
+p.copy {
+	margin-top: 10em;
+	margin-bottom: 0;
+	padding: 1em 0 1em 5em;
+	background-color: rgb(27,95,161);
 }
 
 footer a {
