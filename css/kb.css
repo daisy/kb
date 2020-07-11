@@ -824,8 +824,19 @@ p.backtotop {
 @media only screen 
   and (max-device-width: 480px) {
 	h1 {
-		text-indent: 1em;
+		text-indent: 0;
+		display: table-row;
 	}
+	h1 img {
+		display: table-cell;
+		padding-top: 0.5em;
+		padding-left: 0.5em;
+	}
+	
+	h1 a {
+		display: table-cell;
+	}
+	
 	div.toplinks {
 		font-size: 70%;
 		padding-left: 2rem;
