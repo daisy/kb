@@ -432,6 +432,14 @@ pre.prettyprint * {
 	background-color: inherit !important;
 }
 
+ol.linenums {
+	background-color: rgb(245,245,245) !important;
+}
+
+ol.linenums li {
+	background-color: rgb(255,255,255) !important;
+}
+
 
 /* examples outside the examples section */
 
