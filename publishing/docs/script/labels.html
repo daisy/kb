@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Control Labels</title>
+		<script>
+			var page_info = {
+				'topic': 'Scripted Content',
+				'appliesTo':[ 'EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure all form and custom controls have labels that clearly describe their purpose.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Provide labels for individual controls. <span class="wcag-level">[<a
+									href="https://www.w3.org/TR/WCAG/#name-role-value">WCAG 4.1.2</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44.html">Using label elements to
+									associate text labels with form controls</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16">Using aria-labelledby to provide
+									a name for user interface controls</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9">Using aria-labelledby to
+									concatenate a label from several text nodes</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA14">Using aria-label to provide an
+									invisible label where a visible label cannot be used</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">Using the aria-describedby
+									property to provide a descriptive label for user interface controls</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Provide labels for groups of controls. <span class="wcag-level">[<a
+									href="https://www.w3.org/TR/WCAG/#name-role-value">WCAG 4.1.2</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71.html">Providing a description for
+									groups of form controls using fieldset and legend elements</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>Example</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Associating a <code>label</code> with a control</div>
+						<p>The <code>for</code> attribute is used to reference the ID of the element the label describes.
+							Using the <code>for</code> attribute, the label can occur anywhere before or after the element.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;tr>
+   &lt;td>
+      &lt;input type="text" id="name"/>
+   &lt;/td>
+   &lt;td>
+      &lt;label for="name">Full name&lt;/label>
+   &lt;/td>
+&lt;/tr></code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Wrapping a <code>label</code> around a control</div>
+						<p>The <code>for</code> attribute is omitted when the <code>label</code> can contain both the control
+							and the label.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label>
+   &lt;input type="text" id="name"/>
+   Full name
+&lt;/label></code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Using a <code>fieldset</code> to group controls</div>
+						<p>The <code>legend</code> element provides the label for the set of checkboxes.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;fieldset>
+   &lt;legend>Accessibility Features&lt;/legend>
+   &lt;label>
+      &lt;input type="checkbox" name="a11yFeature"
+         value="alternativeText"/> Alternative text
+   &lt;/label>
+   &lt;label>
+      &lt;input type="checkbox" name="a11yFeature"
+         value="longDescription"/> Extended descriptions
+   &lt;/label>
+   &#8230;
+&lt;/fieldset></code></pre>
+				</figure>
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Using <code>aria-labelledby</code> to identify control
+							names</div>
+						<p>The <code>aria-labelledby</code> attribute is used to reference the first <code>input</code> in a
+							set of birth date fields as these inputs act as labels.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;fieldset>
+   &lt;legend>Birth Date&lt;/legend>
+   &lt;select id="y" aria-labelledby="yr">
+      &lt;input value="year" id="yr">Year&lt;/input>
+      &#8230;
+   &lt;select>
+   &lt;select id="m" aria-labelledby="mo">
+      &lt;input value="month" id="mo">Month&lt;/input>
+      &#8230;
+   &lt;select>
+   &lt;select id="d" aria-labelledby="day">
+      &lt;input value="day" id="day">Day&lt;/input>
+      &#8230;
+   &lt;select>
+&lt;/fieldset></code></pre>
+				</figure>
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example 5 &#8212; Multipart labels</div>
+						<p>The <code>aria-labelledby</code> attribute is used to reference both the address type and field
+							name to avoid ambiguity.</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;td>
+         &lt;span id="shipping">Shipping Address&lt;/span>
+      &lt;/td>
+      &lt;td>
+         &lt;span id="billing">Billing Address&lt;/span>
+         &lt;label>
+            &lt;input type="checkbox" id="bill-sameas" tabindex="8"/>
+            Use shipping address for billing
+         &lt;/label>
+      &lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>
+         &lt;span class="label" id="str">Street&lt;/span>
+         &lt;input type="text" id="ship-street"
+            aria-labelledby="shipping str" tabindex="1"/>
+      &lt;/td>
+      &lt;td>
+         &lt;span class="label">Street&lt;/span>
+         &lt;input type="text" id="bill-street"
+            aria-labelledby="billing str" tabindex="9"/>
+      &lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>
+         &lt;span class="label" id="city">City&lt;/span>
+         &lt;input type="text" id="ship-city"
+            aria-labelledby="shipping city" tabindex="2"/>
+      &lt;/td>
+      &lt;td>
+         &lt;span class="label">City&lt;/span>
+         &lt;input type="text" id="bill-city"
+            aria-labelledby="billing city" tabindex="10"/>
+      &lt;/td>
+   &lt;/tr>
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">Example 6 &#8212; Adding invisible labels</div>
+						<p>The <code>aria-label</code> attribute is used to identify the parts of a phone number field as a
+							visible label is not available for each part.</p>
+					</figcaption>
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;fieldset>
+   &lt;legend>Phone Number&lt;/legend>
+   &lt;input type="text" id="country" aria-label="country code"/>
+   &lt;input type="text" id="area" aria-label="area code"/>
+   &lt;input type="text" id="local" aria-label="number"/>
+&lt;/fieldset></code></pre>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				<p>Providing an accessible name for form and custom scripted controls is essential for ensuring that users
+					can understand their purpose. Assistive technologies compute the name for each control when a label is
+					provided allowing users to quickly discover the purpose of each.</p>
+				<p>Due to the way that forms are laid out, however, users often reach input fields before the labels that
+					describes them, or the labels may occur well before the field. If a label is not provided, the experience
+					of interacting with dynamic content or filling out a form can be confusing.</p>
+				<p>HTML provides two native elements for associating labels with controls:</p>
+				<dl>
+					<dt>
+						<code>label</code>
+					</dt>
+					<dd>
+						<p>The <code>label</code> element is used to identify the accessible name for an individual control.
+							It can either be wrapped around the control and its label (see <a href="#ex-01">Example 1</a>) or a
+								<code>for</code> attribute can be added that references the ID of the control (see <a
+								href="#ex-02">Example 1</a>).</p>
+					</dd>
+					<dt>
+						<code>fieldset</code>
+					</dt>
+					<dd>
+						<p>The <code>fieldset</code> element is used to group sets of related controls. A label can then be
+							provided in a child <code>legend</code> element (see <a href="#ex-03">Example 3</a>).</p>
+					</dd>
+				</dl>
+				<p>There are two drawbacks to these native methods: one is that they only accept a single label and the
+					other is that the labels must be a visible part of the page and the text can be capture by the
+						<code>label</code> element. The following ARIA attributes help solve these more complex cases:</p>
+				<dl>
+					<dt>
+						<code>aria-labelledby</code>
+					</dt>
+					<dd>
+						<p>The <code>aria-labelledby</code> attribute can be used to reference multiple elements. It is useful
+							when more than one piece of information is necessary to give full context to a control (see <a
+								href="#ex-05">Example 5</a>). It can also be used to identify the label when it is not possible
+							to use a <code>label</code> element (see <a href="#ex-04">Example 4</a>).</p>
+					</dd>
+					<dt>
+						<code>aria-label</code>
+					</dt>
+					<dd>
+						<p>The <code>aria-label</code> attribute can be used when it is not possible to include a label by any
+							other means (see <a href="#ex-06">Example 6</a>). The value of the attribute is the label for the
+							control.</p>
+					</dd>
+				</dl>
+			</section>
+			<section id="refs">
+				<h3>References</h3>
+				<ul>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/forms.html#the-label-element">The
+								<code>label</code> element</a>
+					</li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element"
+							>The <code>fieldset</code> element</a>
+					</li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label (property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby
+						(property)</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

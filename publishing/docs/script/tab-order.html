@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Tab Order</title>
+		<script>
+			var page_info = {
+				'topic': 'Scripted Content',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure all form and scripted controls can be reached and their tab order matches their logical
+					sequence in the content.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Ensure there is a logical tab order. <span class="wcag-level">[<a
+									href="https://www.w3.org/TR/WCAG/#focus-order">WCAG 2.4.3</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H4">Creating a logical tab
+									order through links, form controls, and objects</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>Example</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Two-column form</div>
+						<p>The following example shows part of a table layout used to position shipping and billing
+							addresses side by side. The <code>tabindex</code> attribute is used to ensure a logical flow
+							from form field to form field.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;td>
+         &lt;span id="shipping">Shipping Address&lt;/span>
+      &lt;/td>
+      &lt;td>
+         &lt;span id="billing">Billing Address&lt;/span>
+         &lt;label>
+            &lt;input type="checkbox" id="bill-sameas" tabindex="8"/>
+            Use shipping address for billing
+         &lt;/label>
+      &lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>
+         &lt;span class="label" id="str">Street&lt;/span>
+         &lt;input type="text" id="ship-street"
+            aria-labelledby="shipping str" tabindex="1"/>
+      &lt;/td>
+      &lt;td>
+         &lt;span class="label">Street&lt;/span>
+         &lt;input type="text" id="bill-street"
+            aria-labelledby="billing str" tabindex="9"/>
+      &lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>
+         &lt;span class="label" id="city">City&lt;/span>
+         &lt;input type="text" id="ship-city"
+            aria-labelledby="shipping city" tabindex="2"/>
+      &lt;/td>
+      &lt;td>
+         &lt;span class="label">City&lt;/span>
+         &lt;input type="text" id="bill-city"
+            aria-labelledby="billing city" tabindex="10"/>
+      &lt;/td>
+   &lt;/tr>
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Adding a custom control to the tab order</div>
+						<p>The following example shows the <code>tabindex</code> attribute set to <code>0</code> to
+							include a scripted image button in the tab order.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;img src="controls/start.png"
+    id="start"
+    role="button"
+    tabindex="0"
+    alt="Start"/></code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Using a negative tab order value for a modal dialog</div>
+						<p>The following example shows the <code>tabindex</code> attribute set to <code>-1</code> to
+							prevent users from tabbing to a pop-up dialog box until it is opened by script.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;div role="dialog" aria-modal="true" aria-label="Results"
+     tabindex="-1" >
+   &#8230;
+&lt;/div></code></pre>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				<p>The keyboard tab button provides a shortcut to move through interactive elements like hyperlinks,
+					scripted controls, and forms. The sequence in which these elements take focus as a user presses the
+					tab key is called the tab order.</p>
+				<p>By default, native HTML controls (e.g., <code>a</code>, <code>button</code>, <code>input</code>)
+					receive tab focus according to the order in which they are included in the markup. While this is
+					often sufficient to provide a meaningful tab order, complex layouts and the scripting of custom
+					controls can cause ordering problems.</p>
+				<p>For example, table layouts are sometimes used to lay out forms so that they appear to be two
+					side-by-side columns (see <a href="ex-01">Example 1</a>). In this case, tabbing from one field to
+					the next will jump the user between the two columns (i.e., from one cell to the next within each
+					row) instead of allowing them to move down one column before starting the next.</p>
+				<p>Similarly, when scripted controls are created, they need to be explicitly added to the tab order
+					otherwise browsers and assistive technologies will not provide access to the element through the tab
+					key.</p>
+				<p>In these cases, the <code>tabindex</code> attribute is used to change the default tab order of
+					elements, or to add an element to the tab order. The value of the attribute must be one of the
+					following:</p>
+				<ul>
+					<li><code>-1</code> &#8212; The value <code>-1</code> is used to exclude an element from the tab
+						order. This value is most often used if an element will be made focusable by script. Although
+						any negative number can be used, the effect is the same (i.e., no precedence or sequence
+						imparted).</li>
+					<li><code>0</code> &#8212; The value <code>0</code> is used to place an element into the tab order
+						according to its position in the markup. This value is most often used to add scripted controls
+						to the tab order as it avoids having to create a numbered sequence for all the focusable
+						elements.</li>
+					<li><em>any positive number</em> &#8212; If a positive number is used, the number indicates the
+						sequence in which to move to the control. The number <code>1</code> indicates the first control
+						in the tab order, <code>2</code> the second, and so on. Gaps in the sequence are ignored (i.e.,
+						focus moves from <code>1</code> to <code>10</code> if there are no values between). After moving
+						through all sequenced controls, all controls without an explicit <code>tabindex</code> value are
+						iterated.</li>
+				</ul>
+				<p>In general, it is best to ensure that focusable elements are in the correct order in the markup so
+					that positive <code>tabindex</code> values do not have to be used. Although it may seem like
+					creating a sequence is a simple task, doing so often has unexpected consequences. For example, if a
+					tab sequence needs to be created for form fields at the end of the file, unless
+						<strong>every</strong> focusable element before the form gets a <code>tabindex</code> value
+					(e.g., all hyperlinks), users will be taken to the form the first time they press the tab key.
+					Maintaining long sequences of reordered focusable elements is also cumbersome.</p>
+			</section>
+			<section id="refs">
+				<h3>References</h3>
+				<ul>
+					<li> HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/interaction.html#attr-tabindex"
+								><code>tabindex</code></a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
