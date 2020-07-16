@@ -125,4 +125,7 @@ nav#toc a {
 	nav#toc ol {
 		column-count: unset;
 	}
+	main {
+		margin-left: 2rem;
+	}
 }
