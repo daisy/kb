@@ -126,6 +126,6 @@ nav#toc a {
 		column-count: unset;
 	}
 	main {
-		margin-left: 2rem;
+		margin-left: 2rem !important;
 	}
 }
