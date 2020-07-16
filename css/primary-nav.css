@@ -125,7 +125,13 @@ nav#toc a {
 	nav#toc ol {
 		column-count: unset;
 	}
-	main {
-		margin-left: 2rem !important;
+	nav#toc.site {
+		margin: 0 0 0 0.5em;
+	}
+	main > section, main > details {
+		margin-left: 0.5em;
+	}
+	nav#toc > section, nav#toc > details {
+		max-width: 92%;
 	}
 }

@@ -850,9 +850,9 @@ p.backtotop {
 		padding-left: 2rem;
 	}
 	aside.applies-to {
-		float: none;
 		margin-top: inherit;
 		margin-top: 3rem;
+		max-width: 7.2rem;
 	}
 	main {
 		margin-left: 1rem;
