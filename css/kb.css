@@ -1,22 +1,22 @@
 
 @font-face{
-    font-family: 'Open Sans Light';
-    src: url(../fonts/OpenSans-Light.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Open Sans Light';
+	src: url(../fonts/OpenSans-Light.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 @font-face{
-    font-family: 'Raleway';
-    src: url(../fonts/Raleway-Regular.ttf) format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Raleway';
+	src: url(../fonts/Raleway-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 html {
-    font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 html, body {
@@ -50,8 +50,8 @@ h1 a {
 }
 
 h1 a:hover {
-    border-bottom: none !important;
-    text-decoration: underline;
+	border-bottom: none !important;
+	text-decoration: underline;
 }
 
 h2 {
@@ -59,7 +59,7 @@ h2 {
 	font-size: 150%;
 	padding: 0.7em;
 	margin: 1em 0 0 0;
-    letter-spacing: 0.125rem;
+	letter-spacing: 0.125rem;
 }
 
 
@@ -79,25 +79,25 @@ h5 {
 }
 
 a.dest {
-    font-size: 1.8rem;
-    color: rgb(0,0,200);
-    margin-left: -1.8rem;
+	font-size: 1.8rem;
+	color: rgb(0,0,200);
+	margin-left: -1.8rem;
 }
 
 a.dest:visited {
-    color: rgb(0,0,200);
+	color: rgb(0,0,200);
 }
 
 p.bridgehead {
 	font-size: 110%;
 	font-style: italic;
-    margin-top: 3rem;
+	margin-top: 3rem;
 }
 
 /* general links */
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 nav.breadcrumb a,
@@ -259,8 +259,8 @@ nav.breadcrumb > p > a:first-child {
 nav.breadcrumb a:hover,
 nav.mini-toc a:hover,
 section#tech a:hover {
-    border-bottom: none;
-    text-decoration: underline;
+	border-bottom: none;
+	text-decoration: underline;
 }
 
 /* section nav */
@@ -280,7 +280,7 @@ nav.mini-toc h3 {
 
 nav.mini-toc h3:before,
 nav.mini-toc h3:after {
-    content: '';
+	content: '';
 }
 
 nav.mini-toc ol {
@@ -356,11 +356,11 @@ aside.applies-to > ul {
 	margin: 0;
 }
 
-aside.applies-to > ul  > li:before {
+aside.applies-to > ul > li:before {
 	content: ' - '
 }
 
-aside.applies-to > ul  > li {
+aside.applies-to > ul > li {
 	line-height: normal;
 }
 
@@ -591,8 +591,8 @@ div.warning p.label,
 div.note p.label {
 	color: rgb(0,0,0);
 	font-size: 1.6rem;
-    font-weight: bold;
-    text-indent: 1em;
+	font-weight: bold;
+	text-indent: 1em;
 	padding: 0.3em;
 	margin: 0;
 	background-color: rgb(191,231,254);
@@ -642,8 +642,8 @@ caption {
 /* figures */
 
 figure img {
-    display: block;
-    margin: 1em auto;
+	display: block;
+	margin: 1em auto;
 }
 
 figure > img + details {
@@ -782,24 +782,24 @@ q {
 }
 
 img.logo {
-    vertical-align: bottom;
-    padding-right: 0.5em;
+	vertical-align: bottom;
+	padding-right: 0.5em;
 }
 
 .wcag-level {
-    font-size: 90%;
-    color: rgb(0,0,120);
+	font-size: 90%;
+	color: rgb(0,0,120);
 }
 
 
 body > section > section {
-    border-top: 0.1rem dotted rgb(210,210,210);
+	border-top: 0.1rem dotted rgb(210,210,210);
 	padding: 0 0.5em;
 }
 
 
 #tech li {
-    margin-top: 1rem !important;
+	margin-top: 1rem !important;
 }
 
 div.related {
@@ -829,8 +829,8 @@ p.backtotop {
 
 /* mobile fixes to display */
 
-@media only screen 
-  and (max-device-width: 480px) {
+@media only screen
+	and (max-device-width: 480px) {
 	h1 {
 		text-indent: 0;
 		display: table-row;

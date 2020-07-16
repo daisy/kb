@@ -7,17 +7,64 @@ nav#toc {
 	padding: 0em;
 }
 
+nav#toc.site {
+	margin: 0 0 0 2em;
+}
+
 nav#toc h2 {
     margin: 1rem;
     font-size: 135% !important;
     padding: 1rem;
 }
 
-nav#toc > section {
-    padding: 0 1rem;
+nav#toc > section,
+nav#toc > details {
+   padding: 0 1rem;
 	border: 0.1rem solid rgb(220,220,220);
 	border-radius: 1rem;
 	background-color: rgb(255,253,255);
+}
+
+nav#toc > details {
+	margin-bottom: 1em;
+}
+
+nav#toc > details > summary {
+	font-family: Raleway;
+	font-size: 105%;
+	padding: 0.7em;
+	margin: 0;
+	letter-spacing: 0.125rem;
+	font-weight: bold;
+}
+
+nav#toc > details > summary::-webkit-details-marker {
+	display: none;
+}
+
+nav#toc > details > summary {
+	list-style-type: none;
+}
+
+nav#toc > details > summary:before {
+	content: "+";
+	color: rgb(27,95,161);
+	float: left;
+	margin-right: 0.7rem;
+	font-size: 160%;
+	font-weight: normal;
+}
+
+nav#toc > details[open] > summary:before {
+	content: "-";
+}
+
+nav#toc > details > summary + section {
+	margin-top: 0;
+}
+
+nav#toc > div#exp {
+	margin-bottom: 1em;
 }
 
 nav#toc > section > section {
@@ -42,10 +89,11 @@ nav#toc ol {
 	list-style-type: none;
 	max-width: 90rem;
 	column-count: 3;
+	margin: 0;
 }
 
 nav#toc li {
-	font-size: 120%;
+	font-size: 110%;
 	padding: 0.5rem;
 	display: inline-block;
 	width: 30rem;
