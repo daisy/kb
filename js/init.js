@@ -453,8 +453,24 @@ KB.prototype.generateAppliesTo = function () {
 	for (var i = 0; i < page_info.appliesTo.length; i++) {
 		var li = document.createElement('li');
 		
+		var at_url = '';
+		
+		switch (page_info.appliesTo[i]) {
+			case 'Audiobooks':
+				at_url = 'https://www.w3.org/TR/audiobooks/';
+				break;
+			case 'EPUB3':
+				at_url = 'http://www.idpf.org/epub3/latest';
+				break;
+			case 'EPUB2':
+				at_url = 'http://idpf.org/epub/201';
+				break;
+			default:
+				at_url = '#unknown';
+		}
+		
 		var a = document.createElement('a');
-			a.setAttribute('href', (page_info.appliesTo[i] == 'EPUB3' ? 'http://www.idpf.org/epub3/latest' : (page_info.appliesTo[i] == 'EPUB2' ? 'http://idpf.org/epub/201' : '#')));
+			a.setAttribute('href', at_url);
 			a.appendChild(document.createTextNode(page_info.appliesTo[i].replace(/EPUB([2-3])/,'EPUB $1')));
 		 
 		 li.appendChild(a);

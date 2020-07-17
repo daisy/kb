@@ -6,7 +6,7 @@
 			var page_info = {
 				'topic': ['Metadata', 'Schema.org'],
 				'description': 'Guidelines for using the schema.org accessibilitySummary property',
-				'appliesTo': ['EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -32,7 +32,7 @@
 					</figcaption>
 					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
    This publication conforms to the EPUB Accessibility specification 
-   at WCAG Level A.
+   at WCAG Level AA.
 &lt;/meta>
 </code></pre>
 				</figure>
@@ -43,12 +43,19 @@
 					</figcaption>
 
 					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilitySummary"
-      content="This publication conforms to the EPUB Accessibility specification at WCAG Level A."/></code></pre>
+      content="This publication conforms to the EPUB Accessibility specification at WCAG Level AA."/></code></pre>
 				</figure>
-
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilitySummary": "This publication conforms to the EPUB Accessibility specification at WCAG Level A."</code></pre>
+				</figure>
+				
 				<figure id="ex-rdfa">
 					<figcaption>
-						<div class="label">Example 3 &#8212; HTML with RDFa</div>
+						<div class="label">Example 4 &#8212; HTML with RDFa</div>
 					</figcaption>
 
 					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">
@@ -58,7 +65,7 @@
 
 				<figure id="ex-micro">
 					<figcaption>
-						<div class="label">Example 4 &#8212; HTML with microdata</div>
+						<div class="label">Example 5 &#8212; HTML with microdata</div>
 					</figcaption>
 
 					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;p itemprop="accessibilitySummary">

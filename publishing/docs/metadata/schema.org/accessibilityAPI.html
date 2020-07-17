@@ -6,7 +6,7 @@
 			var page_info = {
 				'topic': ['Metadata', 'Schema.org'],
 				'description': 'Guidelines for using the schema.org accessibilityAPI property',
-				'appliesTo': ['EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -37,16 +37,23 @@
 					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityAPI" content="ARIA"/></code></pre>
 				</figure>
 
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityAPI": ["ARIA"]</code></pre>
+				</figure>
+				
 				<figure id="ex-rdfa">
 					<figcaption>
-						<div class="label">Example 3 &#8212; HTML with RDFa</div>
+						<div class="label">Example 4 &#8212; HTML with RDFa</div>
 					</figcaption>
 					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessibilityAPI" content="ARIA"/></code></pre>
 				</figure>
 
 				<figure id="ex-micro">
 					<figcaption>
-						<div class="label">Example 4 &#8212; HTML with microdata</div>
+						<div class="label">Example 5 &#8212; HTML with microdata</div>
 					</figcaption>
 					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessibilityAPI" content="ARIA"/></code></pre>
 				</figure>

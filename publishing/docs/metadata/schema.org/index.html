@@ -6,7 +6,7 @@
 			var page_info = {
 				'topic': ['Metadata', 'Schema.org'],
 				'description': 'Guidelines for using schema.org accessibility metadata in publications',
-				'appliesTo': ['EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -80,7 +80,6 @@
   &lt;meta property="schema:accessibilityFeature">MathML&lt;/meta>
   &lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta>
   &lt;meta property="schema:accessibilityFeature">longDescription&lt;/meta>
-  &lt;meta property="schema:accessibilityAPI">ARIA&lt;/meta>
   &lt;meta property="schema:accessibilityControl">fullKeyboardControl&lt;/meta>
   &lt;meta property="schema:accessibilityControl">fullMouseControl&lt;/meta>
   &lt;meta property="schema:accessibilityControl">fullTouchControl&lt;/meta>
@@ -107,11 +106,35 @@
 
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Embedded metadata (RDFa)</div>
+						<div class="label">Example 3 &#8212; Audiobook manifest metadata</div>
+						<p>The following example reformulates Example 1 in JSON for use in an Audiobook manifest.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums small"><code>&#8230;
+  "accessibilitySummary": "This publication conforms to WCAG 2.0 Level AA.",
+  "accessMode": ["textual", "visual"],
+  "accessModeSufficient" : [
+    {
+      "type": "ItemList",
+      "itemListElement": [textual,visual]
+    },
+    {
+      "type": "ItemList",
+      "itemListElement": [textual]
+    }
+  ],
+  "accessibilityFeature": ["structuralNavigation", "MathML", "alternativeText", "longDescription"],
+  "accessibilityControl": ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+  "accessibilityHazard": ["noFlashingHazard", "noSoundHazard", "noMotionSimulationHazard"],
+  &#8230;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Embedded metadata (RDFa)</div>
 						<p>Accessibility metadata that describes a single video is included within the body of an HTML
 							document.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
+					<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
   &lt;video controls="controls" src="croc.mp4"/>
   &lt;meta property="accessibilityFeature" content="captions"/>
   &lt;meta property="accessibilityFeature" content="transcript"/>
