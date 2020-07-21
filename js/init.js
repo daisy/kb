@@ -184,9 +184,9 @@ KB.prototype.writeTemplate = function () {
 		var href_len = cur_href.length - 1;
 		var last_slash = cur_href.lastIndexOf('/')
 		
-		if (!this.isRootIndex && cur_href.indexOf('index.html') == -1 && last_slash != href_len) {
-			kb.addHeadingDestinations();
-		}
+		//if (!this.isRootIndex && cur_href.indexOf('index.html') == -1 && last_slash != href_len) {
+		//	kb.addHeadingDestinations();
+		//}
 	}
 	
 	else {

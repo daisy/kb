@@ -69,6 +69,12 @@ h3 {
 	margin-top: 1.75em;
 }
 
+section > h3 {
+	font-weight: normal;
+	padding-bottom: 0.5rem;
+	border-bottom: 0.1rem solid rgb(20,120,240);
+}
+
 h4 {
 	font-size: 125%;
 }
