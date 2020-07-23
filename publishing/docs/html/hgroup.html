@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Heading Groups</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Note to avoid the use of the hgroup element.',
+				'appliesTo':[ 'EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary" role="doc-chapter">
+				<h3>Summary</h3>
+				<p>Avoid using the <code>hgroup</code> element as its semantics are not supported by browsers or assistive
+					technologies.</p>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				<p>The <code>hgroup</code> element was created to try and solve the need for multi-level headings that act
+					as a single unit. For example, it would allow a heading to be split onto three lines using separate
+					heading tags of any type for each part, as in the following example.</p>
+				<pre id="ex-01" class="linenums prettyprint"><code>&lt;hgroup>
+   &lt;h2>Chapter&lt;/h1>
+   &lt;h3>1&lt;/h1>
+   &lt;h1>In the beginning&lt;/h1>
+&lt;/hgroup></code></pre>
+				<p>In theory, all the heading elements would be combined and treated as a single tag matching the highest
+					heading level used in the group.</p>
+				<p>The <code>hgroup</code> tag was designed as part of the HTML outline algorithm that neither browsers nor
+					assistive technologies support. As a result, it does not do what its description suggests. Adding
+					multiple headings just inserts multiple headings into the document and impedes navigation.</p>
+				<p>Instead of the <code>hgroup</code> element, CSS can be used to split a heading over multiple lines and
+					format each part separately (see the <a href="headings.html">headings knowledge base page</a>).</p>
+				<p>The HTML 5.1 specification also includes a number of <a
+						href="https://www.w3.org/TR/html51/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines"
+						>other approaches for expressing subheadings</a>.</p>
+				<section id="epub">
+					<h4>EPUB</h4>
+					<p>Although support for the <code>hgroup</code> element was not included in EPUB 3.0 in accordance with
+						the W3C HTML 5 specification, EPUB 3.2 now refers to the WhatWG version of HTML. As a result, it is
+						valid to use the tag in publications.</p>
+					<p>If <code>hgroup</code> is used, however, it <strong>must not contain more than one heading
+							element</strong> to meet WCAG accessibility requirements. As a result, in most cases <strong>it is
+							a redundant tag that should be omitted</strong>. The <a href="headings.html"><code>header</code>
+							element</a> can be used to include a heading element with any other heading content.</p>
+				</section>
+			</section>
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>KB &#8212; <a href="headings.html">Headings</a>
+					<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup"
+							>&lt;hgroup></a></li>
+					<li>HTML 5.1 &#8212; <a
+							href="https://www.w3.org/TR/html51/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines"
+							>Subheadings, subtitles, alternative titles and taglines</a>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element">The
+								<code>hgroup</code> element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-header-element">The
+								<code>header</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
