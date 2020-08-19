@@ -112,10 +112,20 @@
 				<h3>Frequently Asked Questions</h3>
 				
 				<dl class="faq">
-					<dt>Can I use an <code>h1</code> heading for every section?</dt>
+					<dt id="faq-001">Can I use an <code>h1</code> heading for every section?</dt>
 					<dd><p>User agents and assistive technologies do not support the outline algorithm defined in HTML5.
 						If you use an <code>h1</code> heading for every section, they will all appear as top-level
 						headings to assistive technologies, impeding users' ability to navigate the content.</p>
+					</dd>
+					
+					<dt id="faq-002">Should heading levels be sequential?</dt>
+					<dd><p>Headings should reflect the hierarchy of the publication, so an <code>h2</code> should always be
+							used for secondary level headings, <code>h3</code> for tertiary, and so on. Avoid gaps in numbering
+							whenever possible (e.g., <code>h3</code> is used for headings below <code>h1</code>)</p>
+						<p>Using consistent numbering ensures that users of assistive technologies can move through the
+							content effectively using heading shortcut keys. If there are gaps in the numbering, users may not 
+							realize there are subsections depending on how they try to navigate (i.e., trying to jump to the
+							next heading level down will not work, only the generic move to next heading option will).</p>
 					</dd>
 				</dl>
 			</section>
