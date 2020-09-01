@@ -88,15 +88,14 @@ nav#toc h4 {
 nav#toc ol {
 	list-style-type: none;
 	max-width: 90rem;
-	column-count: 3;
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
 	margin: 0;
 }
 
 nav#toc li {
 	font-size: 110%;
 	padding: 0.5rem;
-	display: inline-block;
-	width: 30rem;
 	margin: 0.5rem;
 }
 
