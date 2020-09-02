@@ -101,10 +101,24 @@
 					<dt id="annotations">annotations</dt>
 					<dd>
 						<p>The <code>annotations</code> value is used to indicate that a publication comes with
-							explanatory annotations.</p>
+							explanatory annotations that improve the accessibility of the work (i.e., the value
+							should not be used where the annotations are designed for general use, such as in
+							annotated teacher's editions or exercises with explanatory notes).</p>
+						
+						<p>Examples of annotations with an accessibility benefit could include extended descriptions
+							for images, plain language explanations of complex theorems, and text identifiers for
+							visual cues.</p>
 
 						<p>Annotations can either be part of text of a publication or can be authored in a separate
 							technology such as Web Annotations.</p>
+						
+						<div class="note" role="note" aria-labelledby="anno-note">
+							<div id="anno-note" class="label">Note</div>
+							<p>The <a href="http://www.idpf.org/epub/oa">Open Annotation in EPUB</a> specification
+								is not currently known to be supported in any reading systems. A proposal is expected
+								to be adopted to include <a href="https://github.com/w3c/aria/issues/1109">accessible
+									annotations in ARIA 1.3</a>.</p>
+						</div>
 
 						<p>Do not use this value for ruby annotations. See the <a href="#rubyAnnotations"
 									><code>rubyAnnotations</code> value</a> instead.</p>
