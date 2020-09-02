@@ -121,9 +121,6 @@ nav#toc a {
 	nav#toc {
 		margin: 2em 0 0 0;
 	}
-	nav#toc ol {
-		column-count: unset;
-	}
 	nav#toc.site {
 		margin: 0 0 0 0.5em;
 	}
