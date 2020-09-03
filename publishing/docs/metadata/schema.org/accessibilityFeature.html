@@ -117,7 +117,8 @@
 							<p>The <a href="http://www.idpf.org/epub/oa">Open Annotation in EPUB</a> specification
 								is not currently known to be supported in any reading systems. A proposal is expected
 								to be adopted to include <a href="https://github.com/w3c/aria/issues/1109">accessible
-									annotations in ARIA 1.3</a>, however.</p>
+									annotations in ARIA 1.3</a>, however. As a result, this value is rarely applicable
+								to EPUB publications at this time.</p>
 						</div>
 
 						<p>Do not use this value for ruby annotations. See the <a href="#rubyAnnotations"
@@ -186,7 +187,7 @@
 						<p>The <code>captions</code> value is used to indicate that a publication includes captions for
 							auditory content.</p>
 
-						<p>Captions provide a transcription of the dialogue that is being spoken as well as any describe
+						<p>Captions provide a transcription of the dialogue that is being spoken as well as describe
 							any relevant sounds that are occurring (e.g., music playing, a phone ringing, etc.). They
 							are intended to help when the audio is muted or cannot be fully heard.</p>
 
@@ -219,7 +220,7 @@
 						<p>The <code>ChemML</code> value is used to indicate that a publication contains chemical
 							information (e.g., molecules and reactions) encoded using the ChemML markup language.</p>
 
-						<p>This value is not typically used with publications at this time, as there is no support for
+						<p>This value is not typically used with publications at this time as there is no support for
 							rendering ChemML in HTML.</p>
 
 						<figure id="ex-cml">
@@ -311,7 +312,7 @@
 					<dd>
 						<p>The <code>largePrint</code> value is used to indicate that the text of a publication has been
 							formatted to meet large print guidelines. Large print guidelines vary from region to region,
-							but generally include a point size ranging from 14 to 18, use of sans serif fonts, and
+							but generally require a point size ranging from 14 to 18, use of sans serif fonts, and
 							increased word spacing.</p>
 
 						<p>The use of this value should not be confused with <a href="#displayTransformability">display
@@ -544,9 +545,9 @@
 							included for any auditory content.</p>
 
 						<p>Although <a href="#captions">captions</a> and <a href="#audioDescription">audio
-								descriptions</a> serve a similar purpose, many deaf readers prefer sign language
-							interpretation as that is their primary means of communication, so is quicker and easier for
-							them to follow.</p>
+								descriptions</a> serve a similar purpose, many readers who are deaf prefer sign
+							language interpretation as it is their primary means of communication so quicker and
+							easier to follow.</p>
 
 						<div class="note" role="note" aria-labelledby="sl-note">
 							<p id="sl-note" class="label">Note</p>
@@ -670,18 +671,20 @@
 							the semantics that are otherwise only visually present. They are a key part of the PDF
 							Universal Accessibility (PDF/UA) standard.</p>
 
-						<p>This value is not relevant to Web-based publication formats such as EPUB so is not used in
-							metadata.</p>
+						<p>This value is not relevant to Web-based publication formats such as EPUB.</p>
 					</dd>
 
 					<dt id="tactileGraphic">tactileGraphic</dt>
 					<dd>
-						<p>The <code>tactileGraphic</code> value is used to indicate that a publication includes tactile
-							graphics.</p>
+						<p>The <code>tactileGraphic</code> value is used to indicate that a publication includes access
+							to tactile graphics.</p>
+						
+						<p>As EPUB reading systems typically cannot present tactile graphics to users, hyperlinks to
+							downloadable graphics are a common way to make these available. It is not required that the
+							graphics be rendered in the publication for this value to apply.</p>
 
-						<p>It is not common for this value to be used outside of accessible republishing, as tactile
-							graphics are typically provided separately from a digital version of a publication (i.e.,
-							due to the specialized work or printing required to produce them).</p>
+						<p>It is not common for this value to be used outside of accessible republishing, however, due
+							to the specialized work required to create tactile graphics.</p>
 					</dd>
 
 					<dt id="tactileObject">tactileObject</dt>
@@ -689,9 +692,11 @@
 						<p>The <code>tactileObject</code> value is used to indicate that a publication includes tactile
 							objects.</p>
 
-						<p>It is not common for this value to be used outside of accessible republishing, as tactile
-							objects are typically provided separately from a digital version of a publication (i.e., due
-							to the specialized work or printing required to produce them).</p>
+						<p>Due to the need to print tactile objects, hyperlinks to downloadable files are the most
+							common way to make these available.</p>
+						
+						<p>It is not common for this value to be used outside of accessible republishing, however, due
+							to the specialized work required to create tactile objects.</p>
 					</dd>
 
 					<dt id="timingControl">timingControl</dt>
@@ -721,6 +726,10 @@
 							<pre id="ex-tr-src" class="prettyprint"><code>&lt;audio src="speech.mp3"/>
 &lt;p>&lt;a href="transcript.html">Read a text transcript of the speech&lt;/a>&lt;/p></code></pre>
 						</figure>
+						
+						<p>Although including a transcript as part of the EPUB publication is the best way to ensure
+							its availability, hyperlinks to external transcripts are also acceptable (e.g., publishers
+							may have a common web-based location for all their videos and transcripts).</p>
 					</dd>
 
 					<dt id="ttsMarkup">ttsMarkup</dt>
@@ -732,9 +741,10 @@
 							are spelled the same but sound different). The result is that it can be very difficult for
 							users who cannot see the text to understand what is being read out.</p>
 
-						<p>The SSML markup language allows the phonetic renderings of words to be included in the markup
-							of publications to improve rendering, for example. Support for speech enhancement
-							technologies is not yet widespread, however.</p>
+						<p>The <a href="../../text-to-speech/ssml.html">SSML markup language</a> allows the phonetic
+							renderings of words to be included in the markup of publications to improve rendering, for
+							example. PLS pronunciation lexicons similarly allow libraries of phonetic pronunciations to
+							be attached to HTML content.</p>
 					</dd>
 
 					<dt id="unlocked">unlocked</dt>
