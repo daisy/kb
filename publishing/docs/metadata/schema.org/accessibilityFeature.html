@@ -28,21 +28,23 @@
 					<figcaption>
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
-					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta></code></pre>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">captions&lt;/meta>
+&lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta></code></pre>
 				</figure>
 
 				<figure id="ex-epub2">
 					<figcaption>
 						<div class="label">Example 2 &#8212; EPUB 2</div>
 					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature" content="captions"/></code></pre>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature" content="captions"/>
+&lt;meta name="schema:accessibilityFeature" content="alternativeText"/></code></pre>
 				</figure>
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
 					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["captions"]</code></pre>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["captions", "alternativeText"]</code></pre>
 				</figure>
 				
 				<figure id="ex-rdfa">
@@ -67,7 +69,14 @@
 
 				<p>The following values are used to identify features of the content that are helpful for
 					accessibility:</p>
-
+				
+				<div class="note" role="note" aria-labelledby="format-note">
+					<p class="label" id="format-note">Note</p>
+					<p>Unless the metadata format used supports lists (e.g., JSON), use a separate property declaration
+						for each feature. Do not merge the values into a single property using spaces, commas, or other
+						delimiters.</p>
+				</div>
+				
 				<dl>
 					<dt id="alternativeText">alternativeText</dt>
 					<dd>

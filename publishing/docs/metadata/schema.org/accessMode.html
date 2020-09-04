@@ -29,35 +29,39 @@
 					<figcaption>
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
-					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta></code></pre>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta>
+&lt;meta property="schema:accessMode">visual&lt;/meta></code></pre>
 				</figure>
 
 				<figure id="ex-epub2">
 					<figcaption>
 						<div class="label">Example 2 &#8212; EPUB 2</div>
 					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/></code></pre>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/>
+&lt;meta name="schema:accessMode" content="visual"/></code></pre>
 				</figure>
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
 					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["textual"]</code></pre>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["textual", "visual"]</code></pre>
 				</figure>
 				
 				<figure id="ex-rdfa">
 					<figcaption>
 						<div class="label">Example 4 &#8212; HTML with RDFa</div>
 					</figcaption>
-					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/></code></pre>
+					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/>
+&lt;meta property="accessMode" content="visual"/></code></pre>
 				</figure>
 
 				<figure id="ex-micro">
 					<figcaption>
 						<div class="label">Example 5 &#8212; HTML with microdata</div>
 					</figcaption>
-					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/></code></pre>
+					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/>
+&lt;meta itemprop="accessMode" content="visual"/></code></pre>
 				</figure>
 			</section>
 
@@ -71,7 +75,14 @@
 				<p>Adaptations are not identified using this property, as they are not the primary way that the content
 					is consumed. If adaptations, such as extended descriptions, are provided for the primary content,
 					they are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
-
+				
+				<div class="note" role="note" aria-labelledby="format-note">
+					<p class="label" id="format-note">Note</p>
+					<p>Unless the metadata format used supports lists (e.g., JSON), use a separate property declaration
+						for each access mode. Do not merge the values into a single property using spaces, commas, or
+						other delimiters.</p>
+				</div>
+				
 				<p>The following values are recommended for this property:</p>
 
 				<dl>
