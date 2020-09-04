@@ -30,21 +30,23 @@
 					<figcaption>
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
-					<pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta></code></pre>
+					<pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta>
+&lt;meta property="schema:accessibilityHazard">motionSimulation&lt;/meta></code></pre>
 				</figure>
 
 				<figure id="ex-epub2">
 					<figcaption>
 						<div class="label">Example 2 &#8212; EPUB 2</div>
 					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityHazard" content="flashing"/></code></pre>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityHazard" content="flashing"/>
+&lt;meta name="schema:accessibilityHazard" content="motionSimulation"/></code></pre>
 				</figure>
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
 					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityHazard": ["flashing"]</code></pre>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityHazard": ["flashing", "motionSimulation"]</code></pre>
 				</figure>
 				
 				<figure id="ex-rdfa">
@@ -73,7 +75,14 @@ individuals.&lt;/p></code></pre>
 
 				<p>The following values are used to identify potential hazards (or the lack thereof) so that users with
 					such sensitivities know what to expect in advance:</p>
-
+				
+				<div class="note" role="note" aria-labelledby="format-note">
+					<p class="label" id="format-note">Note</p>
+					<p>Unless the metadata format used supports lists (e.g., JSON), use a separate property declaration
+						for each feature. Do not merge the values into a single property using spaces, commas, or other
+						delimiters.</p>
+				</div>
+				
 				<dl>
 					<dt id="flashing">flashing</dt>
 					<dd>
