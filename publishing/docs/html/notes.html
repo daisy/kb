@@ -82,7 +82,14 @@
 				</figure>
 
 				<figure id="ex-03">
-					<figcaption><span class="label">Example 3 &#8212; CSS to superscript note references</span></figcaption>
+					<figcaption>
+						<div class="label">Example 3 &#8212; CSS to superscript note references</div>
+						<p>Note the use of the CSS <code>~=</code> selector. If the <code>role</code>attribute contains
+							more than one value (i.e., a fallback role) this selector ensures a match will still
+							occur. See <a
+								href="https://www.w3.org/TR/CSS22/selector.html#attribute-selectors">attribute
+								selectors in CSS 2</a> for more information.</p>
+					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code class="language-css">a[role~='doc-noteref'] {
    vertical-align: super;
    line-height: normal;
