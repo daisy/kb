@@ -99,12 +99,12 @@
             &lt;mi>b&lt;/mi>
          &lt;/mfrac>
       &lt;/math> --></code></pre>
-					<p>Another method for storing the source MathML is to keep the image in a hidden <code>div</code>.
-						This would allow it to be activated by scripted in supporting reading systems or, when support
-						for MathML improves, a publisher could automatically reprocess their titles to remove the
-						images and replace them with the native markup. A <a href="hidden.html#hidden-fallback">CSS
-							fallback</a> might also be needed for the <code>hidden</code> attribute if older user
-						agents like IE11 have to be accounted for.</p>
+					<p>Another method for storing the source MathML is to keep the markup in a hidden <code>div</code>.
+						Publishers could then choose which format to use in their published content (i.e., filtering
+						out the less-supported alternative). It could also allow both forms to be published, with
+						scripting used to determine which to render (note that a <a
+							href="hidden.html#hidden-fallback">CSS fallback</a> might also be needed for the
+						<code>hidden</code> attribute if older user agents like IE11 have to be accounted for).</p>
 					<pre id="ex-03a-src" class="prettyprint linenums"><code>
 &lt;div class="mathml-eq">
    &lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
