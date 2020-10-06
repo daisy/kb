@@ -84,25 +84,11 @@
 					<figcaption>
 						<div class="label">Example 3 &#8212; Image with alternative text</div>
 					</figcaption>
-					<p>Note that the source MathML markup is included with the image, although, to avoid any rendering
-						impact, the ML markup is hidden in an HTML comment (<code>&lt;!-- --></code>). This may pose
-						re-processing challenges later, but is one method to retain the more accessible markup for
-						use.</p>
-					<pre id="ex-03b-src" class="prettyprint linenums"><code>
-&lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
-&lt;!-- &lt;math xmlns="http://www.w3.org/1998/Math/MathML"
-            alttext="Frac Root a EndRoot Over b EndFrac">
-         &lt;mfrac>
-            &lt;msqrt>
-               &lt;mtext>a&lt;/mtext>
-            &lt;/msqrt>
-            &lt;mi>b&lt;/mi>
-         &lt;/mfrac>
-      &lt;/math> --></code></pre>
-					<p>Another method for storing the source MathML is to keep the markup in a hidden <code>div</code>.
-						Publishers could then choose which format to use in their published content (i.e., filtering
-						out the less-supported alternative). It could also allow both forms to be published, with
-						scripting used to determine which to render (note that a <a
+					<p>Although an image might be the only output, if a publisher has source MathML markup, it can be 
+						kept together with the image in a (possibly hidden) <code>div</code>. Publishers could then
+						choose which format to use in their published content (i.e., filtering out the less-supported
+						alternative). It could also allow both forms to be published, with scripting used to determine
+						which to render (note that a <a
 							href="hidden.html#hidden-fallback">CSS fallback</a> might also be needed for the
 						<code>hidden</code> attribute if older user agents like IE11 have to be accounted for).</p>
 					<pre id="ex-03a-src" class="prettyprint linenums"><code>
@@ -120,6 +106,20 @@
       &lt;/math>
    &lt;/div>
 &lt;/div></code></pre>
+					<p>Alternatively, to avoid any processing or rendering impact, the MathML markup could be hidden
+						in an HTML comment (<code>&lt;!-- --></code>). This may pose re-processing challenges
+						later.</p>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>
+&lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
+&lt;!-- &lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+            alttext="Frac Root a EndRoot Over b EndFrac">
+         &lt;mfrac>
+            &lt;msqrt>
+               &lt;mtext>a&lt;/mtext>
+            &lt;/msqrt>
+            &lt;mi>b&lt;/mi>
+         &lt;/mfrac>
+      &lt;/math> --></code></pre>
 				</figure>
 			</section>
 
