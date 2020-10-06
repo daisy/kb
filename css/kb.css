@@ -575,6 +575,7 @@ aside {
 
 /* warnings */
 div.warning,
+div.caution,
 div.note {
 	margin: 2em 0 2em 1em;
 	padding: 0;
@@ -593,7 +594,14 @@ div.warning {
 	border-left: 0.1em solid rgb(180,0,0);
 }
 
+div.caution {
+	border-right: 0.1em solid rgb(255,243,128);
+	border-bottom: 0.1em solid rgb(255,243,128);
+	border-left: 0.1em solid rgb(255,243,128);
+}
+
 div.warning p.label,
+div.caution p.label,
 div.note p.label {
 	color: rgb(0,0,0);
 	font-size: 1.6rem;
@@ -610,9 +618,15 @@ div.warning p.label {
 	color: rgb(255,255,255);
 }
 
+div.caution p.label {
+	background-color: rgb(255,243,128);
+}
+
 div.note p:not(.label),
 div.warning p:not(.label),
+div.caution p:not(.label),
 div.note li,
+div.caution li,
 div.warning li {
 	margin: 1em;
 	font-size: 1.6rem;
@@ -658,6 +672,10 @@ figure > img + details {
 
 figure > img + details > summary {
 	font-size: small;
+}
+
+.figlabel {
+	font-weight: bold;
 }
 
 
