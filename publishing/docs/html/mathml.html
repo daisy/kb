@@ -83,14 +83,29 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Image with alternative text</div>
-						<p>Note that the native MathML is kept with the image in a hidden <code>div</code>. This allows
-							it to be activated by scripted in supporting reading systems or, when support for MathML
-							improves, a publisher could automatically reprocess their titles to remove the images and
-							replace them with the native markup. To avoid any rendering impact, the MathML markup can
-							be hidden in an HTML comment (<code>&lt;!-- --></code>), but this may pose re-processing
-							challenges later.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>
+					<p>Note that the source MathML markup is included with the image, although, to avoid any rendering
+						impact, the ML markup is hidden in an HTML comment (<code>&lt;!-- --></code>). This may pose
+						re-processing challenges later, but is one method to retain the more accessible markup for
+						use.</p>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>
+&lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
+&lt;!-- &lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+            alttext="Frac Root a EndRoot Over b EndFrac">
+         &lt;mfrac>
+            &lt;msqrt>
+               &lt;mtext>a&lt;/mtext>
+            &lt;/msqrt>
+            &lt;mi>b&lt;/mi>
+         &lt;/mfrac>
+      &lt;/math> --></code></pre>
+					<p>Another method for storing the source MathML is to keep the image in a hidden <code>div</code>.
+						This would allow it to be activated by scripted in supporting reading systems or, when support
+						for MathML improves, a publisher could automatically reprocess their titles to remove the
+						images and replace them with the native markup. A <a href="hidden.html#hidden-fallback">CSS
+							fallback</a> might also be needed for the <code>hidden</code> attribute if older user
+						agents like IE11 have to be accounted for.</p>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>
 &lt;div class="mathml-eq">
    &lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
    &lt;div hidden="hidden">
@@ -121,6 +136,12 @@
 
 						<p>The use of unprefixed tags is also recommended as it ensures compatibility between both HTML
 							and XHTML syntaxes (XML prefixes are not supported in HTML).</p>
+					</dd>
+					
+					<dt>Should I use the ARIA <code>math</code> role?</dt>
+					<dd>
+						<p>No, it is strongly advised not to use the <code>math</code> role with MathML markup. In many
+							cases, using this role will cause the MathML markup not to be accessible to users.</p>
 					</dd>
 
 					<dt>Why aren't natural language descriptions advisable?</dt>
@@ -164,8 +185,7 @@
 					MathML still presents the most accessible option in user agents that do support it. (Recent
 					testing from the DIAGRAM Center showed that <a 
 						href="http://diagramcenter.org/best-practices-for-authoring-math.html">only 7 of 25 EPUB 
-						reading systems were capable of rendering MathML markup</a>.)
-				</p>
+						reading systems were capable of rendering MathML markup</a>.)</p>
 
 				<p>As MathML rendering support is expected to grow now that it is being re-integrated into the Chrome
 					browser, the best option for providing accessible math equations is to use MathML markup. An

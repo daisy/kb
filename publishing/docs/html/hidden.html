@@ -207,6 +207,13 @@
 						<p>The effect of setting this attribute is the equivalent of setting the <a href="#display">CSS
 									<code>display</code> property</a> to <code>none</code>. It is more reliable than
 							CSS options in modern user agents, however, as not all user agents support CSS styling.</p>
+						
+						<p id="hidden-fallback">For older user agents that do not support the new HTML5 elements and
+							attributes, it will be necessary to also include a CSS fallback for the hidden attribute. A
+							selector like the following will ensure all elements with the attribute are also hidden by
+							CSS:</p>
+						
+						<pre><code>*[hidden] { display: none; }</code></pre>
 					</dd>
 					
 					<dt id="details">The <code>details</code> element</dt>
