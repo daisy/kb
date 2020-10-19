@@ -18,7 +18,7 @@
 				
 				<p>Include links to the where note, figure, table, and other types of reference marks are located to
 					provide a convenient two-way means of locating information and allow for easier re-positioning of
-s					reading.</p>
+					reading.</p>
 			</section>
 			
 			<section id="tech">
@@ -44,8 +44,13 @@ s					reading.</p>
 					<figcaption>
 						<div class="label">Example 1 &#8212; Link to footnote reference</div>
 					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;aside role="doc-footnote"> 
-   &lt;p><a href="#fn01-ref" role="doc-backlink">[1]</a> The first known instance of human cannibalistic &#8230;&lt;/p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p>&#8230; was extra
+   crunchy.&lt;a id="fn01-ref" href="#fn01" role="doc-noteref">1&lt;/a>
+&lt;/p>
+&#8230;
+&lt;aside role="doc-footnote" id="fn01">
+   &lt;p>&lt;a href="#fn01-ref" role="doc-backlink">[1]&lt;/a> The first
+      known instance of human cannibalistic &#8230;&lt;/p>
 &lt;/aside></code></pre>
 				</figure>
 				
@@ -53,10 +58,15 @@ s					reading.</p>
 					<figcaption>
 						<div class="label">Example 2 &#8212; Link to figure reference</div>
 					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig01"> 
-   &lt;figcaption>&#8230;&lt;/figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p>&#8230; as shown in &lt;a id="fig01-ref" href="#fig01">Figure 1.0&lt;/a>&lt;/p>
+&#8230;
+&lt;figure id="fig01"> 
+   &lt;figcaption>Figure 1.0 &#8230;&lt;/figcaption>
    &lt;img src="img01.jpg" alt="&#8230;"/>
-   &lt;p>&lt;a href="#fig01-ref">&lt;img src="back-arrow.jpg" alt="Text reference to figure"/>&lt;/a>&lt;/p>
+   &lt;p>
+      &lt;a href="#fig01-ref">&lt;img src="back-arrow.jpg"
+         alt="Text reference to figure"/>&lt;/a>
+   &lt;/p>
 &lt;/figure></code></pre>
 				</figure>
 				
@@ -68,8 +78,14 @@ s					reading.</p>
 							the <code>aria-label</code> attribute. See the <a href="#desc">explanation</a> section
 							for more information on why this kind of linking is suboptimal.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure id="fig01"> 
-   &lt;figcaption>&lt;a href="#fig01-ref" aria-label="Figure 1.1 text reference">Figure 1.1&lt;/a> &#8212; &#8230;&lt;/figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>&#8230; as shown in &lt;a id="fig01-ref" href="#fig01">Figure 1.0&lt;/a>&lt;/p>
+&#8230;
+&lt;figure id="fig01">
+   &lt;figcaption>
+      &lt;a href="#fig01-ref"
+         aria-label="Figure 1.0 text reference">Figure 1.0&lt;/a>
+      &#8230;
+   &lt;/figcaption>
    &lt;img src="img01.jpg" alt="&#8230;"/>
 &lt;/figure></code></pre>
 				</figure>
@@ -83,9 +99,12 @@ s					reading.</p>
 					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="table01"> 
    &lt;figcaption>
       Table 1 &#8230; 
-      &lt;a href="tbl01-ref01" role="doc-backlink" aria-label="Reference on page 235">[1]&lt;/a>,
-      &lt;a href="tbl01-ref02" role="doc-backlink" aria-label="Reference on page 303">[2]&lt;/a>,
-      &lt;a href="tbl01-ref03" role="doc-backlink" aria-label="Reference on page 318">[3]&lt;/a>
+      &lt;a href="tbl01-ref01" role="doc-backlink"
+         aria-label="Reference on page 235">[1]&lt;/a>,
+      &lt;a href="tbl01-ref02" role="doc-backlink"
+         aria-label="Reference on page 303">[2]&lt;/a>,
+      &lt;a href="tbl01-ref03" role="doc-backlink"
+         aria-label="Reference on page 318">[3]&lt;/a>
    &lt;/figcaption>
    &lt;table>
       &#8230;
