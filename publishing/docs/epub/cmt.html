@@ -187,7 +187,7 @@
 							<figcaption>
 								<p class="label">SVG in spine (EPUB 2)</p>
 							</figcaption>
-							<pre class="prettyprint linenums">&lt;manifest>
+							<pre class="prettyprint linenums"><code>&lt;manifest>
    &lt;item id="c01" src="images/plate01.svg" media-type="image/svg" fallack="c01-xhtml"/>
    &lt;item id="c01-xhtml" src="images/plate01.xhtml" media-type="application/xhtml+xml"/>
    &#8230;
@@ -195,7 +195,7 @@
 &lt;spine>
    &lt;itemref idref="c01"/>
    &#8230;
-&lt;/spine></pre>
+&lt;/spine></code></pre>
 						</figure>
 						
 						<p>In this case, if the reading system does not support SVG, it follows the
@@ -216,13 +216,13 @@
 								<p class="label">Image fallback in manifest</p>
 							</figcaption>
 							<p class="figlabel">HTML</p>
-							<pre class="prettyprint linenums">&lt;img src="rainbow.webp" alt="Rainbow over wheat fields"/></pre>
+							<pre class="prettyprint linenums"><code>&lt;img src="rainbow.webp" alt="Rainbow over wheat fields"/></code></pre>
 							<p class="figlabel">Package Document</p>
-							<pre class="prettyprint linenums">&lt;manifest>
+							<pre class="prettyprint linenums"><code>&lt;manifest>
    &lt;item id="img01" src="rainbow.webp" media-type="image/webp" fallack="img01-fb"/>
    &lt;item id="img01-fb" src="rainbow.jpg" media-type="image/jpeg"/>
    &#8230;
-&lt;/manifest></pre>
+&lt;/manifest></code></pre>
 						</figure>
 						
 						<p>It is best to avoid manifest fallbacks for images except in EPUB 2 where there is no other
