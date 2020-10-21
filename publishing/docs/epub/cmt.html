@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Core Media Types</title>
+		<script>
+			var page_info = {
+				'topic': 'EPUB',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			table { min-width: 60%; }
+			th, td { text-align: center; }
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="expl" aria-label="Explanation">
+				<p>Media types are used by reading systems as a way of understanding in advance what type of content a
+					file contains. The following table lists some of the most common file formats and their
+					corresponding media type values:</p>
+				
+				<table>
+					<thead>
+						<tr>
+							<th>File Format</th>
+							<th>Media Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>XHTML</td>
+							<td><code>application/xhtml+xml</code></td>
+						</tr>
+						<tr>
+							<td>SVG</td>
+							<td><code>image/svg+xml</code></td>
+						</tr>
+						<tr>
+							<td>CSS</td>
+							<td><code>text/css</code></td>
+						</tr>
+						<tr>
+							<td>JavaScript</td>
+							<td><code>application/javascript</code></td>
+						</tr>
+						<tr>
+							<td>JPEG</td>
+							<td><code>image/jpeg</code></td>
+						</tr>
+					</tbody>
+				</table>
+					
+				<p>EPUB defines a set of what are called <dfn>core media types</dfn> &#8212; file formats that can be
+					included in publications without the need for fallbacks.</p>
+				
+				<p>Reading systems are effectively required to support these formats so long as they support the necessary
+					rendering (e.g., a reading system that only reads back the text does not have to support CSS or image
+					formats, but a reading system with a visual display does).</p>
+				
+				<p>Using only core media types in EPUB publications helps ensure that they will be readable regardless
+					of the reading system in use.</p>
+				
+				<p>The complete lists of supported media types are provided in each version of the EPUB specification:</p>
+				
+				<ul>
+					<li><a href="https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported">EPUB 3 core
+						media types</a></li>
+					<li><a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">EPUB 2 media
+						types</a></li>
+				</ul>
+			</section>
+			
+			<section id="fallbacks">
+				<h3>Fallbacks</h3>
+				
+				<p>Although the EPUB format tries to accommodate as many widely-supported file formats as reasonable
+					for publishing, there are occasions when a format is needed that is not in the core set. A reading
+					system might support a new advanced image format, for example, before others.</p>
+				
+				<p>To help publishers take advantage of formats that are not widely supported without compromising
+					the readability of a publication, EPUB leverages both its own fallback methods and those natively
+					available in HTML. So long as a fallback is provided to a core media type, any file format can
+					be added to an EPUB publication.</p>
+				
+				<p>The following subsections review the fallback mechanisms that are available.</p>
+				
+				<section id="fallbacks-html">
+					<h4>HTML Fallbacks</h4>
+					
+					<p>Most HTML elements that allow content to be embedded in a page provide a means of including
+						fallback content when the primary source is not available or cannot be rendered.</p>
+					
+					<p>The <code>audio</code> and <code>video</code> elements, for example, both allow the use of
+						multiple <code>source</code> elements to provide media in more than one format.</p>
+					
+					<figure>
+						<figcaption>
+							<p class="label">Video element with WebM and MP4 video options</p>
+							<p>Note that the embedded message is only displayed in older user agents that are not
+								HTML5-aware (e.g., EPUB 2 reading systems).</p>
+						</figcaption>
+						<pre class="linenums prettyprint"><code>&lt;video controls="controls">
+   &lt;source src="rain.webm" type="video/webm"/>
+   &lt;source src="rain.mp4" type="video/mp4"/>
+   &lt;p>This reading system does not support video.&lt;/p>
+&lt;/video></code></pre>
+					</figure>
+					
+					<p>Unlike the <code>audio</code> and <code>video</code> elements, the nested content of an 
+						<code>object</code> element represents a fallback.</p>
+					
+					<figure>
+						<figcaption>
+							<p class="label">Embedded PDF form with an HTML fallback</p>
+						</figcaption>
+						<pre class="linenums prettyprint"><code>&lt;object src="t1000.pdf">
+   &lt;h3>Tax Form T-1000&lt;/h3>
+   &#8230;
+&lt;/object></code></pre>
+					</figure>
+					
+					<p>Embedding fallback images used to be problematic, but the addition of the <code>srcset</code>
+						attribute and <code>picture</code> element have greatly improved the situation (the lack of
+						fallbacks was a major reason for the creation of <a href="#fallbacks-epub">manifest
+							fallbacks</a> in EPUB).</p>
+					
+					<figure>
+						<figcaption>
+							<p class="label">Picture element with WebP and JPEG image options</p>
+						</figcaption>
+						<pre class="linenums prettyprint"><code>&lt;picture>
+   &lt;source srcset="rainbow.webp" type="image/webp"/>
+   &lt;img src="rainbow.jpg" type="image/jpeg"/>
+&lt;/picture></code></pre>
+					</figure>
+					
+					<figure>
+						<figcaption>
+							<p class="label">Image element with multiple sources</p>
+							<p>In this example, three alternative sizes of an image are provided in the
+								<code>srcset</code> attribute.</p>
+						</figcaption>
+						<pre class="linenums prettyprint"><code>&lt;img src="rainbow.png"
+     srcset="rainbow-1x.png 1x, rainbow-2x.png 2x, rainbow-3x.png 3x"
+     alt="Rainbow over wheat fields" /></code></pre>
+					</figure>
+					
+					<section id="fallbacks-html-exempt">
+						<h5>Exempt Elements</h5>
+						
+						<p>EPUB 3 also exempts the following elements from fallback requirement:</p>
+						
+						<ul>
+							<li><code>link</code> when it has the <code>rel</code> attribute value
+								<code>pronunciation</code> (to allow pronunciation lexicon files);</li>
+							<li><code>track</code> (so any captioning, subtitling, and similar audio/video
+								track formats can be included);</li>
+							<li><code>video</code> (EPUB does not define a single video format that all reading
+								systems must support).</li>
+						</ul>
+						
+						<p>In these cases, any format can be specified, but there are no guarantees that reading
+							systems will support rendering of the format.</p>
+					</section>
+				</section>
+				
+				<section id="fallbacks-epub">
+					<h4>EPUB-specific Fallbacks</h4>
+					
+					<section id="fallbacks-epub-manifest">
+						<h5>Manifest Fallbacks</h5>
+						
+						<p>Manifest fallbacks are named for how they are implemented in the EPUB package document.
+							The <code>manifest</code> element is used to list all the resources used in the publication,
+							and each item in it can specify another item as a fallback using the <code>fallback</code>
+							attribute.</p>
+						
+						<p>There are two places that manifest fallbacks are used. The first is to include unknown media
+							types in the spine (i.e., to make them documents in the publication reading order). This practice
+							has largely fallen into disuse, however, as it was used primarily in EPUB 2 to allow SVG
+							images in the spine with XHTML fallbacks.</p>
+						
+						<figure>
+							<figcaption>
+								<p class="label">SVG in spine (EPUB 2)</p>
+							</figcaption>
+							<pre class="prettyprint linenums">&lt;manifest>
+   &lt;item id="c01" src="images/plate01.svg" media-type="image/svg" fallack="c01-xhtml"/>
+   &lt;item id="c01-xhtml" src="images/plate01.xhtml" media-type="application/xhtml+xml"/>
+   &#8230;
+&lt;/manifest>
+&lt;spine>
+   &lt;itemref idref="c01"/>
+   &#8230;
+&lt;/spine></pre>
+						</figure>
+						
+						<p>In this case, if the reading system does not support SVG, it follows the
+							<code>fallback</code> attribute references until it finds a media type it can support. In
+							the above case there is only one fallback, but it is possible to keep falling back through
+							multiple items before reaching a supported media type. The only requirement on fallback
+							chains is that they must include a core media type.</p>
+						
+						<p>The other place where manifest fallbacks are used is to provide a fallback image for the
+							HTML <code>img</code> element. Until the recent addition of the <code>srcset</code> attribute
+							and creation of the new <code>picture</code> element, it was not possible in HTML to provide
+							a fallback for images embedded using the <code>img</code> element. As a workaround, reading
+							systems are expected to change the source of the <code>img</code> element to the fallback
+							specified in the manifest.</p>
+						
+						<figure>
+							<figcaption>
+								<p class="label">Image fallback in manifest</p>
+							</figcaption>
+							<p class="figlabel">HTML</p>
+							<pre class="prettyprint linenums">&lt;img src="rainbow.webp" alt="Rainbow over wheat fields"/></pre>
+							<p class="figlabel">Package Document</p>
+							<pre class="prettyprint linenums">&lt;manifest>
+   &lt;item id="img01" src="rainbow.webp" media-type="image/webp" fallack="img01-fb"/>
+   &lt;item id="img01-fb" src="rainbow.jpg" media-type="image/jpeg"/>
+   &#8230;
+&lt;/manifest></pre>
+						</figure>
+						
+						<p>It is best to avoid manifest fallbacks for images except in EPUB 2 where there is no other
+							option. They are not well supported.</p>
+						
+						<p>Another fallback method unique to EPUB called <a
+							href="http://idpf.org/epub/301/spec/epub-publications.html#sec-bindings-elem">bindings</a>,
+							was created to provide fallbacks for scripted content. This method has already been formally
+							deprecated so should similarly be avoided.</p>
+					</section>
+				</section>
+			</section>
+			
+			<section id="location">
+				<h3>Resource Location</h3>
+				
+				<p>EPUB allows the following types of content to be hosted on the web instead of stored inside the ZIP
+					container:</p>
+				
+				<ul>
+					<li>Audio files</li>
+					<li>Video files</li>
+					<li>Font files</li>
+					<li>Resources retrieved by scripts (not the actual script code)</li>
+				</ul>
+				
+				<p>Caution needs to be exercised in such cases, however. There is no guarantee that users will have
+					access to download remotely-hosted content, and no guarantee that the reading systems will retrieve
+					remotely-hosted resources even if network access is available.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/media.html#the-audio-element"><code>audio</code>
+						element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/media.html#the-img-element"><code>img</code>
+						element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/media.html#the-object-element"><code>object</code>
+						element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/media.html#the-picture-element"><code>picture</code>
+						element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/media.html#the-video-element"><code>video</code>
+						element</a></li>
+					<li>EPUB 3 &#8212; <a
+						href="https://www.w3.org/publishing/epub32/epub-spec.html#sec-cmt-supported">Supported Media
+						Types</a></li>
+					<li>EPUB 2 &#8212; 
+						<a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">MIME Media Types</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
