@@ -169,7 +169,9 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 							publication from being opened, but they often lead to unintended consequences (e.g., content
 							not rendering as expected).</p>
 						
-						<p>Errors must be corrected to ensure the usability of the publication.</p>
+						<p>Errors typically need to be corrected to ensure the usability of the publication, but some
+							format-specific errors do not affect the accessibility (see the section on <a
+								href="wcag-req">understanding errors in relation to WCAG</a>).</p>
 					</dd>
 					
 					<dt>Warning</dt>
@@ -207,6 +209,28 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 							the best practices they highlight.</p>
 					</dd>
 				</dl>
+				
+				<div role="note" class="note" id="wcag-req" aria-labelledby="wcag-note">
+					<p id="wcag-note" class="label">WCAG Parsing Requirements</p>
+					
+					<p>Although it is generally best practice to fix any errors in an EPUB publication, WCAG does not
+						enforce strict validity &#8212; not all errors are critical to the accessible reading of
+						content.</p>
+					
+					<p>WCAG only requires the following basic paring requirements for web content:</p>
+					
+					<ul>
+						<li>elements have complete start and end tags;</li>
+						<li>elements are nested according to their specifications;</li>
+						<li>elements do not contain duplicate attributes; and</li>
+						<li>any IDs are unique.</li>
+					</ul>
+					
+					<p>As a result, some errors that epubcheck might report may not have to be fixed in order to
+						conform WCAG. Bad attribute values in HTML, for example, are not necessarily violations of WCAG
+						(unless they violate other success criteria), but nesting <code>p</code> tags directly inside a
+						list or table is.</p>
+				</div>
 			</section>
 			
 			<section id="arg">
