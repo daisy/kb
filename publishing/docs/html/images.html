@@ -92,52 +92,56 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Extended description via hyperlink</div>
-						<p>The following example uses simple hyperlinks to link to a note at the end of the chapter.</p>
-						<p>The descriptions could also be located in a separate file, but this might have a performance
-							impact for users (i.e., it will require the reading system to unload and reload each document
-							each time the user follows a link).</p>
-						<p>An image could also be used to minimize the appearance of the link, but some reading systems have
-							issues with such links.</p>
+						<div class="label">Example 2 &#8212; Extended description in <code>details</code></div>
+						<p>The following example uses the HTML <code>details</code> element to create a description that is
+							collapsed from view by default. The <code>aria-details</code> attribute is used to associate
+							the image with the description.</p>
+						<p><strong>Note that support for this element is not yet universal in EPUB, and is
+							often buggy (e.g., details elements are often always opened by default).</strong></p>
+						<p>In EPUB, reading systems the <code>details</code> element often does not work
+							when included inside a <code>figure</code>. It is best to put the element immediately
+							after the closing <code>figure</code> tag.</p>
+						<p>Despite its shortcomings, this is one of <a 
+							href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">the most
+							reliable techniques in EPUB</a>.</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;figcaption>
+      The hydrologic cycle.
+   &lt;/figcaption>
    &lt;img
       src="graphics/water-cycle.jpg"
+      aria-details="#fig-01-desc"
       alt="The hydrologic cycle, showing the 
         circular nature of the process as water 
         evaporates from a body of water and 
         eventually returns to it"/>
-   &lt;figcaption>
-     The hydrologic cycle. &lt;a role="doc-noteref" 
-        href="#desc-01">Description&lt;/a>
-   &lt;/figcaption>
 &lt;/figure>
-&#8230;
-&lt;h2>Image Descriptions&lt;/h2>
-&lt;aside role="doc-footnote" id="desc-01">
-   &lt;p>&lt;a role="doc-backlink" 
-      href="#fig-01">Figure 1.&lt;/a> &#8212; The diagram shows 
-      the processes of evaporation, condensation, 
-      evapotranspiration, water storage in ice and snow, and
-      precipitation. A large body of water &#8230;
-  &lt;/p>
-&lt;/aside></code></pre>
+&lt;details id="fig-01-desc">
+   &lt;summary>Description&lt;/summary>
+   &lt;p>
+      The diagram shows the processes of 
+      evaporation, condensation,
+      evapotranspiration, water storage
+      in ice and snow, and precipitation.
+      A large body of water &#8230;
+   &lt;/p>
+&lt;/details></code></pre>
 				</figure>
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Extended description via hyperlink / EPUB footnote</div>
-						<p>The following example is effectively the same as <a href="#ex-02">example 2</a>, but adds the EPUB
-							semantics <code>noteref</code> and <code>footnote</code> to the elements so that EPUB reading
-							systems can create pop-up notes out of the descriptions. User agents not aware of EPUB footnotes
-							will still treat these as simple hyperlinks.</p>
-						<p>Note that the use of images for the note reference is not well supported, so a text label is used.
-							iBooks, for example, requires the CSS <code>pointer-events: none</code> on HTML elements within a
-							note reference to prevent the publication from crashing the application, but this breaks the
-							notes on any device where a mouse is used. Targeting devices is possible with media queries, but
-							unreliable.</p>
-						<p>CSS can instead be used to style the note reference to make it less intrusive. For example, it
-							could be reduced in size, italicized and positioned near the image, similar to photo credits.</p>
+						<div class="label">Example 3 &#8212; Extended description via hyperlink</div>
+						<p>The following example uses simple hyperlinks to link to a description in a separate file.</p>
+						<p>In EPUB, the linked description should be located in a file by itself to avoid issues reaching the
+							description (i.e., not all reading are able to locate the user properly when there are multiple
+							descriptions). Unfortunately, this means each description file will also have to be included
+							in the spine.</p>
+						<p>An image could also be used to minimize the appearance of the link, but in EPUB some reading systems
+							have issues with such links.</p>
+						<p>Despite its shortcomings, this is one of <a 
+							href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">the most
+							reliable techniques in EPUB</a>.</p>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
@@ -147,64 +151,24 @@
         evaporates from a body of water and 
         eventually returns to it"/>
    &lt;figcaption>
-     The hydrologic cycle. &lt;a epub:type="noteref" role="doc-noteref" 
-        href="#desc-01">Description&lt;/a>
+     The hydrologic cycle. &lt;a href="desc/fig-01.html">Description&lt;/a>
    &lt;/figcaption>
-&lt;/figure>
-&#8230;
-&lt;aside epub:type="footnote" role="doc-footnote" id="desc-01">
-   &lt;p>&lt;a epub:type="backlink" role="doc-backlink" 
-      href="#fig-01">Figure 1.&lt;/a> &#8212; The diagram shows 
-      the processes of evaporation, condensation, 
-      evapotranspiration, water storage in ice and snow, and
-      precipitation. A large body of water &#8230;
-  &lt;/p>
-&lt;/aside></code></pre>
+&lt;/figure></code></pre>
 				</figure>
 				
 				<figure id="ex-04">
 					<figcaption>
-						<div class="label">Example 4 &#8212; Extended description in <code>details</code></div>
-						<p>The following example uses the HTML <code>details</code> element to create a description that is
-							collapsed from view by default.</p>
-						<p><strong>Note that support for this element is not yet universal.</strong></p>
-					</figcaption>
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
-   &lt;figcaption>
-      The hydrologic cycle.
-   &lt;/figcaption>
-   &lt;img
-      src="graphics/water-cycle.jpg"
-      alt="The hydrologic cycle, showing the 
-        circular nature of the process as water 
-        evaporates from a body of water and 
-        eventually returns to it"/>
-   &lt;details>
-      &lt;summary>Description&lt;/summary>
-      &lt;p>
-         The diagram shows the processes of 
-         evaporation, condensation,
-         evapotranspiration, water storage
-         in ice and snow, and precipitation.
-         A large body of water &#8230;
-      &lt;/p>
-   &lt;/details>
-&lt;/figure></code></pre>
-				</figure>
-				
-				<figure id="ex-05">
-					<figcaption>
-						<div class="label">Example 5 &#8212; Hidden description</div>
+						<div class="label">Example 4 &#8212; Hidden description</div>
 						<p>The following example uses the <code>aria-describedBy</code> attribute to link to a hidden
 							description, leaving no visual indication at all that a description is available.</p>
-						<p>Note that <strong>support for this attribute is poor</strong>, particularly when referencing
+						<p>Note that <strong>support for this attribute is poor in EPUB</strong>, particularly when referencing
 							hidden content. While valid, it may prevent any users from reaching the description, so should be
 							used with caution. The Open Web Platform is moving away from hidden content that can only be
 							accessed via assistive technologies.</p>
 						<p>This technique is not recommended if the description contains structured markup like tables or
 							lists, as all tagging is stripped and only the text content read to users.</p>
 					</figcaption>
-					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
    &lt;img
       src="graphics/water-cycle.jpg"
       alt="The hydrologic cycle, showing the 
@@ -227,39 +191,39 @@
 &lt;/figure></code></pre>
 				</figure>
 				
-				<figure id="ex-06">
+				<figure id="ex-05">
 					<figcaption>
-						<div class="label">Example 6 &#8212; Decorative image</div>
+						<div class="label">Example 5 &#8212; Decorative image</div>
 						<p>An empty <code>alt</code> attribute is complemented by the role <code>presentation</code> to
 							indicate that the image contains no information for users.</p>
 					</figcaption>
-					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;img
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;img
     src="graphics/gothic-border.png"
     role="presentation"
     alt=""/></code></pre>
 				</figure>
 				
-				<figure id="ex-07">
+				<figure id="ex-06">
 					<figcaption>
-						<div class="label">Example 7 &#8212; Image input button</div>
+						<div class="label">Example 6 &#8212; Image input button</div>
 						<p>The <code>alt</code> attribute can be attached to image <code>input</code> elements to provide an
 							equivalent label.</p>
 					</figcaption>
-					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;input
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;input
     type="image"
     name="submit"
     src="enter.jpg"
     alt="Enter to Win!"/></code></pre>
 				</figure>
 				
-				<figure id="ex-08">
+				<figure id="ex-07">
 					<figcaption>
-						<div class="label">Example 8 &#8212; Image with label and caption on opposite sides</div>
+						<div class="label">Example 7 &#8212; Image with label and caption on opposite sides</div>
 						<p>The following example shows a figure with its label above the the image and its caption below.
 							The <code>aria-labelledBy</code> attribute is used to associate the label with the figure
 							so that this information can still be readily presented to users.</p>
 					</figcaption>
-					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;figure id="fig-01" aria-labelledBy="fig1-label">
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;figure id="fig-01" aria-labelledBy="fig1-label">
    &lt;p class="label" id="fig1-label">Figure 1. Prime Mover&lt;/p>
    &lt;img
       src="graphics/prime_mover.jpg"
@@ -304,17 +268,14 @@
 						(i.e., it is not part of the logical reading order), use a <a href="figures.html">figure</a> tag to
 						enclose it.</p>
 				</div>
-				<section>
-					<h4>EPUB 3</h4>
-					<p>Although the <code>details</code> element is now a part of HTML 5.1, it is not available for use in
-						content that conforms to EPUB 3.0.1 or earlier versions of the standard. Only EPUB 3.1 and its
-						successors allow this element.</p>
-				</section>
 			</section>
 			
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
+					<li>DIAGRAM &#8212; <a 
+						href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
+						Practices for Authoring Extended Descriptions in EPUB</a></li>
 					<li>MDN &#8212; <a
 						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
 						element</a></li>
