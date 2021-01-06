@@ -685,8 +685,6 @@ KB.prototype.addHeadingDestinations = function() {
 
 
 
-
-
 /* add links to glossary terms */
 
 KB.prototype.addGlossaryLinks = function() {
@@ -698,9 +696,8 @@ KB.prototype.addGlossaryLinks = function() {
 			linktext = linktext.replace(/ /g, '-');
 			linktext = linktext.replace(/s$/, '');
 		
-		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext;
+		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext.toLowerCase();
 	}
-
 }
 
 
