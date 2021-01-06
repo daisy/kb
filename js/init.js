@@ -69,6 +69,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeHeadTag('js', 'https://code.jquery.com/jquery-1.12.4.min.js', {integrity: 'sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=', crossorigin: 'anonymous'});
 		this.writeGoogleAnalytics();
+		this.addGlossaryLinks();
 	}
 	else {
 		this.host = 'ace';
@@ -684,6 +685,26 @@ KB.prototype.addHeadingDestinations = function() {
 
 
 
+
+
+/* add links to glossary terms */
+
+KB.prototype.addGlossaryLinks = function() {
+
+	var links = document.querySelectorAll('a:not([href])');
+	
+	for (var i = 0; i < links.length; i++) {
+		var linktext = links[i].textContent;
+			linktext = linktext.replace(/ /g, '-');
+			linktext = linktext.replace(/s$/, '');
+		
+		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext;
+	}
+
+}
+
+
+
 /* 
  * 
  * Example copying callback functions
@@ -834,4 +855,15 @@ function createCSSSelector (selector, style) {
 		}
 		styleSheet.insertRule(selector + '{' + style + '}', styleSheetLength);
 	}
+}
+
+
+
+
+var terms = {
+	"accessibility tree": 1,
+	"ace": 1,
+	"aria": 1,
+	"assistive technology": 1,
+	"author": 1
 }
