@@ -18,7 +18,11 @@
 			nav#toc a:not([href]):hover {
 				text-decoration: none !important;
 				color: rgb(180, 180, 180) !important;
-			}</style>
+			}
+			nav#toc ol {
+				grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
+			}
+		</style>
 	</head>
 	<body>
 		<main>
