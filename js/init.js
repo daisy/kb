@@ -697,6 +697,9 @@ KB.prototype.addGlossaryLinks = function() {
 			linktext = linktext.replace(/s$/, '');
 		
 		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext.toLowerCase();
+		links[i].classList.add('gloss');
+		links[i].setAttribute('role', 'doc-glossref');
+		links[i].setAttribute('title', 'Go to definition');
 	}
 }
 

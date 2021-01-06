@@ -138,9 +138,12 @@ main section a:visited:hover {
 	border-bottom: 0.1rem dotted rgb(180,0,0);
 }
 
-
 h1 a, nav a {
 	text-decoration: none;
+}
+
+a.gloss {
+	color: rgb(100,100,100);
 }
 
 /* page headers and footers */
