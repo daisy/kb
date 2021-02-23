@@ -54,10 +54,10 @@
 
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Landmark role with label</div>
-						<p>The label for the endnotes section is specified using the <code>aria-labelledby</code>
-							attribute (the value is the ID of the element containing the label, in this case the
-								<code>h2</code>).</p>
+						<div class="label">Example 1 &#8212; Landmark role with explicit label</div>
+						<p>The <code>aria-labelledby</code> attribute is used to ensure that a label is correctly
+							associated with its landmark role, the (the value of the attribute is the ID of
+							the element containing the label, in this example the <code>h2</code> element).</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-endnotes" aria-labelledby="note_hd">
     &lt;h2 id="note_hd">End Notes&lt;/h2>
@@ -65,23 +65,42 @@
 &lt;/section>
 </code></pre>
 				</figure>
-
-				<figure id="ex-02">
+				
+				<figure id="ex-01a">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Implicit landmark</div>
-						<p>The <code>aside</code> element has the default role of <code>complementary</code> (a type of
-							landmark) so requires a label when no other role is specified.</p>
+						<div class="label">Example 2 &#8212; Landmark role with ambiguous label</div>
+						<p>If a landmark section contains content before its heading, the <code>aria-labelledby</code>
+							should always be used to ensure the heading is correctly identified as the label.</p>
 					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="lo">
-    &lt;h2 id="lo">Learning Objectives&lt;/h2>
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-labelledby="c23_hd">
+	&lt;img src="img/comic/panel23.jpg" alt="Cartoon panel before chapter start"/>
+	&lt;details>
+		&lt;summary>Description&lt;/summary>
+		&lt;p>&#8230;&lt;/p>
+	&lt;/details>
+    &lt;h2 id="c23_hd">Chapter 23&lt;/h2>
     &#8230;
-&lt;/aside>
+&lt;/section>
 </code></pre>
 				</figure>
-
+				
+				<figure id="ex-01b">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Landmark role without a label</div>
+						<p>If there is only one instance of a landmark role in a document, an explicit label is 
+							not required. Assistive technologies will only announce the generic type of landmark
+							but users will hear the heading after navigating to it.</p>
+					</figcaption>
+					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter">
+    &lt;h2>Chapter 1&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Landmark with added label</div>
+						<div class="label">Example 4 &#8212; Landmark with added label</div>
 						<p>The following landmark does not have an explicit title, so a label is provided using the
 								<code>aria-label</code> attribute.</p>
 					</figcaption>
@@ -94,7 +113,7 @@
 
 				<figure id="ex-04">
 					<figcaption>
-						<div class="label">Example 4 &#8212; Landmark without a unique label</div>
+						<div class="label">Example 6 &#8212; Landmark without a unique label</div>
 						<p>The following landmark does not have a unique label (i.e., there is more than one of the same
 							landmark in the document with the same title). To differentiate the landmark, a sequential
 							number is provided for AT using the <code>hidden</code> attribute. Because this element is
@@ -248,6 +267,37 @@
 							already available to do so. Only identify the major section(s) of content within a document,
 							if necessary (i.e., the chapters or top-level sections, not every subsection).</p>
 					</dd>
+					<dt id="faq08">Is every <code>section</code> with a heading a landmark?</dt>
+					<dd>
+						<p>No.</p>
+						<p>A <code>section</code> tag is only a landmark when one or both of the following are true:</p>
+						<ul>
+							<li>It has a <code>role</code> attribute attached to it that specifies a landmark role.</li>
+							<li>It has an <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>
+								attribute attached to it.</li>
+						</ul>
+						<p>In all other cases, a <code>section</code> has no specific semantic attached to it (i.e.,
+							it is similar in nature to a <code>div</code>).</p>
+					</dd>
+					<dt id="faq09">Does every landmark require a label?</dt>
+					<dd>
+						<p>The safest option is to always provide a label using one of the <code>aria-labelledby</code>,
+							<code>aria-label</code> or <code>title</code> attributes.</p>
+						<p>Technically, you only have to use these attributes when more than one of the same type of
+							landmark is present on the page. In these cases, the lack of a unique label can make it
+							more difficult for users to find the one they are looking for.</p>
+						<p>In workflows that combine data from different sources, or chunk content differently depending
+							on the out, it is best practice to make the labels explicit. Doing so will avoid unintended
+							violations of WCAG requirements.</p>
+					</dd>
+					<dt id="faq04">Should I use the <code>title</code> or <code>aria-label</code> attribute for
+						hidden labels?</dt>
+					<dd>
+						<p>If a label is not available in the text, preference should always be given to the
+							<code>aria-label</code> attribute. It has higher precedence in the calculation of
+							accessible names for elements and controls and <code>title</code> has a history of poor
+							support.</p>
+					</dd>
 					<dt id="faq02">Why should landmark names be unique?</dt>
 					<dd>
 						<p>When there is more than one type of the same landmark in a document, providing unique names
@@ -268,13 +318,6 @@
 							were designed to solve this problem of landmarks spread across many documents.</p>
 						<p>For maximum interoperability, it is recommended to provide both types of landmarks.</p>
 					</dd>
-					<dt id="faq04">Should I use the <code>title</code> attribute or <code>aria-label</code>?</dt>
-					<dd>
-						<p>If a label is not available in the text, preference should always be given to the
-								<code>aria-label</code> attribute. It is given higher precedence in the calculation of
-							accessible names for elements and controls and <code>title</code> has a history of poor
-							support.</p>
-					</dd>
 					<dt id="faq05">Why can't I use the <code>landmark</code> role?</dt>
 					<dd>
 						<p>The <code>landmark</code> role is what the WAI-ARIA specification refers to as an <a
@@ -286,8 +329,10 @@
 					</dd>
 					<dt id="faq06">Why does <code>aside</code> require a label but not <code>section</code>?</dt>
 					<dd>
-						<p>Due to the general misuse of <code>section</code> element like its a <code>div</code>, the
-							element does not have a default role.</p>
+						<p>Despite the best intentions when it was introduced, the <code>section</code> element has been
+							used the same way as <code>div</code> (i.e., for purely stylistic reasons). As a result, the
+							element does not have a default role to avoid this misuse disadvantaging users of assistive
+							technologies.</p>
 
 						<p>As a result, the following example <strong>is not a landmark</strong>, even though there is a
 							heading:</p>
