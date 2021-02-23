@@ -89,7 +89,8 @@
 						<div class="label">Example 3 &#8212; Landmark role without a label</div>
 						<p>If there is only one instance of a landmark role in a document, an explicit label is 
 							not required. Assistive technologies will only announce the generic type of landmark
-							but users will hear the heading after navigating to it.</p>
+							(e.g., that a <code>doc-index</code> is an "index"), but users will hear the heading
+							after navigating to it.</p>
 					</figcaption>
 					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter">
     &lt;h2>Chapter 1&lt;/h2>
@@ -291,8 +292,9 @@
 						<p><em>But</em>, the safest option is to always provide a label using one of the
 							<code>aria-labelledby</code>, <code>aria-label</code> or <code>title</code> attributes.</p>
 						
-						<p>Technically, you only have to use these attributes when more than one of the same type of
-							landmark is present on the page. In these cases, the lack of a unique label can make it
+						<p>Technically, you only have to use these attributes when more than one of the same landmark
+							role is present on the page (e.g., two or more <code>doc-chapter</code> or
+							<code>doc-bibliography</code>). In these cases, the lack of a unique label can make it
 							more difficult for users to find the one they are looking for. For example, if there are
 							two indexes, without unique labels a user would not be able to determine which is the
 							topical index and which the index of names without manually checking each.</p>
@@ -311,7 +313,7 @@
 					</dd>
 					<dt id="faq02">Why should landmark names be unique?</dt>
 					<dd>
-						<p>When there is more than one type of the same landmark in a document, providing unique names
+						<p>When there is more than one of the same landmark role in a document, providing unique names
 							avoids confusion about which particular one is being accessed. Ideally, the title of each
 							component will make clear its purpose, but if the same name is reused for each (e.g.,
 							multiple "practice problem" sidebars), a unique identifier would improve the usability. The
