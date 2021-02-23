@@ -258,8 +258,10 @@
 				<dl class="faq">
 					<dt id="faq01">Does every chapter/section need to be a landmark?</dt>
 					<dd>
-						<p>Landmarks should not be used as an alternative table of contents as the heading structure of
-							the document is not preserved. Try to limit the use of landmarks to the components within
+						<p>No.</p>
+						
+						<p>Landmarks should not be used as an alternative table of contents as they do no preserve the
+							heading structure of the document. Try to limit the use of landmarks to the components within
 							the page that a user would otherwise have to manually search for. Creating too many
 							landmarks forces users to hunt through a long list.</p>
 
@@ -270,22 +272,31 @@
 					<dt id="faq08">Is every <code>section</code> with a heading a landmark?</dt>
 					<dd>
 						<p>No.</p>
+						
 						<p>A <code>section</code> tag is only a landmark when one or both of the following are true:</p>
+						
 						<ul>
 							<li>It has a <code>role</code> attribute attached to it that specifies a landmark role.</li>
 							<li>It has an <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>
 								attribute attached to it.</li>
 						</ul>
+						
 						<p>In all other cases, a <code>section</code> has no specific semantic attached to it (i.e.,
 							it is similar in nature to a <code>div</code>).</p>
 					</dd>
 					<dt id="faq09">Does every landmark require a label?</dt>
 					<dd>
-						<p>The safest option is to always provide a label using one of the <code>aria-labelledby</code>,
-							<code>aria-label</code> or <code>title</code> attributes.</p>
+						<p>No.</p>
+						
+						<p><em>But</em>, the safest option is to always provide a label using one of the
+							<code>aria-labelledby</code>, <code>aria-label</code> or <code>title</code> attributes.</p>
+						
 						<p>Technically, you only have to use these attributes when more than one of the same type of
 							landmark is present on the page. In these cases, the lack of a unique label can make it
-							more difficult for users to find the one they are looking for.</p>
+							more difficult for users to find the one they are looking for. For example, if there are
+							two indexes, without unique labels a user would not be able to determine which is the
+							topical index and which the index of names without manually checking each.</p>
+						
 						<p>In workflows that combine data from different sources, or chunk content differently depending
 							on the out, it is best practice to make the labels explicit. Doing so will avoid unintended
 							violations of WCAG requirements.</p>
