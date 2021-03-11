@@ -19,5 +19,21 @@
 				<div class="gcse-search"></div>
 			</div>
 		</main>
+		<script>
+			function sleep(ms) {
+				return new Promise(resolve => setTimeout(resolve, ms));
+			}
+			async function focus() {
+				var inputs = document.getElementsByTagName('input');
+				var timeout = 0;
+				while (timeout < 30 && (!inputs || inputs.length == 0)) {
+					await sleep(100);
+					inputs = document.getElementsByTagName('input');
+					timeout += 1;
+				}
+				inputs[0].focus();
+			}
+			focus();
+		</script>
 	</body>
 </html>
