@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Drop Caps</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for creating accessible drop caps.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			p.first {
+				margin-left: 5rem;
+			}
+			p.first::first-letter {
+				float: left;
+				font-size: 3em;
+				line-height: 1;
+				padding-right: 0.1em;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Drop caps are problematic for multiple user groups and are not easy to render consistently while
+					simultaneously being made accessible.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Use the CSS <code>initial-letter</code> property to format the drop cap <span class="wcag-level"
+								>[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG
+						1.3.1</a>]</span></li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Drop caps were traditionally used to highlight new sections of a document. Latin texts, for example,
+					did not include breaks when a new section began, so drop caps provided a visual signal for users
+					skimming the text.</p>
+				
+				<p>Publications are no longer formatted this way, as major new sections are now typically highlighted by
+					being placed at the start of a new page with a larger face heading.</p>
+				
+				<p>Decorative drop caps are still sometimes found in publications, however, to give them an extra
+					flourish, but the stylized letters no longer serve a functional purpose. This extra formatting
+					unfortunately impedes the ability of some users to read the text. Some examples include:</p>
+				
+				<ul>
+					<li>Assistive technologies cannot properly read the first word when the formatting of the stylized
+						drop cap separates it from the rest of the word.</li>
+					<li>Zooming leads to a pixelated image of the drop cap when images are used.</li>
+					<li>Following the text flow becomes problematic due to the extended size of the drop cap (e.g.,
+						users with dyslexia may have trouble following from the drop cap to the first line or finding
+						the correct next line to resume reading).</li>
+				</ul>
+				
+				<p>For these reasons, the best advice is to avoid using drop caps.</p>
+				
+				<p>In practice, however, avoiding drop caps entirely is not possible. The following sections review some
+					of the most common practices for drop caps for accessibility.</p>
+				
+				<section id="first-letter">
+					<h4>CSS <code>::first-letter</code> pseudo-element</h4>
+					
+					<p>The CSS <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter"
+								><code>::first-letter</code> pseudo-element</a> is currently the best option for
+						formatting drop caps in an accessible way.</p>
+					
+					<p>For example, given the following example markup for a new chapter:</p>
+					
+					<pre id="ex-ln-html" class="prettyprint linenums"><code>&lt;section role="doc-chapter" id="c01">
+   &lt;h2>Chapter 1&lt;/h2>
+   &lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit &#8230;&lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+					
+					<p>The letter "L" could be styled as a drop cap using the following CSS selector to get the first
+						letter of the first <code>p</code> element in each section marked as a chapter:</p>
+					
+					<pre id="ex-ln-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child::first-letter {
+   float: left;
+   font-size: 3em;
+   line-height: 1;
+   padding-right: 0.1em;
+}</code></pre>
+					
+					<p>The following is an example of how this markup would display:</p>
+					
+					<p class="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+						ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+						in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+						cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					
+					<p>Because the markup of the drop cap is done using only CSS, there is no impact on the ability of
+						assistive technologies to voice the first world. In addition, it should be possible for users to
+						change the text formatting in their reading systems if the enlarged letter makes reading
+						difficult.</p>
+					
+					<p>The one drawback of this approach is that it does not always result in consistent formatting of
+						the drop cap. The reliance on floating the letter and adjusting the line height results in
+						differences in the alignment of the drop cap across reading systems and browsers.</p>
+				</section>
+				
+				<section id="initial-letter">
+					<h4>CSS <code>initial-letter</code> property</h4>
+					
+					<p>The CSS <a href="https://drafts.csswg.org/css-inline/#sizing-drop-initials"
+								><code>initial-letter</code> property</a> has the potential to fix the formatting
+						problems that result from trying to create a drop cap using the <code>first-letter</code>
+						selector with floats and line heights. The value of the property defines how many lines of text
+						high to make the selected text.</p>
+					
+					<p>For example, to create a drop cap two lines high, only the following CSS is needed:</p>
+					
+					<pre id="ex-il-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child {
+	initial-letter: 2.0;
+}</code></pre>
+					
+					<p>(Note that an integer value like "2.0" creates a drop cap, while a whole number like "2" would
+						create a raised cap.)</p>
+					
+					<p>The problem with this approach is that there is currently <a
+							href="https://caniuse.com/?search=initial-letter">limited support for the property</a> (Only
+						partial support in Safari as of writing). Until support becomes more widespread, the other
+						alternatives should be used.</p>
+				</section>
+				
+				<section id="html-img">
+					<h4>Images</h4>
+					
+					<p>The HTML <code>img</code> tag is sometimes used to format drop caps as in the following
+						example:</p>
+					
+					<pre id="ex-hi-01" class="prettyprint linenums"><code>&lt;img src="images/caps/a.jpg" alt="C"/>all me Ishmael &#8230;</code></pre>
+					
+					<p>The use of an <code>img</code> tag interferes with the ability of screen readers to properly
+						render the text, however. In this case, a screen reader would announce "Image Cee all me
+						Ishmael".</p>
+					
+					<p>A similar pattern is to use <code>span</code> tag to format the drop cap:</p>
+					
+					<pre id="ex-hi-02" class="prettyprint linenums"><code>&lt;span class="dropcap">C&lt;/span>all me Ishmael &#8230;</code></pre>
+					
+					<p>A CSS background image is often applied to ensure the formatting of the letter. This practice is
+						no better than using an image tag, however, as it also results in the first letter being
+						pronounced separately from the rest of the world.</p>
+				</section>
+				
+				<section id="aria">
+					<h4>ARIA</h4>
+					
+					<p>Using ARIA attributes and hidden content is sometimes proposed as a workaround to the problem of
+						using an <code>img</code> or <code>span</code> tag on the first letter. See the article <a
+							href="https://adrianroselli.com/2019/10/accessible-drop-caps.html">Accessible Drop Caps</a>,
+						for example.</p>
+					
+					<p>The problem with this approach, is that on top of relying on support for ARIA attributes in EPUB
+						Reading Systems, which is poor, it also relies on being able to hide content, which is also not
+						well supported.</p>
+					
+					<p>As a result, although the approach seems like it could be accessible, it may result in content
+						duplication both visually and for users of assistive technologies. It is better left for purely
+						web-based publications.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter">The :first-letter
+							pseudo-element</a></li>
+					<li>CSS &#8212; <a href="https://drafts.csswg.org/css-inline/#sizing-drop-initials">Creating Initial
+							Letters: the initial-letter property</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
