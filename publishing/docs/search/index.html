@@ -31,7 +31,7 @@
 					inputs = document.getElementsByTagName('input');
 					timeout += 1;
 				}
-				inputs[0].focus();
+				setTimeout(function(){inputs[0].focus();},100);
 			}
 			focus();
 		</script>
