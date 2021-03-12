@@ -10,6 +10,39 @@
 			};
 		</script>
 		<script src="/js/init.js"></script>
+		<style>
+			details#topics {
+				width: 90rem;
+			}
+			details#topics summary {
+				width: 87.5rem;
+			}
+			.summary {
+				font-size: small;
+				float: right;
+				margin-left: 5rem;
+				border: 0.2rem solid rgb(220,235,255);
+				background-color: rgb(250,250,250);
+			}
+			.summary h4 {
+				text-indent: 1rem;
+				margin: 0;
+				background-color: rgb(120,220,255);
+			}
+			.summary ul {
+				list-style-type: none;
+				margin-left: 0;
+				padding: 1rem;
+			}
+			.summary .hd {
+				display: inline-block;
+				width: 10rem;
+				font-weight: bold;
+			}
+			ol.col {
+				list-style-type: circle;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -68,7 +101,7 @@
 				<h3>Values</h3>
 
 				<p>The following values are used to identify features of the content that are helpful for
-					accessibility:</p>
+					accessibility.</p>
 				
 				<div class="note" role="note" aria-labelledby="format-note">
 					<p class="label" id="format-note">Note</p>
@@ -76,6 +109,45 @@
 						declaration for each feature. Do not merge the values into a single property using spaces,
 						commas, or other delimiters.</p>
 				</div>
+				
+				<details id="topics" open="open">
+					<summary id="toc-hd">Quick Links</summary>
+					
+					<ol class="col">
+						<li><a href="#alternativeText">alternativeText</a></li>
+						<li><a href="#annotations">annotations</a></li>
+						<li><a href="#audioDescription">audioDescription</a></li>
+						<li><a href="#bookmarks">bookmarks</a></li>
+						<li><a href="#braille">braille</a></li>
+						<li><a href="#captions">captions</a></li>
+						<li><a href="#ChemML">ChemML</a></li>
+						<li><a href="#describedMath">describedMath</a></li>
+						<li><a href="#displayTransformability">displayTransformability</a></li>
+						<li><a href="#highContrastAudio">highContrastAudio</a></li>
+						<li><a href="#highContrastDisplay">highContrastDisplay</a></li>
+						<li><a href="#index">index</a></li>
+						<li><a href="#largePrint">largePrint</a></li>
+						<li><a href="#latex">latex</a></li>
+						<li><a href="#longDescription">longDescription</a></li>
+						<li><a href="#MathML">MathML</a></li>
+						<li><a href="#none">none</a></li>
+						<li><a href="#pageNavigation">pageNavigation</a></li>
+						<li><a href="#printPageNumbers">printPageNumbers</a></li>
+						<li><a href="#readingOrder">readingOrder</a></li>
+						<li><a href="#rubyAnnotations">rubyAnnotations</a></li>
+						<li><a href="#signLanguage">signLanguage</a></li>
+						<li><a href="#structuralNavigation">structuralNavigation</a></li>
+						<li><a href="#synchronizedAudioText">synchronizedAudioText</a></li>
+						<li><a href="#tableOfContents">tableOfContents</a></li>
+						<li><a href="#taggedPDF">taggedPDF</a></li>
+						<li><a href="#tactileGraphic">tactileGraphic</a></li>
+						<li><a href="#tactileObject">tactileObject</a></li>
+						<li><a href="#timingControl">timingControl</a></li>
+						<li><a href="#transcript">transcript</a></li>
+						<li><a href="#ttsMarkup">ttsMarkup</a></li>
+						<li><a href="#unlocked">unlocked</a></li>
+					</ol>
+				</details>
 				
 				<dl>
 					<dt id="alternativeText">alternativeText</dt>
