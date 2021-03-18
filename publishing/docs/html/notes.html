@@ -148,21 +148,31 @@
 					will typically correspond sequentially to the contained note number, and users should have the ability
 					to jump through more than one list item at a time when there are many notes).</p>
 				
-				<p class="bridgehead">Notes in Tables</p>
+				<h4>Notes in Tables</h4>
 				
 				<p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
 					summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
 					a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
 				
-				<p class="bridgehead">Note References</p>
+				<h4>Note References</h4>
 				
-				<p>Note references must be tagged using the HTML5 <code>a</code> element.</p>
+				<p>Note references must be tagged using the HTML5 <code>a</code> element to ensure users do not
+					have to visually locate the corresponding note.</p>
 				
-				<p>Do not use the <code>sup</code> element to superscript note references, as it is redundant presentational
-					tagging. The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
-					elements (see <a href="#ex03">Example 3</a>).</p>
+				<p>The <code>sup</code> element may be used to superscript note references but it adds extra verbosity
+					(assistive technologies will announce the text is superscripted in addition to being linked).
+					The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
+					elements without the additional voicing (see <a href="#ex03">Example 3</a>).</p>
 				
-				<p class="bridgehead">Back Referencing</p>
+				<div class="note" role="note" aria-labelledby="role-note-hd">
+					<p id="role-note-hd" class="label">Note</p>
+					<p>Until there is greater support for announcing the <code>doc-footnote</code> role, the
+						<code>sup</code> element provides some context for the note references. As support for the
+						role increases, however, the use of explicit superscripting will become redunant. At that
+						time, preference should be given to CSS formatting.</p>
+				</div>
+				
+				<h4>Back Referencing</h4>
 				
 				<p>Although not specifically required to be accessible, it is good practice to backlink groups of notes to
 					their referent locations in the text (see <a href="#ex-04">Example 4</a>). If a user is
