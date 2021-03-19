@@ -44,9 +44,9 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>Drop caps were traditionally used to highlight new sections of a document. Latin texts, for example,
-					did not include breaks when a new section began, so drop caps provided a visual signal for users
-					skimming the text.</p>
+				<p>Drop caps were traditionally used to highlight new sections of a document. Latin manuscripts, for
+					example, did not include breaks when a new section began, so drop caps provided a visual signal for
+					users skimming the text.</p>
 				
 				<p>Publications are no longer formatted this way, as major new sections are now typically highlighted by
 					being placed at the start of a new page with a larger face heading.</p>
@@ -67,7 +67,7 @@
 				<p>For these reasons, the best advice is to avoid using drop caps.</p>
 				
 				<p>In practice, however, avoiding drop caps entirely is not possible. The following sections review some
-					of the most common practices for drop caps for accessibility.</p>
+					of the most common practices for formatting drop caps accessibly.</p>
 				
 				<section id="first-letter">
 					<h4>CSS <code>::first-letter</code> pseudo-element</h4>
@@ -103,7 +103,7 @@
 						cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					
 					<p>Because the markup of the drop cap is done using only CSS, there is no impact on the ability of
-						assistive technologies to voice the first world. In addition, it should be possible for users to
+						assistive technologies to voice the first world. In addition, it may be possible for users to
 						change the text formatting in their reading systems if the enlarged letter makes reading
 						difficult.</p>
 					
@@ -131,7 +131,7 @@
 						create a raised cap.)</p>
 					
 					<p>The problem with this approach is that there is currently <a
-							href="https://caniuse.com/?search=initial-letter">limited support for the property</a> (Only
+							href="https://caniuse.com/?search=initial-letter">limited support for the property</a> (only
 						partial support in Safari as of writing). Until support becomes more widespread, the other
 						alternatives should be used.</p>
 				</section>
@@ -153,7 +153,7 @@
 					<pre id="ex-hi-02" class="prettyprint linenums"><code>&lt;span class="dropcap">C&lt;/span>all me Ishmael &#8230;</code></pre>
 					
 					<p>A CSS background image is often applied to ensure the formatting of the letter. This practice is
-						no better than using an image tag, however, as it also results in the first letter being
+						no better than using an <code>img</code> tag, however, as it also results in the first letter being
 						pronounced separately from the rest of the world.</p>
 				</section>
 				
