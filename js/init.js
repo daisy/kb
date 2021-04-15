@@ -539,6 +539,15 @@ KB.prototype.generateFooter = function () {
 	
 	topicitem.appendChild(newlink);
 	helplist.appendChild(topicitem);
+	
+	var contribitem = document.createElement('li');
+	var contriblink = document.createElement('a');
+		contriblink.setAttribute('href', this.kb_root + 'contribute');
+		contriblink.appendChild(document.createTextNode(msg.footer.m14));
+	
+	contribitem.appendChild(contriblink);
+	helplist.appendChild(contribitem);
+	
 	help.appendChild(helplist);
 	
 	linklists.appendChild(help);

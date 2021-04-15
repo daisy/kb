@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Contributing Pages</title>
+		<script>
+			var page_info = {
+				'topic': 'Contributing Pages',
+				'description': 'How to contribute content to the DAISY Accessible Publishing Knowledge Base',
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="intro">
+				<h3>Introduction</h3>
+				
+				<p>The DAISY knowledge base uses a very simply structured HTML page that allows authors to focus on
+					writing new pages. All the formatting and additional content, like the menu bars, is inserted
+					dynamically by script.</p>
+				
+				<p>This page provides a walk-thru of the process of starting a new page and submitting it for
+					inclusion.</p>
+			</section>
+			
+			<section id="clone">
+				<h3>Where to Create</h3>
+				
+				<p>How you create a new page depends on what access you have to the <a
+					href="https://github.com/daisy/kb">knowledge base repository in GitHub</a>.</p>
+				
+				<p>Trusted contributors with write access to the repository may create a new branch to work
+					in. When you finish your contribution, simply open a new <a
+						href="https://github.com/daisy/kb/pulls">pull request</a> to have the branch merged.</p>
+				
+				<p>For all other contributors, you will first need to create a <a
+					href="https://github.com/join">GitHub account</a>. You then have to <a
+						href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork
+						a copy the knowledge base repository</a> and then <a
+							href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone
+							it to your desktop</a> to work on.
+					When you finish your contribution, you have to go to your forked repository in GitHub and <a
+						href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">open
+						a pull request</a> to have your changes added to the DAISY repository.</p>
+			</section>
+			
+			<section id="template">
+				<h3>Page Template</h3>
+				
+				<p>The cleanest way to begin a new page for the knowledge base is with the <a
+					href="https://github.com/daisy/kb/tree/main/template/publishing/docs">blank template file</a>
+					located in the templates directory of this repository. This file contains the minimum markup
+					necessary to write a page.</p>
+				
+				<p>To begin creating a page, copy this template file to the most appropriate directory for the topic it
+					will describe (e.g., a page describing an HTML markup technique would go in /publishing/docs/html)
+					and give it a new short but meaningful file name.</p>
+				
+				<p>Please avoid using spaces in file names. Use hyphens to join multiple terms.</p>
+			</section>
+			
+			<section id="page-meta">
+				<h3>Page Metadata</h3>
+				
+				<p>After copy and renaming the template file, open it in an HTML editing program. Before beginning to
+					write the new page, make sure to configure the necessary metadata in the document header.</p>
+				
+				<section id="page-title">
+					<h4>Page Title</h4>
+					
+					<p>The first item that must be set is the page title. Type the new title between the
+							<code>&lt;title>...&lt;/title></code> tags.</p>
+					
+					<p><strong>Do not</strong> insert the page title in the body of the page. The title you put in the
+							<code>title</code> tags will automatically be inserted in the rendered page.</p>
+				</section>
+				
+				<section id="pg-info">
+					<h4>Page Info</h4>
+					
+					<p>The next step is to set the context information for the page. Look for the following script tag
+						in the page header:</p>
+					
+					<pre id="info-ex-01" class="prettyprint linenums">&lt;script>
+var page_info = {
+   'topic': '...',
+   'description': '...',
+   'appliesTo': ['EPUB3']
+};
+&lt;/script></pre>
+					
+					<p>The <code>topic</code> field <strong>must</strong> be the uppercase name of the directory where
+						you are creating the page. For example, if you are adding a new page to the html directory, you
+						would set the field to:</p>
+					
+					<pre id="info-ex-02" class="prettyprint linenums">'topic': 'HTML',</pre>
+					
+					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values
+						for the topic. For example, pages in the <code>html/dpub-aria</code> directory include an array
+						like this:</p>
+					
+					<pre id="info-ex-03" class="prettyprint linenums">'topic': ['html', 'dpub-aria'],</pre>
+					
+					<p>The order of the array must match the order of the directories (i.e., parents before siblings).
+						When your page is dynamically generated, this field provides the breadcrumb in the header (among
+						other uses).</p>
+					
+					<p>The <code>description</code> field provides a short description of the purpose of the page. It is
+						transformed into a <code>meta</code> description tag for search engine optimization.</p>
+					
+					<p>The <code>appliesTo</code> field is an array of values that identify which publishing
+						technologies the page applies to. There are currently only three values that can be used with
+						this field:</p>
+					
+					<ul>
+						<li>EPUB3</li>
+						<li>EPUB2</li>
+						<li>Audiobooks</li>
+					</ul>
+					
+					<p>For a technique that is valid in both EPUB 2 and 3, the field would be:</p>
+					
+					<pre id="info-ex-04" class="prettyprint linenums">'appliesTo': ['EPUB3', 'EPUB2'],</pre>
+					
+					<p>Please list technologies by their relevance (e.g., list EPUB 3 before 2 because it is the current
+						version of the standard).</p>
+					
+					<p>If additional technologies are required, please <a href="https://github.com/daisy/kb/issues">make
+						a request</a> to have them added.</p>
+				</section>
+			</section>
+			<section id="pg-content">
+				<h3>Page Content</h3>
+				
+				<p>After configuring the page metadata, the final step is to write the actual content of the page.</p>
+				
+				<p>Knowledge Base pages are structured to get information to users as quickly as possible. As most users
+					will not stop to read extensive descriptions, pages begin with a brief summary of the purpose of the
+					page. The relevant techniques are listed next, followed by a set of examples of the techniques in
+					action. Lengthier descriptions of the issues and links to related resources are included at the end
+					of the page.</p>
+				
+				<p>This section provides guidance on how to complete each these sections.</p>
+				
+				<p>Note that contributed pages should follow the default template for consistency with the rest of the
+					site. There are times when the explanation of an issue will not fit this structure but please check
+					in advance before deviating from it. Contributions that are too anomalous may be rewritten or
+					rejected.</p>
+				
+				<section id="summary">
+					<h4>Summary</h4>
+					
+					<p>The summary section should provide a brief recap of the key takeaway of the page. What is the key
+						problem to be aware of, for example, or what technique must be followed. The summary should
+						not be more than a sentence or two as it is meant to convey the key point as concisely as
+						possible for users.</p>
+					
+					<p>The "Explanation" section described below is where you elaborate on the problems and
+						solutions.</p>
+				</section>
+				
+				<section id="techniques">
+					<h4>Techniques</h4>
+					
+					<p>The techniques section is where you list the common measures to take to fix or avoid the issue
+						covered by the page.</p>
+					
+					<p>Each list item should explain a practice in simple language and include a link to the relevant
+						WCAG Success Criteria, when applicable, in brackets at the end.</p>
+					
+					<p>If there are specific WCAG techniques that users can follow, include these in a sub-list.</p>
+					
+					<p>For example, a technique explaining to include alternative text could be structured like
+						this:</p>
+					
+					<pre id="tech-ex-01" class="prettyprint linenums">&lt;li>
+   &lt;p>Provide alternative text in the &lt;code>alt&lt;/code> attribute
+      if the image is not described in the surrounding text.
+      &lt;span class="wcag-level">[&lt;a
+         href="https://www.w3.org/TR/WCAG/#non-text-content">WCAG
+           1.1.1&lt;/a>]&lt;/span>&lt;/p>
+   &lt;ul>
+      &lt;li>&lt;a
+              href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37">Using
+              alt attributes on img elements&lt;/a>&lt;/li>
+      &#8230;
+   &lt;/ul>
+&lt;/li></pre>
+				</section>
+				
+				<section id="examples">
+					<h4>Examples</h4>
+					
+					<p>Each page should provide users at least one example of how to implement the markup or feature
+						in practice.</p>
+					
+					<p>Examples are structured using HTML <code>figure</code> tags.</p>
+					
+					<p>The first child element must be a <code>figcaption</code>. This element is further broken down
+						into a title and description. The title goes in the <code>div</code> element with the
+						<code>class</code> attribute value <code>label</code>. The description is written in one or
+						more paragraphs after the title.</p>
+					
+					<p>The following example shows a typical structuring of an example caption:</p>
+					
+					<pre id="ex-ex-01" class="prettyprint linenums">&lt;figcaption>
+   &lt;div class="label">Example 1 &#8212; Complex Images&lt;/div>
+   &lt;p>This example uses the details element to &#8230;&lt;/p>
+&lt;/figcaption></pre>
+					
+					<p>The markup for the example goes inside of a pairing of <code>pre</code> and <code>code</code>
+						elements.</p>
+					
+					<pre id="ex-ex-02" class="prettyprint linenums">&lt;pre id="ex-01-src" class="prettyprint linenums">&lt;code>&#8230;&lt;/code>&lt;/pre></pre>
+					
+					<p>Note that the <code>id</code> and <code>class</code> attributes are required. These are used
+						to add syntax highlighting and line numbers to the generated example.</p>
+				</section>
+				
+				<section id="faqs">
+					<h4>Frequently Asked Questions</h4>
+					
+					<p>The Frequently Asked Questions (FAQ) section is where you can address specific problems that are
+						commonly encountered in a question-and-answer format. This approach is often easier for users to
+						follow than reading an extended explanation. It also allows very specific problems to be
+						addressed without overloading the more general explanation of the issue.</p>
+					
+					<p>The FAQ is structured using an HTML definition list (the <code>dl</code> element). Use a
+							<code>dt</code> element for each question and a <code>dd</code> element for each answer.</p>
+				</section>
+				
+				<section id="explanation">
+					<h4>Explanation</h4>
+					
+					<p>The explanation section is where you describe in detail the practices and issues that users need
+						to be aware of.</p>
+					
+					<p>There are no specific requirements for the explanation beyond being as thorough as possible and
+						using as simple language as possible. Readers of the knowledge base are not necessarily
+						technology experts.</p>
+					
+					<p>The explanation can be broken up into subsections if it helps to organize the information.</p>
+				</section>
+				
+				<section id="links">
+					<h4>Related Links</h4>
+					
+					<p>The related links section contains pointers to relevant standards so that users can quickly look
+						up more information.</p>
+					
+					<p>If EPUB structures, HTML elements or ARIA attributes are referenced from the page, for example,
+						provide links to their definitions in this section (even if the references are linked in the
+						body).</p>
+				</section>
+				
+				<section id="other">
+					<h4>Other Sections</h4>
+					
+					<p>If additional sections are needed, they should be added after the explanation and before the
+						final related links section.</p>
+				</section>
+			</section>
+			<section id="update-idx">
+				<h3>Updating Indexes</h3>
+				
+				<p>When adding a new page, both the topical and site indexes also need to be updated to include a link
+					to the page.</p>
+				
+				<p>The topical index is located in the same folder as your page in the <code>index.html</code> file.
+					This file includes a list of pages, typically in alphabetical order (although sometimes an overview
+					or introductory page is listed first). Add a new entry in the list for your page.</p>
+				
+				<p>The site index is located in the <code>/docs</code> directory. It is an aggregate of all the topical
+					indexes, so you can copy the entry you just made into the document. The only change necessary is to
+					add the path to the file to the link since the page is not in the same directory as this index.</p>
+			</section>
+			<section id="view">
+				<h3>Viewing Pages</h3>
+				
+				<p>If you open a new page in a browser by double-clicking on it from the file system you will only get
+					the raw unstyled HTML.</p>
+				
+				<p>There are two ways to view pages as they will appear on the site.</p>
+				
+				<ol>
+					<li>
+						<p>The first is to load the page from a local web server (e.g., IIS or Apache) running on your
+							computer. To view your file, you only need to ensure that the root of the repository is the
+							root web site on the server. You can then load the page in any browser to see the
+							dynamically rendered version. The URL for the content folders is typically
+								<code>http://localhost/publishing/docs/</code></p>
+					</li>
+					<li>
+						<p>The second way is to commit the page to GitHub and view it online. Here, again, there are two
+							approaches:</p>
+						<ol>
+							<li>
+								<p>If you have cloned the knowledge base to your local account, you can turn on GitHub
+									pages to view the content. GitHub provides instructions on <a
+										href="https://guides.github.com/features/pages/">how to turn on pages</a>. In
+									this case, the URL for the content folders would be along these lines:
+										<code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
+							</li>
+							<li>
+								<p>You can view the page through a third-party content server like statically.io. In
+									GitHub, you first would navigate to where the page is located (e.g.,
+									https://www.github.com/youraccountname/kb/publishing/docs/html/mynewpage.html). You
+									then copy that URL and paste it into the <a
+										href="https://statically.io/convert/">conversion tool</a> to get a new link you
+									can use to view the page live.</p>
+							</li>
+						</ol>
+					</li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>

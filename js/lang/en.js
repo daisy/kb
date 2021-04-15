@@ -27,6 +27,7 @@ var msg = {};
 	msg.footer.m11 = 'Specifications';
 	msg.footer.m12 = 'EPUB Accessibility';
 	msg.footer.m13 = 'EPUB 3';
+	msg.footer.m14 = 'Contribute';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
