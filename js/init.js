@@ -31,7 +31,7 @@ document.documentElement.classList.add('hidden');
 function KB() {
 	
 	this.kb_url = 'http://kb.daisy.org/';
-	this.kb_repo = 'https://github.com/DAISY/kb/commits/master/';
+	this.kb_repo = 'https://github.com/DAISY/kb/commits/main/';
 	this.kb_id = (window.location.href.split('/'))[3];
 	this.host = '';
 	
