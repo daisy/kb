@@ -124,11 +124,11 @@
 					<p>For example, to create a drop cap two lines high, only the following CSS is needed:</p>
 					
 					<pre id="ex-il-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child {
-	initial-letter: 2.0;
+	initial-letter: 2;
 }</code></pre>
 					
-					<p>(Note that an integer value like "2.0" creates a drop cap, while a whole number like "2" would
-						create a raised cap.)</p>
+					<p>(Note that to create a raised cap, you would use 
+					<code>initial-letter: 2 1</code>)</p>
 					
 					<p>The problem with this approach is that there is currently <a
 							href="https://caniuse.com/?search=initial-letter">limited support for the property</a> (only
