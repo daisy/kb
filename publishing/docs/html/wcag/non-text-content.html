@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Non-text Content</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.1.1 Non-text Content',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="https://mattgarrish.github.io/kb/js/init.js"></script>
+		<style>
+table.sc-info {
+	width: 100%;
+	border: none;
+}
+
+table.sc-info td {
+	border: none;
+	padding: 1rem;
+}
+
+table.sc-info th {
+	font-size: 100%;
+	border: none;
+	background-color: inherit;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 1rem
+}
+
+table.sc-info td.desc > p:first-child {
+	margin-top: 0;
+}
+
+table.sc-info td.docs ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+table.sc-info td.docs ul > li:first-child {
+	margin-top: 0;
+}
+
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Number:</th>
+						<td>1.1.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Images/Graphics/Charts</li>
+								<li>Audio</li>
+								<li>Video</li>
+								<li>User Controls (buttons, sliders, etc.)</li>
+								<li>Canvas</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							
+							<p>All non-text content that is presented to the user has a text alternative that serves the
+								equivalent purpose, except for the situations listed below.</p>
+							
+							<details>
+								<summary>View exceptions</summary>
+								<dl>
+									<dt>Controls, Input</dt>
+									<dd>
+										<p>If non-text content is a control or accepts user input, then it has a name
+											that describes its purpose. (Refer to Success Criterion 4.1.2 for additional
+											requirements for controls and content that accepts user input.)</p>
+									</dd>
+									
+									<dt>Time-Based Media</dt>
+									<dd>
+										<p>If non-text content is time-based media, then text alternatives at least
+											provide descriptive identification of the non-text content. (Refer to
+											Guideline 1.2 for additional requirements for media.)</p>
+									</dd>
+									
+									<dt>Test</dt>
+									<dd>
+										<p>If non-text content is a test or exercise that would be invalid if presented
+											in text, then text alternatives at least provide descriptive identification
+											of the non-text content.</p>
+									</dd>
+									
+									<dt>Sensory</dt>
+									<dd>
+										<p>If non-text content is primarily intended to create a specific sensory
+											experience, then text alternatives at least provide descriptive
+											identification of the non-text content.</p>
+									</dd>
+									
+									<dt>CAPTCHA</dt>
+									<dd>
+										<p>If the purpose of non-text content is to confirm that content is being
+											accessed by a person rather than a computer, then text alternatives that
+											identify and describe the purpose of the non-text content are provided, and
+											alternative forms of CAPTCHA using output modes for different types of
+											sensory perception are provided to accommodate different disabilities.</p>
+									</dd>
+									
+									<dt>Decoration, Formatting, Invisible</dt>
+									<dd>
+										<p>If non-text content is pure decoration, is used only for visual formatting,
+											or is not presented to users, then it is implemented in a way that it can be
+											ignored by assistive technology.</p>
+									</dd>
+								</dl>
+							</details>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li>
+									<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html"
+										>Understanding Success Criterion 1.1.1</a>
+								</li>
+								<li>
+									<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content">How to meet
+										Success Criterion 1.1.1</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who cannot access non-textual content
+					(such as graphics, charts, audio, and video) have access to the information contained in that
+					content in textual form.</p>
+			</section>
+			
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>How to meet this requirement depends on the complexity of the information expressed. The requirements
+					generally break down along the following lines:</p>
+				
+				<ul>
+					<li>For image content whose information can be conveyed in a sentence or less, authors only need
+						to provide alternative text (e.g., in an <code>alt</code> attribute).</li>
+					<li>If the image information is more complicated (e.g., for charts and graphs), authors need to
+						provide both a brief alternative text and an extended description.</li>
+					<li>For audio and video, a label is provided that gives the title or briefly describes the
+						purpose (additional audio and video requirements, such as the need for transcripts or captions
+						are covered under 1.2).</li>
+					<li>For user controls (e.g., buttons and sliders), a text alternative is required that describes
+						the function of the control. The text alternative typically is a label.</li>
+				</ul>
+				
+				<p>Note that this success criterion only applies to non-text content that expresses information the
+					reader needs to understand. Images that are included purely for aesthetic reasons (e.g., to
+					decorate the start of a new section) do not require text alternatives. As visual readers
+					gain nothing from these images, there is no need for non-visual readers to be made aware of
+					them.</p>
+				
+				<p>There is also an exception to this success criterion when providing a text alternative would
+					invalidate the purpose of the content. For example, if an author includes a test that requires
+					audio rendering of the question (e.g., to test spelling).</p>
+			</section>
+			
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li>
+						<a href="../images.html">Images</a>
+					</li>
+					<li>
+						<a href="../audio.html">Audio</a>
+					</li>
+					<li>
+						<a href="../video.html">Video</a>
+					</li>
+					<li>
+						<a href="../hidden.html">Hidden Content</a>
+					</li>
+					<li>
+						<a href="../../script/controls.html">Control Labels</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
