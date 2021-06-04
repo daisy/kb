@@ -17,8 +17,8 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>Ensure the audio is labeled, the user can control playback, and there are alternatives for users who cannot hear the audio
-					or need more time to process the information.</p>
+				<p>Ensure the audio is labeled, the user can control playback, and there are alternatives for users who
+					cannot hear the audio or need more time to process the information.</p>
 			</section>
 			
 			<section id="tech">
@@ -54,20 +54,26 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Enabling native controls</div>
+						<div class="label">Example &#8212; Enabling native controls</div>
 						<p>Setting the <code>controls</code> attribute enables the native HTML controls by default.</p>
 					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;audio src="audio/clip01.mp3"
-       controls="controls"
-       aria-label="Moon landing"/></code></pre>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;audio &#8230; controls="controls"/></code></pre>
 				</figure>
 
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Including a transcript</div>
+						<div class="label">Example &#8212; Adding a label</div>
+						<p>The <code>aria-label</code> attribute identifies the subject of audio clip.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;audio &#8230; aria-label="Moon landing"/></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example &#8212; Including a transcript</div>
 						<p>A link to a transcript is provided after the audio clip.</p>
 					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;div>
    &lt;audio src="audio/01.mp3"
           controls="controls"
           aria-label="Truman's fair deal"/>
@@ -75,14 +81,14 @@
 &lt;/div></code></pre>
 				</figure>
 
-				<figure id="ex-03">
+				<figure id="ex-04">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Including a fallback error message</div>
-						<p>Content included inside the <code>audio</code> element is only rendered if the element itself
-							is unsupported. The content is not displayed if there are no supported audio formats (the user
-							agent will display its own error message in such cases).</p>
+						<div class="label">Example &#8212; Including a fallback error message</div>
+						<p>A user agent will only render the content inside the <code>audio</code> element if it does not
+							support the element. The user agent does not display this content if it does not support the
+							provided audio formats (the user agent will display its own error message in such cases).</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;audio
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;audio
        src="audio/clip12.mp3"
        controls="controls"
        aria-label="Churchill's 'We Shall Never Surrender' speech">
@@ -99,24 +105,23 @@
 				<h3>Explanation</h3>
 				
 				<p>When including audio clips, ensure that the native user agent controls are enabled by default (i.e.,
-					by setting the <code>controls</code> attribute on the <code>audio</code> element). This practice ensures
-					that the control are accessible even if scripting is not available. If custom controls are provided and
-					supported by the user agent, the native controls can be disabled by JavaScript.</p>
+					by setting the <code>controls</code> attribute on the <code>audio</code> element). This practice
+					ensures that the controls are accessible even if scripting is not available. If you define your own
+					custom controls, disable the native controls by JavaScript so they remain available in user agent
+					that do not support scripting.</p>
 				
-				<p>Although the <code>audio</code> element allows child content for fallback purposes, such content is not
-					intended to serve as an accessible alternative. It is only made available to the user if the
-					<code>audio</code> element is not supported by the user agent (e.g., EPUB 2 user agents).</p>
+				<p>Providing a label for audio clips ensures that users can understand the purpose of the video before
+					choosing whether to listen to it. Users with high bandwidth costs, for example, can save both time
+					and money by not having to download clips they are not interested in.</p>
 				
-				<p>The following methods for making audio content accessible are instead recommended in the HTML5
-					specification:</p>
+				<p>In terms of providing alternatives, WCAG requires "media alternatives" for audio content. These 
+					are like transcripts but cannot be only a simple listing of the spoken dialogue. The alternative
+					must also describe any important non-verbal sounds.</p>
 				
-				<ul>
-					<li>Providing navigation by scene using the <code>track</code> element (i.e., using the
-						<code>chapters</code> track type).</li>
-					<li>Providing a link to a transcript.</li>
-					<li>If captions or a sign language video are available, the <code>video</code> element can be used to
-						play back the clip synchronously.</li>
-				</ul>
+				<p>Although the <code>audio</code> element allows child content for fallback purposes, such content is
+					not intended to serve as an accessible alternative. The user agent only makes this content
+					available to the user if it does not support the <code>audio</code> element (e.g., in EPUB 2 user
+					agents).</p>
 			</section>
 			
 			<section id="refs">
