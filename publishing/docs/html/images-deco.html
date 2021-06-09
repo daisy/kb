@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Decorative Images</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for identifying decorative images.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure that decorative images are not presented to users.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Ensure that decorative images have an empty alt attribute (<code>alt=""</code>). <span
+							class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#non-text-content">WCAG 1.1.1</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67">Using null alt text and no title
+									attribute on img elements for images that AT should ignore</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C9">Using CSS to include decorative
+									images</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C18">Using CSS margin and padding rules
+									instead of spacer images for layout design</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example &#8212; Empty <code>alt</code> attribute</div>
+						<p>An empty <code>alt</code> attribute indicates that the image contains no information for
+							users.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    alt=""/></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example &#8212; Empty <code>alt</code> attribute with ARIA role <code>presentation</code></div>
+						<p>An empty <code>alt</code> attribute is complemented by the role <code>presentation</code> to
+							indicate that the image contains no information for users.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    role="presentation"
+    alt=""/></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example &#8212; ARIA role <code>presentation</code></div>
+						<p>Authors may use the role <code>presentation</code> in place of an empty <code>alt</code>
+							attribute, but this method is not well supported.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    role="presentation"/></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Not every image in a publication contains information that is important to understanding the text.
+					Decorative flair might be used to highlight the start of a new chapter, but the shape and form of
+					these visuals is irrelevant to understanding the text. Similarly, a textbook might include
+					decorative photographs to start new sections that are only intended to fill out a page
+					visually.</p>
+				
+				<p>When an image is purely decorative, its <code>alt</code> attribute should be left empty. This
+					signals to assistive technologies not to announce the presence of the image, saving users the
+					nuisance of trying to understand why an image without a description is present.</p>
+				
+				<p>For additional insurance that decorative images will not be announced, the ARIA <code>role</code>
+					attribute with the property <code class="property">presentation</code> can be attached. This
+					practice is used by some publishers to ensure that an editor has checked all images with empty
+					<code>alt</code> attributes to verify they are decorative.</p>
+				
+				<div class="note" role="note" aria-labelledby="bp-note">
+					<p id="bp-note" class="label">Note</p>
+					<p>It is best practice to add an ARIA role if an image is purely decorative, but it is not required
+						for conformance with WCAG.</p>
+					
+					<p>Although the role <code>none</code> is preferred over <code>presentation</code> as of ARIA 1.1,
+						it is not well supported. The <a href="https://www.w3.org/TR/wai-aria-1.1/#none">ARIA 1.1
+							specification</a> recommends using either <code>presentation</code> alone or as a fallback
+						for <code>none</code>.</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>DIAGRAM &#8212; <a 
+						href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
+						Practices for Authoring Extended Descriptions in EPUB</a></li>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"
+							>The <code>img</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
