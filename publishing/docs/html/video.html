@@ -73,6 +73,14 @@
 								of the content flashes more than three times in any 1-second period</a></li>
 						</ul>
 					</li>
+					<li>
+						<p>Ensure users can disable any audio that starts automatically or turn off its volume. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#audio-control">WCAG 1.4.2</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G60">Playing a sound that turns off automatically within three seconds</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G170">Providing a control near the beginning of the Web page that turns off sounds that play automatically</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G171">Playing sounds only on user request</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			
@@ -178,6 +186,13 @@
 					not intended to serve as an accessible alternative. The user agent only makes this content
 					available to the user if it does not support the <code>video</code> element (e.g., in EPUB 2 user
 					agents).</p>
+				
+				<p>It is also important to consider that users need to be able to hear the audio produced by their
+					assistive technologies (e.g., a screen reader). Automatically playing a video with audio interferes
+					with their ability to hear the text, for example, so unless the clip only plays for three seconds
+					or less, the user must be able to disable playback or mute the volume without also muting their
+					assistive technology (i.e., the system audio control is not sufficient to meet this requirement as
+					it will raise and lower all audio in synchronicity).</p>
 			</section>
 			
 			<section id="refs">
