@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Reflow</title>
+		<script>
+			var page_info = {
+				'topic': 'CSS',
+				'description': 'Guidance on making content reflow when zoomed for easier reading.',
+				'appliesTo': ['EPUB3', 'EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure the content of a publication reflows to fit within the available screen space when zoomed
+					up to 400%.</p>
+			</section>
+			
+			<section id="techniques">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Use CSS to adapt layouts <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#reflow">WCAG 1.4.10 - AA</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">Using media queries and grid CSS to reflow columns</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">Using CSS Flexbox to reflow content</a></li>
+						</ul>
+					</li>
+					
+					<li>
+						<p>Use relative size units for container elements <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#reflow">WCAG 1.4.10 - AA</a>]</span></p>
+					</li>
+					
+					<li>
+						<p>Enable line breaking of long words <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#reflow">WCAG 1.4.10 - AA</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C33">Allowing for Reflow with Long URLs and Strings of Text</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>WCAG's <a href="https://www.w3.org/TR/WCAG/#reflow">Reflow success criterion</a> requires that
+					content not require scrolling in two dimensions as it is zoomed to 400% on a standard desktop
+					screen at 1080px wide and 1024px high resolution. For vertical scrolling pages, this requirement
+					means that the user must not have to scroll horizontally to read the content (with some exceptions
+					for content that cannot adapt without becoming unusable or unreadable); the content should adapt to
+					fit within the screen area.</p>
+				
+				<p>This sort of adaptation is known as responsive web design. Web site authors use CSS layouts together
+					with media queries to reduce multi-column page layouts down to a single column as the available
+					screen space is reduced.</p>
+				
+				<section id="reflow">
+					<h4>Reflowable Publications</h4>
+					
+					<p>Unlike web sites, reflowable digital publications are not generally laid out in columns or
+						grids. As a result, meeting the reflow requirement typically does not require a lot of additional
+						work for most basic works like novels.</p>
+					
+					<p>Authors only need to ensure that they have styled the content so that it can adapt as it is zoomed.
+						Some common problems that can break the reflow requirement even in reflowable books include:</p>
+					
+					<ul>
+						<li>Styling elements using absolute units like pixels &#8212; as the visible screen area is
+							reduced, these units cannot adapt to the changes but stay fixed (i.e., forcing
+							scrollbars).</li>
+						<li>Using layout tables to place content in grids &#8212; tables can only be compressed so
+							much, whereas using CSS styling allows authors to change from grid layouts to a single
+							column as the zooming changes.</li>
+						<li>Not allowing word wrapping of long words &#8212; Soft hyphens (&amp;shy;) and CSS word break
+							handling rules can minimize scrolling caused by very long words or URLs.</li>
+					</ul>
+				</section>
+				
+				<section id="fxl">
+					<h4>Fixed Layouts</h4>
+					
+					<div class="caution" aria-labelledby="note-hd">
+						<p id="note-hd" class="label">Caution</p>
+						<p>The problems of meeting this requirement for fixed layouts are currently under discussion in
+							the W3C EPUB 3 Working Group. Additional guidance will be provided in future updates to
+							this page.</p>
+					</div>
+					
+					<p>Whether fixed layouts meet the reflow requirement depends on how they are constructed:</p>
+					
+					<ul>
+						<li>
+							<p>Image-based fixed layouts, where the two-dimensional presentation is essential to the
+								content, are likely exempt from the requirement not to need scrolling as they are
+								scaled. This category includes pages in comics and manga, pages in illustrated
+								children's books (where the text is part of the illustration), maps, and graphics.</p>
+						</li>
+						<li>
+							<p>All other types of fixed layouts (i.e., where the positioning of the content has no
+								meaning and is purely presentational) must meet the reflow requirement.</p>
+						</li>
+					</ul>
+					
+					<p>Although in theory it would be possible to use adaptive design techniques to make fixed layout
+						content reflow as it is zoomed, the lack of reading system support in EPUB for rerendering
+						fixed layout pages as they scale makes it impossible to author conforming content at this
+						time.</p>
+					
+					<p>EPUB reading systems typically only allow users to zoom fixed layout pages on mobile devices,
+						but even here they scale the whole page. Consequently, such content cannot meet the WCAG
+						requirement for accessibility support in user agents no matter what the author does to make
+						their content accessible.</p>
+					
+					<p>Moreover, there may not even be enough support for zooming on desktop reading systems for any
+						fixed layout content to meet the requirement for being accessibility supported.</p>
+					
+					<p>As a result, it is likely not possible to make a claim of WCAG AA support for fixed layout
+						publications at this time.</p>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
