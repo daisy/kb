@@ -627,7 +627,7 @@ KB.prototype.generateFooter = function () {
 
 	// add the copyright
 	
-	daisy.appendChild(document.createTextNode(msg.footer.m01 + spacer));
+	daisy.appendChild(document.createTextNode(msg.footer.m01.replace('%yr%', new Date().getFullYear()) + spacer));
 
 	// add the link to the terms of use and privacy policy
 	

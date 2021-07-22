@@ -14,7 +14,7 @@ var msg = {};
 	msg.header.m03 = 'Recherche';
 	
 	msg.footer = {};
-	msg.footer.m01 = '\u00a9 Copyright The DAISY Consortium';
+	msg.footer.m01 = '\u00a9 %yr% The DAISY Consortium';
 	msg.footer.m02 = 'Conditions générales d\'utilisation';
 	msg.footer.m03 = 'Confidentialité';
 	msg.footer.m04 = 'journal de commit';
