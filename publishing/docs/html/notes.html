@@ -65,14 +65,13 @@
 					<figcaption>
 						<div class="label">Example 2 &#8212; Grouped notes at the end of a section/work</div>
 						<p>Note that the <code>doc-endnotes</code> role cannot be used on lists; it is used to identify
-							the section containing the endnotes. The <code>doc-footnote</code> role is used on an element
-							inside the list item. Do not use it on list items as it will remove their list nature.</p>
+							the section containing the endnotes.</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section epub:type="endnotes" role="doc-endnotes"> 
    &lt;h2>End Notes&lt;/h2>
    &lt;ol>
      &lt;li>
-        &lt;p role="doc-footnote">According to the 
+        &lt;p>According to the 
            usual nomenclature, the branch flowing
            S.W. is called the Chattooga; this unites
            with the Tallulah to form the Tugaloo,
@@ -138,10 +137,9 @@
 							ARIA <code>list</code> role.</p>
 						<p>While AT uses should not experience any problems if you have already used the role, it is
 							best to avoid it moving forward to avoid errors in your content.</p>
-						<p>The role is also somewhat redundant. If a section of notes is identified using the
+						<p>The role is also generally redundant. If a section of notes is identified using the
 							<code>doc-endnotes</code> role, users will understand the list within the section contains
-							the endnotes. To reinforce this fact, you can use the <code>doc-footnote</code> role to wrap
-							the notes in each list item (see <a href="#ex-02">Example 2</a>).</p>
+							the endnotes.</p>
 					</dd>
 				</dl>
 			</section>
@@ -166,10 +164,10 @@
 				
 				<p>Notes that are grouped at the end of a section do not need to be individually tagged as
 					<code>aside</code>, but should be grouped using <code>doc-endnotes</code> role (see <a
-							href="#ex-02">Example 2</a>). Lists are an effective means of representing groups of notes in
-					these sections, as they allow users to move through them more effectively (e.g., each list item number
-					will typically correspond sequentially to the contained note number, and users should have the ability
-					to jump through more than one list item at a time when there are many notes).</p>
+							href="#ex-02">Example 2</a>). Lists allow users to move through them more effectively
+					(e.g., each list item number will typically correspond sequentially to the contained note number,
+					and users should have the ability to jump through more than one list item at a time when there are
+					many notes).</p>
 				
 				<h4>Notes in Tables</h4>
 				
@@ -207,7 +205,6 @@
 
 				<ul>
 					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote"><code>doc-footnote</code></a></li>
-					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote"><code>doc-endnote</code></a></li>
 					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnotes"><code>doc-endnotes</code></a></li>
 				</ul>
 			</section>
