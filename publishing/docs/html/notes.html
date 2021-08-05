@@ -104,21 +104,24 @@
 						<p>The backlink precedes the note text so that the user will be aware that such a link is
 							available.</p>
 					</figcaption>
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside role="doc-footnote">
-   &lt;p>&lt;a href="#ref" role="doc-backlink" title="Go to note reference 1">1.&lt;/a> According to the usual nomenclature, the &#8230;&lt;/p>
-&lt;/aside></code></pre>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;div role="doc-footnote">
+   &lt;p>&lt;a href="#ref" role="doc-backlink"
+         title="Go to note reference 1">1.&lt;/a> According to
+      the usual nomenclature, the &#8230;&lt;/p>
+&lt;/div></code></pre>
 				</figure>
 				
 				<figure id="ex-05">
 					<figcaption>
 						<div class="label">Example 5 &#8212; Backlink from endnote</div>
 						<p>The backlink follows the note text to avoid any conflicts with automatic list numbering.
-							The link is placed in its own element so that the user does not have to listen to the note before
-							being able to activate it.</p>
+							The link is placed in its own element so that the user does not have to listen to the full
+							note before being able to activate it.</p>
 					</figcaption>
 					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;div role="doc-footnote">
    &lt;p>1. According to the usual nomenclature, the &#8230;&lt;/p>
-   &lt;p>&lt;a href="#ref" role="doc-backlink">Go to note reference 1&lt;/a>&lt;/p>
+   &lt;p>&lt;a href="#ref" role="doc-backlink">Go to note
+      reference 1&lt;/a>&lt;/p>
 &lt;/div></code></pre>
 				</figure>
 			</section>
@@ -138,8 +141,8 @@
 						<p>While AT uses should not experience any problems if you have already used the role, it is
 							best to avoid it moving forward to avoid errors in your content.</p>
 						<p>The role is also generally redundant. If a section of notes is identified using the
-							<code>doc-endnotes</code> role, users will understand the list within the section contains
-							the endnotes.</p>
+							<code>doc-endnotes</code> role, users and assistive technologies will understand the list
+							within the section contains the endnotes.</p>
 					</dd>
 				</dl>
 			</section>
@@ -157,47 +160,52 @@
 					only does this allow accessible user agents to ignore the notes except when followed from their
 					referents, but it allows any user agent to handle them more intelligently (e.g., as pop-ups).</p>
 				
-				<p>Notes placed within the primary narrative should be tagged using the HTML <code>aside</code> element (see
-					<a href="#ex01">Example 1</a>). This usage ensures that even if their semantics are not
-					recognized, the notes will still be treated as secondary content due the nature of the HTML5
-					<code>aside</code> element.</p>
-				
-				<p>Notes that are grouped at the end of a section do not need to be individually tagged as
-					<code>aside</code>, but should be grouped using <code>doc-endnotes</code> role (see <a
-							href="#ex-02">Example 2</a>). Lists allow users to move through them more effectively
+				<p>Notes that are grouped at the end of a section should be grouped using <code>doc-endnotes</code> role
+					(see <a href="#ex-02">Example 2</a>). Lists allow users to move through them more effectively
 					(e.g., each list item number will typically correspond sequentially to the contained note number,
 					and users should have the ability to jump through more than one list item at a time when there are
 					many notes).</p>
 				
-				<h4>Notes in Tables</h4>
+				<section id="notes-tables">
+					<h4>Notes in Tables</h4>
+					
+					<p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
+						summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
+						a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
+				</section>
 				
-				<p>If notes occur in a table, avoid placing them in a <code>tfoot</code> element, as it is intended for
-					summaries of the columns. Footnotes can follow the table or can be grouped together with the table inside
-					a <code>figure</code>. See the <a href="tables.html">Tables section</a> for an example.</p>
+				<section id="note-refs">
+					<h4>Note References</h4>
+					
+					<p>Note references must be tagged using the HTML <code>a</code> element to ensure users do not
+						have to visually locate the corresponding note.</p>
+					
+					<p>The <code>sup</code> element may be used to superscript note references, but it adds extra verbosity
+						(assistive technologies will announce the text is superscripted in addition to being linked).
+						The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
+						elements without the additional voicing (see <a href="#ex03">Example 3</a>).</p>
+					
+					<div class="note" role="note" aria-labelledby="role-note-hd">
+						<p id="role-note-hd" class="label">Note</p>
+						<p>Until there is greater support for announcing the <code>doc-footnote</code> role, the
+							<code>sup</code> element provides some context for the note references. As support for the
+							role increases, however, the use of explicit superscripting will become redundant. At that
+							time, preference should be given to CSS formatting.</p>
+					</div>
+				</section>
 				
-				<h4>Note References</h4>
-				
-				<p>Note references must be tagged using the HTML <code>a</code> element to ensure users do not
-					have to visually locate the corresponding note.</p>
-				
-				<p>The <code>sup</code> element may be used to superscript note references, but it adds extra verbosity
-					(assistive technologies will announce the text is superscripted in addition to being linked).
-					The CSS <code>vertical-align</code> property can be set to superscript the <code>a</code>
-					elements without the additional voicing (see <a href="#ex03">Example 3</a>).</p>
-				
-				<div class="note" role="note" aria-labelledby="role-note-hd">
-					<p id="role-note-hd" class="label">Note</p>
-					<p>Until there is greater support for announcing the <code>doc-footnote</code> role, the
-						<code>sup</code> element provides some context for the note references. As support for the
-						role increases, however, the use of explicit superscripting will become redundant. At that
-						time, preference should be given to CSS formatting.</p>
-				</div>
-				
-				<h4>Back Referencing</h4>
-				
-				<p>Although not specifically required to be accessible, it is good practice to backlink groups of notes to
-					their referent locations in the text (see <a href="#ex-04">Example 4</a>). If a user is
-					surveying the notes, backlinks will allow them to quickly find the text the note refers to.</p>
+				<section id="note-backlink">
+					<h4>Back Referencing</h4>
+					
+					<p>Although not specifically required to be accessible, it is good practice to backlink groups of
+						notes to their referent locations in the text (see <a href="#ex-04">Example 4</a>). If a user
+						is surveying the notes, backlinks will allow them to quickly find the text the note refers
+						to.</p>
+					
+					<p>Ensure that the link text for each back reference clearly identifies where the link goes. Avoid
+						using the same text over and over, like "Go to reference". When users of assistive technologies
+						access the list of links on the page, the context of each link is lost.</p>
+				</section>
 			</section>
 			
 			<section id="refs">
