@@ -6,7 +6,7 @@
 			var page_info = {
 				'topic': 'HTML',
 				'description': 'Guidelines for the accessible inclusion of bibliographies.',
-				'appliesTo':[ 'EPUB3']
+				'appliesTo':['EPUB3','EPUB2']
 			};</script>
 		<script src="/js/init.js"></script>
 	</head>
@@ -59,7 +59,7 @@
 						<p>If a bibliography does not contain many entries, only a single list is necessary.</p>
 					</figcaption>
 					
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section epub:type="bibliography">
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
    &lt;h1>Bibliography&lt;/h1>
    &lt;dl>
      &lt;dt>[pub-manfest]&lt;/dd>
@@ -77,7 +77,7 @@
 							element can be used to group the entries.</p>
 					</figcaption>
 					
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section epub:type="bibliography">
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
    &lt;h2>Bibliography&lt;/h2>
    
    &lt;section>
@@ -103,10 +103,10 @@
 						
 						<p>If a bibliography is grouped alphabetically, the <code>section</code> element can be used to 
 							group the entries. Use either an explicit heading (<code>h1</code> to <code>h6</code>) or 
-							an implied one (<code>aria-label</code>.</p>
+							an implied one (<code>aria-label</code>).</p>
 					</figcaption>
 					
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section epub:type="bibliography">
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
    &lt;h1>Bibliography&lt;/h1>
    
    &lt;section aria-label="A">
@@ -143,6 +143,8 @@
 				<h3>Related Links</h3>
 				
 				<ul>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria/#doc-bibliography"><code>doc-bibliography</code>
+						(role)</a></li>
 					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element">The
 						<code>section</code> element</a></li>
 					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">Headings and

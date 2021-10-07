@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Glossaries</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the accessible inclusion of glossaries.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>Structure glossaries using sections and lists to simplify access to the terms.</p>
+			</section>
+
+			<section id="tech">
+				<h3>Techniques</h3>
+
+				<ul>
+					<li>Use the <code>section</code> element to group related sets of terms. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></li>
+					<li>
+						<p>Include a heading for each section <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H69">Providing heading elements
+								at the beginning of each section of content</a></li>
+						</ul>
+					</li>
+					<li>
+						<p>Use the <code>dl</code> element to structure the lists of terms. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48">Using ol, ul and dl for
+								lists or groups of links</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">Example &#8212; A basic glossary</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary">
+   &lt;h2>Glossary of Terms&lt;/h1>
+   
+   &lt;dl>
+      &lt;dt>AstroSeneca&lt;/dt>
+      &lt;dd>
+         &lt;p>First Roman philosopher in space.&lt;/p>
+       &lt;/dd>
+       &#8230;
+  &lt;/dl>
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">Example &#8212; A glossary with explicit subheadings for
+							alphabetical categorization</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary">
+   &lt;h2>Glossary&lt;/h2>
+   
+   &lt;section>
+     &lt;h3>A&lt;/h3>
+     
+     &lt;dl>
+       &lt;dt>Absorbitron&lt;/dt>
+       &lt;dd>
+         &lt;p>Transformer known to change into a sponge.&lt;/p>
+       &lt;/dd>
+       &#8230;
+     &lt;/dl>
+   &lt;/section>
+   
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">Example &#8212; A glossary with implicit headings</p>
+						<p>If the sets of terms are only separated by a visual space, use the
+								<code>aria-label</code> attribute to provide a heading for assistive technologies.</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary">
+   &lt;h2>Glossary&lt;/h2>
+   
+   &lt;section aria-label="A">
+     &lt;dl>
+       &lt;dt>Anti-oxidants&lt;/dt>
+       &lt;dd>
+         &lt;p>People who dislike oxidants.&lt;/p>
+       &lt;/dd>
+       &#8230;
+     &lt;/dl>
+   &lt;/section>
+   
+   &lt;section aria-label="B">
+     &lt;dl>
+       &lt;dt>Beta-Carotene&lt;/dt>
+       &lt;dd>
+         &lt;p>Carotene that is still in a debugging stage.&lt;/p>
+       &lt;/dd>
+       &#8230;
+     &lt;/dl>
+   &lt;/section>
+   
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt id="faq-indexes-spec">Should I follow the EPUB Dictionaries and Glossaries specification?</dt>
+					<dd>
+						<p>Following the structuring principles in the document is advised, and the most useful for
+							accessibility are repeated in this page, but the use of <code>epub:type</code> semantics is
+							not necessary. While these semantics may be useful for internal publisher workflows, they do
+							not currently enhance glossaries in reading systems and the <code>epub:type</code> semantics
+							provide no accessibility.</p>
+
+						<p>Given the limited uptake of the specification at this time, there is no need to follow the
+							package document identification requirements.</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Providing a glossary for technical terms and language that is used in uncommon ways is especially
+					helpful for users with learning and cognitive disabilities. Ensure that links are provided from
+					where the terminology is used to the definitions to make it easier for users to look up
+					definitions. It is typically not necessary to link every instance of a glossary term, as such
+					overlinking can affect navigation for users of assistive technologies (i.e., it becomes more
+					difficult to review the links in a document). Consider only linking the first instance in a new
+					section.</p> 
+
+				<p>To facilitate navigating the alphabetically and numerically related entries of a glossary, use nested
+						<code>section</code> elements. Many glossaries include the number or letter as a heading between
+					each set of entries, but if one is not present or wanted, include the number or letter in an
+						<code>aria-label</code> attribute on the enclosing section so that it can be announced by
+					assistive technologies. Also, without an explicit or implicit heading, assistive technologies often
+					will not provide the ability to move from one section to another (they are treated like purely
+					stylistic elements).</p>
+
+				<p>Structure the terms in each section using definition lists. The use of these lists allows users of
+					assistive technologies to jump forward and backward through the list items instead of having to
+					move through each one at a time as would result if paragraphs or similar markup is used.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria/#doc-glossary"><code>doc-glossary</code>
+						(role)</a></li>
+					<li><a href="http://www.idpf.org/epub/dict">EPUB Dictionaries and Glossaries 1.0</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element">The
+						<code>section</code> element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">Headings and
+						sections</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element">The
+						<code>dl</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
