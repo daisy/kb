@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Abbreviations</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for the use of abbreviations.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure the expanded forms of abbreviations are available to users the first time they are used or if
+					there is any potential for ambiguity.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Provide the abbreviation in parentheses after the first use of its expanded form. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#abbreviations">WCAG 3.1.4 - AAA</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G97">Providing the first use
+								of an abbreviation immediately before or after the expanded form</a></li>
+						</ul>
+					</li>
+					<li>
+						<p>Use the <code>abbr</code> element with a <code>title</code> attribute to provide the expansion. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#abbreviations">WCAG 3.1.4 - AAA</a>]</span></p>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H28">Providing definitions for
+								abbreviations by using the abbr element</a></li>
+						</ul>
+					</li>
+					<li>
+						<p>Provide a glossary of abbreviations. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#abbreviations">WCAG 3.1.4 - AAA</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G62">Providing a glossary</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G55">Linking to definitions</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">Example 1 &#8212; Providing the acronym after the first use</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p>The North American Free Trade Agreement (NAFTA) &#8230; &lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption><span class="label">Example 2 &#8212; Including the expansion using an <code>abbr</code> element</span></figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p>
+   &lt;abbr
+     title="The United States Mexico Canada Agreement"
+   >USMCA&lt;/abbr>
+   replaced &lt;abbr
+     title="The North American Free Trade Agreement"
+   >NAFTA&lt;/abbr> in 2019 &#8230; &lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption><span class="label">Example 3 &#8212; Using the <code>abbr</code> element to differentiate similar words</span></figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>If you follow
+   &lt;abbr title="Saint">St.&lt;/abbr>
+   Stephen
+   &lt;abbr title="Street">St.&lt;/abbr>
+   north for ten blocks &#8230; &lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption><span class="label">Example 4 &#8212; Linking to a glossary entry</span></figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;p>Some &lt;a
+    href="glossary.html#snafu"
+    role="doc-glossref">SNAFUs&lt;/a>
+   are not good to expand on PG sites&#8230; &lt;/p></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although using abbreviations and initialisms helps save space and can make for useful mnemonics,
+					they also present a challenge for readers initially unfamiliar with the terms. This is especially
+					problematic for individuals with cognitive and learning disabilities, who may have trouble
+					understanding and remembering the meanings.</p>
+				
+				<p>There are a variety of techniques that authors can use to make abbreviations and initialisms more
+					accessible. A typical rule in most writing guides is to always provide the expanded version of
+					the term before introducing the abbreviation in parentheses (e.g., "World Wide Web Consortium
+					(W3C)".</p>
+				
+				<p>This technique works best on its own when an abbreviation or initialism is only used in a small
+					section of the work. If the term is introduced once and then repeated throughout an entire
+					publication, however, readers will have difficulty locating its definition.</p>
+				
+				<p>To avoid this problem, the HTML <code>abbr</code> element can be used to reintroduce the expansion
+					by providing it in a <code>title</code> attribute (see <a href="#ex-02">example 2</a>). This markup
+					provides an unobtrusive way to tag any instance of the abbreviation.</p>
+				
+				<p>A drawback of using the <code>abbr</code> element is that the expansion may only be available to
+					users of assistive technologies. Although using the <code>title</code> attribute will produce a
+					tooltip when a mouse is hovered over the abbreviation, readers may not be using a reading system
+					with a pointing device.</p>
+				
+				<p>Another option is to link the abbreviation to a glossary entry (see <a href="#ex-03">example 4</a>).
+					Although this option allows any user to reach the expansion, care needs to be exercised not to
+					overload documents with links to glossary terms. The more repetitive links to a term there are in a
+					document, the more it impedes users of assistive technologies from cycling through them. When using
+					links, it is best to only link the first term in a section.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element">The
+								<code>abbr</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
