@@ -108,7 +108,7 @@ a {
 
 nav.breadcrumb a,
 nav.mini-toc a,
-section#tech a {
+section#tech span > a {
 	border-bottom: none;
 }
 

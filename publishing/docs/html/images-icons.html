@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Icons</title>
+		<script>
+			var page_info = {
+				'topic': 'HTML',
+				'description': 'Guidelines for creating accessible icons.',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.min-ex {
+				max-width: 10rem;
+			}
+			.dark {
+				background-color: rgb(0,0,200);
+			}
+			.shrink {
+				height: 24px;
+				width: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure that icons are clearly and consistently labelled to identify their purpose.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Ensure icons are consistently identified. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#consistent-identification">WCAG 3.2.4 - AA</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G197.html">Using labels,
+									names, and text alternatives consistently for content that has the same
+									functionality</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Ensure sufficient contrast between the icon and the background. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#non-text-contrast">WCAG 1.4.11 - AA</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G207.html">Ensuring that a
+									contrast ratio of 3:1 is provided for icons</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G209.html">Provide sufficient
+									contrast at the boundaries between adjoining colors</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Identify and label font icons. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#consistent-identification">WCAG 3.2.4 - AA</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24.html">Semantically
+									identifying a font icon with role="img"</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>If the icon is for a control, ensure it is at least 44 by 44 pixels in size. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#target-size">WCAG 2.5.5 - AAA</a>]</span></p>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>Examples</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">Example 1 &#8212; Common Sidebar Identification</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;aside
+    id="warn-001"
+    class="warning">
+   &lt;img src="bomb.png" alt="Warning"/>
+   &lt;p>The following experiment may cause
+      bodily harm if &#8230; &lt;/p>
+&lt;/aside>
+
+&#8230;
+
+&lt;aside
+    id="warn-002"
+    class="warning">
+   &lt;img src="bomb.png" alt="Warning"/>
+   &lt;p>Risk of explosion increases as the
+    coefficient &#8230; &lt;/p>
+&lt;/aside></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">Example 2 &#8212; Sufficient Contrast</p>
+					</figcaption>
+					<p>The following example shows an icon with sufficient background contrast.</p>
+					<p class="min-ex">
+						<img src="../../../graphics/info.png" alt="Image Description"/>
+					</p>
+					<p>The following example shows the same icon with insufficient background contrast.</p>
+					<p class="min-ex dark">
+						<img src="../../../graphics/info.png" alt="Image Description"/>
+					</p>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">Example 3 &#8212; Font Icon</p>
+						<p>In the following example, a private use area code point is used to render an email icon
+							from a fictitious "Icons" font family.</p>
+					</figcaption>
+					<p class="figlabel">CSS</p>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>.icon { font-family: 'Icons' !important; }
+.email { background-color: #ffffff; }
+.email:before { content: "\f8ee"; }</code></pre>
+					<p class="figlabel">HTML</p>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;p>
+   &lt;span
+    class="icon email"
+    role="img"
+    aria-label="Email the publisher">&lt;/span>
+&lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<p class="label">Example 4 &#8212; Sufficient Size</p>
+					</figcaption>
+					
+					<p>The following example shows the AAA minimum target size of 44 by 44 pixels required in WCAG 2.1.</p>
+					<p class="min-ex"><img src="../../../graphics/info.png" alt="Image Description"/></p>
+						
+					<p>The following example shows the AA minimum target size of 24 by 24 pixels required in WCAG 2.2.</p>
+					<p class="min-ex"><img class="shrink" src="../../../graphics/info.png" alt="Image Description"/></p>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although icons are not as prevalent in digital publications as on the web generally, they are not
+					uncommon. Icons are often used to identify key items of interest in a publication, for example,
+					such as the various kinds of sidebars that occur in textbooks and other works of non-fiction. They
+					are also commonly used to in place of text to identify the presence of extended descriptions for
+					images. And, of course, they are prevalent as controls for interactive content.</p>
+				
+				<p>Making icons accessible generally follows the same requirements as any images, but there are some
+					additional requirements specific to them. Key among these is the need for consistency of naming.
+					It is not enough to provide a label, as users come to expect the meaning and purpose of the icons
+					to remain consistent across a publication. An icon used to link to an extended description, for
+					example, should not have a label "Extended description for figure 1" in one place and "Read more
+					about figure 2" in the next. The labels will not be identical, since the figure number will change,
+					but the phrasing needs to be consistent.</p>
+				
+				<p>It is also important that the icons can be clearly distinguished. Meeting the 3:1 contrast ratio
+					requirement between the icon and its background ensures that users are able to perceive both where
+					icons are used and what they depict. Similarly, the icons should be at least 24 pixels in length
+					and height when the image represents a target for an input action like a click. Although not
+					specifically a WCAG requirement, icon should be sized to ensure they are legible by the widest
+					possible audience without the need for magnification. Avoiding complex imagery in an icon is also
+					recommended, as even sighted users may struggle to make out the meaning.</p>
+				
+				<p>Font icons are a slightly different beast from image icons as they rely on the author using the
+					private use area of Unicode (i.e., special code points that are not assigned to any character, so
+					the author can provide a font that defines icons for those code points). The problem with this
+					approach is that private use area code points are unknown to user agents and assistive
+					technologies, so there is no way for them to announce the meaning of the icon. To work around this
+					problem, authors can attach the ARIA role "img" and provide a label where the icon is inserted (see
+					<a href="#ex-03">example 3</a> above).</p>
+			</section>
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"
+						>The <code>img</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
