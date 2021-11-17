@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Input Validation</title>
+		<script>
+			var page_info = {
+				'topic': 'Scripted Content and Forms',
+				'description': 'Guidelines for informing users of errors and preventing their submission.',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			ol.col {
+				height: 20rem;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Thoroughly validate form data and allow users to review their submissions to ensure they do not
+					submit unintended data.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Use the <code>autocomplete</code> attribute to simplify filling in fields. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#identify-input-purpose">WCAG 1.3.5 - AA</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H98">Using HTML 5.2 autocomplete attributes</a></li>
+						</ul>
+					</li>
+					<li>Identify and describe input errors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#error-identification">WCAG 3.3.1 - A</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G83">Providing text descriptions to identify required fields that were not completed</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G84">Providing a text description when the user provides information that is not in the list of allowed values</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G85">Providing a text description when user input falls outside the required format or values</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G139">Creating a mechanism that allows users to jump to errors</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G199">Providing success feedback when data is submitted successfully</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA18">Using aria-alertdialog to Identify Errors</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA19">Using ARIA role=alert or Live Regions to Identify Errors</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA21">Using Aria-Invalid to Indicate An Error Field</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR18">Providing client-side validation and alert</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR32">Providing client-side validation and adding error text via the DOM</a></li>
+						</ul>
+					</li>
+					<li>Suggest how to correct input errors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#error-suggestion">WCAG 3.3.3 - AA</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G83">Providing text descriptions to identify required fields that were not completed</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G84">Providing a text description when the user provides information that is not in the list of allowed values</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G85">Providing a text description when user input falls outside the required format or values</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G177">Providing suggested correction text</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA2">Identifying a required field with the aria-required property</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA18">Using aria-alertdialog to Identify Errors</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR18">Providing client-side validation and alert</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR32">Providing client-side validation and adding error text via the DOM</a></li>
+						</ul>
+					</li>
+					<li>Ensure users can confirm and correct data before submitting. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#error-prevention-legal-financial-data">WCAG 3.3.4 - AA</a> and <a href="https://www.w3.org/TR/WCAG/#error-prevention-all">WCAG 3.3.6 - AAA</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G83">Providing text descriptions to identify required fields that were not completed</a></li>
+						</ul>
+					</li>
+					<li>Allow users to undo submitted data. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#error-prevention-legal-financial-data">WCAG 3.3.4 - AA</a> and <a href="https://www.w3.org/TR/WCAG/#error-prevention-all">WCAG 3.3.6 - AAA</a>]</span>
+						<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G83">Providing text descriptions to identify required fields that were not completed</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Filling out forms presents several challenges for users, from ensuring they have specified all
+					required fields to ensuring all fields have been filled in correctly. When fields are missed or
+					errors occur, it is not always easy for users with disabilities to locate the problems or determine
+					what needs to be fixed.</p>
+				
+				<details id="topics" open="open">
+					<summary id="toc-hd">Table of Contents</summary>
+					
+					<nav role="doc-toc" aria-labelledby="toc-hd">
+						<ol class="col">
+							<li><a href="#timing">When to Validate</a></li>
+							<li><a href="#built-in">Built-in Checks</a></li>
+							<li><a href="#locate">Locating Input Errors</a></li>
+							<li><a href="#confirm">Confirming Submissions</a></li>
+							<li><a href="#revert">Reverting Submissions</a></li>
+						</ol>
+					</nav>
+				</details>
+				
+				<section id="timing">
+					<h4>When to Validate</h4>
+					
+					<p>When user input is used solely by a digital publication, data validation occurs on the page that
+						is requesting the data.</p>
+					
+					<p>It is only when the author attempts to send data to an external web application that server-side
+						validation may occur. But in these cases, the author will most likely use a scripting API like
+						XmlHttpRequest and report errors without refreshing the page. Forms typically cannot be
+						directly submitted to a web server without spawning a new window, as the return page will not
+						be recognized as a resource of the publication.</p>
+					
+					<p>This document consequently only reviews methods for validating and reporting errors from within
+						a digital publication. For more information about handling errors in a page returned from
+						a web application, see the Web Accessibility Tutorial on <a
+							href="https://www.w3.org/WAI/tutorials/forms/notifications/">User Notifications</a>.</p>
+				</section>
+				
+				<section id="built-in">
+					<h4>Built-in Checks</h4>
+					
+					<p>The best option for validating input is to use the mechanisms built into HTML.</p>
+					
+					<p>The <code>required</code> attribute, for example, is available on most form input elements. It
+						provides a programmatic means of identifying which fields a user must fill in (sighted users will
+						still require a visual cue).</p>
+					
+					<figure id="ex-01">
+						<figcaption>
+							<p class="label">Example &#8212; Identifying a required field</p>
+						</figcaption>
+						<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;select
+    name="birth-month"
+    required="required">
+   &lt;option value="">Month&lt;/option>
+   &#8230;
+&lt;/select></code></pre>
+					</figure>
+					
+					<p>When the <code>required</code> attribute is set, users cannot submit the form in reading systems
+						that support forms until the fields are completed. The reading system will alert them that
+						required information is missing if they try.</p>
+					
+					<p>The <code>pattern</code> attribute allows authors to specify a regular expression to validate
+						the input against. This attribute is useful when the input must match a specific form.</p>
+					
+					<figure id="ex-03">
+						<figcaption>
+							<p class="label">Example &#8212; Pattern matching two comma-separated numbers in parentheses</p>
+						</figcaption>
+						<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    pattern="([0-9]{1,4}, *[0-9]{1,4})"
+    &#8230; /></code></pre>
+					</figure>
+					
+					<p>Authors can also use the <code>placeholder</code> attribute to provide a hint to the expected
+						value, which is especially useful when specific patterns are expected. Note, however, that this
+						value disappears once the user begins to input their data, so it should not be used in place of
+						a proper label or description for the field.</p> 
+					
+					<figure id="ex-08">
+						<figcaption>
+							<p class="label">Example &#8212; Hinting at the expected input</p>
+						</figcaption>
+						<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    placeholder="(#,#)"
+    pattern="([0-9]{1,4}, *[0-9]{1,4})"
+    aria-label="Starting coordinate"
+    &#8230; /></code></pre>
+					</figure>
+					
+					<p>The <a href="autocomplete.html"><code>autocomplete</code> attribute</a> provides another
+						potential measure of ease for ensuring that users input the right information. Setting this
+						attribute allows users to automatically insert saved form data.</p>
+					
+					<figure id="ex-04">
+						<figcaption>
+							<p class="label">Example &#8212; Identifying an autocomplete field</p>
+						</figcaption>
+						<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    autocomplete="given-name"
+    &#8230; /></code></pre>
+					</figure>
+					
+					<p>The drawbacks of this attribute for publishing are that most forms do not collect user
+						information, they are generally for testing, plus application-based reading systems do not
+						store previously submitted data for reuse. The attribute may only work with reading systems
+						that run in browsers for limited information.</p>
+					
+					<p>There are also attributes for specifying minimum and maximum values,
+						minimum and maximum numbers of characters to input, and for using a regular expression to verify
+						the text input by a user.</p>
+					
+					<figure id="ex-02">
+						<figcaption>
+							<p class="label">Example &#8212; Specifying minimum and maximum values</p>
+						</figcaption>
+						<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;input
+    type="range"
+    min="1"
+    max="100"
+    &#8230; /></code></pre>
+					</figure>
+					
+					<p>The <code>type</code> attribute on the <code>input</code> element is often overlooked for
+						validation, but it allows authors to identify that the input represents a common field like a
+						phone number or email address.</p>
+					
+					<figure id="ex-09">
+						<figcaption>
+							<p class="label">Example &#8212; Email input field</p>
+						</figcaption>
+						<pre id="ex-09-src" class="prettyprint linenums"><code>&lt;input
+    type="email"
+    &#8230; /></code></pre>
+					</figure>
+					
+					<p>These specialized input types often include their own built-in validation. For example, user
+						agents will check that the user has input a valid email address when an email field is
+						specified. Using these built-in types avoids the need to write complex and redundant pattern
+						checks for generic text input fields.</p>
+				</section>
+				
+				<section id="locate">
+					<h4>Locating Input Errors</h4>
+					
+					<p>Although using the built-in validation mechanisms allows reading systems to handle informing
+						users when there are errors, it is not possible to use these mechanisms for all data
+						validation. When validating custom data fields, it is necessary to make the process of finding
+						and fixing the errors as easy as possible for users.</p>
+					
+					<p>A common approach to manual validation is to write a list of input errors in a visually
+						distinct, and clearly labelled, box at the top of form. While this technique is generally fine,
+						to help users with assistive technologies, the element containing the errors should be marked as
+						a live region using the ARIA role <code>alert</code>. This allows them to announce the new text
+						when it is written to the element.</p>
+					
+					<figure id="ex-05">
+						<figcaption>
+							<p class="label">Example &#8212; Creating a live region</p>
+						</figcaption>
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;div
+    role="alert"
+    aria-labelledby="errors">
+    &lt;h6 id="errors">
+       Errors Processing Form
+    &lt;/h6>
+    &lt;p>The following items did not validate:&lt;/p>
+    &lt;ul>
+       &#8230;
+    &lt;/ul>
+ &lt;/div></code></pre>
+					</figure>
+					
+					<p>JavaScript alert boxes should be avoided as the sole means for listing errors, as once the
+						dialog is closed the user typically loses access to the list. For users with cognitive and
+						learning disabilities, remembering multiple fields that need to be corrected can be
+						difficult.</p>
+					
+					<p>A better option would be to limit the alert to notifying the user that the submission
+						contained errors that need fixing and direct them to the list on the page when the dialog
+						closes.</p>
+					
+					<p>When listing the errors, it helps to provide links to the invalid fields.</p>
+					
+					<figure id="ex-06">
+						<figcaption>
+							<p class="label">Example &#8212; Linking to invalid field</p>
+						</figcaption>
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;p>The following items did not validate:&lt;/p>
+&lt;ul>
+   &lt;li>&lt;a href="#postcode">Invalid postal
+      code entered&lt;/a>&lt;/li>
+   &#8230;
+&lt;/ul></code></pre>
+					</figure>
+					
+					<p>Invalid fields should also be visually identified and described so that users can find them as
+						review their data.</p>
+					
+					<figure id="ex-07">
+						<figcaption>
+							<p class="label">Example &#8212; Identifying invalid fields</p>
+						</figcaption>
+						<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;div id="postcode" class="error">
+   &lt;label for="address">Postal Code:&lt;/label>
+   &lt;input id="address" name="address" type="text" required="" aria-describedby="post-err"/>
+   &lt;span id="post-err">Postal code must be of the form A1A 1A1.&lt;/span>
+&lt;/div></code></pre>
+					</figure>
+				</section>
+				
+				<section id="confirm">
+					<h4>Confirming Submissions</h4>
+					
+					<p>Ensuring that form data validates to the author's expectations does not mean users have input
+						the information they intended to. A user may not notice a typo when inputting information, for
+						example, or a field may accidentally change without their noticing (e.g., hitting arrow keys
+						can sometimes accidentally change selection box and radio button choices).</p>
+					
+					<p>Providing users the option to review their data before submitting it is a helpful way to ensure
+						that the information matches their expectations, especially as a detailed review of form data
+						in its raw form can be challenging for all users.</p>
+					
+					<p>Although providing confirmation is only a WCAG requirement for legal and financial data, which
+						are not typically collected from digital publications, allowing users to review their data
+						helps avoid the problem of having to fix data for users, or allowing them to undo and
+						resubmit, which is covered in <a href="#revert">the next section</a>.</p>
+					
+					<p>It is often difficult to provide this sort of independent validation within a digital
+						publication, however, because it requires dynamically writing the information into the same
+						page as the form, which not all reading systems support well. Similarly, using a JavaScript
+						alert may work for very small data sets, but quickly becomes unwieldy to read for large data
+						submissions.</p>
+					
+					<p>If the author knows users will be able to submit a form directly to their server (i.e., the
+						reading system will open a new browser window to submit the data rather than send the data
+						through a JavaScript API), a confirmation page could be provided on the server side. This
+						option is generally only available in select cases where the reading systems that users have
+						access to is limited.</p>
+					
+					<div class="note" role="note" aria-labelledby="review-note">
+						<p id="review-note" class="label">Note</p>
+						<p>Data that stays exclusively within the digital publication is often less critical to review
+							than data sent to an external source, as the potential harm to users from mistakes tends to
+							be less significant. For example, it is less critical to review a practice exam marked
+							within a digital publication than to review course exercises submitted to a school's
+							servers.</p>
+					</div>
+				</section>
+				
+				<section id="revert">
+					<h4>Reverting Submissions</h4>
+					
+					<p>As mentioned in the last section, it is much better to allow users to review their data before
+						submitting it than to provide options for reverting and correcting.</p>
+					
+					<p>This is especially true with digital publications, as the means of retrieving and fixing data
+						are complicated by the restrictions of the format. Persisting information within a digital
+						publication is not easy, for example, as storage options are limited (i.e., users cannot easily
+						come back later to undo a form submission if they close the publication). Similarly, network
+						issues can lead to data being submitted but the publication not receiving confirmation of
+						submission, preventing users from undoing.</p>
+					
+					<p>Authors should strongly consider other options for collecting information if it is necessary
+						to allow users to revert submissions. For example, whenever possible, direct users to a form
+						outside the publication to collect information rather than embed the form.</p>
+					
+					<p>Reverting and correcting submissions may only be realistically done through an external web site
+						that can confirm the user's identity if submissions must occur through a digital publication.
+						For example, a course portal could provide the option to revert or fix mistakes rather than
+						trying to accomplish this through the publication itself.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/input.html#common-input-element-attributes">Common <code>input</code> element attributes</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/input.html#states-of-the-type-attribute">States of the <code>type</code> attribute</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
