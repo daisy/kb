@@ -315,18 +315,18 @@ nav.mini-toc a {
 details#topics {
 	width: 60rem;
 	background-color: rgb(251,251,251);
-	border: 0.1rem solid rgb(0,0,0);
 	margin-top: 4rem;
 }
 details#topics ol > li > ol {
 	list-style-type: none;
 }
 details#topics summary {
-	border-left: 0.5rem solid rgb(0,0,180);
-	background-color: rgb(240,240,240);
+	font-weight: bold;
 	width: 57.5rem;
-	padding: 1rem 0 1rem 2rem;
 	margin-top: 0;
+}
+details#topics nav {
+	margin-top: -1.3rem;
 }
 ol.col {
 	height: 45rem;

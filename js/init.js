@@ -780,7 +780,7 @@ function copyExample(ex_id) {
 var kb = new KB();
 
 // write the header tags immediately so that js and css are processed
-if (document.location.host == 'kb.daisy.org' || document.location.host == 'localhost') {
+if (document.location.host == 'kb.daisy.org' || document.location.host.match(/^localhost/i)) {
 	kb.initializePage('kb');
 }
 
