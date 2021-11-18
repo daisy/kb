@@ -275,19 +275,53 @@
 &lt;/ul></code></pre>
 					</figure>
 					
-					<p>Invalid fields should also be visually identified and described so that users can find them as
-						review their data.</p>
+					<p>For digital publications, it is often a better option to validate user input as it is entered.
+						This will avoid having to add and remove dynamic lists of errors.</p>
 					
-					<figure id="ex-07">
+					<p>Invalid fields should be visually identified and described so that visual users can locate them
+						as they review the data. But for users of assistive technologies, ARIA includes the
+						<code>aria-invalid</code> and <code>aria-errormessage</code> attributes for programmatically
+						marking the invalid fields.</p>
+					
+					<figure id="ex-11">
 						<figcaption>
-							<p class="label">Example &#8212; Identifying invalid fields</p>
+							<p class="label">Example &#8212; Using ARIA to identify errors</p>
 						</figcaption>
-						<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;div id="postcode" class="error">
-   &lt;label for="address">Postal Code:&lt;/label>
-   &lt;input id="address" name="address" type="text" required="" aria-describedby="post-err"/>
-   &lt;span id="post-err">Postal code must be of the form A1A 1A1.&lt;/span>
+						<pre id="ex-11-src" class="prettyprint linenums"><code>&lt;div id="postcode" class="error">
+   &lt;label for="address">
+      Postal Code:
+   &lt;/label>
+   &lt;input
+       id="address"
+       name="address"
+       type="text"
+       required=""
+       error-invalid="true"
+       aria-errormessage="post-err"/>
+   &lt;span id="post-err"
+       aria-live="alert">
+      Postal code must be of the
+      form A1A 1A1.
+   &lt;/span>
 &lt;/div></code></pre>
 					</figure>
+					
+					<p>Setting the <code>aria-invalid</code> attribute allows assistive technologies to easily move
+						users to the fields that are in error so they are not reliant on a list of errors or having to
+						manually traverse every field in the form to find out what failed.</p>
+					
+					<p>The <code>aria-live</code> attribute can also be set on the error message so that it gets
+						announced to users when it is added (see the <a href="#ex-11">preceding example</a>). If
+						individual error fields are identified this way, it is not recommended to also alert users when
+						adding a full list of issues (i.e., it will cause users to hear all the errors twice).</p>
+					
+					<p>When users fix the error, make sure to update and remove the ARIA attributes, as
+						appropriate.</p>
+					
+					<p>Note that when <code>aria-invalid</code> is used, <code>aria-errormessage</code> must be used
+						to link the error description. It is not valid to use <code>aria-describedby</code> in these
+						cases. Also note that using <code>aria-invalid=""</code> means that the field is
+						<strong>not</strong> in error.</p>
 				</section>
 				
 				<section id="confirm">
@@ -304,7 +338,6 @@
 					
 					<p>Providing confirmation is a level AA requirement for test data, so educational publishers need
 						to be aware when the success criterion applies to tests and quizzes they embed in a digital
-						publicaiton. They should validate and allow users to review their data to avoid the problem
 						of having to fix data for users, or allow them to undo and resubmit, which is covered in 
 						<a href="#revert">the next section</a>.</p>
 					
