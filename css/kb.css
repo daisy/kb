@@ -797,6 +797,42 @@ details.desc pre {
 }
 
 
+/* wcag explainer tables */
+
+table.sc-info {
+	width: 100%;
+	border: none;
+}
+
+table.sc-info td {
+	border: none;
+	padding: 1rem;
+}
+
+table.sc-info th {
+	font-size: 100%;
+	border: none;
+	background-color: inherit;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 1rem
+}
+
+table.sc-info td.desc > p:first-child {
+	margin-top: 0;
+}
+
+table.sc-info td.docs ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+table.sc-info td.docs ul > li:first-child {
+	margin-top: 0;
+}
+
+
 
 /* to classify */
 

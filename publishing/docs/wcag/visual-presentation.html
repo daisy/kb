@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Visual Presentation</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.4.8 Visual Presentation',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.4.8</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Text</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For the visual presentation of blocks of text, a mechanism is available to achieve the following:</p>
+							<ul>
+								<li>Foreground and background colors can be selected by the user.</li>
+								<li>Width is no more than 80 characters or glyphs (40 if CJK).</li>
+								<li>Text is not justified (aligned to both the left and the right margins).</li>
+								<li>Line spacing (leading) is at least space-and-a-half within paragraphs, and
+									paragraph spacing is at least 1.5 times larger than the line spacing.</li>
+								<li>Text can be resized without assistive technology up to 200 percent in a way that
+									does not require the user to scroll horizontally to read a line of text on a
+									full-screen window.</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html">Understanding Success Criterion 1.4.8</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#visual-presentation">How to meet Success Criterion 1.4.8</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users can reconfigure the text to better
+					meet their reading needs, such as enlarging fonts to improve readability for users with low
+					vision and changing the text alignment and word spacing to aid users with dyslexia.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>As the widely available reading systems provide users the option to control most or all of the text
+					properties specified in this success criterion, authors do not need to implement anything extra for
+					reflowable EPUB content.</p>
+				
+				<p>They do need to ensure that when text is resized to 200% that users do not have to scroll to read
+					any complete line of text (it is okay if users must scroll to locate the text).</p>
+				
+				<p>Fixed layout EPUBs cannot meet this success criterion as reading systems do not allow users to
+					modify the publisher styles.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../css/text-resize.html">Text Resizing</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Target Size (Minimum)</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.5.8 Target Size (Minimum)',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.2+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.5.8</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Interactive Content</li>
+								<li>Links</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Targets have an area of at least 24 by 24 CSS pixels, except where:</p>
+							
+							<details>
+								<summary>View exceptions</summary>
+								
+								<dl>
+									<dt>Spacing:</dt>
+									<dd>
+										<p>The target offset is at least 24 CSS pixels to every adjacent target;</p>
+									</dd>
+									
+									<dt>Inline:</dt>
+									<dd>
+										<p>The target is in a sentence or block of text;</p>
+									</dd>
+									
+									<dt>Essential:</dt>
+									<dd>
+										<p>A particular presentation of the target is essential to the information being conveyed.</p>
+									</dd>
+								</dl>
+							</details>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size-minimum.html">Understanding Success Criterion 2.5.8</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#target-size-minimum">How to meet Success Criterion 2.5.8</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to aid users who lack the ability or dexterity to activate
+					small targets.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to check all items that have a target area that users can activate and ensure that
+					they are at least 24 pixels by 24 pixels in size.</p>
+				
+				<p>Publishers need to be aware of the context in which the targets appear. A link within a paragraph
+					of text, for example, is exempt from this requirement, but a list of links is not. Publishers also
+					need to pay attention to the width of links. If a table of contents only lists the chapter numbers,
+					for example, the target area may need padding to reach 24 pixels (e.g., a link of "1" may only be
+					a pixel wide depending on the font).</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/icons.html">Icons</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

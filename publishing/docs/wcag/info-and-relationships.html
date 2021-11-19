@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Info and Relationships</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.3.1 Info and Relationships',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.3.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Asides</li>
+								<li>Bolding and Italics</li>
+								<li>Figures</li>
+								<li>Forms</li>
+								<li>Lists</li>
+								<li>Sections</li>
+								<li>Tables</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Information, structure, and relationships conveyed through presentation can be
+								programmatically determined or are available in text.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">Understanding Success Criterion 1.3.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships">How to meet Success Criterion 1.3.1</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who cannot see the structure conveyed
+					through the presentation of the content have access to this information.</p>
+				
+				<p>Proper tagging of structure allows assistive technologies to provide equivalent reading ease, such
+					as enabling users to navigate tables by column and row, jump over list items to find information,
+					and hear when they encounter new paragraphs and sections of content.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>This success criterion is one of the most open-ended to meet as the visual structuring of
+					publications covers many aspects of the content.</p>
+				
+				<p>The general principal is that content must not be styled to appear one way for visual readers while
+					being structured in a less meaningful way that prevents assistive technologies from being able to
+					understand the purpose.</p>
+				
+				<p>Some of the more common applications of this requirement are that:</p>
+				
+				<ul>
+					<li>Lists must use list tagging (e.g., not be paragraphs styled to look indented).</li>
+					<li>Table headers must be tagged distinctly from regular cells and the table data must be tagged
+						so that the rows and columns are identifiable.</li>
+					<li>Sidebars, figures and other encapsulated secondary content is tagged so that it distinct from
+						the primary narrative.</li>
+					<li>Bolding and emphasis used to identify changes in voice, keywords, etc. are tagged using the
+						appropriate markup.</li>
+					<li>Related form fields are grouped together (e.g., a set of radio button options).</li>
+				</ul>
+				
+				<p>But ensuring that a publication fully meets this requirement requires a thorough comparison of the
+					visual rendering of the content against the underlying markup. The question to ask in each case is
+					if the styling were removed, would the author intention still be understandable to a machine.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/bibliographies.html">Bibliographies</a></li>
+					<li><a href="../html/emphasis.html">Bolding and Italics</a></li>
+					<li><a href="../script/labels.html">Labels</a></li>
+					<li><a href="../html/indexes.html">Indexes</a></li>
+					<li><a href="../html/figures.html">Figures</a></li>
+					<li><a href="../html/lists.html">Lists</a></li>
+					<li><a href="../html/sections.html">Sections</a></li>
+					<li><a href="../html/tables.html">Tables</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

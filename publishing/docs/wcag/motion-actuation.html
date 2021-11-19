@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Motion Actuation</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.5.4 Motion Actuation',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.1+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.5.4</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Interactive Content</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Functionality that can be operated by device motion or user motion can also be operated
+								by user interface components and responding to the motion can be disabled to prevent
+								accidental actuation, except when:</p>
+							
+							<details>
+								<summary>View exceptions</summary>
+								<dl>
+									<dt>Supported Interface</dt>
+									<dd>
+										<p>The motion is used to operate functionality through an accessibility supported interface;</p>
+									</dd>
+									
+									<dt>Essential</dt>
+									<dd>
+										<p>The motion is essential for the function and doing so would invalidate the activity.</p>
+									</dd>
+								</dl>
+							</details>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/motion-actuation.html">Understanding Success Criterion 2.5.4</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#motion-actuation">How to meet Success Criterion 2.5.4</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users can perform actions based on the
+					movement of a device using more conventional controls, as not all users can physically manipulate
+					their devices.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>If a publication contains games or activities that are operated by the user tilting, shaking, or
+					similarly physically manipulating their device, the same functionality is available using 
+					conventional user controls such as buttons, sliders, etc.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The knowledge base does not currently cover the creation of accessible input modalities.
+					Refer to the <a href="#guidance">WCAG guidance documents</a> for additional information.</p>
+			</section>
+		</main>
+	</body>
+</html>

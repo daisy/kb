@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Keyboard</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.1.1 Keyboard',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.1.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Buttons</li>
+								<li>Custom Controls</li>
+								<li>Forms</li>
+								<li>Inputs</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>All functionality of the content is operable through a keyboard interface without
+								requiring specific timings for individual keystrokes, except where the underlying
+								function requires input that depends on the path of the user's movement and not just
+								the endpoints.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html">Understanding Success Criterion 2.1.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard">How to meet Success Criterion 2.1.1</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that user that require a keyboard to access a
+					publication have access to all functionality in the content, except where the required input cannot
+					be replicated by keyboard.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that all controls and links are accessible by keyboard input and that the
+					input is not time-based (e.g., that users must press keys a certain number of times or for a
+					specific length of time to register).</p>
+				
+				<p>This success criterion typically applies to custom controls and links that authors create through
+					scripting. Native HTML elements for these functions are generally accessible, with authors only
+					needing to ensure that they are clearly labeled.</p>
+				
+				<p>Note that this success criterion does not apply to functionality where the full path of action is
+					important, as keyboards typically cannot replicate this functionality. An example would be an
+					embedded program that allows users to freehand draw.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">Keyboard Control</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

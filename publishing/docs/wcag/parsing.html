@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Parsing</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 4.1.1 Parsing',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>4.1.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>All Elements</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>In content implemented using markup languages, elements have complete start and end
+								tags, elements are nested according to their specifications, elements do not contain
+								duplicate attributes, and any IDs are unique, except where the specifications allow
+								these features.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html">Understanding Success Criterion 4.1.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#parsing">How to meet Success Criterion 4.1.1</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that critical markup errors do not cause user
+					agents and assistive technologies to interpret documents differently.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>EPUB Creators should use a validator, such as epubcheck, to validate their content. Although not all
+					the issues flagged by a validator must be fixed to meet this success criterion, they will normally
+					flag the major issues that result in failures.</p>
+				
+				<p>Note that this requirement is closer to ensuring all XML content is well-formed than that it
+					fully validates to its respective standard.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../epub/validation/epubcheck.html">Epubcheck</a></li>
+					<li><a href="../epub/validation/overview.html">Validation Overview</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

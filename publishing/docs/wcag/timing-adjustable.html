@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Timing Adjustable</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.2.1 Timing Adjustable',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.2.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Forms</li>
+								<li>Interactive Content</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For each time limit that is set by the content, at least one of the following is true:</p>
+							
+							<dl>
+								<dt>Turn off</dt>
+								<dd>
+									<p>The user is allowed to turn off the time limit before encountering it; or</p>
+								</dd>
+								
+								<dt>Adjust</dt>
+								<dd>
+									<p>The user is allowed to adjust the time limit before encountering it over a wide
+										range that is at least ten times the length of the default setting; or</p>
+								</dd>
+								
+								<dt>Extend</dt>
+								<dd>
+									<p>The user is warned before time expires and given at least 20 seconds to extend
+										the time limit with a simple action (for example, "press the space bar"), and
+										the user is allowed to extend the time limit at least ten times; or</p>
+								</dd>
+								
+								<dt>Real-time Exception</dt>
+								<dd>
+									<p>The time limit is a required part of a real-time event (for example, an
+										auction), and no alternative to the time limit is possible; or</p>
+								</dd>
+								
+								<dt>Essential Exception</dt>
+								<dd>
+									<p>The time limit is essential and extending it would invalidate the activity;
+										or</p>
+								</dd>
+								
+								<dt>20 Hour Exception</dt>
+								<dd>
+									<p>The time limit is longer than 20 hours.</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html">Understanding Success Criterion 2.2.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#timing-adjustable">How to meet Success Criterion 2.2.1</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users have enough time to interact with the
+					content.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that users can control time limits that would prevent them from completing a
+					task, when the time limit is not essential.</p>
+				
+				<p>Users should be able to turn off time limits, adjust the time limit to a new preference before
+					beginning, or easily extend the time limit when it is about to expire.</p>
+				
+				<p>In most cases with digital publications, time limits are not essential to the content. They are more
+					prevalent on the web, where they are used, for example, to end user sessions for security reasons
+					or prevent users from blocking access to products for sale. The rare exception may occur in
+					educational works if a test requires specific timing.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/timers.html">Timers</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

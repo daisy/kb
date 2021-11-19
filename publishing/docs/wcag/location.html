@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Location</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.4.8 Location',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.4.8</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Page Break Markers</li>
+								<li>Running Headers and Footers</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Information about the user's location within a set of Web pages is available.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/location.html">Understanding Success Criterion 2.4.8</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#location">How to meet Success Criterion 2.4.8</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users can locate their position within a
+					publication regardless of how they reached the destination (e.g., if they follow a link from an
+					index, it should be possible to determine what chapter they are in or what page they are on).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Reading systems typically provide enough information to users about their position within a digital
+					publication without the need for additional markup.</p>
+				
+				<p>Authors may choose to embed static page break markers, however, as consistent points of reference
+					across reading systems.</p>
+				
+				<p>Author-provided running headers and footers are generally not supported by reading systems,
+					on the other hand, as they generate their own displays. Authors can provide a meaningful title for
+					each document as a supplement to the running headers.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../navigation/pagelist.html">Page Navigation</a></li>
+					<li><a href="../html/title.html">Page Title</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

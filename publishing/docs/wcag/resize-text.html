@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Resize text</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.4.4 Resize text',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.4.4</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Text</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Except for captions and images of text, text can be resized without assistive technology
+								up to 200 percent without loss of content or functionality.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html">Understanding Success Criterion 1.4.4</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#resize-text">How to meet Success Criterion 1.4.4</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users with varying degrees of visual
+					impairment can enlarge the text to meet their needs.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors of reflowable EPUB publications need to ensure that they do not define font and container
+					elements in absolute units of measure like pixels. Using flexible measures, like ems and
+					percentages, ensures that when users change font sizes the text remains readable (e.g., it does
+					not overlap nearby elements or get cut off by its bounding element).</p>
+				
+				<p>This success criterion is typically not an issue for fixed layout EPUBs as reading systems allow
+					users to zoom the content.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../css/text-resize.html">Text Resizing</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
