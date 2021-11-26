@@ -53,6 +53,34 @@
 					<li>
 						<p>Avoid keyboard shortcuts that consist of only a single character. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#character-key-shortcuts">WCAG 2.1.4 - A</a>]</span></p>
 					</li>
+					<li>
+						<p>Ensure focus on active control is visible. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#focus-visible">WCAG 2.4.7 - A</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G149">Using user interface
+									components that are highlighted by the user agent when they receive focus</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Do not trigger events when a control recieves focus. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#on-focus">WCAG 3.2.1 - A</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G107">Using "activate" rather
+									than "focus" as a trigger for changes of context</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>Do trigger unexpected events when a user inputs values or changes settings. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#on-focus">WCAG 3.2.1 - A</a>]</span></p>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G13">Describing what will
+									happen before a change to a form control that causes a change of context to occur
+									is made</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			<section id="desc">
@@ -84,6 +112,13 @@
 					readers trying to enter commands may have their input intercepted. The result may be that the user
 					cannot complete a necessary function or may potentially activate an unwanted action in the content.
 					Authors must always allow users to remap or turn off single-character shortcuts.</p>
+				
+				<p>It is also important to not cause changes of context when focus changes to the element (e.g., the
+					user tabs to it). Changing the context, such as opening a new window, submitting a form, or
+					altering the content, can cause confusion for readers who cannot see what has occurred.</p>
+				
+				<p>Similarly, entering input into a field or changing the setting of a control must not cause an
+					unexpected change of context.</p>
 				
 				<div class="note" role="note" aria-labelledby="kbd-note">
 					<p id="kbd-note" class="label">Note</p>

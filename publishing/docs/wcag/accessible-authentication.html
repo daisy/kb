@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Accessible Authentication</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 3.3.7 Accessible Authentication',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.2+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.3.7</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Authentication Forms</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For each step in an authentication process that relies on a cognitive function test, at
+								least one other authentication method is available that does not rely on a cognitive
+								function test, or a mechanism is available to assist the user in completing the
+								cognitive function test.</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/accessible-authentication.html">Understanding Success Criterion 3.3.7</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#accessible-authentication">How to meet Success Criterion 3.3.7</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users with cognitive disabilities can
+					authenticate themselves when cognitive function tests &#8212; such as password input, memorization,
+					puzzle solving, and calculations &#8212; are used to prevent unauthorized access.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>As it is not common for digital publications to authenticate users, this success criterion rarely
+					applies.</p>
+				
+				<p>If authors do attempt to use authentication forms with cognitive function tests to secure access to
+					some part of a publication, they need to ensure at least one method that does not require the test
+					or that there is a way to help users with the test.</p>
+				
+				<p>For example, if a password must be entered, ensuring the user is not prevented from pasting in
+					their password would be sufficient.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The knowledge base does not currently include information on accessible authentication due to the
+					lack of implementation in publishing formats. Refer to the <a href="#guidance">WCAG guidance
+						documents</a> for additional information.</p>
+			</section>
+		</main>
+	</body>
+</html>

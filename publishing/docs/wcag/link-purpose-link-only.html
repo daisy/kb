@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Link Purpose (Link Only)</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.4.9 Link Purpose (Link Only)',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.4.9</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Links</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>A mechanism is available to allow the purpose of each link to be identified from link
+								text alone, except where the purpose of the link would be ambiguous to users in
+								general.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html">Understanding Success Criterion 2.4.9</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#link-purpose-link-only">How to meet Success Criterion 2.4.9</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that readers can determine the destination of
+					a link from the text of the link alone (i.e., excluding the surrounding context as allowed in
+					<a href="link-purpose-in-context.html">success criterion 2.4.4</a>).</p>
+				
+				<p>Assistive technologies typically provide access to a list of all the links in a document, for
+					example, so ensuring the link text alone describes the destination optimizes the use of this
+					list.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that the text inside the link element describes the destination.
+					In most cases, this is as simple as providing the chapter the link goes to or information
+					about the topic covered at the destination for internal links or providing the site or page
+					name for external links.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/links.html">Links</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

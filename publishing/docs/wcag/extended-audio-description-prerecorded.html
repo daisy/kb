@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Extended Audio Description (Prerecorded)</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.2.7 Extended Audio Description (Prerecorded)',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.2.7</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td>Video with accompanying audio</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Where pauses in foreground audio are insufficient to allow audio descriptions to convey
+								the sense of the video, extended audio description is provided for all prerecorded
+								video content in synchronized media.</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/extended-audio-description-prerecorded.html">Understanding Success Criterion 1.2.7</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#extended-audio-description-prerecorded">How to meet Success Criterion 1.2.7</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who are blind or visually impaired
+					can access the non-visual content (e.g., the actions of individuals, changes in scene, etc.) of a
+					video through an extended audio description track.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Meeting this success criterion is similar to <a href="audio-description-prerecorded.html">1.2.5</a>
+					except that it requires the use of extended audio descriptions. An extended audio description track
+					differs from a standard audio description track in that playback is paused, where necessary, to
+					allow for more in-depth explanations than are possible between the natural breaks in the audio
+					track.</p>
+				
+				<p>This success criterion does not apply when it is possible to provide all the necessary information
+					for the reader without pausing playback (i.e., through a standard audio description track).</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Note</p>
+					<p>Ebook formats typically do no support the use extended audio descriptions, so meeting this
+						requirement is not practical in most cases.</p>
+				</div>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The knowledge base does not currently include information on providing extended audio descriptions
+					due to the lack of implementation in publishing formats. Refer to the <a href="#guidance">WCAG
+						guidance documents</a> for additional information.</p>
+			</section>
+		</main>
+	</body>
+</html>

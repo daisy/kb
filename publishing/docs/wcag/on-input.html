@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>On Input</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 3.2.2 On Input',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.2.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Controls</li>
+								<li>Inputs</li>
+								<li>Links</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Changing the setting of any user interface component does not automatically cause a
+								change of context unless the user has been advised of the behavior before using the
+								component.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-input.html">Understanding Success Criterion 3.2.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#on-input">How to meet Success Criterion 3.2.2</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users do not trigger unexpected actions that
+					change the context (e.g., submitting a form, spawning a new window, changing focus to another element,
+					changing the text) when they input values.</p>
+				
+				<p>Not all users can perceive that the context has changed, or they may have difficulty keeping track
+					of such changes.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that when a user enters data or changes a setting it does not trigger an
+					event that will cause a context change.</p>
+				
+				<p>If a change of context must occur, authors need to ensure that users are informed of the actions
+					before inputting information.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+			
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/controls.html">Custom Controls</a></li>
+					<li><a href="../script/controls.html">Keyboard Control</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

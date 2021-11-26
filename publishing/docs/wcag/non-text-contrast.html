@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Non-text Contrast</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 1.4.11 Non-text Contrast',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.1+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.4.11</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Forms</li>
+								<li>Graphics</li>
+								<li>Icons</li>
+								<li>User Controls</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>The visual presentation of the following have a contrast ratio of at least 3:1 against
+								adjacent color(s):</p>
+							
+							<dl>
+								<dt>User Interface Components</dt>
+								<dd>
+									<p>Visual information required to identify user interface components and states,
+										except for inactive components or where the appearance of the component is
+										determined by the user agent and not modified by the author;</p>
+								</dd>
+								
+								<dt>Graphical Objects</dt>
+								<dd>
+									<p>Parts of graphics required to understand the content, except when a particular
+										presentation of graphics is essential to the information being conveyed.</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">Understanding Success Criterion 1.4.11</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast">How to meet Success Criterion 1.4.11</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that there is sufficient contrast in meaningful
+					graphics and images, and in user interfaces, so that users with low vision can distinguish and
+					understand them.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Meeting this requirement is generally the same as meeting <a href="contrast-minimum.html">1.4.3
+					Contrast (Minimum)</a> except that it applies to graphics and user controls instead of text.</p>
+				
+				<p>When a graphic contains objects that a user needs to discern to understand the content (e.g., the
+					slices in a pie chart or bars or lines in a graph), those objects must have a contrast of 3:1 with
+					their background. Note that this requirement does not apply when the necessary information is
+					available in another form (e.g., if a pie chart lists the purpose and value of each slice, the
+					contrast between slices is not relevant).</p>
+				
+				<p>This requirement also applies to icons used to identify content. Textbooks, for example, often use
+					icons to differentiate different types of asides. Similar to graphics, if the icons are
+					supplementary to a text label, the requirement does not apply (i.e., the requirement applies only
+					when the information is not available in another form).</p>
+				
+				<p>The requirement also applies to user interface components such as buttons and controls.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../css/contrast.html">Contrast</a></li>
+					<li><a href="../html/icons.html">Icons</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

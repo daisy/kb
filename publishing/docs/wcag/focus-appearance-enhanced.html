@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Focus Appearance (Enhanced)</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.4.12 Focus Appearance (Enhanced)',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.2+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.4.12</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Buttons</li>
+								<li>Controls</li>
+								<li>Inputs</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>When user interface components have keyboard focus, all of the following are true:</p>
+							
+							<ul>
+								<li>Contrasting area: There is an area of the focus indicator that has a contrast ratio of at least 4.5:1 between the colors in the focused and unfocused states.</li>
+								<li>Minimum area: The contrasting area is at least double the area of a 1 CSS pixel perimeter of the unfocused component;</li>
+								<li>Not obscured: No part of the focus indicator is hidden by author-created content.</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-appearance-enhanced.html">Understanding Success Criterion 2.4.12</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#focus-appearance-enhanced">How to meet Success Criterion 2.4.12</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users can perceive that a control has
+					received focus so can be interacted with.</p>
+				
+				<p>This success criterion is similar to <a href="focus-appearance-minimum.html">2.4.11</a> but sets
+					stronger requirements for the focus indicator.</p>
+				
+				<div class="warning" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Warning</p>
+					
+					<p>This success criterion is new in WCAG 2.2 and is subject to change until that specification
+						becomes a recommendation.</p>
+				</div>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>The primary differences between this success criteria and <a 
+					href="focus-appearance-minimum.html">2.4.11</a> is that the contrast ratio must be at least
+					4.5:1, the minimum area around the perimeter must be 2px and no content must obscure the
+					control.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">Keyboard Control</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

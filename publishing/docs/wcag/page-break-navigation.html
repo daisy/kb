@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Page Break Navigation</title>
+		<script>
+			var page_info = {
+				'topic': ['HTML','WCAG'],
+				'description': 'Explainer for success criterion 2.4.13 Page Break Navigation',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.2+</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.4.13</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Page Breaks</li>
+								<li>Page List</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For web content with page break locators, a mechanism is available to navigate to each
+								locator.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/page-break-navigation.html">Understanding Success Criterion 2.4.13</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#page-break-navigation">How to meet Success Criterion 2.4.13</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users have a way to access any static
+					page break markers in a publication.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>If there are page break markers in a publication, authors must provide a way for users to get
+					to the page break locations.</p>
+				
+				<p>For EPUB, providing a page list in the navigation document (or NCX in EPUB 2) is sufficient
+					to meet this requirement.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../navigation/pagelist.html">Page Navigation</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
