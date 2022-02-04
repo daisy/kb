@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>doc-biblioentry</title>
+		<title>doc-biblioentry (deprecated)</title>
 		<script>
 			var page_info = {
 				'topic': ['HTML', 'DPUB-ARIA'],
@@ -25,16 +25,14 @@
 
 				<figure id="ex-001">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Explicit bibliography list</div>
+						<div class="label">Example 1 &#8212; Bibliography list using native HTML elements</div>
 						<p>This example uses an <code>ol</code> list element to express the list.</p>
 					</figcaption>
 
 					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="bib-hd">
    &lt;h2 id="bib-hd">Select Bibliography&lt;/h2>
    &lt;ol>
-      &lt;li>
-         &lt;p role="biblioentry">Doe, John. Anonymous People through History. &#8230;&lt;/p>
-      &lt;/li>
+      &lt;li>Doe, John. Anonymous People through History. &#8230;&lt;/li>
       &#8230;
    &lt;/ol>
 &lt;/section></code></pre>
@@ -42,7 +40,7 @@
 
 				<figure id="ex-002">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Implied bibliography list</div>
+						<div class="label">Example 2 &#8212; Bibliography list using ARIA roles</div>
 						<p>This example defines a list using the ARIA <code>list</code> and <code>listitem</code>
 							roles.</p>
 					</figcaption>
@@ -51,7 +49,7 @@
    &lt;h2 id="bib-hd">Select Bibliography&lt;/h2>
    &lt;div role="list">
       &lt;div role="listitem">
-         &lt;p role="biblioentry">Doe, John. Anonymous People through History. &#8230;&lt;/p>
+         Doe, John. Anonymous People through History. &#8230;
       &lt;/div>
       &#8230;
    &lt;/div>
@@ -62,20 +60,19 @@
 			<section id="aria">
 				<h3>Relation to ARIA</h3>
 
-				<p><code>doc-biblioentry</code> inherits its semantics from the a <a
+				<p><code>doc-biblioentry</code> inherits its semantics from the <a
 						href="https://www.w3.org/TR/wai-aria/#listitem">listitem role</a>.</p>
 			</section>
 
 			<section id="usage">
 				<h3>Usage</h3>
 
-				<p>Use of the <code>doc-biblioentry</code> role is <strong>not recommended</strong> on list item
-					elements as defined in the DPUB-ARIA specification. The role is not compatible with changes to
-					ARIA's inheritance model (i.e., <code>list</code> must only contain <code>listitem</code> roles) and
-					has to be changed in a future version.</p>
-
-				<p>To use the role in a list, insert it on an element inside the list item, as displayed in <a
-						href="#ex-001">Example 1</a> above.</p>
+				<p>Explicit use of the <code>doc-biblioentry</code> role is <strong>deprecated</strong>. 
+					The role is not compatible with changes to ARIA's inheritance model (i.e., <code>list</code>
+					must only contain <code>listitem</code> roles) and has to be changed in a future version.</p>
+				
+				<p>The list item children of lists within a section that has the <code>doc-bibliography</code> role
+					are now automatically assumed to be bibliogrpahy entries.</p>
 
 				<p>If an bibliography does not use a list to represent its entries, the core <code>list</code> and
 						<code>listitem</code> roles should be used instead. (See <a href="#ex-002">Example 2</a>).</p>

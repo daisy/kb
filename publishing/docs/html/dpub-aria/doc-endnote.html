@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>doc-endnote</title>
+		<title>doc-endnote (deprecated)</title>
 		<script>
 			var page_info = {
 				'topic': ['HTML', 'DPUB-ARIA'],
@@ -25,7 +25,7 @@
 
 				<figure id="ex-001">
 					<figcaption>
-						<div class="label">Example 1 &#8212; Explicit list of endnotes</div>
+						<div class="label">Example 1 &#8212; List of endnotes using native HTML elements</div>
 						<p>This example uses an <code>ol</code> list element to express the list.</p>
 					</figcaption>
 
@@ -33,9 +33,7 @@
    &lt;h2 id="note-hd">Notes&lt;/h2>
    
    &lt;ol>
-      &lt;li id="n001">
-         &lt;p role="doc-footnote">1. In the far reaches of space &#8230;&lt;/p>
-      &lt;/li>
+      &lt;li id="n001">1. In the far reaches of space &#8230;&lt;/li>
       &#8230;
    &lt;/ol>
 &lt;/section></code></pre>
@@ -43,7 +41,7 @@
 
 				<figure id="ex-002">
 					<figcaption>
-						<div class="label">Example 2 &#8212; Implied list of endnotes</div>
+						<div class="label">Example 2 &#8212; List of endnotes using ARIA roles</div>
 						<p>This example defines a list using the ARIA <code>list</code> and <code>listitem</code>
 							roles.</p>
 					</figcaption>
@@ -53,7 +51,7 @@
    
    &lt;div role="list">
       &lt;div role="listitem" id="n001">
-         &lt;p role="doc-footnote">1. In the far reaches of space &#8230;&lt;/p>
+         1. In the far reaches of space &#8230;
       &lt;/div>
       &#8230;
    &lt;/div>
@@ -71,14 +69,13 @@
 			<section id="usage">
 				<h3>Usage</h3>
 
-				<p>Use of the <code>doc-endnote</code> role is <strong>not recommended</strong> on list item elements as
-					defined in the DPUB-ARIA specification. The role is not compatible with changes to ARIA's
-					inheritance model (i.e., <code>list</code> must only contain <code>listitem</code> roles) and has to
-					be changed in a future version.</p>
+				<p>Use of the <code>doc-endnote</code> role is <strong>deprecated</strong>. The role is not
+					compatible with changes to ARIA's inheritance model (i.e., <code>list</code> must only contain
+					<code>listitem</code> roles) and has to be changed in a future version.</p>
 
-				<p>Alternatively, the <code>doc-footnote</code> role can be used on an element inside the list item, as
-					displayed in <a href="#ex-001">Example 1</a> above.</p>
-
+				<p>The list item children of lists within a section that has the <code>doc-endnotes</code> role
+					are now automatically assumed to be individual endnotes.</p>
+				
 				<p>If an endnotes section does not use a list to represent its entries, the core <code>list</code> and
 						<code>listitem</code> roles should be used instead. (See <a href="#ex-002">Example 2</a>).</p>
 			</section>
