@@ -82,11 +82,6 @@ KB.prototype.initializePage = function (type) {
  */
 
 KB.prototype.writeCoreMeta = function () {
-	/* insert the charset first */
-	var charset = document.createElement('meta');
-		charset.setAttribute('charset', 'utf-8');
-	this.page_hd.insertBefore(charset, this.page_hd.firstChild);
-	
 	var viewport = document.createElement('meta');
 		viewport.setAttribute('name', 'viewport');
 		viewport.setAttribute('content', 'width=device-width, initial-scale=1');
