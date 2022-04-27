@@ -66,6 +66,17 @@
 				<p>After copy and renaming the template file, open it in an HTML editing program. Before beginning to
 					write the new page, make sure to configure the necessary metadata in the document header.</p>
 				
+				<section id="page-encoding">
+					<h4>Page Encoding</h4>
+					
+					<p>The first tag inside the HTML <code>head</code> element declares the character encoding for
+						the page:</p>
+					
+					<pre id="enc-ex-01" class="prettyprint linenums">&lt;meta charset="utf-8"></pre>
+					
+					<p>Do not change or remove this tag.</p>
+				</section>
+				
 				<section id="page-title">
 					<h4>Page Title</h4>
 					
@@ -75,10 +86,28 @@
 					<p><strong>Do not</strong> insert the page title in the body of the page. The title you put in the
 							<code>title</code> tags will automatically be inserted in the rendered page.</p>
 				</section>
-				<p>The <code>description</code> field provides a short description of the purpose of the page. It is
-					transformed into a <code>meta</code> description tag for search engine optimization.</p>
 				
+				<section id="page-viewport">
+					<h4>Viewport Metadata</h4>
+					
+					<p>To ensure the knowledge base scales correctly on mobile devices, a viewport declaration
+						follows the page title:</p>
+					
+					<pre id="viewport-ex-01" class="prettyprint linenums">&lt;meta name="viewport" content="width=device-width, initial-scale=1"></pre>
+					
+					<p>Similar to the page encoding, do not change or remove this tag.</p>
+				</section>
 				
+				<section id="page-description">
+					<h4>Page Description</h4>
+					
+					<p>The only meta tag that requires completion is the page description:</p>
+					
+					<pre id="desc-ex-01" class="prettyprint linenums">&lt;meta name="description" content=""></pre>
+					
+					<p>Please provide a brief description of the purpose of the page in the <code>content</code>
+						attribute. This tag is used for search engine optimization.</p>
+				</section>
 				
 				<section id="pg-info">
 					<h4>Page Info</h4>
