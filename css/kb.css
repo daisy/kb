@@ -317,23 +317,31 @@ details#topics {
 	background-color: rgb(251,251,251);
 	margin-top: 4rem;
 }
+
 details#topics ol > li > ol {
 	list-style-type: none;
 }
+
 details#topics summary {
 	font-weight: bold;
 	width: 57.5rem;
 	margin-top: 0;
 }
+
 details#topics nav {
 	margin-top: -1.3rem;
 }
+
 ol.col {
-	height: 45rem;
+	height: 55rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	margin-bottom: 0;
+}
+
+ol.col li {
+	margin-bottom: 1.6rem;
 }
 
 
