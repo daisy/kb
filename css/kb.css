@@ -332,18 +332,6 @@ details#topics nav {
 	margin-top: -1.3rem;
 }
 
-ol.col {
-	height: 61rem;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	margin-bottom: 0;
-}
-
-ol.col li {
-	min-height: 4.8rem;
-}
-
 
 /* applicable technologies */
 
