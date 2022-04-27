@@ -426,10 +426,10 @@ KB.prototype.generateAppliesTo = function () {
 				at_url = 'https://www.w3.org/TR/audiobooks/';
 				break;
 			case 'EPUB3':
-				at_url = 'http://www.idpf.org/epub3/latest';
+				at_url = 'https://www.w3.org/TR/epub/';
 				break;
 			case 'EPUB2':
-				at_url = 'http://idpf.org/epub/201';
+				at_url = 'http://idpf.org/epub/201/';
 				break;
 			default:
 				at_url = '#unknown';
@@ -568,7 +568,7 @@ KB.prototype.generateFooter = function () {
 	
 	var a11yitem = document.createElement('li');
 	var a11ylink = document.createElement('a');
-		a11ylink.setAttribute('href', 'http://www.idpf.org/epub/a11y/');
+		a11ylink.setAttribute('href', 'https://www.w3.org/TR/epub-a11y/');
 		a11ylink.appendChild(document.createTextNode(msg.footer.m12));
 	
 	a11yitem.appendChild(a11ylink);
@@ -576,7 +576,7 @@ KB.prototype.generateFooter = function () {
 	
 	var epubitem = document.createElement('li');
 	var epublink = document.createElement('a');
-		epublink.setAttribute('href', 'http://www.idpf.org/epub3/latest/');
+		epublink.setAttribute('href', 'https://www.w3.org/TR/epub/');
 		epublink.appendChild(document.createTextNode(msg.footer.m13));
 	
 	epubitem.appendChild(epublink);
