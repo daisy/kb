@@ -333,7 +333,7 @@ details#topics nav {
 }
 
 ol.col {
-	height: 55rem;
+	height: 61rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -341,7 +341,7 @@ ol.col {
 }
 
 ol.col li {
-	margin-bottom: 1.6rem;
+	min-height: 4.8rem;
 }
 
 
