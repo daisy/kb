@@ -56,7 +56,6 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeCoreMeta();
 		this.writeShiv();
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
@@ -74,18 +73,6 @@ KB.prototype.initializePage = function (type) {
 		this.host = 'ace';
 		// add ace desired heading tags here
 	}
-}
-
-
-/* 
- * writes meta/charset and meta/viewport tags
- */
-
-KB.prototype.writeCoreMeta = function () {
-	var viewport = document.createElement('meta');
-		viewport.setAttribute('name', 'viewport');
-		viewport.setAttribute('content', 'width=device-width, initial-scale=1');
-	this.page_hd.appendChild(viewport);
 }
 
 
@@ -166,7 +153,6 @@ KB.prototype.writeGoogleAnalytics = function () {
 KB.prototype.writeTemplate = function () {
 	if (this.host == 'kb') {
 		kb.generateTitles();
-		kb.generateMeta();
 		kb.generateHeader();
 		kb.generateBreadcrumb();
 		kb.generateMiniToc();
@@ -205,21 +191,6 @@ KB.prototype.generateTitles = function () {
 		
 		// append the kb name to the page title
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
-	}
-}
-
-
-/* 
- * generates additional meta tags from the page_info
- * - currently only supports adding descriptions 
- */
-
-KB.prototype.generateMeta = function () {
-	if (page_info.hasOwnProperty('description')) {
-		var description = document.createElement('meta');
-			description.setAttribute('name','description');
-			description.setAttribute('value',page_info['description']);
-		document.querySelector('title').insertAdjacentElement('afterEnd', description);
 	}
 }
 

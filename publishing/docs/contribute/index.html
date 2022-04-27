@@ -3,10 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Contributing to the Knowledge Base</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="How to contribute content to the DAISY Accessible Publishing Knowledge Base">
 		<script>
 			var page_info = {
-				'topic': 'Contribute',
-				'description': 'How to contribute content to the DAISY Accessible Publishing Knowledge Base',
+				'topic': 'Contribute'
 			};</script>
 		<script src="/js/init.js"></script>
 	</head>
@@ -74,6 +75,10 @@
 					<p><strong>Do not</strong> insert the page title in the body of the page. The title you put in the
 							<code>title</code> tags will automatically be inserted in the rendered page.</p>
 				</section>
+				<p>The <code>description</code> field provides a short description of the purpose of the page. It is
+					transformed into a <code>meta</code> description tag for search engine optimization.</p>
+				
+				
 				
 				<section id="pg-info">
 					<h4>Page Info</h4>
@@ -84,7 +89,6 @@
 					<pre id="info-ex-01" class="prettyprint linenums">&lt;script>
 var page_info = {
    'topic': '...',
-   'description': '...',
    'appliesTo': ['EPUB3']
 };
 &lt;/script></pre>
@@ -104,9 +108,6 @@ var page_info = {
 					<p>The order of the array must match the order of the directories (i.e., parents before siblings).
 						When your page is dynamically generated, this field provides the breadcrumb in the header (among
 						other uses).</p>
-					
-					<p>The <code>description</code> field provides a short description of the purpose of the page. It is
-						transformed into a <code>meta</code> description tag for search engine optimization.</p>
 					
 					<p>The <code>appliesTo</code> field is an array of values that identify which publishing
 						technologies the page applies to. There are currently only three values that can be used with
