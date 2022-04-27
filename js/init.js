@@ -66,7 +66,6 @@ KB.prototype.initializePage = function (type) {
 		}
 		
 		this.writeHeadTag('js', '/js/prettify.js');
-		this.writeHeadTag('js', 'https://code.jquery.com/jquery-1.12.4.min.js', {integrity: 'sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=', crossorigin: 'anonymous'});
 		this.writeGoogleAnalytics();
 	}
 	else {
