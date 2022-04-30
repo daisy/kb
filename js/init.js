@@ -42,7 +42,7 @@ function KB() {
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
-	this.noBreadcrumb = (page_info.hasOwnProperty('breadcrumb') && !page_info['breadcrumb']) ? true : false;
+	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
 	this.title = document.title;
@@ -58,6 +58,7 @@ KB.prototype.initializePage = function (type) {
 		this.host = 'kb';
 		this.writeShiv();
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
+		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
@@ -150,12 +151,25 @@ KB.prototype.writeGoogleAnalytics = function () {
  */
 
 KB.prototype.writeTemplate = function () {
+
 	if (this.host == 'kb') {
 		kb.generateTitles();
 		kb.generateHeader();
-		kb.generateBreadcrumb();
-		kb.generateMiniToc();
-		kb.generateAppliesTo();
+		
+		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
+			kb.generateMiniToc();
+			kb.generateCategory();
+			kb.generateAppliesTo();
+		}
+		
+		if (page_info.hasOwnProperty('nav') && !page_info.nav) {
+			kb.formatOpenPage();
+		}
+		
+		if (page_info.hasOwnProperty('search')) {
+			kb.formatSearchPage();
+		}
+		
 		kb.generateFooter();
 		kb.prettyPrint();
 		kb.addExampleCopy();
@@ -165,9 +179,9 @@ KB.prototype.writeTemplate = function () {
 		var href_len = cur_href.length - 1;
 		var last_slash = cur_href.lastIndexOf('/')
 		
-		//if (!this.isRootIndex && cur_href.indexOf('index.html') == -1 && last_slash != href_len) {
-		//	kb.addHeadingDestinations();
-		//}
+		if (this.isRootIndex || this.isIndex) {
+			kb.addTopicLinks();
+		}
 	}
 	
 	else {
@@ -207,20 +221,27 @@ KB.prototype.generateHeader = function () {
 		logo.setAttribute('class','logo');
 		logo.setAttribute('src','/graphics/daisy_logo.png');
 		logo.setAttribute('alt','DAISY')
-	
-	h1.appendChild(logo);
-	h1.appendChild(document.createTextNode(' '));
-	
+
 	var a = document.createElement('a');
-		a.setAttribute('href',this.kb_root);
-		a.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
-	
+		a.setAttribute('href','https://daisy.org');
+		a.appendChild(logo);
+
 	h1.appendChild(a);
+	
+	h1.appendChild(document.createTextNode(' '));
+	h1.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
 	
 	header.appendChild(h1);
 	
 	var top_links = document.createElement('div');
 		top_links.setAttribute('class','toplinks');
+	
+	// add the contents link
+	var contents_a = document.createElement('a');
+		contents_a.setAttribute('href', this.kb_root);
+		contents_a.appendChild(document.createTextNode(msg.header.m04));
+	
+	top_links.appendChild(contents_a);
 	
 	// add the what's new link
 	var whatsnew_a = document.createElement('a');
@@ -249,95 +270,60 @@ KB.prototype.generateHeader = function () {
 }
 
 
-/* creates the breadcrumb to the current location */
+/* creates the category for the current topic */
 
-KB.prototype.generateBreadcrumb = function () {
+KB.prototype.generateCategory = function () {
 
-	if (this.isRootIndex || this.noBreadcrumb) {
+	if (this.isRootIndex || this.isIndex || this.noCategory) {
+		if (!this.isRootIndex) {
+			var h2 = document.getElementsByTagName('h2')[0];
+				h2.setAttribute('class', 'noCategory');
+		}
 		return;
 	}
 	
-	if (page_info.hasOwnProperty('topic')) {
-		if (!Array.isArray(page_info.topic)) {
-			page_info.topic = [page_info.topic];
+	if (page_info.hasOwnProperty('category')) {
+		if (!Array.isArray(page_info.category)) {
+			page_info.category = [page_info.category];
 		}
 	}
 	else {
-		page_info.topic = [];
+		page_info.category = [];
 	}
 
 	
-	var breadcrumb = document.createElement('nav');
-		breadcrumb.setAttribute('class','breadcrumb');
+	var div = document.createElement('div');
+		div.setAttribute('class', 'category');
+		div.appendChild(document.createTextNode(msg.UI.m04))
 	
-	var p = document.createElement('p');
+	if (page_info.category.length > 0) {
 	
-	var kb_url = '../';
-	
-	if (page_info.topic.length > 1) {
-		for (var z = page_info.topic.length-1; z > 0; z--) {
-			kb_url += '../';
-		}
-	}
-	
-	kb_url += 'index.html';
-	
-	// add link to the top-level index
-	var home = document.createElement('a');
-		home.setAttribute('href',kb_url);
-		home.appendChild(document.createTextNode(msg.UI.m01))
-	
-	p.appendChild(home);
-	p.appendChild(document.createTextNode(' > '));
-	
-	if (page_info.topic.length > 0) {
-	
-		for (var x = 0; x < page_info['topic'].length; x++) {
-			
-			if (window.location.href.indexOf('index.html') > -1 && x == page_info.topic.length -1) {
-				// if on an index page, add the final topic as a span
-				var span = document.createElement('span');
-					span.appendChild(document.createTextNode(page_info.topic[x]));
-				
-				p.appendChild(span);
-			}
-			
-			else {
-				// otherwise add a link to the topic index and a span with the current topic title
-				
-				var index_url = '';
-				
-				// if more than one topic, need to add ../ to reach the right page
-				if (page_info.topic.length > 1) {
-					for (var y = page_info.topic.length-1; y > x; y--) {
-						index_url += '../';
-					}
-				}
-				
-				index_url += 'index.html'
-				
-				var index = document.createElement('a');
-					index.setAttribute('href',index_url);
-					index.appendChild(document.createTextNode(page_info.topic[x]))
-				
-				p.appendChild(index);
-				p.appendChild(document.createTextNode(' > '));
-			}
-		}
-	}
-	
-	if (window.location.href.indexOf('index.html') == -1) {
-		// add page title for content pages
-		var span = document.createElement('span');
-			span.appendChild(document.createTextNode(this.title));
+		for (var x = 0; x < page_info['category'].length; x++) {
 		
-		p.appendChild(span);
+			var index_url = '';
+			
+			// if more than one category, need to add ../ to reach the right page
+			if (page_info.category.length > 1) {
+				for (var y = page_info.category.length-1; y > x; y--) {
+					index_url += '../';
+				}
+			}
+			
+			index_url += 'index.html'
+			
+			if (x > 0) {
+				div.appendChild(document.createTextNode(' - '));
+			}
+			
+			var index = document.createElement('a');
+				index.setAttribute('href',index_url);
+				index.appendChild(document.createTextNode(page_info.category[x]))
+			
+			div.appendChild(index);
+		}
 	}
 	
-	breadcrumb.appendChild(p);
-	
-	var h2 = document.querySelector('h2');
-		h2.insertAdjacentElement('afterEnd', breadcrumb);
+	document.querySelector('h2').insertAdjacentElement('beforeBegin', div);
 }
 
 
@@ -348,6 +334,7 @@ KB.prototype.generateBreadcrumb = function () {
 KB.prototype.generateMiniToc = function () {
 	
 	if (this.isIndex || this.isRootIndex) {
+		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
 		return;
 	}
 	
@@ -388,7 +375,11 @@ KB.prototype.generateMiniToc = function () {
 		nav.appendChild(ol);
 	}
 	
-	document.querySelector('main > nav.breadcrumb').insertAdjacentElement('afterEnd', nav);
+	var navcol = document.createElement('div');
+		navcol.setAttribute('id', 'nav-col');
+		navcol.appendChild(nav);
+	
+	document.querySelector('header').insertAdjacentElement('afterEnd', navcol);
 }
 
 
@@ -404,16 +395,16 @@ KB.prototype.generateAppliesTo = function () {
 		return;
 	}
 	
-	var aside = document.createElement('aside');
-		aside.setAttribute('class', 'applies-to');
+	var section = document.createElement('section');
+		section.setAttribute('class', 'applies-to');
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
 		h3.appendChild(document.createTextNode(msg.UI.m03));
 	
-	aside.appendChild(h3);
+	section.appendChild(h3);
 	
-	var ol = document.createElement('ul');
+	var ol = document.createElement('ol');
 	
 	// add an entry for each format identified in the page_info
 	for (var i = 0; i < page_info.appliesTo.length; i++) {
@@ -443,9 +434,9 @@ KB.prototype.generateAppliesTo = function () {
 		 ol.appendChild(li);
 	}
 	
-	aside.appendChild(ol);
+	section.appendChild(ol);
 	
-	document.querySelector('main > nav.mini-toc').insertAdjacentElement('afterEnd', aside);
+	document.querySelector('div#nav-col').insertAdjacentElement('afterBegin', section);
 }
 
 
@@ -468,7 +459,7 @@ KB.prototype.generateFooter = function () {
 	
 	top.appendChild(toplink);
 
-	document.body.appendChild(top);
+	document.getElementsByTagName('main')[0].insertAdjacentElement('beforeEnd', top);
 	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
@@ -677,7 +668,145 @@ KB.prototype.addGlossaryLinks = function() {
 	}
 }
 
+/* write the navigation topics */
 
+KB.prototype.addTopicLinks = function() {
+
+	if (this.isIndex && !this.isRootIndex) {
+		
+		// topic index
+		
+		var toc = document.createElement('nav');
+			toc.id = 'toc';
+			toc.setAttribute('role', 'doc-toc');
+			toc.setAttribute('aria-label', 'Table of contents');
+		
+		var root_topic = null;
+		
+		for (var i = 0; i < topic_list.length; i++) {
+			if (topic_list[i].id == page_info.root_id) {
+				root_topic = topic_list[i]
+				break;
+			}
+		}
+		
+		if (!root_topic) {
+			console.log('No matching topic index for ' + page_info.root_id);
+			return;
+		}
+		
+		if (root_topic.hasOwnProperty('categories')) {
+		
+			for (var j = 0; j < root_topic.categories.length; j++) {
+				
+				var section = document.createElement('section');
+				
+				section.id = root_topic.categories[j].id;
+				
+				var h3 = document.createElement('h3');
+					h3.appendChild(document.createTextNode(root_topic.categories[j].title));
+				
+				section.appendChild(h3);
+				section.appendChild(this.createLinkList(root_topic.categories[j], false))
+				toc.appendChild(section);
+			}
+		}
+		
+		else {
+			toc.appendChild(this.createLinkList(root_topic, false));
+		}
+		
+		document.getElementsByTagName('h2')[0].insertAdjacentElement('afterEnd', toc);
+		
+	}
+	
+	else {
+		
+		// generate site root index
+		
+		var toc = document.getElementById('toc');
+		
+		for (var i = 0; i < topic_list.length; i++) {
+		
+			if (topic_list[i].hasOwnProperty('showInRootIndex') && !topic_list[i].showInRootIndex) {
+				continue;
+			}
+			
+			var details = document.createElement('details');
+				details.id = topic_list[i].id;
+				details.setAttribute('open', 'open');
+			
+			var summary = document.createElement('summary');
+				summary.appendChild(document.createTextNode(topic_list[i].title));
+			
+			details.appendChild(summary);
+			
+			if (topic_list[i].hasOwnProperty('categories')) {
+			
+				for (var j = 0; j < topic_list[i].categories.length; j++) {
+					
+					var section = document.createElement('section');
+					
+					section.id = topic_list[i].categories[j].id;
+					
+					var h3 = document.createElement('h3');
+						h3.appendChild(document.createTextNode(topic_list[i].categories[j].title));
+					
+					section.appendChild(h3);
+					section.appendChild(this.createLinkList(topic_list[i].categories[j], true))
+					details.appendChild(section);
+				}
+			}
+			
+			else {
+				details.appendChild(this.createLinkList(topic_list[i], true));
+			}
+			
+			toc.insertAdjacentElement('beforeEnd', details);
+		}
+	}
+}
+
+
+KB.prototype.createLinkList = function(topic, isRoot) {
+
+	var ol = document.createElement('ol');
+	
+	for (var j = 0; j < topic.topics.length; j++) {
+	
+		var li = document.createElement('li');
+			li.id = topic.topics[j].id;
+		
+		var a = document.createElement('a');
+			a.setAttribute('href', (isRoot ? topic.path + '/' : '') + topic.topics[j].href);
+			
+			if (topic.topics[j].hasOwnProperty('aria-label')) {
+				a.setAttribute('aria-label', topic.topics[j]['aria-label']);
+			}
+			
+			a.appendChild(document.createTextNode(topic.topics[j].title));
+		
+		li.appendChild(a);
+		ol.appendChild(li);
+	}
+	
+	return ol;
+}
+
+
+/* format the search page layout */
+
+KB.prototype.formatSearchPage = function () {
+	document.getElementsByTagName('main')[0].setAttribute('class', 'search');
+}
+
+
+
+/* format nav-less layouts */
+
+KB.prototype.formatOpenPage = function () {
+	document.getElementsByTagName('main')[0].setAttribute('class', 'no-nav');
+}
 
 /* 
  * 

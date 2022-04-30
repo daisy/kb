@@ -4,14 +4,16 @@ var msg = {};
 	msg.kb_name.publishing =  'Accessible Publishing Knowledge Base';
 	
 	msg.UI = {};
-	msg.UI.m01 = 'KB';
-	msg.UI.m02 = 'In this section:'
-	msg.UI.m03 = 'Applies to:';
+	msg.UI.m01 = 'Home';
+	msg.UI.m02 = 'Page Contents'
+	msg.UI.m03 = 'Applies To';
+	msg.UI.m04 = 'Category: '
 	
 	msg.header = {};
 	msg.header.m01 = 'What\'s New';
 	msg.header.m02 = 'Glossary';
 	msg.header.m03 = 'Search';
+	msg.header.m04 = 'Topics';
 	
 	msg.footer = {};
 	msg.footer.m01 = '\u00a9 %yr% The DAISY Consortium';

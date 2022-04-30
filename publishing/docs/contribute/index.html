@@ -7,7 +7,7 @@
 		<meta name="description" content="How to contribute content to the DAISY Accessible Publishing Knowledge Base">
 		<script>
 			var page_info = {
-				'topic': 'Contribute'
+				'category': 'Contribute'
 			};</script>
 		<script src="/js/init.js"></script>
 	</head>
@@ -117,7 +117,7 @@
 					
 					<pre id="info-ex-01" class="prettyprint linenums">&lt;script>
 var page_info = {
-   'topic': '...',
+   'category': '...',
    'appliesTo': ['EPUB3']
 };
 &lt;/script></pre>
@@ -126,13 +126,13 @@ var page_info = {
 						you are creating the page. For example, if you are adding a new page to the html directory, you
 						would set the field to:</p>
 					
-					<pre id="info-ex-02" class="prettyprint linenums">'topic': 'HTML',</pre>
+					<pre id="info-ex-02" class="prettyprint linenums">'category': 'HTML',</pre>
 					
 					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values
 						for the topic. For example, pages in the <code>html/dpub-aria</code> directory include an array
 						like this:</p>
 					
-					<pre id="info-ex-03" class="prettyprint linenums">'topic': ['html', 'dpub-aria'],</pre>
+					<pre id="info-ex-03" class="prettyprint linenums">'category': ['html', 'dpub-aria'],</pre>
 					
 					<p>The order of the array must match the order of the directories (i.e., parents before siblings).
 						When your page is dynamically generated, this field provides the breadcrumb in the header (among

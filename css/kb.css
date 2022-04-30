@@ -56,10 +56,20 @@ h1 a:hover {
 
 h2 {
 	font-family: Raleway;
-	font-size: 150%;
-	padding: 0.7em;
-	margin: 1em 0 0 0;
+	font-size: 180%;
+	padding: 0.5em 0.7em 0.7em 0.7em;
+	margin: 0 0 0 1.5rem;
 	letter-spacing: 0.125rem;
+}
+
+h2.noCategory {
+	margin-top: 5.8rem;
+}
+
+main.no-nav > h2,
+main.search > h2 {
+	margin-top: 3.8rem;
+	margin-left: 0;
 }
 
 
@@ -69,6 +79,11 @@ h3 {
 	margin-top: 1.75em;
 }
 
+section#summary > h3 {
+    margin-top: -2rem;
+}
+
+div#nav-col h3,
 section > h3 {
 	font-weight: normal;
 	padding-bottom: 0.5rem;
@@ -106,7 +121,7 @@ a {
 	text-decoration: none;
 }
 
-nav.breadcrumb a,
+section.applies-to a,
 nav.mini-toc a,
 section#tech span > a {
 	border-bottom: none;
@@ -155,7 +170,6 @@ header {
 
 footer {
 	font-size: 90%;
-	margin: 3em 0 0 0;
 	padding-bottom: 0;
 	border-top: 2px solid rgb(240,240,255);
 	background-color: rgb(47,115,181);
@@ -201,10 +215,21 @@ footer a {
 }
 
 main {
-	/* border-right: 1px solid rgb(0,0,0); */
 	padding-bottom: 0.5em;
 	max-width: 44em;
-	margin-left: 1rem;
+	margin-left: 20rem;
+	display: table-cell;
+	vertical-align: top;
+}
+
+main.index {
+	padding-left: 6rem;
+}
+
+main.no-nav,
+main.search {
+	display: block;
+	margin-left: 7rem;
 }
 
 main > section,
@@ -235,37 +260,31 @@ div.toplinks > a:hover {
 	text-decoration: none;
 }
 
-/* breadcrumb nav */
+/* navigation column */
 
-nav.breadcrumb {
-	color: rgb(0,0,0);
-	text-indent: 0.5em;
-	margin-top: 0.3em;
-	margin-left: 1.15em;
-	padding: 2px 0;
-	width: 35em;
+div#nav-col {
+	display: table-cell;
 	background-color: rgb(240,245,255);
-	border-radius: 1rem;
+	width: 25rem;
+	border-right: 0.1rem dotted black;
+	vertical-align: top;
 }
 
-nav.breadcrumb > p {
-	margin: 0;
-	margin-top: -0.2em;
-	padding: 0.3rem;
+/* nav */
+
+div.category {
+	margin: 2em 0 0 0;
+	padding: 0;
+	margin-left: 3.7rem;
 	font-size: 90%;
 }
 
-nav.breadcrumb > p > a,
-nav.breadcrumb > p > span {
-	font-size: 100%;
-	padding: 0 1rem;
+nav.mini-toc {
+	color: rgb(0,0,0);
+	margin-top: 3rem;
 }
 
-nav.breadcrumb > p > a:first-child {
-	padding: 0 1rem 0 0;
-}
-
-nav.breadcrumb a:hover,
+section.applies-to a:hover,
 nav.mini-toc a:hover,
 section#tech a:hover {
 	border-bottom: none;
@@ -273,38 +292,35 @@ section#tech a:hover {
 }
 
 /* section nav */
+section.applies-to,
 nav.mini-toc {
 	font-family: Helvetica,Arial,sans-serif;
 	margin-left: 1.15em;
-	margin-top: 0.3em;
-	min-width: 7em;
 }
 
+section.applies-to {
+	margin-top: 3.2rem;
+}
+
+section.applies-to h3,
 nav.mini-toc h3 {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	margin: 0 0 0 0.7em;
-	border: none;
-	display: inline-block;
 }
 
-nav.mini-toc h3:before,
-nav.mini-toc h3:after {
-	content: '';
-}
-
+section.applies-to ol,
 nav.mini-toc ol {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
-	display: inline-block;
+	padding-left: 1rem;
 }
 
+section.applies-to li,
 nav.mini-toc li {
-	font-size: 0.9em;
 	padding: 0 0.3em 0 0.8em;
-	display: inline-block;
 }
 
+section.applies-to a,
 nav.mini-toc a {
 	font-size: 0.9em;
 }
@@ -335,47 +351,6 @@ details#topics nav {
 
 /* applicable technologies */
 
-aside.applies-to {
-	float: right;
-	padding: 0.75rem 1.5rem;
-	margin-top: -12.9rem;
-	padding-bottom: 1rem;
-	font-size: 1.6rem;
-	background-color: rgb(250,250,250);
-	border: 0.1rem solid cornflowerblue;
-	border-radius: 1.3rem;
-}
-
-aside.applies-to > h3:before {
-	content: '';
-}
-
-aside.applies-to > h3 {
-	font-size: 105%;
-	margin: 0;
-}
-
-aside.applies-to > ul {
-	list-style-type: none;
-	padding: 0 0 0 0.5rem;
-	margin: 0;
-}
-
-aside.applies-to > ul > li:before {
-	content: ' - '
-}
-
-aside.applies-to > ul > li {
-	line-height: normal;
-}
-
-aside.applies-to a {
-	text-decoration: none;
-	color: rgb(0,0,200);
-	border-bottom: none;
-}
-
-
 /* section spacing */
 
 section {
@@ -385,7 +360,6 @@ section {
 main {
 	margin-top: 0;
 }
-
 
 /* example formatting*/
 
@@ -907,11 +881,6 @@ p.backtotop {
 	div.toplinks {
 		font-size: 70%;
 		padding-left: 2rem;
-	}
-	aside.applies-to {
-		margin-top: inherit;
-		margin-top: 3rem;
-		max-width: 7.2rem;
 	}
 	main {
 		margin-left: 1rem;
