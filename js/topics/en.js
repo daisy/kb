@@ -287,6 +287,33 @@ var topic_list = [
 				]
 			},
 			{
+				'id': 'html-tables',
+				'title': 'Tables',
+				'path': 'html',
+				'topics': [
+					{
+						'id': 'html-table-basics',
+						'href': 'tables-basics.html',
+						'title': 'Table Basics'
+					},
+					{
+						'id': 'html-table-headers',
+						'href': 'tables-headers.html',
+						'title': 'Complex Headers'
+					},
+					{
+						'id': 'html-table-scope',
+						'href': 'tables-scope.html',
+						'title': 'Header Scope'
+					},
+					{
+						'id': 'html-table-presentational',
+						'href': 'tables-presentational.html',
+						'title': 'Presentational Tables'
+					}
+				]
+			},
+			{
 				'id': 'html-structures',
 				'title': 'Structures',
 				'path': 'html',
