@@ -358,6 +358,7 @@ KB.prototype.generateMiniToc = function () {
 		nav.appendChild(h3);
 		
 		var ol = document.createElement('ol');
+			ol.setAttribute('role', 'list');
 		
 		// iterate each heading and add a link to it
 		for (var i = 0; i < h.length; i++) {
@@ -409,6 +410,7 @@ KB.prototype.generateAppliesTo = function () {
 	section.appendChild(h3);
 	
 	var ol = document.createElement('ol');
+		ol.setAttribute('role', 'list');
 	
 	// add an entry for each format identified in the page_info
 	for (var i = 0; i < page_info.appliesTo.length; i++) {
@@ -775,6 +777,7 @@ KB.prototype.addTopicLinks = function() {
 KB.prototype.createLinkList = function(topic, isRoot) {
 
 	var ol = document.createElement('ol');
+		ol.setAttribute('role', 'list');
 	
 	for (var j = 0; j < topic.topics.length; j++) {
 	
