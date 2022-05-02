@@ -254,7 +254,6 @@ div.toplinks > a:hover {
 
 div#nav-col {
 	display: table-cell;
-	background-color: rgb(240,245,255);
 	width: 25rem;
 	border-right: 0.1rem dotted black;
 	vertical-align: top;
