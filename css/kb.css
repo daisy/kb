@@ -886,6 +886,7 @@ p.backtotop {
 	main.no-nav,
 	main.search {
 		margin-left: 0;
+		max-width: 100%;
 	}
 
 	
