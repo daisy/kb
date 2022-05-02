@@ -872,7 +872,8 @@ p.backtotop {
 	h1 span {
 		display: table-cell;
 		vertical-align: top;
-		padding-top: 0.7rem; 
+		padding-top: 0.7rem;
+		padding-bottom: 1rem;
 	}
 	
 	div.toplinks {
@@ -882,6 +883,7 @@ p.backtotop {
 	
 	div.toplinks a {
 		display: block;
+		padding: 0.5rem 0;
 	}
 	
 	main {
