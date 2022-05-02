@@ -871,6 +871,8 @@ p.backtotop {
 	
 	h1 span {
 		display: table-cell;
+		vertical-align: top;
+		padding-top: 0.7rem; 
 	}
 	
 	div.toplinks {
