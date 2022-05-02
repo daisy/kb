@@ -891,6 +891,13 @@ p.backtotop {
 		display: block;
 	}
 	
+	main.index,
+	main.no-nav,
+	main.search {
+		margin-left: 2rem;
+	}
+
+	
 	div#nav-col {
 		display: block;
 		width: auto;
