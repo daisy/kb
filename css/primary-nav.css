@@ -119,7 +119,7 @@ nav#toc a {
   and (max-device-width: 480px) {
   
 	nav#toc {
-		margin: 2em 0 0 0;
+		margin: 2em 0 0 2em;
 	}
 	nav#toc.site {
 		margin: 0 0 0 0.5em;
