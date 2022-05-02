@@ -217,7 +217,6 @@ footer a {
 main {
 	padding-bottom: 0.5em;
 	max-width: 44em;
-	margin-left: 20rem;
 	display: table-cell;
 	vertical-align: top;
 }
@@ -884,5 +883,11 @@ p.backtotop {
 	}
 	main {
 		margin-left: 1rem;
+		display: block;
+	}
+	
+	div#nav-col {
+		display: block;
+		width: auto;
 	}
 }
