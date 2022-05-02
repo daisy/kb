@@ -881,6 +881,11 @@ p.backtotop {
 		font-size: 70%;
 		padding-left: 2rem;
 	}
+	
+	div.toplinks a {
+		display: inline-block;
+	}
+	
 	main {
 		margin-left: 1rem;
 		display: block;
