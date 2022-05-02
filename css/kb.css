@@ -45,15 +45,6 @@ h1 {
 	background-color: rgb(27,95,161);
 }
 
-h1 a {
-	color: inherit !important;
-}
-
-h1 a:hover {
-	border-bottom: none !important;
-	text-decoration: underline;
-}
-
 h2 {
 	font-family: Raleway;
 	font-size: 180%;
@@ -153,7 +144,7 @@ main section a:visited:hover {
 	border-bottom: 0.1rem dotted rgb(180,0,0);
 }
 
-h1 a, nav a {
+nav a {
 	text-decoration: none;
 }
 
@@ -873,7 +864,7 @@ p.backtotop {
 		padding-left: 0.5em;
 	}
 	
-	h1 a {
+	h1 span {
 		display: table-cell;
 	}
 	
@@ -883,18 +874,18 @@ p.backtotop {
 	}
 	
 	div.toplinks a {
-		display: inline-block;
-	}
-	
-	main {
-		margin-left: 1rem;
 		display: block;
 	}
 	
+	main {
+		display: block;
+	}
+	
+	main,
 	main.index,
 	main.no-nav,
 	main.search {
-		margin-left: 2rem;
+		margin-left: 0;
 	}
 
 	

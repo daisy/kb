@@ -229,7 +229,11 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(a);
 	
 	h1.appendChild(document.createTextNode(' '));
-	h1.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
+	
+	var h1_span = document.createElement('span');
+		h1_span.appendChild(document.createTextNode(msg.kb_name[this.kb_id]))
+	
+	h1.appendChild(h1_span);
 	
 	header.appendChild(h1);
 	
