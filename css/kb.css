@@ -232,6 +232,25 @@ main > details {
 	margin-left: 2em;
 }
 
+
+/* skip to main link */
+
+.skip-main {
+	display: block;
+	border-radius: 0 0 1rem 1rem;
+	font-size: 90%;
+	position: absolute;
+	left: 45%;
+	padding: 0.2rem 1.5rem;
+	background: rgb(255,255,255);
+	transform: translateY(-100%);
+	transition: transform 0.3s;
+}
+
+.skip-main:focus {
+	transform: translateY(0%);
+}
+
 /* glossary link */
 
 div.toplinks {

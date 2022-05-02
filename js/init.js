@@ -214,6 +214,15 @@ KB.prototype.generateHeader = function () {
 
 	var header = document.createElement('header');
 	
+	var skip_a = document.createElement('a');
+		skip_a.setAttribute('href', '#main');
+		skip_a.setAttribute('class','skip-main');
+		skip_a.appendChild(document.createTextNode(msg.header.m05));
+	
+	header.appendChild(skip_a);
+	
+	document.getElementsByTagName('main')[0].setAttribute('id','main');
+	
 	var h1 = document.createElement('h1');
 	
 	// add the daisy logo
