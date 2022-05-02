@@ -216,7 +216,7 @@ KB.prototype.generateHeader = function () {
 	
 	var skip_a = document.createElement('a');
 		skip_a.setAttribute('href', '#main');
-		skip_a.setAttribute('class','skip-main');
+		skip_a.setAttribute('id','skip-main');
 		skip_a.appendChild(document.createTextNode(msg.header.m05));
 	
 	header.appendChild(skip_a);
@@ -356,6 +356,10 @@ KB.prototype.generateMiniToc = function () {
 	
 	var navcol = document.createElement('div');
 		navcol.setAttribute('id', 'nav-col');
+	
+	// reset the jump to main link to redirect here
+	
+	document.getElementById('skip-main').setAttribute('href', '#nav-col');
 	
 	// grab all the subsection headings on the page
 	var h = document.querySelectorAll('h3');

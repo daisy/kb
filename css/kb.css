@@ -235,7 +235,7 @@ main > details {
 
 /* skip to main link */
 
-.skip-main {
+a#skip-main {
 	display: block;
 	border-radius: 0 0 1rem 1rem;
 	font-size: 90%;
@@ -247,7 +247,7 @@ main > details {
 	transition: transform 0.3s;
 }
 
-.skip-main:focus {
+a#skip-main:focus {
 	transform: translateY(0%);
 }
 
