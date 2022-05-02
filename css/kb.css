@@ -854,6 +854,11 @@ p.backtotop {
 
 @media only screen
 	and (max-device-width: 480px) {
+	
+	header {
+		width: 100vw;
+	}
+	
 	h1 {
 		text-indent: 0;
 		display: table-row;
@@ -885,9 +890,10 @@ p.backtotop {
 	main.index,
 	main.no-nav,
 	main.search {
+		padding-left: 0;
 		margin-left: 0;
 		width: 100%;
-		max-width: 100%;
+		max-width: 100vw;
 	}
 
 	
@@ -896,5 +902,9 @@ p.backtotop {
 		width: auto;
 		margin-top: 0;
 		padding-top: 0;
+	}
+	
+	footer > * {
+		padding-left: 3em;
 	}
 }
