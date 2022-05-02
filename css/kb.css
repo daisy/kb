@@ -900,8 +900,11 @@ p.backtotop {
 	div#nav-col {
 		display: block;
 		width: auto;
+	}
+	
+	section.applies-to {
 		margin-top: 0;
-		padding-top: 0;
+		padding-top: 1.5rem
 	}
 	
 	footer > * {
