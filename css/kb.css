@@ -680,6 +680,12 @@ rt {
 
 /* glossary */
 
+body#glossary nav#toc ol {
+	max-width: 72rem;
+	grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
+	padding-left: 0;
+}
+
 .glossary dt {
 	font-family: 'Raleway',Helvetica,Arial,sans-serif;
 	font-size: 1.8rem;
@@ -913,5 +919,9 @@ p.backtotop {
 	
 	footer > * {
 		padding-left: 3em;
+	}
+	
+	body#glossary nav#toc ol {
+		padding-left: 2rem;
 	}
 }
