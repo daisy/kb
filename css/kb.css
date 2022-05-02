@@ -258,13 +258,14 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	width: 25rem;
+	min-width: 22rem;
 	border-right: 0.1rem dotted black;
 	vertical-align: top;
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	overflow: auto;
 }
 
 /* nav */
@@ -913,7 +914,7 @@ p.backtotop {
 	main.search {
 		padding-left: 0;
 		margin-left: 0;
-		width: 100%;
+		width: auto;
 		max-width: 100vw;
 	}
 	
