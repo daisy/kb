@@ -205,6 +205,11 @@ footer a {
 	color: rgb(255,255,255) !important;
 }
 
+div.col-wrapper {
+	display: flex;
+	position: relative;
+}
+
 main {
 	padding-bottom: 0.5em;
 	max-width: 44em;
@@ -253,10 +258,13 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	display: table-cell;
 	width: 25rem;
 	border-right: 0.1rem dotted black;
 	vertical-align: top;
+	height: 100vh;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 }
 
 /* nav */
@@ -891,6 +899,10 @@ p.backtotop {
 		padding: 0.5rem 0;
 	}
 	
+	div.col-wrapper {
+		display: block;
+	}
+	
 	main {
 		display: block;
 	}
@@ -904,11 +916,12 @@ p.backtotop {
 		width: 100%;
 		max-width: 100vw;
 	}
-
 	
 	div#nav-col {
 		display: block;
 		width: auto;
+		height: auto;
+		position: relative;
 	}
 	
 	section.applies-to {

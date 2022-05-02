@@ -342,6 +342,12 @@ KB.prototype.generateMiniToc = function () {
 		return;
 	}
 	
+	var flex_div = document.createElement('div');
+		flex_div.setAttribute('class', 'col-wrapper');
+	
+	var navcol = document.createElement('div');
+		navcol.setAttribute('id', 'nav-col');
+	
 	// grab all the subsection headings on the page
 	var h = document.querySelectorAll('h3');
 	
@@ -380,11 +386,11 @@ KB.prototype.generateMiniToc = function () {
 		nav.appendChild(ol);
 	}
 	
-	var navcol = document.createElement('div');
-		navcol.setAttribute('id', 'nav-col');
-		navcol.appendChild(nav);
+	navcol.appendChild(nav);
+	flex_div.appendChild(navcol);
+	flex_div.appendChild(document.getElementsByTagName('main')[0]);
 	
-	document.querySelector('header').insertAdjacentElement('afterEnd', navcol);
+	document.querySelector('header').insertAdjacentElement('afterEnd', flex_div);
 }
 
 
