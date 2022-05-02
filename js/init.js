@@ -153,12 +153,12 @@ KB.prototype.writeGoogleAnalytics = function () {
 KB.prototype.writeTemplate = function () {
 
 	if (this.host == 'kb') {
-		kb.generateTitles();
 		kb.generateHeader();
+		kb.generateBody();
+		kb.generateCategory();
 		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
 			kb.generateMiniToc();
-			kb.generateCategory();
 			kb.generateAppliesTo();
 		}
 		
@@ -186,24 +186,6 @@ KB.prototype.writeTemplate = function () {
 	
 	else {
 		// add template for use in ace
-	}
-}
-
-
-/* generates the page title and header */
-
-KB.prototype.generateTitles = function () {
-
-	// this processing is skipped for the master list of topics
-	if (!this.isRootIndex) {
-		// create the h2 from the contents of the page title
-		var h2 = document.createElement('h2');
-			h2.appendChild(document.createTextNode(this.title));
-		
-		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
-		
-		// append the kb name to the page title
-		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
 	}
 }
 
@@ -283,6 +265,53 @@ KB.prototype.generateHeader = function () {
 }
 
 
+/* generates the standard page body inside main */
+
+KB.prototype.generateBody = function () {
+	
+	// create a new main element to contain the body
+	var new_main = document.createElement('main');
+		new_main.id = 'main';
+	
+	// create new body div for the page content
+	var new_body = document.createElement('div');
+		new_body.setAttribute('id', 'body');
+		
+	// copy the old main inside
+	var old_main = document.getElementsByTagName('main')[0];
+		new_body.innerHTML = old_main.innerHTML;
+	
+	// add the new main element and delete the old
+	new_main.appendChild(new_body);
+	
+	document.body.appendChild(new_main);
+	
+	old_main.remove();
+	
+	// this processing is skipped for the master list of topics
+	
+	if (!this.isRootIndex) {
+	
+		var title_div = document.createElement('div');
+		
+		if (!this.isIndex && (!page_info.hasOwnProperty('nav') || page_info.nav) && !page_info.hasOwnProperty('search')) {
+			title_div.id = 'page-title';
+		}
+		
+		// create the h2 from the contents of the page title
+		var h2 = document.createElement('h2');
+			h2.appendChild(document.createTextNode(this.title));
+		
+		title_div.appendChild(h2);
+		
+		document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		
+		// append the kb name to the page title
+		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
+	}
+}
+
+
 /* creates the category for the current topic */
 
 KB.prototype.generateCategory = function () {
@@ -336,7 +365,7 @@ KB.prototype.generateCategory = function () {
 		}
 	}
 	
-	document.querySelector('h2').insertAdjacentElement('beforeBegin', div);
+	document.getElementById('page-title').insertAdjacentElement('afterBegin', div);
 }
 
 
@@ -345,7 +374,7 @@ KB.prototype.generateCategory = function () {
  */
 
 KB.prototype.generateMiniToc = function () {
-	
+
 	if (this.isIndex || this.isRootIndex) {
 		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
 		return;
@@ -356,10 +385,6 @@ KB.prototype.generateMiniToc = function () {
 	
 	var navcol = document.createElement('div');
 		navcol.setAttribute('id', 'nav-col');
-	
-	// reset the jump to main link to redirect here
-	
-	document.getElementById('skip-main').setAttribute('href', '#nav-col');
 	
 	// grab all the subsection headings on the page
 	var h = document.querySelectorAll('h3');
@@ -401,16 +426,16 @@ KB.prototype.generateMiniToc = function () {
 	
 	navcol.appendChild(nav);
 	flex_div.appendChild(navcol);
-	flex_div.appendChild(document.getElementsByTagName('main')[0]);
+	flex_div.appendChild(document.getElementById('body'));
 	
-	document.querySelector('header').insertAdjacentElement('afterEnd', flex_div);
+	document.getElementById('page-title').insertAdjacentElement('afterEnd', flex_div);
 }
 
 
 /* generates the box that identifies what format the topic applies to */
 
 KB.prototype.generateAppliesTo = function () {
-	
+
 	if (this.isRootIndex || this.isIndex) {
 		return;
 	}
@@ -484,7 +509,7 @@ KB.prototype.generateFooter = function () {
 	
 	top.appendChild(toplink);
 
-	document.getElementsByTagName('main')[0].insertAdjacentElement('beforeEnd', top);
+	document.getElementById('body').insertAdjacentElement('beforeEnd', top);
 	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
