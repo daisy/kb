@@ -57,7 +57,6 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeShiv();
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
@@ -78,16 +77,6 @@ KB.prototype.initializePage = function (type) {
 		this.host = 'ace';
 		// add ace desired heading tags here
 	}
-}
-
-
-/* 
- * write the html5 shim file to enable tag support in older IE browsers
- */
-
-KB.prototype.writeShiv = function() {
-	var shiv = document.createComment('[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script> <![endif]');
-	this.page_hd.appendChild(shiv);
 }
 
 
