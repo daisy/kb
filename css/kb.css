@@ -340,7 +340,7 @@ nav.mini-toc ol {
 
 section.applies-to li,
 nav.mini-toc li {
-	padding: 0 0.3em 0 0.8em;
+	padding: 0.5rem 0.3em 0.5rem 0.8em;
 }
 
 section.applies-to a,
@@ -361,7 +361,6 @@ details#topics {
 li.mini-toc-active {
 	background-color: rgb(27,125,200);
 	border-left: 0.4rem solid rgb(0,0,0);
-	padding: 1rem 0 1rem 1.3rem !important;
 }
 
 li.mini-toc-active > a {
