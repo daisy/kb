@@ -216,6 +216,11 @@ div#body {
 	display: table-cell;
 	vertical-align: top;
 }
+	
+main.search > div#body {
+	display: block;
+}
+
 
 main.index {
 	padding-left: 6rem;

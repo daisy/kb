@@ -284,7 +284,7 @@ KB.prototype.generateBody = function () {
 	// add the new main element and delete the old
 	new_main.appendChild(new_body);
 	
-	document.body.appendChild(new_main);
+	document.getElementsByTagName('header')[0].insertAdjacentElement('afterEnd', new_main);
 	
 	old_main.remove();
 	
