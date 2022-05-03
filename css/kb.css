@@ -219,6 +219,7 @@ div#body {
 
 main.index {
 	padding-left: 6rem;
+	max-width: 44em;
 }
 
 main.no-nav,
