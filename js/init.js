@@ -67,6 +67,10 @@ KB.prototype.initializePage = function (type) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
+		else {
+			this.writeHeadTag('js', '/js/menuspy.min.js');
+		}
+		
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeGoogleAnalytics();
 	}
@@ -410,6 +414,7 @@ KB.prototype.generateMiniToc = function () {
 		
 		var ol = document.createElement('ol');
 			ol.setAttribute('role', 'list');
+			ol.setAttribute('id', 'mini-toc');
 		
 		// iterate each heading and add a link to it
 		for (var i = 0; i < h.length; i++) {
@@ -945,8 +950,16 @@ else {
 window.onload = function () {
 	kb.writeTemplate();
 	document.documentElement.classList.remove('hidden');
+	
+	var mini_toc = document.getElementById('mini-toc');
+	
+	if (mini_toc) {
+		var ms = new MenuSpy(mini_toc,{
+			activeClass   : 'mini-toc-active',
+			threshold     : -190
+		});
+	}
 }
-
 
 
 /* adds initial hidden class */

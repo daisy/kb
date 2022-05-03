@@ -346,6 +346,7 @@ nav.mini-toc li {
 section.applies-to a,
 nav.mini-toc a {
 	font-size: 0.9em;
+	color: rgb(0,0,200);
 }
 
 
@@ -355,6 +356,16 @@ details#topics {
 	width: 60rem;
 	background-color: rgb(251,251,251);
 	margin-top: 4rem;
+}
+
+li.mini-toc-active {
+	background-color: rgb(27,125,200);
+	border-left: 0.4rem solid rgb(0,0,0);
+	padding: 1rem 0 1rem 1.3rem !important;
+}
+
+li.mini-toc-active > a {
+	color: rgb(255,255,255);
 }
 
 details#topics ol > li > ol {
