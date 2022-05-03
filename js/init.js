@@ -154,8 +154,13 @@ KB.prototype.writeTemplate = function () {
 
 	if (this.host == 'kb') {
 		kb.generateHeader();
-		kb.generateBody();
-		kb.generateCategory();
+		
+		// don't regenerate the body for the search page or the results won't get returned to the div (google can't handle nesting)
+		if (!page_info.hasOwnProperty('search')) {
+			kb.generateBody();
+		}
+		
+		kb.generatePageTitle();
 		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
 			kb.generateMiniToc();
@@ -287,9 +292,14 @@ KB.prototype.generateBody = function () {
 	document.getElementsByTagName('header')[0].insertAdjacentElement('afterEnd', new_main);
 	
 	old_main.remove();
-	
-	// this processing is skipped for the master list of topics
-	
+}
+
+
+/* creates the category for the current topic */
+
+KB.prototype.generatePageTitle = function () {
+
+	// skip adding a title div for the master list of topics
 	if (!this.isRootIndex) {
 	
 		var title_div = document.createElement('div');
@@ -309,13 +319,8 @@ KB.prototype.generateBody = function () {
 		// append the kb name to the page title
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
 	}
-}
-
-
-/* creates the category for the current topic */
-
-KB.prototype.generateCategory = function () {
-
+	
+	// skip the category for indexes and other uncategorized pages
 	if (this.isRootIndex || this.isIndex || this.noCategory) {
 		if (!this.isRootIndex) {
 			var h2 = document.getElementsByTagName('h2')[0];

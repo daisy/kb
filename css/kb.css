@@ -216,11 +216,6 @@ div#body {
 	display: table-cell;
 	vertical-align: top;
 }
-	
-main.search > div#body {
-	display: block;
-}
-
 
 main.index {
 	padding-left: 6rem;
@@ -230,6 +225,7 @@ main.no-nav,
 main.search {
 	display: block;
 	margin-left: 7rem;
+	max-width: 44em;
 }
 
 div#body > section,
