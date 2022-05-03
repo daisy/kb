@@ -72,6 +72,10 @@ KB.prototype.initializePage = function (type) {
 		
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeGoogleAnalytics();
+		
+		if (this.isIndex || document.getElementsByTagName('details').length > 0) {
+			this.writeHeadTag('js', '//cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js');
+		}
 	}
 	else {
 		this.host = 'ace';
