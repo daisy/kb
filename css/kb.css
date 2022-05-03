@@ -214,7 +214,6 @@ div#body {
 	padding-bottom: 0.5em;
 	max-width: 44em;
 	display: table-cell;
-	vertical-align: top;
 }
 
 main.index {
@@ -282,7 +281,6 @@ div#nav-col {
 	min-width: 22rem;
 	margin-top: -12.3rem;
 	border-right: 0.1rem dotted black;
-	vertical-align: top;
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
