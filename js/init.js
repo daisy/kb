@@ -41,7 +41,8 @@ function KB() {
 	this.kb_root = '/' + this.kb_id + '/' + (this.lang == 'en' ? 'docs/' : this.lang + '/');
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
-	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
+	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
+	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
@@ -184,7 +185,7 @@ KB.prototype.writeTemplate = function () {
 		var href_len = cur_href.length - 1;
 		var last_slash = cur_href.lastIndexOf('/')
 		
-		if (this.isRootIndex || this.isIndex) {
+		if (this.isIndex) {
 			kb.addTopicLinks();
 		}
 	}
@@ -291,15 +292,15 @@ KB.prototype.generateBody = function () {
 	
 	document.getElementsByTagName('header')[0].insertAdjacentElement('afterEnd', new_main);
 	
-	old_main.remove();
+	document.body.removeChild(old_main);
 }
 
 
-/* creates the category for the current topic */
+/* creates the page title and category for the current topic */
 
 KB.prototype.generatePageTitle = function () {
 
-	// skip adding a title div for the master list of topics
+	// skip adding a title for the master list of topics
 	if (!this.isRootIndex) {
 	
 		var title_div = document.createElement('div');
@@ -320,8 +321,8 @@ KB.prototype.generatePageTitle = function () {
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
 	}
 	
-	// skip the category for indexes and other uncategorized pages
-	if (this.isRootIndex || this.isIndex || this.noCategory) {
+	// skip adding the category for indexes and other uncategorized pages
+	if (this.isIndex || this.noCategory) {
 		if (!this.isRootIndex) {
 			var h2 = document.getElementsByTagName('h2')[0];
 				h2.setAttribute('class', 'noCategory');
@@ -329,6 +330,7 @@ KB.prototype.generatePageTitle = function () {
 		return;
 	}
 	
+	// add the category marker
 	if (page_info.hasOwnProperty('category')) {
 		if (!Array.isArray(page_info.category)) {
 			page_info.category = [page_info.category];
@@ -380,7 +382,7 @@ KB.prototype.generatePageTitle = function () {
 
 KB.prototype.generateMiniToc = function () {
 
-	if (this.isIndex || this.isRootIndex) {
+	if (this.isIndex) {
 		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
 		return;
 	}
@@ -441,7 +443,7 @@ KB.prototype.generateMiniToc = function () {
 
 KB.prototype.generateAppliesTo = function () {
 
-	if (this.isRootIndex || this.isIndex) {
+	if (this.isIndex) {
 		return;
 	}
 	
@@ -663,7 +665,7 @@ KB.prototype.generateFooter = function () {
 /* call the google pretty print function for examples */
 
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex && !this.isRootIndex) {
+	if (!this.isIndex) {
 		prettyPrint();
 	}
 }
@@ -727,9 +729,9 @@ KB.prototype.addGlossaryLinks = function() {
 
 KB.prototype.addTopicLinks = function() {
 
-	if (this.isIndex && !this.isRootIndex) {
+	if (this.isCategoryIndex && !this.isRootIndex) {
 		
-		// topic index
+		// category index
 		
 		var toc = document.createElement('nav');
 			toc.id = 'toc';

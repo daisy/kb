@@ -29,17 +29,18 @@
 			</nav>
 		</main>
 		<script>
-			var checkbox = document.getElementById('expand');
+			function watchCheckbox() {
+				var expand_chkbox = document.getElementById('expand');
+				expand_chkbox.addEventListener('change', function(e) { expandTopics(expand_chkbox.checked); } );
+			}
 			
-			checkbox.addEventListener('change', (event) => {
-				expandTopics(event.target.checked);
-			});
+			window.addEventListener("load", watchCheckbox, false);
 			
 			function expandTopics(exp) {
 				var details = document.getElementsByTagName('details');
-				Array.from(details).forEach(function(obj, idx) {
-					obj.open = exp;
-				});
+				for (var i = 0; i < details.length; i++) {
+					details[i].open = exp;
+				}
 			}
 		</script>
 	</body>
