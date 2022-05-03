@@ -289,11 +289,12 @@ div#nav-col {
 	overflow: auto;
 }
 
+
+/* page title */
+
 div#page-title {
 	margin-left: 21.7rem;
 }
-
-/* nav */
 
 div.category {
 	margin: 2em 0 0 0;
@@ -301,6 +302,13 @@ div.category {
 	margin-left: 3.7rem;
 	font-size: 90%;
 }
+
+div.category a {
+	color: rgb(0,0,200);
+}
+
+
+/* nav */
 
 nav.mini-toc {
 	color: rgb(0,0,0);
@@ -313,6 +321,7 @@ section#tech a:hover {
 	border-bottom: none;
 	text-decoration: underline;
 }
+
 
 /* section nav */
 section.applies-to,
