@@ -21,7 +21,7 @@
 			<section id="overview">
 				<h3>Overview</h3>
 				<p>An unofficial way to create fixed-layout EPUB publications is to include images (excluding SVG)
-					directly in the <a href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-spine-elem"
+					directly in the <a href="https://www.w3.org/TR/epub/#sec-spine-elem"
 						>package document spine</a>. This method of creating fixed layout pages is not commonly used,
 					however, as images are not allowed in the spine without fallbacks, so in most cases it is simpler
 					just to embed the image in either an <a href="html.html">XHTML</a> or <a href="svg.html">SVG</a>
@@ -79,7 +79,7 @@
 					serialization of the content. In this case, it will not be possible for each page to have a fallback
 					without confusing the reader somehow (e.g., if a series of pages fall back to the same text
 					serialization, the reading system will keep rendering the text every time a page is turned).</p>
-				<p>The use of <a href="http://www.idpf.org/epub/renditions/multiple/">multiple renditions</a> was
+				<p>The use of <a href="https://www.w3.org/TR/epub-multi-rend/">multiple renditions</a> was
 					intended to help solve the need for alternative serializations, but there is virtually no support
 					for the specification.</p>
 				<p>For these reasons, <a href="html.html">XHTML</a> and <a href="svg.html">SVG</a> fixed layout pages
@@ -88,10 +88,10 @@
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
-					<li>EPUB 3 &#8212; <a href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-spine-elem"
+					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-spine-elem"
 							>The <code>spine</code> element</a></li>
 					<li>EPUB 3 &#8212; <a
-							href="https://www.w3.org/publishing/epub3/epub-packages.html#sec-foreign-restrictions-manifest"
+						href="https://www.w3.org/TR/epub/#sec-manifest-fallbacks"
 							>Manifest fallbacks</a></li>
 				</ul>
 			</section>
