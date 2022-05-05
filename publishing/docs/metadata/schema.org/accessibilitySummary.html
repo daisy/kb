@@ -74,21 +74,6 @@
    This document conforms to WCAG 2.0 Level AA.
 &lt;/p></code></pre>
 				</figure>
-
-				<figure id="ex-05">
-					<figcaption>
-						<div class="label">Example 5 &#8212; Summary in multiple languages (EPUB 3)</div>
-						<p>In this example, the <code>xml:lang</code> attribute is used to identify the language of the
-							summary.</p>
-					</figcaption>
-					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary" xml:lang="en">
-   &lt;!-- English language summary --> 
-&lt;/meta>
-
-&lt;meta property="schema:accessibilitySummary" xml:lang="fr">
-   &lt;!-- French language summary --> 
-&lt;/meta></code></pre>
-				</figure>
 			</section>
 
 			<section id="value">
@@ -99,10 +84,6 @@
 
 				<p>The summary should not be a simple repetition of all the <a href="accessibilityFeature.html"
 						>accessibility features</a> and <a href="accessibilityHazard.html">hazards</a>.</p>
-
-				<p>Do not repeat this property unless it contains the summary in another language. In the case of
-					multiple summaries, use the <code>xml:lang</code> and/or <code>lang</code> attributes to
-					differentiate the language.</p>
 			</section>
 
 			<section id="refs">
