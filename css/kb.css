@@ -367,12 +367,9 @@ details#topics {
 }
 
 li.mini-toc-active {
-	background-color: rgb(27,125,200);
-	border-left: 0.4rem solid rgb(0,0,0);
-}
-
-li.mini-toc-active > a {
-	color: rgb(255,255,255);
+	background-color: rgb(232,242,248);
+	border-left: 0.4rem solid blue;
+	padding-left: 1.025rem !important;
 }
 
 details#topics ol > li > ol {
