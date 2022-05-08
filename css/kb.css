@@ -281,6 +281,7 @@ div#nav-col {
 	min-width: 22rem;
 	margin-top: -12.3rem;
 	border-right: 0.1rem dotted black;
+	background-color: rgb(245,245,245);
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
