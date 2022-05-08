@@ -317,8 +317,8 @@ nav.mini-toc {
 section.applies-to a:hover,
 nav.mini-toc a:hover,
 section#tech a:hover {
-	border-bottom: none;
-	text-decoration: underline;
+	color: rgb(200,0,0);
+	border-bottom: 0.2rem solid rgb(200,0,0) !important;
 }
 
 
