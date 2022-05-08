@@ -238,11 +238,6 @@ var topic_list = [
 						'title': 'SVG'
 					},
 					{
-						'id': 'html-tables',
-						'href': 'tables.html',
-						'title': 'Tables'
-					},
-					{
 						'id': 'html-video',
 						'href': 'video.html',
 						'title': 'Video'
@@ -307,9 +302,9 @@ var topic_list = [
 						'title': 'Header Scope'
 					},
 					{
-						'id': 'html-table-presentational',
-						'href': 'tables-presentational.html',
-						'title': 'Presentational Tables'
+						'id': 'html-table-layout',
+						'href': 'tables-layout.html',
+						'title': 'Layout Tables'
 					}
 				]
 			},
