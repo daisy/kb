@@ -19,7 +19,7 @@ nav#toc h2 {
 
 nav#toc > section,
 nav#toc > details {
-   padding: 0 1rem;
+	padding: 0 1rem;
 	border: 0.1rem solid rgb(220,220,220);
 	border-radius: 1rem;
 	background-color: rgb(255,253,255);
@@ -119,7 +119,7 @@ nav#toc a {
   and (max-device-width: 480px) {
   
 	nav#toc {
-		margin: 2em 0 0 0;
+		margin: 2em 0 0 2em;
 	}
 	nav#toc.site {
 		margin: 0 0 0 0.5em;
@@ -129,5 +129,10 @@ nav#toc a {
 	}
 	nav#toc > section, nav#toc > details {
 		max-width: 92%;
+	}
+	
+	nav#toc ol {
+		display: block;
+		grid-template-columns: none;
 	}
 }

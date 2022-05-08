@@ -207,14 +207,13 @@
 				
 				<p>Although EPUB 3 adds support for scripted interactivity via JavaScript, it also places some constraints on
 					the way you can use interactivity to ensure publications remain accessible. The guiding principle for
-					scripting is that of progressive enhancement, namely:</p>
+					scripting is that of progressive enhancement, namely that:</p>
 				
 				<blockquote>
-					<p>when the document is rendered by a Reading System without scripting support or with scripting support
-						disabled, the top-level document content must retain its integrity, remaining consumable by the User
-						without any information loss or other significant deterioration.</p>
-					<cite><a href="http://idpf.org/epub3/latest/contentdocs#confreq-cd-scripted-spine">EPUB Content Documents
-						3.0</a></cite>
+					<p>[t]op-level content documents that include spine-level scripting should remain consumable by the 
+						user without any information loss or other significant deterioration when scripting is disabled
+						or not available</p>
+					<cite><a href="https://www.w3.org/TR/epub/#sec-scripted-spine">EPUB 3.3</a></cite>
 				</blockquote>
 				
 				<p>Progressive enhancement does not mean that you cannot script content, but that scripting must not be

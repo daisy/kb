@@ -23,23 +23,29 @@
 			<nav role="doc-toc" id="toc" class="site">
 				<div id="exp">
 					<label>
-						<input type="checkbox" id="expand" checked="checked"/> Expand all topics
+						<input type="checkbox" id="expand" checked="checked"/> Expand all categories
 					</label>
 				</div>
 			</nav>
 		</main>
 		<script>
-			var checkbox = document.getElementById('expand');
+			function watchCheckbox() {
+				var expand_chkbox = document.getElementById('expand');
+				expand_chkbox.addEventListener('change', function(e) { expandTopics(expand_chkbox.checked); } );
+			}
 			
-			checkbox.addEventListener('change', (event) => {
-				expandTopics(event.target.checked);
-			});
+			window.addEventListener("load", watchCheckbox, false);
 			
 			function expandTopics(exp) {
 				var details = document.getElementsByTagName('details');
-				Array.from(details).forEach(function(obj, idx) {
-					obj.open = exp;
-				});
+				for (var i = 0; i < details.length; i++) {
+					if (exp) {
+						details[i].setAttribute('open', true);
+					}
+					else {
+						details[i].removeAttribute('open');
+					}
+				}
 			}
 		</script>
 	</body>

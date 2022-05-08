@@ -45,15 +45,6 @@ h1 {
 	background-color: rgb(27,95,161);
 }
 
-h1 a {
-	color: inherit !important;
-}
-
-h1 a:hover {
-	border-bottom: none !important;
-	text-decoration: underline;
-}
-
 h2 {
 	font-family: Raleway;
 	font-size: 180%;
@@ -131,7 +122,7 @@ a:link {
 	color: rgb(0,0,200);
 }
 
-main section a:link {
+div#body section a:link {
 	border-bottom: 0.1rem dotted rgb(0,0,200);
 }
 
@@ -153,7 +144,7 @@ main section a:visited:hover {
 	border-bottom: 0.1rem dotted rgb(180,0,0);
 }
 
-h1 a, nav a {
+nav a {
 	text-decoration: none;
 }
 
@@ -214,27 +205,51 @@ footer a {
 	color: rgb(255,255,255) !important;
 }
 
-main {
+div.col-wrapper {
+	display: flex;
+	position: relative;
+}
+
+div#body {
 	padding-bottom: 0.5em;
 	max-width: 44em;
-	margin-left: 20rem;
 	display: table-cell;
-	vertical-align: top;
 }
 
 main.index {
 	padding-left: 6rem;
+	max-width: 44em;
 }
 
 main.no-nav,
 main.search {
 	display: block;
 	margin-left: 7rem;
+	max-width: 44em;
 }
 
-main > section,
-main > details {
+div#body > section,
+div#body > details {
 	margin-left: 2em;
+}
+
+
+/* skip to main link */
+
+a#skip-main {
+	display: block;
+	border-radius: 0 0 1rem 1rem;
+	font-size: 90%;
+	position: absolute;
+	left: 45%;
+	padding: 0.2rem 1.5rem;
+	background: rgb(255,255,255);
+	transform: translateY(-100%);
+	transition: transform 0.3s;
+}
+
+a#skip-main:focus {
+	transform: translateY(0%);
 }
 
 /* glossary link */
@@ -263,14 +278,22 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	display: table-cell;
-	background-color: rgb(240,245,255);
-	width: 25rem;
+	min-width: 22rem;
+	margin-top: -12.3rem;
 	border-right: 0.1rem dotted black;
-	vertical-align: top;
+	height: 100vh;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	overflow: auto;
 }
 
-/* nav */
+
+/* page title */
+
+div#page-title {
+	margin-left: 21.7rem;
+}
 
 div.category {
 	margin: 2em 0 0 0;
@@ -278,6 +301,13 @@ div.category {
 	margin-left: 3.7rem;
 	font-size: 90%;
 }
+
+div.category a {
+	color: rgb(0,0,200);
+}
+
+
+/* nav */
 
 nav.mini-toc {
 	color: rgb(0,0,0);
@@ -290,6 +320,7 @@ section#tech a:hover {
 	border-bottom: none;
 	text-decoration: underline;
 }
+
 
 /* section nav */
 section.applies-to,
@@ -317,12 +348,13 @@ nav.mini-toc ol {
 
 section.applies-to li,
 nav.mini-toc li {
-	padding: 0 0.3em 0 0.8em;
+	padding: 0.5rem 0.3em 0.5rem 0.8em;
 }
 
 section.applies-to a,
 nav.mini-toc a {
 	font-size: 0.9em;
+	color: rgb(0,0,200);
 }
 
 
@@ -332,6 +364,12 @@ details#topics {
 	width: 60rem;
 	background-color: rgb(251,251,251);
 	margin-top: 4rem;
+}
+
+li.mini-toc-active {
+	background-color: rgb(232,242,248);
+	border-left: 0.4rem solid blue;
+	padding-left: 1.025rem !important;
 }
 
 details#topics ol > li > ol {
@@ -690,6 +728,12 @@ rt {
 
 /* glossary */
 
+body#glossary nav#toc ol {
+	max-width: 72rem;
+	grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
+	padding-left: 0;
+}
+
 .glossary dt {
 	font-family: 'Raleway',Helvetica,Arial,sans-serif;
 	font-size: 1.8rem;
@@ -864,25 +908,74 @@ p.backtotop {
 
 @media only screen
 	and (max-device-width: 480px) {
+	
+	header {
+		width: 100vw;
+	}
+	
 	h1 {
 		text-indent: 0;
 		display: table-row;
 	}
 	h1 img {
 		display: table-cell;
-		padding-top: 0.5em;
+		padding-top: 1em;
 		padding-left: 0.5em;
 	}
 	
-	h1 a {
+	h1 span {
 		display: table-cell;
+		vertical-align: top;
+		padding-top: 1.2rem;
+		padding-bottom: 1rem;
 	}
 	
 	div.toplinks {
 		font-size: 70%;
-		padding-left: 2rem;
+		padding-left: 3.3rem;
 	}
-	main {
-		margin-left: 1rem;
+	
+	div.toplinks a {
+		display: block;
+		padding: 0.5rem 0;
+	}
+	
+	div.col-wrapper {
+		display: block;
+	}
+	
+	main,
+	main.index,
+	main.no-nav,
+	main.search {
+		padding-left: 0;
+		margin-left: 0;
+		width: auto;
+		max-width: 100vw;
+	}
+	
+	div#page-title {
+		margin-left: 0;
+	}
+	
+	div#nav-col {
+		margin-top: 0;
+		display: block;
+		width: auto;
+		height: auto;
+		position: relative;
+	}
+	
+	section.applies-to {
+		margin-top: 0;
+		padding-top: 1.5rem
+	}
+	
+	footer > * {
+		padding-left: 3em;
+	}
+	
+	body#glossary nav#toc ol {
+		padding-left: 2rem;
 	}
 }

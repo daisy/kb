@@ -14,6 +14,7 @@ var msg = {};
 	msg.header.m02 = 'Glossary';
 	msg.header.m03 = 'Search';
 	msg.header.m04 = 'Topics';
+	msg.header.m05 = 'Skip to Content';
 	
 	msg.footer = {};
 	msg.footer.m01 = '\u00a9 %yr% The DAISY Consortium';

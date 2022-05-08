@@ -41,7 +41,8 @@ function KB() {
 	this.kb_root = '/' + this.kb_id + '/' + (this.lang == 'en' ? 'docs/' : this.lang + '/');
 	
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
-	this.isIndex = ((page_info.hasOwnProperty('isIndex') && page_info['isIndex']) || (page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'])) ? true : false;
+	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
+	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
@@ -56,7 +57,6 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeShiv();
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
@@ -66,23 +66,23 @@ KB.prototype.initializePage = function (type) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
+		else {
+			this.writeHeadTag('js', '/js/menuspy.min.js');
+		}
+		
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeGoogleAnalytics();
+		
+		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+		
+		if (isIE11 && (this.isIndex || document.getElementsByTagName('details').length > 0)) {
+			this.writeHeadTag('js', 'https://cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js');
+		}
 	}
 	else {
 		this.host = 'ace';
 		// add ace desired heading tags here
 	}
-}
-
-
-/* 
- * write the html5 shim file to enable tag support in older IE browsers
- */
-
-KB.prototype.writeShiv = function() {
-	var shiv = document.createComment('[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script> <![endif]');
-	this.page_hd.appendChild(shiv);
 }
 
 
@@ -153,12 +153,17 @@ KB.prototype.writeGoogleAnalytics = function () {
 KB.prototype.writeTemplate = function () {
 
 	if (this.host == 'kb') {
-		kb.generateTitles();
 		kb.generateHeader();
+		
+		// don't regenerate the body for the search page or the results won't get returned to the div (google can't handle nesting)
+		if (!page_info.hasOwnProperty('search')) {
+			kb.generateBody();
+		}
+		
+		kb.generatePageTitle();
 		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
 			kb.generateMiniToc();
-			kb.generateCategory();
 			kb.generateAppliesTo();
 		}
 		
@@ -179,7 +184,7 @@ KB.prototype.writeTemplate = function () {
 		var href_len = cur_href.length - 1;
 		var last_slash = cur_href.lastIndexOf('/')
 		
-		if (this.isRootIndex || this.isIndex) {
+		if (this.isIndex) {
 			kb.addTopicLinks();
 		}
 	}
@@ -190,29 +195,20 @@ KB.prototype.writeTemplate = function () {
 }
 
 
-/* generates the page title and header */
-
-KB.prototype.generateTitles = function () {
-
-	// this processing is skipped for the master list of topics
-	if (!this.isRootIndex) {
-		// create the h2 from the contents of the page title
-		var h2 = document.createElement('h2');
-			h2.appendChild(document.createTextNode(this.title));
-		
-		document.querySelector('main').insertAdjacentElement('afterBegin', h2);
-		
-		// append the kb name to the page title
-		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
-	}
-}
-
-
 /* generates the standard page header */
 
 KB.prototype.generateHeader = function () {
 
 	var header = document.createElement('header');
+	
+	var skip_a = document.createElement('a');
+		skip_a.setAttribute('href', '#main');
+		skip_a.setAttribute('id','skip-main');
+		skip_a.appendChild(document.createTextNode(msg.header.m05));
+	
+	header.appendChild(skip_a);
+	
+	document.getElementsByTagName('main')[0].setAttribute('id','main');
 	
 	var h1 = document.createElement('h1');
 	
@@ -229,7 +225,11 @@ KB.prototype.generateHeader = function () {
 	h1.appendChild(a);
 	
 	h1.appendChild(document.createTextNode(' '));
-	h1.appendChild(document.createTextNode(msg.kb_name[this.kb_id]));
+	
+	var h1_span = document.createElement('span');
+		h1_span.appendChild(document.createTextNode(msg.kb_name[this.kb_id]))
+	
+	h1.appendChild(h1_span);
 	
 	header.appendChild(h1);
 	
@@ -270,11 +270,58 @@ KB.prototype.generateHeader = function () {
 }
 
 
-/* creates the category for the current topic */
+/* generates the standard page body inside main */
 
-KB.prototype.generateCategory = function () {
+KB.prototype.generateBody = function () {
+	
+	// create a new main element to contain the body
+	var new_main = document.createElement('main');
+		new_main.id = 'main';
+	
+	// create new body div for the page content
+	var new_body = document.createElement('div');
+		new_body.setAttribute('id', 'body');
+		
+	// copy the old main inside
+	var old_main = document.getElementsByTagName('main')[0];
+		new_body.innerHTML = old_main.innerHTML;
+	
+	// add the new main element and delete the old
+	new_main.appendChild(new_body);
+	
+	document.getElementsByTagName('header')[0].insertAdjacentElement('afterEnd', new_main);
+	
+	document.body.removeChild(old_main);
+}
 
-	if (this.isRootIndex || this.isIndex || this.noCategory) {
+
+/* creates the page title and category for the current topic */
+
+KB.prototype.generatePageTitle = function () {
+
+	// skip adding a title for the master list of topics
+	if (!this.isRootIndex) {
+	
+		var title_div = document.createElement('div');
+		
+		if (!this.isIndex && (!page_info.hasOwnProperty('nav') || page_info.nav) && !page_info.hasOwnProperty('search')) {
+			title_div.id = 'page-title';
+		}
+		
+		// create the h2 from the contents of the page title
+		var h2 = document.createElement('h2');
+			h2.appendChild(document.createTextNode(this.title));
+		
+		title_div.appendChild(h2);
+		
+		document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		
+		// append the kb name to the page title
+		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
+	}
+	
+	// skip adding the category for indexes and other uncategorized pages
+	if (this.isIndex || this.noCategory) {
 		if (!this.isRootIndex) {
 			var h2 = document.getElementsByTagName('h2')[0];
 				h2.setAttribute('class', 'noCategory');
@@ -282,6 +329,7 @@ KB.prototype.generateCategory = function () {
 		return;
 	}
 	
+	// add the category marker
 	if (page_info.hasOwnProperty('category')) {
 		if (!Array.isArray(page_info.category)) {
 			page_info.category = [page_info.category];
@@ -323,7 +371,7 @@ KB.prototype.generateCategory = function () {
 		}
 	}
 	
-	document.querySelector('h2').insertAdjacentElement('beforeBegin', div);
+	document.getElementById('page-title').insertAdjacentElement('afterBegin', div);
 }
 
 
@@ -332,11 +380,17 @@ KB.prototype.generateCategory = function () {
  */
 
 KB.prototype.generateMiniToc = function () {
-	
-	if (this.isIndex || this.isRootIndex) {
+
+	if (this.isIndex) {
 		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
 		return;
 	}
+	
+	var flex_div = document.createElement('div');
+		flex_div.setAttribute('class', 'col-wrapper');
+	
+	var navcol = document.createElement('div');
+		navcol.setAttribute('id', 'nav-col');
 	
 	// grab all the subsection headings on the page
 	var h = document.querySelectorAll('h3');
@@ -354,6 +408,8 @@ KB.prototype.generateMiniToc = function () {
 		nav.appendChild(h3);
 		
 		var ol = document.createElement('ol');
+			ol.setAttribute('role', 'list');
+			ol.setAttribute('id', 'mini-toc');
 		
 		// iterate each heading and add a link to it
 		for (var i = 0; i < h.length; i++) {
@@ -375,19 +431,19 @@ KB.prototype.generateMiniToc = function () {
 		nav.appendChild(ol);
 	}
 	
-	var navcol = document.createElement('div');
-		navcol.setAttribute('id', 'nav-col');
-		navcol.appendChild(nav);
+	navcol.appendChild(nav);
+	flex_div.appendChild(navcol);
+	flex_div.appendChild(document.getElementById('body'));
 	
-	document.querySelector('header').insertAdjacentElement('afterEnd', navcol);
+	document.getElementById('page-title').insertAdjacentElement('afterEnd', flex_div);
 }
 
 
 /* generates the box that identifies what format the topic applies to */
 
 KB.prototype.generateAppliesTo = function () {
-	
-	if (this.isRootIndex || this.isIndex) {
+
+	if (this.isIndex) {
 		return;
 	}
 	
@@ -405,6 +461,7 @@ KB.prototype.generateAppliesTo = function () {
 	section.appendChild(h3);
 	
 	var ol = document.createElement('ol');
+		ol.setAttribute('role', 'list');
 	
 	// add an entry for each format identified in the page_info
 	for (var i = 0; i < page_info.appliesTo.length; i++) {
@@ -459,7 +516,7 @@ KB.prototype.generateFooter = function () {
 	
 	top.appendChild(toplink);
 
-	document.getElementsByTagName('main')[0].insertAdjacentElement('beforeEnd', top);
+	document.getElementById('body').insertAdjacentElement('beforeEnd', top);
 	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
@@ -608,7 +665,7 @@ KB.prototype.generateFooter = function () {
 /* call the google pretty print function for examples */
 
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex && !this.isRootIndex) {
+	if (!this.isIndex) {
 		prettyPrint();
 	}
 }
@@ -672,9 +729,9 @@ KB.prototype.addGlossaryLinks = function() {
 
 KB.prototype.addTopicLinks = function() {
 
-	if (this.isIndex && !this.isRootIndex) {
+	if (this.isCategoryIndex && !this.isRootIndex) {
 		
-		// topic index
+		// category index
 		
 		var toc = document.createElement('nav');
 			toc.id = 'toc';
@@ -771,6 +828,7 @@ KB.prototype.addTopicLinks = function() {
 KB.prototype.createLinkList = function(topic, isRoot) {
 
 	var ol = document.createElement('ol');
+		ol.setAttribute('role', 'list');
 	
 	for (var j = 0; j < topic.topics.length; j++) {
 	
@@ -887,8 +945,16 @@ else {
 window.onload = function () {
 	kb.writeTemplate();
 	document.documentElement.classList.remove('hidden');
+	
+	var mini_toc = document.getElementById('mini-toc');
+	
+	if (mini_toc) {
+		var ms = new MenuSpy(mini_toc,{
+			activeClass   : 'mini-toc-active',
+			threshold     : -190
+		});
+	}
 }
-
 
 
 /* adds initial hidden class */
