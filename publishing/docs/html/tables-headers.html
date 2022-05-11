@@ -28,181 +28,13 @@
 				
 				<ul>
 					<li>
-						<p>Ensure all tabular data is marked up using table tags. <span 
-							class="wcag-level">(<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 
-								1.3.1</a>)</span></p>
-						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">Using table markup to
-								present tabular information</a></li>
-						</ul>
+						<p>Ensure that table headers are identified and their scope (row or column) is defined. [[WCAG-1.3.1]]</p>
 					</li>
-					<li>
-						<p>Ensure that table headers are identified and their scope (row or column) is defined. <span 
-							class="wcag-level">(<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 
-								1.3.1</a>)</span></p>
-						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H43">Using id and headers
-								attributes to associate data cells with header cells in data tables</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63">Using the scope attribute
-								to associate header cells and data cells in data tables</a></li>
-						</ul>
-					</li>
-					<li>
-						<p>Provide a title in the <code>caption</code> element. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></p>
-						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">Using caption elements to
-								associate data table captions with data tables</a></li>
-						</ul>
-					</li>
-					<li>
-						<p>Provide a summary that describes the structure of complex tables. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></p>
-						<ul>
-							<li><a href="https://html.spec.whatwg.org/multipage/tabular-data.html#sec-techniques-for-describing-tables">HTML:
-								Techniques for describing tables</a></li>
-						</ul>
-					</li>
-					<li>Ensure the summary and caption do not repeat the same text. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></li>
-					<li>Never use data table elements or attributes in presentational tables. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#info-and-relationships">WCAG 1.3.1 - A</a>]</span></li>
 				</ul>
 			</section>
 
 			<section id="ex">
 				<h3>Examples</h3>
-
-				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Table with header spans</span></figcaption>
-					
-					<p>The following table has headers that span multiple columns. The <code>scope</code>
-						attribute value "<code>colgroup</code>" indicates that a header applies to both columns
-						that it spans.</p>
-					
-					<p>(Note that the <code>scope</code> attribute value "<code>rowspan</code>" is not used for the
-						columns that span multiple rows because these headers only apply to the column. If the headers
-						applied to two rows, the attribute would be needed.)</p>
-					
-					<table>
-						<thead>
-							<tr>
-								<th colspan="2" scope="colgroup">Shipping.</th>
-								<th rowspan="2" scope="col">Stock.</th>
-								<th colspan="2" scope="colgroup">Wages.</th>
-								<th colspan="2" scope="colgroup">Weights.</th>
-								<th rowspan="2" scope="col">Name of Colony.</th>
-							</tr>
-							<tr>
-								<th scope="col">Book, page.</th>
-								<th scope="col">Appx, page.</th>
-								<th scope="col">Book, page.</th>
-								<th scope="col">Appx, page.</th>
-								<th scope="col">Book, page.</th>
-								<th scope="col">Appx, page.</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td colspan="8" class="center">&#8230;</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;thead>
-     &lt;tr>
-       &lt;th colspan="2" scope="colgroup">Shipping.&lt;/th>
-       &lt;th rowspan="2" scope="col">Stock.&lt;/th>
-       &lt;th colspan="2" scope="colgroup">Wages.&lt;/th>
-       &lt;th colspan="2" scope="colgroup">Weights.&lt;/th>
-       &lt;th rowspan="2" scope="col">Name of Colony.&lt;/th>
-     &lt;/tr>
-     &lt;tr>
-       &lt;th scope="col">Book, page.&lt;/th>
-       &lt;th scope="col">Appx, page.&lt;/th>
-       &lt;th scope="col">Book, page.&lt;/th>
-       &lt;th scope="col">Appx, page.&lt;/th>
-       &lt;th scope="col">Book, page.&lt;/th>
-       &lt;th scope="col">Appx, page.&lt;/th>
-     &lt;/tr>
-   &lt;/thead>
-   &#8230;
-&lt;/table></code></pre>
-				</figure>
-
-				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Headers on both axes</span></figcaption>
-					
-					<p>The following table shows a distance chart with the start destinations defined in the first row and 
-						at the end destination at the end of each subsequent row.</p>
-					
-					<p>The <code>scope</code> attribute with value "<code>col</code>" indicates the headers 
-						for each column and the value "<code>row</code>" identifies the header for each row.</p>
-					
-					<table>
-						<tr>
-							<th scope="col">Vancouver</th>
-							<th scope="col">Calgary</th>
-							<th scope="col">Saskatoon</th>
-							<th scope="col">Winnipeg</th>
-							<th scope="col">Toronto</th>
-							<th scope="col">Montreal</th>
-							<th scope="col">St. John's</th>
-							<td></td>
-						</tr>
-						<tr>
-							<td class="center">7323</td>
-							<td class="center">6334</td>
-							<td class="center">5838</td>
-							<td class="center">5010</td>
-							<td class="center">3141</td>
-							<td class="center">2602</td>
-							<td class="center"></td>
-							<th scope="row">St. John's</th>
-						</tr>
-						<tr>
-							<td class="center">4271</td>
-							<td class="center">3743</td>
-							<td class="center">3232</td>
-							<td class="center">2408</td>
-							<td class="center">539</td>
-							<td class="center"></td>
-							<td class="center">2602</td>
-							<th scope="row">Montreal</th>
-						</tr>
-					</table>
-					
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;tr>
-     &lt;th scope="col">Vancouver&lt;/th>
-     &lt;th scope="col">Calgary&lt;/th>
-     &lt;th scope="col">Saskaton&lt;/th>
-     &lt;th scope="col">Winnipeg&lt;/th>
-     &lt;th scope="col">Toronto&lt;/th>
-     &lt;th scope="col">Montreal&lt;/th>
-     &lt;th scope="col">St. John's&lt;/th>
-     &lt;td>&lt;/td>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td class="center">7323&lt;/td>
-     &lt;td class="center">6334&lt;/td>
-     &lt;td class="center">5838&lt;/td>
-     &lt;td class="center">5010&lt;/td>
-     &lt;td class="center">3141&lt;/td>
-     &lt;td class="center">2602&lt;/td>
-     &lt;td class="center">&lt;/td>
-     &lt;th scope="row">St. John's&lt;/th>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td class="center">4271&lt;/td>
-     &lt;td class="center">3743&lt;/td>
-     &lt;td class="center">3232&lt;/td>
-     &lt;td class="center">2408&lt;/td>
-     &lt;td class="center">539&lt;/td>
-     &lt;td class="center">&lt;/td>
-     &lt;td class="center">2602&lt;/td>
-     &lt;th scope="row">Montreal&lt;/th>
-   &lt;/tr>
-   &#8230;
-&lt;/table></code></pre>
-				</figure>
 
 				<figure id="ex-03">
 					<figcaption><span class="label">Example 3 &#8212; Layered headers</span></figcaption>
@@ -271,129 +103,15 @@
    &#8230;
 &lt;/table></code></pre>
 				</figure>
-
-				<figure id="ex-04">
-					<figcaption>
-						<div class="label">Example 4 &#8212; Table with footnotes</div>
-						
-						<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be
-							grouped within a <code>figure</code>:</p>
-					</figcaption>
-					
-					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure>
-   &lt;table>
-     &lt;tr>
-       &lt;th>Population&lt;/th>
-       &lt;th>Birth Rate&lt;a epub:type="noteref" href="#tblnote01">*&lt;/a>&lt;/th>
-     &#8230;
-   &lt;/table>
-   &lt;aside epub:type="footnote">
-     &lt;p>* Data not available for all years&lt;/p>
-   &lt;/aside>
-&lt;/figure></code></pre>
-				</figure>
-			</section>
-			
-			<section id="faq" class="faq">
-				<h3>Frequently Asked Questions</h3>
-				
-				<dl class="faq">
-					<dt>What about using pictures of tables?</dt>
-					<dd><p>Although table rendering is still problematic in ebooks, including images of tables instead of the
-						actual data takes the content away from anyone who cannot see it.</p>
-						<p>Tables are a problem that still need solving in user agents, as most user agents aren't
-							able to provide extended horizontal or vertical scrolling to facilitate rendering. As a result,
-							large tables get rendered in the available space &#8211; leaving rows and columns to spill across
-							page views &#8211; compromising the quality of the ebook for sighted users.</p>
-						<p>If you are going to include an image of a table, consider providing a link to a file containing
-							the table markup. Users with TTS playback available will be able to navigate the markup
-							regardless of the rendering quality.</p>
-						<p>Some user agents render pop-out content in browser windows, which can also improve reading for
-							sighted users unable to read images that render too small or blow out of the viewport.</p>
-						<p>See also this <a href="http://css-tricks.com/responsive-data-tables/">CSS-Tricks article on
-							responsive tables</a> for an alternate approach to visual table rendering based on the
-							available screen size.</p>
-					</dd>
-				</dl>
 			</section>
 			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>When tables are not structured accessibly, the data they contain can quickly become a meaningless sea of
-					numbers, facts and figures to someone moving through them a cell at a time. Users who cannot see the
-					table cannot use visual cheats like checking the alignment and scanning back to the top headers to
-					orient themselves as they go. Equivalent information needs to be encoded into the table to facilitate
-					comprehension.</p>
+				<p>When more than one header applies to a column, a <code>headers</code> attribute should be
+					attached to each of its cells to clarify for an AT which headers apply. For example:</p>
 				
-				<section>
-					<h4>Headers</h4>
-					
-					<p>One of the primary aids for table navigation is the proper use of headers. Correctly identified and
-						linked headers provide helpful context as users navigate the data points.</p>
-					
-					<p>The simplest kinds of tables contain a single header for each column or row, and are typically handled by
-						assistive technologies (AT) without the need for extra information. The header cells need only be marked
-						using the <code>th</code> element and the AT will be able to replay them when requested:</p>
-					
-					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;tr>
-     &lt;th>Heading 1&lt;/th>
-     &lt;th>Heading 2&lt;/th>
-     &lt;th>Heading 3&lt;/th>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td>&lt;/td>
-     &lt;td>&lt;/td>
-     &lt;td>&lt;/td>
-   &lt;/tr>
-  &#8230;
-&lt;/table></code></pre>
-					
-					<p>If a table's header spans more than one row, a <code>thead</code> element should be used to
-						group all the header rows (see <a href="#ex-01">Example 1</a>).</p>
-					
-					<p>The <code>scope</code> attribute can also be used to clarify relationships between headers and
-						cells. Whenever the headers are not in the first row or column of a table, this attribute should
-						be attached to the <code>th</code> elements to clarify their directionality (to the row or
-						column they belong to).</p>
-					
-					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;tr>
-     &lt;td>1&lt;/td>
-     &lt;td>2&lt;/td>
-     &lt;td>3&lt;/td>
-     &lt;td>4&lt;/td>
-     &lt;th scope="row">Heading&lt;/th>
-   &lt;/tr>
-   &#8230;
-&lt;/table></code></pre>
-					
-					<p>If a header spans more than one column or row, the <code>scope</code> attribute can also be
-						used to indicate the header applies to all the columns or rows.</p>
-					
-					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;thead>
-      &lt;tr>
-        &lt;th colspan="3" scope="colgroup">Male&lt;/td>
-        &lt;th colspan="3" scope="colgroup">Female&lt;/th>
-      &lt;/tr>
-      &lt;tr>
-        &lt;th scope="col">Age&lt;/td>
-        &lt;th scope="col">Height&lt;/th>
-        &lt;th scope="col">Weight&lt;/th>
-        &lt;th scope="col">Age&lt;/td>
-        &lt;th scope="col">Height&lt;/th>
-        &lt;th scope="col">Weight&lt;/th>
-      &lt;/tr>
-   &lt;thead>
-   &#8230;
-&lt;/table></code></pre>
-					
-					<p>When more than one header applies to a column, a <code>headers</code> attribute should be
-						attached to each of its cells to clarify for an AT which headers apply. For example:</p>
-					
-					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;table>
+				<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;table>
    &lt;thead>
      &lt;tr>
        &lt;th id="sales" rowspan="4">Sales&lt;/th>
@@ -419,55 +137,20 @@
    &lt;/thead>
    &#8230;
 &lt;/table></code></pre>
-					
-					<p>The <code>headers</code> attribute identifies the cells that contain the header text by their
-						<code>id</code> attribute value. The order in which the ids are included in the attribute determines
-						how the headers are to be announced or rendered to the user, so care must be taken to ensure logical
-						playback results.</p>
-					
-					<p>The ordering of the headers does not have to exactly match the markup if another ordering would make more
-						sense. In the previous example. it will make more sense to the user to announce "gross sales
-						ultrabooks" than "sales ultrabooks gross".</p>
-					
-					<p>More generally, whenever there is any ambiguity about which headers apply to a cell, a
-						<code>headers</code> attribute should be attached. Note that HTML5 no longer allows
-						the <code>td</code> element to be used for headers (i.e., a <code>td</code> element cannot be referenced
-						from the <code>headers</code> attribute).</p>
-				</section>
 				
-				<section>
-					<h4>Captions and summaries</h4>
-					
-					<p>A caption should always be included to give context to a table. Never rely on the surrounding text to explain
-						the presence of a table, especially when the table is offset from the content.</p>
-					
-					<p>For complex tables, including a summary of the structure for the user before they enter the content can
-						greatly assist comprehension, as well. The HTML5 specification defines some <a 
-							href="https://html.spec.whatwg.org/multipage/tabular-data.html#sec-techniques-for-describing-tables">techniques 
-							for describing tables</a>.</p>
-				</section>
+				<p>The <code>headers</code> attribute identifies the cells that contain the header text by their
+					<code>id</code> attribute value. The order in which the ids are included in the attribute determines
+					how the headers are to be announced or rendered to the user, so care must be taken to ensure logical
+					playback results.</p>
 				
-				<section>
-					<h4>Secondary content</h4>
-					
-					<p>If a table is not required to be read at the point of insertion (i.e., it is not part of the logical
-						reading order), use a <a href="figures.html">figure</a> tag to enclose it.</p>
-				</section>
+				<p>The ordering of the headers does not have to exactly match the markup if another ordering would make more
+					sense. In the previous example. it will make more sense to the user to announce "gross sales
+					ultrabooks" than "sales ultrabooks gross".</p>
 				
-				<section>
-					<h4>Presentational layout</h4>
-					
-					<p>Avoid using tables for layout purposes. If a presentational table layout is unavoidable, consider using 
-						the CSS table layout properties to achieve the effect.</p>
-					
-					<p>When using a table for presentational purposes, the table must not include any data table elements or attributes.
-						These include: the <code>thead</code>, <code>th</code> and <code>caption</code> elements, and <code>headers</code>
-						and <code>scope</code> attributes (also the <code>summary</code> attribute if creating HTML4 or XHTML 1.1 documents).</p>
-					
-					<p>Also avoid using tables when all that the cells contain are lists of information (e.g., for placing information
-						side-by-side, or where the first column in each row is a new unrelated header and the second a list of
-						relevant to that topic). The extra table formatting is an unnecessary encumbrance to navigation.</p>
-				</section>
+				<p>More generally, whenever there is any ambiguity about which headers apply to a cell, a
+					<code>headers</code> attribute should be attached. Note that HTML5 no longer allows
+					the <code>td</code> element to be used for headers (i.e., a <code>td</code> element cannot be referenced
+					from the <code>headers</code> attribute).</p>
 			</section>
 			
 			<section id="refs">
