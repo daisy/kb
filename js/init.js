@@ -59,6 +59,7 @@ KB.prototype.initializePage = function (type) {
 		this.host = 'kb';
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
+		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
@@ -163,8 +164,12 @@ KB.prototype.writeTemplate = function () {
 		kb.generatePageTitle();
 		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
+			
+			if (page_info.hasOwnProperty('appliesTo')) {
+				kb.generateAppliesTo();
+			}
+			
 			kb.generateMiniToc();
-			kb.generateAppliesTo();
 		}
 		
 		if (page_info.hasOwnProperty('nav') && !page_info.nav) {
@@ -179,6 +184,7 @@ KB.prototype.writeTemplate = function () {
 		kb.prettyPrint();
 		kb.addExampleCopy();
 		kb.addGlossaryLinks();
+		kb.generateWCAGLinks();
 		
 		var cur_href = window.location.href.toString();
 		var href_len = cur_href.length - 1;
@@ -452,7 +458,7 @@ KB.prototype.generateAppliesTo = function () {
 	}
 	
 	var section = document.createElement('section');
-		section.setAttribute('class', 'applies-to');
+		section.id = 'applies-to';
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
@@ -460,16 +466,25 @@ KB.prototype.generateAppliesTo = function () {
 	
 	section.appendChild(h3);
 	
-	var ol = document.createElement('ol');
-		ol.setAttribute('role', 'list');
+	var notes = null;
+	
+	var formats = ['Audiobooks', 'EPUB3', 'EPUB2'];
+	
+	var table = document.createElement('table');
+	
+	var thead = document.createElement('tr');
+	var tbody = document.createElement('tr');
 	
 	// add an entry for each format identified in the page_info
-	for (var i = 0; i < page_info.appliesTo.length; i++) {
-		var li = document.createElement('li');
+	for (var i = 0; i < formats.length; i++) {
+		
+		var th = document.createElement('th');
+		
+		var td = document.createElement('td');
 		
 		var at_url = '';
 		
-		switch (page_info.appliesTo[i]) {
+		switch (formats[i]) {
 			case 'Audiobooks':
 				at_url = 'https://www.w3.org/TR/audiobooks/';
 				break;
@@ -485,15 +500,65 @@ KB.prototype.generateAppliesTo = function () {
 		
 		var a = document.createElement('a');
 			a.setAttribute('href', at_url);
-			a.appendChild(document.createTextNode(page_info.appliesTo[i].replace(/EPUB([2-3])/,'EPUB $1')));
+			a.appendChild(document.createTextNode(formats[i].replace(/EPUB([2-3])/,'EPUB $1')));
 		 
-		 li.appendChild(a);
-		 ol.appendChild(li);
+		th.appendChild(a);
+		thead.appendChild(th);
+		
+		if (page_info.appliesTo.includes(formats[i])) {
+			td.appendChild(document.createTextNode('Yes'));
+			td.setAttribute('class', 'yes');
+		}
+		
+		else if (page_info.appliesTo.includes('Audiobooks*') && formats[i] == 'Audiobooks') {
+			
+			td.setAttribute('class', 'partial');
+			td.appendChild(document.createTextNode('Partial'));
+			
+			var a_ref = document.createElement('a');
+				a_ref.setAttribute('href','#aud01');
+				a_ref.setAttribute('role','doc-noteref');
+				a_ref.appendChild(document.createTextNode('*'));
+			
+			td.appendChild(a_ref);
+			
+			var note = document.createElement('p');
+				note.id = 'aud01';
+				note.setAttribute('class','small');
+				note.setAttribute('role', 'doc-footnote');
+			
+			note.appendChild(document.createTextNode('* Applies to the table of contents and any supplementary resources.'));
+			notes = note;
+		}
+		
+		else {
+			td.appendChild(document.createTextNode('No'));
+			td.setAttribute('class', 'no');
+		}
+		
+		tbody.appendChild(td);
 	}
 	
-	section.appendChild(ol);
+	table.appendChild(thead);
+	table.appendChild(tbody);
 	
-	document.querySelector('div#nav-col').insertAdjacentElement('afterBegin', section);
+	section.appendChild(table);
+	
+	if (notes) {
+		section.appendChild(notes);
+	}
+	
+	// add before the related links section, otherwise at end of body
+	
+	var techniques = document.querySelector('section#refs');
+	
+	if (techniques !== null) {
+		techniques.insertAdjacentElement('beforeBegin', section);
+	}
+	
+	else {
+		document.querySelector('div#body').insertAdjacentElement('beforeEnd', section)
+	}
 }
 
 
@@ -849,6 +914,17 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 	}
 	
 	return ol;
+}
+
+
+/* convert shorthand references to WCAG in techniques */
+
+KB.prototype.generateWCAGLinks = function() {
+	document.body.innerHTML = document.body.innerHTML.replace(/\[\[WCAG-([0-9.]+)\]\]/gi, wcagLink);
+}
+
+function wcagLink(match, p1) {
+	return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
 }
 
 

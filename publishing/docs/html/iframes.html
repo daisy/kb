@@ -8,7 +8,7 @@
 		<script>
 			var page_info = {
 				'category': 'HTML',
-				'appliesTo': ['EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -27,13 +27,7 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>
-						<p>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG/#bypass-blocks">WCAG 2.4.1 - A</a> and <a href="https://www.w3.org/TR/WCAG/#name-role-value">WCAG 4.1.2 - A</a>]</span></p>
-						<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H64">Using the title attribute
-								of the frame and iframe elements</a></li>
-						</ul>
-					</li>
+					<li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). [[WCAG-2.4.1]] and [[WCAG-4.1.2]]</li>
 					<li>Identify frames not intended for users in their label.</li>
 					<li>Use relative units to size the <code>iframe</code>.</li>
 					<li>Set scrolling to <code>auto</code>.</li>

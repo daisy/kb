@@ -112,7 +112,6 @@ a {
 	text-decoration: none;
 }
 
-section.applies-to a,
 nav.mini-toc a,
 section#tech span > a {
 	border-bottom: none;
@@ -278,7 +277,7 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	min-width: 22rem;
+	width: 22rem;
 	margin-top: -12.3rem;
 	border-right: 0.1rem dotted black;
 	background-color: rgb(245,245,245);
@@ -315,7 +314,6 @@ nav.mini-toc {
 	margin-top: 3rem;
 }
 
-section.applies-to a:hover,
 nav.mini-toc a:hover,
 section#tech a:hover {
 	color: rgb(200,0,0);
@@ -324,35 +322,26 @@ section#tech a:hover {
 
 
 /* section nav */
-section.applies-to,
 nav.mini-toc {
 	font-family: Helvetica,Arial,sans-serif;
 	margin-left: 1.15em;
 }
 
-section.applies-to {
-	margin-top: 3.2rem;
-}
-
-section.applies-to h3,
 nav.mini-toc h3 {
 	font-size: 0.9em;
 	margin: 0 0 0 0.7em;
 }
 
-section.applies-to ol,
 nav.mini-toc ol {
 	list-style-type: none;
 	margin: 0;
 	padding-left: 1rem;
 }
 
-section.applies-to li,
 nav.mini-toc li {
 	padding: 0.5rem 0.3em 0.5rem 0.8em;
 }
 
-section.applies-to a,
 nav.mini-toc a {
 	font-size: 0.9em;
 	color: rgb(0,0,200);
@@ -389,6 +378,50 @@ details#topics nav {
 
 
 /* applicable technologies */
+
+section#applies-to > table {
+	border: none;
+}
+
+section#applies-to > table > tbody > tr > th {
+	background-color: rgb(47,115,181);
+	width: 12rem;
+	border-color: rgb(0,0,0);
+}
+
+section#applies-to > table > tbody > tr > td {
+	width: 12rem;
+	text-align: center;
+	border-color: rgb(0,0,0);
+}
+
+section#applies-to > table > tbody > tr > th > a,
+section#applies-to > table > tbody > tr > th > a:link,
+section#applies-to > table > tbody > tr > th > a:visited {
+	color: rgb(255,255,255);
+	border-bottom: none;
+}
+
+section#applies-to > table > tbody > tr > th > a:hover {
+	color: rgb(255,255,200);
+	text-decoration: underline;
+}
+
+td.yes {
+	background-color: rgb(200,255,200);
+}
+
+td.no {
+	background-color: rgb(255,200,200);
+}
+
+td.partial {
+	background-color: rgb(240,240,240);
+}
+
+p.small {
+	font-size: 80%;
+}
 
 /* section spacing */
 
@@ -902,6 +935,8 @@ p.backtotop {
 	text-align: right;
 	max-width: 48em;
 	line-height: 1rem;
+	margin-top: 7rem;
+	margin-bottom: 10rem;
 }
 
 
@@ -965,11 +1000,6 @@ p.backtotop {
 		width: auto;
 		height: auto;
 		position: relative;
-	}
-	
-	section.applies-to {
-		margin-top: 0;
-		padding-top: 1.5rem
 	}
 	
 	footer > * {
