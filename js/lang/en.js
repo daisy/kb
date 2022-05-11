@@ -5,7 +5,7 @@ var msg = {};
 	
 	msg.UI = {};
 	msg.UI.m01 = 'Home';
-	msg.UI.m02 = 'Page Contents'
+	msg.UI.m02 = 'On this Page'
 	msg.UI.m03 = 'Applies To';
 	msg.UI.m04 = 'Category: '
 	
