@@ -59,6 +59,7 @@ KB.prototype.initializePage = function (type) {
 		this.host = 'kb';
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
+		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
@@ -179,6 +180,7 @@ KB.prototype.writeTemplate = function () {
 		kb.prettyPrint();
 		kb.addExampleCopy();
 		kb.addGlossaryLinks();
+		kb.generateWCAGLinks();
 		
 		var cur_href = window.location.href.toString();
 		var href_len = cur_href.length - 1;
@@ -849,6 +851,17 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 	}
 	
 	return ol;
+}
+
+
+/* convert shorthand references to WCAG in techniques */
+
+KB.prototype.generateWCAGLinks = function() {
+	document.body.innerHTML = document.body.innerHTML.replace(/\[\[WCAG-([0-9.]+)\]\]/gi, wcagLink);
+}
+
+function wcagLink(match, p1) {
+	return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
 }
 
 
