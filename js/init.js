@@ -43,6 +43,7 @@ function KB() {
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
 	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
+	this.isSearch = page_info.hasOwnProperty('search') ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
@@ -157,7 +158,7 @@ KB.prototype.writeTemplate = function () {
 		kb.generateHeader();
 		
 		// don't regenerate the body for the search page or the results won't get returned to the div (google can't handle nesting)
-		if (!page_info.hasOwnProperty('search')) {
+		if (!this.isSearch) {
 			kb.generateBody();
 		}
 		
@@ -176,15 +177,18 @@ KB.prototype.writeTemplate = function () {
 			kb.formatOpenPage();
 		}
 		
-		if (page_info.hasOwnProperty('search')) {
+		if (this.isSearch) {
 			kb.formatSearchPage();
 		}
 		
 		kb.generateFooter();
-		kb.prettyPrint();
-		kb.addExampleCopy();
-		kb.addGlossaryLinks();
-		kb.generateWCAGLinks();
+		
+		if (!this.isIndex && !this.isSearch) {
+			kb.prettyPrint();
+			kb.addExampleCopy();
+			kb.addGlossaryLinks();
+			kb.generateWCAGLinks();
+		}
 		
 		var cur_href = window.location.href.toString();
 		var href_len = cur_href.length - 1;
