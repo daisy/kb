@@ -120,7 +120,7 @@ var topic_list = [
 			{
 				'id': 'html-elem-attr',
 				'title': 'Elements and Attributes',
-				'path': 'html',
+				'path': 'html/markup',
 				'topics': [
 					{
 						'id': 'html-abbr',
@@ -156,11 +156,6 @@ var topic_list = [
 						'id': 'html-figures',
 						'href': 'figures.html',
 						'title': 'Figures'
-					},
-					{
-						'id': 'html-notes',
-						'href': 'notes.html',
-						'title': 'Footnotes and Endnotes'
 					},
 					{
 						'id': 'html-forms',
@@ -247,26 +242,26 @@ var topic_list = [
 			{
 				'id': 'html-images',
 				'title': 'Images',
-				'path': 'html',
+				'path': 'html/images',
 				'topics': [
 					{
 						'id': 'html-image-anim',
-						'href': 'images-animated.html',
+						'href': 'animated.html',
 						'title': 'Animated Images'
 					},
 					{
 						'id': 'html-image-deco',
-						'href': 'images-deco.html',
+						'href': 'decorative.html',
 						'title': 'Decorative Images'
 					},
 					{
 						'id': 'html-image-icon',
-						'href': 'images-icons.html',
+						'href': 'icons.html',
 						'title': 'Icons'
 					},
 					{
 						'id': 'html-image-desc',
-						'href': 'images-desc.html',
+						'href': 'descriptions.html',
 						'title': 'Image Descriptions'
 					},
 					{
@@ -276,7 +271,7 @@ var topic_list = [
 					},
 					{
 						'id': 'html-image-text',
-						'href': 'images-text.html',
+						'href': 'text.html',
 						'title': 'Images of Text'
 					}
 				]
@@ -284,26 +279,26 @@ var topic_list = [
 			{
 				'id': 'html-tables',
 				'title': 'Tables',
-				'path': 'html',
+				'path': 'html/tables',
 				'topics': [
 					{
 						'id': 'html-table-basics',
-						'href': 'tables-basics.html',
+						'href': 'basics.html',
 						'title': 'Table Basics'
 					},
 					{
 						'id': 'html-table-headers',
-						'href': 'tables-headers.html',
+						'href': 'headers.html',
 						'title': 'Complex Headers'
 					},
 					{
 						'id': 'html-table-scope',
-						'href': 'tables-scope.html',
+						'href': 'scope.html',
 						'title': 'Header Scope'
 					},
 					{
 						'id': 'html-table-layout',
-						'href': 'tables-layout.html',
+						'href': 'layout.html',
 						'title': 'Layout Tables'
 					}
 				]
@@ -311,7 +306,7 @@ var topic_list = [
 			{
 				'id': 'html-structures',
 				'title': 'Structures',
-				'path': 'html',
+				'path': 'html/structures',
 				'topics': [
 					{
 						'id': 'html-biblio',
@@ -333,12 +328,17 @@ var topic_list = [
 			{
 				'id': 'html-patterns',
 				'title': 'Patterns',
-				'path': 'html',
+				'path': 'html/patterns',
 				'topics': [
 					{
 						'id': 'html-dropcaps',
 						'href': 'dropcaps.html',
 						'title': 'Drop Caps'
+					},
+					{
+						'id': 'html-notes',
+						'href': 'notes.html',
+						'title': 'Footnotes and Endnotes'
 					},
 					{
 						'id': 'html-hidden-conent',
@@ -355,7 +355,7 @@ var topic_list = [
 			{
 				'id': 'html-concepts',
 				'title': 'Concepts',
-				'path': 'html',
+				'path': 'html/concepts',
 				'topics': [
 					{
 						'id': 'html-reading-order',
@@ -372,7 +372,7 @@ var topic_list = [
 			{
 				'id': 'html-aria',
 				'title': 'ARIA',
-				'path': 'html',
+				'path': 'html/aria',
 				'topics': [
 					{
 						'id': 'html-landmarks',
@@ -386,7 +386,7 @@ var topic_list = [
 					},
 					{
 						'id': 'html-dpub',
-						'href': 'dpub-aria/index.html',
+						'href-override': 'html/dpub-aria/index.html',
 						'title': 'Digital Publishing Roles'
 					}
 				]
@@ -394,7 +394,7 @@ var topic_list = [
 			{
 				'id': 'html-semantics',
 				'title': 'Semantics',
-				'path': 'html',
+				'path': 'html/semantics',
 				'topics': [
 					{
 						'id': 'epub-type',
@@ -731,7 +731,7 @@ var topic_list = [
 				'id': 'glossary-z',
 				'href': 'z.html',
 				'title': 'Z'
-			},
+			}
 		]
 	}
 ];

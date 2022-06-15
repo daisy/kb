@@ -531,7 +531,7 @@ KB.prototype.generateAppliesTo = function () {
 				note.setAttribute('class','small');
 				note.setAttribute('role', 'doc-footnote');
 			
-			note.appendChild(document.createTextNode('* Applies to the table of contents and any supplementary resources.'));
+			note.appendChild(document.createTextNode(msg.appliesto.m01));
 			notes = note;
 		}
 		
@@ -807,14 +807,7 @@ KB.prototype.addTopicLinks = function() {
 			toc.setAttribute('role', 'doc-toc');
 			toc.setAttribute('aria-label', 'Table of contents');
 		
-		var root_topic = null;
-		
-		for (var i = 0; i < topic_list.length; i++) {
-			if (topic_list[i].id == page_info.root_id) {
-				root_topic = topic_list[i]
-				break;
-			}
-		}
+		var root_topic = findTopics(topic_list, page_info.root_id);
 		
 		if (!root_topic) {
 			console.log('No matching topic index for ' + page_info.root_id);
@@ -893,6 +886,30 @@ KB.prototype.addTopicLinks = function() {
 	}
 }
 
+function findTopics(topic_list, id) {
+
+	for (var i = 0; i < topic_list.length; i++) {
+	
+		if (topic_list[i].id == id) {
+			return topic_list[i];
+		}
+		
+		else {
+		
+			if (topic_list[i].hasOwnProperty('categories')) {
+			
+				var result = findTopics(topic_list[i].categories, id);
+				
+				if (result) {
+					return result;
+				}
+			}
+		}
+	}
+	
+	return null;
+}
+
 
 KB.prototype.createLinkList = function(topic, isRoot) {
 
@@ -905,7 +922,15 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 			li.id = topic.topics[j].id;
 		
 		var a = document.createElement('a');
-			a.setAttribute('href', (isRoot ? topic.path + '/' : '') + topic.topics[j].href);
+			
+			if (topic.topics[j].hasOwnProperty('href-override')) {
+				// for linking to topics in a separate directory
+				a.setAttribute('href', '/publishing/docs/' + topic.topics[j]['href-override']);
+			}
+			
+			else {
+				a.setAttribute('href', (isRoot ? topic.path + '/' : '') + topic.topics[j].href);
+			}
 			
 			if (topic.topics[j].hasOwnProperty('aria-label')) {
 				a.setAttribute('aria-label', topic.topics[j]['aria-label']);

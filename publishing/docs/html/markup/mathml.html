@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MathML</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the provision of accessible MathML content.">
+		<script>
+			var page_info = {
+				'category': ['HTML','Elements and Attributes'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<div class="caution">
+				<p class="label">Caution</p>
+				<p>A solution for MathML that works in all user agents does not currently exist. The techniques
+					presented on this page will continue to be updated as new information becomes available.</p>
+			</div>
+
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>Support for rendering of native MathML markup is increasing but workarounds may still be necessary
+					in some support scenarios.</p>
+			</section>
+
+			<section id="tech">
+				<h3>Techniques</h3>
+
+				<ul>
+					<li>
+						<p>Represent math equations using MathML markup. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Provide an alternative description for math content. [[WCAG-1.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>Example 1 &#8212; Block-level MathML equation with a description in the <code>alttext</code>
+						attribute</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+      alttext="Frac Root a EndRoot Over b EndFrac">
+   &lt;mfrac>
+      &lt;msqrt>
+         &lt;mtext>a&lt;/mtext>
+      &lt;/msqrt>
+      &lt;mi>b&lt;/mi>
+   &lt;/mfrac>
+&lt;/math></code></pre>
+					<p class="figlabel">Demo:</p>
+					<math xmlns="http://www.w3.org/1998/Math/MathML" alttext="Frac Root a EndRoot Over b EndFrac">
+						<mfrac>
+							<msqrt>
+								<mtext>a</mtext>
+							</msqrt>
+							<mi>b</mi>
+						</mfrac>
+					</math>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>Example 1 &#8212; Inline MathML equation with a description in the <code>alttext</code>
+						attribute</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>In the Pythagorean Theorem,
+   &lt;math alttext="a squared plus b squared equals c squared">
+      &lt;mrow>&lt;msup>&lt;mi>a&lt;/mi>&lt;mn>2&lt;/mn>&lt;/msup>&lt;mo>+&lt;/mo>&lt;msup>&lt;mi>b&lt;/mi>&lt;mn>2&lt;/mn>&lt;/msup>&lt;mo>=&lt;/mo>&lt;msup>&lt;mi>c&lt;/mi>&lt;mn>2&lt;/mn>&lt;/msup>&lt;/mrow>
+   &lt;/math>,
+   the sum of the square of &#8230;</code></pre>
+					<p class="figlabel">Demo:</p>
+					<p>In the Pythagorean Theorem, <math><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></math>, the sum of the square &#8230;</p>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Image with alternative text</div>
+					</figcaption>
+					<p>Note that although an image might be the only output, if a publisher has source MathML markup,
+						it can be  kept together with the image in a (possibly hidden) <code>div</code>. Publishers
+						could then choose which format to use in their published content (i.e., filtering out the
+						less-supported alternative). It could also allow both forms to be published, with scripting
+						used to determine which to render (note that a <a href="hidden.html#hidden-fallback">CSS
+							fallback</a> might also be needed for the <code>hidden</code> attribute if older user
+						agents like IE11 have to be accounted for).</p>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>
+&lt;div class="mathml-eq">
+   &lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
+   &lt;div hidden="hidden">
+      &lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+            alttext="Frac Root a EndRoot Over b EndFrac">
+         &lt;mfrac>
+            &lt;msqrt>
+               &lt;mtext>a&lt;/mtext>
+            &lt;/msqrt>
+            &lt;mi>b&lt;/mi>
+         &lt;/mfrac>
+      &lt;/math>
+   &lt;/div>
+&lt;/div></code></pre>
+					<p>Alternatively, to avoid any processing or rendering impact, the MathML markup could be hidden
+						in an HTML comment (<code>&lt;!-- --></code>). This may pose re-processing challenges
+						later.</p>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>
+&lt;img src="squarerootab.jpg" alt="Frac Root a EndRoot Over b EndFrac"/>
+&lt;!-- &lt;math xmlns="http://www.w3.org/1998/Math/MathML"
+            alttext="Frac Root a EndRoot Over b EndFrac">
+         &lt;mfrac>
+            &lt;msqrt>
+               &lt;mtext>a&lt;/mtext>
+            &lt;/msqrt>
+            &lt;mi>b&lt;/mi>
+         &lt;/mfrac>
+      &lt;/math> --></code></pre>
+				</figure>
+			</section>
+
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl class="faq">
+					<dt>Should I prefix the MathML tags?</dt>
+					<dd>
+						<p>No, it is not recommended to use prefixes with math tags (e.g., <code>m:math</code>).</p>
+
+						<p>Not all combinations of assistive technologies and user agents are XML aware, so even if they
+							support MathML markup they may not support prefixed markup.</p>
+
+						<p>The use of unprefixed tags is also recommended as it ensures compatibility between both HTML
+							and XHTML syntaxes (XML prefixes are not supported in HTML).</p>
+					</dd>
+					
+					<dt>Should I use the ARIA <code>math</code> role?</dt>
+					<dd>
+						<p>No, it is strongly advised not to use the <code>math</code> role with MathML markup. In many
+							cases, using this role will cause the MathML markup not to be accessible to users.</p>
+					</dd>
+
+					<dt>Why aren't natural language descriptions advisable?</dt>
+					<dd>
+						<p>Consider the simple equation presented in <a href="#ex01">Example 1</a> above. A reasonable
+							natural language description might be "the square root of a over b". But consider that there
+							are two ways that this statement could be interpreted:</p>
+						<ol>
+							<li>to take the square root of the value a and then divide the resulting value by b.</li>
+							<li>to divide a by b and then take the square root of the resulting value.</li>
+						</ol>
+						<p>A user who cannot see the visual presentation of the equation is not going to be able to
+							determine which is the correct interpretation with only the description to go by. MathSpeak
+							takes the ambiguity out of the equation by clearly breaking down the components of the
+							equation in a way that doesn't leave ambiguity.</p>
+					</dd>
+
+					<dt>Is MathSpeak the only option for describing MathML?</dt>
+					<dd>
+						<p>No, but it is an openly documented format. Although some MathML applications take slightly
+							different approaches to voicing equations, MathSpeak is a good reflection of the typical
+							grammar.</p>
+					</dd>
+
+					<dt>Should I use the verbose, brief or super-brief syntaxes?</dt>
+					<dd>
+						<p>The different levels reflect the expected age and proficiency of the user. A math book geared
+							towards younger users, or users new to the topic, would typically employ the verbose
+							grammar. More advanced users already proficient in math and familiar with the grammar will
+							likely find the verbose syntax a nuisance, so either the brief or super-brief grammars can
+							be employed.</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>Although a benefit of native MathML support in XHTML content documents is the ability to provide
+					voicing based on the markup, user agents capable of such voicings are still not widespread.
+					MathML still presents the most accessible option in user agents that do support it. (Recent
+					testing from the DIAGRAM Center showed that <a 
+						href="http://diagramcenter.org/best-practices-for-authoring-math.html">only 7 of 25 EPUB 
+						reading systems were capable of rendering MathML markup</a>.)</p>
+
+				<p>As MathML rendering support is expected to grow now that it is being re-integrated into the Chrome
+					browser, the best option for providing accessible math equations is to use MathML markup. An
+					alternative text description can be provided in the <code>alttext</code> attribute.</p>
+				
+				<p>Alternatively, a less robust solution is to provide an image of the math with a sufficiently
+					descriptive alternative text (and extended description for more complex equations). It is not
+					required to include the MathML markup as shown in <a href="#ex-03">Example 3</a>, but integrating
+					the native markup can help transition to accessible MathML later when support improves.</p>
+			</section>
+
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math">&lt;math></a></li>
+					<li>MathML &#8212; <a href="http://www.w3.org/TR/MathML3/">Mathematical Markup Language (MathML)
+							Version 3.0</a></li>
+					<li>
+						<a href="http://www.gh-mathspeak.com/examples/grammar-rules/">MathSpeak Core Specification
+							Grammar Rules</a>
+					</li>
+					<li>DIAGRAM Centre &#8212; <a
+							href="http://diagramcenter.org/best-practices-for-authoring-math.html">Best Practices for
+							Authoring MathML</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

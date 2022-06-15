@@ -1,121 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8"/>
 		<title>Details</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidelines for using the details element to provide additional information.">
-		<script>
-			var page_info = {
-				'category': 'HTML',
-				'appliesTo':[ 'EPUB3']
-			};</script>
-		<script src="/js/init.js"></script>
+		<meta http-equiv="refresh" content="0; URL=markup/details.html"/>
 	</head>
+	
 	<body>
 		<main>
-			<section id="summary" role="doc-chapter">
-				<h3>Summary</h3>
-				<p>Use the <code>details</code> element to allow all users to decide when they want to read additional
-					information.</p>
-			</section>
-			<section id="tech">
-				<h3>Techniques</h3>
-				<ul>
-					<li>Use the <code>details</code> element to collapse additional information [[WCAG-1.3.1]]</li>
-					<li>Provide a meaningful label in the <code>summary</code> element [[WCAG-2.4.6]]</li>
-				</ul>
-			</section>
-			<section id="ex">
-				<h3>Examples</h3>
-				<figure id="ex-01">
-					<figcaption>
-						<div class="label">Example 1 &#8212; Providing an extended description for an image</div>
-					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
-   &lt;figcaption>
-      The hydrologic cycle.
-   &lt;/figcaption>
-   &lt;img
-      src="graphics/water-cycle.jpg"
-      alt="The hydrologic cycle, showing the 
-        circular nature of the process as water 
-        evaporates from a body of water and 
-        eventually returns to it"/>
-   &lt;details>
-      &lt;summary>Description&lt;/summary>
-      &lt;p>
-         The diagram shows the processes of 
-         evaporation, condensation,
-         evapotranspiration, water storage
-         in ice and snow, and precipitation.
-         A large body of water &#8230;
-      &lt;/p>
-   &lt;/details>
-&lt;/figure></code></pre>
-				</figure>
-				<figure id="ex-02">
-					<figcaption>
-						<div class="label">Example 2 &#8212; Adding a table summary</div>
-						<p>In this example, the <code>aria-details</code> attribute is used to link the table to a summary
-							positioned after it that explains its layout.</p>
-					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table aria-details="summary">
-   &#8230;
-&lt;/table>
-
-&lt;details id="summary">
-   &lt;summary>Summary&lt;/summary>
-   &lt;p>
-      Embedded within the result column are separate
-      tables that break down each of the &#8230; 
-   &lt;/p>
-&lt;/details></code></pre>
-				</figure>
-			</section>
-			<section id="desc">
-				<h3>Explanation</h3>
-				<p>The <code>details</code> element provides a way to expand and collapse information without depending on
-					JavaScript. It is ideal for use in digital publications where scripting is often not supported and is
-					also an accessible method for providing extended descriptions because the information is available to all
-					users.</p>
-				<div class="note" role="note" aria-labelledby="support-note">
-					<p id="support-note" class="label">Note</p>
-					<p>Support for the <code>details</code> element in EPUB reading systems is still inconsistent.</p>
-					<p>Due to the static way that reading systems paginate publications, expanding the <code>details</code>
-						element can cause the content of a page to be pushed off screen (i.e., it will not reflow onto the
-						next).</p>
-					<p>Users may be required to read in a scrolling mode rather than paginated one to access the content.</p>
-				</div>
-				<p>By default, the text inside the <code>details</code> element is initially collapsed. Only the label
-					provided in the <code>summary</code> element is visible. When users activate this label (e.g., by
-					clicking or tapping on it), the element expands to show the additional information.</p>
-				<p>The <code>details</code> element should be positioned where users are most likely to benefit from it. A
-					table summary, for example, is most helpful to encounter before the table it summarizes. An image
-					description, on the other hand, can proceed the image it describes. The remove any ambiguity, the
-						<code>aria-details</code> attribute can be used to associate the <code>details</code> element with the
-					relevant content item (see <a href="#ex-02">Example 2</a>). If the information cannot be placed in
-					logical sequence, the attribute allows users of assistive technologies to locate the element when the
-					encounter the content its associated with.</p>
-				<p>When using the <code>details</code> element, make sure to provide a meaningful label (i.e., that
-					describes the purpose of the information). If the element contains an extended description, make the
-					label "Description". Avoid using generic labels like "details" as it requires the user to expand the
-					element and read some or all of the information to determine whether it is what they are looking for.</p>
-			</section>
-			<section id="refs">
-				<h3>Related Links</h3>
-				<ul>
-					<li>KB &#8212; <a href="hidden.html">Hidden Content</a>
-					<li>KB &#8212; <a href="images.html">Images</a>
-					<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">&lt;details>:
-							The Details disclosure element</a></li>
-					<li>HTML &#8212; <a
-							href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element">The
-								<code>details</code> element</a></li>
-					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-details"><code>aria-details</code>
-							(property)</a></li>
-				</ul>
-			</section>
+			<p>This page has moved to the <a href="markup/details.html">Details</a> page.</p>
 		</main>
 	</body>
 </html>

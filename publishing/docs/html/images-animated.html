@@ -1,99 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8"/>
 		<title>Animated Graphics</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidelines for accessible animated graphics.">
-		<script>
-			var page_info = {
-				'category': 'HTML',
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
-			};
-		</script>
-		<script src="/js/init.js"></script>
+		<meta http-equiv="refresh" content="0; URL=images/animated.html"/>
 	</head>
 	
 	<body>
 		<main>
-			<section id="summary">
-				<h3>Summary</h3>
-				<p>Ensure that animated graphics do not pose a seizure risk and users can disable them.</p>
-				
-				<div class="note" role="note" aria-labelledby="note-1">
-					<p id="note-1" class="label">Note</p>
-					<p>This page only addresses the unique issues caused by animated graphic formats. These graphics
-						also require <a href="images-desc.html">alternative text and extended descriptions</a>, as
-						appropriate, to meet WCAG requirements.</p>
-				</div>
-			</section>
-			
-			<section id="tech">
-				<h3>Techniques</h3>
-				<ul>
-					<li>
-						<p>Ensure that the animation does not present the risk of seizures. [[WCAG-2.3.1]] and [[WCAG-2.3.2]]</p>
-					</li>
-					<li>
-						<p>Ensure that the animation stops after five seconds or can be turned off. [[WCAG-2.2.2]]</p>
-					</li>
-				</ul>
-			</section>
-			
-			<section id="ex">
-				<h3>Examples</h3>
-				
-				<figure id="ex-01">
-					<figcaption><span class="label">Example &#8212; Replaceable graphic</span></figcaption>
-					<p>A button is provided to replace the animated GIF with a static alternative using JavaScript.</p>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img id="rocket"
-    src="rocket-launch.gif"
-    alt="Rocket blasting off" />
-&lt;button
-   onclick="replaceImage('rocket', 'static-rocket-launch.jpg')"
-   >Stop animation&lt;/button></code></pre>
-				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>Although animated graphics such as animated GIFs are not commonly used in publications, their
-					use presents unique challenges for accessibility beyond the <a href="images-desc.html">basics of
-						describing</a> them. They are more like very short video clips, so you also need to consider
-					some of the same issues that affect videos.</p>
-				
-				<p>A primary concern is that the image does not present a risk of seizures. Since the images are
-					animated, any flashing must not occur more than three times per second. If the animation is less
-					than a second, and the animation plays in an endless loop, you must calculate the flashes per
-					second by multiplying the number of flashes in the animation by the number of times the animation
-					loops in a second.</p>
-				
-				<p>If the animation ends automatically after five seconds, it meets WCAGs requirement that users be
-					able to stop the playback of moving content. Due to the pagination of digital publications, users
-					will typically not reach the image before the animation completes. A workaround to this problem is
-					to include a control, typically a button, that replaces the animated graphics in a document with
-					unanimated equivalents. The user can then decide whether they want the animations to play or
-					not.</p>
-				
-				<div class="note" role="note" aria-labelledby="note-2">
-					<p id="note-2" class="label">Note</p>
-					<p>Although animations created using the <code>canvas</code> element present the same issues with
-						flashing and the need for users to turn off, they also pose additional issues not covered in
-						this section. A future update to the knowledge base will cover animated canvases.</p>
-				</div>
-			</section>
-			
-			<section id="refs">
-				<h3>Related Links</h3>
-				<ul>
-					<li>MDN &#8212; <a
-						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
-						element</a></li>
-					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"
-						>The <code>img</code> element</a></li>
-				</ul>
-			</section>
+			<p>This page has moved to the <a href="images/animated.html">Animated Graphics</a> page.</p>
 		</main>
 	</body>
 </html>

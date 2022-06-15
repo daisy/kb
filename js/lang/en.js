@@ -34,3 +34,6 @@ var msg = {};
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
+	
+	msg.appliesto = {};
+	msg.appliesto.m01 = '* Applies to the table of contents and any supplementary HTML resources.'
