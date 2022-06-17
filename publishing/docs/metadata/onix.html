@@ -114,7 +114,7 @@
 				<dl>
 					<dt id="desc-onix00">00: Accessibility Summary</dt>
 					<dd><p></p>
-						<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+						<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
@@ -126,7 +126,7 @@
 
 					<dt id="desc-onix01">01: LIA Compliance Scheme</dt>
 					<dd><p>Indicates that the EPUB conforms to the Libri Italiani Accessibili guidelines.</p>
-						<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+						<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
  &lt;ProductFormFeatureValue>01&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
@@ -286,15 +286,97 @@
 							to improve readability for dyslexic readers.</p>
 						<pre id="ex-18-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>94&lt;/ProductFormFeatureValue>
+ &lt;ProductFormFeatureValue>24&lt;/ProductFormFeatureValue>
  &lt;ProductFormFeatureDescription>
 	Publication uses the Open Dyslexic font &#8230;
  &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature>
+</code></pre>
+					</dd>
+					
+					<dt id="desc-onix25">25: Use of color</dt>
+					<dd>
+						<p>Indicates that color is not the sole means of distinction in visual content that carries
+						information necessary to understanding the publication for users with color blindness.</p>
+						<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#use-of-color">WCAG Success Criterion
+							1.4.1 - Use of Color</a>.</p>
+						<p>Note that this property is for visual reading. The methods for passing it do not ensure
+							that non-visual readers can access the same information.</p>
+						<pre id="ex-25-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>25&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
+					<dt id="desc-onix26">26: Use of contrast</dt>
+					<dd>
+						<p>Indicates that the contrast between the color of foreground text and its background
+							is sufficient for users with moderately low vision.</p>
+						<p>The default text color of a publication has to have a minimum contrast of 4.5:1 with the 
+							default background color (3:1 for large/heading text).</p>
+						<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG Success Criterion
+							1.4.3 Contrast (Minimum)</a>.</p>
+						<pre id="ex-26-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>26&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
+					<dt id="desc-onix27">27: Use of audio</dt>
+					<dd>
+						<p>Indicates that audio content has reduced background noise to improve the legibility of
+							the foreground speech for users who are hard of hearing.</p>
+						<p>Prerecorded audio content that is primarily speech (i.e., excludes performance works like songs)
+							has no background noise or the background noise is at least 20dB lower than the foreground
+							speech.</p>
+						<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#low-or-no-background-audio">WCAG
+							Success Criterion 1.4.7 Low or No Background Audio</a>.</p>
+						<pre id="ex-27-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>27&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
+					<dt id="desc-onix28">28: Full alternative audio descriptions</dt>
+					<dd>
+						<p>Indicates that there are prerecorded audio descriptions for all visual content.</p>
+						<p>Prerecorded audio descriptions must be provided for all visual content (e.g., images, charts,
+							graphics, video, interactive games, etc.).</p>
+						<pre id="ex-28-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>28&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
+					<dt id="desc-onix29">29: Next / Previous navigation</dt>
+					<dd>
+						<p>Indicates that the markup allows users of assistive technologies to move forward and backward
+							through the content by heading or major section.</p>
+						<p>All visible headings must be identified using the appropriate numbered heading tags.
+							For major sections of a publication without visible headings, ARIA roles must be used to 
+							identify the sections.</p>
+						<pre id="ex-29-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>29&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
 				</dl>
+				
 				<p class="bridgehead">The following informational fields should always be included when applicable:</p>
 				<dl>
+					<dt id="desc-onix93">93: Compliance certification by</dt>
+					<dd>
+						<p>A URL that identifies the organization responsible for accessibility conformance testing.</p>
+						<p>This field is only valid in ONIX 3.0 records.</p>
+						<pre id="ex-93-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+ &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+ &lt;ProductFormFeatureValue>93&lt;/ProductFormFeatureValue>
+ &lt;ProductFormFeatureDescription>
+	http://standards-org.example.com/
+ &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
 					<dt id="desc-onix94">94: Compliance web page for detailed accessibility information</dt>
 					<dd><p>If accessibility features, compliance and/or testing information is available on the web, provide
 							a link to the page in this field. This information must be validated against an independent
@@ -309,7 +391,7 @@
 					</dd>
 
 					<dt id="desc-onix95">95: Trusted intermediary’s web page for detailed accessibility information</dt>
-					<dd><p>SImilar to field 94, but the link is to compliance information provided by a trusted intermediary
+					<dd><p>Similar to field 94, but the link is to compliance information provided by a trusted intermediary
 							or third party nominated by the publisher.</p>
 						<pre id="ex-20-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
