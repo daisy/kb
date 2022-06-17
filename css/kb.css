@@ -286,6 +286,7 @@ div#nav-col {
 	position: sticky;
 	top: 0;
 	overflow: auto;
+	z-index: -1;
 }
 
 
