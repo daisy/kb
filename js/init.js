@@ -44,7 +44,10 @@ function KB() {
 	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
 	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
 	this.isSearch = page_info.hasOwnProperty('search') ? true : false;
+	this.isHomePage = page_info.hasOwnProperty('isSiteHome') ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
+	this.noTopLink = page_info.hasOwnProperty('noTopLink') ? true: false;
+	this.noTitle = page_info.hasOwnProperty('noTitle') ? true: false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
 	this.title = document.title;
@@ -64,7 +67,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
-		if (this.isIndex) {
+		if (this.isIndex || this.isHomePage) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
@@ -183,7 +186,7 @@ KB.prototype.writeTemplate = function () {
 		
 		kb.generateFooter();
 		
-		if (!this.isIndex && !this.isSearch) {
+		if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 			kb.prettyPrint();
 			kb.addExampleCopy();
 			kb.addGlossaryLinks();
@@ -246,19 +249,19 @@ KB.prototype.generateHeader = function () {
 	var top_links = document.createElement('div');
 		top_links.setAttribute('class','toplinks');
 	
+	// add the home link
+	var home_a = document.createElement('a');
+		home_a.setAttribute('href', this.kb_root);
+		home_a.appendChild(document.createTextNode(msg.UI.m01));
+	
+	top_links.appendChild(home_a);
+	
 	// add the contents link
 	var contents_a = document.createElement('a');
-		contents_a.setAttribute('href', this.kb_root);
+		contents_a.setAttribute('href', this.kb_root + 'topics.html');
 		contents_a.appendChild(document.createTextNode(msg.header.m04));
 	
 	top_links.appendChild(contents_a);
-	
-	// add the what's new link
-	var whatsnew_a = document.createElement('a');
-		whatsnew_a.setAttribute('href', this.kb_root + 'new/index.html');
-		whatsnew_a.appendChild(document.createTextNode(msg.header.m01));
-	
-	top_links.appendChild(whatsnew_a);
 	
 	// add the glossary link
 	var gloss_a = document.createElement('a');
@@ -310,7 +313,7 @@ KB.prototype.generateBody = function () {
 KB.prototype.generatePageTitle = function () {
 
 	// skip adding a title for the master list of topics
-	if (!this.isRootIndex) {
+	if (!this.isRootIndex && !this.noTitle) {
 	
 		var title_div = document.createElement('div');
 		
@@ -332,7 +335,7 @@ KB.prototype.generatePageTitle = function () {
 	
 	// skip adding the category for indexes and other uncategorized pages
 	if (this.isIndex || this.noCategory) {
-		if (!this.isRootIndex) {
+		if (!this.isRootIndex && !this.noTitle) {
 			var h2 = document.getElementsByTagName('h2')[0];
 				h2.setAttribute('class', 'noCategory');
 		}
@@ -391,8 +394,9 @@ KB.prototype.generatePageTitle = function () {
 
 KB.prototype.generateMiniToc = function () {
 
-	if (this.isIndex) {
-		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
+	if (this.isIndex || this.isSearch || this.isHomePage) {
+		var class_type = this.isIndex ? 'index' : (this.isSearch ? 'search' : 'home');
+		document.getElementsByTagName('main')[0].setAttribute('class', class_type);
 		return;
 	}
 	
@@ -453,7 +457,7 @@ KB.prototype.generateMiniToc = function () {
 
 KB.prototype.generateAppliesTo = function () {
 
-	if (this.isIndex) {
+	if (this.isIndex || this.isSearch || this.isHomePage) {
 		return;
 	}
 	
@@ -574,18 +578,20 @@ KB.prototype.generateFooter = function () {
 		return;
 	}
 	
-	// add back to top link
+	if (!this.noTopLink) {
+		// add back to top link
+		
+		var top = document.createElement('p');
+			top.setAttribute('class','backtotop');
+		
+		var toplink = document.createElement('a');
+			toplink.setAttribute('href','#');
+			toplink.appendChild(document.createTextNode(msg.footer.m08));
+		
+		top.appendChild(toplink);
 	
-	var top = document.createElement('p');
-		top.setAttribute('class','backtotop');
-	
-	var toplink = document.createElement('a');
-		toplink.setAttribute('href','#');
-		toplink.appendChild(document.createTextNode(msg.footer.m08));
-	
-	top.appendChild(toplink);
-
-	document.getElementById('body').insertAdjacentElement('beforeEnd', top);
+		document.getElementById('body').insertAdjacentElement('beforeEnd', top);
+	}
 	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
@@ -734,7 +740,7 @@ KB.prototype.generateFooter = function () {
 /* call the google pretty print function for examples */
 
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex) {
+	if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 		prettyPrint();
 	}
 }

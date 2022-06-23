@@ -255,9 +255,9 @@ a#skip-main:focus {
 
 div.toplinks {
 	font-size: 75%;
-	background-color: rgb(49,49,49);
+	background-color: rgb(75,75,75);
 	border-bottom: 0.1rem solid rgb(180,180,180);
-	padding-left: 5rem;
+	padding: 0.5rem 0 0.5rem 5rem;
 }
 
 div.toplinks > a {
@@ -265,8 +265,8 @@ div.toplinks > a {
 	text-decoration: none;
 	margin-right: 3rem;
 	text-transform: uppercase;
-	font-weight: bold;
 	letter-spacing: 0.1rem;
+	font-size: 1.4rem;
 }
 
 div.toplinks > a:hover {
