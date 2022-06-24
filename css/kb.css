@@ -278,21 +278,19 @@ div.toplinks > a:hover {
 
 div#nav-col {
 	width: 22rem;
-	margin-top: -12.3rem;
 	border-right: 0.1rem dotted black;
 	background-color: rgb(245,245,245);
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 0;
 	overflow: auto;
+	top: 0;
 }
 
 
 /* page title */
 
 div#page-title {
-	margin-left: 21.7rem;
 }
 
 div.category {

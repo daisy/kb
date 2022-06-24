@@ -327,7 +327,13 @@ KB.prototype.generatePageTitle = function () {
 		
 		title_div.appendChild(h2);
 		
-		document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		if (this.isSearch) {
+			// search page doesn't have the body wrapper or results don't display
+			document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		}
+		else {
+			document.getElementById('body').insertAdjacentElement('afterBegin', title_div);
+		}
 		
 		// append the kb name to the page title
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
@@ -449,7 +455,7 @@ KB.prototype.generateMiniToc = function () {
 	flex_div.appendChild(navcol);
 	flex_div.appendChild(document.getElementById('body'));
 	
-	document.getElementById('page-title').insertAdjacentElement('afterEnd', flex_div);
+	document.getElementsByTagName('main')[0].insertAdjacentElement('afterBegin', flex_div);
 }
 
 
