@@ -2,61 +2,72 @@
 var topic_list = [
 	{
 		'title': 'Accessibility Conformance',
+		'subtitle': 'The accessibility conformance topics provide information on meeting the various accessibility standards that apply to digital publications.',
 		'id': 'conformance',
 		'path': 'conformance',
 		'topics': [
 			{
 				'id': 'conf-epub',
 				'href': 'epub.html',
-				'title': 'EPUB Accessibility'
+				'title': 'EPUB Accessibility',
+				'subtitle': 'Explanation of the EPUB Accessibility specification.'
 			},
 			{
 				'id': 'conf-s508',
 				'href': 's508.html',
-				'title': 'Section 508 (US)'
+				'title': 'Section 508 (US)',
+				'subtitle': 'Explanation of the US Section 508 requirements for publications.'
 			},
 			{
 				'id': 'conf-wcag',
 				'href': 'wcag.html',
-				'title': 'WCAG Overview'
+				'title': 'WCAG Overview',
+				'subtitle': 'Introduction to the W3C\'s Web Content Accessibility Guidelines.'
 			},
 			{
 				'id': 'conf-wcag-expl',
 				'href': '../wcag/',
-				'title': 'WCAG Explainers'
+				'title': 'WCAG Explainers',
+				'subtitle': 'Introductions to each WCAG success criterion. Link leads to a submenu of topics.'
 			}
 		]
 	},
 	
 	{
 		'title': 'EPUB',
+		'subtitle': 'The EPUB topics cover accessibility issues that are unique to the EPUB format.',
 		'id': 'epub',
 		'path': 'epub',
 		'topics': [
 			{
 				'id': 'epub-cmt',
 				'href': 'cmt.html',
-				'title': 'Core Media Types'
+				'title': 'Core Media Types',
+				'subtitle': 'Explanation of formats that are assured to render in EPUB publications.'
 			},
 			{
 				'id': 'epub-cover',
 				'href': 'cover.html',
-				'title': 'Cover'
+				'title': 'Cover',
+				'subtitle': 'Accessible practices for including a cover image.'
 			},
 			{
 				'id': 'epub-language',
 				'href': 'language.html',
-				'title': 'Publication Language'
+				'title': 'Publication Language',
+				'subtitle': 'Language identification in the package document.'
 			},
 			{
 				'id': 'epub-title',
 				'href': 'title.html',
-				'title': 'Publication Title'
+				'title': 'Publication Title',
+				'subtitle': 'Providing a title for an EPUB publication.'
 			},
 			{
 				'id': 'epub-validation',
 				'href': 'validation/overview.html',
 				'title': 'Validation',
+				'subtitle': 'Overview of the epubcheck, Ace, and Ace Smart validation tools. This page links through to more detailed KB pages for each tool.',
 				'showtopics': false
 			}
 		]
@@ -64,57 +75,70 @@ var topic_list = [
 	
 	{
 		'title': 'Navigation',
+		'subtitle': 'The navigation topics describe how to author accessible navigation aids.',
 		'id': 'nav',
 		'path': 'navigation',
 		'topics': [
 			{
 				'id': 'nav-contentlist',
 				'href': 'content-list.html',
-				'title': 'Content Lists'
+				'title': 'Content Lists',
+				'subtitle': 'Describes how to add lists of tables, figures, etc.'
 			},
 			{
 				'id': 'nav-landmarks',
 				'href': 'landmarks.html',
-				'title': 'Landmarks'
+				'title': 'Landmarks',
+				'subtitle': 'Describes the EPUB concept of publication landmarks.'
 			},
 			{
 				'id': 'nav-pagelist',
 				'href': 'pagelist.html',
-				'title': 'Page Navigation'
+				'title': 'Page Navigation',
+				'subtitle': 'Describes the purpose and construction of a page list.'
 			},
 			{
 				'id': 'nav-toc',
 				'href': 'toc.html',
-				'title': 'Table of Contents'
+				'title': 'Table of Contents',
+				'subtitle': 'Describes best practices for including tables of contents.'
 			}
 		]
 	},
 
 	{
 		'title': 'Metadata',
+		'subtitle': 'The metadata topics describe the accessibility properties available in widely used digital publishing metadata standards.',
 		'id': 'metadata',
 		'path': 'metadata',
 		'topics': [
 			{
 				'id': 'meta-evaluation',
 				'href': 'evaluation.html',
-				'title': 'Evaluation'
+				'title': 'Evaluation',
+				'subtitle': 'Covers the conformance and evaluation metadata required by the EPUB Accessibility specification.'
 			},
 			{
 				'id': 'meta-onix',
 				'href': 'onix.html',
-				'title': 'ONIX'
+				'title': 'ONIX',
+				'subtitle': 'Covers the ONIX metadata standard\'s code list 196 accessibility properties.'
 			},
 			{
 				'id': 'meta-schema.org',
 				'href': 'schema.org',
-				'title': 'Schema.org'
+				'title': 'Schema.org',
+				'subtitle': 'Covers the accessibility metadata properties defined in the schema.org CreativeWork type.'
 			}
 		]
 	},
 	
 	{
 		'title': 'HTML',
+		'subtitle': 'The HTML topics cover issues related to producing accessible HTML content.\
+						Guidelines include how to use elements and attributes accessibly,\
+						how to create common publishing structures such as indexes and glossaries accessibly, and\
+						how to apply ARIA roles, states, and properties.',
 		'id': 'html',
 		'categories': [
 			{
@@ -125,127 +149,146 @@ var topic_list = [
 					{
 						'id': 'html-abbr',
 						'href': 'abbr.html',
-						'title': 'Abbreviations'
+						'title': 'Abbreviations',
+						'subtitle': 'The <code>abbr</code> element'
 					},
 					{
 						'id': 'html-accesskeys',
 						'href': 'accesskeys.html',
-						'title': 'Access Keys'
+						'title': 'Access Keys',
+						'subtitle': 'The <code>accesskey</code> attribute'
 					},
 					{
 						'id': 'html-audio',
 						'href': 'audio.html',
-						'title': 'Audio'
+						'title': 'Audio',
+						'subtitle': 'The <code>audio</code> element'
 					},
 					{
 						'id': 'html-emphasis',
 						'href': 'emphasis.html',
-						'title': 'Bolding and Italics'
+						'title': 'Bolding and Italics',
+						'subtitle': 'The <code>b</code>, <code>em</code>, <code>i</code>, and <code>strong</code> elements'
 					},
 					{
 						'id': 'html-context',
 						'href': 'context.html',
-						'title': 'Context Breaks'
+						'title': 'Context Breaks',
+						'subtitle': 'The <code>br</code> element'
 					},
 					{
 						'id': 'html-details',
 						'href': 'details.html',
-						'title': 'Details'
+						'title': 'Details',
+						'subtitle': 'The <code>details</code> element'
 					},
 					{
 						'id': 'html-figures',
 						'href': 'figures.html',
-						'title': 'Figures'
-					},
-					{
-						'id': 'html-notes',
-						'href': 'notes.html',
-						'title': 'Footnotes and Endnotes'
+						'title': 'Figures',
+						'subtitle': 'The <code>figure</code> element'
 					},
 					{
 						'id': 'html-forms',
 						'href': 'forms.html',
-						'title': 'Forms'
+						'title': 'Forms',
+						'subtitle': 'The <code>form</code> element'
 					},
 					{
 						'id': 'html-hgroup',
 						'href': 'hgroup.html',
-						'title': 'Heading Groups'
+						'title': 'Heading Groups',
+						'subtitle': 'The <code>hgroup</code> element'
 					},
 					{
 						'id': 'html-headings',
 						'href': 'headings.html',
-						'title': 'Headings'
+						'title': 'Headings',
+						'subtitle': 'The <code>h1</code> through <code>h6</code> elements'
 					},
 					{
 						'id': 'html-ids',
 						'href': 'ids.html',
-						'title': 'Identifiers'
+						'title': 'Identifiers',
+						'subtitle': 'The <code>id</code> attribute'
 					},
 					{
 						'id': 'html-iframes',
 						'href': 'iframes.html',
-						'title': 'Inline Frames'
+						'title': 'Inline Frames',
+						'subtitle': 'The <code>iframe</code> element'
 					},
 					{
 						'id': 'html-lang',
 						'href': 'lang.html',
-						'title': 'Language'
+						'title': 'Language',
+						'subtitle': 'The <code>lang</code> and <code>xml:lang</code> attributes'
 					},
 					{
 						'id': 'html-links',
 						'href': 'links.html',
-						'title': 'Links'
+						'title': 'Links',
+						'subtitle': 'The <code>a</code> element'
 					},
 					{
 						'id': 'html-lists',
 						'href': 'lists.html',
-						'title': 'Lists'
+						'title': 'Lists',
+						'subtitle': 'The <code>dl</code>, <code>ol</code>, and <code>ul<code> elements'
 					},
 					{
 						'id': 'html-main',
 						'href': 'main.html',
-						'title': 'Main Content'
+						'title': 'Main Content',
+						'subtitle': 'The <code>main</code> element'
 					},
 					{
 						'id': 'html-mathml',
 						'href': 'mathml.html',
-						'title': 'MathML'
+						'title': 'MathML',
+						'subtitle': 'The <code>math</code> element'
 					},
 					{
 						'id': 'html-meta',
 						'href': 'meta.html',
-						'title': 'Meta'
+						'title': 'Meta',
+						'subtitle': 'The <code>meta</code> element'
 					},
 					{
 						'id': 'html-object',
 						'href': 'object.html',
-						'title': 'Object'
+						'title': 'Object',
+						'subtitle': 'The <code>object</code> element'
 					},
 					{
 						'id': 'html-title',
 						'href': 'title.html',
-						'title': 'Page Title'
+						'title': 'Page Title',
+						'subtitle': 'The <code>title</code> element'
 					},
 					{
 						'id': 'html-sections',
 						'href': 'sections.html',
-						'title': 'Sections'
+						'title': 'Sections',
+						'subtitle': 'The <code>section</code>, <code>aside</code> and <code>article</code> elements'
 					},
 					{
 						'id': 'html-svg',
 						'href': 'svg.html',
-						'title': 'SVG'
+						'title': 'SVG',
+						'subtitle': 'The <code>svg</code> element'
 					},
 					{
 						'id': 'html-tables',
 						'href': 'tables.html',
-						'title': 'Tables'
+						'title': 'Tables',
+						'subtitle': 'The <code>table</code> element'
 					},
 					{
 						'id': 'html-video',
 						'href': 'video.html',
-						'title': 'Video'
+						'title': 'Video',
+						'subtitle': 'The <code>video</code> element'
 					}
 				]
 			},
@@ -257,32 +300,38 @@ var topic_list = [
 					{
 						'id': 'html-image-anim',
 						'href': 'images-animated.html',
-						'title': 'Animated Images'
+						'title': 'Animated Images',
+						'subtitle': 'Best practices for accessible animated images.'
 					},
 					{
 						'id': 'html-image-deco',
 						'href': 'images-deco.html',
-						'title': 'Decorative Images'
+						'title': 'Decorative Images',
+						'subtitle': 'How to identify images that do not convey information to users.'
 					},
 					{
 						'id': 'html-image-icon',
 						'href': 'images-icons.html',
-						'title': 'Icons'
+						'title': 'Icons',
+						'subtitle': 'Best practices for including accessible icons.'
 					},
 					{
 						'id': 'html-image-desc',
 						'href': 'images-desc.html',
-						'title': 'Image Descriptions'
+						'title': 'Image Descriptions',
+						'subtitle': 'Methods and writing techniques for alternative text and descriptions.'
 					},
 					{
 						'id': 'html-image-maps',
 						'href': 'maps.html',
-						'title': 'Image Maps'
+						'title': 'Image Maps',
+						'subtitle': 'Best practices for including accessible image maps.'
 					},
 					{
 						'id': 'html-image-text',
 						'href': 'images-text.html',
-						'title': 'Images of Text'
+						'title': 'Images of Text',
+						'subtitle': 'Best practices when images contain text.'
 					}
 				]
 			},
@@ -294,17 +343,20 @@ var topic_list = [
 					{
 						'id': 'html-biblio',
 						'href': 'bibliographies.html',
-						'title': 'Bibliographies'
+						'title': 'Bibliographies',
+						'subtitle': 'Markup recommendations for producing accessible bibliographies.'
 					},
 					{
 						'id': 'html-glossary',
 						'href': 'glossaries.html',
-						'title': 'Glossaries'
+						'title': 'Glossaries',
+						'subtitle': 'Markup recommendations for producing accessible glossaries.'
 					},
 					{
 						'id': 'html-indexes',
 						'href': 'indexes.html',
-						'title': 'Indexes'
+						'title': 'Indexes',
+						'subtitle': 'Markup recommendations for producing accessible indexes.'
 					}
 				]
 			},
@@ -316,17 +368,26 @@ var topic_list = [
 					{
 						'id': 'html-dropcaps',
 						'href': 'dropcaps.html',
-						'title': 'Drop Caps'
+						'title': 'Drop Caps',
+						'subtitle': 'Methods for creating accessible drop caps.'
+					},
+					{
+						'id': 'html-notes',
+						'href': 'notes.html',
+						'title': 'Footnotes and Endnotes',
+						'subtitle': 'Accessibly identifying, structuring, and linking notes and their references.'
 					},
 					{
 						'id': 'html-hidden-conent',
 						'href': 'hidden.html',
-						'title': 'Hidden Content'
+						'title': 'Hidden Content',
+						'subtitle': 'Techniques for hiding content both from visual rendering and from assistive technologies.'
 					},
 					{
 						'id': 'htmk-refs',
 						'href': 'reflinks.html',
-						'title': 'Links to Reference Marks'
+						'title': 'Links to Reference Marks',
+						'subtitle': 'Practices for linking back to the references to tables, figures, notes, etc.'
 					}
 				]
 			},
@@ -338,12 +399,14 @@ var topic_list = [
 					{
 						'id': 'html-reading-order',
 						'href': 'order.html',
-						'title': 'Logical Reading Order'
+						'title': 'Logical Reading Order',
+						'subtitle': 'Practices for ensuring that the primary narrative is clearly separated from secondary content.'
 					},
 					{
 						'id': 'html-sep-style',
 						'href': 'separation.html',
-						'title': 'Separation of Style'
+						'title': 'Separation of Style',
+						'subtitle': 'Practices for ensuring that style is not the only way that necessary information is conveyed.'
 					}
 				]
 			},
@@ -355,17 +418,20 @@ var topic_list = [
 					{
 						'id': 'html-landmarks',
 						'href': 'landmarks.html',
-						'title': 'ARIA Landmarks'
+						'title': 'ARIA Landmarks',
+						'subtitle': 'Introduces the ARIA landmark roles for identifying key sections of publications.'
 					},
 					{
 						'id': 'html-role',
 						'href': 'roles.html',
-						'title': 'ARIA role Attribute'
+						'title': 'ARIA role Attribute',
+						'subtitle': 'Describes how the ARIA <code>role</code> attribute influences how assistive technologies understand elements that carry the attribute.'
 					},
 					{
 						'id': 'html-dpub',
 						'href': 'dpub-aria/index.html',
-						'title': 'Digital Publishing Roles'
+						'title': 'Digital Publishing Roles',
+						'subtitle': 'Introduction to the DPUB-ARIA module for use with the ARIA <code>role</code> attribute. The page also links through to detailed descriptions for each role in the module.'
 					}
 				]
 			},
@@ -377,7 +443,8 @@ var topic_list = [
 					{
 						'id': 'epub-type',
 						'href': 'epub-type.html',
-						'title': 'EPUB type Attribute'
+						'title': 'EPUB <code>type</code> Attribute',
+						'subtitle': 'Overview of how the attribute can improve reading system experiences even though it does not affect assistive technologies.'
 					}
 				]
 			}
@@ -386,92 +453,109 @@ var topic_list = [
 	
 	{
 		'title': 'CSS',
+		'subtitle': 'The CSS topics cover the accessible styling of content using the cascading style sheets technology.',
 		'id': 'css',
 		'path': 'css',
 		'topics': [
 			{
 				'id': 'css-color',
 				'href': 'color.html',
-				'title': 'Color'
+				'title': 'Color',
+				'subtitle': 'Techniques to ensure color is not the only means by which information is conveyed.'
 			},
 			{
 				'id': 'css-contrast',
 				'href': 'contrast.html',
-				'title': 'Contrast'
+				'title': 'Contrast',
+				'subtitle': 'Techniques to ensure sufficient contrast when setting foreground and background colors.'
 			},
 			{
 				'id': 'css-ref',
 				'href': 'reference.html',
-				'title': 'CSS Property Reference'
+				'title': 'CSS Property Reference',
+				'subtitle': 'Reference to core CSS properties that have known accessibility issues.'
 			},
 			{
 				'id': 'css-reflow',
 				'href': 'reflow.html',
-				'title': 'Reflow'
+				'title': 'Reflow',
+				'subtitle': 'Discussion of the issues styling presents in meeting WCAG\'s reflow requirement.'
 			},
 			{
 				'id': 'css-text-resize',
 				'href': 'text-resize.html',
-				'title': 'Text Resizing'
+				'title': 'Text Resizing',
+				'subtitle': 'Techniques for avoiding accessibility issues when text is resized.'
 			},
 			{
 				'id': 'css-text-spacing',
 				'href': 'text-spacing.html',
-				'title': 'Text Spacing'
+				'title': 'Text Spacing',
+				'subtitle': 'Techniques for avoiding accessibility issues when text spacing is changed.'
 			}
 		]
 	},
 	
 	{
 		'title': 'Scripted Content and Forms',
+		'subtitle': 'The scripting and forms topics cover issues related to adding interactive content to digital publications.',
 		'id': 'script',
 		'path': 'script',
 		'topics': [
 			{
 				'id': 'script-autocomplete',
 				'href': 'autocomplete.html',
-				'title': 'Autocomplete'
+				'title': 'Autocomplete',
+				'subtitle': 'Using the <code>autocomplete</code> attribute to help users fill in common form fields.'
 			},
 			{
 				'id': 'script-controls',
 				'href': 'controls.html',
-				'title': 'Custom Controls'
+				'title': 'Custom Controls',
+				'subtitle': 'Using ARIA roles, states, and properties to make custom controls accessible.'
 			},
 			{
 				'id': 'script-validation',
 				'href': 'input-validation.html',
-				'title': 'Input Validation'
+				'title': 'Input Validation',
+				'subtitle': 'Techniques for ensuring that users can understand and correct input errors in forms.'
 			},
 			{
 				'id': 'script-keyboard',
 				'href': 'keyboard.html',
-				'title': 'Keyboard Control'
+				'title': 'Keyboard Control',
+				'subtitle': 'Techniques for ensuring that keyboard users can control scripted content.'
 			},
 			{
 				'id': 'script-labels',
 				'href': 'labels.html',
-				'title': 'Labels'
+				'title': 'Labels',
+				'subtitle': 'Techniques for ensuring that inputs and controls are accessibly labelled.'
 			},
 			{
 				'id': 'script-pe',
 				'href': 'pe.html',
-				'title': 'Progressive Enhancement'
+				'title': 'Progressive Enhancement',
+				'subtitle': 'Review of progressively enhancing content so that it remains accessible when scripting is not available.'
 			},
 			{
 				'id': 'script-tab-order',
 				'href': 'tab-order.html',
-				'title': 'Tab Order'
+				'title': 'Tab Order',
+				'subtitle': 'Techniques for ensuring the keyboard tab order is accessible.'
 			},
 			{
 				'id': 'script-timers',
 				'href': 'timers.html',
-				'title': 'Timers'
+				'title': 'Timers',
+				'subtitle': 'Techniques for ensuring timed content is accessible.'
 			}
 		]
 	},
 	
 	{
 		'title': 'Fixed Layouts',
+		'subtitle': 'The fixed layouts topics cover issues with creating content that is laid out on pages with fixed dimensions (i.e., the content does not reflow to fit the screen but stays where it is positioned).',
 		'id': 'fxl',
 		'categories': [
 			{
@@ -483,27 +567,32 @@ var topic_list = [
 						'id': 'fxl-overview',
 						'aria-label': 'Fixed Layouts Overview',
 						'href': 'overview.html',
-						'title': 'Overview'
+						'title': 'Overview',
+						'subtitle': 'General introduction to creating fixed layouts in EPUB.'
 					},
 					{
 						'id': 'fxl-html',
 						'href': 'html.html',
-						'title': 'HTML Layouts'
+						'title': 'HTML Layouts',
+						'subtitle': 'Overview of creating accessible fixed layouts in HTML.'
 					},
 					{
 						'id': 'fxl-img-spine',
 						'href': 'img-spine.html',
-						'title': 'Images in Spine'
+						'title': 'Images in Spine',
+						'subtitle': 'Overview of accessibility issues putting images directly in the EPUB spine.'
 					},
 					{
 						'id': 'fxl-svg',
 						'href': 'svg.html',
-						'title': 'SVG Layouts'
+						'title': 'SVG Layouts',
+						'subtitle': 'Overview of creating accessible fixed layouts in SVG.'
 					},
 					{
 						'id': 'fxl-wcag',
 						'href': 'wcag.html',
-						'title': 'WCAG Conformance'
+						'title': 'WCAG Conformance',
+						'subtitle': 'Overview of the difficulties making fixed layouts conform to WCAG accessibility requirements.'
 					}
 				]
 			},
@@ -516,17 +605,20 @@ var topic_list = [
 						'id': 'fxl-img',
 						'aria-label': 'Fixed Layout Images',
 						'href': 'img.html',
-						'title': 'Images'
+						'title': 'Images',
+						'subtitle': 'Explores the issues making image-based fixed layouts accessible.'
 					},
 					{
 						'id': 'fxl-spreads',
 						'href': 'spreads.html',
-						'title': 'Multipage Spreads'
+						'title': 'Multipage Spreads',
+						'subtitle': 'Explores the issues with content that is split across fixed-layout pages.'
 					},
 					{
 						'id': 'fxl-orient',
 						'href': 'orientation.html',
-						'title': 'Orientation'
+						'title': 'Orientation',
+						'subtitle': 'Explores the issues with constraining the orientation in which fixed layouts render.'
 					}
 				]
 			}
@@ -535,6 +627,7 @@ var topic_list = [
 	
 	{
 		'title': 'Synchronized Multimedia',
+		'subtitle': 'The synchronized multimedia topics cover the creation of digital publications that provide synchronized text and audio playback. These types of publications are often referred to as "read aloud" books.',
 		'id': 'sync',
 		'categories': [
 			{
@@ -545,7 +638,8 @@ var topic_list = [
 					{
 						'id': 'sync-overview',
 						'href': 'overlays.html',
-						'title': 'EPUB 3 Media Overlays'
+						'title': 'EPUB 3 Media Overlays',
+						'subtitle': 'Overview of EPUB 3\'s media overlays feature for synchronizing text with prerecorded audio playback.'
 					}
 				]
 			},
@@ -557,19 +651,22 @@ var topic_list = [
 					{
 						'id': 'sync-highlight',
 						'href': 'highlight.html',
-						'title': 'Highlighting'
+						'title': 'Highlighting',
+						'subtitle': 'Considerations for accessible text highlighting.'
 					},
 					{
 						'id': 'sync-lists',
 						'aria-label': 'Synchronized Media Lists',
 						'href': 'lists.html',
-						'title': 'Lists'
+						'title': 'Lists',
+						'subtitle': 'Structuring lists for synchronized playback.'
 					},
 					{
 						'id': 'sync-tables',
 						'aria-label': 'Synchronized Media Tables',
 						'href': 'tables.html',
-						'title': 'Tables'
+						'title': 'Tables',
+						'subtitle': 'Structuring tables for synchronized playback.'
 					}
 				]
 			}
@@ -578,28 +675,33 @@ var topic_list = [
 	
 	{
 		'title': 'Text to Speech',
+		'subtitle': 'The text-to-speech (TTS) topics cover technologies that aid in producing high-quality TTS playback.',
 		'id': 'tts',
 		'path': 'text-to-speech',
 		'topics': [
 			{
 				'id': 'tts-overview',
 				'href': 'overview.html',
-				'title': 'Overview'
+				'title': 'Overview',
+				'subtitle': 'Overview of the issues with text-to-speech playback and the technologies available to help.'
 			},
 			{
 				'id': 'tts-speech',
 				'href': 'speech.html',
-				'title': 'CSS3 Speech'
+				'title': 'CSS3 Speech',
+				'subtitle': 'Review of the Speech module properties for controlling TTS playback through style sheets.'
 			},
 			{
 				'id': 'tts-pls',
 				'href': 'pls.html',
-				'title': 'PLS Lexicons'
+				'title': 'PLS Lexicons',
+				'subtitle': 'Review of using pronunciation lexicons to create dictionaries of terms.'
 			},
 			{
 				'id': 'tts-ssml',
 				'href': 'ssml.html',
-				'title': 'SSML'
+				'title': 'SSML',
+				'subtitle': 'Review of EPUB\'s attribute implementation of the Synthetic Speech Markup Language.'
 			}
 		]
 	},
@@ -709,7 +811,7 @@ var topic_list = [
 				'id': 'glossary-z',
 				'href': 'z.html',
 				'title': 'Z'
-			},
+			}
 		]
 	}
 ];

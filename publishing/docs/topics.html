@@ -13,7 +13,7 @@
 		<script src="/js/init.js"></script>
 		<style>
 			nav#toc h2 {
-				margin: 4rem 0 1rem -1rem;
+				margin: 4rem 0 3rem -1rem;
 				font-size: 160% !important;
 			}
 			
@@ -28,12 +28,12 @@
 			<nav role="doc-toc" id="toc" class="site">
 				<h2>Topics</h2>
 				
-				<p>The following list of topics covers all the information available on the DAISY Accessible Publishing
-					Knowledge Base.</p>
-				
 				<div id="exp">
 					<label>
 						<input type="checkbox" id="expand" checked="checked"/> Expand all categories
+					</label>
+					<label style="padding-left: 5rem;">
+						<input type="checkbox" id="descriptions" checked="checked"/> Show descriptions
 					</label>
 				</div>
 			</nav>
@@ -42,6 +42,9 @@
 			function watchCheckbox() {
 				var expand_chkbox = document.getElementById('expand');
 				expand_chkbox.addEventListener('change', function(e) { expandTopics(expand_chkbox.checked); } );
+				
+				var desc_chkbox = document.getElementById('descriptions');
+				desc_chkbox.addEventListener('change', function(e) { showDescriptions(desc_chkbox.checked); } );
 			}
 			
 			window.addEventListener("load", watchCheckbox, false);
@@ -54,6 +57,18 @@
 					}
 					else {
 						details[i].removeAttribute('open');
+					}
+				}
+			}
+			
+			function showDescriptions(show) {
+				var desc = document.getElementsByClassName('topic_subtitle');
+				for (var i = 0; i < desc.length; i++) {
+					if (show) {
+						desc[i].removeAttribute('hidden');
+					}
+					else {
+						desc[i].setAttribute('hidden', '');
 					}
 				}
 			}

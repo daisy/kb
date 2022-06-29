@@ -374,6 +374,16 @@ details#topics nav {
 	margin-top: -1.3rem;
 }
 
+details > p.topic_subtitle {
+	margin-left: 3rem;
+	margin-top: 0;
+	max-width: 65rem;
+}
+
+span.topic_subtitle {
+	font-size: 80%;
+}
+
 
 /* applicable technologies */
 

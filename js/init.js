@@ -845,6 +845,11 @@ KB.prototype.addTopicLinks = function() {
 					h3.appendChild(document.createTextNode(root_topic.categories[j].title));
 				
 				section.appendChild(h3);
+				
+				if (root_topic.categories[j].hasOwnProperty('subtitle')) {
+					section.appendChild(createDescription(root_topic.categories[j].subtitle));
+				}
+				
 				section.appendChild(this.createLinkList(root_topic.categories[j], false))
 				toc.appendChild(section);
 			}
@@ -875,9 +880,13 @@ KB.prototype.addTopicLinks = function() {
 				details.setAttribute('open', 'open');
 			
 			var summary = document.createElement('summary');
-				summary.appendChild(document.createTextNode(topic_list[i].title));
+				summary.innerHTML = topic_list[i].title;
 			
 			details.appendChild(summary);
+			
+			if (topic_list[i].hasOwnProperty('subtitle')) {
+				details.appendChild(createDescription(topic_list[i].subtitle));
+			}
 			
 			if (topic_list[i].hasOwnProperty('categories')) {
 			
@@ -888,9 +897,14 @@ KB.prototype.addTopicLinks = function() {
 					section.id = topic_list[i].categories[j].id;
 					
 					var h3 = document.createElement('h3');
-						h3.appendChild(document.createTextNode(topic_list[i].categories[j].title));
+						h3.innerHTML = topic_list[i].categories[j].title;
 					
 					section.appendChild(h3);
+					
+					if (topic_list[i].categories[j].hasOwnProperty('subtitle')) {
+						section.appendChild(createDescription(topic_list[i].categories[j].subtitle));
+					}
+					
 					section.appendChild(this.createLinkList(topic_list[i].categories[j], true))
 					details.appendChild(section);
 				}
@@ -903,6 +917,14 @@ KB.prototype.addTopicLinks = function() {
 			toc.insertAdjacentElement('beforeEnd', details);
 		}
 	}
+}
+
+
+function createDescription(desc_text) {
+	var desc = document.createElement('p');
+		desc.setAttribute('class', 'topic_subtitle');
+		desc.innerHTML = desc_text;
+	return desc;
 }
 
 
@@ -923,9 +945,15 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 				a.setAttribute('aria-label', topic.topics[j]['aria-label']);
 			}
 			
-			a.appendChild(document.createTextNode(topic.topics[j].title));
+			a.innerHTML = topic.topics[j].title;
 		
 		li.appendChild(a);
+		
+		if (topic.topics[j].hasOwnProperty('subtitle')) {
+			li.appendChild(document.createElement('br'));
+			li.innerHTML += '<span class="topic_subtitle">' + topic.topics[j].subtitle + '</span>';
+		}
+		
 		ol.appendChild(li);
 	}
 	
