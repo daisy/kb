@@ -113,10 +113,11 @@ nav#toc a {
 }
 
 
-/* mobile fixes to display */
+/* zoom and mobile fixes */
 
-@media only screen 
-  and (max-device-width: 480px) {
+@media screen and (max-width: 600px),
+@media only screen
+	and (max-device-width: 480px) {
   
 	nav#toc {
 		margin: 2em 0 0 2em;
