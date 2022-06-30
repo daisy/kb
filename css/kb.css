@@ -217,6 +217,10 @@ div#body {
 	display: table-cell;
 }
 
+div#body > * {
+	max-width: 40em;
+}
+
 main.index {
 	padding-left: 6rem;
 	max-width: 44em;
