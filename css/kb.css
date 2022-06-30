@@ -206,12 +206,14 @@ footer a {
 
 div.col-wrapper {
 	display: flex;
+	table-layout: fixed;
 	position: relative;
+	width: 100%;
 }
 
 div#body {
 	padding-bottom: 0.5em;
-	max-width: 44em;
+	width: 80%;
 	display: table-cell;
 }
 
@@ -261,6 +263,7 @@ div.toplinks {
 }
 
 div.toplinks > a {
+	display: inline-block;
 	color: rgb(255,255,255);
 	text-decoration: none;
 	margin-right: 3rem;
@@ -277,12 +280,13 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	width: 22rem;
+	width: 20%;
 	border-right: 0.1rem dotted black;
 	background-color: rgb(245,245,245);
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
+	display: table-cell;
 	overflow: auto;
 	top: 0;
 }
@@ -322,7 +326,6 @@ section#tech a:hover {
 /* section nav */
 nav.mini-toc {
 	font-family: Helvetica,Arial,sans-serif;
-	margin-left: 1.15em;
 }
 
 nav.mini-toc h3 {
@@ -948,8 +951,9 @@ p.backtotop {
 }
 
 
-/* mobile fixes to display */
+/* zoom and mobile fixes */
 
+@media screen and (max-width: 600px),
 @media only screen
 	and (max-device-width: 480px) {
 	
@@ -1002,12 +1006,24 @@ p.backtotop {
 		margin-left: 0;
 	}
 	
+	div.col-wrapper {
+		display: block;
+	}
+	
 	div#nav-col {
 		margin-top: 0;
 		display: block;
-		width: auto;
 		height: auto;
 		position: relative;
+		width: 100%;
+		border-right: none;
+		background-color: rgb(245,245,245);
+		position: relative;
+		display: block;
+	}
+	
+	div#body {
+		display: block;
 	}
 	
 	footer > * {
