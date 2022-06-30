@@ -326,6 +326,7 @@ section#tech a:hover {
 /* section nav */
 nav.mini-toc {
 	font-family: Helvetica,Arial,sans-serif;
+	margin-left: 1.15em;
 }
 
 nav.mini-toc h3 {
@@ -953,6 +954,12 @@ p.backtotop {
 
 /* zoom and mobile fixes */
 
+@media screen and (max-width: 800px) {
+	nav.mini-toc {
+		margin-left: 0;
+	}
+}	
+
 @media screen and (max-width: 600px),
 @media only screen
 	and (max-device-width: 480px) {
@@ -1020,6 +1027,10 @@ p.backtotop {
 		background-color: rgb(245,245,245);
 		position: relative;
 		display: block;
+	}
+	
+	nav.mini-toc {
+		margin-left: 0;
 	}
 	
 	div#body {
