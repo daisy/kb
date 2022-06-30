@@ -54,9 +54,11 @@
 				for (var i = 0; i < details.length; i++) {
 					if (exp) {
 						details[i].setAttribute('open', true);
+						setCookie('topics','expand');
 					}
 					else {
 						details[i].removeAttribute('open');
+						setCookie('topics','collapse');
 					}
 				}
 			}
@@ -66,12 +68,51 @@
 				for (var i = 0; i < desc.length; i++) {
 					if (show) {
 						desc[i].removeAttribute('hidden');
+						setCookie('descriptions','show');
 					}
 					else {
 						desc[i].setAttribute('hidden', '');
+						setCookie('descriptions','hide');
 					}
 				}
 			}
+			
+			function setCookie(param,value){
+				let date = new Date();
+					date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+				const expires = "expires=" + date.toUTCString();
+				var cookie = param + '=' + value + ';path=/;'+expires;
+				document.cookie = cookie;
+			}
+			
+			function getCookie(cname) {
+				var cstr=RegExp(cname+'=[^;]+').exec(document.cookie);
+				return decodeURIComponent(!!cstr ? cstr.toString().replace(/^[^=]+./, '') : '');
+			}
+			
+			
+			function resetUserPrefs() {
+				var expand_topics = getCookie('topics');
+				
+				if (expand_topics && expand_topics == 'collapse') {
+					document.getElementById('expand').checked = false;
+					expandTopics(false);
+				}
+				
+				var show_descriptions = getCookie('descriptions');
+				
+				if (show_descriptions && show_descriptions == 'hide') {
+					document.getElementById('descriptions').checked = false;
+					showDescriptions(false);
+				}
+			}
+			
+			var init_handler = window.onload;
+			window.onload = function () {
+				init_handler();
+				resetUserPrefs();
+			};
+			
 		</script>
 	</body>
 </html>
