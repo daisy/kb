@@ -482,7 +482,7 @@ KB.prototype.generateAppliesTo = function () {
 	
 	var notes = null;
 	
-	var formats = ['Audiobooks', 'EPUB3', 'EPUB2'];
+	var formats = ['EPUB3', 'EPUB2', 'Audiobooks'];
 	
 	var table = document.createElement('table');
 	
