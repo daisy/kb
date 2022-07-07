@@ -261,6 +261,12 @@ var topic_list = [
 						'subtitle': 'The <code>object</code> element'
 					},
 					{
+						'id': 'html-quote',
+						'href': 'quotes.html',
+						'title': 'Quotes',
+						'subtitle': 'The <code>blockquote</code> and <code>q</code> elements'
+					},
+					{
 						'id': 'html-title',
 						'href': 'title.html',
 						'title': 'Page Title',

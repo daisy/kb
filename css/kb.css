@@ -544,11 +544,11 @@ section > ul > li > ul > li {
 
 /* FAQ styles */
 
-section.faq {
+section#faq {
 	padding: 0 0.5em;
 }
 
-dl.faq dt {
+section#faq dt {
 	font-weight: bold;
 	margin-top: 0.5em;
 }
