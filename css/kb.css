@@ -206,13 +206,19 @@ footer a {
 
 div.col-wrapper {
 	display: flex;
+	table-layout: fixed;
 	position: relative;
+	width: 100%;
 }
 
 div#body {
 	padding-bottom: 0.5em;
-	max-width: 44em;
+	width: 80%;
 	display: table-cell;
+}
+
+div#body > * {
+	max-width: 44em;
 }
 
 main.index {
@@ -255,18 +261,19 @@ a#skip-main:focus {
 
 div.toplinks {
 	font-size: 75%;
-	background-color: rgb(49,49,49);
+	background-color: rgb(75,75,75);
 	border-bottom: 0.1rem solid rgb(180,180,180);
-	padding-left: 5rem;
+	padding: 0.5rem 0 0.5rem 5rem;
 }
 
 div.toplinks > a {
+	display: inline-block;
 	color: rgb(255,255,255);
 	text-decoration: none;
 	margin-right: 3rem;
 	text-transform: uppercase;
-	font-weight: bold;
 	letter-spacing: 0.1rem;
+	font-size: 1.4rem;
 }
 
 div.toplinks > a:hover {
@@ -277,22 +284,21 @@ div.toplinks > a:hover {
 /* navigation column */
 
 div#nav-col {
-	width: 22rem;
-	margin-top: -12.3rem;
+	width: 20%;
 	border-right: 0.1rem dotted black;
 	background-color: rgb(245,245,245);
 	height: 100vh;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 0;
+	display: table-cell;
 	overflow: auto;
+	top: 0;
 }
 
 
 /* page title */
 
 div#page-title {
-	margin-left: 21.7rem;
 }
 
 div.category {
@@ -374,6 +380,16 @@ details#topics summary {
 
 details#topics nav {
 	margin-top: -1.3rem;
+}
+
+details > p.topic_subtitle {
+	margin-left: 3rem;
+	margin-top: 0;
+	max-width: 65rem;
+}
+
+span.topic_subtitle {
+	font-size: 80%;
 }
 
 
@@ -528,11 +544,11 @@ section > ul > li > ul > li {
 
 /* FAQ styles */
 
-section.faq {
+section#faq {
 	padding: 0 0.5em;
 }
 
-dl.faq dt {
+section#faq dt {
 	font-weight: bold;
 	margin-top: 0.5em;
 }
@@ -940,8 +956,15 @@ p.backtotop {
 }
 
 
-/* mobile fixes to display */
+/* zoom and mobile fixes */
 
+@media screen and (max-width: 800px) {
+	nav.mini-toc {
+		margin-left: 0;
+	}
+}	
+
+@media screen and (max-width: 600px),
 @media only screen
 	and (max-device-width: 480px) {
 	
@@ -994,12 +1017,28 @@ p.backtotop {
 		margin-left: 0;
 	}
 	
+	div.col-wrapper {
+		display: block;
+	}
+	
 	div#nav-col {
 		margin-top: 0;
 		display: block;
-		width: auto;
 		height: auto;
 		position: relative;
+		width: 100%;
+		border-right: none;
+		background-color: rgb(245,245,245);
+		position: relative;
+		display: block;
+	}
+	
+	nav.mini-toc {
+		margin-left: 0;
+	}
+	
+	div#body {
+		display: block;
 	}
 	
 	footer > * {

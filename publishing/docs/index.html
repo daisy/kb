@@ -2,51 +2,93 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Accessible Publishing Knowledge Base</title>
+		<title>DAISY Accessible Publishing Knowledge Base</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Table of contents for the DAISY Accessible Publishing Knowledge Base.">
+		<meta name="description" content="The Accessible Publishing Knowledge Base provides best practices for creating accessible digital publications. Its primary focus is on EPUB but can be used as a reference for any HTML-based format.">
 		<script>
 			var page_info = {
-				'isRootIndex': true
+				'isSiteHome': true,
+				'noTopLink': true,
+				'noTitle': true,
+				'nav': false
 			};
 		</script>
 		<script src="/js/init.js"></script>
+		<style>
+			h2.noCategory {
+				font-family: Verdana,Arial,sans-serif;
+				font-size: 120%;
+				margin-top: 1.8rem;
+				margin-left: -2.4rem;
+				padding-left: 0;
+				font-weight: normal;
+				border-bottom: 0.1rem solid purple;
+			}
+			section.sub {
+				box-shadow: 0.5rem 0.5rem rgb(236,244,252);
+				border-radius: 1rem;
+				border: 0.1rem solid lightgrey;
+				padding: 2rem !important;
+				max-width: 30rem;
+				float: left;
+				margin-right: 3rem;
+				min-height: 26rem;
+    		}
+			h3 {
+				font-size: 110%;
+				color: rgb(0,0,0);
+				margin-top: 0;
+				border-bottom-color: rgb(0,0,255) !important;
+			}
+			footer {
+				margin-top: 5rem;
+			}
+		</style>
 	</head>
 
 	<body>
 		<main>
-			<section aria-label="Introduction">
-				<p>The Accessible Publishing Knowledge Base provides best practices for creating accessible digital
-					publications. Its primary focus is on EPUB but can be used as a reference for any HTML-based
-					format.</p>
+			<section id="home">
+				<h2 class="noCategory">Welcome to the DAISY Accessible Publishing Knowledge Base</h2>
+				
+				<p>The Accessible Publishing Knowledge Base is your guide to accessible production practices
+					for the creation of digital publications.</p>
+				
+				<section id="navigating" class="sub">
+					<h3>Getting Around</h3>
+					
+					<p>If you are new to the knowledge base and are not sure where to begin, please take a moment to
+						review our page on <a href="navigating.html">navigating the site</a>. It will provide you with
+						an overview of how the site is organized and the various ways to find information.</p>
+				</section>
+				
+				<section id="whatsnew" class="sub">
+					<h3>What's New</h3>
+					
+					<p>The Knowledge Base is continually being updated to provide the latest and most accurate
+						information.</p>
+					
+					<p>Please visit the <a href="new/">what's new section</a> often for detailed information on
+						all the latest changes and additions!</p>
+				</section>
+				
+				<section id="focus" class="sub">
+					<h3>Focus</h3>
+					
+					<p>The primary focus of the site is on making <a href="https://www.w3.org/TR/epub">EPUB 3</a>
+						publications that conform to the <a href="https://www.w3.org/TR/epub-a11y">EPUB Accessibility</a>
+						standard, but the practices can be applied to any web-standards based publishing format.</p>
+				</section>
+				
+				<section id="about" class="sub">
+					<h3>About</h3>
+					
+					<p>Interested in the history of the site? What was the genesis for it? How has it evolved over
+						the years?</p>
+					<p>If so, please take a moment to read our <a href="about.html">about page</a>.</p>
+				</section>
+				<br style="clear: both">
 			</section>
-			<nav role="doc-toc" id="toc" class="site">
-				<div id="exp">
-					<label>
-						<input type="checkbox" id="expand" checked="checked"/> Expand all categories
-					</label>
-				</div>
-			</nav>
 		</main>
-		<script>
-			function watchCheckbox() {
-				var expand_chkbox = document.getElementById('expand');
-				expand_chkbox.addEventListener('change', function(e) { expandTopics(expand_chkbox.checked); } );
-			}
-			
-			window.addEventListener("load", watchCheckbox, false);
-			
-			function expandTopics(exp) {
-				var details = document.getElementsByTagName('details');
-				for (var i = 0; i < details.length; i++) {
-					if (exp) {
-						details[i].setAttribute('open', true);
-					}
-					else {
-						details[i].removeAttribute('open');
-					}
-				}
-			}
-		</script>
 	</body>
 </html>

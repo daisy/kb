@@ -44,7 +44,10 @@ function KB() {
 	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
 	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
 	this.isSearch = page_info.hasOwnProperty('search') ? true : false;
+	this.isHomePage = page_info.hasOwnProperty('isSiteHome') ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
+	this.noTopLink = page_info.hasOwnProperty('noTopLink') ? true: false;
+	this.noTitle = page_info.hasOwnProperty('noTitle') ? true: false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
 	
 	this.title = document.title;
@@ -64,7 +67,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
-		if (this.isIndex) {
+		if (this.isIndex || this.isHomePage) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
@@ -183,7 +186,7 @@ KB.prototype.writeTemplate = function () {
 		
 		kb.generateFooter();
 		
-		if (!this.isIndex && !this.isSearch) {
+		if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 			kb.prettyPrint();
 			kb.addExampleCopy();
 			kb.addGlossaryLinks();
@@ -246,19 +249,19 @@ KB.prototype.generateHeader = function () {
 	var top_links = document.createElement('div');
 		top_links.setAttribute('class','toplinks');
 	
+	// add the home link
+	var home_a = document.createElement('a');
+		home_a.setAttribute('href', this.kb_root);
+		home_a.appendChild(document.createTextNode(msg.UI.m01));
+	
+	top_links.appendChild(home_a);
+	
 	// add the contents link
 	var contents_a = document.createElement('a');
-		contents_a.setAttribute('href', this.kb_root);
+		contents_a.setAttribute('href', this.kb_root + 'topics.html');
 		contents_a.appendChild(document.createTextNode(msg.header.m04));
 	
 	top_links.appendChild(contents_a);
-	
-	// add the what's new link
-	var whatsnew_a = document.createElement('a');
-		whatsnew_a.setAttribute('href', this.kb_root + 'new/index.html');
-		whatsnew_a.appendChild(document.createTextNode(msg.header.m01));
-	
-	top_links.appendChild(whatsnew_a);
 	
 	// add the glossary link
 	var gloss_a = document.createElement('a');
@@ -310,7 +313,7 @@ KB.prototype.generateBody = function () {
 KB.prototype.generatePageTitle = function () {
 
 	// skip adding a title for the master list of topics
-	if (!this.isRootIndex) {
+	if (!this.isRootIndex && !this.noTitle) {
 	
 		var title_div = document.createElement('div');
 		
@@ -324,7 +327,13 @@ KB.prototype.generatePageTitle = function () {
 		
 		title_div.appendChild(h2);
 		
-		document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		if (this.isSearch) {
+			// search page doesn't have the body wrapper or results don't display
+			document.querySelector('main').insertAdjacentElement('afterBegin', title_div);
+		}
+		else {
+			document.getElementById('body').insertAdjacentElement('afterBegin', title_div);
+		}
 		
 		// append the kb name to the page title
 		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
@@ -332,7 +341,7 @@ KB.prototype.generatePageTitle = function () {
 	
 	// skip adding the category for indexes and other uncategorized pages
 	if (this.isIndex || this.noCategory) {
-		if (!this.isRootIndex) {
+		if (!this.isRootIndex && !this.noTitle) {
 			var h2 = document.getElementsByTagName('h2')[0];
 				h2.setAttribute('class', 'noCategory');
 		}
@@ -391,8 +400,9 @@ KB.prototype.generatePageTitle = function () {
 
 KB.prototype.generateMiniToc = function () {
 
-	if (this.isIndex) {
-		document.getElementsByTagName('main')[0].setAttribute('class', 'index');
+	if (this.isIndex || this.isSearch || this.isHomePage) {
+		var class_type = this.isIndex ? 'index' : (this.isSearch ? 'search' : 'home');
+		document.getElementsByTagName('main')[0].setAttribute('class', class_type);
 		return;
 	}
 	
@@ -445,7 +455,7 @@ KB.prototype.generateMiniToc = function () {
 	flex_div.appendChild(navcol);
 	flex_div.appendChild(document.getElementById('body'));
 	
-	document.getElementById('page-title').insertAdjacentElement('afterEnd', flex_div);
+	document.getElementsByTagName('main')[0].insertAdjacentElement('afterBegin', flex_div);
 }
 
 
@@ -453,7 +463,7 @@ KB.prototype.generateMiniToc = function () {
 
 KB.prototype.generateAppliesTo = function () {
 
-	if (this.isIndex) {
+	if (this.isIndex || this.isSearch || this.isHomePage) {
 		return;
 	}
 	
@@ -472,7 +482,7 @@ KB.prototype.generateAppliesTo = function () {
 	
 	var notes = null;
 	
-	var formats = ['Audiobooks', 'EPUB3', 'EPUB2'];
+	var formats = ['EPUB3', 'EPUB2', 'Audiobooks'];
 	
 	var table = document.createElement('table');
 	
@@ -574,18 +584,20 @@ KB.prototype.generateFooter = function () {
 		return;
 	}
 	
-	// add back to top link
+	if (!this.noTopLink) {
+		// add back to top link
+		
+		var top = document.createElement('p');
+			top.setAttribute('class','backtotop');
+		
+		var toplink = document.createElement('a');
+			toplink.setAttribute('href','#');
+			toplink.appendChild(document.createTextNode(msg.footer.m08));
+		
+		top.appendChild(toplink);
 	
-	var top = document.createElement('p');
-		top.setAttribute('class','backtotop');
-	
-	var toplink = document.createElement('a');
-		toplink.setAttribute('href','#');
-		toplink.appendChild(document.createTextNode(msg.footer.m08));
-	
-	top.appendChild(toplink);
-
-	document.getElementById('body').insertAdjacentElement('beforeEnd', top);
+		document.getElementById('body').insertAdjacentElement('beforeEnd', top);
+	}
 	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
@@ -734,7 +746,7 @@ KB.prototype.generateFooter = function () {
 /* call the google pretty print function for examples */
 
 KB.prototype.prettyPrint = function() {
-	if (!this.isIndex) {
+	if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 		prettyPrint();
 	}
 }
@@ -826,6 +838,11 @@ KB.prototype.addTopicLinks = function() {
 					h3.appendChild(document.createTextNode(root_topic.categories[j].title));
 				
 				section.appendChild(h3);
+				
+				if (root_topic.categories[j].hasOwnProperty('subtitle')) {
+					section.appendChild(createDescription(root_topic.categories[j].subtitle));
+				}
+				
 				section.appendChild(this.createLinkList(root_topic.categories[j], false))
 				toc.appendChild(section);
 			}
@@ -856,9 +873,13 @@ KB.prototype.addTopicLinks = function() {
 				details.setAttribute('open', 'open');
 			
 			var summary = document.createElement('summary');
-				summary.appendChild(document.createTextNode(topic_list[i].title));
+				summary.innerHTML = topic_list[i].title;
 			
 			details.appendChild(summary);
+			
+			if (topic_list[i].hasOwnProperty('subtitle')) {
+				details.appendChild(createDescription(topic_list[i].subtitle));
+			}
 			
 			if (topic_list[i].hasOwnProperty('categories')) {
 			
@@ -869,9 +890,14 @@ KB.prototype.addTopicLinks = function() {
 					section.id = topic_list[i].categories[j].id;
 					
 					var h3 = document.createElement('h3');
-						h3.appendChild(document.createTextNode(topic_list[i].categories[j].title));
+						h3.innerHTML = topic_list[i].categories[j].title;
 					
 					section.appendChild(h3);
+					
+					if (topic_list[i].categories[j].hasOwnProperty('subtitle')) {
+						section.appendChild(createDescription(topic_list[i].categories[j].subtitle));
+					}
+					
 					section.appendChild(this.createLinkList(topic_list[i].categories[j], true))
 					details.appendChild(section);
 				}
@@ -911,6 +937,14 @@ function findTopics(topic_list, id) {
 }
 
 
+function createDescription(desc_text) {
+	var desc = document.createElement('p');
+		desc.setAttribute('class', 'topic_subtitle');
+		desc.innerHTML = desc_text;
+	return desc;
+}
+
+
 KB.prototype.createLinkList = function(topic, isRoot) {
 
 	var ol = document.createElement('ol');
@@ -936,9 +970,15 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 				a.setAttribute('aria-label', topic.topics[j]['aria-label']);
 			}
 			
-			a.appendChild(document.createTextNode(topic.topics[j].title));
+			a.innerHTML = topic.topics[j].title;
 		
 		li.appendChild(a);
+		
+		if (topic.topics[j].hasOwnProperty('subtitle')) {
+			li.appendChild(document.createElement('br'));
+			li.innerHTML += '<span class="topic_subtitle">' + topic.topics[j].subtitle + '</span>';
+		}
+		
 		ol.appendChild(li);
 	}
 	
