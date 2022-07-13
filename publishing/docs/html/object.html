@@ -1,14 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title>Object</title>
-		<meta http-equiv="refresh" content="0; URL=markup/object.html"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessibly including content using the HTML object element.">
+		<script>
+			var page_info = {
+				'category': ['HTML','Elements and Attributes'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
 	</head>
 	
 	<body>
 		<main>
-			<p>This page has moved to the <a href="markup/object.html">Object</a> page.</p>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Providing a text alternative for embedded objects ensure the content is accessible regardless
+					of support for the format.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Provide an HTML alternative or description of the object in the body of the <code>object</code>. [[WCAG-1.1.1]] and [[WCAG-1.2.3]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Fallback for an embedded spreadsheet</div>
+						<p>A table is include inside the <code>object</code> tag with comparable data.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;object data="data/timesheet.xls">
+   &lt;table>
+     &lt;thead>
+       &lt;tr>
+         &lt;th>Employee&lt;/th>
+         &lt;th>ID&lt;/th>
+         &lt;th>Activity&lt;/th>
+         &lt;th>Station&lt;/th>
+         &lt;th>Completed&lt;/th>
+         &lt;th>Start&lt;/th>
+         &lt;th>End&lt;/th>
+         &lt;th>Total Hours&lt;/th>
+       &lt;/tr>
+     &lt;/thead>
+     &#8230;
+   &lt;/table>
+&lt;/object></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The <code>object</code> element allows the embedding of multimedia content in HTML documents. Its
+					use for audio and video content is generally discouraged, however, as it lacks the accessible playback
+					controls provided by the <a href="audio.html"><code>audio</code></a>
+					and <a href="video.html"><code>video</code></a> elements.</p>
+				
+				<p>Do not include media alternatives, like transcripts, in the body of an <code>object</code>. If the
+					audio or video format can be played, users who need access to the transcript will not have access
+					to it.</p>
+				
+				<p>As the <code>object</code> element is most often used to embed non-HTML content, a fallback needs to
+					be provided for users who cannot access the content in its native form. The common way to achieve this
+					is to provide an HTML equivalent within the body of the <code>object</code> element. This content is
+					presented to the user if the specified format is not supported.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object">&lt;object></a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-object-element">The
+						object element</a></li>
+				</ul>
+			</section>
 		</main>
 	</body>
 </html>

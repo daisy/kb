@@ -1,14 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title>Headings</title>
-		<meta http-equiv="refresh" content="0; URL=markup/headings.html"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for ensuring that headings are meaningful and structurally identifiable.">
+		<script>
+			var page_info = {
+				'category': ['HTML','Elements and Attributes'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
 	</head>
 	
 	<body>
 		<main>
-			<p>This page has moved to the <a href="markup/headings.html">Headings</a> page.</p>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>The use of heading tags ensures users do not have to rely on visual styling to understand and 
+					navigate the document outline.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure all headings are identified. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Use one heading per section to establish the document outline. [[WCAG-2.4.10]]</p>
+					</li>
+					<li>
+						<p>Check that headings describe their sections. [[WCAG-2.4.6]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Numbered headings</div>
+						<p>The heading number is decreased by one to match each subsection (h1, h2, h3).</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-part" aria-labelledby="hd01">
+  &lt;h1 id="hd01">Book One: 1805&lt;/h1>
+     &lt;section role="doc-part" aria-labelledby="hd02">
+       &lt;h2 id="hd02">Part 1&lt;/h2>
+         &lt;section role="doc-chapter" aria-labelledby="hd03">
+           &lt;h3 id="hd03">Chapter 1&lt;/h3></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Separate heading and subtitle</div>
+						<p>The title and subtitle are contained in separate elements, but grouped in a <code>header</code>
+							element to better associate them. The role <code>doc-subtitle</code> is used to identify the
+							subtitle.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
+   &lt;header id="hd01">
+     &lt;h1>ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.&lt;/h1>
+     &lt;p role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/p>
+   &lt;/header>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Merged heading and subtitle</div>
+						<p>The subtitle is contained within the same heading element as the title, but is identified
+							in a <code>span</code> with the role of <code>doc-subtitle</code>.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
+   &lt;h1 id="hd01">ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.
+   &lt;span role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/span>&lt;/h1>
+</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Headingless section</div>
+						<p>The <code>aria-label</code> attribute provides a meaningful title for a section
+							that does not contain a visual heading.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;section role="region" aria-label="preamble"></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq" class="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl class="faq">
+					<dt id="faq-001">Can I use an <code>h1</code> heading for every section?</dt>
+					<dd><p>User agents and assistive technologies do not support the outline algorithm defined in HTML5.
+						If you use an <code>h1</code> heading for every section, they will all appear as top-level
+						headings to assistive technologies, impeding users' ability to navigate the content.</p>
+					</dd>
+					
+					<dt id="faq-002">Should heading levels be sequential?</dt>
+					<dd><p>Headings should reflect the hierarchy of the publication, so an <code>h2</code> should always be
+							used for secondary level headings, <code>h3</code> for tertiary, and so on. Avoid gaps in numbering
+							whenever possible (e.g., using <code>h3</code> for headings below an <code>h1</code>).</p>
+						<p>Using consistent numbering ensures that users are not confused by the structure of a publication.
+							Assistive technologies provide shortcut keys that allow users to move through the content
+							effectively by heading number, for example. If there are gaps in the numbering, users may not 
+							realize there are subsections depending on how they try to navigate (i.e., trying to navigate to a
+							specific heading level will not work; only the generic move to next heading option will).</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Headings are one of the primary means of navigation for users of assistive technologies.</p>
+				
+				<p>Each <code>section</code> should have a numbered heading (e.g., <code>h1</code>) that reflects its level
+					in the document hierarchy, as numbered headings allow assistive technologies to navigate the document structure.</p>
+				
+				<p>Each heading element must represent a single heading. Do not break a heading up into separate tags for
+					visual formatting. If you need to include subheadings, incorporate them into the main heading or include
+					them in a subsequent paragraph, using a <code>header</code> tag to encapsulate the full heading.</p>
+				
+				<p>If a section of text does not have a heading, include a heading in an <code>aria-label</code> attribute on
+					the enclosing element. Assistive technologies will announce this label and alert users that a new section
+					is starting.</p>
+				
+				<div class="note" role="note" aria-labelledby="note-1">
+					<p id="note-1" class="label">Note</p>
+					<p>Do not use heading elements within <code>figure</code>, <code>blockquote</code> and other HTML5
+						sectioning root elements. Although these features may have titles, using heading elements will force
+						users to navigate through them to find the next section.</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">&lt;h1>–&lt;h6>:
+						The HTML Section Heading elements</a></li>
+					<li>HTML &#8212; <a
+							href="https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">The
+								<code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and
+								<code>h6</code> elements</a></li>
+					<li>WCAG &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H42">Using h1-h6 to identify
+						headings</a></li>
+					<li>WCAG &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H69">Providing heading elements
+						at the beginning of each section of content</a></li>
+					<li>WCAG &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G141">Organizing a page using
+						headings</a></li>
+					<li>WCAG &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">HTML &#8212; 
+						Headings and sections</a></li>
+					<li>WCAG &#8212; <a href="https://html.spec.whatwg.org/multipage/common-idioms.html#sub-head">HTML &#8212; Subheadings,
+						subtitles, alternative titles and taglines</a></li>
+					<li>WCAG &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G130">Providing descriptive
+						headings</a></li>
+				</ul>
+			</section>
 		</main>
 	</body>
 </html>

@@ -1,14 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title>Video</title>
-		<meta http-equiv="refresh" content="0; URL=markup/video.html"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of video content, covering controls, tracks and transcripts.">
+		<script>
+			var page_info = {
+				'category': ['HTML','Elements and Attributes'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
 	</head>
 	
 	<body>
 		<main>
-			<p>This page has moved to the <a href="markup/video.html">Video</a> page.</p>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure the video is labeled, the user can control playback, and there are alternatives for users who
+					cannot see or hear the video or who need more time to process the information.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Include a label that describes the video. [[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>Enable the <code>video</code> element's native controls by default. [[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>Include captions for audio content. [[WCAG-1.2.2]]</p>
+					</li>
+					<li>
+						<p>Include a transcript or audio alternative for video with no audio. [[WCAG-1.2.1]]</p>
+					</li>
+					<li>
+						<p>Include a transcript and/or audio descriptions when the video has audio. [[WCAG-1.2.1]], [[WCAG-1.2.3]], and [[WCAG-1.2.5]]</p>
+					</li>
+					<li>
+						<p>Ensure the video does not present the risk of seizures. [[WCAG-2.3.1]] and [[WCAG-2.3.2]]</p>
+					</li>
+					<li>
+						<p>Ensure users can disable any audio that starts automatically or turn off its volume. [[WCAG-1.4.2]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example &#8212; Enabling native controls</div>
+						<p>Setting the <code>controls</code> attribute enables the native HTML controls by default.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;video &#8230; controls="controls">
+   &#8230;
+&lt;/video></code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example &#8212; Adding a label</div>
+						<p>The <code>aria-label</code> attribute provides the title of the video.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;video &#8230; aria-label="The General">
+   &#8230;
+&lt;/video></code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example &#8212; Including timed tracks</div>
+						<p>The <code>track</code> identifies the subtitles and captions files for the video.
+							The <code>kind</code> attribute designates the nature of the supplied track.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;video controls="controls">
+       src="video/big-hollywood-blockbuster.mp4"
+      controls="controls"
+      aria-label="Kaplowy - The movie">
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/>
+&lt;/video></code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example &#8212; Including a fallback error message</div>
+						<p>A user agent will only render the content inside the <code>video</code> element if it does not
+							support the element. The user agent does not display this content if it does not support the
+							provided video formats (the user agent will display its own error message in such cases).</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General">
+   &#8230;
+   &lt;div class="err">
+     &lt;p>
+       Sorry, it appears your system 
+       does not support video playback.
+     &lt;/p>
+   &lt;/div>
+&lt;/video></code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When including video clips, ensure that the native user agent controls are enabled by default (i.e.,
+					by setting the <code>controls</code> attribute on the <code>video</code> element). This practice
+					ensures that the controls are accessible even if scripting is not available. If you define your own
+					custom controls, disable the native controls by JavaScript so they remain available in user agent
+					that do not support scripting.</p>
+				
+				<p>Providing a label for videos ensures that users can understand the purpose of the video before
+					choosing whether to view it. The poster image that authors can specify to provide a snapshot of the
+					video for visual readers, for example, is not available to users who are blind. The label is the
+					only means of understanding the content without downloading it for these users. For users on mobile
+					devices, especially with high bandwidth costs, this information can save them both time and
+					money.</p>
+				
+				<p>In terms of providing alternatives, WCAG requires multiple options for video content to address the
+					needs of different user groups:</p>
+				
+				<ul>
+					<li>Transcripts and/or audio description tracks for users who are blind or have low vision.</li>
+					<li>Captions for users who cannot hear the video.</li>
+				</ul>
+				
+				<p>WCAG refers to transcripts as "media alternatives" because they cannot be a simple listing of
+					the spoken dialogue. The transcripts must include descriptions of the actions and any other
+					important events in the video.</p>
+				
+				<p>Progressing from level A to AA also increases the requirement. Transcripts are not sufficient to
+					for video with audio at level AA, for example, only an audio description track is sufficient.</p>
+					
+				<p>Although the <code>video</code> element allows child content for fallback purposes, such content is
+					not intended to serve as an accessible alternative. The user agent only makes this content
+					available to the user if it does not support the <code>video</code> element (e.g., in EPUB 2 user
+					agents).</p>
+				
+				<p>It is also important to consider that users need to be able to hear the audio produced by their
+					assistive technologies (e.g., a screen reader). Automatically playing a video with audio interferes
+					with their ability to hear the text, for example, so unless the clip only plays for three seconds
+					or less, the user must be able to disable playback or mute the volume without also muting their
+					assistive technology (i.e., the system audio control is not sufficient to meet this requirement as
+					it will raise and lower all audio in synchronicity).</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">&lt;video>: The
+						Video Embed element</a></li>
+					<li>HTML &#8212; <a 
+						href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-video-element">The
+								<code>video</code> element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-track-element">The
+								<code>track</code> element</a></li>
+				</ul>
+			</section>
 		</main>
 	</body>
 </html>
