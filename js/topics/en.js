@@ -159,6 +159,18 @@ var topic_list = [
 						'subtitle': 'The <code>accesskey</code> attribute'
 					},
 					{
+						'id': 'html-articles',
+						'href': 'articles.html',
+						'title': 'Articles',
+						'subtitle': 'The <code>article</code> element'
+					},
+					{
+						'id': 'html-asides',
+						'href': 'asides.html',
+						'title': 'Asides',
+						'subtitle': 'The <code>aside</code> element'
+					},
+					{
 						'id': 'html-audio',
 						'href': 'audio.html',
 						'title': 'Audio',
@@ -276,7 +288,7 @@ var topic_list = [
 						'id': 'html-sections',
 						'href': 'sections.html',
 						'title': 'Sections',
-						'subtitle': 'The <code>section</code>, <code>aside</code> and <code>article</code> elements'
+						'subtitle': 'The <code>section</code> element'
 					},
 					{
 						'id': 'html-svg',

@@ -544,10 +544,6 @@ section > ul > li > ul > li {
 
 /* FAQ styles */
 
-section#faq {
-	padding: 0 0.5em;
-}
-
 section#faq dt {
 	font-weight: bold;
 	margin-top: 0.5em;

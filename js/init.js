@@ -618,6 +618,8 @@ KB.prototype.generateFooter = function () {
 	
 	var helplist = document.createElement('ul')
 	
+	/* error reporting link */
+	
 	var bugitem = document.createElement('li');
 	var buglink = document.createElement('a');
 		buglink.setAttribute('href', this.kb_root + 'reporting/#bugs');
@@ -626,6 +628,8 @@ KB.prototype.generateFooter = function () {
 	bugitem.appendChild(buglink);
 	helplist.appendChild(bugitem);
 	
+	/* new topic link */
+	
 	var topicitem = document.createElement('li');
 	var newlink = document.createElement('a');
 		newlink.setAttribute('href', this.kb_root + 'reporting/#new');
@@ -633,6 +637,8 @@ KB.prototype.generateFooter = function () {
 	
 	topicitem.appendChild(newlink);
 	helplist.appendChild(topicitem);
+	
+	/* contribute link */
 	
 	var contribitem = document.createElement('li');
 	var contriblink = document.createElement('a');
@@ -657,6 +663,30 @@ KB.prototype.generateFooter = function () {
 	
 	var gitlist = document.createElement('ul')
 	
+	/* what's new link */
+	
+	var newitem = document.createElement('li');
+	
+	var newlink = document.createElement('a');
+		newlink.setAttribute('href',this.kb_root + 'new');
+		newlink.appendChild(document.createTextNode(msg.header.m01));
+	
+	newitem.appendChild(newlink);
+	gitlist.appendChild(newitem);
+	
+	/* about link */
+	
+	var aboutitem = document.createElement('li');
+	
+	var aboutlink = document.createElement('a');
+		aboutlink.setAttribute('href',this.kb_root + 'about.html');
+		aboutlink.appendChild(document.createTextNode(msg.footer.m15));
+	
+	aboutitem.appendChild(aboutlink);
+	gitlist.appendChild(aboutitem);
+	
+	/* revision history link */
+	
 	var commititem = document.createElement('li');
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
@@ -669,14 +699,6 @@ KB.prototype.generateFooter = function () {
 	
 	commititem.appendChild(commitlink);
 	gitlist.appendChild(commititem);
-	
-	var repoitem = document.createElement('li');
-	var repolink = document.createElement('a');
-		repolink.setAttribute('href', 'https://github.com/daisy/kb/issues');
-		repolink.appendChild(document.createTextNode(msg.footer.m07));
-	
-	repoitem.appendChild(repolink);
-	gitlist.appendChild(repoitem);
 	
 	github.appendChild(gitlist);
 	
