@@ -8,15 +8,11 @@
 		<script>
 			var page_info = {
 				'category': 'Scripted Content and Forms',
-				'appliesTo': ['Audiobooks*','EPUB3']
+				'appliesTo': ['Audiobooks*','EPUB3'],
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
-		<style>
-			ol.col {
-				height: 20rem;
-			}
-		</style>
 	</head>
 	<body>
 		<main>
@@ -56,21 +52,6 @@
 					required fields to ensuring all fields have been filled in correctly. When fields are missed or
 					errors occur, it is not always easy for users with disabilities to locate the problems or determine
 					what needs to be fixed.</p>
-				
-				<details id="topics" open="open">
-					<summary id="toc-hd">Table of Contents</summary>
-					
-					<nav role="doc-toc" aria-labelledby="toc-hd">
-						<ol class="col">
-							<li><a href="#timing">When to Validate</a></li>
-							<li><a href="#built-in">Built-in Checks</a></li>
-							<li><a href="#locate">Locating Input Errors</a></li>
-							<li><a href="#describe">Describing Errors</a></li>
-							<li><a href="#confirm">Confirming Submissions</a></li>
-							<li><a href="#revert">Reverting Submissions</a></li>
-						</ol>
-					</nav>
-				</details>
 				
 				<section id="timing">
 					<h4>When to Validate</h4>

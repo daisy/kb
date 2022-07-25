@@ -273,16 +273,16 @@ var topic_list = [
 						'subtitle': 'The <code>object</code> element'
 					},
 					{
-						'id': 'html-quote',
-						'href': 'quotes.html',
-						'title': 'Quotes',
-						'subtitle': 'The <code>blockquote</code> and <code>q</code> elements'
-					},
-					{
 						'id': 'html-title',
 						'href': 'title.html',
 						'title': 'Page Title',
 						'subtitle': 'The <code>title</code> element'
+					},
+					{
+						'id': 'html-quote',
+						'href': 'quotes.html',
+						'title': 'Quotes',
+						'subtitle': 'The <code>blockquote</code> and <code>q</code> elements'
 					},
 					{
 						'id': 'html-sections',
@@ -375,6 +375,18 @@ var topic_list = [
 						'href': 'tables-layout.html',
 						'title': 'Layout Tables',
 						'subtitle': 'Best practices for when table layouts cannot be avoided.'
+					},
+					{
+						'id': 'html-table-captions',
+						'href': 'tables-captions.html',
+						'title': 'Table Captions',
+						'subtitle': 'Adding a caption to explain the purpose of a table.'
+					},
+					{
+						'id': 'html-table-summary',
+						'href': 'tables-summary.html',
+						'title': 'Table Summaries',
+						'subtitle': 'Adding a summary to describe the structure of a table.'
 					}
 				]
 			},
@@ -419,11 +431,6 @@ var topic_list = [
 						'href': 'notes.html',
 						'title': 'Footnotes and Endnotes',
 						'subtitle': 'Accessibly identifying, structuring, and linking notes and their references.'
-					},
-					{
-						'id': 'html-notes',
-						'href': 'notes.html',
-						'title': 'Footnotes and Endnotes'
 					},
 					{
 						'id': 'html-hidden-conent',

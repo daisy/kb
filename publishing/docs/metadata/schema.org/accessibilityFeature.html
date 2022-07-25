@@ -8,24 +8,11 @@
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'Schema.org'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
-		<style>
-			details#topics {
-				width: 90rem;
-			}
-			details#topics summary {
-				width: 87.5rem;
-			}
-			ol.col {
-				list-style-type: circle;
-			}
-			ol.col li {
-				padding: 1rem 0;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -86,46 +73,6 @@
 				<p>The following values are used to identify features of the content that are helpful for
 					accessibility.</p>
 				
-				<details id="topics">
-					<summary id="toc-hd">View Table of Contents</summary>
-					
-					<ol class="col">
-						<li><a href="#alternativeText">alternativeText</a></li>
-						<li><a href="#annotations">annotations</a></li>
-						<li><a href="#ARIA">ARIA</a></li>
-						<li><a href="#audioDescription">audioDescription</a></li>
-						<li><a href="#bookmarks">bookmarks</a></li>
-						<li><a href="#braille">braille</a></li>
-						<li><a href="#captions">captions</a></li>
-						<li><a href="#ChemML">ChemML</a></li>
-						<li><a href="#describedMath">describedMath</a></li>
-						<li><a href="#displayTransformability">displayTransformability</a></li>
-						<li><a href="#highContrastAudio">highContrastAudio</a></li>
-						<li><a href="#highContrastDisplay">highContrastDisplay</a></li>
-						<li><a href="#index">index</a></li>
-						<li><a href="#largePrint">largePrint</a></li>
-						<li><a href="#latex">latex</a></li>
-						<li><a href="#longDescription">longDescription</a></li>
-						<li><a href="#MathML">MathML</a></li>
-						<li><a href="#none">none</a></li>
-						<li><a href="#pageNavigation">pageNavigation</a></li>
-						<li><a href="#printPageNumbers">printPageNumbers</a></li>
-						<li><a href="#readingOrder">readingOrder</a></li>
-						<li><a href="#rubyAnnotations">rubyAnnotations</a></li>
-						<li><a href="#signLanguage">signLanguage</a></li>
-						<li><a href="#structuralNavigation">structuralNavigation</a></li>
-						<li><a href="#synchronizedAudioText">synchronizedAudioText</a></li>
-						<li><a href="#tableOfContents">tableOfContents</a></li>
-						<li><a href="#taggedPDF">taggedPDF</a></li>
-						<li><a href="#tactileGraphic">tactileGraphic</a></li>
-						<li><a href="#tactileObject">tactileObject</a></li>
-						<li><a href="#timingControl">timingControl</a></li>
-						<li><a href="#transcript">transcript</a></li>
-						<li><a href="#ttsMarkup">ttsMarkup</a></li>
-						<li><a href="#unlocked">unlocked</a></li>
-					</ol>
-				</details>
-				
 				<div class="note" role="note" aria-labelledby="format-note">
 					<p class="label" id="format-note">Note</p>
 					<p>Unless the metadata format used supports lists (e.g., JSON-LD), use a separate property 
@@ -133,123 +80,128 @@
 						commas, or other delimiters.</p>
 				</div>
 				
-				<dl>
-					<dt id="alternativeText">alternativeText</dt>
-					<dd>
-						<p>The <code>alternativeText</code> value is used to indicate that all images and other non-text
-							content (e.g., audio and video) that is relevant to understanding a publication includes a
-							text alternative.</p>
-
-						<figure id="ex-alt-01">
-							<figcaption>
-								<p class="label">Alternative text provided using the HTML <code>alt</code>
-									attribute.</p>
-							</figcaption>
-							<pre id="ex-alt-01-src" class="prettyprint">&lt;img src="rabbit.jpg" alt="Bugs Bunny" /></pre>
-						</figure>
-
-						<p>Presentational images (i.e., that are only used for purely display or ornamentation purposes)
-							are excluded from the requirement for alternative text, so not every image or instance of
-							non-text content will have a text alternative when this property is set.</p>
-
-						<figure id="ex-alt-02">
-							<figcaption>
-								<p class="label">A presentational image.</p>
-							</figcaption>
-							<pre id="ex-alt-02-src" class="prettyprint">&lt;img src="spacer.jpg" alt="" role="presentation" /></pre>
-						</figure>
-
-						<p>See the <a href="../../html/images.html">page navigation knowledge base page</a> for more
-							information.</p>
-					</dd>
-
-					<dt id="annotations">annotations</dt>
-					<dd>
-						<p>The <code>annotations</code> value is used to indicate that a publication comes with
-							explanatory annotations that improve the accessibility of the work (i.e., the value
-							should not be used where the annotations are designed for general use, such as in
-							annotated teacher's editions or exercises with explanatory notes).</p>
-						
-						<p>Examples of annotations with an accessibility benefit could include extended descriptions
-							for images, plain language explanations of complex theorems, and text identifiers for
-							visual cues.</p>
-
-						<p>Annotations can either be part of text of a publication or can be authored in a separate
-							technology such as Web Annotations.</p>
-						
-						<div class="note" role="note" aria-labelledby="anno-note">
-							<p id="anno-note" class="label">Note</p>
-							<p>The <a href="http://www.idpf.org/epub/oa">Open Annotation in EPUB</a> specification
-								is not currently known to be supported in any reading systems. A proposal is expected
-								to be adopted to include <a href="https://github.com/w3c/aria/issues/1109">accessible
-									annotations in ARIA 1.3</a>, however. As a result, this value is rarely applicable
-								to EPUB publications at this time.</p>
-						</div>
-
-						<p>Do not use this value for ruby annotations. See the <a href="#rubyAnnotations"
-									><code>rubyAnnotations</code> value</a> instead.</p>
-					</dd>
+				<section id="alternativeText">
+					<h4>alternativeText</h4>
 					
-					<dt id="ARIA">ARIA</dt>
-					<dd>
-						<p>The <code>ARIA</code> value is used to indicate that ARIA roles are used to organize and
-							improve the structural navigation of the publication (e.g., to identify key sections of
-							the content and the purpose of hyperlinks).</p>
-						
-						<p>This value is used when <a 
-							href="https://www.w3.org/TR/wai-aria/#document_structure_roles">Document Structure</a>, 
-							<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">Landmark</a>, <a 
-								href="https://www.w3.org/TR/wai-aria/#live_region_roles">Live Region</a>, and <a 
-									href="https://www.w3.org/TR/wai-aria/#window_roles">Window</a> roles are included.</p>
-						
-						<p>It is not intended for use when ARIA roles, states and properties are used to make
-							custom controls accessible. The accessibility of custom controls is covered by the
-							<a href="accessibilityControl.html"><code>accessibilityControl</code> property</a>.</p>
-					</dd>
+					<p>The <code>alternativeText</code> value is used to indicate that all images and other non-text
+						content (e.g., audio and video) that is relevant to understanding a publication includes a
+						text alternative.</p>
 
-					<dt id="audioDescription">audioDescription</dt>
-					<dd>
-						<p>The <code>audioDescription</code> value is used to indicate that description tracks are
-							included for any video sources that require them.</p>
+					<figure id="ex-alt-01">
+						<figcaption>
+							<p class="label">Alternative text provided using the HTML <code>alt</code>
+								attribute.</p>
+						</figcaption>
+						<pre id="ex-alt-01-src" class="prettyprint">&lt;img src="rabbit.jpg" alt="Bugs Bunny" /></pre>
+					</figure>
 
-						<p>Audio descriptions differ from <a href="#captions">captions</a> and subtitles in that they
-							describe the actions that are occurring in the video (i.e., they provide more information
-							that just what is being spoken). Audio descriptions are most helpful when the content cannot
-							be seen.</p>
+					<p>Presentational images (i.e., that are only used for purely display or ornamentation purposes)
+						are excluded from the requirement for alternative text, so not every image or instance of
+						non-text content will have a text alternative when this property is set.</p>
 
-						<figure id="ex-ad">
-							<figcaption>
-								<p class="label">Audio description provided for an HTML video using a <code>track</code>
-									element.</p>
-							</figcaption>
-							<pre id="ex-ad-src" class="prettyprint">&lt;video>
-   &lt;source src="speech.mp4" type="video/mp4"/>
-   &lt;track src="description.vtt" kind="descriptions" srclang="en" label="English"/>
+					<figure id="ex-alt-02">
+						<figcaption>
+							<p class="label">A presentational image.</p>
+						</figcaption>
+						<pre id="ex-alt-02-src" class="prettyprint">&lt;img src="spacer.jpg" alt="" role="presentation" /></pre>
+					</figure>
+
+					<p>See the <a href="../../html/images.html">page navigation knowledge base page</a> for more
+						information.</p>
+				</section>
+				
+				<section id="annotations">
+					<h4>annotations</h4>
+					
+					<p>The <code>annotations</code> value is used to indicate that a publication comes with
+						explanatory annotations that improve the accessibility of the work (i.e., the value
+						should not be used where the annotations are designed for general use, such as in
+						annotated teacher's editions or exercises with explanatory notes).</p>
+					
+					<p>Examples of annotations with an accessibility benefit could include extended descriptions
+						for images, plain language explanations of complex theorems, and text identifiers for
+						visual cues.</p>
+
+					<p>Annotations can either be part of text of a publication or can be authored in a separate
+						technology such as Web Annotations.</p>
+					
+					<div class="note" role="note" aria-labelledby="anno-note">
+						<p id="anno-note" class="label">Note</p>
+						<p>The <a href="http://www.idpf.org/epub/oa">Open Annotation in EPUB</a> specification
+							is not currently known to be supported in any reading systems. A proposal is expected
+							to be adopted to include <a href="https://github.com/w3c/aria/issues/1109">accessible
+								annotations in ARIA 1.3</a>, however. As a result, this value is rarely applicable
+							to EPUB publications at this time.</p>
+					</div>
+
+					<p>Do not use this value for ruby annotations. See the <a href="#rubyAnnotations"
+								><code>rubyAnnotations</code> value</a> instead.</p>
+				</section>
+				
+				<section id="ARIA">
+					<h4>ARIA</h4>
+					
+					<p>The <code>ARIA</code> value is used to indicate that ARIA roles are used to organize and
+						improve the structural navigation of the publication (e.g., to identify key sections of
+						the content and the purpose of hyperlinks).</p>
+					
+					<p>This value is used when <a 
+						href="https://www.w3.org/TR/wai-aria/#document_structure_roles">Document Structure</a>, 
+						<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">Landmark</a>, <a 
+							href="https://www.w3.org/TR/wai-aria/#live_region_roles">Live Region</a>, and <a 
+								href="https://www.w3.org/TR/wai-aria/#window_roles">Window</a> roles are included.</p>
+					
+					<p>It is not intended for use when ARIA roles, states and properties are used to make
+						custom controls accessible. The accessibility of custom controls is covered by the
+						<a href="accessibilityControl.html"><code>accessibilityControl</code> property</a>.</p>
+				</section>
+
+				<section id="audioDescription">
+					<h4>audioDescription</h4>
+					
+					<p>The <code>audioDescription</code> value is used to indicate that description tracks are
+						included for any video sources that require them.</p>
+
+					<p>Audio descriptions differ from <a href="#captions">captions</a> and subtitles in that they
+						describe the actions that are occurring in the video (i.e., they provide more information
+						that just what is being spoken). Audio descriptions are most helpful when the content cannot
+						be seen.</p>
+
+					<figure id="ex-ad">
+						<figcaption>
+							<p class="label">Audio description provided for an HTML video using a <code>track</code>
+								element.</p>
+						</figcaption>
+						<pre id="ex-ad-src" class="prettyprint">&lt;video>
+&lt;source src="speech.mp4" type="video/mp4"/>
+&lt;track src="description.vtt" kind="descriptions" srclang="en" label="English"/>
 &lt;/video><code></code></pre>
-						</figure>
+					</figure>
 
-						<div class="note" role="note" aria-labelledby="ad-note">
-							<p id="ad-note" class="label">Note</p>
-							<p>The HTML <code>audio</code> element cannot be used to render audio descriptions, as it
-								does not provide a display area for them.</p>
-						</div>
-					</dd>
+					<div class="note" role="note" aria-labelledby="ad-note">
+						<p id="ad-note" class="label">Note</p>
+						<p>The HTML <code>audio</code> element cannot be used to render audio descriptions, as it
+							does not provide a display area for them.</p>
+					</div>
+				</section>
+				
+				<section id="bookmarks">
+					<h4>bookmarks</h4>
+					
+					<p>The <code>bookmarks</code> value is used to indicate that a PDF includes a list of bookmarks.
+						PDF bookmarks are like a <a href="#tableOfContents">table of contents</a> but may include
+						destinations beyond the major headings. See the WCAG technique "<a
+							href="https://www.w3.org/WAI/WCAG21/Techniques/pdf/PDF2.html">Creating bookmarks in PDF
+							documents</a>" for more information.</p>
 
-					<dt id="bookmarks">bookmarks</dt>
-					<dd>
-						<p>The <code>bookmarks</code> value is used to indicate that a PDF includes a list of bookmarks.
-							PDF bookmarks are like a <a href="#tableOfContents">table of contents</a> but may include
-							destinations beyond the major headings. See the WCAG technique "<a
-								href="https://www.w3.org/WAI/WCAG21/Techniques/pdf/PDF2.html">Creating bookmarks in PDF
-								documents</a>" for more information.</p>
+					<p>This value is not used in web-based formats like EPUB. Although reading systems provide a
+						different kind of bookmarking feature, these bookmarks lack a common distribution format and
+						are more of a general usability feature than an accessibility one.</p>
+				</section>
 
-						<p>This value is not used in web-based formats like EPUB. Although reading systems provide a
-							different kind of bookmarking feature, these bookmarks lack a common distribution format and
-							are more of a general usability feature than an accessibility one.</p>
-					</dd>
-
-					<dt id="braille">braille</dt>
-					<dd>
+					<section id="braille">
+						<h4>braille</h4>
+					
 						<p>The <code>braille</code> value is used to indicate that either that a publication comes in a
 							preformatted tactile form or that an alternative rendition in this medium is included.</p>
 
@@ -262,10 +214,11 @@
 								<pre id="ex-brl-src" class="prettyprint brl"><code>&lt;p>&#x2820;&#x2809;&#x2801;&#x2807;&#x2807; &#x280f;&#x2811; &#x2820;&#x280a;&#x280e;&#x2813;&#x280f;&#x2809;&#x2807;&#x2807;&#x2832; &#8230;&lt;/p></code></pre>
 							</figcaption>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="captions">captions</dt>
-					<dd>
+					<section id="captions">
+						<h4>captions</h4>
+					
 						<p>The <code>captions</code> value is used to indicate that a publication includes captions for
 							auditory content.</p>
 
@@ -295,10 +248,11 @@
 							<p>The HTML <code>audio</code> element cannot be used to render captions, as it does not
 								provide a display area for them.</p>
 						</div>
-					</dd>
+					</section>
 
-					<dt id="ChemML">ChemML</dt>
-					<dd>
+					<section id="ChemML">
+						<h4>ChemML</h4>
+					
 						<p>The <code>ChemML</code> value is used to indicate that a publication contains chemical
 							information (e.g., molecules and reactions) encoded using the ChemML markup language.</p>
 
@@ -315,10 +269,11 @@
 &lt;/cml></code></pre>
 							</figcaption>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="describedMath">describedMath</dt>
-					<dd>
+					<section id="describedMath">
+						<h4>describedMath</h4>
+					
 						<p>The <code>describedMath</code> value is used to indicate that a publication includes textual
 							descriptions for math equations.</p>
 
@@ -338,10 +293,11 @@
 						<p>This property is complementary to the <a href="#MathML"><code>MathML</code></a> and <a
 								href="#latex"><code>latex</code></a> properties, as the inclusion of either MathML- or
 							latex-formatted equations does not infer that text descriptions will be available.</p>
-					</dd>
+					</section>
 
-					<dt id="displayTransformability">displayTransformability</dt>
-					<dd>
+					<section id="displayTransformability">
+						<h4>displayTransformability</h4>
+					
 						<p>The <code>displayTransformability</code> property is used to indicate that a publication does
 							not restrict the ability of users to modify the display of textual content (e.g., to change
 							the font family, font size, line height and word spacing).</p>
@@ -353,10 +309,11 @@
 						<p>It is not required that a publication provide the means of transforming the text. It is
 							expected that users who require this feature will have a reading system that with display
 							transform options.</p>
-					</dd>
+					</section>
 
-					<dt id="highContrastAudio">highContrastAudio</dt>
-					<dd>
+					<section id="highContrastAudio">
+						<h4>highContrastAudio</h4>
+					
 						<p>The <code>highContrastAudio</code> value is used when a publication contains audio with
 							speech and there is low or no background noise. Low background noise is defined as a minimum
 							20dB difference between foreground speech and background sounds (see <a
@@ -368,10 +325,11 @@
 
 						<p>The requirement for low or no background noise does not apply to musical works where the
 							background sound is integral to the presentation.</p>
-					</dd>
+					</section>
 
-					<dt id="highContrastDisplay">highContrastDisplay</dt>
-					<dd>
+					<section id="highContrastDisplay">
+						<h4>highContrastDisplay</h4>
+					
 						<p>The <code>highContrastDisplay</code> value is used to indicate that there is at least a 7:1
 							contrast ratio between the foreground text and the background, including for images of text
 							(see <a href="https://www.w3.org/TR/WCAG/#contrast-enhanced">WCAG success criterion
@@ -379,19 +337,21 @@
 
 						<p>High contrast display is helpful for users with moderately low vision or with color
 							deficiencies.</p>
-					</dd>
+					</section>
 
-					<dt id="index">index</dt>
-					<dd>
+					<section id="index">
+						<h4>index</h4>
+					
 						<p>The <code>index</code> value is used to indicate that a publication contains one or more
 							indexes of the content (e.g., a topical index or index of names).</p>
 
 						<p>Indexes allow users who cannot see the text or have difficulty following it to find and
 							return to subjects more easily.</p>
-					</dd>
+					</section>
 
-					<dt id="largePrint">largePrint</dt>
-					<dd>
+					<section id="largePrint">
+						<h4>largePrint</h4>
+					
 						<p>The <code>largePrint</code> value is used to indicate that the text of a publication has been
 							formatted to meet large print guidelines. Large print guidelines vary from region to region,
 							but generally require a point size ranging from 14 to 18, use of sans serif fonts, and
@@ -403,10 +363,11 @@
 
 						<p>Large print is still predominantly a print medium, so outside of accessible republishing it
 							is not common to use this value.</p>
-					</dd>
+					</section>
 
-					<dt id="latex">latex</dt>
-					<dd>
+					<section id="latex">
+						<h4>latex</h4>
+					
 						<p>The <code>latex</code> value is used to indicate that a publication contains math equations
 							formatted using the LaTeX typesetting system.</p>
 
@@ -424,10 +385,11 @@
 							</figcaption>
 							<pre id="ex-latext-src" class="prettyprint"><code>\begin{equation} f(x)=(x+a)(x+b) \end{equation}</code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="longDescription">longDescription</dt>
-					<dd>
+					<section id="longDescription">
+						<h4>longDescription</h4>
+					
 						<p>The <code>longDescription</code> value is used to indicate that all complex content (images,
 							tables, charts, equations, etc.) include an extended description of their purpose.</p>
 
@@ -466,10 +428,11 @@
 							<pre id="ex-ld-02-src" class="prettyprint"><code>&lt;img src="speheres.jpg" alt="Celestial spheres" aria-describedby="img-desc"/>
 &lt;p id="img-desc" hidden="">The 47 spheres are shown &#8230;&lt;/p></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="MathML">MathML</dt>
-					<dd>
+					<section id="MathML">
+						<h4>MathML</h4>
+					
 						<p>The <code>MathML</code> value is used to indicate that the MathML markup language has been
 							used to encode the mathematical equations. For Web-based formats like EPUB, Presentational
 							MathML is used to encode the content as it can be displayed in a growing number of reading
@@ -508,19 +471,21 @@
    &lt;/mrow>
 &lt;/math></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="none">none</dt>
-					<dd>
+					<section id="none">
+						<h4>none</h4>
+					
 						<p>The <code>none</code> value is used to indicate that a publication does not include any
 							accessibility features.</p>
 
 						<p>This value exists so that there is no ambiguity about whether a publication does not contain
 							any accessibility features or whether it was never checked for them.</p>
-					</dd>
+					</section>
 
-					<dt id="pageNavigation">pageNavigation</dt>
-					<dd>
+					<section id="pageNavigation">
+						<h4>pageNavigation</h4>
+					
 						<div class="note" role="note" aria-labelledby="note-hd">
 							<p class="label" id="note-hd">Note</p>
 							<p>This value has been proposed for inclusion but has not yet been accepted. See <a
@@ -558,10 +523,11 @@
    &lt;/ol>
 &lt;/nav></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="printPageNumbers">printPageNumbers</dt>
-					<dd>
+					<section id="printPageNumbers">
+						<h4>printPageNumbers</h4>
+					
 						<p>The <code>printPageNumbers</code> value is used to indicate that static print page break
 							locations are included in the text.</p>
 
@@ -580,10 +546,11 @@
 							</figcaption>
 							<pre id="ex-ppn-src" class="prettyprint"><code>&lt;span id="pg24" role="doc-pagebreak" aria-label="page 24"/></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="readingOrder">readingOrder</dt>
-					<dd>
+					<section id="readingOrder">
+						<h4>readingOrder</h4>
+					
 						<p>The <code>readingOrder</code> value is used to indicate that there is a logical reading order
 							to the text of a publication.</p>
 
@@ -603,10 +570,11 @@
 
 						<p>See the <a href="../../html/order.html">logical reading order knowledge base page</a> for
 							more information.</p>
-					</dd>
+					</section>
 
-					<dt id="rubyAnnotations">rubyAnnotations</dt>
-					<dd>
+					<section id="rubyAnnotations">
+						<h4>rubyAnnotations</h4>
+					
 						<p>The <code>rubyAnnotations</code> value is used to indicate that a publication includes ruby
 							annotations.</p>
 
@@ -619,10 +587,11 @@
 							</figcaption>
 							<pre id="ex-ruby-src" class="prettyprint"><code>&lt;ruby>&#x4E21;&#x94a3;&lt;rt>&#x308a;&#x3087;&#x3046;&#x3069;&#x306a;&lt;/rt>&lt;/ruby></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="signLanguage">signLanguage</dt>
-					<dd>
+					<section id="signLanguage">
+						<h4>signLanguage</h4>
+					
 						<p>The <code>signLanguage</code> value is used to indicate that sign language interpretation is
 							included for any auditory content.</p>
 
@@ -637,10 +606,11 @@
 								with a video. If interpretation is not part of the video stream, authors will have to
 								provide a separate video overlay or play interpretation side-by-side with the video.</p>
 						</div>
-					</dd>
+					</section>
 
-					<dt id="structuralNavigation">structuralNavigation</dt>
-					<dd>
+					<section id="structuralNavigation">
+						<h4>structuralNavigation</h4>
+					
 						<p>The <code>structuralNavigation</code> value is used to indicate that all headings are
 							properly marked up.</p>
 
@@ -666,10 +636,11 @@
    &lt;/section>
 &lt;/section></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="synchronizedAudioText">synchronizedAudioText</dt>
-					<dd>
+					<section id="synchronizedAudioText">
+						<h4>synchronizedAudioText</h4>
+					
 						<p>The <code>synchronizedAudioText</code> value is used to indicate that synchronized playback
 							of prerecorded audio with text highlighting is available.</p>
 
@@ -706,10 +677,11 @@
    &lt;/body>
 &lt;/smil></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="tableOfContents">tableOfContents</dt>
-					<dd>
+					<section id="tableOfContents">
+						<h4>tableOfContents</h4>
+					
 						<p>The <code>tableOfContents</code> value is used to indicate that a publication includes a
 							table of contents for navigating the major sections of the work.</p>
 
@@ -742,10 +714,11 @@
    &lt;/ol>         
 &lt;/nav></code></pre>
 						</figure>
-					</dd>
+					</section>
 
-					<dt id="taggedPDF">taggedPDF</dt>
-					<dd>
+					<section id="taggedPDF">
+						<h4>taggedPDF</h4>
+					
 						<p>The <code>taggedPDF</code> value is used to indicate that a PDF includes accessibility tags
 							to improve its readability.</p>
 
@@ -754,10 +727,11 @@
 							Universal Accessibility (PDF/UA) standard.</p>
 
 						<p>This value is not relevant to Web-based publication formats such as EPUB.</p>
-					</dd>
+					</section>
 
-					<dt id="tactileGraphic">tactileGraphic</dt>
-					<dd>
+					<section id="tactileGraphic">
+						<h4>tactileGraphic</h4>
+					
 						<p>The <code>tactileGraphic</code> value is used to indicate that a publication includes access
 							to tactile graphics.</p>
 						
@@ -767,10 +741,11 @@
 
 						<p>It is not common for this value to be used outside of accessible republishing, however, due
 							to the specialized work required to create tactile graphics.</p>
-					</dd>
+					</section>
 
-					<dt id="tactileObject">tactileObject</dt>
-					<dd>
+					<section id="tactileObject">
+						<h4>tactileObject</h4>
+					
 						<p>The <code>tactileObject</code> value is used to indicate that a publication includes tactile
 							objects.</p>
 
@@ -779,20 +754,22 @@
 						
 						<p>It is not common for this value to be used outside of accessible republishing, however, due
 							to the specialized work required to create tactile objects.</p>
-					</dd>
+					</section>
 
-					<dt id="timingControl">timingControl</dt>
-					<dd>
+					<section id="timingControl">
+						<h4>timingControl</h4>
+					
 						<p>The <code>timingControl</code> value is used to indicate that a publication contains content
 							with timed interactions (e.g., a quiz or game with a time limit) and that the timing can be
 							controlled by the user.</p>
 
 						<p>As users with disabilities may require additional time to complete tasks, they need to be
 							able to disable, adjust or extend time limits.</p>
-					</dd>
+					</section>
 
-					<dt id="transcript">transcript</dt>
-					<dd>
+					<section id="transcript">
+						<h4>transcript</h4>
+					
 						<p>The <code>transcript</code> value is used to indicate that transcripts are provided for any
 							auditory content.</p>
 
@@ -812,10 +789,11 @@
 						<p>Although including a transcript as part of the EPUB publication is the best way to ensure
 							its availability, hyperlinks to external transcripts are also acceptable (e.g., publishers
 							may have a common web-based location for all their videos and transcripts).</p>
-					</dd>
+					</section>
 
-					<dt id="ttsMarkup">ttsMarkup</dt>
-					<dd>
+					<section id="ttsMarkup">
+						<h4>ttsMarkup</h4>
+					
 						<p>The <code>ttsMarkup</code> value is used to indicate that a publication's text has been
 							enhanced with additional phonetic markup to improve text-to-speech (TTS) playback.</p>
 
@@ -827,10 +805,11 @@
 							renderings of words to be included in the markup of publications to improve rendering, for
 							example. PLS pronunciation lexicons similarly allow libraries of phonetic pronunciations to
 							be attached to HTML content.</p>
-					</dd>
+					</section>
 
-					<dt id="unlocked">unlocked</dt>
-					<dd>
+					<section id="unlocked">
+						<h4>unlocked</h4>
+					
 						<p>The <code>unlocked</code> value is used to indicate that no digital rights management (DRM)
 							or other content restriction protocols are applied to the content.</p>
 
@@ -845,8 +824,7 @@
 								publication will not subsequently have DRM applied. The pubication has to be guaranteed
 								to be unlocked after distribution.</p>
 						</div>
-					</dd>
-				</dl>
+					</section>
 			</section>
 
 			<section id="refs">

@@ -8,7 +8,9 @@
 		<script>
 			var page_info = {
 				'category': ['HTML'],
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-scope','html-table-headers','html-table-layout'],
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -19,7 +21,7 @@
 			<section id="summary">
 				<h3>Summary</h3>
 				
-				<p>The correct tagging and description of data tables simplifies access and understanding for users who 
+				<p>Proper tagging and description of data tables simplifies navigation and understanding for users who 
 					cannot see the data or need additional help understanding it.</p>
 			</section>
 			
@@ -27,22 +29,52 @@
 				<h3>Techniques</h3>
 				
 				<ul>
-					<li>
-						<p>Ensure all tabular data is marked up using table tags. [[WCAG-1.3.1]]</p>
-					</li>
-					<li>
-						<p>Provide a title in the <code>caption</code> element. [[WCAG-1.3.1]]</p>
-					</li>
-					<li>
-						<p>Provide a summary that describes the structure of complex tables. [[WCAG-1.3.1]]</p>
-					</li>
+					<li>Ensure all tabular data is marked up using table tags. [[WCAG-1.3.1]]</li>
+					<li>Provide a title in the <code>caption</code> element. [[WCAG-1.3.1]]</li>
+					<li>Provide a summary that describes the structure of complex tables. [[WCAG-1.3.1]]</li>
 					<li>Ensure the summary and caption do not repeat the same text. [[WCAG-1.3.1]]</li>
+					<li>Identify the scope of header cells. [[WCAG-1.3.1]]</li>
+					<li>Provide abbreviations for long headers.</li>
 				</ul>
 			</section>
 
 			<section id="ex">
 				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Table with a single header row</div>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;td>&lt;/td>
+   &lt;/tr>
+&lt;/table></code></pre>
+				</figure>
 
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Table with row headers</div>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;td>&lt;/td>
+   &lt;/tr>
+&lt;/table></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Table with a caption and summary</div>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;caption>&lt;/caption>
+&lt;/table></code></pre>
+				</figure>
+				
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">Example 4 &#8212; Table with footnotes</div>
@@ -70,15 +102,16 @@
 				
 				<dl class="faq">
 					<dt>Can I use pictures of tables?</dt>
-					<dd><p>Although table rendering is still problematic in ebooks, including images of tables instead of the
-						actual data takes the content away from anyone who cannot see it.</p>
+					<dd>
+						<p>Although table rendering is still problematic in ebooks, including images of tables instead of the
+							actual data takes the content away from anyone who cannot see it.</p>
 						<p>Tables are a problem that still need solving in user agents, as most user agents aren't
 							able to provide extended horizontal or vertical scrolling to facilitate rendering. As a result,
 							large tables get rendered in the available space &#8211; leaving rows and columns to spill across
 							page views &#8211; compromising the quality of the ebook for sighted users.</p>
 						<p>If you are going to include an image of a table, consider providing a link to a file containing
-							the table markup. Users with TTS playback available will be able to navigate the markup
-							regardless of the rendering quality.</p>
+							the table markup. Users with text-to-speech playback available will be able to navigate the 
+							markup regardless of the rendering quality.</p>
 						<p>Some user agents render pop-out content in browser windows, which can also improve reading for
 							sighted users unable to read images that render too small or blow out of the viewport.</p>
 						<p>See also this <a href="http://css-tricks.com/responsive-data-tables/">CSS-Tricks article on
@@ -97,51 +130,152 @@
 					orient themselves as they go. Equivalent information needs to be encoded into the table to facilitate
 					comprehension.</p>
 				
-				<section>
+				<p>Using HTML table elements to markup up tabular data ensures that users of assistive technologies
+					are able to move by row and column through the data. It also provides them the context they need
+					to understand the data they encounter.</p>
+				
+				<div class="note" role="note" aria-labelledby="scope-layout">
+					<p id="scope-layout" class="label">Note</p>
+					<p>Using tables for layout purposes is no longer valid per the HTML specification. Refer to the <a
+						href="tables-layout.html">Layout Tables</a> page for further discussion.</p>
+				</div>
+				
+				<p>The following subsections describe the basic practices essential to making any table accessible.
+					More complex issues are described separately in the knowledge base (refer to the related topics 
+					menu).</p>
+				
+				<section id="headers">
 					<h4>Headers</h4>
 					
 					<p>One of the primary aids for table navigation is the proper use of headers. Correctly identified and
 						linked headers provide helpful context as users navigate the data points.</p>
 					
-					<p>The simplest kinds of tables contain a single header for each column or row, and are typically handled by
-						assistive technologies (AT) without the need for extra information. The header cells need only be marked
-						using the <code>th</code> element and the AT will be able to replay them when requested:</p>
+					<p>A column or row header is identified using the <code>th</code> element. Data cells are identified
+						using the <code>td</code> element.</p>
 					
-					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;tr>
-     &lt;th>Heading 1&lt;/th>
-     &lt;th>Heading 2&lt;/th>
-     &lt;th>Heading 3&lt;/th>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td>&lt;/td>
-     &lt;td>&lt;/td>
-     &lt;td>&lt;/td>
-   &lt;/tr>
-  &#8230;
-&lt;/table></code></pre>
+					<p>A common bad practice is to style <code>td</code> elements to look like headers (e.g., by bolding
+						the text and adding background shading). Unless a <code>th</code> element is used, assistive
+						technologies will not recognize the cell as a header and will not be able to announce the
+						header to users as they navigate through the data.</p>
 					
-					<p>If a table's header spans more than one row, a <code>thead</code> element should be used to
-						group all the header rows (see <a href="#ex-01">Example 1</a>).</p>
+					<p>The simplest kinds of tables contain a single header for each column or row (see examples 1 and 2).
+						When the data in such tables is self-describing and/or the table is not very large, it is not 
+						necessary to identify the headers any further. Users will be able to understand the data.</p>
+					
+					<p>As soon as there is any complexity, such as multiple headings or many rows of data, it is necessary
+						to identify the "scope" of the headings. Adding a <code>scope</code> attribute tells assistive
+						technologies whether the header applies to the current column or row. The attribute can also be used
+						to apply headers to multiple columns or rows.</p>
+					
+					<div class="note" role="note" aria-labelledby="scope-note">
+						<p id="scope-note" class="label">Note</p>
+						<p>For more information about the <code>scope</code> attribute, refer to the <a
+							href="tables-scope.html">Headers Scope</a> page.</p>
+					</div>
+					
+					<p>In some cases, tables will have complex headers for which a simple scope declaration is not
+						sufficient. For example, when a header for cells is not in the same column or row. In these
+						cases, the <code>headers</code> attribute allows the individual cells that comprise the header
+						to be identified. The attribute contains a list of one or more references to the IDs of the
+						header cells that apply.</p>
+					
+					<div class="note" role="note" aria-labelledby="headers-note">
+						<p id="headers-note" class="label">Note</p>
+						<p>For more information about the <code>headers</code> attribute, refer to the <a
+							href="tables-headers.html">Complex Headers</a> page.</p>
+					</div>
 				</section>
 				
-				<section>
-					<h4>Captions and summaries</h4>
+				<section id="struct">
+					<h4>Table Structures</h4>
 					
-					<p>A caption should always be included to give context to a table. Never rely on the surrounding text to explain
-						the presence of a table, especially when the table is offset from the content.</p>
+					<p>Tables can be structured to better represent the purpose of sets of rows using the 
+						<code>thead</code> (table header), <code>tbody</code> (table body), and <code>tfoot</code>
+						(table footer) elements.</p>
 					
-					<p>For complex tables, including a summary of the structure for the user before they enter the content can
-						greatly assist comprehension, as well. The HTML5 specification defines some <a 
-							href="https://html.spec.whatwg.org/multipage/tabular-data.html#sec-techniques-for-describing-tables">techniques 
-							for describing tables</a>.</p>
+					<p>A table can only have one <code>thead</code> element, and it must be the first row-containing
+						element of the table. Although adding a <code>thead</code> element to group the header rows 
+						is a good semantic markup practice, the element does not affect the accessibility of tables.
+						It is primarily included for usability reasons. For example, the rows in a <code>thead</code>
+						are often scripted to remain static while a table is scrolled. The <code>thead</code> is also
+						used by browsers to repeat the headings when printing a table (i.e., when a table is split
+						across print pages).</p>
+					
+					<p>After the header can come one or more <code>tbody</code> elements. Each <code>tbody</code>
+						represents one section of a table. Using multiple <code>tbody</code> elements allows each
+						section to have unique headers, for example. This practice can improve the readability of
+						these kinds of tables, so is beneficial to the accessiblity.</p>
+					
+					<p>Finally, a table can have a single <code>tfoot</code> element at the end. The <code>tfoot</code>
+						element is where column summaries are expressed. Using a <code>tfoot</code> allows users to
+						find this information without having to navigate through every row. It is not the location for
+						placing extraneous content like footnotes (see <a href="#ex-04">example 4</a>).</p>
 				</section>
 				
-				<section>
-					<h4>Secondary content</h4>
+				<section id="abbr">
+					<h4>Abbreviations</h4>
 					
-					<p>If a table is not required to be read at the point of insertion (i.e., it is not part of the logical
-						reading order), use a <a href="figures.html">figure</a> tag to enclose it.</p>
+					<p>When a table header is more than a few words long, having it repeated for every data cell can
+						slow down users. To avoid these lengthy repetitions, it is possible to assign an shorter
+						header using the <code>abbr</code> attribute.</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;th &#8230; abbr="Total insurance">
+   Total insurance coverage
+   cost on per annum basis
+&lt;/th>
+&lt;th &#8230; abbr="Total interest">
+   Total interest payments
+   for the covered period
+&lt;/th></code></pre>
+					
+					<p>The abbreviated title will be used in place of the full header when announcing the cells beneath
+						it.</p>
+					
+					<div class="note" role="note" aria-labelledby="abbr-note">
+						<p id="abbr-note" class="label">Note</p>
+						<p>Support for the <code>abbr</code> attribute is inconsistent. <a 
+							href="https://github.com/nvaccess/nvda/issues/3566">NVDA does not support</a> the
+							attribute, but other assistive technologies like Jaws and Voiceover do.</p>
+					</div>
+				</section>
+				
+				<section id="cap-sum">
+					<h4>Captions and Summaries</h4>
+					
+					<p>In order to help users understand the purpose of tables and the ordering of their content,
+						it is necessary to add captions and summaries.</p>
+					
+					<p>A caption is the equivalent of a title for a table. It can be provided in the dedicated
+						<code>caption</code> element that tables can contain, or it can be expressed through other
+						means, such as a figure caption. More information about captions and how to mark them up
+						is provided in the <a href="tables-captions.html">Table Captions</a> page.
+					
+					<p>A summary provides a description of the structure of a table. It helps users who cannot see the
+						content or have difficulty tracking information across rows or down columns understand the layout
+						of the data. More information about including summaries is provided in the <a 
+							href="tables-summary.html">Table Summaries</a> page.</p>
+				</section>
+				
+				<section id="styling">
+					<h4>Styling</h4>
+					
+					<p>Although ensuring the structure of tables is critically important for users of assistive
+						technologies, markup is not the only consideration in making tables accessible. How tables
+						are styled also impacts their readability by users with low vision or who are color blind,
+						and also for users with cognitive disabilities such as dyslexia.</p>
+					
+					<p>Some key considerations to take into account when styling tables include:</p>
+					
+					<ul>
+						<li>As header cells are often shaded to distinguish them visually, it is important to ensure
+							sufficient contrast with the foreground text.</li>
+						<li>Data cells must not be given the same appearance as headers as this can confuse users about
+							their purpose.</li>
+						<li>Use consistent alignment of data in cells to help users follow the data (e.g., having all
+							numeric data right-aligned).</li>
+						<li>Consider using alternating row colors, or row highlighting, to make it easier for users with
+							perception difficulties to visually track their way across.</li>
+					</ul>
 				</section>
 			</section>
 			

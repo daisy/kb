@@ -8,13 +8,10 @@
 		<script>
 			var page_info = {
 				'category':[ 'EPUB', 'Validation'],
-				'appliesTo':[ 'EPUB3', 'EPUB2']
+				'appliesTo':[ 'EPUB3', 'EPUB2'],
+				'addh4': true
 			};</script>
 		<script src="/js/init.js"></script>
-		<style>
-			ol.col {
-				height: 25rem !important;
-			}</style>
 	</head>
 	<body>
 		<main>
@@ -24,56 +21,14 @@
 						href="https://daisy.org/about-us/membership/joining-daisy/">full members and inclusive
 						publishing partners</a> are eligible for unlimited access.</p>
 			</div>
+			
 			<section id="getting-started">
 				<h3>Getting Started</h3>
+				
 				<p>The <a href="https://smart.daisy.org">SMART tool</a> is a Web-based complement to the <a
 						href="ace.html">Ace accessibility checker</a>. It helps guide evaluators through the manual
 					checks necessary to ensure conformance with WCAG and the EPUB accessibility specification.</p>
-				<details id="topics" open="open">
-					<summary id="toc-hd">Topics</summary>
-					<nav role="doc-toc" aria-labelledby="toc-hd">
-						<ol class="col">
-							<li>
-								<a href="#smart-loac">Starting an Evaluation</a>
-							</li>
-							<li>
-								<a href="#smart-eval">Evaluating a Publication</a>
-								<ol>
-									<li>
-										<a href="#smart-metadata">Publication Information</a>
-									</li>
-									<li>
-										<a href="#smart-conformance">Conformance</a>
-									</li>
-									<li>
-										<a href="#smart-discovery">Discovery</a>
-									</li>
-									<li>
-										<a href="#smart-distribution">Distribution</a>
-									</li>
-									<li>
-										<a href="#smart-result">Result</a>
-									</li>
-								</ol>
-							</li>
-							<li>
-								<a href="#smart-validation">Validate Evaluations</a>
-							</li>
-							<li>
-								<a href="#smart-report">Create a Report</a>
-							</li>
-							<li>
-								<a href="#smart-save">Save an Evaluation</a>
-							</li>
-							<li>
-								<a href="#smart-history">Reload an Evaluation</a>
-							</li>
-							<li>
-								<a href="#smart-delete">Delete an Evaluation</a>
-							</li>
-						</ol>
-					</nav>
-				</details>
+				
 				<section id="smart-load">
 					<h4>Starting an Evaluation</h4>
 					<div class="note" role="note" aria-labelledby="report-note">

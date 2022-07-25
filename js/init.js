@@ -174,6 +174,10 @@ KB.prototype.writeTemplate = function () {
 			}
 			
 			kb.generateMiniToc();
+			
+			if (page_info.hasOwnProperty('related')) {
+				kb.generateRelatedTopics();
+			}
 		}
 		
 		if (page_info.hasOwnProperty('nav') && !page_info.nav) {
@@ -188,9 +192,10 @@ KB.prototype.writeTemplate = function () {
 		
 		if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 			kb.prettyPrint();
-			kb.addExampleCopy();
 			kb.addGlossaryLinks();
 			kb.generateWCAGLinks();
+			/* add functions with event listeners after generating wcag links or they get stripped */
+			kb.addExampleCopy();
 		}
 		
 		var cur_href = window.location.href.toString();
@@ -336,7 +341,7 @@ KB.prototype.generatePageTitle = function () {
 		}
 		
 		// append the kb name to the page title
-		document.title = this.title + ' / ' + msg.kb_name[this.kb_id];
+		document.title = this.title + ' - ' + msg.kb_name[this.kb_id];
 	}
 	
 	// skip adding the category for indexes and other uncategorized pages
@@ -433,10 +438,12 @@ KB.prototype.generateMiniToc = function () {
 		
 		// iterate each heading and add a link to it
 		for (var i = 0; i < h.length; i++) {
+			
 			var li = document.createElement('li');
+			var parent = h[i].parentNode;
 			
 			var a = document.createElement('a');
-				a.setAttribute('href','#'+h[i].parentNode.id);
+				a.setAttribute('href','#'+parent.id);
 				
 				// if a short form of a title is necessary for the menu, add to the shortForm section of the messages file
 				var sectionName = h[i].textContent.trim();
@@ -445,6 +452,33 @@ KB.prototype.generateMiniToc = function () {
 				a.appendChild(document.createTextNode(sectionName));
 			 
 			 li.appendChild(a);
+			 
+			 if (page_info.hasOwnProperty('addh4') && page_info.addh4) {
+			 
+			 	var h4 = parent.querySelectorAll('h4');
+			 	
+			 	if (h4) {
+			 	
+			 		var sub_ol = document.createElement('ol');
+			 		
+			 		for (var j = 0; j < h4.length; j++) {
+			 			
+			 			var sub_li = document.createElement('li');
+			 			
+			 			var sub_a = document.createElement('a');
+			 				sub_a.setAttribute('href', '#' + h4[j].parentNode.id);
+			 				sub_a.appendChild(document.createTextNode(h4[j].textContent.trim()));
+			 			
+			 			sub_li.appendChild(sub_a);
+			 			
+			 			sub_ol.appendChild(sub_li);
+			 			
+			 		}
+			 		
+			 		li.appendChild(sub_ol);
+			 	}
+			 }
+			 
 			 ol.appendChild(li);
 		}
 		
@@ -456,6 +490,46 @@ KB.prototype.generateMiniToc = function () {
 	flex_div.appendChild(document.getElementById('body'));
 	
 	document.getElementsByTagName('main')[0].insertAdjacentElement('afterBegin', flex_div);
+}
+
+
+/* 
+ * generate the list of links to related topics
+ */
+
+KB.prototype.generateRelatedTopics = function () {
+
+	var nav = document.createElement('nav');
+		nav.setAttribute('class', 'mini-toc');
+	
+	var h3 = document.createElement('h3');
+		h3.appendChild(document.createTextNode('Related Topics'));
+	
+	nav.appendChild(h3);
+	
+	var ol = document.createElement('ol');
+	
+	for (var i = 0; i < page_info.related.length; i++) {
+	
+		var topic = findTopic(topic_list, page_info.related[i]);
+		
+		if (topic === null) {
+			continue;
+		}
+		
+		var li = document.createElement('li');
+		
+		var a = document.createElement('a');
+			a.setAttribute('href', topic.href);
+			a.appendChild(document.createTextNode(topic.title));
+		
+		li.appendChild(a);
+		ol.appendChild(li);
+	}
+	
+	nav.appendChild(ol);
+	
+	document.getElementById('nav-col').insertAdjacentElement('beforeEnd', nav);
 }
 
 
@@ -841,7 +915,7 @@ KB.prototype.addTopicLinks = function() {
 			toc.setAttribute('role', 'doc-toc');
 			toc.setAttribute('aria-label', 'Table of contents');
 		
-		var root_topic = findTopics(topic_list, page_info.root_id);
+		var root_topic = findCategory(topic_list, page_info.root_id);
 		
 		if (!root_topic) {
 			console.log('No matching topic index for ' + page_info.root_id);
@@ -934,7 +1008,7 @@ KB.prototype.addTopicLinks = function() {
 	}
 }
 
-function findTopics(topic_list, id) {
+function findCategory(topic_list, id) {
 
 	for (var i = 0; i < topic_list.length; i++) {
 	
@@ -946,12 +1020,40 @@ function findTopics(topic_list, id) {
 		
 			if (topic_list[i].hasOwnProperty('categories')) {
 			
-				var result = findTopics(topic_list[i].categories, id);
+				var result = findCategory(topic_list[i].categories, id);
 				
 				if (result) {
 					return result;
 				}
 			}
+		}
+	}
+	
+	return null;
+}
+
+
+function findTopic(topic_list, id) {
+
+	for (var i = 0; i < topic_list.length; i++) {
+	
+		var topic;
+		
+		if (topic_list[i].id == id) {
+			topic = topic_list[i];
+		}
+		
+		else if (topic_list[i].hasOwnProperty('topics')) {
+			topic = findTopic(topic_list[i].topics, id);
+			
+		}
+		
+		else if (topic_list[i].hasOwnProperty('categories')) {
+			topic = findTopic(topic_list[i].categories, id);
+		}
+		
+		if (topic) {
+			return topic;
 		}
 	}
 	
@@ -1118,7 +1220,7 @@ window.onload = function () {
 	if (mini_toc) {
 		var ms = new MenuSpy(mini_toc,{
 			activeClass   : 'mini-toc-active',
-			threshold     : -190
+			threshold     : -140
 		});
 	}
 }

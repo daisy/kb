@@ -8,7 +8,8 @@
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'Schema.org'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -87,51 +88,53 @@
 				
 				<p>The following values are recommended for this property:</p>
 
-				<dl>
-					<dt>auditory</dt>
-					<dd>
-						<p>The <code>auditory</code> value is used to indicate that there is an auditory component to
-							the content (e.g., audio tracks on their own or as part of a video, or an audiobook).</p>
+				<section id="auditory">
+					<h4>auditory</h4>
+				
+					<p>The <code>auditory</code> value is used to indicate that there is an auditory component to
+						the content (e.g., audio tracks on their own or as part of a video, or an audiobook).</p>
 
-						<p>The <code>auditory</code> value does not have to be set if the audio does not include
-							information necessary to understand the content (e.g., background noises in an interactive
-							game or mood music).</p>
-					</dd>
+					<p>The <code>auditory</code> value does not have to be set if the audio does not include
+						information necessary to understand the content (e.g., background noises in an interactive
+						game or mood music).</p>
+				</section>
 
-					<dt>tactile</dt>
-					<dd>
-						<p>The <code>tactile</code> value is used to indicate that a publication contains tactile
-							content (e.g., braille-formatted text or tactile images or objects).</p>
+				<section id="tactile">
+					<h4>tactile</h4>
+				
+					<p>The <code>tactile</code> value is used to indicate that a publication contains tactile
+						content (e.g., braille-formatted text or tactile images or objects).</p>
 
-						<p>This value is typically not applicable outside of accessible republishing.</p>
+					<p>This value is typically not applicable outside of accessible republishing.</p>
 
-						<p>The value is <strong>not</strong> used to indicate that text content can be converted to
-							tactile (e.g., using a refreshable braille display).</p>
-					</dd>
+					<p>The value is <strong>not</strong> used to indicate that text content can be converted to
+						tactile (e.g., using a refreshable braille display).</p>
+				</section>
 
-					<dt>textual</dt>
-					<dd>
-						<p>The <code>textual</code> value is used to indicate that a publication contains text
-							content.</p>
+				<section id="textual">
+					<h4>textual</h4>
+				
+					<p>The <code>textual</code> value is used to indicate that a publication contains text
+						content.</p>
 
-						<p>This value is the most commonly used for digital publications, as most pubications contain at
-							least some text content.</p>
+					<p>This value is the most commonly used for digital publications, as most pubications contain at
+						least some text content.</p>
 
-						<p>If a publication contains images of text, the <a href="#visual"><code>visual</code></a>
-							access mode is also set (or set instead, if the publication only contains images of text).
-							If, however, an image format allows the text content to be retained in text form (e.g.,
-							SVG), the <code>textual</code> value is also specified.</p>
-					</dd>
+					<p>If a publication contains images of text, the <a href="#visual"><code>visual</code></a>
+						access mode is also set (or set instead, if the publication only contains images of text).
+						If, however, an image format allows the text content to be retained in text form (e.g.,
+						SVG), the <code>textual</code> value is also specified.</p>
+				</section>
 
-					<dt>visual</dt>
-					<dd>
-						<p>The <code>visual</code> value is used to indicate that a publication contains visual content
-							such as images, grapics and video.</p>
+				<section id="visual">
+					<h4>visual</h4>
+				
+					<p>The <code>visual</code> value is used to indicate that a publication contains visual content
+						such as images, grapics and video.</p>
 
-						<p>This value is not set if the visual content does not contain any information necessary to
-							understanding the content (e.g., decorative images).</p>
-					</dd>
-				</dl>
+					<p>This value is not set if the visual content does not contain any information necessary to
+						understanding the content (e.g., decorative images).</p>
+				</section>
 			</section>
 
 			<section id="refs">

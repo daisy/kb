@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Table Captions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for adding explanatory headings for tables.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-summary']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Add captions to tables to explain their purpose.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Provide a title in the <code>caption</code> element. [[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Table caption in a <code>caption</code> element</div>
+						<p>In this example, the caption is provided in the <code>table</code> element's native
+							<code>caption</code> element.</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;caption>Table 4 &#8212; Weights and Measures&lt;/caption>
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Table caption in a <code>figcaption</code> element</div>
+						<p>In this example, the <code>table</code> element is wrapped inside a <code>figure</code>
+							and <code>figcaption</code> element provides the caption.</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure>
+   &lt;figcaption>Table 4 &#8212; Weights and Measures&lt;/figcaption>
+   &lt;table>
+      &#8230;
+   &lt;/table>
+&lt;/figure></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Table caption in an <code>aria-label</code> attribute</div>
+						<p>In this example, a caption cannot be provided visually, so is added using the
+							<code>aria-label</code> attribute.</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;table aria-label="Weights and Measures">
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the purpose of some tables is fully established from the text of a publication and do not
+					require additional context, this is not often the case. Tables are typically self-contained and
+					may only be referenced in passing from the text. Adding a caption ensures that users are aware of
+					the table's purpose.</p>
+				
+				<p>Captions are like headings &#8212; they should be short and identify the specific purpose of
+					the table.</p>
+				
+				<p>There are two primary ways to add captions:</p>
+				
+				<ul>
+					<li>Using a <code>caption</code> element;</li>
+					<li>Wrapping the table in a <code>figure</code> and adding a <code>figcaption</code>.</li>
+				</ul>
+				
+				<p>The <code>caption</code> element is an optional first element of a <code>table</code> (see
+					<a href="#ex-01">Example 1</a>).  When a heading for the table is provide in the caption it is
+					visually rendered above the table in italics by default, but this styling can be changed.</p>
+				
+				<p>A <code>figure</code> element can also be used to associate a table with its caption. In this
+					case, the <code>figcaption</code> element provides the caption (see <a href="#ex-02">Example
+						2</a>. Unlike the table <code>caption</code> element, a <code>figcaption</code> can be either
+					the first or last element in a <code>figure</code>.</p>
+				
+				<p>Although it is possible to use the <code>aria-label</code> attribute to add a caption for
+					a table (see <a href="#ex-03">Example 3</a>), this method is only advisable when there is
+					absolutely no option to provide a visible label. The use of the <code>aria-label</code> attribute
+					limits the caption to users of assistive technologies, and not all assistive technologies will
+					announce a caption marked up this way.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>WCAG &#8212; <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">Using caption elements to
+						associate data table captions with data tables</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

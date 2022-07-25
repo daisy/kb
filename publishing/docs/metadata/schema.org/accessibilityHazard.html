@@ -8,7 +8,8 @@
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'Schema.org'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -85,9 +86,9 @@ individuals.&lt;/p></code></pre>
 						commas, or other delimiters.</p>
 				</div>
 				
-				<dl>
-					<dt id="flashing">flashing</dt>
-					<dd>
+					<section id="flashing">
+						<h4>flashing</h4>
+					
 						<p>The <code>flashing</code> values is used to indicate that there is content in the publication
 							that flashes more than three times a second or that the flashing is below the <a
 								href="https://www.w3.org/TR/WCAG/#dfn-general-flash-and-red-flash-thresholds">general flash and red flash
@@ -100,28 +101,31 @@ individuals.&lt;/p></code></pre>
 						<p>Although videos are often recognized as a source of flashing hazards (e.g., strobe effects),
 							there are many types of content that can present a flashing risk (e.g., animated graphics,
 							and scripted games and images).</p>
-					</dd>
+					</section>
 
-					<dt id="noFlashingHazard">noFlashingHazard</dt>
-					<dd>
+					<section id="noFlashingHazard">
+						<h4>noFlashingHazard</h4>
+					
 						<p>The <code>noFlashingHazard</code> value is the opposite of <a href="#flashing"
 									><code>flashing</code></a> &#8212; it is used to indicate that the the publisher has
 							checked the publication for flashing hazards and is sure that none exist.</p>
 
 						<p>The value is <strong>not</strong> an indication that a lack of flashing is a hazard.</p>
-					</dd>
+					</section>
 
-					<dt id="none">none</dt>
-					<dd>
+					<section id="none">
+						<h4>none</h4>
+					
 						<p>The <code>none</code> value is used when the publisher is sure that the content presents no
 							known hazards for users.</p>
 
 						<p>This value is typically only used with there is no dynamic or multimedia content (i.e., the
 							publication consists only of text and/or static images).</p>
-					</dd>
+					</section>
 
-					<dt id="motionSimulation">motionSimulation</dt>
-					<dd>
+					<section id="motionSimulation">
+						<h4>motionSimulation</h4>
+					
 						<p>The <code>motionSimulation</code> value is used to indicate that there is content that
 							simulates motion.</p>
 
@@ -130,10 +134,11 @@ individuals.&lt;/p></code></pre>
 
 						<p>Motion simulation can occur in a variety of media: videos or games with a first-person
 							perspective, 3D experiences and animations, etc.</p>
-					</dd>
+					</section>
 
-					<dt>noMotionSimulationHazard</dt>
-					<dd>
+					<section  id="noMotionSimulationHazard">
+						<h4>noMotionSimulationHazard</h4>
+					
 						<p>The <code>noMotionSimulationHazard</code> value is the opposite of <a
 								href="#motionSimulation"><code>motionSimulation</code></a> &#8212; it is used to
 							indicate that the the publisher has checked the publication for motion simulation hazards
@@ -141,10 +146,11 @@ individuals.&lt;/p></code></pre>
 
 						<p>The value is <strong>not</strong> an indication that a lack of motion simulation is a
 							hazard.</p>
-					</dd>
+					</section>
 
-					<dt id="sound">sound</dt>
-					<dd>
+					<section id="sound">
+						<h4>sound</h4>
+					
 						<p>The <code>sound</code> value is used to indicate that a publication contains auditory content
 							that can cause seizures in some users. The causes of such seizures are diverse, from ringing
 							and buzzing sounds, to sudden loud noises, and even certain words or music.</p>
@@ -152,26 +158,27 @@ individuals.&lt;/p></code></pre>
 						<p>Out of an abundance of caution, this property should be set if a publication contains any
 							auditory content, and users should always have the decision whether or not to play the
 							content (i.e., auditory content should not autoplay).</p>
-					</dd>
+					</section>
 
-					<dt id="noSoundHazard">noSoundHazard</dt>
-					<dd>
+					<section id="noSoundHazard">
+						<h4>noSoundHazard</h4>
+					
 						<p>The <code>noSoundHazard</code> value is the opposite of <a href="#sound"
 								><code>sound</code></a> &#8212; it is used to indicate that the the publisher has
 							checked the publication for sound hazards and is sure that none exist.</p>
 
 						<p>The value is <strong>not</strong> an indication that a lack of sound is a hazard.</p>
-					</dd>
+					</section>
 
-					<dt id="unknown">unknown</dt>
-					<dd>
+					<section id="unknown">
+						<h4>unknown</h4>
+					
 						<p>The <code>unknown</code> value is used to indicate that a publisher has not yet checked their
 							publication for hazards or is unsure whether some content might present a hazard.</p>
 
 						<p>This value should only be used as a temporary placeholder if a publication must be released
 							before an accessibility review can be completed.</p>
-					</dd>
-				</dl>
+					</section>
 			</section>
 
 			<section id="refs">
