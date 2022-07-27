@@ -970,6 +970,9 @@ p.backtotop {
 	
 	header {
 		width: 100vw;
+		display: block;
+		position: relative;
+		height: auto;
 	}
 	
 	h1 {
@@ -1001,6 +1004,7 @@ p.backtotop {
 	
 	div.col-wrapper {
 		display: block;
+		grid-template-columns: unset;
 	}
 	
 	main,
@@ -1029,8 +1033,7 @@ p.backtotop {
 		width: 100%;
 		border-right: none;
 		background-color: rgb(245,245,245);
-		position: relative;
-		display: block;
+		top: unset;
 	}
 	
 	nav.mini-toc {
