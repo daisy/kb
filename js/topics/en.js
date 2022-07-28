@@ -111,24 +111,80 @@ var topic_list = [
 		'subtitle': 'The metadata topics describe the accessibility properties available in widely used digital publishing metadata standards.',
 		'id': 'metadata',
 		'path': 'metadata',
-		'topics': [
+		'categories': [
 			{
-				'id': 'meta-evaluation',
-				'href': 'evaluation.html',
-				'title': 'Evaluation',
-				'subtitle': 'Covers the conformance and evaluation metadata required by the EPUB Accessibility specification.'
+				'id': 'meta-general',
+				'title': 'General',
+				'path': 'metadata',
+				"topics": [
+					{
+						'id': 'meta-evaluation',
+						'href': 'evaluation.html',
+						'title': 'Evaluation',
+						'subtitle': 'Covers the conformance and evaluation metadata required by the EPUB Accessibility specification.'
+					},
+					{
+						'id': 'meta-onix',
+						'href': 'onix.html',
+						'title': 'ONIX',
+						'subtitle': 'Covers the ONIX metadata standard\'s code list 196 accessibility properties.'
+					}
+				]
 			},
 			{
-				'id': 'meta-onix',
-				'href': 'onix.html',
-				'title': 'ONIX',
-				'subtitle': 'Covers the ONIX metadata standard\'s code list 196 accessibility properties.'
-			},
-			{
-				'id': 'meta-schema.org',
-				'href': 'schema.org',
+				'id': 'meta-schema',
 				'title': 'Schema.org',
-				'subtitle': 'Covers the accessibility metadata properties defined in the schema.org CreativeWork type.'
+				'path': 'metadata/schema.org',
+				"topics": [
+					{
+						'id': 'schema-overview',
+						'href': 'index.html',
+						'title': 'Overview',
+						'subtitle': 'Introduction to the accessibility metadata properties defined in the schema.org CreativeWork type.'
+					},
+					{
+						'id': 'schema-a11yAPI',
+						'href': 'accessibilityAPI.html',
+						'title': 'Accessibility APIs',
+						'subtitle': 'Identifying compatibility with platform APIs using the <code>accessibilityAPI</code> property.'
+					},
+					{
+						'id': 'schema-a11yControl',
+						'href': 'accessibilityControl.html',
+						'title': 'Accessibility Controls',
+						'subtitle': 'Identifying how users can control the content using the <code>accessibilityControl</code> property.'
+					},
+					{
+						'id': 'schema-a11yFeature',
+						'href': 'accessibilityFeature.html',
+						'title': 'Accessibility Features',
+						'subtitle': 'Expressing features of the content using the <code>accessibilityFeature</code> property.'
+					},
+					{
+						'id': 'schema-a11yHazard',
+						'href': 'accessibilityHazard.html',
+						'title': 'Accessibility Hazards',
+						'subtitle': 'Expressing dangers for users using the <code>accessibilityHazard</code> property.'
+					},
+					{
+						'id': 'schema-a11ySummary',
+						'href': 'accessibilitySummary.html',
+						'title': 'Accessibility Summary',
+						'subtitle': 'Providing a summary using the <code>accessibilitySummary</code> property.'
+					},
+					{
+						'id': 'schema-accessMode',
+						'href': 'accessMode.html',
+						'title': 'Access Modes',
+						'subtitle': 'Identifying the nature of the content using the <code>accessMode</code> property.'
+					},
+					{
+						'id': 'schema-accessModeSufficient',
+						'href': 'accessModeSufficient.html',
+						'title': 'Sufficient Access Modes',
+						'subtitle': 'Identifying sufficient means of reading that provide access to the information using <code>accessModeSufficient</code> property.'
+					}
+				]
 			}
 		]
 	},
