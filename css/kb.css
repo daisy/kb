@@ -243,6 +243,9 @@ div#body > details {
 	margin-left: 2em;
 }
 
+main section {
+	scroll-margin-top: 12rem;
+}
 
 /* skip to main link */
 
