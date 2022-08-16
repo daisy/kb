@@ -38,27 +38,29 @@
 
 				<ul>
 					<li>
-						<a href="accessibilitySummary.html">accessibilitySummary</a>
+						<a href="accessibilityFeature.html"><code>accessibilityFeature</code></a>
 					</li>
 					<li>
-						<a href="accessibilityFeature.html">accessibilityFeature</a>
+						<a href="accessibilityHazard.html"><code>accessibilityHazard</code></a>
 					</li>
 					<li>
-						<a href="accessibilityHazard.html">accessibilityHazard</a>
+						<a href="accessibilitySummary.html"><code>accessibilitySummary</code></a>
 					</li>
 					<li>
-						<a href="accessMode.html">accessMode</a>
+						<a href="accessMode.html"><code>accessMode</code></a>
 					</li>
 					<li>
-						<a href="accessModeSufficient.html">accessModeSufficient</a>
-					</li>
-					<li>
-						<a href="accessibilityAPI.html">accessibilityAPI</a>
-					</li>
-					<li>
-						<a href="accessibilityControl.html">accessibilityControl</a>
+						<a href="accessModeSufficient.html"><code>accessModeSufficient</code></a>
 					</li>
 				</ul>
+				
+				<div class="note" role="note" aria-labelledby="opt-note">
+					<p id="opt-note" class="label">Note</p>
+					<p>Although <a href="accessibilityAPI.html"><code>accessibilityAPI</code></a> and
+						<a href="accessibilityControl.html"><code>accessibilityControl</code></a> are also
+						schema.org accessibility properties, they are rarely used for describing digital
+						publications.</p>
+				</div>
 			</section>
 
 			<section id="ex">
@@ -76,7 +78,6 @@
   &lt;/meta>
   &lt;meta property="schema:accessMode">textual&lt;/meta>
   &lt;meta property="schema:accessMode">visual&lt;/meta>
-  &lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
   &lt;meta property="schema:accessModeSufficient">textual&lt;/meta>
   &lt;meta property="schema:accessibilityFeature">structuralNavigation&lt;/meta>
   &lt;meta property="schema:accessibilityFeature">MathML&lt;/meta>
@@ -92,7 +93,7 @@
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Package Document metadata (EPUB 2)</div>
-						<p>The following is a partial rendering of <a href="#ex-01">Example 1</a> that shows the slight
+						<p>The following is a partial rendering of <a href="#ex-01">Example 1</a> that shows the slightly
 							different syntax used in the EPUB 2 package document (i.e., the use of <code>name</code> and
 								<code>content</code> attributes.</p>
 					</figcaption>
@@ -112,10 +113,6 @@
   "accessibilitySummary": "This publication conforms to WCAG 2.0 Level AA.",
   "accessMode": ["textual", "visual"],
   "accessModeSufficient" : [
-    {
-      "type": "ItemList",
-      "itemListElement": [textual,visual]
-    },
     {
       "type": "ItemList",
       "itemListElement": [textual]

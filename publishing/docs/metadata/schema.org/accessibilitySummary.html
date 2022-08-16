@@ -33,8 +33,9 @@
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
 					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilitySummary">
-   This publication conforms to the EPUB Accessibility specification 
-   at WCAG Level AA.
+   In addition to meeting accessibility standards,
+   this publication includes sign language
+   interpretation for all video content.
 &lt;/meta>
 </code></pre>
 				</figure>
@@ -45,14 +46,16 @@
 					</figcaption>
 
 					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilitySummary"
-      content="This publication conforms to the EPUB Accessibility specification at WCAG Level AA."/></code></pre>
+      content="In addition to meeting accessibility standards,
+        this publication includes sign language interpretation
+        for all video content."/></code></pre>
 				</figure>
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
 					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilitySummary": "This publication conforms to the EPUB Accessibility specification at WCAG Level A."</code></pre>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilitySummary": "This publication does not include audio for backmatter material available in the print version."</code></pre>
 				</figure>
 				
 				<figure id="ex-rdfa">
@@ -61,7 +64,9 @@
 					</figcaption>
 
 					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;p property="accessibilitySummary">
-   This document conforms to WCAG 2.0 Level AA.
+   In addition to meeting accessibility standards,
+   this publication includes sign language
+   interpretation for all video content.
 &lt;/p></code></pre>
 				</figure>
 
@@ -71,7 +76,9 @@
 					</figcaption>
 
 					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;p itemprop="accessibilitySummary">
-   This document conforms to WCAG 2.0 Level AA.
+   In addition to meeting accessibility standards,
+   this publication includes sign language
+   interpretation for all video content.
 &lt;/p></code></pre>
 				</figure>
 			</section>
@@ -79,11 +86,22 @@
 			<section id="value">
 				<h3>Value</h3>
 
-				<p>The summary is a brief, human-readable summary of features and/or deficiencies. It is used to
-					indicate conformance to an accessibility standard or point out shortcomings to the standard.</p>
-
-				<p>The summary should not be a simple repetition of all the <a href="accessibilityFeature.html"
-						>accessibility features</a> and <a href="accessibilityHazard.html">hazards</a>.</p>
+				<p>The summary is a brief, human-readable summary of any information that cannot be expressed through
+					the other schema.org metadata. It can be used, for example, to indicate accessibility features
+					beyond the level of the conformance claim (e.g., it might specify ways in which the publication
+					meets WCAG level AAA success criteria).</p>
+				
+				<p>The property should not be a repetition of the conformance claim or simply restate the <a 
+					href="accessibilityFeature.html" >accessibility features</a> and <a 
+						href="accessibilityHazard.html">hazards</a>, as this will often result in the information
+					be repeated to users.</p>
+				
+				<p>If the summary does not offer any new information, the property can be omitted from digital
+					publications.</p>
+				
+				<p>If a publication fails to meet accessibility standards, publishers can use the property 
+					to point out the reasons. The publication may still be usable for many readers depending on
+					the failures.</p>
 			</section>
 
 			<section id="refs">
