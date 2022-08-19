@@ -396,6 +396,12 @@ var topic_list = [
 						'subtitle': 'Best practices for including accessible image maps.'
 					},
 					{
+						'id': 'html-image-select',
+						'href': 'images-selection.html',
+						'title': 'Image Selection',
+						'subtitle': 'Methods for including images optimized for different device rendering capabilities.'
+					},
+					{
 						'id': 'html-image-text',
 						'href': 'images-text.html',
 						'title': 'Images of Text',
