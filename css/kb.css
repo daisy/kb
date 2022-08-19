@@ -937,6 +937,24 @@ div.related {
 }
 
 
+/* copy to clipboard buttons */
+
+input.copy {
+	width: 7rem;
+	height: 3rem;
+	border-radius: 1rem;
+	background-color: rgb(255,255,255);
+	color: rgb(0,0,250);
+	border-color: rgb(0,0,250);
+	box-shadow: 0.2rem 0.4rem rgb(220,220,220);
+}
+
+input.copy:hover {
+	color: rgb(250,0,0);
+	border-color: rgb(250,0,0);
+}
+
+
 /* google search override */
 
 #search table,

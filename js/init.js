@@ -857,7 +857,8 @@ KB.prototype.addExampleCopy = function() {
 		
 		var input = document.createElement('input');
 			input.setAttribute('type','button');
-			input.setAttribute('value','Copy to clipboard');
+			input.setAttribute('value','Copy');
+			input.setAttribute('class','copy');
 			
 			input.addEventListener('click', copyExampleDelegate(ex[i].id), false);
 		
@@ -1175,6 +1176,7 @@ function copyExample(ex_id) {
 	// copy the example to the clipboard
 	try {
 		document.execCommand('copy');
+		alert('Code successfully copied.')
 	}
 	catch (err) {
 		console.error('Copy failed: ', err);
