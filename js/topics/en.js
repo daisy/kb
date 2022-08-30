@@ -406,6 +406,12 @@ var topic_list = [
 						'href': 'images-text.html',
 						'title': 'Images of Text',
 						'subtitle': 'Best practices when images contain text.'
+					},
+					{
+						'id': 'html-textbased',
+						'href': 'images-text-based.html',
+						'title': 'Text-based Images',
+						'subtitle': 'Techniques for making accessible text-based images, such as ASCII art, emoticons, redacted text, and fill-in-the-blank questions.'
 					}
 				]
 			},
