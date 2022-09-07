@@ -507,6 +507,12 @@ var topic_list = [
 						'subtitle': 'Techniques for hiding content both from visual rendering and from assistive technologies.'
 					},
 					{
+						'id': 'html-poetry',
+						'href': 'poetry.html',
+						'title': 'Poetry',
+						'subtitle': 'Techniques for formatting and describing line-based content.'
+					},
+					{
 						'id': 'htmk-refs',
 						'href': 'reflinks.html',
 						'title': 'Links to Reference Marks',
