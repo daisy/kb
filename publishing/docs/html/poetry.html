@@ -45,7 +45,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 &#8212; </div>
+						<div class="label">Example 1 &#8212; A basic poem with multiple stanzas</div>
 						<p>As the lines of the poems do not require any special formatting, only <code>br</code>
 							tags are needed to identify the line endings. <code>p</code> tags are used to separate
 							the stanzas.</p>
@@ -86,7 +86,7 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 &#8212; </div>
+						<div class="label">Example 2 &#8212; Preserving line indentation using white space</div>
 						<p>In the following poem, <code>span</code> tags are used to preserve line indenting.
 							The CSS <code>white-space</code> property is set to <code>pre</code> to preserve
 							spacing.</p>
@@ -133,7 +133,7 @@ flowers&lt;br/>
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; </div>
+						<div class="label">Example 3 &#8212; Preserving indentation using text indents</div>
 						<p>The same poem from <a href="#ex-02">Example 2</a> is shown but uses <code>span</code> 
 							tags with CSS indenting. The <code>span</code> tags also need to have their
 							CSS <code>display</code> set to <code>inline-block</code> for the formatting to work.</p>
@@ -220,9 +220,9 @@ flowers&lt;br/>
 				
 				<div class="note" role="note" aria-labelledby="bug-note">
 					<p id="bug-note" class="label">Note</p>
-					<p>VoiceOver has a known bug where it repeats lines when <code>br</code> tags are used inside 
-						a <code>blockquote</code>. This affects quoted poetry and lyrics(e.g., in epigraphs). For
-						more information on the current status, refer to the <a 
+					<p>There is a known bug with chromium-based reading systems on MacOS where VoiceOver repeats lines
+						when <code>br</code> tags are used inside a <code>blockquote</code>. This affects quoted poetry
+						and lyrics (e.g., in epigraphs). For more information on the current status, refer to the <a 
 							href="https://bugs.chromium.org/p/chromium/issues/detail?id=1322784">bug report</a>.</p>
 				</div>
 				
