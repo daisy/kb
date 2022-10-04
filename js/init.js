@@ -1221,9 +1221,31 @@ window.onload = function () {
 	
 	if (mini_toc) {
 		var ms = new MenuSpy(mini_toc,{
-			activeClass   : 'mini-toc-active',
-			threshold     : -140
+			activeClass        : 'mini-toc-active',
+			threshold          : -140,
+			enableLocationHash : false
 		});
+	}
+	
+	// ensure target location gets scrolled into view
+	var hash = window.location.hash;
+	
+	if (hash) {
+		
+		var hash_id = hash.substring(1);
+		var elem = document.getElementById(hash_id);
+		
+		if (elem) {
+			elem.scrollIntoView();
+		}
+		
+		if (hash_id.match(/^(faq|ex)-[0-9]+/)) {
+			var scrolledY = window.scrollY;
+			
+			if(scrolledY){
+				window.scroll(0, scrolledY - 140);
+			}
+		}
 	}
 }
 
