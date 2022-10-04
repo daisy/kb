@@ -106,7 +106,7 @@
 							<span class="pre">                             Will i complete the mystery</span><br/>
 							<span class="pre">                             of my flesh</span><br/>
 							I will rise<br/>
-							<span class="pre">            After a thousand years</span>
+							<span class="pre">            After a thousand years</span><br/>
 							lipping<br/>
 							flowers<br/>
 							<span class="pre">        And set my teeth in the silver of the moon</span></p>
@@ -125,7 +125,7 @@ with chasteness of sea-girls&lt;br/>
 &lt;span class="preserve">                             Will i complete the mystery&lt;/span>&lt;br/>
 &lt;span class="preserve">                             of my flesh&lt;/span>&lt;br/>
 I will rise&lt;br/>
-&lt;span class="preserve">            After a thousand years&lt;/span><br/>
+&lt;span class="preserve">            After a thousand years&lt;/span>&lt;br/>
 lipping&lt;br/>
 flowers&lt;br/>
 &lt;span class="preserve">        And set my teeth in the silver of the moon&lt;/span>&lt;/p></code></pre>
@@ -195,6 +195,23 @@ flowers&lt;br/>
 						<p>At this time, users of assistive technologies are left to intuit changes in writing style
 							by how the applications respond to the markup that is available (e.g., that they stop reading
 							a line at a <code>br</code> tag).</p>
+					</dd>
+					
+					<dt id="faq-04">Do I need whitespace around the <code>br</code> tags?</dt>
+					<dd>
+						<p>Yes, many reading systems do not support reading by line when <code>br</code> tags
+							are present. If you run the text of each line into a <code>br</code> tag as in the
+							following example:</p>
+						
+						<pre class="prettyprint linenums">&#8230;lipping&lt;br/>flowers&lt;br/>&#8230;</pre>
+						
+						<p>then these reading systems will slur the words together when text-to-speech playback is
+							enabled.</p>
+						
+						<p>To avoid this issue, ensure that there is always at least one whitespace character before
+							or after the <code>br</code> tag. Adding a line break after each <code>br</code> tag, as
+							in the <a href="#ex">examples above</a>, will avoid this issue, as will adding a space
+							before the <code>br</code> tag.</p>
 					</dd>
 				</dl>
 			</section>
