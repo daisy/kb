@@ -38,37 +38,68 @@ var topic_list = [
 		'subtitle': 'The EPUB topics cover accessibility issues that are unique to the EPUB format.',
 		'id': 'epub',
 		'path': 'epub',
-		'topics': [
+		'categories': [
 			{
-				'id': 'epub-cmt',
-				'href': 'cmt.html',
-				'title': 'Core Media Types',
-				'subtitle': 'Explanation of formats that are assured to render in EPUB publications.'
-			},
-			{
-				'id': 'epub-cover',
-				'href': 'cover.html',
-				'title': 'Cover',
-				'subtitle': 'Accessible practices for including a cover image.'
-			},
-			{
-				'id': 'epub-language',
-				'href': 'language.html',
-				'title': 'Publication Language',
-				'subtitle': 'Language identification in the package document.'
-			},
-			{
-				'id': 'epub-title',
-				'href': 'title.html',
-				'title': 'Publication Title',
-				'subtitle': 'Providing a title for an EPUB publication.'
+				'id': 'epub-general',
+				'title': 'General',
+				'path': 'epub',
+				'topics': [
+					{
+						'id': 'epub-cmt',
+						'href': 'cmt.html',
+						'title': 'Core Media Types',
+						'subtitle': 'Explanation of formats that are assured to render in EPUB publications.'
+					},
+					{
+						'id': 'epub-cover',
+						'href': 'cover.html',
+						'title': 'Cover',
+						'subtitle': 'Accessible practices for including a cover image.'
+					},
+					{
+						'id': 'epub-language',
+						'href': 'language.html',
+						'title': 'Publication Language',
+						'subtitle': 'Language identification in the package document.'
+					},
+					{
+						'id': 'epub-title',
+						'href': 'title.html',
+						'title': 'Publication Title',
+						'subtitle': 'Providing a title for an EPUB publication.'
+					}
+				]
 			},
 			{
 				'id': 'epub-validation',
-				'href': 'validation/overview.html',
 				'title': 'Validation',
-				'subtitle': 'Overview of the epubcheck, Ace, and Ace Smart validation tools. This page links through to more detailed KB pages for each tool.',
-				'showtopics': false
+				'path': 'epub',
+				'topics': [
+					{
+						'id': 'epub-val-overview',
+						'href': 'validation/overview.html',
+						'title': 'Overview',
+						'subtitle': 'Overview of validation tools for EPUB publications.'
+					},
+					{
+						'id': 'epub-val-epubcheck',
+						'href': 'validation/epubcheck.html',
+						'title': 'Epubcheck',
+						'subtitle': 'How to use epubcheck to check publications for conformance issues.'
+					},
+					{
+						'id': 'epub-val-ace',
+						'href': 'validation/ace.html',
+						'title': 'Ace',
+						'subtitle': 'How to use the Ace checker to find accessibility issues.'
+					},
+					{
+						'id': 'epub-val-smart',
+						'href': 'validation/smart.html',
+						'title': 'Ace SMART',
+						'subtitle': 'How to use the Ace SMART tool to evaluate a publication against the EPUB Accessibility specification.'
+					}
+				]
 			}
 		]
 	},
@@ -116,7 +147,7 @@ var topic_list = [
 				'id': 'meta-general',
 				'title': 'General',
 				'path': 'metadata',
-				"topics": [
+				'topics': [
 					{
 						'id': 'meta-evaluation',
 						'href': 'evaluation.html',
@@ -135,7 +166,7 @@ var topic_list = [
 				'id': 'meta-schema',
 				'title': 'Schema.org',
 				'path': 'metadata/schema.org',
-				"topics": [
+				'topics': [
 					{
 						'id': 'schema-overview',
 						'href': 'index.html',
