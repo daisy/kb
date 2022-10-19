@@ -274,19 +274,40 @@ div.toplinks {
 	padding: 0.5rem 0 0.5rem 5rem;
 }
 
-div.toplinks > a {
+ul.menu {
+	margin: 0;
+	padding: 0;
+}
+
+ul.menu > li {
 	display: inline-block;
+	margin: 0 3rem 0 0;
+}
+
+ul.menu > li > ul {
+	display: none;
+	position: absolute;
+	background-color: rgb(75,75,75);
+	list-style-type: none;
+	padding-left: 1rem;
+	width: 15rem;
+}
+
+ul.menu a {
 	color: rgb(255,255,255);
 	text-decoration: none;
-	margin-right: 3rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	font-size: 1.4rem;
 }
 
-div.toplinks > a:hover {
+ul.menu a:hover {
 	color: rgb(255,255,200);
 	text-decoration: none;
+}
+
+li.hasMenu.open > ul {
+	display: block;
 }
 
 /* navigation column */
@@ -400,6 +421,13 @@ span.topic_subtitle {
 	font-size: 80%;
 }
 
+main.category p.topic_subtitle {
+	margin-left: 3.5rem;
+}
+
+nav#toc > ol {
+	padding: 0;
+}
 
 /* applicable technologies */
 

@@ -788,7 +788,7 @@ var topic_list = [
 	{
 		'title': 'Synchronized Multimedia',
 		'subtitle': 'The synchronized multimedia topics cover the creation of digital publications that provide synchronized text and audio playback. These types of publications are often referred to as "read aloud" books.',
-		'id': 'sync',
+		'id': 'sync-media',
 		'categories': [
 			{
 				'id': 'sync-implementation',

@@ -254,33 +254,10 @@ KB.prototype.generateHeader = function () {
 	var top_links = document.createElement('div');
 		top_links.setAttribute('class','toplinks');
 	
-	// add the home link
-	var home_a = document.createElement('a');
-		home_a.setAttribute('href', this.kb_root);
-		home_a.appendChild(document.createTextNode(msg.UI.m01));
-	
-	top_links.appendChild(home_a);
-	
-	// add the contents link
-	var contents_a = document.createElement('a');
-		contents_a.setAttribute('href', this.kb_root + 'topics.html');
-		contents_a.appendChild(document.createTextNode(msg.header.m04));
-	
-	top_links.appendChild(contents_a);
-	
-	// add the glossary link
-	var gloss_a = document.createElement('a');
-		gloss_a.setAttribute('href', this.kb_root + 'glossary/index.html');
-		gloss_a.appendChild(document.createTextNode(msg.header.m02));
-	
-	top_links.appendChild(gloss_a);
-	
-	// add search link
-	var srch_a = document.createElement('a');
-		srch_a.setAttribute('href', this.kb_root + '/search/index.html');
-		srch_a.appendChild(document.createTextNode(msg.header.m03));
-	
-	top_links.appendChild(srch_a);
+	top_links.innerHTML = '<ul class="menu"><li><a href="' + this.kb_root + '">' + msg.UI.m01 + '</a></li>' +
+		'<li class="hasMenu"><a href="' + this.kb_root + 'topics.html' + '">' + msg.header.m04 + '</a><ul><li><a href="' + this.kb_root + 'conformance">Conformance</a></li><li><a href="' + this.kb_root + 'epub">EPUB</a></li><li><a href="' + this.kb_root + 'navigation">Navigation</a></li><li><a href="' + this.kb_root + 'metadata">Metadata</a></li><li><a href="' + this.kb_root + 'html">HTML</a></li><li><a href="' + this.kb_root + 'css">CSS</a></li><li><a href="' + this.kb_root + 'script">Scripting</a></li><li><a href="' + this.kb_root + 'fxl">Fixed Layouts</a></li><li><a href="' + this.kb_root + 'sync-media">Sync Media</a></li><li><a href="' + this.kb_root + 'text-to-speech">Text-to-Speech</a></li></ul></li>' +
+		'<li><a href="' + this.kb_root + 'glossary/index.html' + '">' + msg.header.m02 + '</a></li>' +
+		'<li><a href="' + this.kb_root + '/search/index.html' + '">' + msg.header.m03 + '</a></li>';
 	
 	header.appendChild(top_links);
 	
@@ -407,6 +384,9 @@ KB.prototype.generateMiniToc = function () {
 
 	if (this.isIndex || this.isSearch || this.isHomePage) {
 		var class_type = this.isIndex ? 'index' : (this.isSearch ? 'search' : 'home');
+		if (this.isIndex && !this.isRootIndex) {
+			class_type += ' category';
+		}
 		document.getElementsByTagName('main')[0].setAttribute('class', class_type);
 		return;
 	}
@@ -911,12 +891,12 @@ KB.prototype.addTopicLinks = function() {
 		
 		// category index
 		
+		var root_topic = findCategory(topic_list, page_info.root_id);
+		
 		var toc = document.createElement('nav');
 			toc.id = 'toc';
 			toc.setAttribute('role', 'doc-toc');
 			toc.setAttribute('aria-label', 'Table of contents');
-		
-		var root_topic = findCategory(topic_list, page_info.root_id);
 		
 		if (!root_topic) {
 			console.log('No matching topic index for ' + page_info.root_id);
@@ -949,8 +929,13 @@ KB.prototype.addTopicLinks = function() {
 			toc.appendChild(this.createLinkList(root_topic, false));
 		}
 		
-		document.getElementsByTagName('h2')[0].insertAdjacentElement('afterEnd', toc);
+		var sec_hd = document.getElementsByTagName('h2')[0]; 
 		
+		sec_hd.insertAdjacentElement('afterEnd', toc);
+		
+		if (root_topic.hasOwnProperty('subtitle')) {
+			sec_hd.insertAdjacentElement('afterEnd',createDescription(root_topic.subtitle));
+		}
 	}
 	
 	else {
@@ -1247,6 +1232,20 @@ window.onload = function () {
 			}
 		}
 	}
+
+	var menuItems = document.querySelectorAll('li.hasMenu');
+	
+	Array.prototype.forEach.call(menuItems, function(el, i){
+		el.addEventListener("mouseover", function(event){
+			this.className = "hasMenu open";
+			clearTimeout(timer);
+		});
+		el.addEventListener("mouseout", function(event){
+			timer = setTimeout(function(event){
+				document.querySelector(".hasMenu.open").className = "hasMenu";
+			}, 500);
+		});
+	});
 }
 
 
