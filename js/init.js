@@ -132,6 +132,7 @@ KB.prototype.writeHeadTag = function (type, path, options) {
 		tag.setAttribute('rel', 'icon');
 		tag.setAttribute('type', 'image/x-icon');
 		tag.setAttribute('href', this.kb_url + 'favicon.ico');
+		tag.setAttribute('sizes', 'any');
 	}
 	
 	// add the generated tag to the page header
