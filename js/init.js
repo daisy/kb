@@ -30,7 +30,7 @@ document.documentElement.classList.add('hidden');
 
 function KB() {
 	
-	this.kb_url = 'http://kb.daisy.org/';
+	this.kb_url = 'https://kb.daisy.org/';
 	this.kb_repo = 'https://github.com/DAISY/kb/commits/main/';
 	this.kb_id = (window.location.href.split('/'))[3];
 	this.host = '';
@@ -83,6 +83,8 @@ KB.prototype.initializePage = function (type) {
 		if (isIE11 && (this.isIndex || document.getElementsByTagName('details').length > 0)) {
 			this.writeHeadTag('js', 'https://cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js');
 		}
+		
+		this.writeHeadTag('favicon', null, null);
 	}
 	else {
 		this.host = 'ace';
@@ -123,6 +125,13 @@ KB.prototype.writeHeadTag = function (type, path, options) {
 				}
 			}
 		}
+	}
+	
+	else if (type === 'favicon') {
+		tag = document.createElement('link');
+		tag.setAttribute('rel', 'icon');
+		tag.setAttribute('type', 'image/x-icon');
+		tag.setAttribute('href', this.kb_url + 'favicon.ico');
 	}
 	
 	// add the generated tag to the page header
