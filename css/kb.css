@@ -293,6 +293,7 @@ ul.menu > li > ul {
 	list-style-type: none;
 	padding-left: 1rem;
 	width: 15rem;
+	margin-left: -1rem;
 }
 
 ul.menu a {
