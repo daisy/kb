@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @font-face{
 	font-family: 'Open Sans Light';
@@ -13,7 +14,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 html {
 	font-size: 62.5%;
@@ -35,8 +35,8 @@ body {
 /* general headings */
 
 h1 {
-	line-height: 4rem;
-	font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;
+	line-height: 3.65rem;
+	font-family: Roboto,'Open Sans Light',Helvetica,Arial,sans-serif;
 	font-size: 130%;
 	letter-spacing: 0.15rem;
 	text-indent: 4.5rem;
@@ -158,7 +158,7 @@ header {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	height: 9.7rem;
+	height: 9.4rem;
 	padding: 0;
 	margin: 0;
 	z-index: 999;
