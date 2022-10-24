@@ -17,9 +17,6 @@
 				margin-top: 20rem;
 			}
 		</style>
-		<script>
-			window.onload += focus;
-		</script>
 	</head>
 	<body>
 		<main>
@@ -42,6 +39,7 @@
 				}
 				setTimeout(function(){inputs[0].focus();},100);
 			}
+			window.addEventListener('load', focus, false);
 		</script>
 	</body>
 </html>
