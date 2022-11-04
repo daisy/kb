@@ -394,7 +394,7 @@ details#topics {
 	margin-top: 4rem;
 }
 
-li.mini-toc-active {
+li.active {
 	background-color: rgb(232,242,248);
 	border-left: 0.4rem solid blue;
 	padding-left: 1.025rem !important;
@@ -1102,5 +1102,11 @@ p.backtotop {
 	
 	body#glossary nav#toc ol {
 		padding-left: 2rem;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
 	}
 }

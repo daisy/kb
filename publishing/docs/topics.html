@@ -7,7 +7,8 @@
 		<meta name="description" content="List of all topics covered on the DAISY Accessible Publishing Knowledge Base.">
 		<script>
 			var page_info = {
-				'isRootIndex': true
+				'isRootIndex': true,
+				'addh4': true
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -27,92 +28,7 @@
 		<main>
 			<nav role="doc-toc" id="toc" class="site">
 				<h2>Topics</h2>
-				
-				<div id="exp">
-					<label>
-						<input type="checkbox" id="expand" checked="checked"/> Expand all categories
-					</label>
-					<label style="padding-left: 5rem;">
-						<input type="checkbox" id="descriptions" checked="checked"/> Show descriptions
-					</label>
-				</div>
 			</nav>
 		</main>
-		<script>
-			function watchCheckbox() {
-				var expand_chkbox = document.getElementById('expand');
-				expand_chkbox.addEventListener('change', function(e) { expandTopics(expand_chkbox.checked); } );
-				
-				var desc_chkbox = document.getElementById('descriptions');
-				desc_chkbox.addEventListener('change', function(e) { showDescriptions(desc_chkbox.checked); } );
-			}
-			
-			window.addEventListener("load", watchCheckbox, false);
-			
-			function expandTopics(exp) {
-				var details = document.getElementsByTagName('details');
-				for (var i = 0; i < details.length; i++) {
-					if (exp) {
-						details[i].setAttribute('open', true);
-						setCookie('topics','expand');
-					}
-					else {
-						details[i].removeAttribute('open');
-						setCookie('topics','collapse');
-					}
-				}
-			}
-			
-			function showDescriptions(show) {
-				var desc = document.getElementsByClassName('topic_subtitle');
-				for (var i = 0; i < desc.length; i++) {
-					if (show) {
-						desc[i].removeAttribute('hidden');
-						setCookie('descriptions','show');
-					}
-					else {
-						desc[i].setAttribute('hidden', '');
-						setCookie('descriptions','hide');
-					}
-				}
-			}
-			
-			function setCookie(param,value){
-				let date = new Date();
-					date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-				const expires = "expires=" + date.toUTCString();
-				var cookie = param + '=' + value + ';path=/;'+expires;
-				document.cookie = cookie;
-			}
-			
-			function getCookie(cname) {
-				var cstr=RegExp(cname+'=[^;]+').exec(document.cookie);
-				return decodeURIComponent(!!cstr ? cstr.toString().replace(/^[^=]+./, '') : '');
-			}
-			
-			
-			function resetUserPrefs() {
-				var expand_topics = getCookie('topics');
-				
-				if (expand_topics && expand_topics == 'collapse') {
-					document.getElementById('expand').checked = false;
-					expandTopics(false);
-				}
-				
-				var show_descriptions = getCookie('descriptions');
-				
-				if (show_descriptions && show_descriptions == 'hide') {
-					document.getElementById('descriptions').checked = false;
-					showDescriptions(false);
-				}
-			}
-			
-			var init_handler = window.onload;
-			window.onload = function () {
-				init_handler();
-				resetUserPrefs();
-			};
-			
-		</script>
 	</body>
 </html>

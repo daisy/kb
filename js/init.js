@@ -71,19 +71,8 @@ KB.prototype.initializePage = function (type) {
 			this.writeHeadTag('css', '/css/primary-nav.css');
 		}
 		
-		else {
-			this.writeHeadTag('js', '/js/menuspy.min.js');
-		}
-		
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeGoogleAnalytics();
-		
-		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-		
-		if (isIE11 && (this.isIndex || document.getElementsByTagName('details').length > 0)) {
-			this.writeHeadTag('js', 'https://cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js');
-		}
-		
 		this.writeHeadTag('favicon', null, null);
 	}
 	else {
@@ -177,6 +166,10 @@ KB.prototype.writeTemplate = function () {
 		
 		kb.generatePageTitle();
 		
+		if (this.isIndex) {
+			kb.addTopicLinks();
+		}
+		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
 			
 			if (page_info.hasOwnProperty('appliesTo')) {
@@ -211,10 +204,6 @@ KB.prototype.writeTemplate = function () {
 		var cur_href = window.location.href.toString();
 		var href_len = cur_href.length - 1;
 		var last_slash = cur_href.lastIndexOf('/')
-		
-		if (this.isIndex) {
-			kb.addTopicLinks();
-		}
 	}
 	
 	else {
@@ -392,7 +381,7 @@ KB.prototype.generatePageTitle = function () {
 
 KB.prototype.generateMiniToc = function () {
 
-	if (this.isIndex || this.isSearch || this.isHomePage) {
+	if (this.isCategoryIndex || this.isSearch || this.isHomePage) {
 		var class_type = this.isIndex ? 'index' : (this.isSearch ? 'search' : 'home');
 		if (this.isIndex && !this.isRootIndex) {
 			class_type += ' category';
@@ -960,46 +949,44 @@ KB.prototype.addTopicLinks = function() {
 				continue;
 			}
 			
-			var details = document.createElement('details');
-				details.id = topic_list[i].id;
-				details.setAttribute('open', 'open');
+			var section = document.createElement('section');
+				section.id = topic_list[i].id;
 			
-			var summary = document.createElement('summary');
-				summary.innerHTML = topic_list[i].title;
+			var h3 = document.createElement('h3');
+				h3.innerHTML = topic_list[i].title;
 			
-			details.appendChild(summary);
+			section.appendChild(h3);
 			
 			if (topic_list[i].hasOwnProperty('subtitle')) {
-				details.appendChild(createDescription(topic_list[i].subtitle));
+				section.appendChild(createDescription(topic_list[i].subtitle));
 			}
 			
 			if (topic_list[i].hasOwnProperty('categories')) {
 			
 				for (var j = 0; j < topic_list[i].categories.length; j++) {
 					
-					var section = document.createElement('section');
+					var cat_section = document.createElement('section');
+						cat_section.id = topic_list[i].categories[j].id;
 					
-					section.id = topic_list[i].categories[j].id;
+					var h4 = document.createElement('h4');
+						h4.innerHTML = topic_list[i].categories[j].title;
 					
-					var h3 = document.createElement('h3');
-						h3.innerHTML = topic_list[i].categories[j].title;
-					
-					section.appendChild(h3);
+					cat_section.appendChild(h4);
 					
 					if (topic_list[i].categories[j].hasOwnProperty('subtitle')) {
-						section.appendChild(createDescription(topic_list[i].categories[j].subtitle));
+						cat_section.appendChild(createDescription(topic_list[i].categories[j].subtitle));
 					}
 					
-					section.appendChild(this.createLinkList(topic_list[i].categories[j], true))
-					details.appendChild(section);
+					cat_section.appendChild(this.createLinkList(topic_list[i].categories[j], true))
+					section.appendChild(cat_section);
 				}
 			}
 			
 			else {
-				details.appendChild(this.createLinkList(topic_list[i], true));
+				section.appendChild(this.createLinkList(topic_list[i], true));
 			}
 			
-			toc.insertAdjacentElement('beforeEnd', details);
+			toc.insertAdjacentElement('beforeEnd', section);
 		}
 	}
 }
@@ -1212,16 +1199,6 @@ window.onload = function () {
 	kb.writeTemplate();
 	document.documentElement.classList.remove('hidden');
 	
-	var mini_toc = document.getElementById('mini-toc');
-	
-	if (mini_toc) {
-		var ms = new MenuSpy(mini_toc,{
-			activeClass        : 'mini-toc-active',
-			threshold          : -140,
-			enableLocationHash : false
-		});
-	}
-	
 	// ensure target location gets scrolled into view
 	var hash = window.location.hash;
 	
@@ -1245,7 +1222,8 @@ window.onload = function () {
 
 	var menuItems = document.querySelectorAll('li.hasMenu');
 	
-	Array.prototype.forEach.call(menuItems, function(el, i){
+	Array.prototype.forEach.call(menuItems, function(el, i) {
+		var timer = 0;
 		el.addEventListener("mouseover", function(event){
 			this.className = "hasMenu open";
 			clearTimeout(timer);
@@ -1256,6 +1234,25 @@ window.onload = function () {
 			}, 500);
 		});
 	});
+	
+	let callback = (entries, observer) => {
+ 		entries.forEach(entry => {
+			var id = entry.target.getAttribute('id');
+			
+			if (entry.intersectionRatio > 0) {
+				document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.add('active');
+			} else {
+				document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.remove('active');
+			}
+		});
+	};
+
+	var observer = new IntersectionObserver(callback, { rootMargin: '-94px 0px -200px 0px' } );
+
+	document.querySelectorAll('section[id]').forEach((section) => {
+		observer.observe(section);
+	});
+	
 }
 
 

@@ -20,8 +20,6 @@ nav#toc h2 {
 nav#toc > section,
 nav#toc > details {
 	padding: 0 1rem;
-	border: 0.1rem solid rgb(220,220,220);
-	border-radius: 1rem;
 	background-color: rgb(255,253,255);
 }
 
@@ -72,7 +70,7 @@ nav#toc > section > section {
 }
 
 nav#toc h3 {
-	margin: 2rem 0 1rem 3rem;
+	margin: 2rem 0 1rem 0;
 	font-size: 125%;
 	font-weight: normal;
 }
@@ -82,7 +80,9 @@ nav#toc h3::before {
 }
 
 nav#toc h4 {
-	margin: 0 0 0 3rem;
+	margin: 3rem 0 1rem 1rem;
+	font-weight: normal;
+	font-size: 120%;
 }
 
 nav#toc ol {
@@ -91,6 +91,7 @@ nav#toc ol {
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
 	margin: 0;
+	padding-left: 0;
 }
 
 nav#toc li {
@@ -110,6 +111,10 @@ nav#toc a {
 	border: none !important;
 	display: inline-block;
 	width: 30rem;
+}
+
+div.col-wrapper {
+	grid-template-columns: 25% 75%;
 }
 
 
