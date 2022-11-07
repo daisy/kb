@@ -703,7 +703,7 @@ div.note p.label {
 	font-weight: bold;
 	text-indent: 1em;
 	padding: 0.3em;
-	margin: 0;
+	margin: 0 0 0 -0.06rem;
 	background-color: rgb(191,231,254);
 	border-radius: 0.5em 0.5em 0 0;
 }
