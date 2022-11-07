@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Dragging Movements</title>
+		<title>Focus Not Obscured (Minimum)</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Explainer for success criterion 2.5.7 Dragging Movements">
+		<meta name="description" content="Explainer for success criterion 2.4.12 Focus Not Obscured (Minimum)">
 		<script>
 			var page_info = {
 				'category': ['WCAG'],
@@ -29,7 +29,7 @@
 					</tr>
 					<tr>
 						<th>Number:</th>
-						<td>2.5.7</td>
+						<td>2.4.12</td>
 					</tr>
 					<tr>
 						<th>Level:</th>
@@ -39,23 +39,24 @@
 						<th>Applicability:</th>
 						<td class="docs">
 							<ul>
-								<li>Interactive Content</li>
+								<li>Buttons</li>
+								<li>Controls</li>
+								<li>Inputs</li>
 							</ul>
 						</td>
 					</tr>
 					<tr>
 						<th>Requirement:</th>
 						<td class="desc">
-							<p>All functionality that uses a dragging movement for operation can be achieved by a
-								single pointer without dragging, unless dragging is essential.</p>
+							<p>When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.</p>
 						</td>
 					</tr>
 					<tr>
 						<th id="guidance">Guidance:</th>
 						<td class="docs">
 							<ul>
-								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html">Understanding Success Criterion 2.5.7</a></li>
-								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#dragging-movements">How to meet Success Criterion 2.5.7</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">Understanding Success Criterion 2.4.12</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced">How to meet Success Criterion 2.4.12</a></li>
 							</ul>
 						</td>
 					</tr>
@@ -70,8 +71,9 @@
 			<section id="purpose">
 				<h3>Purpose</h3>
 				
-				<p>The purpose of this success criterion is to ensure that users are not required to perform
-					drag-and-drop operations as not all users have the required dexterity to perform these actions.</p>
+				<p>The purpose of this success criterion is to ensure that users of keyboards (and similar input devices)
+					are not confused by not being able to locate focused elements that are hidden by other content in a
+					document.</p>
 				
 				<div class="warning" role="note" aria-labelledby="support-note">
 					<p id="support-note" class="label">Warning</p>
@@ -80,18 +82,23 @@
 						becomes a recommendation.</p>
 				</div>
 			</section>
-			
 			<section id="meeting">
 				<h3>How to Meet</h3>
 				
-				<p>If interactive content makes use of drag-and-drop operations, authors need to provide an
-					alternative method to achieve this operation using a pointer device. For example, allow the
-					user to click an object to activate it and then click buttons to move the object around.</p>
+				<p>Authors need to ensure that focusable elements are not fully obscured by other content in the document.
+					This problem is more common on web pages, where sticky headers and footers (i.e., that stay attached
+					to the top or bottom of the page) can obscure content, or where non-modal dialogs (i.e., pop-ups that
+					do not have to be dismissed to continue reading) overlay the text.</p>
+				
+				<p>This success criterion does not apply when the user moves the content over the focused element (e.g.,
+					in the case of pop-ups that can be dragged around). The requirement only requires that focusable elements
+					not be obscured in the default position of such content.</p>
 			</section>
 			<section id="kb">
 				<h3>Additional Information</h3>
 				
-				<p>The knowledge base does not currently cover the creation of accessible input modalities.
+				<p>The knowledge base does not currently include information on hidden focused content due to poor
+					support for sticky headers and footers, and non-modal dialogs, in publishing formats.
 					Refer to the <a href="#guidance">WCAG guidance documents</a> for additional information.</p>
 			</section>
 		</main>
