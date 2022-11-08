@@ -104,7 +104,7 @@
 				<h3>Purpose</h3>
 				
 				<p>The purpose of this success criterion is to ensure that the keyboard focus indicator solidly bounds
-					or surrounds the active user interface component so that users are able to clearly discern it.</p>
+					or surrounds the active user interface component so that users can clearly discern it.</p>
 				
 				<p>This success criterion is similar to <a href="focus-visible.html">2.4.7</a>, which requires that
 					there be a focus indicator, but sets requirements for the focus indicator itself.</p>
@@ -113,17 +113,21 @@
 			<section id="meeting">
 				<h3>How to Meet</h3>
 				
-				<p>The simplest way to meet this success criterion when implementing a keyboard focus indicator, is to
-					ensure that it fully bounds or encloses the active user interface component and has a 3:1 contrast
-					ratio both with the pixels over which it is drawn and the pixels on either side.</p>
+				<p>A custom keyboard focus indicator is created when an author restyles an element when it receives focus
+					(i.e., is tabbed to). The styling is typically tied to the CSS <code>focus</code> selector.</p>
 				
-				<p>When it is not possible to fully enclose the component, authors need to ensure that the indicator
-					meets the requirements for its length and thickness as expressed in the second requirement.
+				<p>The most direct way to meet this success criterion is to ensure that indicator fully bounds or encloses
+					the active user interface component and has a 3:1 contrast ratio both with the pixels over which it is
+					drawn and the pixels on either side. The indicator must additionally be a solid line (e.g., not dashed
+					or dotted).</p>
+				
+				<p>When it is not possible to fully enclose the component in a solid outline, authors need to ensure that
+					the indicator meets the requirements for its length and thickness as expressed in the second requirement.
 					Refer to the <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">understanding
 						document</a> for more information about how to apply this requirement to different types of
 					indicators.</p>
 				
-				<p>Note that this success criterio does not apply to focus indicators implemented by the user agent.</p>
+				<p>Note that this success criterion does not apply to focus indicators implemented by the user agent.</p>
 			</section>
 			<section id="kb">
 				<h3>Additional Information</h3>
