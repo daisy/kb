@@ -127,6 +127,7 @@
 							in the list and the user's current position as they navigate through, making it simpler for
 							them to reference the location again should they need.</p>
 					</dd>
+					
 					<dt>Why can't I use <code>br</code> tags to create lists?</dt>
 					<dd><p>Print-first tools often generate lists like this (usually from bad formatting), where single
 						paragraphs contain the entire list and each item is delineated by a hard line break (the
@@ -136,10 +137,22 @@
 						<p>Using <code>br</code> tags also makes it difficult to return to a specific item, as there is no
 							way to navigate back to the text at a later time but to listen to the content again in full.</p>
 					</dd>
+					
 					<dt>I want to use a custom image for a bullet, can I ignore this rule?</dt>
 					<dd><p>No, for all the reasons above plus CSS has always allowed custom images to be defined for list
 						items without having to resort to the <code>img</code> element. See the CSS
 						<code>list-style-image</code> property.</p></dd>
+					
+					<dt>Do I need add ARIA role <code>list</code> to list tags?</dt>
+					<dd>
+						<p>If you suppress the bullets or numbering of a list using the CSS <code>list-style</code>
+							or <code>list-style-type</code> properties, VoiceOver on Apple devices will ignore
+							the list semantics.</p>
+						<p>If the table of contents is included in the spine, for example, and the default list numbering
+							suppressed, VoiceOver will not recognize the structure as a list.</p>
+						<p>To force VoiceOver to recognize these lists, it is necessary to add <code>role="list"</code>
+							to the <code>ol</code> or <code>ul</code> tag</p>
+					</dd>
 				</dl>
 			</section>
 			
