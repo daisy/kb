@@ -271,7 +271,7 @@ var topic_list = [
 						'id': 'html-context',
 						'href': 'context.html',
 						'title': 'Context Breaks',
-						'subtitle': 'The <code>br</code> element'
+						'subtitle': 'The <code>hr</code> element'
 					},
 					{
 						'id': 'html-details',
