@@ -148,6 +148,32 @@
 					</figcaption>
 					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24">24&lt;/div></code></pre>
 				</figure>
+				
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">Example 6 &#8212; Page break source identification (<code>source-of</code>)</div>
+						
+						<p>The additional <code>source-of</code> property is used to declare that the <code>dc:source</code>
+							element contains the ISBN of the print source for the pagination. The <code>refines</code> attribute
+							must be present and reference the ID of the <code>dc:source</code> element.</p>
+					</figcaption>
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;dc:source id="src">urn:isbn:9781234567891&lt;/dc:source>
+&lt;meta property="source-of" refines="#src">pagination&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-07">
+					<figcaption>
+						<div class="label">Example 7 &#8212; Page break source identification (<code>pageBreakSource</code>)</div>
+						
+						<p>Unlike having to pair <code>dc:source</code> and <code>source-of</code> properties to identify the
+							pagination source, the <code>pageBreakSource</code> property only requires the identifier for
+							static page source (i.e., it can do in one property what previously required two).</p>
+						
+						<p><strong>Caution:</strong> this property is not yet part of EPUB 3 and causes an error when validating 
+							using epubcheck. See the <a href="#pbs">description below</a> for more information.</p>
+					</figcaption>
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource">urn:isbn:9781234567891&lt;/meta></code></pre>
+				</figure>
 			</section>
 			
 			<section id="faq">
@@ -229,7 +255,7 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>If a reflowable publication is derived from a statically-paginated source, such as a print edition, including
+				<p>If a reflowable publication is derived from a statically paginated source, such as a print edition, including
 					a page list allows users to coordinate positions. For example, a student using a digital edition in a class
 					where her peers are using print books would be able to jump to the same pages during instruction.</p>
 				
@@ -247,15 +273,26 @@
 					linking to the breaks.</p>
 				
 				<p>Identifying the source of the pagination in the publication metadata is also important to help users determine the 
-					usability of the pagination (e.g., will it match the print edition being used in a class). This source is typically
-					identified using a <code>dc:source</code> element.</p>
+					usability of the pagination (e.g., will it match the print edition being used in a class).</p>
 				
-				<div class="note" role="note" aria-labelledby="note-1">
-					<p id="note-1" class="label">Note</p>
-					<p>Some publishers include a page list and/or page break markers in digital publications 
-						without paginated equivalents. In these cases, the identifier of the current publication could be identified
-						as the source to avoid confusion and/or the lack of a source could be noted in an accessibility summary.</p>
-				</div>
+				<p>The current way to identify the pagination source in EPUB is through a combination of <code>dc:source</code> and
+					<code>source-of</code> metadata properties (see <a href="#ex-06">example 6</a>). This approach has two
+					serious flaws, however: one is that it only works for EPUB (refining metadata does not work in other
+					frameworks); the other is that it does not work for digital-only editions (i.e., where the page breaks
+					do not have a source).</p>
+				
+				<p id="pbs">A replacement method that uses only a single property called <code>pageBreakSource</code> is now
+					being incubated (see <a href="#ex-07">example 7</a>). The value of this property will either be the identifier
+					for the statically paginated source (e.g., its ISBN) or the value "none" if the page breaks were created
+					specifically for the digital edition.</p>
+				
+				<p>As this property is not yet formally part of EPUB 3, however, its use may result in errors when validating
+					using a publication using epubcheck. If a clean error report is required, the older approach must still
+					be used. A future release of epubcheck is expected to allow this property, at which time this page will
+					be updated to fully recommend its use.</p>
+				
+				<p>Refer to <a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source Identification</a> for more
+					information about the <code>pageBreakSource</code> property.</p>
 				
 				<section>
 					<h4>EPUB 2</h4>
