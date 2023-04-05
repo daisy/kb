@@ -48,16 +48,18 @@
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
    &lt;tr>
-      &lt;th>Header&lt;/th>
-      &lt;th>Header&lt;/th>
-      &lt;th>Header&lt;/th>
-      &lt;th>Header&lt;/th>
+      &lt;th>Player&lt;/th>
+      &lt;th>Team&lt;/th>
+      &lt;th>Position&lt;/th>
+      &lt;th>Average&lt;/th>
+      &#8230;
    &lt;/tr>
    &lt;tr>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
+      &lt;td>Babe Ruth&lt;/td>
+      &lt;td>New York Yankees&lt;/td>
+      &lt;td>Outfielder&lt;/td>
+      &lt;td>.342&lt;/td>
+      &#8230;
    &lt;/tr>
    &#8230;
 &lt;/table></code></pre>
@@ -70,16 +72,22 @@
 					
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table>
    &lt;tr>
-      &lt;th>Header&lt;/th>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
+      &lt;th>&lt;/th>
+      &lt;th>Population (millions)&lt;/th>
+      &lt;th>Land Area (km2)&lt;/th>
+      &lt;th>Population Density (per km2)&lt;/th>
    &lt;/tr>
    &lt;tr>
-      &lt;th>Header&lt;/th>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
-      &lt;td>Data&lt;/td>
+      &lt;th>Alberta&lt;/th>
+      &lt;td>4.25&lt;/td>
+      &lt;td>640,330&lt;/td>
+      &lt;td>6.7&lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;th>British Columbia&lt;/th>
+      &lt;td>5.00&lt;/td>
+      &lt;td>922,503&lt;/td>
+      &lt;td>5.4&lt;/td>
    &lt;/tr>
    &#8230;
 &lt;/table></code></pre>
@@ -87,12 +95,55 @@
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 &#8212; Table with a caption and summary</div>
+						<div class="label">Example 3 &#8212; Table with a caption and description</div>
+						
+						<p>The first example places the description directly in the <code>caption</code> element, the
+							second uses a <code>details</code> element inside the caption, while the third uses
+							a <code>figure</code> tag to combine the description with the table (the caption is placed
+							in the <code>figcaption</code> element).</p>
 					</figcaption>
 					
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;caption>&lt;/caption>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;caption>
+      Table 1 &#8212; Population trends over the last
+      century. The table is divided into ten-year increments
+      with each decade group of columns providing data for &#8230;
+   &lt;/caption>
+   &#8230;
 &lt;/table></code></pre>
+					
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;caption>
+      &lt;p>Table 1 &#8212; Population trends over the last century&lt;/p>
+      
+      &lt;details>
+         &lt;summary>Description&lt;/summary>
+         &lt;p>
+            The table is divided into ten-year increments
+            with each decade group of columns providing data for
+            &#8230;
+         &lt;/p>
+      &lt;/details>
+   &lt;/caption>
+   &#8230;
+&lt;/table></code></pre>
+					
+					<pre id="ex-03c-src" class="prettyprint linenums"><code>&lt;figure>
+   &lt;figcaption>Table 1 &#8212; Population trends over the last century&lt;/figcaption>
+   
+   &lt;details>
+      &lt;summary>Description&lt;/summary>
+      &lt;p>
+         The table is divided into ten-year increments
+         with each decade group of columns providing data for
+         &#8230;
+      &lt;/p>
+   &lt;/details>
+   
+   &lt;table>
+      &#8230;
+   &lt;/table>
+&lt;/figure></code></pre>
 				</figure>
 				
 				<figure id="ex-04">

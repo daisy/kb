@@ -47,9 +47,91 @@
 				<h3>Examples</h3>
 				
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Sectioned Table</span></figcaption>
+					<figcaption><span class="label">Example 1 &#8212; Headers at end of row</span></figcaption>
 					
-					<p>This example shows how <a href="tables-scope.html#ex-02">Example 2 from the Headings Scope
+					<p>The following table shows a distance chart with the start destinations defined in the first row
+						and  at the end destination at the end of each subsequent row.</p>
+					
+					<p>In this case, because the header is at the end of the row setting a scope of "<code>row</code>"
+						does not apply it back to the cells already encountered. The <code>headers</code> attribute
+						must be applied to each cell.</p>
+					
+					<p>Note that a table such as this would be better reconfigured so that the headings are at the
+						beginning of the row so that no additional markup would be needed.</p>
+					
+					<table>
+						<tr>
+							<th id="van">Vancouver</th>
+							<th id="cal">Calgary</th>
+							<th id="sask">Saskatoon</th>
+							<th id="win">Winnipeg</th>
+							<th id="tor">Toronto</th>
+							<th id="mon">Montreal</th>
+							<th id="stj">St. John's</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td headers="van stj-dest">7323</td>
+							<td headers="cal stj-dest">6334</td>
+							<td headers="sask stj-dest">5838</td>
+							<td headers="win stj-dest">5010</td>
+							<td headers="tor stj-dest">3141</td>
+							<td headers="mon stj-dest">2602</td>
+							<td headers="stj stj-dest">0</td>
+							<th id="stj-dest">St. John's</th>
+						</tr>
+						<tr>
+							<td headers="van mon-dest">4271</td>
+							<td headers="cal mon-dest">3743</td>
+							<td headers="sask mon-dest">3232</td>
+							<td headers="win mon-dest">2408</td>
+							<td headers="tor mon-dest">539</td>
+							<td headers="mon mon-dest">0</td>
+							<td headers="stj mon-dest">2602</td>
+							<th id="mon-dest">Montreal</th>
+						</tr>
+					</table>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;th id="van">Vancouver&lt;/th>
+      &lt;th id="cal">Calgary&lt;/th>
+      &lt;th id="sask">Saskatoon&lt;/th>
+      &lt;th id="win">Winnipeg&lt;/th>
+      &lt;th id="tor">Toronto&lt;/th>
+      &lt;th id="mon">Montreal&lt;/th>
+      &lt;th id="stj">St. John's&lt;/th>
+      &lt;th>&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td headers="van stj-dest">7323&lt;/td>
+      &lt;td headers="cal stj-dest">6334&lt;/td>
+      &lt;td headers="sask stj-dest">5838&lt;/td>
+      &lt;td headers="win stj-dest">5010&lt;/td>
+      &lt;td headers="tor stj-dest">3141&lt;/td>
+      &lt;td headers="mon stj-dest">2602&lt;/td>
+      &lt;td headers="stj stj-dest">0&lt;/td>
+      &lt;th id="stj-dest">St. John's&lt;/th>
+   &lt;/tr>
+   
+   &lt;tr>
+      &lt;td headers="van mon-dest">4271&lt;/td>
+      &lt;td headers="cal mon-dest">3743&lt;/td>
+      &lt;td headers="sask mon-dest">3232&lt;/td>
+      &lt;td headers="win mon-dest">2408&lt;/td>
+      &lt;td headers="tor mon-dest">539&lt;/td>
+      &lt;td headers="mon mon-dest">0&lt;/td>
+      &lt;td headers="stj mon-dest">2602&lt;/td>
+      &lt;th id="mon-dest">Montreal&lt;/th>
+   &lt;/tr>
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption><span class="label">Example 2 &#8212; Sectioned Table</span></figcaption>
+					
+					<p>This example shows how <a href="tables-scope.html#ex-01">Example 1 from the Headings Scope
 						page</a> could be marked up using the <code>headers</code> attribute to associate the correct
 						column, row and section headers.</p>
 					
@@ -148,7 +230,7 @@
 					how the headers are announced to the user, so care must be taken to ensure logical playback.</p>
 				
 				<p>The ordering of the headers does not have to exactly match the markup if another ordering makes more
-					sense (see <a href="ex-01">Example 1</a>).</p>
+					sense (see <a href="ex-02">Example 2</a>).</p>
 				
 				<p>Using the <code>headers</code> should be considered a last resort when tables absolutely cannot
 					be restructured to be made simpler. The attribute is not well supported in assistive technologies,

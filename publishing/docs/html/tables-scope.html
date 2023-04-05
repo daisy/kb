@@ -46,84 +46,7 @@
 				<h3>Examples</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Example 1 &#8212; Headers at end of row</span></figcaption>
-					
-					<p>The following table shows a distance chart with the start destinations defined in the first row and 
-						at the end destination at the end of each subsequent row.</p>
-					
-					<p>The scope "<code>row</code>" is added to the row headers to ensure they are correctly associated
-						with all the cells that precede them.</p>
-					
-					<table>
-						<tr>
-							<th>Vancouver</th>
-							<th>Calgary</th>
-							<th>Saskatoon</th>
-							<th>Winnipeg</th>
-							<th>Toronto</th>
-							<th>Montreal</th>
-							<th>St. John's</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>7323</td>
-							<td>6334</td>
-							<td>5838</td>
-							<td>5010</td>
-							<td>3141</td>
-							<td>2602</td>
-							<td></td>
-							<th scope="row">St. John's</th>
-						</tr>
-						<tr>
-							<td>4271</td>
-							<td>3743</td>
-							<td>3232</td>
-							<td>2408</td>
-							<td>539</td>
-							<td></td>
-							<td>2602</td>
-							<th scope="row">Montreal</th>
-						</tr>
-					</table>
-					
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
-   &lt;tr>
-     &lt;th>Vancouver&lt;/th>
-     &lt;th>Calgary&lt;/th>
-     &lt;th>Saskatoon&lt;/th>
-     &lt;th>Winnipeg&lt;/th>
-     &lt;th>Toronto&lt;/th>
-     &lt;th>Montreal&lt;/th>
-     &lt;th>St. John's&lt;/th>
-     &lt;td>&lt;/td>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td>7323&lt;/td>
-     &lt;td>6334&lt;/td>
-     &lt;td>5838&lt;/td>
-     &lt;td>5010&lt;/td>
-     &lt;td>3141&lt;/td>
-     &lt;td>2602&lt;/td>
-     &lt;td>&lt;/td>
-     &lt;th scope="row">St. John's&lt;/th>
-   &lt;/tr>
-   &lt;tr>
-     &lt;td>4271&lt;/td>
-     &lt;td>3743&lt;/td>
-     &lt;td>3232&lt;/td>
-     &lt;td>2408&lt;/td>
-     &lt;td>539&lt;/td>
-     &lt;td>&lt;/td>
-     &lt;td>2602&lt;/td>
-     &lt;th scope="row">Montreal&lt;/th>
-   &lt;/tr>
-   &#8230;
-&lt;/table></code></pre>
-				</figure>
-				
-				<figure id="ex-02">
-					<figcaption><span class="label">Example 2 &#8212; Sectioned Table</span></figcaption>
+					<figcaption><span class="label">Example 1 &#8212; Sectioned Table</span></figcaption>
 					
 					<p>In this example, the table shows population change over time. It is split into sections
 						for each fictional region, so the scope "<code>rowgroup</code>" is applied to each
@@ -249,19 +172,15 @@
 				<p>Although it is not necessary to specify a scope for simple tables where the first row(s) or column(s)
 					contain the header cells, it is best to specify the scope whenever there is an ambiguity.</p>
 				
-				<p>If the header for a row is not in the first column, for example, it may not be recognized as applying
-					to some or all of the cells. In this case, specifying <code>scope="row"</code> will make the association
-					explicit for all the cells (see <a href="#ex-01">Example 1</a>).</p>
-				
-				<p>Similarly, if a table is divided into sections, the header rows for each section might be read
-					out for each cell if a row group is not properly defined (see <a href="#ex-02">Example 2</a>.</p>
+				<p>If a table is divided into sections, for example, the header rows for each section might be read
+					out for each cell if a row group is not properly defined (see <a href="#ex-01">Example 1</a>.</p>
 				
 				<p>If you do not declare a scope information where these ambiguities exist, assistive technologies
 					will make a best guess at how to apply the headers, which can lead to incorrect interpretations.</p>
 				
 				<div class="note" role="note" aria-labelledby="group-note">
 					<p id="group-note" class="label">Note</p>
-					<p>Some guidance states that <code>col</code> and <code>row</code> scopes cannot be used with when 
+					<p>Some guidance states that <code>col</code> and <code>row</code> scopes cannot be used when 
 						<code>colspan</code> and <code>rowspan</code> attributes are declared; that you must define
 						<code>colgroup</code> and <code>rowgroup</code> scopes with the applicable structuring requirements.
 						This advice is incorrect.</p>
