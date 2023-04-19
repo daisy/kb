@@ -172,8 +172,8 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 							not rendering as expected).</p>
 						
 						<p>Errors typically need to be corrected to ensure the usability of the publication, but some
-							format-specific errors do not affect the accessibility (see the section on <a
-								href="wcag-req">understanding errors in relation to WCAG</a>).</p>
+							format-specific errors do not affect the accessibility (see the note on <a
+								href="#wcag-req">understanding errors in relation to WCAG</a>).</p>
 					</dd>
 					
 					<dt>Warning</dt>
@@ -219,20 +219,27 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 						enforce strict validity &#8212; not all errors are critical to the accessible reading of
 						content.</p>
 					
-					<p>WCAG only requires the following basic paring requirements for web content:</p>
+					<p>WCAG only requires invalid content be fixed where the errors or warnings are from problems that
+						will cause accessibility issues. Some examples include:</p>
 					
 					<ul>
-						<li>elements have complete start and end tags;</li>
-						<li>elements are nested according to their specifications;</li>
-						<li>elements do not contain duplicate attributes; and</li>
-						<li>any IDs are unique.</li>
+						<li>duplicate IDs that break ARIA attribute references (e.g., in custom controls or description
+							links);</li>
+						<li>duplicate IDs that break control labels or table headings;</li>
+						<li>more than one <code>role</code> attribute specified on an element.</li>
 					</ul>
 					
-					<p>As a result, some errors that epubcheck might report may not have to be fixed in order to
-						conform WCAG. Bad attribute values in HTML, for example, are not necessarily violations of WCAG
-						(unless they violate other success criteria), but nesting <code>p</code> tags directly inside a
-						list or table is.</p>
-				</div>
+					<p>In the past, <a href="https://www.w3.org/TR/WCAG2/#parsing">success criterion 4.1.1</a> was used
+						as a catch-all for HTML parsing errors (i.e., well-formedness errors) that could affect the
+						ability of assistive technologies to process a document. As modern HTML parsing now
+						standardizes the method for handling these well-formedness errors, 4.1.1 always passes
+						conformance evaluations. Parsing errors that affect the accessibility of publications, such as
+						those described above, are covered by other success criteria and should be reported under their
+						more applicable success criterion.</p>
+					
+					<p>For more information, refer to the <a href="../../wcag/parsing.html">explainer for success
+						criterion 4.1.1</a>.</p>
+				</div> 
 			</section>
 			
 			<section id="arg">
