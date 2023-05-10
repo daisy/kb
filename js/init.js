@@ -136,17 +136,18 @@ KB.prototype.writeHeadTag = function (type, path, options) {
 
 KB.prototype.writeGoogleAnalytics = function () {
 
-	this.writeHeadTag('js', 'https://www.googletagmanager.com/gtag/js?id=UA-327448-3', {async: 'async'});
+	this.writeHeadTag('js', 'https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R', {async: 'async'});
 	
 	var ga = document.createElement('script');
 		ga.appendChild(document.createTextNode("\
 			window.dataLayer = window.dataLayer || [];\
 			function gtag(){dataLayer.push(arguments);}\
 			gtag('js', new Date());\
-			gtag('config', 'UA-327448-3');\
+			gtag('config', 'G-FKBYKZH39R');\
 		"));
 	
 	this.page_hd.appendChild(ga);
+
 }
 
 
