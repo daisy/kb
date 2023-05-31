@@ -259,7 +259,7 @@ KB.prototype.generateHeader = function () {
 	
 	var search_script = document.createElement('script');
 		search_script.setAttribute('async', '');
-		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto');
+		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=26859456d1c9349ab');
 	
 	search_div.appendChild(search_script);
 	
