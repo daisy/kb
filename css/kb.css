@@ -988,6 +988,10 @@ input.copy:hover {
 
 /* google search override */
 
+main.search h2.noCategory {
+	margin-left: 0;
+}
+
 #search {
 	float: right;
 	margin-top: -5.1rem;
