@@ -995,11 +995,14 @@ input.copy:hover {
 	max-width: 40rem;
 }
 
+#search table,
 #search-results table,
+#search td,
 #search-results td {
 	border: none;
 }
 
+#search div,
 #search-results div {
 	background-color: rgb(251,252,253);
 }
