@@ -20,26 +20,8 @@
 	</head>
 	<body>
 		<main>
-			<div id="search" role="search" aria-label="Search">
-				<script async src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
-				<div class="gcse-search"></div>
-			</div>
+			<script async src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+			<div class="gcse-searchresults-only"></div>
 		</main>
-		<script>
-			function sleep(ms) {
-				return new Promise(resolve => setTimeout(resolve, ms));
-			}
-			async function focus() {
-				var inputs = document.getElementsByTagName('input');
-				var timeout = 0;
-				while (timeout < 30 && (!inputs || inputs.length == 0)) {
-					await sleep(100);
-					inputs = document.getElementsByTagName('input');
-					timeout += 1;
-				}
-				setTimeout(function(){inputs[0].focus();},100);
-			}
-			window.addEventListener('load', focus, false);
-		</script>
 	</body>
 </html>

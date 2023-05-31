@@ -158,6 +158,7 @@ KB.prototype.writeGoogleAnalytics = function () {
 KB.prototype.writeTemplate = function () {
 
 	if (this.host == 'kb') {
+	
 		kb.generateHeader();
 		
 		// don't regenerate the body for the search page or the results won't get returned to the div (google can't handle nesting)
@@ -251,13 +252,29 @@ KB.prototype.generateHeader = function () {
 	
 	header.appendChild(h1);
 	
+	var search_div = document.createElement('div');
+		search_div.setAttribute('id','search');
+		search_div.setAttribute('role','search');
+		search_div.setAttribute('aria-label','search');
+	
+	var search_script = document.createElement('script');
+		search_script.setAttribute('async', '');
+		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto');
+	
+	search_div.appendChild(search_script);
+	
+	var search_box = document.createElement('div');
+		search_box.setAttribute('class', 'gcse-searchbox-only');
+	
+	search_div.appendChild(search_box);
+	header.appendChild(search_div);
+	
 	var top_links = document.createElement('div');
 		top_links.setAttribute('class','toplinks');
 	
 	top_links.innerHTML = '<ul class="menu"><li><a href="' + this.kb_root + '">' + msg.UI.m01 + '</a></li>' +
 		'<li class="hasMenu"><a href="' + this.kb_root + 'topics.html' + '">' + msg.header.m04 + '</a><ul><li><a href="' + this.kb_root + 'conformance">Conformance</a></li><li><a href="' + this.kb_root + 'epub">EPUB</a></li><li><a href="' + this.kb_root + 'navigation">Navigation</a></li><li><a href="' + this.kb_root + 'metadata">Metadata</a></li><li><a href="' + this.kb_root + 'html">HTML</a></li><li><a href="' + this.kb_root + 'css">CSS</a></li><li><a href="' + this.kb_root + 'script">Scripting</a></li><li><a href="' + this.kb_root + 'fxl">Fixed Layouts</a></li><li><a href="' + this.kb_root + 'sync-media">Sync Media</a></li><li><a href="' + this.kb_root + 'text-to-speech">Text-to-Speech</a></li></ul></li>' +
-		'<li><a href="' + this.kb_root + 'glossary/index.html' + '">' + msg.header.m02 + '</a></li>' +
-		'<li><a href="' + this.kb_root + '/search/index.html' + '">' + msg.header.m03 + '</a></li>';
+		'<li><a href="' + this.kb_root + 'glossary/index.html' + '">' + msg.header.m02 + '</a></li>';
 	
 	header.appendChild(top_links);
 	
@@ -1236,24 +1253,28 @@ window.onload = function () {
 		});
 	});
 	
-	let callback = (entries, observer) => {
- 		entries.forEach(entry => {
-			var id = entry.target.getAttribute('id');
-			
-			if (entry.intersectionRatio > 0) {
-				document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.add('active');
-			} else {
-				document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.remove('active');
-			}
-		});
-	};
-
-	var observer = new IntersectionObserver(callback, { rootMargin: '-94px 0px -200px 0px' } );
-
-	document.querySelectorAll('section[id]').forEach((section) => {
-		observer.observe(section);
-	});
+	var mini_toc = document.querySelector('nav.mini-toc');
 	
+	if (mini_toc) {
+	
+		let callback = (entries, observer) => {
+	 		entries.forEach(entry => {
+				var id = entry.target.getAttribute('id');
+				
+				if (entry.intersectionRatio > 0) {
+					document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.add('active');
+				} else {
+					document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.remove('active');
+				}
+			});
+		};
+	
+		var observer = new IntersectionObserver(callback, { rootMargin: '-94px 0px -200px 0px' } );
+	
+		document.querySelectorAll('section[id]').forEach((section) => {
+			observer.observe(section);
+		});
+	}
 }
 
 

@@ -988,6 +988,13 @@ input.copy:hover {
 
 /* google search override */
 
+#search {
+	float: right;
+	margin-top: -5.1rem;
+	margin-right: 2rem;
+	max-width: 40rem;
+}
+
 #search table,
 #search td {
 	border: none;
