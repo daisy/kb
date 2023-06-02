@@ -186,10 +186,13 @@ KB.prototype.writeTemplate = function () {
 		
 		}
 		
-		kb.generateCategoryList();
 		
 		if (this.isSearch) {
 			kb.formatSearchPage();
+		}
+		
+		else {
+			kb.generateCategoryList();
 		}
 		
 		kb.generateFooter();
