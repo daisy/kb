@@ -1022,6 +1022,12 @@ main.search h2.noCategory {
 	background-color: rgb(251,252,253);
 }
 
+td.gssb_a {
+	border: none;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+}
+
 /* back to top links */
 
 p.backtotop {
