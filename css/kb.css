@@ -1002,6 +1002,7 @@ main.search h2.noCategory {
 	margin-top: -5.1rem;
 	margin-right: 2rem;
 	max-width: 40rem;
+	min-width: 30rem;
 }
 
 #search table,
