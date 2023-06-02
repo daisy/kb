@@ -1011,6 +1011,11 @@ main.search h2.noCategory {
 	border: none;
 }
 
+#search table,
+#search td {
+	background-color: rgb(255,255,255);
+}
+
 #search div,
 #search-results div {
 	background-color: rgb(251,252,253);
