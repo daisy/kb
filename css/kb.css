@@ -329,7 +329,7 @@ div#nav-col,
 div#categories {
 	width: 100%;
 	border-right: 0.1rem dotted black;
-	height: 88vh;
+	height: 89vh;
 	flex-direction: column;
 	background-color: rgb(250,250,250);
 	position: -webkit-sticky;
