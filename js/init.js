@@ -183,11 +183,10 @@ KB.prototype.writeTemplate = function () {
 			if (page_info.hasOwnProperty('related')) {
 				kb.generateRelatedTopics();
 			}
+		
 		}
 		
-		if (page_info.hasOwnProperty('nav') && !page_info.nav) {
-			kb.formatOpenPage();
-		}
+		kb.generateCategoryList();
 		
 		if (this.isSearch) {
 			kb.formatSearchPage();
@@ -223,7 +222,7 @@ KB.prototype.generateHeader = function () {
 	var skip_a = document.createElement('a');
 		skip_a.setAttribute('href', '#main');
 		skip_a.setAttribute('id','skip-main');
-		skip_a.appendChild(document.createTextNode(msg.header.m05));
+		skip_a.appendChild(document.createTextNode(msg.header.skip));
 	
 	header.appendChild(skip_a);
 	
@@ -231,24 +230,22 @@ KB.prototype.generateHeader = function () {
 	
 	var h1 = document.createElement('h1');
 	
+	var h1_a = document.createElement('a');
+		h1_a.setAttribute('href', this.kb_root);
+		h1_a.setAttribute('class', 'home-link');
+		
 	// add the daisy logo
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
 		logo.setAttribute('src','/graphics/daisy_logo.png');
-		logo.setAttribute('alt','DAISY')
-
-	var a = document.createElement('a');
-		a.setAttribute('href','https://daisy.org');
-		a.appendChild(logo);
-
-	h1.appendChild(a);
+		logo.setAttribute('alt','DAISY');
 	
-	h1.appendChild(document.createTextNode(' '));
+	h1_a.appendChild(logo);
 	
-	var h1_span = document.createElement('span');
-		h1_span.appendChild(document.createTextNode(msg.kb_name[this.kb_id]))
+	// add kb name
+	h1_a.appendChild(document.createTextNode(' ' + msg.kb_name[this.kb_id]));
 	
-	h1.appendChild(h1_span);
+	h1.appendChild(h1_a);
 	
 	header.appendChild(h1);
 	
@@ -269,15 +266,6 @@ KB.prototype.generateHeader = function () {
 	search_div.appendChild(search_box);
 	header.appendChild(search_div);
 	
-	var top_links = document.createElement('div');
-		top_links.setAttribute('class','toplinks');
-	
-	top_links.innerHTML = '<ul class="menu"><li><a href="' + this.kb_root + '">' + msg.UI.m01 + '</a></li>' +
-		'<li class="hasMenu"><a href="' + this.kb_root + 'topics.html' + '">' + msg.header.m04 + '</a><ul><li><a href="' + this.kb_root + 'conformance">Conformance</a></li><li><a href="' + this.kb_root + 'epub">EPUB</a></li><li><a href="' + this.kb_root + 'navigation">Navigation</a></li><li><a href="' + this.kb_root + 'metadata">Metadata</a></li><li><a href="' + this.kb_root + 'html">HTML</a></li><li><a href="' + this.kb_root + 'css">CSS</a></li><li><a href="' + this.kb_root + 'script">Scripting</a></li><li><a href="' + this.kb_root + 'fxl">Fixed Layouts</a></li><li><a href="' + this.kb_root + 'sync-media">Sync Media</a></li><li><a href="' + this.kb_root + 'text-to-speech">Text-to-Speech</a></li></ul></li>' +
-		'<li><a href="' + this.kb_root + 'glossary/index.html' + '">' + msg.header.m02 + '</a></li>';
-	
-	header.appendChild(top_links);
-	
 	document.body.insertAdjacentElement('afterBegin',header);
 }
 
@@ -290,16 +278,32 @@ KB.prototype.generateBody = function () {
 	var new_main = document.createElement('main');
 		new_main.id = 'main';
 	
+	var is2Col = ((page_info.hasOwnProperty('nav') && !page_info.nav) || page_info.isIndex) ? true : false;
+	
+	// create the flex layout container
+	var flex_div = document.createElement('div');
+		flex_div.setAttribute('id', 'col-wrapper');
+	
+	if (is2Col) {
+		flex_div.setAttribute('class','two-col');
+	}
+	
+	new_main.appendChild(flex_div);
+	
 	// create new body div for the page content
 	var new_body = document.createElement('div');
 		new_body.setAttribute('id', 'body');
-		
+
+	if (is2Col) {
+		new_body.setAttribute('class','two-col');
+	}
+	
 	// copy the old main inside
 	var old_main = document.getElementsByTagName('main')[0];
 		new_body.innerHTML = old_main.innerHTML;
 	
 	// add the new main element and delete the old
-	new_main.appendChild(new_body);
+	flex_div.appendChild(new_body);
 	
 	document.getElementsByTagName('header')[0].insertAdjacentElement('afterEnd', new_main);
 	
@@ -337,59 +341,6 @@ KB.prototype.generatePageTitle = function () {
 		// append the kb name to the page title
 		document.title = this.title + ' - ' + msg.kb_name[this.kb_id];
 	}
-	
-	// skip adding the category for indexes and other uncategorized pages
-	if (this.isIndex || this.noCategory) {
-		if (!this.isRootIndex && !this.noTitle) {
-			var h2 = document.getElementsByTagName('h2')[0];
-				h2.setAttribute('class', 'noCategory');
-		}
-		return;
-	}
-	
-	// add the category marker
-	if (page_info.hasOwnProperty('category')) {
-		if (!Array.isArray(page_info.category)) {
-			page_info.category = [page_info.category];
-		}
-	}
-	else {
-		page_info.category = [];
-	}
-
-	
-	var div = document.createElement('div');
-		div.setAttribute('class', 'category');
-		div.appendChild(document.createTextNode(msg.UI.m04))
-	
-	if (page_info.category.length > 0) {
-	
-		for (var x = 0; x < page_info['category'].length; x++) {
-		
-			var index_url = '';
-			
-			// if more than one category, need to add ../ to reach the right page
-			if (page_info.category.length > 1) {
-				for (var y = page_info.category.length-1; y > x; y--) {
-					index_url += '../';
-				}
-			}
-			
-			index_url += 'index.html'
-			
-			if (x > 0) {
-				div.appendChild(document.createTextNode(' - '));
-			}
-			
-			var index = document.createElement('a');
-				index.setAttribute('href',index_url);
-				index.appendChild(document.createTextNode(page_info.category[x]))
-			
-			div.appendChild(index);
-		}
-	}
-	
-	document.getElementById('page-title').insertAdjacentElement('afterBegin', div);
 }
 
 
@@ -408,9 +359,6 @@ KB.prototype.generateMiniToc = function () {
 		return;
 	}
 	
-	var flex_div = document.createElement('div');
-		flex_div.setAttribute('class', 'col-wrapper');
-	
 	var navcol = document.createElement('div');
 		navcol.setAttribute('id', 'nav-col');
 	
@@ -420,12 +368,14 @@ KB.prototype.generateMiniToc = function () {
 	var nav = document.createElement('nav');
 		nav.setAttribute('role', 'doc-toc');
 		nav.setAttribute('class', 'mini-toc');
+		nav.setAttribute('aria-labelledby', 'page-toc-hd');
 	
 	if (h.length > 0) {
 	
 		/* add section heading */
 		var h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode(msg.UI.m02));
+			h3.setAttribute('id', 'page-toc-hd');
+			h3.appendChild(document.createTextNode(msg.UI.onpage));
 		
 		nav.appendChild(h3);
 		
@@ -483,10 +433,9 @@ KB.prototype.generateMiniToc = function () {
 	}
 	
 	navcol.appendChild(nav);
-	flex_div.appendChild(navcol);
-	flex_div.appendChild(document.getElementById('body'));
 	
-	document.getElementsByTagName('main')[0].insertAdjacentElement('afterBegin', flex_div);
+	document.getElementById('col-wrapper').insertAdjacentElement('afterBegin', navcol);
+
 }
 
 
@@ -547,7 +496,7 @@ KB.prototype.generateAppliesTo = function () {
 	
 	/* add section heading */
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode(msg.UI.m03));
+		h3.appendChild(document.createTextNode(msg.UI.applies));
 	
 	section.appendChild(h3);
 	
@@ -612,7 +561,7 @@ KB.prototype.generateAppliesTo = function () {
 				note.setAttribute('class','small');
 				note.setAttribute('role', 'doc-footnote');
 			
-			note.appendChild(document.createTextNode(msg.appliesto.m01));
+			note.appendChild(document.createTextNode(msg.appliesto.audiobooks));
 			notes = note;
 		}
 		
@@ -647,6 +596,145 @@ KB.prototype.generateAppliesTo = function () {
 }
 
 
+KB.prototype.generateCategoryList = function () {
+	
+	var cat_div = document.createElement('div');
+		cat_div.setAttribute('id', 'categories');
+	
+	var cat_nav = document.createElement('nav');
+		cat_nav.setAttribute('role', 'doc-toc');
+		cat_nav.setAttribute('class', 'mini-toc');
+		cat_nav.setAttribute('aria-labelledby', 'cat-hd');
+	
+	var cat_hd = document.createElement('h3');
+		cat_hd.appendChild(document.createTextNode('Categories'));
+		cat_hd.setAttribute('id', 'cat-hd');
+	
+	cat_nav.appendChild(cat_hd);
+	
+	var categories = [
+		{
+			name: msg.category.conf,
+			id: 'conf',
+			href: 'conformance'
+		},
+		{
+			name: msg.category.css,
+			id: 'css',
+			href: 'css'
+		},
+		{
+			name: msg.category.epub,
+			id: 'epub',
+			href: 'epub'
+		},
+		{
+			name: msg.category.fxl,
+			id: 'fxl',
+			href: 'fxl'
+		},
+		{
+			name: msg.category.html,
+			id: 'html',
+			href: 'html'
+		},
+		{
+			name: msg.category.meta,
+			id: 'meta',
+			href: 'metadata'
+		},
+		{
+			name: msg.category.nav,
+			id: 'nav',
+			href: 'navigation'
+		},
+		{
+			name: msg.category.script,
+			id: 'script',
+			href: 'script',
+			cat: 'Scripted Content and Forms'
+		},
+		{
+			name: msg.category.sync,
+			id: 'sync',
+			href: 'sync-media',
+			cat: 'Synchronized Multimedia'
+		},
+		{
+			name: msg.category.tts,
+			id: 'tts',
+			href: 'text-to-speech'
+		}
+	];
+	
+	// make sure categories are in an array
+	
+	if (page_info.hasOwnProperty('category')) {
+		if (!Array.isArray(page_info.category)) {
+			page_info.category = [page_info.category];
+		}
+	}
+	else {
+		page_info.category = [];
+	}
+
+	
+	var cat_list = '<ol role="list">';
+	
+	for (var i = 0; i < categories.length; i++) {
+	
+		cat_list += '<li id="' + categories[i].id + '-link"';
+		
+		var isActiveCategory = (page_info.category.includes(categories[i].name) || page_info.category.includes(categories[i].cat)) ? true : false;
+		
+		// highlight if the active category
+		
+		if (isActiveCategory) {
+			cat_list += ' class="active-cat" aria-current="location"';
+		}
+		
+		cat_list += '><a href="' + this.kb_root + categories[i].href + '">' + categories[i].name + '</a>'; 
+		
+		// add a sub-category entry if an array of more than one category
+		
+		if (isActiveCategory && page_info.category.length > 0) {
+			
+			cat_list += '<ol>';
+			
+			// skip the top-level category
+			for (var x = 1; x < page_info['category'].length; x++) {
+			
+				var index_url = '';
+				
+				// if more than one category, need to add ../ to reach the right page
+				if (page_info.category.length > 1) {
+					for (var y = page_info.category.length-1; y > x; y--) {
+						index_url += '../';
+					}
+				}
+				
+				index_url += 'index.html'
+				
+				cat_list += '<li><a href="' + index_url + '">' + page_info.category[x] + '</a></li>';
+			}
+			
+			cat_list += '</ol>';
+		}
+		
+		// close the list item
+		cat_list += '</li>';
+	}
+	
+	cat_list += '</ol>';
+	
+	cat_nav.innerHTML += cat_list;
+	
+	cat_div.appendChild(cat_nav);
+	
+	document.getElementById('col-wrapper').appendChild(cat_div);
+}
+
+
 /* create the default footer for the pages */
 
 KB.prototype.generateFooter = function () {
@@ -663,7 +751,7 @@ KB.prototype.generateFooter = function () {
 		
 		var toplink = document.createElement('a');
 			toplink.setAttribute('href','#');
-			toplink.appendChild(document.createTextNode(msg.footer.m08));
+			toplink.appendChild(document.createTextNode(msg.footer.top));
 		
 		top.appendChild(toplink);
 	
@@ -678,104 +766,90 @@ KB.prototype.generateFooter = function () {
 	var linklists = document.createElement('div');
 		linklists.setAttribute('class','footer-lists');
 	
-	// add how-to links
+	// add the site links
 	
-	var help = document.createElement('div');
-		help.setAttribute('class','footer-list');
+	var site = document.createElement('div');
+		site.setAttribute('class','footer-list');
 	
-	var helphd = document.createElement('div');
-		helphd.appendChild(document.createTextNode(msg.footer.m09));
-	help.appendChild(helphd);
+	var sitehd = document.createElement('div');
+		sitehd.appendChild(document.createTextNode(msg.footer.site));
+	site.appendChild(sitehd);
 	
-	var helplist = document.createElement('ul')
+	var sitelist = document.createElement('ul')
 	
-	/* error reporting link */
+	var site_links = [
+		{
+			/* all topics */
+			name: msg.footer.topics,
+			href: 'topics.html'
+		},
+		{
+			/* glossary */
+			name: msg.footer.gloss,
+			href: 'glossary'
+		},
+		{
+			/* what's new */
+			name: msg.footer.whatnew,
+			href: 'new'
+		},
+		{
+			/* about */
+			name: msg.footer.about,
+			href: 'about.html'
+		}
+	];
 	
-	var bugitem = document.createElement('li');
-	var buglink = document.createElement('a');
-		buglink.setAttribute('href', this.kb_root + 'reporting/#bugs');
-		buglink.appendChild(document.createTextNode(msg.footer.m05));
+	for (var i = 0; i < site_links.length; i++) {
+		sitelist.appendChild(this.createFooterLink(site_links[i]));
+	}
 	
-	bugitem.appendChild(buglink);
-	helplist.appendChild(bugitem);
+	site.appendChild(sitelist);
+	linklists.appendChild(site);
 	
-	/* new topic link */
+	// add feedback links
 	
-	var topicitem = document.createElement('li');
-	var newlink = document.createElement('a');
-		newlink.setAttribute('href', this.kb_root + 'reporting/#new');
-		newlink.appendChild(document.createTextNode(msg.footer.m06));
+	var feedback = document.createElement('div');
+		feedback.setAttribute('class','footer-list');
 	
-	topicitem.appendChild(newlink);
-	helplist.appendChild(topicitem);
+	var feedbackhd = document.createElement('div');
+		feedbackhd.appendChild(document.createTextNode(msg.footer.feedback));
+	feedback.appendChild(feedbackhd);
 	
-	/* contribute link */
-	
-	var contribitem = document.createElement('li');
-	var contriblink = document.createElement('a');
-		contriblink.setAttribute('href', this.kb_root + 'contribute');
-		contriblink.appendChild(document.createTextNode(msg.footer.m14));
-	
-	contribitem.appendChild(contriblink);
-	helplist.appendChild(contribitem);
-	
-	help.appendChild(helplist);
-	
-	linklists.appendChild(help);
-	
-	// add the github links
-	
-	var github = document.createElement('div');
-		github.setAttribute('class','footer-list');
-	
-	var githd = document.createElement('div');
-		githd.appendChild(document.createTextNode(msg.footer.m10));
-	github.appendChild(githd);
-	
-	var gitlist = document.createElement('ul')
-	
-	/* what's new link */
-	
-	var newitem = document.createElement('li');
-	
-	var newlink = document.createElement('a');
-		newlink.setAttribute('href',this.kb_root + 'new');
-		newlink.appendChild(document.createTextNode(msg.header.m01));
-	
-	newitem.appendChild(newlink);
-	gitlist.appendChild(newitem);
-	
-	/* about link */
-	
-	var aboutitem = document.createElement('li');
-	
-	var aboutlink = document.createElement('a');
-		aboutlink.setAttribute('href',this.kb_root + 'about.html');
-		aboutlink.appendChild(document.createTextNode(msg.footer.m15));
-	
-	aboutitem.appendChild(aboutlink);
-	gitlist.appendChild(aboutitem);
-	
-	/* revision history link */
-	
-	var commititem = document.createElement('li');
+	var feedbacklist = document.createElement('ul')
 	
 	var page_path = window.location.href.substring(window.location.href.indexOf(this.kb_id+'/')+this.kb_id.length+1,window.location.href.length);
+		page_path = (page_path == '') ? 'index.html' : page_path;
 	
-	page_path = (page_path == '') ? 'index.html' : page_path;
+	var feedback_links = [
+		{
+			/* error reporting */
+			name: msg.footer.report,
+			href: 'reporting/#bugs'
+		},
+		{
+			/* revision history */
+			name: msg.footer.rev,
+			href: this.kb_repo + this.kb_id + '/' + page_path
+		},
+		{
+			/* new topic */
+			name: msg.footer.request,
+			href: 'reporting/#new'
+		},
+		{
+			/* contribute */
+			name: msg.footer.contrib,
+			href: 'contribute'
+		}
+	];
 	
-	var commitlink = document.createElement('a');
-		commitlink.setAttribute('href',this.kb_repo + this.kb_id + '/' + page_path);
-		commitlink.appendChild(document.createTextNode(msg.footer.m04));
+	for (var i = 0; i < feedback_links.length; i++) {
+		feedbacklist.appendChild(this.createFooterLink(feedback_links[i]));
+	}
 	
-	commititem.appendChild(commitlink);
-	gitlist.appendChild(commititem);
-	
-	github.appendChild(gitlist);
-	
-	linklists.appendChild(github);
-	
-	footer.appendChild(linklists);
+	feedback.appendChild(feedbacklist);
+	linklists.appendChild(feedback);
 	
 	// add specification links
 	
@@ -783,29 +857,31 @@ KB.prototype.generateFooter = function () {
 		spec.setAttribute('class','footer-list');
 	
 	var spechd = document.createElement('div');
-		spechd.appendChild(document.createTextNode(msg.footer.m11));
+		spechd.appendChild(document.createTextNode(msg.footer.spec));
 	spec.appendChild(spechd);
 	
 	var speclist = document.createElement('ul')
 	
-	var a11yitem = document.createElement('li');
-	var a11ylink = document.createElement('a');
-		a11ylink.setAttribute('href', 'https://www.w3.org/TR/epub-a11y/');
-		a11ylink.appendChild(document.createTextNode(msg.footer.m12));
+	var spec_links = [
+		{
+			/* epub accessibility */
+			name: msg.footer.a11y,
+			href: 'https://www.w3.org/TR/epub-a11y/'
+		},
+		{
+			/* epub 3 */
+			name: msg.footer.epub3,
+			href: 'https://www.w3.org/TR/epub/'
+		}
+	];
 	
-	a11yitem.appendChild(a11ylink);
-	speclist.appendChild(a11yitem);
+	for (var i = 0; i < spec_links.length; i++) {
+		speclist.appendChild(this.createFooterLink(spec_links[i]));
+	}
 	
-	var epubitem = document.createElement('li');
-	var epublink = document.createElement('a');
-		epublink.setAttribute('href', 'https://www.w3.org/TR/epub/');
-		epublink.appendChild(document.createTextNode(msg.footer.m13));
-	
-	epubitem.appendChild(epublink);
-	speclist.appendChild(epubitem);
 	spec.appendChild(speclist);
-	
 	linklists.appendChild(spec);
+	footer.appendChild(linklists);
 	
 	// add daisy links
 	
@@ -814,25 +890,44 @@ KB.prototype.generateFooter = function () {
 
 	// add the copyright
 	
-	daisy.appendChild(document.createTextNode(msg.footer.m01.replace('%yr%', new Date().getFullYear()) + spacer));
+	daisy.appendChild(document.createTextNode(msg.footer.copy.replace('%yr%', new Date().getFullYear()) + spacer));
 
 	// add the link to the terms of use and privacy policy
 	
 	var termslink = document.createElement('a');
 		termslink.setAttribute('href','http://www.daisy.org/terms-use');
-		termslink.appendChild(document.createTextNode(msg.footer.m02 + spacer));
+		termslink.appendChild(document.createTextNode(msg.footer.terms + spacer));
 	
 	daisy.appendChild(termslink);
 	
 	var privacylink = document.createElement('a');
 		privacylink.setAttribute('href','https://daisy.org/about-us/terms-and-conditions/privacy/');
-		privacylink.appendChild(document.createTextNode(msg.footer.m03));
+		privacylink.appendChild(document.createTextNode(msg.footer.privacy));
 	
 	daisy.appendChild(privacylink);
 	
 	footer.appendChild(daisy);
 
 	document.body.appendChild(footer);
+}
+
+
+/* create the list links at the bottom of each page */
+
+KB.prototype.createFooterLink = function(link_info) {
+	
+	/* don't override absolute URLs */
+	var link_href = link_info.href.match(/^http/) ? link_info.href : this.kb_root + link_info.href;
+	
+	var li = document.createElement('li');
+	
+	var link = document.createElement('a');
+		link.setAttribute('href', link_href);
+		link.appendChild(document.createTextNode(link_info.name));
+	
+	li.appendChild(link);
+	
+	return li;
 }
 
 
@@ -1130,12 +1225,6 @@ KB.prototype.formatSearchPage = function () {
 
 
 
-/* format nav-less layouts */
-
-KB.prototype.formatOpenPage = function () {
-	document.getElementsByTagName('main')[0].setAttribute('class', 'no-nav');
-}
-
 /* 
  * 
  * Example copying callback functions
@@ -1238,21 +1327,6 @@ window.onload = function () {
 		}
 	}
 
-	var menuItems = document.querySelectorAll('li.hasMenu');
-	
-	Array.prototype.forEach.call(menuItems, function(el, i) {
-		var timer = 0;
-		el.addEventListener("mouseover", function(event){
-			this.className = "hasMenu open";
-			clearTimeout(timer);
-		});
-		el.addEventListener("mouseout", function(event){
-			timer = setTimeout(function(event){
-				document.querySelector(".hasMenu.open").className = "hasMenu";
-			}, 500);
-		});
-	});
-	
 	var mini_toc = document.querySelector('nav.mini-toc');
 	
 	if (mini_toc) {
@@ -1261,14 +1335,21 @@ window.onload = function () {
 	 		entries.forEach(entry => {
 				var id = entry.target.getAttribute('id');
 				
-				if (entry.intersectionRatio > 0) {
-					document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.add('active');
-				} else {
-					document.querySelector(`nav.mini-toc li a[href="#${id}"]`).parentElement.classList.remove('active');
+				var toc_entry = document.querySelector(`nav.mini-toc li a[href="#${id}"]`);
+				
+				if (toc_entry) {
+					if (entry.intersectionRatio > 0) {
+						toc_entry.parentElement.classList.add('active');
+					}
+					else {
+						toc_entry.parentElement.classList.remove('active');
+					}
+					
 				}
 			});
 		};
-	
+
+
 		var observer = new IntersectionObserver(callback, { rootMargin: '-94px 0px -200px 0px' } );
 	
 		document.querySelectorAll('section[id]').forEach((section) => {

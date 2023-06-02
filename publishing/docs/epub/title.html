@@ -45,17 +45,40 @@
 				</figure>
 			</section>
 			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt>Should I use multiple <code>dc:title</code> elements for series titles, subtitles, etc.?</dt>
+					<dd>
+						<p>Although EPUB allows you to add more than one <code>dc:title</code> element, it is not
+							recommended. Most reading systems only recognize the first title element they find.
+							Readers consequently may not have access to the other titles.</p>
+						
+						<p>While this may not be problematic in many cases, if the series title is the first
+							title in the metadata, then all books in the series could end up with the same name
+							in the user's bookshelf (e.g., all three parts of the Lord of the Rings could end up named
+							"The Lord of the Rings" in the bookshelf if the unique book titles are in separate elements).</p>
+						
+						<p>EPUB 3 tried to address having multiple <code>dc:title</code> elements by adding the
+							<code>title-type</code> and <code>display-seq</code> properties to specify more information
+							about the type of title and how to display it, but reading systems largely ignore these
+							properties.</p>
+					</dd>
+				</dl>
+			</section>
+			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
 				<p>A title is a required element in all versions of EPUB. It is expressed in the package document's metadata
 					section in a Dublin Core <code>title</code> element.</p>
 				
-				<p>This title is typically used to identify the publication in user agents (vendor systems may use other
+				<p>This title is typically used to identify the publication in reading systems (vendor systems may use other
 					metadata, such as that supplied directly by publishers). The title enables the user not only to know what
-					publication they have in their bookshelf or library, but allows the publication to be easily found again.</p>
+					publication they have in their bookshelf or library but allows the publication to be easily found again.</p>
 				
-				<p>When a title is omitted, user agents will normally generate a generic name, such as "Untitled."
+				<p>When authors omit a title, reading systems will normally generate a generic name, such as "Untitled."
 					The more publications like this a user loads, the harder it becomes to distinguish which is which.</p>
 			</section>
 			

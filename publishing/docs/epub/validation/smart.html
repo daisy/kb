@@ -15,71 +15,80 @@
 	</head>
 	<body>
 		<main>
-			<div class="note" role="note" aria-labelledby="smart-note">
-				<p id="smart-note" class="label">Note</p>
-				<p>The SMART tool is free for trial use but restricted to two evaluations per month. DAISY Consortium <a
-						href="https://daisy.org/about-us/membership/joining-daisy/">full members and inclusive
-						publishing partners</a> are eligible for unlimited access.</p>
-			</div>
-			
 			<section id="getting-started">
 				<h3>Getting Started</h3>
 				
-				<p>The <a href="https://smart.daisy.org">SMART tool</a> is a Web-based complement to the <a
+				<p>The <a href="https://smart.daisy.org">SMART tool</a> is a free Web-based complement to the <a
 						href="ace.html">Ace accessibility checker</a>. It helps guide evaluators through the manual
 					checks necessary to ensure conformance with WCAG and the EPUB accessibility specification.</p>
 				
 				<section id="smart-load">
 					<h4>Starting an Evaluation</h4>
+					
 					<div class="note" role="note" aria-labelledby="report-note">
 						<p id="report-note" class="label">Note</p>
 						<p>This guide assumes basic knowledge of how to <a href="ace.html#ace-export">export the
 									<code>report.json</code> file from Ace</a>.</p>
 					</div>
+					
 					<p>After logging in to SMART, a new evaluation is started similarly to the Ace tool. Instead of
 						dragging an EPUB file into the application, however, the <code>report.json</code> file output by
 						Ace can either be dragged and dropped into the blue box on the page or the link in the box can
 						be used to select the file to upload.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-load.png" width="650"
 						alt="Drag-and-drop box and link" />
+					
 					<div class="note" role="note" aria-labelledby="blank-note">
 						<p id="blank-note" class="label">Note</p>
 						<p>It is also possible to start a blank evaluation using the link below the box, but it is not
 							advised to assess publications without first running them through Ace. See <a
 								href="#limitations">Limitations</a> for more information.</p>
 					</div>
+					
 					<p>If the Ace report file loads successfully, an import report dialog will appear.</p>
 					<img src="../../../../graphics/publishing/smart/smart-import.png" width="450" alt="Import dialog" />
+					
 					<p>This dialog indicates how the SMART tool has been optimized for the publication. For example, it
 						lists any tests that have been disabled for media types not found in the publication (e.g.,
 						there is no need to list audio checks when there is no audio).</p>
+					
 					<p>The SMART tool is also able to suggest metadata that should be present. If it does, it will
 						indicate which it has set in this dialog.</p>
+					
 					<p>After reviewing the import details, the dialog can be dismissed to begin evaluating the
 						publication.</p>
 				</section>
+				
 				<section id="smart-eval">
 					<h4>Evaluating a Publication</h4>
+					
 					<section id="smart-metadata">
 						<h5>Publication Information</h5>
+						
 						<p>The Publication Information tab is the default view in the SMART evaluation interface. It
 							allows general information about the publication, such as its title and authors, to be
 							reviewed and modified. This metadata is only used in the final report that the SMART tool
 							generates, however.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-pub-metadata.png" width="650"
 							alt="Publication information input fields" />
+						
 						<p>One key field to note is the publication format. The SMART tool will automatically set this
 							field to EPUB 3 or 2 based on the Ace report, but the value specified here is also used to
 							determine the type of tagging to generate in later evaluation steps (i.e., for the <a
 								href="#smart-discovery">discovery</a> and <a href="#smart-result">result</a> metadata).
 							If the tool outputs the wrong tags, make sure the format has been set correctly.</p>
+						
 						<p>To generate a report, there are two required metadata fields: the title of the publication
 							and the last modified date. These must be set as they provide critical context for the
 							report.</p>
+						
 						<p>The Additional Metadata field at the bottom of the form is used to include extra information
 							in the final report. The data input here does not have to conform to a metadata standard.
 							The field takes a human-readable label separated from a value by a colon and space (e.g.,
 							"Region: North America").</p>
+						
 						<div class="note" role="note" aria-labelledby="meta-note">
 							<p id="meta-note" class="label">Note</p>
 							<p>Due to the translations to make the metadata human-readable in the final reports, the
@@ -88,64 +97,88 @@
 								cases.</p>
 						</div>
 					</section>
+					
 					<section id="smart-conformance">
 						<h5>Conformance</h5>
+						
 						<p>The Conformance tab contains all the tests that need to be carried out to verify the
 							publication is accessible. Each test is a self-contained unit with instructions on how to
 							evaluate for conformance and a field to indicate if it passes or fails.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-sc.png" width="550"
 							alt="Success criterion evaluation" />
+						
 						<p>Each test is labelled and identifies the standard it is from. For WCAG success criteria, the
 							conformance level (A or AA) is also provided.</p>
+						
 						<p>Beneath the label are instructions on how to evaluate the test. It will be necessary to have
 							the publication open in an editing program to check the markup for issues.</p>
+						
 						<div class="note" role="note" aria-labelledby="conf-note">
 							<p id="conf-note" class="label">Note</p>
 							<p>The <a href="ace.html#ace-report">Ace HTML report</a> is also useful to open during a
 								conformance evaluation as it allows the document structure and images to be
 								reviewed.</p>
 						</div>
+						
 						<p>The instructions provided in the SMART tool aim to cover everything that needs to be checked
 							to pass a test, but this is possible to provide in all cases. Some WCAG criteria require
 							detailed checking of the markup. For these tests, a list of the most common problems is
 							included to look for.</p>
+						
 						<p>In addition to the guidance provided in the tool, links to additional documentation in this
 							knowledge base, in WCAG supporting documents, and in the EPUB accessibility techniques are
 							also provided. These links are initially hidden but can be viewed by expanding the relevant
 							heading.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-sc-doc.png" width="350"
 							alt="Expanded links to WCAG techniques" />
+						
 						<p>The status section is for specifying the result of evaluating the test. Tests are assigned a
 							simple Pass/Fail status based on whether the full criterion was met or not.</p>
+						
 						<p>When assigning a failing grade, the reason for the failure should be specified in the note
 							field that appears.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-sc-fail.png" width="550"
 							alt="Error note field" />
+						
 						<p>If a test is not applicable to a publication, setting the N/A status will collapse the
 							description and links, leaving only a greyed box with the status section.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-sc-na.png" width="550"
 							alt="Not applicable test" />
+						
 						<p>The SMART tool will automatically set tests to N/A if it determines from the Ace report that
 							they are not likely to apply (e.g., all image, audio and video tests will be set to not
 							applicable if there is only text content).</p>
+						
 						<p>A general note field is also available for any test, regardless of what status it is
 							assigned. To add a note, click on the checkbox below the status section.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-sc-note.png" width="550" alt="Note field" />
+						
 						<p>Notes in this field could provide instructions on how to fix any errors, for example, or
 							explain why a test is considered not applicable.</p>
+						
 						<p>After completing all the applicable conformance tests, the next step is to check the
 							discovery metadata embedded in the publication.</p>
 					</section>
+					
 					<section id="smart-discovery">
 						<h5>Discovery</h5>
+						
 						<p>The Discovery tab is where the accessibility metadata for the publication is displayed. The
 							tab contains input fields for each of the properties required or recommended by the <a
 								href="https://www.w3.org/TR/epub-a11y/#sec-disc-package">EPUB Accessibility
 							specification</a>.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-discovery.png" width="650"
 							alt="Discovery metadata fields" />
+						
 						<p>Refer to each of the following knowledge base pages for more information on how to complete
 							these fields.</p>
+						
 						<ul>
 							<li>
 								<a href="../../metadata/schema.org/accessibilityFeature.html">Accessibility Features</a>
@@ -169,15 +202,19 @@
 								<a href="../../metadata/schema.org/accessibilitySummary.html">Accessibility Summary</a>
 								&#8212; A human-readable summary of the accessibility of the publication.</li>
 						</ul>
+						
 						<p>The SMART tool will auto-populate these fields during the loading of a new evaluation if it
 							determines the values are likely to apply. Make sure to review the values it sets, however,
 							as evaluating the publication may change some fields (e.g., if all images are determined to
 							be presentational, any image-related metadata set would likely no longer apply).</p>
+						
 						<p>If accessibility metadata is added or modified, the SMART tool can create a new set of tags
 							to use in the publication's package document. Click the Generate button at the bottom of the
 							page to open a dialog with the new markup.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-discovery-metadata.png" width="550"
 							alt="EPUB 3 discovery metadata tags" aria-details="discovery-meta-details" />
+						
 						<details id="discovery-meta-details" class="desc">
 							<summary>Description</summary>
 							<p>The following EPUB 3 accessiblity metadata tags are depicted in the dialog window:</p>
@@ -193,30 +230,39 @@
 </code></pre>
 						</details>
 					</section>
+					
 					<section id="smart-distribution">
 						<h5>Distribution</h5>
+						
 						<p>The Distribution tab is similar to the <a href="#smart-discovery">Discovery tab</a> except
 							that it displays ONIX accessibility metadata.</p>
+						
 						<div class="note" role="note" aria-labelledby="onix-note">
 							<p id="onix-note" class="label">Note</p>
 							<p>ONIX is a metadata format used to distribute trade publications to vendors for sale. It
 								is not necessary to review this tab unless a publication will be distributed this
 								way.</p>
 						</div>
+						
 						<img src="../../../../graphics/publishing/smart/smart-distribution.png" width="650"
 							alt="Distribution metadata fields" />
+						
 						<p>The distribution metadata fields are like the discovery fields, although there are some
 							differences between the two standards. When metadata set in the Discovery tab has an
 							equivalent ONIX property, that field will also automatically be set in the Distribution tab.
 							For example, the summary input into the Discovery tab is automatically copied to ONIX
 								<code>00</code> field.</p>
+						
 						<p>For more information about ONIX records and expressing accessibility metadata, refer to the
 								<a href="../../metadata/onix.html">ONIX knowledge base page</a>.</p>
+						
 						<p>Like the discovery metadata, it is also possible to output the distribution metadata in its
 							native format by clicking the Generate button at the bottom of the tab. The ONIX tags are
 							rendered in a new dialog window.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-distribution-metadata.png" width="550"
 							alt="ONIX accessibility metadata tags" aria-details="distribution-meta-details" />
+						
 						<details id="distribution-meta-details" class="desc">
 							<summary>Description</summary>
 							<p>The following ONIX metadata tags are depicted in the dialog window:</p>
@@ -236,24 +282,32 @@
 &lt;/descriptiveDetail></code></pre>
 						</details>
 					</section>
+					
 					<section id="smart-result">
 						<h5>Result</h5>
+						
 						<p>The result tab indicates whether the publication successfully meets the requirements of the
 							EPUB Accessibility specification. This field is not editable, as it is automatically updated
 							as an evaluation is carried out.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-result.png" width="650"
 							alt="Result metadata" />
+						
 						<p>If any tests are not complete, or any required metadata missing, the result will be
 							"Incomplete". See the <a href="#smart-validaton">section on validating evaluations</a> for
 							more information on how to locate the incomplete sections.</p>
+						
 						<p>The final two fields are optional and only need to be completed if a final report is being
 							generated. The first, the evaluator, is used to declare the name of the organization or
 							individual who carried out the evaluation. The second, the link to report, is for the URL
 							where the final report will be hosted, if it will be made publicly available.</p>
+						
 						<p>Similar to the discovery and distribution metadata tabs, a button is provided at the bottom
 							of the tab to create metadata tags that can be pasted back into the package document.</p>
+						
 						<img src="../../../../graphics/publishing/smart/smart-result-metadata.png" width="650"
 							alt="EPUB 3 evaluation metadata tags" aria-details="eval-meta-details" />
+						
 						<details id="eval-meta-details" class="desc">
 							<summary>Description</summary>
 							<p>The following three EPUB metadata tags are depicted in the dialog window:</p>
@@ -265,50 +319,71 @@
 						</details>
 					</section>
 				</section>
+				
 				<section id="smart-validation">
 					<h4>Validate an Evaluation</h4>
+					
 					<p>The SMART tool includes a validation button in the top-left corner of the interface.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-app-buttons.png" width="225"
 						alt="Validate button" />
+					
 					<p>This button can be clicked at any time to have the SMART tool analyze the current evaluation and
 						report any fields that have not been completed.</p>
+					
 					<p>Any issues found during validation are reported in the message console at the bottom of the SMART
 						interface (this console will automatically appear after validation).</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-validation-messages.png" width="650"
 						alt="Validation message console" />
+					
 					<p>Each message is prefixed by its severity (error or warning) and describes the problem. Clicking
 						on a message loads the location of the problem in the evaluation.</p>
+					
 					<p>Validation is also automatically performed whenever a <a href="#smart-reporting">preview or final
 							report</a> is created.</p>
 				</section>
+				
 				<section id="smart-reporting">
 					<h4>Create a Report</h4>
+					
 					<p>After completing and validating an evaluation, the SMART tool provides options for generating an
 						accessibility report in the Reporting tab.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-reporting.png" width="650"
 						alt="Reporting options and buttons" />
+					
 					<p>If any notes have been included in the evaluation the radio buttons at the top of the tab allow
 						control over which are output. By default, all notes are included in the report, but the output
 						can be limited to only failure descriptions, only notes, or no notes of any kind.</p>
+					
 					<p>A preview of the report can be created by clicking on the Preview button. If no validation issues
 						are detected, the generated report will open in a new browser window.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-preview-report.png" width="650"
 						alt="HTML preview report" />
+					
 					<p>If the SMART tool finds validation issues, a prompt will appear to cancel the preview and view
 						the issues or to continue with the preview.</p>
+					
 					<p>If there are no issues that need fixing in the preview, the next step is to generate a
 						downloadable version of the report. Click the Create button and a browser prompt to save the
 						report file will appear (some browsers may automatically download the file without prompting
 						depending on the current settings).</p>
 				</section>
+				
 				<section id="smart-save">
 					<h4>Save an Evaluation</h4>
+					
 					<p>As it is not always possible to complete an evaluation in one sitting, the SMART tool provides
 						the option to save and resume an evaluation later. Clicking on the Save button in the upper-left
 						corner of the application opens a dialog asking where to save the evaluation.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-save-location.png" width="400"
 						alt="Save dialog" />
+					
 					<p>There are two options for saving evaluations:</p>
+					
 					<ol>
 						<li>To the SMART server &#8212; the evaluation is saved to a database on the SMART site. This
 							option provides the greatest convenience, as evaluations can be <a href="#smart-history"
@@ -316,22 +391,29 @@
 						<li>To the local file system &#8212; a downloadable file is created with the data necessary to
 							reload the evaluation. If this file is lost, the evaluation will have to be restarted.</li>
 					</ol>
+					
 					<p>Evaluations can be saved as often as desired but <strong>must</strong> be saved at least once to
 						resume later. The SMART tool does not save evaluations by default, so if the data is not saved,
 						the evaluation cannot be reloaded from the <a href="#smart-history">history</a>.</p>
 				</section>
+				
 				<section id="smart-history">
 					<h4>Reload an Evaluation</h4>
+					
 					<p>Saved evaluations are reloaded from the Evaluation History section on the main page of the
 						application. This section is located below the drag-and-drop box used to start new
 						evaluations.</p>
+					
 					<img src="../../../../graphics/publishing/smart/smart-history.png" width="650"
 						alt="Evaluation history" />
+					
 					<p>Each row in the evaluation history table represents one saved evaluation. There are columns for
 						the name of the publication, when the evaluation was started, when it was last saved, its
 						current status, as well as a set of buttons for maintaining the evaluation.</p>
+					
 					<p>The status column provides information about where the evaluation is saved. It will contain one
 						of the following three values:</p>
+					
 					<ul>
 						<li>Saved &#8212; the evaluation is saved on the SMART server. Clicking the resume button will
 							load the evaluation.</li>
@@ -340,42 +422,55 @@
 						<li>Not Saved &#8212; the evaluation was exited without saving the data. These records are only
 							for informational purposes, as there is no way to resume the evaluation.</li>
 					</ul>
+					
 					<p>Evaluations that have been saved locally can also be resumed by dragging and dropping the JSON
 						evaluation file (not the Ace report) into the drag-and drop area used to start an evaluation.
 						The SMART application can differentiate the data files and will automatically load the
 						evaluation if it matches a record in the history.</p>
 				</section>
+				
 				<section id="smart-delete">
 					<h4>Delete an Evaluation</h4>
+					
 					<p>Any evaluation can be deleted by clicking the delete button associated with it in the <a
 							href="#smart-history">evaluation history</a>.</p>
+					
 					<p>If an evaluation was stored on the SMART server, deleting the file permanently deletes all record
 						of it. If an evaluation was stored on the local file system, the data file will also need to be
 						deleted.</p>
+					
 					<p>If an evaluation is accidentally deleted and the data is saved locally, the evaluation can still
 						be retrieved. Start the evaluation over using the Ace report file and then save the data locally
 						again, but do not overwrite the existing saved data. The original evaluation data can now be
 						reloaded from the evaluation history.</p>
+					
 					<p>There is no way to retrieve the deleted data when an evaluation was stored on the SMART
 						server.</p>
 				</section>
 			</section>
+			
 			<section id="limitations">
 				<h3>Limitations</h3>
+				
 				<p>The SMART tool has two primary limitations:</p>
+				
 				<ol>
 					<li>Humans are not as reliable at finding markup errors as machines.</li>
 					<li>WCAG is a complex standard to fully evaluate, and human interpretation is subjective.</li>
 				</ol>
+				
 				<p>The first problem can be mitigated by ensuring both <a href="epubcheck.html">EPUBCheck</a> and <a
 						href="ace.html">Ace</a> are always run first.</p>
+				
 				<p>The latter problem poses more of a challenge. The SMART tool tries to mitigate this issue by
 					identifying what to look for and providing reports that explain what the evaluator found.
 					Regardless, it is possible for two evaluators to assess a publication differently.</p>
+				
 				<p>Therefore, while the SMART tool is intended to be used by anyone to improve the accessibility of
 					their publications, it should not be used to certify content as accessible except by persons
 					familiar with WCAG and evaluating its success criteria.</p>
 			</section>
+			
 			<section id="ref">
 				<h3>Related Links</h3>
 				<ul>

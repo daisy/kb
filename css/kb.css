@@ -50,8 +50,8 @@ h1 {
 h2 {
 	font-family: Raleway;
 	font-size: 180%;
-	padding: 0.5em 0.7em 0.7em 0.7em;
-	margin: 0 0 0 1.5rem;
+	padding: 0.5em 0.7em 0 0.7em;
+	margin: 2rem 0 0 1.5rem;
 	letter-spacing: 0.125rem;
 }
 
@@ -77,6 +77,7 @@ section#summary > h3 {
 }
 
 div#nav-col h3,
+div#categories h3,
 section > h3 {
 	font-weight: normal;
 	padding-bottom: 0.5rem;
@@ -112,6 +113,10 @@ p.bridgehead {
 
 a {
 	text-decoration: none;
+}
+
+h1 a {
+	color: rgb(32,53,139) !important;
 }
 
 nav.mini-toc a,
@@ -159,10 +164,11 @@ header {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	height: 9.4rem;
+	height: 5.6rem;
 	padding: 0;
 	margin: 0;
 	z-index: 999;
+	border-bottom: 0.5rem solid rgb(27,95,161);
 }
 
 footer {
@@ -211,11 +217,15 @@ footer a {
 	color: rgb(255,255,255) !important;
 }
 
-div.col-wrapper {
+div#col-wrapper {
 	display: grid;
-	grid-template-columns: 20% 80%;
+	grid-template-columns: 20% 60% 20%;
 	position: relative;
 	width: 100%;
+}
+
+div#col-wrapper.two-col {
+	grid-template-columns: 80% 20%;
 }
 
 div#body {
@@ -224,12 +234,11 @@ div#body {
 	flex-direction: column;
 }
 
-div#body > * {
-	max-width: 44em;
+div#body.two-col {
+	margin-left: 8rem;
 }
 
-main.index {
-	padding-left: 6rem;
+div#body > * {
 	max-width: 44em;
 }
 
@@ -237,12 +246,13 @@ main.no-nav,
 main.search {
 	display: block;
 	margin-left: 7rem;
-	max-width: 44em;
+	max-width: 55em;
 }
 
 div#body > section,
 div#body > details {
 	margin-left: 2em;
+	margin-right: 2em;
 }
 
 main section {
@@ -315,33 +325,22 @@ li.hasMenu.open > ul {
 
 /* navigation column */
 
-div#nav-col {
+div#nav-col,
+div#categories {
 	width: 100%;
 	border-right: 0.1rem dotted black;
-	height: 83vh;
+	height: 88vh;
 	flex-direction: column;
 	background-color: rgb(250,250,250);
 	position: -webkit-sticky;
 	position: sticky;
 	overflow: auto;
-	top: 9.39rem;
+	top: 6.2rem;
 }
 
-
-/* page title */
-
-div#page-title {
-}
-
-div.category {
-	margin: 2em 0 0 0;
-	padding: 0;
-	margin-left: 3.7rem;
-	font-size: 90%;
-}
-
-div.category a {
-	color: rgb(0,0,200);
+div#categories {
+	width: 99%;
+	border-left: 0.1rem dotted black;
 }
 
 
@@ -396,8 +395,14 @@ details#topics {
 
 li.active {
 	background-color: rgb(232,242,248);
-	border-left: 0.4rem solid blue;
-	padding-left: 1.025rem !important;
+	border-left: 0.2rem solid blue;
+	padding-left: 1.225rem !important;
+}
+
+li.active-cat {
+	background-color: rgb(240,240,240);
+	border: 0.1rem solid grey;
+	border-right: 0.6rem solid black;
 }
 
 details#topics ol > li > ol {
@@ -1004,6 +1009,7 @@ main.search h2.noCategory {
 #search td,
 #search-results td {
 	border: none;
+	background-color: rgb(255,255,255);
 }
 
 #search div,
@@ -1017,8 +1023,7 @@ p.backtotop {
 	text-align: right;
 	max-width: 48em;
 	line-height: 1rem;
-	margin-top: 7rem;
-	margin-bottom: 10rem;
+	margin: 7rem 2rem 10rem 0;
 }
 
 
@@ -1051,11 +1056,16 @@ p.backtotop {
 		padding-left: 0.5em;
 	}
 	
-	h1 span {
+	h1 a {
 		display: table-cell;
 		vertical-align: top;
 		padding-top: 1.2rem;
 		padding-bottom: 1rem;
+		color: rgb(32,53,139) !important;
+	}
+	
+	h1 a:visited {
+		color: rgb(32,53,139) !important;
 	}
 	
 	div.toplinks {
@@ -1068,7 +1078,7 @@ p.backtotop {
 		padding: 0.5rem 0;
 	}
 	
-	div.col-wrapper {
+	div#col-wrapper {
 		display: block;
 		grid-template-columns: unset;
 	}
@@ -1087,7 +1097,7 @@ p.backtotop {
 		margin-left: 0;
 	}
 	
-	div.col-wrapper {
+	div#col-wrapper {
 		display: block;
 	}
 	
