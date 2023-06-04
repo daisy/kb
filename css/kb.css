@@ -1094,6 +1094,10 @@ p.backtotop {
 		grid-template-columns: unset;
 	}
 	
+	div#body.two-col {
+		margin-left: 1rem;
+	}
+	
 	main,
 	main.index,
 	main.no-nav,
@@ -1121,6 +1125,11 @@ p.backtotop {
 		border-right: none;
 		background-color: rgb(245,245,245);
 		top: unset;
+	}
+	
+	#search {
+		float: none;
+		margin-top: 0;
 	}
 	
 	nav.mini-toc {
