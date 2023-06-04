@@ -1055,6 +1055,7 @@ p.backtotop {
 		display: block;
 		position: relative;
 		height: auto;
+		margin-left: 1rem;
 	}
 	
 	h1 {
@@ -1077,16 +1078,6 @@ p.backtotop {
 	
 	h1 a:visited {
 		color: rgb(32,53,139) !important;
-	}
-	
-	div.toplinks {
-		font-size: 70%;
-		padding-left: 3.3rem;
-	}
-	
-	div.toplinks a {
-		display: block;
-		padding: 0.5rem 0;
 	}
 	
 	div#col-wrapper {
@@ -1130,6 +1121,7 @@ p.backtotop {
 	#search {
 		float: none;
 		margin-top: 0;
+		min-width: 10rem;
 	}
 	
 	nav.mini-toc {
