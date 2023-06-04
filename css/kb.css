@@ -1103,6 +1103,11 @@ p.backtotop {
 		margin-left: 0;
 	}
 	
+	div#nav-col,
+	div#categories {
+		height: auto;
+	}
+	
 	div#col-wrapper {
 		display: block;
 	}
@@ -1133,7 +1138,16 @@ p.backtotop {
 	}
 	
 	footer > * {
-		padding-left: 3em;
+		padding-left: 2em;
+	}
+	
+	.footer-list {
+		float: none;
+	}
+	
+	p.copy {
+		margin-top: 2rem;
+		padding-left: 2rem;
 	}
 	
 	body#glossary nav#toc ol {
