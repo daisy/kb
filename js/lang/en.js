@@ -40,7 +40,7 @@ var msg = {};
 	msg.footer.terms = 'Terms of Use';
 	msg.footer.top = 'Back to Top \u2191';
 	msg.footer.topics = 'All Topics';
-	msg.header.whatnew = 'What\'s New';
+	msg.footer.whatnew = 'What\'s New';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
