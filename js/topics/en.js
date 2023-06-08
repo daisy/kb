@@ -62,6 +62,12 @@ var topic_list = [
 						'subtitle': 'Language identification in the package document.'
 					},
 					{
+						'id': 'epub-order',
+						'href': 'reading-order.html',
+						'title': 'Reading Order',
+						'subtitle': 'Specifying the reading order of documents the spine.'
+					},
+					{
 						'id': 'epub-title',
 						'href': 'title.html',
 						'title': 'Publication Title',
