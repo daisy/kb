@@ -56,10 +56,10 @@ var topic_list = [
 						'subtitle': 'Accessible practices for including a cover image.'
 					},
 					{
-						'id': 'epub-language',
-						'href': 'language.html',
-						'title': 'Publication Language',
-						'subtitle': 'Language identification in the package document.'
+						'id': 'epub-title',
+						'href': 'title.html',
+						'title': 'Publication Title',
+						'subtitle': 'Providing a title for an EPUB publication.'
 					},
 					{
 						'id': 'epub-order',
@@ -68,10 +68,10 @@ var topic_list = [
 						'subtitle': 'Specifying the reading order of documents the spine.'
 					},
 					{
-						'id': 'epub-title',
-						'href': 'title.html',
-						'title': 'Publication Title',
-						'subtitle': 'Providing a title for an EPUB publication.'
+						'id': 'epub-language',
+						'href': 'language.html',
+						'title': 'Setting the Language',
+						'subtitle': 'Language identification in the package document and in content documents.'
 					}
 				]
 			},
