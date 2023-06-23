@@ -256,10 +256,11 @@ KB.prototype.generateHeader = function () {
 		search_div.setAttribute('id','search');
 		search_div.setAttribute('role','search');
 		search_div.setAttribute('aria-label','search');
+		search_div.setAttribute('hidden', 'hidden');
 	
 	var search_script = document.createElement('script');
 		search_script.setAttribute('async', '');
-		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=26859456d1c9349ab');
+		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto');
 	
 	search_div.appendChild(search_script);
 	
@@ -1306,7 +1307,9 @@ else {
 
 /* delay loading the template until the page has loaded so that the page elements are all available */
 window.onload = function () {
+
 	kb.writeTemplate();
+	
 	document.documentElement.classList.remove('hidden');
 	
 	// ensure target location gets scrolled into view
@@ -1359,6 +1362,12 @@ window.onload = function () {
 			observer.observe(section);
 		});
 	}
+	
+	// scrub the search box
+	var script = document.createElement('script');
+		script.setAttribute('src', '/js/google-clean.js');
+	
+	document.body.insertAdjacentElement('beforeEnd', script);
 }
 
 
