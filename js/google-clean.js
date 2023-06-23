@@ -9,6 +9,9 @@ function clean_search() {
 	if (search_box) {
 		search_box.style.background = '';
 		search_div.removeAttribute('hidden');
+		
+		// erase google's attempts to re-insert the branding when focus leaves
+		search_box.addEventListener('blur', strip_searchbg);
 	}
 	
 	else {
@@ -17,3 +20,8 @@ function clean_search() {
 }
 
 window.setTimeout(clean_search, 100);
+
+function strip_searchbg() {
+	var search_box = document.getElementById('gsc-i-id1');
+		search_box.style.background = '';
+}
