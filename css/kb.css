@@ -331,7 +331,7 @@ div#categories {
 	border-right: 0.1rem dotted black;
 	height: 100vh;
 	flex-direction: column;
-	background-color: rgb(250,250,250);
+	background-color: rgb(255,255,255);
 	position: -webkit-sticky;
 	position: sticky;
 	overflow: auto;
@@ -394,15 +394,15 @@ details#topics {
 }
 
 li.active {
-	background-color: rgb(232,242,248);
-	border-left: 0.2rem solid blue;
+	background-color: rgb(242,252,255);
+	border-left: 0.2rem solid rgb(0,120,240);
 	padding-left: 1.225rem !important;
 }
 
 li.active-cat {
-	background-color: rgb(240,240,240);
-	border: 0.1rem solid grey;
-	border-right: 0.6rem solid black;
+	background-color: rgb(242,252,255);
+	border-left: 0.2rem solid rgb(0,120,240);
+	margin-left: -0.225rem !important; 
 }
 
 details#topics ol > li > ol {
