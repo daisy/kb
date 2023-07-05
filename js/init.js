@@ -345,6 +345,55 @@ KB.prototype.generatePageTitle = function () {
 		// append the kb name to the page title
 		document.title = this.title + ' - ' + msg.kb_name[this.kb_id];
 	}
+	
+	// skip adding the category for indexes and other uncategorized pages
+	if (this.isIndex || this.noCategory) {
+		if (!this.isRootIndex && !this.noTitle) {
+			var h2 = document.getElementsByTagName('h2')[0];
+				h2.setAttribute('class', 'noCategory');
+		}
+		return;
+	}
+	
+	// add the category marker
+	if (page_info.hasOwnProperty('category')) {
+		if (!Array.isArray(page_info.category)) {
+			page_info.category = [page_info.category];
+		}
+	}
+	else {
+		page_info.category = [];
+	}
+
+	
+	var div = document.createElement('div');
+		div.setAttribute('class', 'category');
+		div.appendChild(document.createTextNode('Category: '))
+	
+	if (page_info.category.length > 0) {
+	
+		for (var x = 0; x < page_info['category'].length; x++) {
+		
+			var index_url = '';
+			
+			// if more than one category, need to add ../ to reach the right page
+			if (page_info.category.length > 1) {
+				for (var y = page_info.category.length-1; y > x; y--) {
+					index_url += '../';
+				}
+			}
+			
+			index_url += 'index.html'
+			
+			if (x > 0) {
+				div.appendChild(document.createTextNode(' - '));
+			}
+			
+			div.appendChild(document.createTextNode(page_info.category[x]));
+		}
+	}
+	
+	document.getElementById('page-title').insertAdjacentElement('afterBegin', div);
 }
 
 

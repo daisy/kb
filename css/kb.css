@@ -51,12 +51,13 @@ h2 {
 	font-family: Raleway;
 	font-size: 180%;
 	padding: 0.5em 0.7em 0 0.7em;
-	margin: 2rem 0 0 1.5rem;
+	margin: 0 0 6rem 1.5rem;
 	letter-spacing: 0.125rem;
 }
 
 h2.noCategory {
 	margin-top: 5.8rem;
+	margin-bottom: 0;
 }
 
 main.no-nav > h2,
@@ -341,6 +342,19 @@ div#categories {
 div#categories {
 	width: 99%;
 	border-left: 0.1rem dotted black;
+}
+
+
+/* page title */
+
+div#page-title {
+}
+
+div.category {
+	margin: 3rem 0 0 0;
+	padding: 0;
+	margin-left: 3.7rem;
+	font-size: 90%;
 }
 
 
