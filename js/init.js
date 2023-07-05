@@ -368,7 +368,7 @@ KB.prototype.generatePageTitle = function () {
 	
 	var div = document.createElement('div');
 		div.setAttribute('class', 'category');
-		div.appendChild(document.createTextNode('Category: '))
+		div.appendChild(document.createTextNode(msg.UI.cat));
 	
 	if (page_info.category.length > 0) {
 	
