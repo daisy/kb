@@ -34,7 +34,19 @@
 				<p>Changes are listed from most recent to oldest.</p>
 				
 				<dl class="value">
-					<dt>June 15, 2023 &#8212; Update EPUB language page</dt>
+					<dt>July 19, 2023 &#8212; Updated heading and subtitle guidance</dt>
+					<dd>
+						<p>The HTML specification has finally removed all mention of the problematic outline algorithm.
+							Part of this change is that the <code>hgroup</code> element has been updated to group only
+							one heading element with its subtitles (using <code>p</code> tags).</p>
+						<p>This change makes the association between headings and subtitles semantically identifiable,
+							the problem the <code>doc-subtitle</code> role attempted to solve. As
+							<code>doc-subtitle</code> is often treated as a heading by assistive technologies,
+							perpetuating the problem it was designed to solve, its use is no longer recommended.</p>
+						<p>For more information, refer to the <a href="../html/headings.html">headings KB page</a>.</p>
+					</dd>
+					
+					<dt>June 15, 2023 &#8212; Updated EPUB language page</dt>
 					<dd>
 						<p>The page on <a href="../epub/language.html">setting the language in EPUB</a> now includes
 							more information explaining what language tags are and the mechanisms for setting and

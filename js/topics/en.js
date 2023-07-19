@@ -298,16 +298,10 @@ var topic_list = [
 						'subtitle': 'The <code>form</code> element'
 					},
 					{
-						'id': 'html-hgroup',
-						'href': 'hgroup.html',
-						'title': 'Heading Groups',
-						'subtitle': 'The <code>hgroup</code> element'
-					},
-					{
 						'id': 'html-headings',
 						'href': 'headings.html',
 						'title': 'Headings',
-						'subtitle': 'The <code>h1</code> through <code>h6</code> elements'
+						'subtitle': 'The <code>h1</code> to <code>h6</code>, <code>hgroup</code>, and <code>heading</code> elements'
 					},
 					{
 						'id': 'html-ids',
