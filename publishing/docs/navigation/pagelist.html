@@ -180,7 +180,7 @@
 				<h3>Frequently Asked Questions</h3>
 				
 				<dl>
-					<dt>What if the order of my ebook doesn't exactly match the order of the print
+					<dt id="faq-001">What if the order of my ebook doesn't exactly match the order of the print
 						equivalent?</dt>
 					<dd><p>It is sometimes the case when converting to digital that front and back matter material gets
 						shuffled around and/or omitted. These changes in content order are not unexpected, and users
@@ -190,17 +190,17 @@
 							is to make note of this in the <a href="../metadata/schema-org.html#accessibilitySummary">accessibility 
 								summary</a> for the publication.</p>
 					</dd>
-					<dt>Does the page number reflect the page that is ending or the page that is
+					<dt id="faq-002">Does the page number reflect the page that is ending or the page that is
 						starting?</dt>
 					<dd><p>The page number always reflects the page that is starting.</p>
 					</dd>
-					<dt>Should the page break marker placement follow the print position?</dt>
+					<dt id="faq-003">Should the page break marker placement follow the print position?</dt>
 					<dd><p>No, page break markers are always placed at the start of the page's content, regardless of whether
 						the page number is printed at the top or bottom of the page in the print edition. When a user
 						jumps to a specific page, they want to jump to the start of the content for that page, not the
 						end.</p>
 					</dd>
-					<dt>Should I include the page numbers as content or empty elements?</dt>
+					<dt id="faq-004">Should I include the page numbers as content or empty elements?</dt>
 					<dd><p>There are pros and cons to each approach.</p>
 						<p>If you include the page numbers as text content within a <code>span</code> or <code>div</code>,
 							the pages will be more easily accessible to both sighted users and users using assistive
@@ -214,14 +214,14 @@
 							to provide the functionality using JavaScript. A script could be included in each document to
 							show/hide the numbers.</p>
 					</dd>
-					<dt>Should I use the <code>aria-label</code> or <code>title</code> attribute for the page number?</dt>
+					<dt id="faq-005">Should I use the <code>aria-label</code> or <code>title</code> attribute for the page number?</dt>
 					<dd>
 						<p>The use of <code>aria-label</code> is recommended when the page number is not included as text
 							content, but both attributes can be used. <code>aria-label</code> has higher precedence than
 							<code>title</code> in the <a href="https://www.w3.org/TR/accname-1.1/">accessible name computation
 								algorithm</a>.</p>
 					</dd>
-					<dt>Where do I put a page number when the page break occurs in the middle of a
+					<dt id="faq-006">Where do I put a page number when the page break occurs in the middle of a
 						list?</dt>
 					<dd><p>Lists often break across pages, with one item ending at the bottom of one and a new item starting
 						at the top of the next. In these cases, it is not possible to locate the page number between the
@@ -239,10 +239,10 @@
 							often not visible content, an empty list item will be confusing to all users and may alter the
 							meaning of the list.</p>
 					</dd>
-					<dt>Where do I put the page break if a word is hyphenated across a page?</dt>
+					<dt id="faq-007">Where do I put the page break if a word is hyphenated across a page?</dt>
 					<dd><p>Place the page marker after the word. Do not retain the print hyphenation and insert
 						the number in the middle of the word.</p></dd>
-					<dt>Can I use <code>a</code> tags for page numbers?</dt>
+					<dt id="faq-008">Can I use <code>a</code> tags for page numbers?</dt>
 					<dd><p>The <code>a</code> element has two specific uses defined in HTML5: for links when the
 						<code>href</code> attribute is present, and for placeholder links when it is not (e.g., a
 						link that might be active in another context or after some interaction by the user). As page

@@ -131,7 +131,7 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl>
-					<dt>Should I add a landmark role to every section?</dt>
+					<dt id="faq-001">Should I add a landmark role to every section?</dt>
 					<dd>
 						<p>No, landmarks are designed to allow the reader to quickly move to the primary sections of a
 							publication, not stand in as an alternative to the table of contents.</p>
@@ -143,7 +143,7 @@
 							cause confusion.</p>
 					</dd>
 
-					<dt>Does adding <code>aria-label</code> or <code>title</code> to an untitled section create a
+					<dt id="faq-002">Does adding <code>aria-label</code> or <code>title</code> to an untitled section create a
 						landmark?</dt>
 					<dd>
 						<p>Yes, so care needs to be taken not to overload the landmarks list in this way. When a
@@ -154,7 +154,7 @@
 								<code>doc-chapter</code>, consider the impact on navigation before labelling it.</p>
 					</dd>
 
-					<dt>Do I have to label every role?</dt>
+					<dt id="faq-003">Do I have to label every role?</dt>
 					<dd>
 						<p>No, whether a label is required depends on whether the role requires an accessible name. To
 							determine if an accessible name is required, see the role's definition in the <a
@@ -164,7 +164,7 @@
 							role's superclass (the value is inherited).</p>
 					</dd>
 
-					<dt>Should I always label landmarks?</dt>
+					<dt id="faq-004">Should I always label landmarks?</dt>
 					<dd>
 						<p>Best practice is to provide a label for landmarks using the <code>aria-labelledby</code>
 							(when a heading is present in the text) or <code>aria-label</code> attributes (when a

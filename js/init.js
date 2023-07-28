@@ -161,7 +161,7 @@ KB.prototype.writeTemplate = function () {
 	
 		kb.generateHeader();
 		
-		// don't regenerate the body for the search page or the results won't get returned to the div (google can't handle nesting)
+		// don't regenerate the body for the search page or the results won't get returned to the div
 		if (!this.isSearch) {
 			kb.generateBody();
 		}
@@ -200,6 +200,7 @@ KB.prototype.writeTemplate = function () {
 		if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 			kb.prettyPrint();
 			kb.addGlossaryLinks();
+			kb.addPermaLinks();
 			kb.generateWCAGLinks();
 			/* add functions with event listeners after generating wcag links or they get stripped */
 			kb.addExampleCopy();
@@ -1047,6 +1048,50 @@ KB.prototype.addGlossaryLinks = function() {
 		links[i].setAttribute('title', 'Go to definition');
 	}
 }
+
+
+/* add permalinks to examples and faqs */
+
+KB.prototype.addPermaLinks = function() {
+
+	var hasExamples = document.getElementById('ex');
+	
+	if (hasExamples) {
+		var examples = hasExamples.querySelectorAll('.label');
+		
+		for (var i = 0; i < examples.length; i++) {
+			var permalink = this.createPermaLink(i+1, 'example', examples[i].parentNode.parentNode.id);
+			examples[i].insertAdjacentElement('afterBegin', permalink);
+		}
+	}
+	
+	var hasFAQ = document.getElementById('faq');
+	
+	if (hasFAQ) {
+		var faqs = hasFAQ.querySelectorAll('dt');
+		
+		for (var i = 0; i < faqs.length; i++) {
+			var permalink = this.createPermaLink(i+1, 'FAQ', faqs[i].id);
+			faqs[i].insertAdjacentElement('afterBegin', permalink);
+		}
+	}
+}
+
+
+/* creates a permalink for the specified content */
+
+KB.prototype.createPermaLink = function(num, label, dest) {
+
+	var a = document.createElement('a');
+		a.href = '#' + dest;
+		a.setAttribute('class', 'permalink');
+		a.setAttribute('aria-label', 'Permalink for ' + label + ' ' + num);
+		a.appendChild(document.createTextNode('§ '));
+	
+	return a;
+
+}
+
 
 /* write the navigation topics */
 

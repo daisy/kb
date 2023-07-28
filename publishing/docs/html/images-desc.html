@@ -155,20 +155,20 @@
 			<section id="faq">
 				<h3>Frequently Asked Questions</h3>
 				<dl>
-					<dt>Why link to visible descriptions?</dt>
+					<dt id="faq-001">Why link to visible descriptions?</dt>
 					<dd>
 						<p>Even though a description is a visible part of the current page, linking to it provides a
 							programmatic means for users of assistive technologies to rapidly access the description without
 							having to hunt through the page content.</p>
 					</dd>
 					
-					<dt>Why not <code>longdesc</code>?</dt>
+					<dt id="faq-002">Why not <code>longdesc</code>?</dt>
 					<dd>
 						<p>The <code>longdesc</code> attribute is now considered an obsolete feature of HTML.</p>
 						<p>Although published as a separate extension of HTML by W3C, it is not supported in EPUB.</p>
 					</dd>
 					
-					<dt>Why not <code>aria-details</code>?</dt>
+					<dt id="faq-003">Why not <code>aria-details</code>?</dt>
 					<dd>
 						<p>The <code>aria-details</code> attribute is currently under development and not well
 							supported by assistive technologies. It will allow an association to be made with a
@@ -177,7 +177,7 @@
 							(i.e., the user will be able to navigate the description as structured HTML).</p>
 					</dd>
 					
-					<dt>When is a <code>figure</code> tag needed?</dt>
+					<dt id="faq-004">When is a <code>figure</code> tag needed?</dt>
 					<dd>
 						<p>If an image is important to the publication, but not required to be read at the point of
 							insertion (i.e., it is not part of the logical reading order), use a <code>figure</code>
@@ -185,7 +185,7 @@
 							information.</p>
 					</dd>
 					
-					<dt>Should I use <code>img</code> or <code>picture</code>?</dt>
+					<dt id="faq-005">Should I use <code>img</code> or <code>picture</code>?</dt>
 					<dd>
 						<p>The <code>picture</code> element is only needed if you provide more than one version of the
 							image (e.g., different resolutions or different formats targeted for different devices).

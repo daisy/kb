@@ -315,20 +315,20 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl>
-					<dt>Do I need to use the <code>-epub-</code> prefix on the properties?</dt>
+					<dt id="faq-001">Do I need to use the <code>-epub-</code> prefix on the properties?</dt>
 					<dd>
 						<p>No. As the properties were first introduced before the specification was stable, they were
 							required to use a prefix. The unprefixed versions are now valid to use.</p>
 					</dd>
 
-					<dt>Can I force the TTS engine to say acronyms instead of spell them?</dt>
+					<dt id="faq-002">Can I force the TTS engine to say acronyms instead of spell them?</dt>
 					<dd>
 						<p>The Speech module does not provide a way to tell an engine it must voice a capitalized term.
 							When including an acronym like EPUB, you would have to use a lexicon or attach an SSML
 							pronunciation attribute to absolutely ensure that it does not get spelled out.</p>
 					</dd>
 
-					<dt>Why do I need to control the voicing of punctuation?</dt>
+					<dt id="faq-003">Why do I need to control the voicing of punctuation?</dt>
 					<dd>
 						<p>Although most engines will voice significant pause points, such as colons, they will
 							typically not render each punctuation point in a document as it would ruin the reading

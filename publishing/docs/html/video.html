@@ -116,6 +116,27 @@
    &lt;/div>
 &lt;/video></code></pre>
 				</figure>
+				
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">Example &#8212; Including a fallback error message</div>
+						<p>A user agent will only render the content inside the <code>video</code> element if it does not
+							support the element. The user agent does not display this content if it does not support the
+							provided video formats (the user agent will display its own error message in such cases).</p>
+					</figcaption>
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General">
+   &#8230;
+   &lt;div class="err">
+     &lt;p>
+       Sorry, it appears your system 
+       does not support video playback.
+     &lt;/p>
+   &lt;/div>
+&lt;/video></code></pre>
+				</figure>
 			</section>
 
 			<section id="desc">

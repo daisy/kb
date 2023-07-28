@@ -174,7 +174,7 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl>
-					<dt>Should I use IPA or X-SAMPA or something else to write my pronunciations?</dt>
+					<dt id="faq-001">Should I use IPA or X-SAMPA or something else to write my pronunciations?</dt>
 					<dd>
 						<p>Although IPA is arguably the most widely recognized phonetic alphabet, that does not mean
 							that it has full support even in existing synthetic speech engines. Some engines support
@@ -188,7 +188,7 @@
 							and loser.</p>
 					</dd>
 
-					<dt>Are lexicons case sensitive?</dt>
+					<dt id="faq-002">Are lexicons case sensitive?</dt>
 					<dd>
 						<p>The need to be able to define case-sensitive pronunciations is clear, but how PLS lexicons
 							are processed less so. The specification itself says nothing about case sensitivity of
@@ -214,14 +214,14 @@
 							mispronounced (and likewise the other way around).</p>
 					</dd>
 
-					<dt>Are there any dangers in mixing languages?</dt>
+					<dt id="faq-003">Are there any dangers in mixing languages?</dt>
 					<dd>
 						<p>Yes, if the rendering engine does not support voicing the specified language, the user may
 							get an error or the text may be silently skipped. Error handling in such situations cannot
 							be guaranteed. Language-specific lexicons will typically not be loaded.</p>
 					</dd>
 
-					<dt>Can I add localizations?</dt>
+					<dt id="faq-004">Can I add localizations?</dt>
 					<dd>
 						<p>Not within a single PLS file. The <code>phoneme</code> element does not allow an
 								<code>xml:lang</code> to be attached to it. Multiple localized lexicons could be
@@ -260,7 +260,7 @@
 							pronunciations.</p>
 					</dd>
 
-					<dt>Should I use PLS lexicons or SSML?</dt>
+					<dt id="faq-005">Should I use PLS lexicons or SSML?</dt>
 					<dd>
 						<p>The inclusion of the technologies in EPUB 3 was not to require a choice to be made; the
 							technologies are meant to complement each other. PLS lexicons allow you to define a word

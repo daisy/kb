@@ -159,6 +159,14 @@ a.gloss {
 	color: rgb(100,100,100);
 }
 
+a.permalink {
+	font-size: 120%;
+	font-weight: normal;
+	color: rgb(160, 160, 160);
+	text-decoration: none !important;
+	border-bottom: none !important;
+}
+
 /* page headers and footers */
 
 header {
@@ -256,8 +264,10 @@ div#body > details {
 	margin-right: 2em;
 }
 
+section#ex figure,
+section#faq dt,
 main section {
-	scroll-margin-top: 12rem;
+	scroll-margin-top: 8rem;
 }
 
 /* skip to main link */

@@ -243,7 +243,7 @@
 				<h3>Frequently Asked Questions</h3>
 
 				<dl>
-					<dt id="faq01">Does every chapter/section need to be a landmark?</dt>
+					<dt id="faq-001">Does every chapter/section need to be a landmark?</dt>
 					<dd>
 						<p>No.</p>
 						
@@ -256,7 +256,7 @@
 							already available to do so. Only identify the major section(s) of content within a document,
 							if necessary (i.e., the chapters or top-level sections, not every subsection).</p>
 					</dd>
-					<dt id="faq08">Is every <code>section</code> with a heading a landmark?</dt>
+					<dt id="faq-008">Is every <code>section</code> with a heading a landmark?</dt>
 					<dd>
 						<p>No.</p>
 						
@@ -271,7 +271,7 @@
 						<p>In all other cases, a <code>section</code> has no specific semantic attached to it (i.e.,
 							it is similar in nature to a <code>div</code>).</p>
 					</dd>
-					<dt id="faq09">Does every landmark require a label?</dt>
+					<dt id="faq-009">Does every landmark require a label?</dt>
 					<dd>
 						<p>No.</p>
 						
@@ -289,7 +289,7 @@
 							on the out, it is best practice to make the labels explicit. Doing so will avoid unintended
 							violations of WCAG requirements.</p>
 					</dd>
-					<dt id="faq04">Should I use the <code>title</code> or <code>aria-label</code> attribute for
+					<dt id="faq-004">Should I use the <code>title</code> or <code>aria-label</code> attribute for
 						hidden labels?</dt>
 					<dd>
 						<p>If a label is not available in the text, preference should always be given to the
@@ -297,7 +297,7 @@
 							accessible names for elements and controls and <code>title</code> has a history of poor
 							support.</p>
 					</dd>
-					<dt id="faq02">Why should landmark names be unique?</dt>
+					<dt id="faq-002">Why should landmark names be unique?</dt>
 					<dd>
 						<p>When there is more than one of the same landmark role in a document, providing unique names
 							avoids confusion about which particular one is being accessed. Ideally, the title of each
@@ -306,7 +306,7 @@
 							identifier should be something helpful, such as the subsection the component belongs to or
 							the page it is found on in a print addition.</p>
 					</dd>
-					<dt id="faq03">What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
+					<dt id="faq-003">What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
 					<dd>
 						<p>ARIA landmarks are compiled for individual web pages, so they do not persist from one
 							document to the next. As EPUB publications consist of many documents, reading systems need
@@ -317,7 +317,7 @@
 							were designed to solve this problem of landmarks spread across many documents.</p>
 						<p>For maximum interoperability, it is recommended to provide both types of landmarks.</p>
 					</dd>
-					<dt id="faq05">Why can't I use the <code>landmark</code> role?</dt>
+					<dt id="faq-005">Why can't I use the <code>landmark</code> role?</dt>
 					<dd>
 						<p>The <code>landmark</code> role is what the WAI-ARIA specification refers to as an <a
 								href="https://www.w3.org/TR/wai-aria/#abstract_roles">abstract role</a>. It is not meant
@@ -326,7 +326,7 @@
 						<p>For landmarks without a specific role, the <code>region</code> role can be used with an
 							meaningful label.</p>
 					</dd>
-					<dt id="faq06">Why does <code>aside</code> require a label but not <code>section</code>?</dt>
+					<dt id="faq-006">Why does <code>aside</code> require a label but not <code>section</code>?</dt>
 					<dd>
 						<p>Despite the best intentions when it was introduced, the <code>section</code> element has been
 							used the same way as <code>div</code> (i.e., for purely stylistic reasons). As a result, the
@@ -356,7 +356,7 @@
 							roles of HTML elements, refer to the <a href="https://www.w3.org/TR/html-aria/">ARIA in
 								HTML</a> document.</p>
 					</dd>
-					<dt id="faq07">Why can't I use landmarks on element X?</dt>
+					<dt id="faq-007">Why can't I use landmarks on element X?</dt>
 					<dd>
 						<p>Some HTML elements are restricted in what roles they accept to prevent overriding necessary
 							semantics.</p>
