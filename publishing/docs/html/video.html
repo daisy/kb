@@ -98,23 +98,22 @@
 
 				<figure id="ex-05">
 					<figcaption>
-						<div class="label">Example &#8212; Including a fallback error message</div>
-						<p>A user agent will only render the content inside the <code>video</code> element if it does not
-							support the element. The user agent does not display this content if it does not support the
-							provided video formats (the user agent will display its own error message in such cases).</p>
+						<div class="label">Example &#8212; Providing a transcript</div>
+						<p>The transcript is included in a <code>details</code> element after the video so that users
+							can decide whether to expand the element and read the text.</p>
 					</figcaption>
 					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;video
       src="video/the_general.mp4"
-      controls="controls"
-      aria-label="The General">
+      &#8230;
+      aria-details="#transcript">
    &#8230;
-   &lt;div class="err">
-     &lt;p>
-       Sorry, it appears your system 
-       does not support video playback.
-     &lt;/p>
-   &lt;/div>
-&lt;/video></code></pre>
+&lt;/video>
+&lt;details id="transcript">
+	&lt;summary>Transcript&lt;/summary>
+	&lt;p>Jospeh M Schenck presents Buster Keaton
+	   in 'The General' &#8230;&lt;/p>
+	&#8230;
+&lt;/details></code></pre>
 				</figure>
 				
 				<figure id="ex-06">
@@ -136,6 +135,27 @@
      &lt;/p>
    &lt;/div>
 &lt;/video></code></pre>
+				</figure>
+				
+				<figure id="ex-07">
+					<figcaption>
+						<div class="label">Example &#8212; Link to alternative video</div>
+						<p>Although not strictly an accessibility issue, when an EPUB publication references a video
+							on the web, providing a separate link to the video may allow some users to access the video
+							who are prevented from doing so by their reading system. For example, if the reading system
+							blocks external resources or cannot play the provided format.</p>
+						<p>Note that this technique does not help if a user does not have access to the internet,
+							which is why embedding videos in EPUBs should be preferred whenever possible.</p>
+					</figcaption>
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;video
+      src="https://example.org/videos/the_general.mp4" ...>
+   &#8230;
+&lt;/video>
+&lt;p>
+   &lt;a href="https://example.org/videos/the_general.mp4">
+      Watch video in browser
+   &lt;/a>
+&lt;/p></code></pre>
 				</figure>
 			</section>
 
