@@ -79,10 +79,10 @@
 						<p>The <code>track</code> identifies the subtitles and captions files for the video.
 							The <code>kind</code> attribute designates the nature of the supplied track.</p>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;video controls="controls">
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;video
        src="video/big-hollywood-blockbuster.mp4"
-      controls="controls"
-      aria-label="Kaplowy - The movie">
+       controls="controls"
+       aria-label="Kaplowy - The movie">
    &lt;track
       kind="subtitles"
       src="subtitles.en.vtt"
@@ -104,7 +104,8 @@
 					</figcaption>
 					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;video
       src="video/the_general.mp4"
-      &#8230;
+      controls="controls"
+      aria-label="The General"
       aria-details="#transcript">
    &#8230;
 &lt;/video>
@@ -139,18 +140,57 @@
 				
 				<figure id="ex-07">
 					<figcaption>
-						<div class="label">Example &#8212; Link to alternative video</div>
-						<p>Although not strictly an accessibility issue, when an EPUB publication references a video
-							on the web (a <a href="https://www.w3.org/TR/epub/#sec-resource-locations">remote resource</a>),
-							providing a separate link to the video may allow some users to access the video who are prevented
-							from doing so by their reading system. For example, if the reading system blocks external
-							resources or cannot play the provided format.</p>
-						<p>Note that this technique does not help if a user does not have access to the internet,
-							which is why embedding videos in EPUBs should be preferred whenever possible.</p>
+						<div class="label">Example &#8212; Video with variety of accessible features</div>
+						<p>This example combines elements from the previous examples to show a possible complete
+							example of an embedded video. It includes English subtitles and captions, fallback
+							content, a link to a web-hosted version, and a transcript.</p>
 					</figcaption>
 					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;video
-      src="https://example.org/videos/the_general.mp4"
-      &#8230;>
+      src="https://example.com/videos/the_general.mp4"
+      controls="controls"
+      aria-label="general"
+      aria-details="#transcript">
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;p>Your reading system does not support the video
+      element. Please try the link to open the video in a
+      browser.&lt;/p>
+&lt;/video>
+&lt;p>
+   &lt;a href="https://example.org/videos/the_general.mp4">
+      Watch video in browser
+   &lt;/a>
+&lt;/p>
+&lt;details id="transcript">
+   &lt;summary>Transcript&lt;/summary>
+   &lt;p>&lt;/p>
+   &#8230;
+&lt;/details>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-08">
+					<figcaption>
+						<div class="label">Example &#8212; Link to alternative video</div>
+						<p>Although not strictly an accessibility issue, when an EPUB publication references a video
+							on the web, providing a separate link to the video may allow some users to access the video
+							when they are prevented from doing so by their reading system (e.g., if the reading
+							system blocks external resources or cannot play the provided format). Refer to the
+							knowledge base page on <a href="../epub/remote-resources.html">remote resources</a> for
+							more information.</p>
+						<p>Note that this technique does not help if a user does not have access to the internet,
+							which is why embedding videos in EPUBs should be preferred whenever possible.</p>
+						<p>Accessibility features have been omitted from the markup for brevity.</p>
+					</figcaption>
+					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;video src="https://example.org/videos/the_general.mp4" &#8230;>
    &#8230;
 &lt;/video>
 &lt;p>

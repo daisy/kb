@@ -68,6 +68,12 @@ var topic_list = [
 						'subtitle': 'Specifying the reading order of documents the spine.'
 					},
 					{
+						'id': 'epub-remote',
+						'href': 'remote-resources.html',
+						'title': 'Remote Resources',
+						'subtitle': 'Overview of the problems hosting resources outside the EPUB container.'
+					},
+					{
 						'id': 'epub-language',
 						'href': 'language.html',
 						'title': 'Setting the Language',
