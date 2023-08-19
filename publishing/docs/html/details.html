@@ -41,8 +41,9 @@
       alt="The hydrologic cycle, showing the 
         circular nature of the process as water 
         evaporates from a body of water and 
-        eventually returns to it"/>
-   &lt;details>
+        eventually returns to it"
+      aria-details="desc"/>
+   &lt;details id="desc">
       &lt;summary>Description&lt;/summary>
       &lt;p>
          The diagram shows the processes of 
@@ -57,8 +58,6 @@
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Adding a table summary</div>
-						<p>In this example, the <code>aria-details</code> attribute is used to link the table to a summary
-							positioned after it that explains its layout.</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table aria-details="summary">
    &#8230;
@@ -92,11 +91,11 @@
 					clicking or tapping on it), the element expands to show the additional information.</p>
 				<p>The <code>details</code> element should be positioned where users are most likely to benefit from it. A
 					table summary, for example, is most helpful to encounter before the table it summarizes. An image
-					description, on the other hand, can proceed the image it describes. The remove any ambiguity, the
+					description, on the other hand, can proceed the image it describes. To remove any ambiguity, the
 						<code>aria-details</code> attribute can be used to associate the <code>details</code> element with the
-					relevant content item (see <a href="#ex-02">Example 2</a>). If the information cannot be placed in
-					logical sequence, the attribute allows users of assistive technologies to locate the element when the
-					encounter the content its associated with.</p>
+					relevant content item. If the information cannot be placed in logical sequence, the attribute allows
+					users of assistive technologies to locate the element when they encounter the content it is associated
+					with.</p>
 				<p>When using the <code>details</code> element, make sure to provide a meaningful label (i.e., that
 					describes the purpose of the information). If the element contains an extended description, make the
 					label "Description". Avoid using generic labels like "details" as it requires the user to expand the
