@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>European Accessibility Act</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description"
+			content="Provides and overview of the requirements of the European Accessibility Act (EAA).">
+		<script>
+			var page_info = {
+				'category': 'Conformance',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.subcls {
+				text-indent: -2.5rem;
+				padding-left: 5rem;
+			}
+			blockquote {
+				font-size: 90%;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>The European Accessibility Act sets a common accessibility baseline for publishing ebooks within
+					the European Union member states.</p>
+				
+				<p>Publishers, with some exceptions, will be required to meet these requirements starting in 2025.</p>
+			</section>
+			
+			
+			<section id="overview">
+				<h3>Overview</h3>
+				
+				<p>The European Accessibility Act (EAA) is the colloquial name for <a 
+					href="https://eur-lex.europa.eu/eli/dir/2019/882/oj?eliuri=eli:dir:2019:882:oj">Directive (EU) 
+					2019/882 2 of the European Parliament and of the Council of 17 April 2019 on the accessibility
+					requirements for products and services</a>.</p>
+				
+				<p>The act was created in response to the commitments assumed by the European Union (EU) in ratifying
+					the UN Convention on the Rights of Persons with Disabilities (UNCRPD). Its goal is to harmonize
+					accessibility requirements across various products and services most important to persons with
+					disabilities, in particular ebooks.</p>
+				
+				<p>Prior to the introduction of this act, publishing ebooks in the <abbr
+					title="European Union">EU</abbr> required dealing with a patchwork of national accessibility laws.
+					The act addresses this pain point for publishers by establishing a common accessibility baseline
+					based on the <a href="./wcag.html">W3C's Web Content Accessibility
+						Guidelines (WCAG)</a>. The act was introduced in 2019 and member states had until June 28, 2022,
+					to enshrine this law into national legislation. (Most members have now enacted such laws, but <a 
+						href="https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32019L0882">review the current 
+						implementation status</a> of each for more information.)</p>
+				
+				<p>Publishers have a phase-in period to begin producing accessible ebooks that ends on June 28, 2025.
+					After that date, publications must be accessible, with <a href="#exemptions">some exceptions</a>,
+					as noted below.</p>
+			</section>
+			
+			<section id="conformance">
+				<h3>Conformance</h3>
+				
+				<p>The conformance requirements for ebooks are defined in <a 
+					href="https://eur-lex.europa.eu/eli/dir/2019/882/oj?eliuri=eli:dir:2019:882:oj#d1e478-100-1">Annex I
+					Section IV of the EAA</a>, specifically:</p>
+				
+				<blockquote>
+					<p>(f) E-books:</p>
+					<p class="subcls">(i) ensuring that, when an e-book contains audio in addition to text, it then
+						provides synchronised text and audio; 7.6.2019 Official Journal of the European Union L 151/103
+						EN</p>
+					<p class="subcls">(ii) ensuring that e-book digital files do not prevent assistive technology from
+						operating properly;</p>
+					<p class="subcls">(iii) ensuring access to the content, the navigation of the file content and
+						layout including dynamic layout, the provision of the structure, flexibility and choice in the
+						presentation of the content;</p>
+					<p class="subcls">(iv) allowing alternative renditions of the content and its interoperability with
+						a variety of assistive technologies, in such a way that it is perceivable, understandable,
+						operable and robust;</p>
+					<p class="subcls">(v) making them discoverable by providing information through metadata about
+						their accessibility features;</p>
+					<p class="subcls">(vi) ensuring that digital rights management measures do not block accessibility
+						features.</p>
+				</blockquote>
+				
+				<p>The key clause here is (iv), which states that the content must be "perceivable, understandable,
+					operable and robust." Anyone familiar with WCAG will already be aware that these are the same four
+					principles it uses to categorize the needs of users. The similar language is not a coincidence. If
+					you go to paragraph 47 of the act, it defines the purpose of each principle in the same way as
+					WCAG.</p>
+				
+				<p>Although this generally informs publishers they need to follow WCAG, the EAA is not specific about
+					what conformance means (i.e., what version of WCAG and what level). Instead, you have to follow
+					a couple of references to related directives.</p>
+				
+				<p>The first comes in paragraph 47 itself, which, in defining the four principles, says they are the
+					same as defined in <a 
+						href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016L2102">Directive (EU)
+						2016/2102</a>. That Directive in turn states in paragraph 37 that: <q>the relevant clauses of
+							European standard EN 301 549 V1.1.2 (2015-04) should be considered as the minimum means of
+							putting [the] principles into practice</q>.</p>
+				
+				<p>Only when you reach <a 
+					href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf">EN
+					301 549</a> are the minimum version and conformance requirements spelled out. As EPUB is web content,
+					the requirements detailed in Section 9 apply, which according to the latest version of EN 301 549
+					requires conformance to WCAG 2.1 at Level AA.</p>
+				
+				<p>Publishers should therefore consider WCAG 2.1 Level AA as the minimum they need their ebooks to meet
+					to be conformant with the EAA, but this is subject to change as the relevant directives are updated.
+					Keeping pace with latest version of WCAG is always strongly advised and is a key recommendation of
+					the <a href="./epub.html">EPUB Accessibility standard</a>.</p>
+				
+				<p>In fact, the only requirement of the EAA for ebooks not met by conforming to the EPUB Accessibility
+					at WCAG 2.1 Level AA is that digital rights management (DRM) measures not block the accessibility
+					of ebooks. The EPUB Accessibility standard informatively mentions the problems that can arise, but
+					it cannot enforce compliance since DRM is normally applied by vendors.</p>
+				
+				<p>As the EAA is broader in application, including to the providers of bookstores, the act can make
+					DRM non-interference a requirement. Checking the interoperability of DRM with assistive
+					technologies is typically not a concern for publishers, however, unless they are also directly
+					distributing their publications to users with DRM (i.e., they sell through their own bookstore).</p>
+				
+				<div class="note" role="note" aria-labelledby="conf-note">
+					<p class="label" id="conf-note">Note</p>
+					
+					<p>For more specific details on how to map the other EAA requirements to EPUB, refer to the <a
+						href="https://www.w3.org/TR/epub-a11y-eaa-mapping/#annex-I-section-IV">EPUB Accessibility - EU
+						Accessibility Act Mapping</a> document produced by the W3C's EPUB 3 Working Group.</p>
+				</div>
+			</section>
+			
+			<section id="exemptions">
+				<h3>Exemptions</h3>
+				
+				<p>Although the EAA is intended to apply to all ebooks, it does include a limited set of exemptions
+					where production would represent an undue burden for publishers or would require them to change the
+					content such that it would alter the basic nature of the work.</p>
+				
+				<p>The specific wording of these exemptions is as follows:</p>
+				
+				<ul>
+					<li><q>[t]he requirements and obligations of this Directive should &#8230; not apply to
+						microenterprises providing services within the scope of this Directive</q> (paragraph 70),
+						where a microenterprise is <q>an enterprise which employs fewer than 10 persons and which 
+						has an annual turnover not exceeding EUR 2 million or an annual balance sheet total not
+						exceeding EUR 2 million</q> (Article 3, paragraph 23)</li>
+					<li>if production would <q>result in the imposition of a disproportionate burden on the economic
+						operators concerned</q> (Article 14, paragraph 1 (a))</li>
+					<li>if production would <q>require a significant change in a product or service that results in the
+						fundamental alteration of its basic nature</q> (Article 14, paragraph 1 (b))</li>
+				</ul>
+				
+				<p>Although the act allows an exemption for disproportionate burden, it should not be read as absolving
+					the publisher of making any effort to make their content accessible. There may be a criterion or
+					more of the act that cannot be met, but the publisher should still make all reasonable efforts to
+					meet the rest of the requirements. (Refer to paragraph 72 of the act for more information.)</p>
+				
+				<div class="note" role="note" aria-labelledby="dis-note">
+					<p class="label" id="dis-note">Note</p>
+					<p>Claiming a disproportionate burden requires that a publisher meet the criteria set out in <a
+						href="https://eur-lex.europa.eu/eli/dir/2019/882/oj?eliuri=eli:dir:2019:882:oj#d1e32-115-1">Annex
+						VI</a> of the act.</p>
+				</div>
+				
+				<p>What would allow a publisher to claim a fundamental alteration exemption for an ebook is less
+					clearly defined. This page will be updated whenever evidence of how publishers are using this
+					exemption becomes available.</p>
+				
+				<p>Be aware that claiming any of these exemptions requires publishers to carry out an assessment to
+					prove their legitimacy. Although microenterprises are exempt from documenting their assessments,
+					they may be requested by regulators to provide the facts that led them to claim the exemption.</p>
+				
+				<div class="note" role="note" aria-labelledby="ex-meta-note">
+					<p class="label" id="ex-meta-note">Note</p>
+					
+					<p>The W3C Publishing Maintenance Working Group is expected to soon publish new metadata for EPUB
+						that allows publishers to express exemptions in the package document (an 
+						<code>a11y:exemption</code> property). A link to the document will be added once it is
+						available.</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>
+						<a 
+							href="https://eur-lex.europa.eu/eli/dir/2019/882/oj?eliuri=eli:dir:2019:882:oj">Directive (EU) 
+							2019/882 of the European Parliament</a>
+					</li>
+					<li>
+						<a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf">EN
+							301 549 &#8212; Accessibility requirements suitable for public procurement of ICT products
+							and services in Europe</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/epub-a11y-eaa-mapping/#annex-I-section-IV">EPUB Accessibility - EU
+							Accessibility Act Mapping</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
