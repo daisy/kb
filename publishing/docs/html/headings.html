@@ -62,10 +62,10 @@
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">Example 2 &#8212; Separate heading and subtitle</div>
-						<p>The title and subtitle are grouped in a <code>hgroup</code> element to associate them.
-							The role <code>doc-subtitle</code> is used to identify the subtitle.</p>
+						<p>The title and subtitle are grouped in a <code>hgroup</code> element to associate them.</p>
 						<p>Note that the <code>aria-labelledby</code> attribute only references the heading element
-							to avoid the subtitle also being added to the accessible name.</p>
+							instead of the entire <code>hgroup</code> to avoid the subtitle also being added to the
+							accessible name.</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
    &lt;hgroup>
