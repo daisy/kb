@@ -70,7 +70,7 @@
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
    &lt;hgroup>
      &lt;h1 id="hd01">ORIGIN OF THE WORLD.&#8212;FIRST DYNASTY.&lt;/h1>
-     &lt;p>URANUS AND GÆA. (Cœlus and Terra.)&lt;/p>
+     &lt;p role="doc-subtitle">URANUS AND GÆA. (Cœlus and Terra.)&lt;/p>
    &lt;/hgroup>
    &#8230;
 &lt;/section>
@@ -127,16 +127,6 @@
 							an <code>hgroup</code> inside a <code>header</code> to combine a heading group with other
 							header content.</p>
 					</dd>
-					
-					<dt id="faq-004">Should I use <code>doc-subtitle</code>?</dt>
-					<dd>
-						<p>It is better to avoid using this role. It was meant to address the heading navigation problems
-							that using a numbered heading for subtitles causes in assistive technologies, but it is often
-							treated as a heading by assistive technologies (i.e., it causes the very problem it was meant
-							to solve).</p>
-						<p>Now that the <code>hgroup</code> element can tie headings and subtitles together without
-							using multiple heading elements, it is better to use it instead.</p>
-					</dd>
 				</dl>
 			</section>
 			
@@ -184,7 +174,7 @@
       &lt;img src="graphics/chapter-marker.png" alt=""/>
       &lt;hgroup>
          &lt;h2 id="c01-hd">Chapter 1&lt;h2>
-         &lt;p>Let there be light&lt;/p>
+         &lt;p role="doc-subtitle">Let there be light&lt;/p>
       &lt;hgroup>
       &lt;p role="doc-epigraph">Now the earth was formless and void, 
          and darkness was over the surface of the deep.&lt;/p>
