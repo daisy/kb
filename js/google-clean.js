@@ -4,11 +4,11 @@
 function clean_search() {
 
 	var search_box = document.getElementById('gsc-i-id1');
-	var search_div = document.getElementById('search');
+	var search = (document.getElementsByTagName('search'))[0];
 	
 	if (search_box) {
 		search_box.style.background = '';
-		search_div.removeAttribute('hidden');
+		search.removeAttribute('hidden');
 		
 		// erase google's attempts to re-insert the branding when focus leaves
 		search_box.addEventListener('blur', strip_searchbg);

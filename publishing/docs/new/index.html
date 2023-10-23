@@ -22,127 +22,80 @@
 			div#archive ol {
 				list-style-type: '-  ';
 			}
+			a.rss {
+				width: 24px;
+				display: block;
+				position: absolute;
+				top: 7.5rem;
+				left: 32.3rem;
+			}
+			
+			@media screen and (max-width: 600px) {
+				a.rss {
+					position: relative;
+					top: unset;
+					left: unset;
+				}
+			}
 		</style>
+		<script>
+			const req = new XMLHttpRequest();
+				req.addEventListener("load", loadUpdates);
+				req.addEventListener("error", showError);
+				req.addEventListener("abort", showError);
+				req.open("GET", "/publishing/docs/new/feed.xml");
+				req.send();
+			
+			req.onloadend = function() {
+				if (req.status == 404) { 
+					showError();
+					return;
+				}
+			}
+			
+			function loadUpdates() {
+			
+				if (!this.responseXML) {
+					return;
+				}
+				
+				var updates = this.responseXML.getElementsByTagName('item');
+				var updateHTML = '<dl class="value">';
+				
+				for (var i = 0; i < updates.length; i++) {
+					var date_str = new Intl.DateTimeFormat("en-US", {month: 'long', day: 'numeric', year: 'numeric'}).format(new Date(updates[i].getElementsByTagName('pubDate')[0].textContent));
+					
+					updateHTML += '<dt>' + date_str + ' &#8212; ' + updates[i].getElementsByTagName('title')[0].textContent + '</dt>'
+								+ '<dd>' + updates[i].getElementsByTagName('description')[0].textContent + '</dd>';
+				}
+				
+				updateHTML += '</dl>';
+				
+				document.getElementById('update-list').innerHTML = updateHTML;
+			}
+			
+			function showError() {
+				var errHTML = '<p><strong>... An error occurred loading the updates ...</strong></p><p>Please try reloading the page again or report this problem if it continues.</p>';
+				document.getElementById('update-list').innerHTML = errHTML;
+			}
+		</script>
 	</head>
 	<body>
 		<main>
 			<section id="new" aria-label="List of Updates">
+				<a class="rss" href="feed.xml"><img height="24" src="/graphics/rss.png" alt="RSS feed"/></a>
+				
 				<p>This page is continuously updated to reflect significant changes to the DAISY Accessible Publishing
-					Knowledge Base. For a complete list of changes, refer to the project's <a
-						href="https://github.com/daisy/kb/commits/">GitHub commit history</a>.</p>
+					Knowledge Base.</p>
+				
+				<p>To closely follow changes to this site, it is recommended to watch the project's <a
+					href="https://github.com/daisy/kb/commits/">GitHub repository</a>. If you are not interested in
+					all the discussions that go on, you can select to watch only pull requests, as these contain
+					the changes to the site.</p>
 				
 				<p>Changes are listed from most recent to oldest.</p>
 				
-				<dl class="value">
-					<dt>August 1, 2023 &#8212; New page on remote resources</dt>
-					<dd>
-						<p>A new page covering the usability and accessibility issues that can arise from <a 
-							href="../epub/remote-resources.html">remote resource in EPUB 3</a> is now available.</p>
-					</dd>
-					
-					<dt>July 28, 2023 &#8212; Linking to examples and frequently asked questions</dt>
-					<dd>
-						<p>To make it easier to reference the site, link destinations are now provided before each
-							example in an examples section as well as before each frequently asked question. To
-							obtain the link, click on the '§' symbol before each (also identified as permalinks
-							in their labels).</p>
-					</dd>
-					
-					<dt>July 19, 2023 &#8212; Updated heading and subtitle guidance</dt>
-					<dd>
-						<p>The HTML specification has finally removed all mention of the problematic outline algorithm.
-							Part of this change is that the <code>hgroup</code> element has been updated to group only
-							one heading element with its subtitles (using <code>p</code> tags).</p>
-						<p>This change makes the association between headings and subtitles semantically identifiable.</p>
-						<p>For more information, refer to the <a href="../html/headings.html">headings KB page</a>.</p>
-					</dd>
-					
-					<dt>June 15, 2023 &#8212; Updated EPUB language page</dt>
-					<dd>
-						<p>The page on <a href="../epub/language.html">setting the language in EPUB</a> now includes
-							more information explaining what language tags are and the mechanisms for setting and
-							overriding languages in EPUB. The different language features are also now explained in
-							more detail.</p>
-					</dd>
-					
-					<dt>June 10, 2023 &#8212; Conformance changes in EPUB Accessibility 1.1</dt>
-					<dd>
-						<p>The note on the conformance identifier changes in the new standard is now an <a 
-							href="../metadata/evaluation.html#a11y-transition">expanded subsection of 
-							the <code>dcterms:conformsTo</code> section</a>. The subsection now depicts the changes in
-							markup between 1.0 and 1.1, not just the different identifiers used.</p>
-					</dd>
-					
-					<dt>June 8, 2023 &#8212; EPUB reading order</dt>
-					<dd>
-						<p>The knowledge base now includes a new page about <a 
-							href="../epub/reading-order.html">defining the reading order</a> through the EPUB
-							<code>spine</code> element. The page discusses issues with the ordering documents and
-							considerations around including non-linear content.</p>
-					</dd>
-					
-					<dt>June 2, 2023 &#8212; New layout for categories</dt>
-					<dd>
-						<p>To make it easier to find information, the list of categories is no longer buried in a
-							drop-down menu. The list of categories now occupies the right-hand column of the site
-							(this position may change depending on zoom level and device screen size).</p>
-						<p>The link to the <a href="../glossary/">glossary</a> is now at the bottom of the page in the
-							Site menu, as is the link to the <a href="../topics.html">page that lists all topics</a>.</p>
-					</dd>
-					
-					<dt>May 31, 2023 &#8212; New search box</dt>
-					<dd>
-						<p>It is no longer necessary to click through to a separate search page to query the knowledge
-							base for information. A site search box is now available in the header of every page and is
-							reachable from the page landmarks.</p>
-					</dd>
-					
-					<dt>April 19, 2023 &#8212; WCAG parsing requirement</dt>
-					<dd>
-						<p>The forthcoming WCAG 2.2 revision will see <a 
-							href="https://www.w3.org/TR/WCAG22/#parsing">success criterion 4.1.1</a> pass for all HTML
-							and XML-based content as it no longer captures accessibility issues that aren't already
-							covered by other success criteria. This change will also apply retroactively to WCAG 2.0
-							and 2.1.</p>
-						
-						<p>The knowledge base now reflects this new guidance, advising that parsing errors that
-							affect accessibility be reported under their more applicable success criteria. Refer to the
-							<a href="../wcag/parsing.html">WCAG explain for 4.1.1</a> for more information.</p>
-					</dd>
-					
-					<dt>April 17, 2023 &#8212; Evaluation metadata</dt>
-					<dd>
-						<p>Now that the EPUB Accessibility 1.1 standard has reached Proposed Recommendation status
-							in W3C, the <a href="../metadata/evaluation.html">guidance on reporting conformance</a> now
-							reflects the new identifiers used in that document.</p>
-						<p>Where the EPUB Accessibility 1.0 specification used <code>idpf.org</code> URLs to indicate
-							conformance, the new standard uses easier to write and understand strings. The strings
-							also adapt to new versions of WCAG as soon as they are released.</p>
-						<p>Publishers are encouraged to begin looking at migrating to the new standard as it should
-							become a final recommendation in the next month.</p>
-					</dd>
-					
-					<dt>March 24, 2023 &#8212; <code>pageBreakMarkers</code> and <code>pageNavigation</code>
-						accessibility features</dt>
-					<dd>
-						<p>The page describing the <a href="../metadata/schema.org/accessibilityFeature.html">schema.org 
-							<code>accessibilityFeature</code> property</a> now includes information on the
-							<code>pageBreakMarkers</code> and <code>pageNavigation</code> values.</p>
-						<p>The <code>pageBreakMarkers</code> value replaces <code>printPageNumbers</code> as more
-							and more publications are being created with static page locations that are not tied to a
-							print source. The <code>pageNavigation</code> value enables publishers to now identify when
-							a publication includes a page list that allows users to access the page break
-							locations.</p>
-					</dd>
-					
-					<dt>March 24, 2023 &#8212; <code>pageBreakSource</code> property</dt>
-					<dd>
-						<p>Information about the new <code>pageBreakSource</code> property is now available on the
-							<a href="../navigation/pagelist.html">page navigation</a> page. This property is currently
-							being incubated as a replacement for using the <code>dc:source</code> and 
-							<code>page-source</code> properties.</p>
-					</dd>
-				</dl>
+				<div id="update-list"></div>
 				
 				<div id="archive">
 					<p>Archived updates:</p>

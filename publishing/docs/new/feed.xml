@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+	<channel>
+		<title>DAISY Accessible Publishing Knowledge Base</title>
+		<description>...</description>
+		<link>https://kb.daisy.org/publishing/docs</link>
+		<copyright>2023 DAISY. All rights reserved</copyright>
+		<lastBuildDate>Mon, 16 Oct 2023 00:01:00 +0500</lastBuildDate>
+		<pubDate>Mon, 16 Oct 2023 11:00:00 +0500</pubDate>
+		<ttl>1440</ttl>
+		
+		<item>
+			<title>New page on remote resources</title>
+			<link>https://kb.daisy.org/publishing/docs/epub/remote-resources.html</link>
+			<description>
+				<![CDATA[
+				<p>A new page covering the usability and accessibility issues that can arise from <a 
+				href="https://kb.daisy.org/publishing/docs/epub/remote-resources.html">remote
+				resource in EPUB 3</a> is now available.</p>
+				]]>	
+			</description>
+			<pubDate>Tue, 1 Aug 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Linking to examples and frequently asked questions</title>
+			<link>https://kb.daisy.org/publishing/docs/</link>
+			<description>
+				<![CDATA[
+				<p>To make it easier to reference the site, link destinations are now provided before each
+				example in an examples section as well as before each frequently asked question. To
+				obtain the link, click on the '§' symbol before each (also identified as permalinks
+				in their labels).</p>
+				]]>
+			</description>
+			<pubDate>Fri, 28 July 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Updated heading and subtitle guidance</title>
+			<description>
+				<![CDATA[
+				<p>The HTML specification has finally removed all mention of the problematic outline algorithm.
+					Part of this change is that the <code>hgroup</code> element has been updated to group only
+					one heading element with its subtitles (using <code>p</code> tags).</p>
+				<p>This change makes the association between headings and subtitles semantically identifiable.</p>
+				<p>For more information, refer to the <a href="../html/headings.html">headings KB page</a>.</p>
+				]]>
+			</description>
+			<link>https://kb.daisy.org/publishing/docs/</link>
+			<pubDate>Wed, 19 July 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Updated EPUB language page</title>
+			<link>https://kb.daisy.org/publishing/docs/epub/language.html</link>
+			<description>
+				<![CDATA[
+					<p>The page on <a href="https://kb.daisy.org/publishing/docs/epub/language.html">setting the 
+						language in EPUB</a> now includes more information explaining what language tags are and
+						the mechanisms for setting and overriding languages in EPUB. The different language 
+						features are also now explained in more detail.</p>
+				]]>
+			</description>
+			<pubDate>Thu, 15 June 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Conformance changes in EPUB Accessibility 1.1</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/evaluation.html</link>
+			<description>
+				<![CDATA[
+				<p>The note on the conformance identifier changes in the new standard is now an <a 
+					href="https://kb.daisy.org/publishing/docs/metadata/evaluation.html#a11y-transition">expanded
+					subsection of  the <code>dcterms:conformsTo</code> section</a>. The subsection now depicts
+					the changes in markup between 1.0 and 1.1, not just the different identifiers used.</p>
+				]]>
+			</description>
+			<pubDate>Sat, 10 June 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>EPUB reading order</title>
+			<link>https://kb.daisy.org/publishing/docs/epub/reading-order.html</link>
+			<description>
+				<![CDATA[
+				<p>The knowledge base now includes a new page about <a 
+					href="https://kb.daisy.org/publishing/docs/epub/reading-order.html">defining the reading
+					order</a> through the EPUB <code>spine</code> element. The page discusses issues with the
+					ordering documents and considerations around including non-linear content.</p>
+				]]>
+			</description>
+			<pubDate>Thu, 8 June 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>New layout for categories</title>
+			<link>https://kb.daisy.org/publishing/docs/glossary/</link>
+			<description>
+				<![CDATA[
+				<p>To make it easier to find information, the list of categories is no longer buried in a
+					drop-down menu. The list of categories now occupies the right-hand column of the site
+					(this position may change depending on zoom level and device screen size).</p>
+				<p>The link to the <a href="https://kb.daisy.org/publishing/docs/glossary/glossary/">glossary</a>
+				is now at the bottom of the page in the Site menu, as is the link to the <a 
+				href="https://kb.daisy.org/publishing/docs/glossary/topics.html">page that lists all topics</a>.</p>
+				]]>
+			</description>
+			<pubDate>Fri, 2 Jun 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>New search box</title>
+			<link>https://kb.daisy.org/publishing/docs/</link>
+			<description>
+				<![CDATA[
+				<p>It is no longer necessary to click through to a separate search page to query the knowledge
+					base for information. A site search box is now available in the header of every page and is
+					reachable from the page landmarks.</p>
+				]]>
+			</description>
+			<pubDate>Wed, 31 May 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>WCAG parsing requirement</title>
+			<link>https://kb.daisy.org/publishing/docs/wcag/parsing.html</link>
+			<description>
+				<![CDATA[
+				<p>The forthcoming WCAG 2.2 revision will see <a 
+					href="https://www.w3.org/TR/WCAG22/#parsing">success criterion 4.1.1</a> pass for all HTML
+					and XML-based content as it no longer captures accessibility issues that aren't already
+					covered by other success criteria. This change will also apply retroactively to WCAG 2.0
+					and 2.1.</p>
+				
+				<p>The knowledge base now reflects this new guidance, advising that parsing errors that
+					affect accessibility be reported under their more applicable success criteria. Refer to the
+					<a href="https://kb.daisy.org/publishing/docs/wcag/parsing.html">WCAG explain for 4.1.1</a>
+					for more information.</p>
+				]]>
+			</description>
+			<pubDate>Wed, 19 Apr 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Evaluation metadata</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/evaluation.html</link>
+			<description>
+				<![CDATA[
+				<p>Now that the EPUB Accessibility 1.1 standard has reached Proposed Recommendation status
+					in W3C, the <a href="https://kb.daisy.org/publishing/docs/metadata/evaluation.html">guidance
+					on reporting conformance</a> now reflects the new identifiers used in that document.</p>
+				<p>Where the EPUB Accessibility 1.0 specification used <code>idpf.org</code> URLs to indicate
+					conformance, the new standard uses easier to write and understand strings. The strings
+					also adapt to new versions of WCAG as soon as they are released.</p>
+				<p>Publishers are encouraged to begin looking at migrating to the new standard as it should
+					become a final recommendation in the next month.</p>
+				]]>
+			</description>
+			<pubDate>Mon, 17 Apr 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>pageBreakMarkers and pageNavigation accessibility features</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature.html</link>
+			<description>
+				<![CDATA[
+				<p>The page describing the <a 
+				href="https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature.html">schema.org 
+					<code>accessibilityFeature</code> property</a> now includes information on the
+					<code>pageBreakMarkers</code> and <code>pageNavigation</code> values.</p>
+				<p>The <code>pageBreakMarkers</code> value replaces <code>printPageNumbers</code> as more
+					and more publications are being created with static page locations that are not tied to a
+					print source. The <code>pageNavigation</code> value enables publishers to now identify when
+					a publication includes a page list that allows users to access the page break
+					locations.</p>
+				]]>
+			</description>
+			<pubDate>Fri, 24 Mar 2023 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>pageBreakSource property</title>
+			<link>https://kb.daisy.org/publishing/docs/navigation/pagelist.html</link>
+			<description>
+				<![CDATA[
+				<p>Information about the new <code>pageBreakSource</code> property is now available on the
+					<a href="https://kb.daisy.org/publishing/docs/navigation/pagelist.html">page navigation</a> 
+					page. This property is currently being incubated as a replacement for using the 
+					<code>dc:source</code> and  <code>page-source</code> properties.</p>
+				]]>
+			</description>
+			<pubDate>Fri, 24 Mar 2023 12:00:00 +0500</pubDate>
+		</item>
+	</channel>
+</rss>

@@ -355,6 +355,25 @@ div#categories {
 }
 
 
+/* sponsorship box */
+
+aside#sponsor {
+	border-bottom: 0.1rem solid lightgrey;
+	margin-top: 0;
+	padding: 1rem;
+}
+
+aside#sponsor h2 {
+	margin: 0 0 0 3rem;
+	padding: 0;
+	font-size: 1.4rem;
+}
+
+aside#sponsor img {
+	margin-left: 3rem;
+	padding: 1rem 0;
+}
+
 /* page title */
 
 div#page-title {
@@ -1021,7 +1040,7 @@ main.search h2.noCategory {
 	margin-left: 0;
 }
 
-#search {
+search {
 	float: right;
 	margin-top: -5.1rem;
 	margin-right: 2rem;
@@ -1029,19 +1048,19 @@ main.search h2.noCategory {
 	min-width: 30rem;
 }
 
-#search table,
+search table,
 #search-results table,
-#search td,
+search td,
 #search-results td {
 	border: none;
 }
 
-#search table,
+search table,
 #search td {
 	background-color: rgb(255,255,255);
 }
 
-#search div,
+search div,
 #search-results div {
 	background-color: rgb(251,252,253);
 }
@@ -1070,10 +1089,7 @@ p.backtotop {
 	}
 }	
 
-@media screen and (max-width: 600px),
-@media only screen
-	and (max-device-width: 480px) {
-	
+@media screen and (max-width: 600px) {
 	header {
 		width: 100vw;
 		display: block;
@@ -1147,7 +1163,7 @@ p.backtotop {
 		top: unset;
 	}
 	
-	#search {
+	search {
 		float: none;
 		margin-top: 0;
 		min-width: 10rem;

@@ -193,6 +193,7 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
+			// kb.generateSponsorBox();
 		}
 		
 		kb.generateFooter();
@@ -253,23 +254,21 @@ KB.prototype.generateHeader = function () {
 	
 	header.appendChild(h1);
 	
-	var search_div = document.createElement('div');
-		search_div.setAttribute('id','search');
-		search_div.setAttribute('role','search');
-		search_div.setAttribute('aria-label','search');
-		search_div.setAttribute('hidden', 'hidden');
+	var search = document.createElement('search');
+		search.setAttribute('title','knowledge base');
+		search.setAttribute('hidden', 'hidden');
 	
 	var search_script = document.createElement('script');
 		search_script.setAttribute('async', '');
 		search_script.setAttribute('src', 'https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto');
 	
-	search_div.appendChild(search_script);
+	search.appendChild(search_script);
 	
 	var search_box = document.createElement('div');
 		search_box.setAttribute('class', 'gcse-searchbox-only');
 	
-	search_div.appendChild(search_box);
-	header.appendChild(search_div);
+	search.appendChild(search_box);
+	header.appendChild(search);
 	
 	document.body.insertAdjacentElement('afterBegin',header);
 }
@@ -650,6 +649,30 @@ KB.prototype.generateAppliesTo = function () {
 }
 
 
+
+/* create the sponsorhip box at the top of the categories box */
+
+KB.prototype.generateSponsorBox = function () {
+	
+	var sponsor = document.createElement('aside');
+		sponsor.setAttribute('id', 'sponsor');
+	
+	var sponsor_h2 = document.createElement('h2');
+		sponsor_h2.appendChild(document.createTextNode('Sponsored by'));
+	sponsor.appendChild(sponsor_h2);
+	
+	var sponsor_img = document.createElement('img');
+		sponsor_img.src = '/graphics/daisy_logo.png';
+		sponsor_img.alt = 'Example'
+	sponsor.appendChild(sponsor_img);
+	
+	document.getElementById('categories').insertAdjacentElement('afterBegin', sponsor);
+}
+
+
+
+/* generate the sticky category menu */
+
 KB.prototype.generateCategoryList = function () {
 	
 	var cat_div = document.createElement('div');
@@ -787,6 +810,7 @@ KB.prototype.generateCategoryList = function () {
 	
 	document.getElementById('col-wrapper').appendChild(cat_div);
 }
+
 
 
 /* create the default footer for the pages */
