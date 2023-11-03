@@ -308,7 +308,7 @@ var sc_map = {
 	"3.1.4": {
 		"id": "abbreviations",
 		"name": "Abbreviations",
-		"level": "AA"
+		"level": "AAA"
 	},
 	"3.1.5": {
 		"id": "reading-level",
