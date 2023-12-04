@@ -13,6 +13,12 @@ var topic_list = [
 				'subtitle': 'Explanation of the EPUB Accessibility specification.'
 			},
 			{
+				'id': 'conf-eaa',
+				'href': 'eaa.html',
+				'title': 'European Accessibility Act',
+				'subtitle': 'Explanation of the requirements of the European Accessibility Act.'
+			},
+			{
 				'id': 'conf-s508',
 				'href': 's508.html',
 				'title': 'Section 508 (US)',
@@ -243,6 +249,12 @@ var topic_list = [
 				'title': 'Elements and Attributes',
 				'path': 'html',
 				'topics': [
+					{
+						'id': 'html-new',
+						'href': 'new.html',
+						'title': 'What\'s new',
+						'subtitle': 'Recent changes to the HTML standard'
+					},
 					{
 						'id': 'html-abbr',
 						'href': 'abbr.html',
