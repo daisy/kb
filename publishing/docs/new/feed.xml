@@ -128,7 +128,7 @@
 			<description>
 				<![CDATA[
 				<p>The forthcoming WCAG 2.2 revision will see <a 
-					href="https://www.w3.org/TR/WCAG22/#parsing">success criterion 4.1.1</a> pass for all HTML
+					href="https://www.w3.org/TR/WCAG2/#parsing">success criterion 4.1.1</a> pass for all HTML
 					and XML-based content as it no longer captures accessibility issues that aren't already
 					covered by other success criteria. This change will also apply retroactively to WCAG 2.0
 					and 2.1.</p>
