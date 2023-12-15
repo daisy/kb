@@ -329,10 +329,20 @@
 					<pre id="ex-pkg-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en"></code></pre>
 					
 					<p>Because the <code>package</code> element is the root element (i.e., it contains all the other
-						elements), the language you specify on this element will apply to all the metadata it contains.
-						You will only need to override the language declaration if some metadata is written in
-						another language. For example, if the book is a translation, you can indicate the language of
-						the author's name by adding a language declaration to their <code>dc:creator</code> tag:</p>
+						elements), the language you specify on this element will apply to all the metadata it contains.</p>
+					
+					<div class="note" role="note" aria-labelledby="pkg-note-02">
+						<p id="pkg-note-02" class="label">Note</p>
+						
+						<p>EPUB 2 does not allow a global language declaration using the <code>xml:lang</code> attribute
+							on the <code>package</code> element. You must declare an <code>xml:lang</code> attribute on
+							every metadata tag.</p>
+					</div>
+					
+					<p>With a global language declaration on the <code>package</code> element, you only need to override
+						that declaration if metadata is written in another language. For example, if the book is a translation,
+						you can indicate the language of the author's name by adding a language declaration to their
+						<code>dc:creator</code> tag:</p>
 					
 					<pre id="ex-pkg-02-src" class="prettyprint linenums"><code>&lt;dc:creator xml:lang="fr">Albert Camus&lt;/dc:creator></code></pre>
 					
