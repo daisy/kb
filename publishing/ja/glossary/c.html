@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Glossary - C</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Glossary of terms starting with the letter C">
+		<script>
+			var page_info = {
+				'nav': false
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="container">
+						<dfn>Container</dfn>
+					</dt>
+					<dd>
+						<p>A container is the single file used to bundle the resources of a <a role="doc-glossref"
+								href="d.html#digital-pub">digital publication</a> together.</p>
+
+						<p>As digital publications are made up of many different files &#8212; <a href="h.html#html"
+								>HTML</a> documents, images, <a role="doc-glossref" href="#css">CSS files</a> and
+							scripts, among others &#8212; bundling them together into a single container makes it
+							simpler to distribute publications (e.g., only one file has to be sent to a vendor or
+							downloaded by a user to get the entire publication).</p>
+
+						<p><a role="doc-glossref" href="e.html#epub">EPUB</a>, for example, uses <a href="z.html#zip"
+								>ZIP</a> as its container format.</p>
+					</dd>
+
+					<dt id="provider">
+						<dfn>Content Provider</dfn>
+					</dt>
+					<dd>
+						<p>The organization responsible for providing a digital publication to users, whether through an
+							sale in online bookstore, by download from a corporate web site, through a library lending
+							program, or otherwise.</p>
+					</dd>
+
+					<dt id="cmt">
+						<dfn>Core Media Type</dfn>
+					</dt>
+					<dd>
+						<p>In <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>, a core media type is a file format
+							that <a role="doc-glossref" href="r.html#rs">reading systems</a> are required to support
+							when used in <a href="e.html#epub-content-document">EPUB content documents</a>. Using core
+							media types helps ensure that publications will be readable in whatever reading system a <a 
+								role="doc-glossref" href="u.html#user">user</a> happens to use.</p>
+
+						<p>For example, EPUB 3 requires reading systems that support audio playback be able to render
+							MP3 and MP4 audio. Similarly, reading systems with <a role="doc-glossref" 
+								href="v.html#viewport">viewports</a> are required to support a variety of image formats.
+							These are all core media types.</p>
+
+						<p>If the <a href="#media-type">media type</a> of a resource is not listed as core, it is
+							considered a <a href="#foreign-resource">foreign resource</a> (i.e., reading systems might
+							support it, but are not guaranteed to).</p>
+
+						<p>The list of <a href="https://www.w3.org/TR/epub/#sec-core-media-types"
+								>core media types supported in EPUB 3</a> is provided in the <a
+									href="https://www.w3.org/TR/epub/">EPUB 3 specification</a>.</p>
+					</dd>
+
+					<dt id="css">
+						<dfn>CSS</dfn>
+					</dt>
+					<dd>
+						<p>The Cascading Style Sheet (CSS) language is used to control the visual presentation of <a
+								role="doc-glossref" href="h.html#html">HTML</a> and <a role="doc-glossref"
+								href="s.html#svg">SVG</a> documents.</p>
+
+						<p>CSS is used to specify fonts, colors, borders and other display aspects based on a set of
+							rules defined by the <a role="doc-glossref" href="a.html#author">author</a>.</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

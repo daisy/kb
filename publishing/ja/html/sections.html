@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Sections</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessibly structuring content.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Clearly identifying the sections of a publication eases the ability of users to follow and understand
+					the content.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Use the <code>section</code> element for primary sections of content. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Include a heading for each section [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Add roles and accessible names for key landmarks [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Do not use heading elements for subtitles. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Use the <code>aside</code> element for secondary material, such as sidebars. [[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Identifying a chapter</div>
+						<p>The role <code>doc-chapter</code> is applied to the <code>section</code> element to identify that
+							it contains a chapter. Using the role and identifying the heading in the
+							<code>aria-labelledby</code> attribute creates a landmark in assistive technologies.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01">
+   &lt;h1 id="hd01">Chapter 1. Loomings.&lt;/h1>
+   &lt;p>Call me Ishmael. &#8230; &lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Untitled section</div>
+						<p>The <code>aria-label</code> attribute is used to identify a section that is only distinguished
+							by color in the text.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section aria-label="Self-examination tests">
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Identifying a subtitle</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd02">
+   &lt;hgroup>
+      &lt;h1 id="hd02">1. Europe 1930-1935&lt;/h1>
+      &lt;p>The Foreshadows of War&lt;/p>
+   &lt;/hgroup>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Adding a sub-section that is not a landmark</div>
+						<p>As the <code>section</code> element does not have a <code>role</code> attribute
+							and does not identify an accessible name using an <code>aria-labelledby</code>
+							attribute, it does not create a landmark for assistive technologies.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;section>
+   &lt;h4>2.4.1 Electrical Impedance&lt;/h3>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Should every section be a landmark?</dt>
+					<dd>
+						<p>No, landmarks are not intended to serve as an alternative table of contents. As landmarks
+							are presented to users as a flat list, the structure of a publication is lost, making
+							them an ineffective means of navigating a publication.</p>
+						<p>It is generally recommended to only identify the major sections of a work (e.g., its
+						 	chapters) as well as an key front matter and reference sections a user might want
+							quick access to. Too many landmarks reduces their usefulness for users.</p>
+						<p>To avoid having a section become a landmark, do not add a role or an accessible
+							name to it (i.e., do not use the <code>role</code>, <code>aria-labelledby</code>,
+							<code>aria-label</code> and <code>title</code> attributes on the <code>section</code>
+							element).</p>
+					</dd>
+					
+					<dt id="faq-002">Should I use the <code>section</code> element for secondary content?</dt>
+					<dd><p>No, self-contained secondary content &#8212; such as sidebars,
+						mini-articles, etc. &#8212; should be identified using the <code>aside</code> and
+						<code>article</code> elements, as appropriate. Refer to the <a href="asides.html">asides</a>
+						and <a href="articles.html">articles</a> pages for more information.</p>
+					</dd>
+					
+					<dt id="faq-003">How do I handle parts?</dt>
+					<dd><p>Publications are typically broken up into smaller content files to improve rendering speed, so it 
+						is often the case that an entire part cannot be contained in a single file. The question becomes, how do
+						you split the chapters into separate files and still retain the part?</p>
+						<p>There are two approaches you can take to flattening out your content, and neither is optimal
+							&#8212; at least in terms of retaining the original structural hierarchy in the markup. The first
+							is to include the part heading with the first chapter:</p>
+						<pre id="faq-01-src" class="prettyprint linenums"><code>&lt;body>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
+	  &lt;section role="doc-chapter" aria-labelledby="hd02">
+		 &lt;h2 id="hd02">Chapter I&lt;/h2>
+	  &lt;/section>
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Each subsequent chapter file would contain a single <code>section</code> with an <code>h2</code>
+							heading. Although this markup approach appears to suggest that the part only contains a single
+							chapter, consistent heading numbering will allow an assistive technology to correctly orient the
+							user.</p>
+						<p>The other approach is to separate the part heading into its own file:</p>
+						<pre id="faq-02-src" class="prettyprint linenums"><code>&lt;body>
+   &lt;section role="doc-part" aria-labelledby="hd01">
+	  &lt;h1 id="hd01">Part I&lt;/h1>
+   &lt;/section>
+&lt;/body></code></pre>
+						<p>Again, each subsequent chapter file would include an <code>h2</code> heading to indicate it is
+							subordinate to the part. One advantage of this approach is that user agents will render the
+							part heading separately from the first chapter content.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The <code>section</code> element is used to encapsulate sections of primary content and establish the
+					publication's structural hierarchy. Clearly grouping and identifying content enables better navigation by
+					anyone reading using an assistive technology (<a href="#faq03">see also the faq</a>).</p>
+				
+				<p>The <a href="roles.html"><code>role</code> attribute</a> can be attached to a <code>section</code>
+					to indicate the specific nature of the content, when applicable. See the <a
+						href="https://www.w3.org/TR/dpub-aria-1.0/" >Digital Publishing WAI-ARIA module</a> for a list of
+					values that can be used with the attribute.</p>
+				
+				<p>When the <code>role</code> is not specified, a generic section/subsection nature is assumed based on the
+					nesting level.</p>
+				
+				<p>A <code>section</code> must not have more than one child heading. Do not add subtitles using heading tags,
+					as these will appear as subsections to users of assistive technologies</p>
+				
+				<p>If a section does not have a heading, consider including an <code>aria-label</code> attribute on the
+					<code>section</code> to identify its purpose.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">&lt;section>: The Generic
+						Section element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element">The
+								<code>section</code> element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">Headings and
+							sections</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

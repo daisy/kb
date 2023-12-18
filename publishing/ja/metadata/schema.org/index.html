@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Schema.org Accessibility Metadata</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using schema.org accessibility metadata in publications">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>Include schema.org accessibility metadata to enable discovery no matter how the publication is
+					distributed or consumed.</p>
+			</section>
+
+			<section id="prop">
+				<h3>Properties</h3>
+
+				<p>The <a href="http://www.schema.org/CreativeWork">schema.org CreativeWork class</a> includes
+					properties a set of properties used to identify the accessible qualities of a publication. This
+					metadata can be expressed in HTML documents using RDFa or microdata attributes to identify the
+					accessible qualities of the content (e.g., videos). It can also be included in the EPUB package
+					document to provide an overall picture of the accessibility of the given rendition of the
+					publication.</p>
+
+				<p>For more information about how to use each property, refer to their respective knowledge base
+					pages:</p>
+
+				<ul>
+					<li>
+						<a href="accessibilityFeature.html"><code>accessibilityFeature</code></a>
+					</li>
+					<li>
+						<a href="accessibilityHazard.html"><code>accessibilityHazard</code></a>
+					</li>
+					<li>
+						<a href="accessibilitySummary.html"><code>accessibilitySummary</code></a>
+					</li>
+					<li>
+						<a href="accessMode.html"><code>accessMode</code></a>
+					</li>
+					<li>
+						<a href="accessModeSufficient.html"><code>accessModeSufficient</code></a>
+					</li>
+				</ul>
+				
+				<div class="note" role="note" aria-labelledby="opt-note">
+					<p id="opt-note" class="label">Note</p>
+					<p>Although <a href="accessibilityAPI.html"><code>accessibilityAPI</code></a> and
+						<a href="accessibilityControl.html"><code>accessibilityControl</code></a> are also
+						schema.org accessibility properties, they are rarely used for describing digital
+						publications.</p>
+				</div>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Package Document metadata (EPUB 3)</div>
+						<p>The following example shows a typical set of metadata for a math textbook with MathML and
+							described images, and that includes accessible scripted content.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta property="schema:accessibilitySummary">
+     This publication conforms to WCAG 2.0 Level AA.
+  &lt;/meta>
+  &lt;meta property="schema:accessMode">textual&lt;/meta>
+  &lt;meta property="schema:accessMode">visual&lt;/meta>
+  &lt;meta property="schema:accessModeSufficient">textual&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">structuralNavigation&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">MathML&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta>
+  &lt;meta property="schema:accessibilityFeature">longDescription&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noFlashingHazard&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noSoundHazard&lt;/meta>
+  &lt;meta property="schema:accessibilityHazard">noMotionSimulationHazard&lt;/meta>
+  &#8230;
+&lt;/metadata></code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Package Document metadata (EPUB 2)</div>
+						<p>The following is a partial rendering of <a href="#ex-01">Example 1</a> that shows the slightly
+							different syntax used in the EPUB 2 package document (i.e., the use of <code>name</code> and
+								<code>content</code> attributes.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta name="schema:accessibilitySummary" content="This publication conforms to WCAG 2.0 Level AA."/>
+  &lt;meta name="schema:accessMode" content="textual"/>
+  &#8230;
+&lt;/metadata></code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobook manifest metadata</div>
+						<p>The following example reformulates Example 1 in JSON for use in an Audiobook manifest.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums small"><code>&#8230;
+  "accessibilitySummary": "This publication conforms to WCAG 2.0 Level AA.",
+  "accessMode": ["textual", "visual"],
+  "accessModeSufficient" : [
+    {
+      "type": "ItemList",
+      "itemListElement": [textual]
+    }
+  ],
+  "accessibilityFeature": ["structuralNavigation", "MathML", "alternativeText", "longDescription"],
+  "accessibilityHazard": ["noFlashingHazard", "noSoundHazard", "noMotionSimulationHazard"],
+  &#8230;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Embedded metadata (RDFa)</div>
+						<p>Accessibility metadata that describes a single video is included within the body of an HTML
+							document.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video">
+  &lt;video controls="controls" src="croc.mp4"/>
+  &lt;meta property="accessibilityFeature" content="captions"/>
+  &lt;meta property="accessibilityFeature" content="transcript"/>
+  &lt;meta property="accessibilityHazard" content="none"/>
+  &lt;p>A transcript of the video follows:&lt;/p>
+  &#8230;
+&lt;/div></code></pre>
+				</figure>
+			</section>
+
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>
+						<a href="http://www.a11ymetadata.org">a11ymetadata project</a>
+					</li>
+					<li>
+						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS
+							Global Access For All (AfA) Digital Resource Description Specification Information Model
+							Version 3.0 Specification</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

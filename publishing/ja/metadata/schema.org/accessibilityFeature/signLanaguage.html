@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>signLanguage</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="signLanguage">
+				<h3>signLanguage</h3>
+				
+				<p>The <a 
+					href="https://w3c.github.io/a11y-discov-vocab/latest/#signLanguage"><code>signLanguage</code>
+					value</a> is used to indicate that sign language interpretation is included for any auditory
+					content.</p>
+				
+				<p>Although <a href="#captions">captions</a> and <a href="#audioDescription">audio
+					descriptions</a> serve a similar purpose, many readers who are deaf prefer sign
+					language interpretation as it is their primary means of communication so quicker and
+					easier to follow.</p>
+				
+				<div class="note" role="note" aria-labelledby="sl-note">
+					<p id="sl-note" class="label">Note</p>
+					<p>HTML does not offer a simple mechanism for synchronizing sign language interpretation
+						with a video. If interpretation is not part of the video stream, authors will have to
+						provide a separate video overlay or play interpretation side-by-side with the video.</p>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

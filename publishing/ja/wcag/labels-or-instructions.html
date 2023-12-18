@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Labels or Instructions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.3.2 Labels or Instructions">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.3.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Form Inputs</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Labels or instructions are provided when content requires user input.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">Understanding Success Criterion 3.3.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions">How to meet Success Criterion 3.3.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1">ARIA1: Using the aria-describedby property to provide a descriptive label for user interface controls</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA9">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA17">ARIA17: Using grouping roles to identify related form controls</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G89">G89: Providing expected data format and example</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G131">G131: Providing descriptive labels</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G162">G162: Positioning labels to maximize predictability of relationships</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G167">G167: Using an adjacent button to label the purpose of a field</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G184">G184: Providing text instructions at the beginning of a form or set of fields that describes the necessary input</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H44">H44: Using label elements to associate text labels with form controls</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H71">H71: Providing a description for groups of form controls using fieldset and legend elements</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H90">H90: Indicating required form controls using label or legend</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that all form inputs are labelled or have
+					instructions that allow users to understand what information is expected or is being set.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors should ensure that all form input fields are clearly labelled so the information the
+					user needs to input or select from can be understood (e.g., using the <code>label</code> element,
+					or the <code>aria-label</code> or <code>aria-labelledby</code> attributes).</p>
+				
+				<p>For example, a date field should not provide three unlabelled selection boxes for the date, month,
+					and year, as it requires users to inspect the values of each to determine which field is which.</p>
+				
+				<p>Labelling also applies to items like checkboxes and radio buttons. The labels for these should
+					clearly indicate what option the user is selecting.</p>
+				
+				<p>If the input is restricted (for example, it must match a specific pattern or be within a set range),
+					authors also need to provide clear instructions to users about these expectations.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/labels.html">Labels</a></li>
+					<li><a href="../script/input-validation.html">Input Validation</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

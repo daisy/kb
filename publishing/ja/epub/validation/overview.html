@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Validation Process</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of validating EPUB publications for conformance and accessibility.">
+		<script>
+			var page_info = {
+				'category': ['EPUB','Validation'],
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="process">
+				<h3>Overview</h3>
+				
+				<p>Validation is the process of checking a publication for deviations from the requirements of the EPUB
+					standards and WCAG accessibility guidelines. Some of the testing can be automated to speed up the
+					process, but other tests can only be reliably carried out by a human. For example, a machine can
+					detect whether an image has alternative text, but only a human can verify if the text is
+					sufficiently meaningful.</p>
+				
+				<p>Although deciphering validation messages can sometimes be complex, the process of finding and fixing
+					errors is essential to perform. It ensures not just that a publication is accessible for persons
+					with disabilities, but that the publication will render as expected for any readers. Skipping this
+					step can lead to EPUB publications that are completely unusable.</p>
+				
+				<p>To fully check a publication, the following validation sequence needs to be run:</p>
+				
+				<ol>
+					<li><a href="epubcheck.html">EPUBCheck</a> &#8212; Validating the publication using EPUBCheck
+						ensures that it conforms to the requirements of the EPUB standard.</li>
+					
+					<li><a href="ace.html">Ace by DAISY</a> &#8212; Validating the publication using the Ace tool helps
+						discover accessibility issues that can be tested automatically.</li>
+					
+					<li><a href="smart.html">Ace SMART</a> &#8212; Manually checking the publication using the SMART
+						tool ensure that it meets all the requirements of WCAG, thereby allowing a conformance claim to
+						be made.</li>
+				</ol>
+				
+				<p>These steps can be followed for both EPUB 3 and EPUB 2 publications, although the Ace and SMART
+					tools are not specifically optimized for checking EPUB 2. Refer to each tool's knowledge base page
+					for more information.</p>
+				
+				<div class="note" role="note" aria-labelledby="val-note">
+					<p class="label" id="val-note">Note</p>
+					<p>This process is expected to be simplified in the future as efforts are made to integrate the
+						three steps into a single application.</p>
+				</div>
+			</section>
+			
+			<section id="ref">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
+					<li><a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">Ace by DAISY</a></li>
+					<li><a href="https://smart.daisy.org/">Ace SMART</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

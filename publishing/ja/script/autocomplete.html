@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Autocomplete</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for setting autocomplete on form inputs.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Setting the HTML <a 
+					href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete"><code>autocomplete</code> 
+					attribute</a> on form fields simplifies the comprehension and
+					completion of these fields for users with cognitive and physical disabilities.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Add the <code>autocomplete</code> attribute to form fields that match any of the preset values. [[WCAG-1.3.5]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Autocomplete for a telephone number</div>
+						<p>The following example shows three fields for inputting a telephone number: one for the
+							area code and one each for the local number. The purpose of each field is identifiable
+							from its <code>autocomplete</code> attribute.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;fieldset
+   &lt;label>Telephone:&lt;/label>
+   (&lt;input type="text" autocomplete="tel-area-code" id="area-code" aria-label="Area code"/>)
+   &lt;input type="text" autocomplete="tel-local-prefix" id="local-prefix" aria-label="Local number prefix"/> -
+   &lt;input type="text" autocomplete="tel-local-suffix" id="local-suffix" aria-label="Local number suffix"/>
+&lt;/fieldset></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Autocomplete for birth date</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;fieldset
+   &lt;label>Birth Date:&lt;/label>
+   &lt;select autocomplete="bday-year" id="birth-year" aria-label="Year">
+   	&#8230;
+   &lt;/select>
+   &lt;select autocomplete="bday-month" id="birth-month" aria-label="Month">
+   	&#8230;
+   &lt;/select>
+   &lt;select autocomplete="bday-day" id="birth-day" aria-label="Day">
+   	&#8230;
+   &lt;/select>
+&lt;/fieldset></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Why isn't the input label sufficient?</dt>
+					<dd>
+						<p>Input labels for the same information differ site-to-site and language-to-language making
+							them unreliable for machine processing. The controlled keywords for the
+							<code>autocomplete</code> allow user agents and assistive technologies to determine the
+							purpose without having to parse language and spelling peculiarities.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although not as common in reading systems as in web browsers, saving personal information allows
+					user agent to automatically fill it in the next time the user encounters the same field. A
+					publication may ask for this type of information in the context of an educational program
+					or to sign up to receive updates from the publisher.</p>
+				
+				<p>To provide this functionality, the user agent needs to understand the information the user inputs as
+					well as when it is relevant to use again. The <a 
+						href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete"><code>autocomplete</code> 
+						attribute</a> is the key to this machine understanding. It allows authors to assign a precise
+					machine-readable semantic to form fields so that the user agent understands where what information
+					goes in what field.</p>
+				
+				<p>The HTML definition of the attribute includes the list of semantics that are available. The
+					semantics cover such information as names, addresses, birth dates, and telephone numbers. The WCAG
+					documentation also provides a <a href="https://www.w3.org/TR/WCAG2/#input-purposes">condensed list
+						of the values</a>.</p>
+				
+				<p>Using the <code>autocomplete</code> attribute makes forms simpler to complete for users with
+					cognitive and physical disabilities as they do not have to re-enter the same information again and
+					again each time they are asked for personal information.</p>
+				
+				<p>Using these semantics also allows user agents to augment comprehension in other ways. For example,
+					they could add a standard visual cue (an icon such as a telephone or birthday cake) to further help
+					users understand each field's purpose.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute">Autofilling form controls: the autocomplete attribute</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

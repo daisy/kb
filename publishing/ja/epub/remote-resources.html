@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Remote Resources</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<script>
+			var page_info = {
+				'category': ['EPUB'],
+				'appliesTo': ['EPUB3'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Avoiding hosting resources outside the EPUB container whenever possible.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Host all resources in the EPUB container.</li>
+					<li>Provide alternative ways to access remote resources when they must be hosted remotely.</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Link to alternative audio</div>
+						<p>A link is provided after the <code>audio</code> element so users can try opening the
+							audio file in a browser if their reading system blocks access to remote resources.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;audio src="https://example.org/audio/war_of_the_worlds.mp3" &#8230;>
+   &#8230;
+&lt;/audio>
+&lt;p>
+   &lt;a href="https://example.org/audio/war_of_the_worlds.mp3">
+      Listen in browser
+   &lt;/a>
+&lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Fallback fonts</div>
+						<p>Fallback system fonts are specified in case the remote font is not available.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>@import url('https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap');
+
+body {
+   font-family: 'Roboto', Arial, sans-serif;
+}</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Should an alternative link to the remote file be inside the <code>audio</code> or
+						<code>video</code> element?</dt>
+					<dd>
+						<p>Fallback content inside the <code>audio</code> and <code>video</code> elements is only
+							accessible to users when the reading system does not support the element (e.g., in an EPUB
+							2 reading system because there was no <code>video</code> element in XHTML 1.1).</p>
+						
+						<pre id="ex-faq-01-src" class="prettyprint linenums"><code>&lt;audio &#8230;>
+   &lt;p>Sorry, your reading system does not support
+      the audio element. The audio file cannot be
+      played.&lt;/p>
+&lt;/audio></code></pre>
+						
+						<p>Content inside the elements is not accessible if the reading system cannot download a
+							resource or play the provided format. In these cases, the reading system displays its own
+							error message (i.e., it does not display the internal fallback content).</p>
+						
+						<p>While it might seem helpful to provide a link to the web-hosted file inside the element,
+							since it gives users with older reading systems access, it limits the availability in other
+							situations. If a modern reading system cannot access the file, for example, a link anyone
+							can access allows provides greater flexibility.</p>
+						
+						<p>Never place accessible alternatives, such as transcripts, inside these elements.</p>
+					</dd>
+					
+					<dt id="faq-002">Can I host my remote audio/video on YouTube?</dt>
+					<dd>
+						<p>Yes and no.</p>
+						<p>If you want to link users out to an audio or video file on the web, you can host it on any
+							site you want. There are no restrictions in EPUB on where external hyperlinks can go.</p>
+						<p>If you are trying to embed a YouTube page in the EPUB via the HTML <code>iframe</code>
+							element, then the answer is no. For security reasons, EPUB does not allow the embedding
+							of web pages directly in a publication. The exemption that allows publishers to host remote
+							video files outside the EPUB container only applies to video files; it does not apply to
+							web pages that embed videos.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the issues with remote resources are primarily usability ones &#8212; they affect all users
+					equally &#8212; they are not exclusively so. This section reviews how to include remote resources
+					in an EPUB as well as how to mitigate both the usability and accessibility issues that can
+					arise.</p>
+				
+				<div class="note" role="note" aria-labelledby="epub2-note">
+					<p id="epub2-note" class="label">Note</p>
+					<p>EPUB 2 did not allow remote resources. The guidance in this section does not apply to that
+						version of the EPUB format.</p>
+				</div>
+				
+				<section id="res">
+					<h4>Resources allowed remotely</h4>
+					
+					<p>EPUB 3 only allows you to host four types of resources outside of the EPUB container (i.e, the
+						zip file that contains the publication):</p>
+					
+					<ul>
+						<li>Audio</li>
+						
+						<li>Video</li>
+							
+						<li>Resources retrieved by scripts (e.g., using the JavaScript XmlHttpRequest and Fetch APIs).</li>
+							
+						<li>Fonts</li>
+					</ul>
+					
+					<p>In the case of audio and video, the exemption only applies to files with a corresponding media
+						type (e.g., <code>audio/mp3</code> for an MP3 file). You cannot reference an HTML page that
+						embeds an audio or video player (e.g., YouTube).</p>
+					
+					<p>Do not confuse remote resources with external hyperlinks. A remote resource is one that is
+						brought into the publication as opposed to a hyperlink that sends users out to the web. The
+						<code>audio</code> and <code>video</code> elements allow you to embed audio and video
+						resources regardless of where the referenced file is located, for example, while a hyperlink
+						to YouTube will send a user to that web site.</p>
+				</section>
+				
+				<section id="identify">
+					<h4>Identifying remote resources</h4>
+					
+					<p>Although remote resources are not included in the EPUB container, you still must list them as
+						publication resources in the EPUB manifest. The full URL to the resource goes in the manifest
+						entry's <code>href</code> attribute.</p>
+					
+					<p>In addition, the EPUB content document that references the remote resource must have a
+						<code>properties</code> attribute with the value "<code>remote-resources</code>" (this property
+						allows reading systems to, for example, selectively enable remote access only for files that
+						need it).</p>
+					
+					<p>The following example shows the manifest entries for a remote MP3 file and the XHTML
+						file that embeds the audio (the file <code>c01.xhtml</code> would contain an <code>audio</code>
+						element as depicted in <a href="#ex-01">example 1</a>).</p>
+					
+					<pre id="ex-ident-01-src" class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;manifest>
+      &lt;item id="audio01"
+            href="https://example.org/audio/war_of_the_worlds.mp3"
+            media-type="audio/mp3"/>
+      
+      &lt;item id="c01"
+            href="xhtml/c01.xhtml"
+            media-type="application/xhtml+xml"
+            properties="remote-resources"/>
+      &#8230;
+   &lt;/manifest>
+   &#8230;
+&lt;/package></code></pre>
+					
+					<p>When adding remote resource URLs to the manifest, be aware that you must escape any ampersands
+						(&amp;) in the string. For example, if the URL has a query string with multiple parameters, you
+						will have to encode each ampersand using the &amp;amp; entity as in the following example.</p>
+					
+					<pre id="ex-ident-02-src" class="prettyprint linenums"><code>Font URL:
+https://fonts.googleapis.com/css2?family=Roboto<strong>&amp;</strong>display=swap
+
+Manifest encoding:
+&lt;item id="font01"
+      href="https://fonts.googleapis.com/css2?family=Roboto&amp;amp;display=swap"
+      media-type="font/ttf"</code></pre>
+					
+				</section>
+				
+
+				<section id="usability">
+					<h4>Usability considerations</h4>
+					
+					<p>The most common reason for hosting resources remotely is due to their size. If a publication
+						has several videos amounting to a few gigabytes of data, it may not be feasible to distribute
+						such a publication. Vendors could reject the publication due to size restrictions, and even
+						if they accept such large publications, users have to wait for all the data to download before
+						they can begin reading, even if they have no interest in watching the videos.</p>
+					
+					<p>Hosting resources remotely is a way around size restrictions and defers the downloading of 
+						some resources until they are needed, but it also comes with some serious usability issues &#8212;
+						users will need a device with an active internet connection and a reading system that does not
+						block access to the internet. Just because you have a tablet with an internet connection, for
+						example, does not mean that the reading system will allow publications to retrieve resources
+						from the web, as these could present security issues.</p>
+					
+					<p>Fonts are one of the best candidates for remote hosting as users will typically not notice their
+						absence. When fonts are not available, the reading system automatically falls back to the next
+						available font. The publication text may not appear as nicely as intended, but its readability
+						generally does not suffer (with one exception detailed in the next section on <a 
+							href="#a11y">accessibility concerns</a>).</p>
+					
+					<p>Before hosting audio and video outside the EPUB container, consider the user experience when
+						they are not available. If they are critical to understanding the text, users without access
+						will miss essential information.</p>
+					
+					<p>To mitigate some support and connectivity issues in reading systems, try offering users a way to
+						link directly to the audio or video file (refer to <a href="#ex-01">example 1</a>. This may
+						allow users to circumvent their reading system to try opening the content directly in a
+						browser.</p>
+					
+					<p>Script data hosted outside the EPUB container is the most problematic type of remote resource
+						from a usability perspective. Not only is support for scripting not universal in EPUB, but
+						reading systems that support scripting may not support the APIs that allow you to call external
+						data. In other words, a reading system that might allow remote audio and video might not allow
+						remote script calls.</p>
+					
+					<p>For remote data calls, consider embedding a default data set if the external scripting call is
+						only to get the latest version of the data. This will at least allow users to interact with the
+						scripted content rather than have a non-working application in their publication.</p>
+				</section>
+				
+				<section id="a11y">
+					<h4>Accessibility considerations</h4>
+					
+					<p>Although the issues with remote resources are primarily usability ones, there is at least one
+						case where the accessibility of a publication could be affected. If you use specialized fonts
+						to aid reading (e.g., for to help users with dyslexia track the text), remotely hosting the
+						fonts could make the publication less accessible to its intended audience. In this case, any
+						benefit from remotely hosting the font is likely not worth the risk.</p>
+					
+					<p>For audio and video resources, following accessible production practices can help
+						mitigate some of the inconvenience that arises when reading systems cannot retrieve them.
+						Providing transcripts for audio and video, for example, allows users access to the information
+						they would have provided.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-resource-locations">Resource locations</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

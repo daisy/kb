@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Animation from Interactions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.3.3 Animation from Interactions">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.1 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.3.3</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>CSS Animations</li>
+								<li>Page Transitions</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Motion animation triggered by interaction can be disabled, unless the animation is
+								essential to the functionality or the information being conveyed.</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html">Understanding Success Criterion 2.3.3</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions">How to meet Success Criterion 2.3.3</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C39">C39: Using the CSS reduce-motion query to prevent motion</a></li>
+								<li>Gx: Allowing users to set a preference that prevents animation. (undocumented)</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to prevent adverse effects in readers with vestibular
+					disorders.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>The use of non-essential motion animation is not common in digital publications, as this success
+					criterion primarily targets page transition and scrolling animations on the web.</p>
+				
+				<p>If authors find support for parallax scrolling or page transitions, however, they will need to
+					ensure there is a way for readers to disable these features.</p>
+				
+				<p>Authors are not responsible for page flipping animations introduced by reading systems.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The knowledge base does not currently include information on motion animation due to the lack of
+					implementation in publishing formats. Refer to the <a href="#guidance">WCAG guidance documents</a>
+					for additional information.</p>
+			</section>
+		</main>
+	</body>
+</html>

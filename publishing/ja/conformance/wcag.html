@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>WCAG</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Provides and overview of the Web Content Accessibility Guidelines (WCAG) standard and its requirements.">
+		<script>
+			var page_info = {
+				'category': 'Conformance',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			dl {
+				margin-left: 2rem;
+			}
+			dt {
+				font-weight: bold;
+			}
+			dd > ol {
+				margin-left: 0;
+				padding-left: 0;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>The W3C's Web Content Accessibility Guidelines (WCAG) is the internationally recognized standard for
+					creating accessible Web-based content.</p>
+			</section>
+
+			<section id="overview">
+				<h3>Overview</h3>
+
+				<p>The WCAG guidelines take a layered approach to accessibility, starting with four high-level
+						<em>principles</em> that all content creators should strive to achieve. These principles are
+					defined as follows:</p>
+
+				<ol>
+					<li><a href="https://www.w3.org/TR/WCAG2/#perceivable">Perceivable</a> &#8212; Information and user
+						interface components must be presentable to users in ways they can perceive.</li>
+					<li><a href="https://www.w3.org/TR/WCAG2/#operable">Operable</a> &#8212; User interface components
+						and navigation must be operable.</li>
+					<li><a href="https://www.w3.org/TR/WCAG2/#understandable">Understandable</a> &#8212; Information and
+						the operation of user interface must be understandable.</li>
+					<li><a href="https://www.w3.org/TR/WCAG2/#robust">Robust</a> &#8212; Content must be robust enough
+						that it can be interpreted reliably by a wide variety of user agents, including assistive
+						technologies.</li>
+				</ol>
+
+				<p>At the next level, each of these principles is broken down into a set of <em>guidelines</em> for
+					achieving compliance.</p>
+
+				<dl>
+					<dt>1. Perceivable</dt>
+					<dd>
+						<ol class="none" role="list">
+							<li>1.1 Text Alternatives</li>
+							<li>1.2 Time-based Media.</li>
+							<li>1.3 Adaptable</li>
+							<li>1.4 Distinguishable</li>
+						</ol>
+					</dd>
+					<dt>2. Operable</dt>
+					<dd>
+						<ol class="none" role="list">
+							<li>2.1 Keyboard Accessible</li>
+							<li>2.2 Enough Time</li>
+							<li>2.3 Seizures and Physical Reactions</li>
+							<li>2.4 Navigable</li>
+							<li>2.5 Input Modalities</li>
+						</ol>
+					</dd>
+					<dt>3. Understandable</dt>
+					<dd>
+						<ol class="none" role="list">
+							<li>3.1 Readable</li>
+							<li>3.2 Predictable</li>
+							<li>3.3 Input Assistance</li>
+						</ol>
+					</dd>
+					<dt>4. Robust</dt>
+					<dd>
+						<ol class="none" role="list">
+							<li>4.1 Compatible</li>
+						</ol>
+					</dd>
+				</dl>
+
+				<p>A further level below the guidelines are the <em>success criteria</em>, which is the level where WCAG
+					moves from a general outline for accessible content to how to practically achieve it. These criteria
+					are quite extensive, so are not reproduced here. For more information, refer to the <a
+						href="https://www.w3.org/TR/WCAG2/">WCAG guidelines</a>.</p>
+
+				<p>After these three levels of progressive refinement of what it takes to create accessible content, you
+					reach the <em>sufficient and advisory techniques</em> for testing compliance to the success
+					criteria. These criteria provide the format-specific information you need to verify your
+					content.</p>
+
+				<p>This knowledge base focuses on the techniques for publishing, in particular as they relate to meeting
+					the <a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility specification</a>, but understanding
+					the higher-level concepts is also necessary to truly understand what makes content accessible. You
+					will find links to the relevant techniques throughout this site, while the introductions to each
+					section endeavour to explain why making these structures accessible is necessary (i.e., how they fit
+					into the higher-level guidelines).</p>
+			</section>
+
+			<section id="conformance">
+				<h3>Conformance</h3>
+
+				<p>WCAG defines three levels of conformance (from 'A' to 'AAA') to indicate the breadth of support a
+					site provides.</p>
+
+				<p>Level A is the minimal accessibility baseline that documents must meet, but at this level they will
+					likely remain problematic for their target audiences. Level AA is commonly considered the actual
+					baseline that documents must meet in order to be considered accessible.</p>
+
+				<p>Note that in order to meet Level AA, all of the requirements of Level A must be met. Each higher
+					level of conformance builds on the levels below it.</p>
+
+				<p>Level AAA is widely regarded as aspirational, as it is typically not possible for documents to meet
+					all of the requirements. Authors should not ignore the success criteria at this level, but may defer
+					requirements that are too complicated to achieve.</p>
+			</section>
+
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/WCAG2/">WCAG</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG22/Understanding/">Understanding WCAG</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG22/quickref/">How to Meet WCAG (Quick Reference)</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/translations/">Translations</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

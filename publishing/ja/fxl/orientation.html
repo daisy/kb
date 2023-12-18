@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Orientation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on not constraining fixed layout pages to a specific orientation.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Do not constrain the rendering of fixed layout pages to a single orientation.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Ensure the <code>rendition:orientation</code> property is set to <code>auto</code> [[WCAG-1.3.4]]</li>
+				</ul>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Do I have to set the <code>rendition:orientation</code> property?</dt>
+					<dd>
+						<p>No. The default setting does not constrain content to a single orientation. You can
+							explicitly set the property to <code>auto</code> in the package document, but it does not
+							change anything.</p>
+					</dd>
+				</dl>
+			</section>
+						
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>EPUB 3 allows authors to lock fixed layout pages to a single orientation &#8212; either portrait or
+					landscape &#8212; using the <a
+						href="https://www.w3.org/TR/epub/#orientation"><code>rendition:orientation</code>
+						property</a>. The problem with forcing a single orientation, however, is that it prevents users
+					who cannot turn their device from being able to read the content.</p>
+				
+				<p>Users with physical and motor disabilities, for example, cannot always change the orientation of
+					their device. The user may have it attached to a mount that cannot be adjusted, or that the user
+					cannot adjust without assistance.</p>
+				
+				<p>By default, EPUB 3 fixed layout pages are not orientation constrained. Locking only occurs when the
+					author explicitly sets the <code>rendition:orientation</code> property to the value
+					<code>portrait</code> or <code>landscape</code>. Consequently, the simple solution to this WCAG
+					level AA violation is to not set this property either globally or on specific pages.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#orientation">Orientation</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

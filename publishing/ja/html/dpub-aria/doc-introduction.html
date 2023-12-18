@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-introduction</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-introduction role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A preliminary section that typically introduces the scope or nature of the work.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Introduction with a heading</div>
+						<p>The label is identified in the <code>aria-labelledby</code> attribute.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-introduction" aria-labelledby="intro-hd">
+   &lt;h2 id="intro-hd">Introduction&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Introduction without a heading</div>
+						<p>A label is provided in the <code>aria-label</code> attribute.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;section role="doc-introduction" aria-label="Introduction">
+   &lt;p>Recent theory about the nature of gravity &#8230;&lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-introduction</code> is a <a href="../landmarks.html">landmark role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-introduction</code> is typically used on <code>section</code> elements.</p>
+
+				<p>A label must be provided for the role using one of the <code>aria-labelledby</code>,
+						<code>aria-label</code> or <code>title</code> attributes.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
+					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
+						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
+						Guide</a>. For the official list of allowed elements, refer to <a 
+							href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>Related Links</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">DPUB-ARIA &#8212;
+								<code>doc-introduction</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

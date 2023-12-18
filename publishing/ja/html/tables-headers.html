@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Complex Headers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing accessible tables with complex headers.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-scope','html-table-layout']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			table {
+				width: 80%;
+			}
+			td {
+				text-align: center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>For complex headers that cannot be identified by their scope alone, or that need to be ordered in
+					a specific way to make sense, use the <code>headers</code> attribute to ensure the proper context
+					is available to users of assistive technologies.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Identify and order the applicable table cell headers using the <code>headers</code> attribute. [[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">Example 1 &#8212; Headers at end of row</span></figcaption>
+					
+					<p>The following table shows a distance chart with the start destinations defined in the first row
+						and  at the end destination at the end of each subsequent row.</p>
+					
+					<p>In this case, because the header is at the end of the row setting a scope of "<code>row</code>"
+						does not apply it back to the cells already encountered. The <code>headers</code> attribute
+						must be applied to each cell.</p>
+					
+					<p>Note that a table such as this would be better reconfigured so that the headings are at the
+						beginning of the row so that no additional markup would be needed.</p>
+					
+					<table>
+						<tr>
+							<th id="van">Vancouver</th>
+							<th id="cal">Calgary</th>
+							<th id="sask">Saskatoon</th>
+							<th id="win">Winnipeg</th>
+							<th id="tor">Toronto</th>
+							<th id="mon">Montreal</th>
+							<th id="stj">St. John's</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td headers="van stj-dest">7323</td>
+							<td headers="cal stj-dest">6334</td>
+							<td headers="sask stj-dest">5838</td>
+							<td headers="win stj-dest">5010</td>
+							<td headers="tor stj-dest">3141</td>
+							<td headers="mon stj-dest">2602</td>
+							<td headers="stj stj-dest">0</td>
+							<th id="stj-dest">St. John's</th>
+						</tr>
+						<tr>
+							<td headers="van mon-dest">4271</td>
+							<td headers="cal mon-dest">3743</td>
+							<td headers="sask mon-dest">3232</td>
+							<td headers="win mon-dest">2408</td>
+							<td headers="tor mon-dest">539</td>
+							<td headers="mon mon-dest">0</td>
+							<td headers="stj mon-dest">2602</td>
+							<th id="mon-dest">Montreal</th>
+						</tr>
+					</table>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;tr>
+      &lt;th id="van">Vancouver&lt;/th>
+      &lt;th id="cal">Calgary&lt;/th>
+      &lt;th id="sask">Saskatoon&lt;/th>
+      &lt;th id="win">Winnipeg&lt;/th>
+      &lt;th id="tor">Toronto&lt;/th>
+      &lt;th id="mon">Montreal&lt;/th>
+      &lt;th id="stj">St. John's&lt;/th>
+      &lt;th>&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td headers="van stj-dest">7323&lt;/td>
+      &lt;td headers="cal stj-dest">6334&lt;/td>
+      &lt;td headers="sask stj-dest">5838&lt;/td>
+      &lt;td headers="win stj-dest">5010&lt;/td>
+      &lt;td headers="tor stj-dest">3141&lt;/td>
+      &lt;td headers="mon stj-dest">2602&lt;/td>
+      &lt;td headers="stj stj-dest">0&lt;/td>
+      &lt;th id="stj-dest">St. John's&lt;/th>
+   &lt;/tr>
+   
+   &lt;tr>
+      &lt;td headers="van mon-dest">4271&lt;/td>
+      &lt;td headers="cal mon-dest">3743&lt;/td>
+      &lt;td headers="sask mon-dest">3232&lt;/td>
+      &lt;td headers="win mon-dest">2408&lt;/td>
+      &lt;td headers="tor mon-dest">539&lt;/td>
+      &lt;td headers="mon mon-dest">0&lt;/td>
+      &lt;td headers="stj mon-dest">2602&lt;/td>
+      &lt;th id="mon-dest">Montreal&lt;/th>
+   &lt;/tr>
+   &#8230;
+&lt;/table></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption><span class="label">Example 2 &#8212; Sectioned Table</span></figcaption>
+					
+					<p>This example shows how <a href="tables-scope.html#ex-01">Example 1 from the Headings Scope
+						page</a> could be marked up using the <code>headers</code> attribute to associate the correct
+						column, row and section headers.</p>
+					
+					<p>The use of the <code>headers</code> attribute allows the order of the headings to be
+						re-ordered to read in an alternative order (e.g., "Gondor female 1950", rather than
+						the default "1950 Gondor female" when going by scope).</p>
+					
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th id="y50">1950</th>
+								<th id="y75">1975</th>
+								<th id="y00">2000</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th colspan="4" id="gdr">Gondor</th>
+							</tr>
+							<tr>
+								<th id="gmale">Male</th>
+								<td headers="gdr gmale y50">1,001,542</td>
+								<td headers="gdr gmale y75">1,583,771</td>
+								<td headers="gdr gmale y00">2,221,945</td>
+							</tr>
+							<tr>
+								<th id="gfem">Female</th>
+								<td headers="gdr gfem y50">1,122,947</td>
+								<td headers="gdr gfem y75">1,782,371</td>
+								<td headers="gdr gfem y00">2,544,187</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<th colspan="4" scope="rowgroup">Mordor</th>
+							</tr>
+							<tr>
+								<td colspan="4" class="center">&#8230;</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;thead>
+      &lt;tr>
+         &lt;th>&lt;/th>
+         &lt;th id="y50">1950&lt;/th>
+         &lt;th id="y75">1975&lt;/th>
+         &lt;th id="y00">2000&lt;/th>
+      &lt;/tr>
+   &lt;/thead>
+   &lt;tbody>
+      &lt;tr>
+         &lt;th colspan="4" id="gdr">Gondor&lt;/th>
+      &lt;/tr>
+      &lt;tr>
+         &lt;th id="gmale">Male&lt;/th>
+         &lt;td headers="gdr gmale y50">1,001,542&lt;/td>
+         &lt;td headers="gdr gmale y75">1,583,771&lt;/td>
+         &lt;td headers="gdr gmale y00">2,221,945&lt;/td>
+      &lt;/tr>
+      &lt;tr>
+         &lt;th id="gfem">Female&lt;/th>
+         &lt;td headers="gdr gfem y50">1,122,947&lt;/td>
+         &lt;td headers="gdr gfem y75">1,782,371&lt;/td>
+         &lt;td headers="gdr gfem y00">2,544,187&lt;/td>
+      &lt;/tr>
+   &lt;/tbody>
+   &lt;tbody>
+      &lt;tr>
+         &lt;th colspan="4" id="mdr">Mordor&lt;/th>
+      &lt;/tr>
+      &#8230;
+   &lt;/tbody>
+&lt;/table></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<div class="caution" role="note" aria-labelledby="use-note">
+					<p id="use-note" class="label">Caution</p>
+					
+					<p>Although the <code>headers</code> attribute allows authors to precisely specify the headers, and
+						their order, to apply to a cell, the need for the attribute is often a signal that a table should
+						be restructured to simplify its layout. In addition, the attribute makes table markup more
+						complex to maintain, as all the headers may have to be resynchronized whenever changes are
+						made.</p>
+					<p>Consequently, the attribute should only be used sparingly.</p>
+				</div>
+				
+				<p>The <code>headers</code> attribute identifies the cells that contain the header text by their
+					<code>id</code> attribute value. The order in which the ids are included in the attribute determines
+					how the headers are announced to the user, so care must be taken to ensure logical playback.</p>
+				
+				<p>The ordering of the headers does not have to exactly match the markup if another ordering makes more
+					sense (see <a href="ex-02">Example 2</a>).</p>
+				
+				<p>Using the <code>headers</code> should be considered a last resort when tables absolutely cannot
+					be restructured to be made simpler. The attribute is not well supported in assistive technologies,
+					so users may still end up hearing confusing and incomplete headings for each cell.</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Note</p>
+					<p>Note that HTML no longer allows the <code>td</code> element to be used for headers
+						(i.e., a <code>td</code> element cannot be referenced from the <code>headers</code> attribute).</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table>: The Table
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element">The
+								<code>table</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

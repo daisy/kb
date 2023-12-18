@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Pointer Cancellation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.2 Pointer Cancellation">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.1 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.5.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Interactive Content</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For functionality that can be operated using a single pointer, at least one of the following is true:</p>
+							
+							<dl>
+								<dt>No Down-Event</dt>
+								<dd>
+									<p>The down-event of the pointer is not used to execute any part of the function;</p>
+								</dd>
+								
+								<dt>Abort or Undo</dt>
+								<dd>
+									<p>Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;</p>
+								</dd>
+								
+								<dt>Up Reversal</dt>
+								<dd>
+									<p>The up-event reverses any outcome of the preceding down-event;</p>
+								</dd>
+								
+								<dt>Essential</dt>
+								<dd>
+									<p>Completing the function on the down-event is essential.</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html">Understanding Success Criterion 2.5.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation">How to meet Success Criterion 2.5.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G210">G210: Ensuring that drag-and-drop actions can be cancelled</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G211">G211: Matching the accessible name to the visible label</a></li>
+								<li>Touch events are only triggered when touch is removed from a control. (undocumented)</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to help users avoid accidental pointer input.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors have three options to meet this success criterion. The first is to ensure that any events
+					initiated by a pointer such as a mouse do not occur on a down click unless they are essential to
+					the functioning of the content.</p>
+				
+				<p>Second is to provide the ability to abort or undo the action. For example, moving the pointer away
+					from a button before releasing to prevent it from activating.</p>
+				
+				<p>Third is to use an up event to cancel the action of a down event. An example would be holding a mouse
+					button down to keep a dialog open and only closing it once the button is released.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The knowledge base does not currently cover the creation of accessible input modalities.
+					Refer to the <a href="#guidance">WCAG guidance documents</a> for additional information.</p>
+			</section>
+		</main>
+	</body>
+</html>

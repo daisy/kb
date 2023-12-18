@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Audio Control</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.2 Audio Control">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.4.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Audio</li>
+								<li>Video</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>If any audio on a Web page plays automatically for more than 3 seconds, either a
+								mechanism is available to pause or stop the audio, or a mechanism is available to
+								control audio volume independently from the overall system volume level.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html">Understanding Success Criterion 1.4.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">How to meet Success Criterion 1.4.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G60">G60: Playing a sound that turns off automatically within three seconds</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G170">G170: Providing a control near the beginning of the Web page that turns off sounds that play automatically</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G171">G171: Playing sounds only on user request</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that any audio that automatically plays does not
+					interfere with the ability of a user to hear the audio produced by their assistive technology
+					(e.g., drown out the text voicing from a screen reader).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>To meet this success criterion, users must either be able to stop the playback of any audio that
+					starts automatically and plays for more than three seconds, or be able to control the volume
+					separately from their assistive technology (since the device sound control raises and lowers all
+					audio in synchronicity, it does not meet this requirement).</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/audio.html">Audio</a></li>
+					<li><a href="../html/video.html">Video</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

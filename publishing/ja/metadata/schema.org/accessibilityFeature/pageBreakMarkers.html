@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>pageBreakMarkers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="pageBreakMarkers">
+				<h3>pageBreakMarkers</h3>
+				
+				<p>The <a 
+					href="https://w3c.github.io/a11y-discov-vocab/latest/#pageBreakMarkers"><code>pageBreakMarkers</code>
+					value</a> is used to indicate that static page break locations are included in the text.</p>
+				
+				<p>The inclusion of page break markers from a print source allows users to identify where they
+					are in a digital publication relative to its print equivalent. The page break markers are
+					typically accompanied by a <a href="#pageList">page list</a> that allows users to quickly
+					navigate to a specific location.</p>
+				
+				<p>Page break markers are also added to digital publications without a static paginated source to
+					aid users in navigating the text.</p>
+				
+				<p>See the <a href="../../navigation/pagelist.html">page navigation knowledge base page</a> for
+					more information.</p>
+				
+				<figure id="ex-pbm">
+					<figcaption>
+						<p class="label">Page break identified using the DPUB-ARIA <code>doc-pagebreak</code>
+							role.</p>
+					</figcaption>
+					<pre id="ex-ppn-src" class="prettyprint"><code>&lt;span id="pg24" role="doc-pagebreak" aria-label="page 24"/></code></pre>
+				</figure>
+			</section>
+		</main>
+	</body>
+</html>

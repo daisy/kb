@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Evaluation Metadata</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on reporting the outcome of an accessibility evaluation in an EPUB publication's package document metadata.">
+		<script>
+			var page_info = {
+				'category': 'Metadata',
+				'appliesTo': ['EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			section > dl > dt {
+				font-weight: bold;
+				font-size: 110%;
+				padding-top: 2em;
+			}
+			section > dl > dd > dl > dt {
+				font-weight: bold;
+			}
+			blockquote {
+				margin-left: 1rem;
+			}
+			dl.conf-map dt, dl.conf-map dd {
+				margin-left: 2rem;
+			}
+			dl.conf-map dt {
+				margin-top: 1.5rem;
+			}
+			dl.conf-map {
+				font-size: 85%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Include accessibility evaluation metadata to enable conformance discovery and provide identification
+					of the evaluator and their credentials.</p>
+			</section>
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Package Document metadata (EPUB 3)</div>
+						<p>The following example shows a complete set of evaluation metadata for a publication that
+							conforms to the EPUB Accessibility 1.1 specification at WCAG Level AA.</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta property="dcterms:conformsTo">
+     EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+  &lt;/meta>
+  &lt;meta property="a11y:certifiedBy">Dewey, Checkett and Howe&lt;/meta>
+  &lt;meta property="a11y:certifierCredential">Certifiably Accessible&lt;/meta>
+  &lt;link rel="a11y:certifierReport"
+        href="https://example.com/reports/a11y/pub.html"/>
+  &#8230;
+&lt;/metadata></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Package Document metadata (EPUB 2)</div>
+						<p>The following example shows how to express evaluation metadata in an EPUB 2 publication
+							using the <code>meta</code> tag's <code>name</code> and <code>content</code> attributes.</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata>
+  &lt;meta name="dcterms:conformsTo"
+        content="EPUB Accessibility 1.1 - WCAG 2.0 Level AA"/>
+  &lt;meta name="a11y:certifiedBy" content="Dewey, Checkett and Howe"/>
+  &lt;meta name="a11y:certifierCredential" content="Certifiably Accessible"/>
+  &lt;meta name="a11y:certifierReport"
+        content="https://example.com/reports/a11y/pub.html"/>
+  &#8230;
+&lt;/metadata></code></pre>
+				</figure>
+			</section>
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				<dl>
+					<dt id="faq-001">Does the <code>a11y:</code> prefix have to be declared in the EPUB package document?</dt>
+					<dd>
+						<p>Technically, no, but best practice is to always declare the prefix. EPUB has a concept of
+							"<a href="https://www.w3.org/TR/epub-33/#sec-reserved-prefixes">reserved prefixes</a>",
+							which are prefixes that can be used without being declared. In practice, however, older
+							versions of the epubcheck validation tool will flag newer predefined prefixes as errors, as
+							they are unaware of newer additions. Declaring the prefix ensures there will not be
+							validation issues.</p>
+						<p>The <code>a11y:</code> prefix is declared as follows:</p>
+						<pre id="ex-faq01-src" class="prettyprint linenums"><code>&lt;package &#8230; prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#"></code></pre>
+					</dd>
+				</dl>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>Evaluation metadata provides additional information about the individual or organization that has
+					assessed a publication against accessibility standards. It also allows identification of the
+					standard(s) the publication conforms.</p>
+
+				<p>All evaluation metadata described in this section with an <code>a11y:</code> prefix are defined in
+					the <a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB Accessibility Vocabulary</a>.</p>
+
+				<section id="dcterms:conformsTo">
+					<h4>dcterms:conformsTo</h4>
+					
+					<blockquote>
+						<p>
+							<em>An established standard to which the described resource conforms.</em>
+						</p>
+					</blockquote>
+					
+					<p>When the <code>dcterms:conformsTo</code> property is included in a publication, it indicates
+						that someone has checked and confirmed the publication conforms to a standard. The value of the
+						element is a string or URL that identifies the standard.</p>
+					
+					<p id="syntax-11">In particular, the EPUB Accessibility 1.1 standard uses this property to identify 
+						publications that conform to its requirements. The value of the property identifies both the
+						version of the standard the publication conforms to as well as the version and level of <a
+							href="../conformance/wcag.html">WCAG conformance</a>, and must match the following
+						pattern:</p>
+					
+					<blockquote>
+						<code>EPUB Accessibility 1.1 - WCAG 2.X Level (A|AA|AAA)</code>
+					</blockquote>
+					
+					<p>The value "<code>2.X</code>" is replaced by the version of WCAG (e.g., 2.0 or 2.1) and
+						"<code>(A|AA|AAA)</code>" is replaced by which of those levels was achieved.</p>
+					
+					<p>For example, the following values are currently valid to use with this property:</p>
+					
+					<ul>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level A</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AAA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level A</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AAA</code>
+						</li>
+					</ul>
+					
+					<p>For more information about these conformance values, please refer to the <a
+						href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting-pub">Publication conformance
+						section</a> of the EPUB Accessibility specification.</p>
+					
+					<dl>
+						<dt>EPUB 3 usage:</dt>
+						<dd>
+							<pre id="expl-01-src" class="prettyprint linenums small"><code>&lt;meta property="dcterms:conformsTo">
+  EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+&lt;/meta></code></pre>
+						</dd>
+						<dt>EPUB 2 usage:</dt>
+						<dd>
+							<pre id="expl-02-src" class="prettyprint linenums small"><code>&lt;meta
+  name="dcterms:conformsTo"
+  content="EPUB Accessibility 1.1 - WCAG 2.0 Level AA"/></code></pre>
+						</dd>
+					</dl>
+					
+					<section id="a11y-transition">
+						<h5>Transitioning from EPUB Accessibility 1.0 to 1.1</h5>
+						
+						<p>The EPUB Accessibility 1.0 specification was developed by the <a 
+							href="https://idpf.org/">IDPF</a> and used conformance URLs that <a 
+								href="https://idpf.org/epub/a11y/#sec-conf-reporting">contained that organization's
+								domain</a> (<code>idpf.org</code>).</p>
+						
+						<p>Conformance to this version used the package document metadata's <code>link</code> element
+							with <code>idpf.org</code> URLs, like in the following example:</p>
+						
+						<pre><code>&lt;link
+     rel="dcterms:conformsTo"
+     href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/></code></pre>
+						
+						<p>As IDPF no longer exists, the EPUB Working Group decided to drop the use of IDPF URLs for
+							the conformance identifier and move to the <a href="#syntax-11">string-based identifier
+								system</a> described earlier. While the IDPF URLs remain valid for existing 1.0
+							content, publishers conforming to the Accessibility 1.0 requirements are encouraged to move
+							to declaring conformance to the new 1.1 specification.</p>
+						
+						<p><strong>Publications that conform to the EPUB Accessibility 1.0 standard also conform to
+							the 1.1 standard at the same WCAG level.</strong></p>
+						
+						<p>The following list maps the old identifiers to their replacements:</p>
+						
+						<dl class="conf-map">
+							<dt>WCAG 2.0 Level A</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 markup:</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-a"/></code></pre>
+									</li>
+									<li>
+										<p>1.1 markup:</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo">
+   EPUB Accessibility 1.1 - WCAG 2.0 Level A
+&lt;/meta></code></pre>
+									</li>
+								</ul>
+							</dd>
+							
+							<dt>WCAG 2.0 Level AA</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 markup:</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/></code></pre>
+									</li>
+									<li>
+										<p>1.1 markup:</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo">
+   EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+&lt;/meta></code></pre>
+									</li>
+								</ul>
+							</dd>
+							
+							<dt>WCAG 2.0 Level AAA</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 markup:</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aaa"/></code></pre>
+									</li>
+									<li>
+										<p>1.1 markup:</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo">
+   EPUB Accessibility 1.1 - WCAG 2.0 Level AAA
+&lt;/meta></code></pre>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</section>
+				</section>
+				
+				<section id="a11y:certifiedBy">
+					<h4>a11y:certifiedBy</h4>
+					
+					<blockquote>
+						<p>
+							<em>Identifies a party responsible for the testing and certification of the
+								accessibility of an EPUB Publication.</em>
+						</p>
+					</blockquote>
+					
+					<p>The <code>a11y:certifiedBy</code> property is included in a publication to indicate who reviewed
+						it for accessibility conformance. The EPUB Accessibility specification requires that publishers 
+						set this property even when the publication does not meet accessibility requirements.</p>
+					
+					<dl>
+						<dt>EPUB 3 usage:</dt>
+						<dd>
+							<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedBy">Dewey, Checkett and Howe&lt;/meta></code></pre>
+						</dd>
+						<dt>EPUB 2 usage:</dt>
+						<dd>
+							<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifiedBy" content="Dewey, Checkett and Howe"/></code></pre>
+						</dd>
+					</dl>
+				</section>
+				
+				<section id="a11y:certifierCredential">
+					<h4>a11y:certifierCredential</h4>
+					
+					<blockquote>
+						<p>
+							<em>Identifies a credential or badge that establishes the authority of the party
+								identified in the <code>certifiedBy</code> property to certify content
+								accessible.</em>
+						</p>
+					</blockquote>
+					
+					<p>The <code>a11y:certifierCredential</code> property identifies a credential the certifier
+						possesses &#8212; specifically, one to carry out accessibility evaluations.</p>
+					
+					<p>The property can either be a text field with the name of the credential held, or it can be a
+						link to a description of the credential.</p>
+					
+					<dl>
+						<dt>EPUB 3 usage:</dt>
+						<dd>
+							<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifierCredential">Certifiably Accessible&lt;/meta>
+&lt;link rel="a11y:certifierCredential"
+  href="https://example.com/a11y/credential"/></code></pre>
+						</dd>
+						<dt>EPUB 2 usage:</dt>
+						<dd>
+							<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifierCredential" content="Certifiably Accessible"/>
+&lt;meta name="a11y:certifierCredential"
+  content="https://example.com/a11y/credential"/></code></pre>
+						</dd>
+					</dl>
+				</section>
+				
+				<section id="a11y:certifierReport">
+					<h4>a11y:certifierReport</h4>
+					
+					<blockquote>
+						<p>
+							<em>Provides a link to an accessibility report created by the party identified in the
+								<code>certifiedBy</code> property.</em>
+						</p>
+					</blockquote>
+					
+					<p>When an accessibility conformance report for the publication is publicly available, publishers
+						can use the <code>a11y:certifierReport</code> property to provide a link to it. Vendors and
+						reading systems can then offer users the option to access this report to discover more
+						information about the title.</p>
+					
+					<dl>
+						<dt>EPUB 3 usage:</dt>
+						<dd>
+							<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;link rel="a11y:certifierReport"
+  href="https://example.com/reports/a11y/pub.html"/></code></pre>
+						</dd>
+						<dt>EPUB 2 usage:</dt>
+						<dd>
+							<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifierReport"
+  content="https://example.com/reports/a11y/pub.html"/></code></pre>
+						</dd>
+					</dl>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">EPUB Accessibility &#8212;
+							Conformance Reporting</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB Accessibility Vocabulary</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

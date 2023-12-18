@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>latex</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="latex">
+				<h3>latex</h3>
+				
+				<p>The <a href="https://w3c.github.io/a11y-discov-vocab/latest/#latex"><code>latex</code> value</a>
+					is used to indicate that a publication contains math equations formatted using the LaTeX
+					typesetting system.</p>
+				
+				<p>LaTeX equations can retain semantic information about math equations that is not always
+					available in other formats (e.g., <a href="#MathML">presentational MathML</a>) making them
+					easier to understand.</p>
+				
+				<p>The ability to read LaTeX equations often requires being able to export the data to another
+					program, however, as LaTeX does not natively render in Web-based formats like EPUB. As a
+					result, it is not commonly found at this time.</p>
+				
+				<figure id="ex-latex">
+					<figcaption>
+						<p class="label">A latex-formatted equation.</p>
+					</figcaption>
+					<pre id="ex-latext-src" class="prettyprint"><code>\begin{equation} f(x)=(x+a)(x+b) \end{equation}</code></pre>
+				</figure>
+			</section>
+		</main>
+	</body>
+</html>

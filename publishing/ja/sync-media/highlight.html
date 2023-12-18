@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Highlighting</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on accessible highlighting during playback of synchronized text and audio.">
+		<script>
+			var page_info = {
+				'category': 'Synchronized Multimedia',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure that text highlighting during playback does not impede the ability to read
+					the text.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Provide sufficient contrast between foreground and background colors. <span class="wcag-level">[<a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG 1.4.3 - AA</a> and <a href="https://www.w3.org/TR/WCAG2/#contrast-enhanced">WCAG 1.4.6 - AAA</a>]</span></p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Defining the background highlight (EPUB 3)</div>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   background-color: rgb(255,255,220);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Assigning a default color to improve contrast (EPUB 3)</div>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   color: rgb(0,0,0);
+   background-color: rgb(255,255,0);
+}</code></pre>
+					
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Can I only apply background shading?</dt>
+					<dd><p>No, you can apply any CSS properties to the active text, but be aware that the choices you make
+							may impact on the accessibility of the publication.</p>
+						<p>Also consider the medium. Increasing the font size might seem to be a good choice to make
+							the active text more pronounced, but the practical result may be text that jumps around on the
+							page in an EPUB. As one paragraph loses focus, for example, its text size will shrink and the next
+							will increase, causing the layout to "move" on the user. It may also be the case that text that
+							was visible when the page was originally rendered will get pushed out of the viewport as the new
+							highlighting is applied.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>When text is synchronized during playback, it can also be styled to make it more obvious which passage is
+					being narrated.</p>
+				
+				<section id="epub3">
+					<h4>EPUB 3</h4>
+					
+					<p>EPUB 3 allows you to define the CSS class to apply to the active element in the package
+						document metadata using the special <code class="property">media:active-class</code> property:</p>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;meta property="media:active-class">
+-epub-overlay-active
+&lt;/meta></code></pre>
+					
+					<p>In this case, the reading system will check all attached CSS files for a class named <code class="value"
+						>-epub-overlay-active</code> and will apply whatever styles are defined in it to each synchronized
+						element for the duration of its playback</p>
+					
+					<div class="note" role="note" aria-labelledby="note-1">
+						<p id="note-1" class="label">Note</p>
+						<p>The name that you use for the CSS class is not important, but a name that indicates the purpose
+							of the class is recommended for clarity.</p>
+					</div>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>

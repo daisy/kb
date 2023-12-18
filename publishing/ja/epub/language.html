@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Setting the Language</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Best practices for setting the language of the EPUB package document and the publication.">
+		<script>
+			var page_info = {
+				'category': 'EPUB',
+				'appliesTo': ['EPUB3', 'EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			div.note pre {
+				margin-left: 1rem;
+				border-left: none !important;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Setting the language ensures that assistive technologies correctly interpret and render the text
+					and that reading systems can make language enhancements available for users.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Set the default language of the package document using an <code>xml:lang</code> attribute on the <code>package</code> element. [[WCAG-3.1.1]]</p>
+					</li>
+					<li>
+						<p>Set the <code>xml:lang</code> attribute on package document elements whenever the default language changes. [[WCAG-3.1.2]]</p>
+					</li>
+					<li>
+						<p>Identify the primary languages of the publication in <code>dc:language</code> elements in package document's metadata section.
+							[[WCAG-3.1.1]]</p>
+					</li>
+					<li>
+						<p>Set the default language of EPUB content documents. [[WCAG-3.1.1]]</p>
+					</li>
+					<li>
+						<p>Identify changes in language in EPUB content documents. [[WCAG-3.1.2]]</p>
+					</li>
+					<li>
+						<p>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>.
+							[[WCAG-3.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Example</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Declaring the package document language</div>
+						<p>The <code>xml:lang</code> attribute is set to English on the <code>package</code> element
+							to ensure the metadata in the package is correctly interpreted.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en"></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Overriding the default package document language</div>
+						<p>The <code>xml:lang</code> attribute is used to indicate the author's name is in Japanese.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en">
+   &lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+     &#8230;
+     &lt;dc:creator id="creator" xml:lang="ja">村上 春樹&lt;/dc:creator>
+     &#8230;
+   &lt;/metadata>
+   &#8230;
+&lt;/package></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Identifying the primary languages of a publication</div>
+						<p>The <code>dc:language</code> element is used to indicate the primary languages of the content
+							are French and English.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+     &#8230;
+     &lt;dc:language>fr&lt;/dc:language>
+     &lt;dc:language>en&lt;/dc:language>
+     &#8230;
+   &lt;/metadata></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Setting the language in an XHTML and SVG content
+							documents</div>
+						<p>Although the <code>xml:lang</code> attribute sets the language for XML grammars like XHTML
+							and SVG, it is also good practice to include a <code>lang</code> attribute with the same
+							value. Refer to the <a href="#lang-attr">section on setting the <code>lang</code>
+								attribute</a> for more information.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;html &#8230; xml:lang="en" lang="en">
+   &#8230;
+&lt;/html></code></pre>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;svg &#8230; xml:lang="en" lang="en">
+   &#8230;
+&lt;/svg></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Do I need to list every language used in the publication?</dt>
+					<dd><p>No, the <code>dc:language</code> elements should only list the primary languages
+						of the content. If a publication contains a few phrases in a foreign language, for example,
+						that language is not listed.</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Setting the language of a publication is an important step in ensuring its accessibility as it helps
+					assistive technologies pronounce the text correctly. Without language declarations, assistive
+					technologies will read the text in the default language of the user. This can lead to the entire
+					text being mispronounced (when reading a publication in another language) or individual phrases
+					being mangled (for inline foreign phrases).</p>
+				
+				<p>This tutorial covers how to set the language in the EPUB package document as well as in XHTML and
+					SVG content documents so that the information is available to assistive technologies and reading
+					systems.</p>
+				
+				<section id="lang-tags">
+					<h4>What are language tags</h4>
+					
+					<p>Before we can get into the mechanisms for setting the language, it is important to first
+						understand what you are setting. Languages are declared using <dfn>language tags</dfn>, which
+						are hyphen-separated codes that identify the language, region, script, etc.</p>
+					
+					<p>At a minimum, each language tag consists of a primary language, which is a two- or
+						three-character code that identifies the language.</p>
+					
+					<p>The following table lists some common language codes:</p>
+					
+					<table>
+						<thead>
+							<tr>
+								<th>Code</th>
+								<th>Language</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>de</td>
+								<td>German</td>
+							</tr>
+							<tr>
+								<td>en</td>
+								<td>English</td>
+							</tr>
+							<tr>
+								<td>he</td>
+								<td>Hebrew</td>
+							</tr>
+							<tr>
+								<td>hi</td>
+								<td>Hindi</td>
+							</tr>
+							<tr>
+								<td>ko</td>
+								<td>Korean</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<p>For the complete list of language codes, refer to the <a 
+						href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">IANA
+						language registry</a> (search for the language's name to find its code).</p>
+					
+					<p>For many languages, all that you have to specify is the primary language code. For others with
+						regional dialects, however, you can add an additional region subtag for more precision.</p>
+					
+					<p>American and British pronunciations, for example, can differ significantly, but a code of
+						"<code>en</code>" will not inform an assistive technology which to apply when it matters (e.g.,
+						when reading an American or British novel where the characters talk in regional dialects).
+						Adding the region solves this problem as it allows the assistive technology to pick a more
+						appropriate voice for playback.</p>
+					
+					<p>The region subtag is added to the language using a hyphen. For example, "en-US" indicates that
+						the text is in English as spoken in the US.</p>
+					
+					<p>The following table lists some common language tags with their region subtags:</p>
+					
+					<table>
+						<thead>
+							<tr>
+								<th>Code</th>
+								<th>Language</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>en-UK</td>
+								<td>British English</td>
+							</tr>
+							<tr>
+								<td>en-US</td>
+								<td>US English</td>
+							</tr>
+							<tr>
+								<td>fr-CA</td>
+								<td>French as spoken in Canada</td>
+							</tr>
+							<tr>
+								<td>fr-FR</td>
+								<td>French as spoken in France</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<p>Note that although it is common convention to capitalize region tags, this is not a requirement.
+						Language tags are processed case-insensitively.</p>
+					
+					<p>You can also specify the script the text is written in using a script subtag. Simplified and
+						traditional Chinese, for example, can be differentiated using the "zh-Hans" and "zh-Hant"
+						script tags. You should only use script subtags when a language is commonly written in more
+						than one script.</p>
+					
+					<p>For a more in-depth explanation of language tags, refer to the W3C article <a
+						href="https://www.w3.org/International/articles/language-tags/#extlang">Language tags in HTML
+						and XML</a>.</p>
+				</section>
+				
+				<section id="lang-declarations">
+					<h4>Language declaration mechanisms</h4>
+					
+					<p>With an understanding now of what language tags are, it is time to turn to how to express those
+						tags in markup languages.
+					
+					<p>In XML-based markup languages, like XHTML, SVG and the EPUB package document, the standard
+						mechanism for declaring the language of the text is the <code>xml:lang</code> attribute, where
+						the value of this attribute is a language tag.</p>
+					
+					<p>Best practice is to always declare a language on the root element (i.e., the element that
+						contains all the other markup). For example, the language of an XHTML document can be specified
+						as follows:</p>
+					
+					<pre class="example prettyprint linenums"><code>&lt;html &#8230; xml:lang="en-US">
+   &#8230;
+&lt;/html></code></pre>
+					
+					<p>Language information is inherited, so by setting the attribute on the root element you
+						automatically declare the language for all the elements and text in the document.</p>
+				</section>
+				
+				<section id="lang-override">
+					<h4>Overriding the language</h4>
+					
+					<p>Not all publications are written in a single language. Multilingual publications may switch
+						between languages often, while other publications may contain short phrases or single words in
+						another language.</p>
+					
+					<p>To indicate a change of language, you only need to declare the new language on a tag that
+						surrounds the foreign text. The change in language only exists within that tag, as shown in the
+						following example:</p>
+					
+					<pre id="ex-over-01-src" class="example prettyprint linenums"><code>&lt;p xml:lang="en">
+    This is in English
+    &lt;span xml:lang="fr">mais ceci en fran&ccedil;ais&lt;/span>
+    and back to English again.
+&lt;/p></code></pre>
+					
+					<div class="note" role="note" aria-labelledby="over-html-note-01">
+						<p id="over-html-note-01" class="label">Note</p>
+						<p>The <code>lang</code> attribute is omitted from these XHTML examples for clarity. Refer to
+							the <a href="#lang-attr">section on <code>lang</code> in XHTML and SVG</a> for why it is
+							useful to include.</p>
+					</div>	
+					
+					<p>The text of markup documents always inherits the language of the nearest ancestor tag with a
+						language declaration, so there is no limit on how many times the language can change:</p>
+					
+					<pre id="ex-over-02-src" class="example prettyprint linenums"><code>&lt;p xml:lang="en">
+    English
+    &lt;span xml:lang="fr">
+       French
+       &lt;span xml:lang="es">Spanish&lt;/span>
+       French
+    &lt;/span>
+    English
+&lt;/p></code></pre>
+					
+					<p>It is important to indicate when the primary language changes so that text-to-speech engines can
+						pronounce the foreign language phrases correctly. Without the correct language information they
+						will try to pronounce the text according to the rules for the default language.</p>
+					
+					<p>It is not necessary to indicate a language change for terms and phrases that have become part of
+						the default language, however. Words like "caf&eacute;" and "coup d'&eacute;tat", although
+						French in origin, are now considered common English phrases. Text-to-speech engines can
+						typically handle these words as English.</p>
+				</section>
+				
+				<section id="package-lang">
+					<h4>Setting the package document language</h4>
+					
+					<p>As an EPUB publication is a collection of documents, there are multiple places where the
+						language of the content must be specified. The first spot we will look at is the package
+						document.</p>
+					
+					<p>The package document is central to an EPUB publication as it contains the metadata about the
+						work, the resources that belong to it, and how to order those resources into a reading order.
+						As you may have guessed already, because the package document contains metadata such as the
+						title and author names, it is important to tell reading systems what language this information
+						is in.</p>
+					
+					<p>The most common way to do this is to declare a language tag on the <code>package</code> element,
+						as in the following example:</p>
+					
+					<pre id="ex-pkg-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="en"></code></pre>
+					
+					<p>Because the <code>package</code> element is the root element (i.e., it contains all the other
+						elements), the language you specify on this element will apply to all the metadata it contains.</p>
+					
+					<div class="note" role="note" aria-labelledby="pkg-note-02">
+						<p id="pkg-note-02" class="label">Note</p>
+						
+						<p>EPUB 2 does not allow a global language declaration using the <code>xml:lang</code> attribute
+							on the <code>package</code> element. You must declare an <code>xml:lang</code> attribute on
+							every metadata tag.</p>
+					</div>
+					
+					<p>With a global language declaration on the <code>package</code> element, you only need to override
+						that declaration if metadata is written in another language. For example, if the book is a translation,
+						you can indicate the language of the author's name by adding a language declaration to their
+						<code>dc:creator</code> tag:</p>
+					
+					<pre id="ex-pkg-02-src" class="prettyprint linenums"><code>&lt;dc:creator xml:lang="fr">Albert Camus&lt;/dc:creator></code></pre>
+					
+					<p>One limitation of the package document metadata is that it is not possible to override the
+						language of the text within a metadata tag. If you have a title that includes a
+						foreign-language term or phrase, for example, you cannot identify that that text is in a
+						different language. It will have to be read in the default language for the tag.</p>
+					
+					<p>Note that it is rarely helpful to use region codes (e.g., adding "-US" for American English) in
+						the package document metadata. Users will typically expect to hear the metadata announced in
+						their preferred regional dialect.</p>
+					
+					<p>Setting the language of the package document metadata is only the first step in defining the
+						needed language information for reading systems. It is also necessary to specify the language
+						of the publication content in the package document, as is covered in the next section.</p>
+					
+					<div class="note" role="note" aria-labelledby="pkg-note-01">
+						<p id="pkg-note-01" class="label">Note</p>
+						
+						<p>EPUB does not currently have a method for adding translations of metadata. Consider the following
+							two titles:</p>
+						
+						<pre id="ex-pkg-03-src" class="example prettyprint"><code>&lt;dc:title>King Lear&lt;/dc:title>
+&lt;dc:title xml:lang="fr">Le roi Lear&lt;/dc:title></code></pre>
+						
+						<p>A reading system will treat second title as a French subtitle (if it recognizes it at all).
+							It is possible, however, to provide metadata in an alternate script using the <a
+								href="https://www.w3.org/TR/epub-33/#sec-alternate-script"><code>alternate-script</code></a>
+							property.</p>
+					</div>
+				</section>
+				
+				<section id="publication-lang">
+					<h4>Setting the publication language</h4>
+					
+					<p>Although the <code>xml:lang</code> attribute specifies the language of the package document
+						metadata, it does not tell reading systems the language of the content of the publication.
+						The language of the metadata and content is often the same, but there are good reasons why a
+						separate method of specifying this is included. For example, the work may be multilingual, or
+						it may be written in a specific regional dialect.</p>
+					
+					<p>EPUB requires authors to include at least one <code>dc:language</code> tag in the package
+						document metadata to identify the primary language(s) of the content. Like with the
+						<code>xml:lang</code> attribute, the value of this element is a language code:</p>
+					
+					<pre id="ex-dc-src" class="example prettyprint linenums"><code>&lt;dc:language>es&lt;/dc:language></code></pre>
+					
+					<p>If a publication is written in more than one language (e.g., a new language learning guide), you
+						can repeat the <code>dc:language</code> element for each language (refer to <a 
+							href="#ex-02">example 2</a>). Do not place all the languages into a single tag. The order
+						in which you list the languages indicates their primacy (i.e., the first
+						<code>dc:language</code> element defines the primary language of the work).</p>
+					
+					<p>The language information contained in the <code>dc:language</code> tags is only informative,
+						however. Setting this property helps reading systems optimize the rendering of the publication.
+						They might use this information to preload a language-specific dictionary, for example, or to
+						preload a text-to-speech engine so that users do not encounter a delay when they try to voice
+						the content. It is still necessary to set both the <a href="#package-lang">language of the 
+							package document metadata</a> and the <a href="#package-lang">language of each content 
+								document</a> in the publication.</p>
+				</section>
+				
+				<section id="xhtml-lang">
+					<h4>Setting the content language</h4>
+					
+					<p>Although language settings in the package document are important to set, it is even more
+						critical to specify the language of each content document. The information set in the package
+						document does not automatically filter down.</p>
+					
+					<p>Setting the language of XHTML and SVG content documents, the two primary formats EPUB supports,
+						is no different than setting the language in the package document. The primary language of the
+						documents is set on the respective root element of each document (refer to <a
+							href="#ex-04">example 4</a>). You can then indicate that terms and phrases are in another
+						language by wrapping them in any of HTML's or SVG's various tags.</p>
+					
+					<pre id="ex-content-01-src" class="prettyprint linenums"><code>&lt;html &#8230; xml:lang="en" lang="en">
+   &#8230;
+   &lt;body>
+      &#8230;
+      &lt;p>
+          As the French would say, there is a
+          certain "&lt;span xml:lang="fr" lang="fr">je ne
+          sais quoi&lt;/span>" about the way that &#8230;
+      &lt;/p>
+      &#8230;
+   &lt;/body>
+&lt;/html></code></pre>
+					
+					<div class="note" role="note" aria-labelledby="doc-note-01">
+						<p id="doc-note-01" class="label">Note</p>
+						<p>For more information about setting the language in XHTML documents, refer to the <a
+						href="../html/lang.html">HTML Language</a> topic in the knowledge base.</p>
+					</div>
+					
+					<section id="lang-attr">
+						<h5>The <code>lang</code> attribute</h5>
+						
+						<p>Although you are only required to use the <code>xml:lang</code> attribute with XHTML
+							and SVG documents, it is best practice to also add a <code>lang</code> attribute. When
+							doing so, the language tag expressed in the <code>xml:lang</code> and <code>lang</code>
+							attributes must match. For example:</p>
+						
+						<pre class="prettyprint linenums"><code>&lt;html &#8230; xml:lang="en-US" lang="en-US"></code></pre>
+						
+						<p>The reason it is recommended to add both attributes is that XHTML and SVG documents
+							in EPUB publications may not always be processed as XML, despite the requirements of the
+							standard. A browser-based reading system might, for example, default to processing all the
+							XHTML documents as regular HTML. In this case, HTML processors ignore the
+							<code>xml:lang</code> attribute as they only recognize the <code>lang</code> attribute. By
+							always adding both attributes, you help ensure that the correct language information is
+							available to users regardless of how the document is processed.</p>
+					</section>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li><a href="https://www.w3.org/TR/epub/#attrdef-xml-lang3333">EPUB 3 &#8212; The 
+						<code>xml:lang</code> attribute</a></li>
+					<li><a href="https://www.w3.org/TR/epub/#sec-opf-dclanguage">EPUB 3 &#8212; The 
+						<code>language</code> element</a></li>
+					<li><a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.12">EPUB 2 &#8212; 
+						<code>&lt;language> &lt;/language></code></a></li>
+					<li><a href="https://www.w3.org/International/articles/language-tags/">Language tags in HTML and
+						xml</a></li>
+					<li><a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC5646 &#8212; Tags for Identifying
+						Languages</a> (BCP 47)</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Error Prevention (Legal, Financial, Data)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.3.4 Error Prevention (Legal, Financial, Data)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.3.4</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Forms</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For Web pages that cause legal commitments or financial transactions for the user to
+								occur, that modify or delete user-controllable data in data storage systems, or that
+								submit user test responses, at least one of the following is true:</p>
+							
+							<dl>
+								<dt>Reversible</dt>
+								<dd>
+									<p>Submissions are reversible.</p>
+								</dd>
+								
+								<dt>Checked</dt>
+								<dd>
+									<p>Data entered by the user is checked for input errors and the user is provided an
+										opportunity to correct them.</p>
+								</dd>
+								
+								<dt>Confirmed</dt>
+								<dd>
+									<p>A mechanism is available for reviewing, confirming, and correcting information
+										before finalizing the submission.</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html">Understanding Success Criterion 3.3.4</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data">How to meet Success Criterion 3.3.4</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G98">G98: Providing the ability for the user to review and correct answers before submitting</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G99">G99: Providing the ability to recover deleted information</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G155">G155: Providing a checkbox in addition to a submit button</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G164">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G168">G168: Requesting confirmation to continue with selected action</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users have a chance to correct errors in
+					their data and/or review the data before it is submitted to a server that would store it.
+					Alternatively, users need to be provided the ability to undo their submission.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>This success criterion will most commonly only apply to tests, as digital publications do not
+					typically collect legal and financial data.</p>
+				
+				<p>Digital textbooks may sometimes contain tests that are submitted to a remote server (e.g., a school
+					course portal). In these cases, authors need to either validate the input and allow users to
+					correct any errors before submitting or provide users with the change to confirm their input.
+					Ideally, both options would be provided.</p>
+				
+				<p>If undoing a submission is the only way to meet this criterion, finding an alternative means than
+					the publication is recommended. For example, a user might be able to undo their submission from
+					a course portal until the duration they have been given to complete the test expires.</p>
+				
+				<p>Note that the success criterion only applies if the data is transferred and stored on a remote
+					server. Quizzes and other embedded tests that only run within a digital publication are not subject
+					to these requirements.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/input-validation.html">Input Validation</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

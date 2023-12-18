@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>readingOrder</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="readingOrder">
+				<h3>readingOrder</h3>
+				
+				<p>The <a href="https://w3c.github.io/a11y-discov-vocab/latest/#readingOrder"><code>readingOrder</code> 
+					value</a> is used to indicate that there is a logical reading order to the text of a publication.</p>
+				
+				<p>The logical reading order is the progression from one element of content to the next (e.g., a
+					heading for a chapter is followed by the first paragraph and so on). When elements are out
+					of order in the markup and styled to appear linear, assistive technologies will present them
+					to users in the incorrect order.</p>
+				
+				<p>The logical reading order is also established by ensuring that primary content can be
+					distinguished from secondary. The use of HTML elements like <code>figure</code> and
+					<code>aside</code> helps identify secondary content, allowing users to skip over it if
+					they choose.</p>
+				
+				<p>Fixed-layout publications tend to be the most problematic due to the fixed positioning of
+					elements and having to represent secondary content that spans two pages, but it is possible
+					for fixed layouts to have a logical reading progression if care is taken.</p>
+				
+				<p>See the <a href="../../html/order.html">logical reading order knowledge base page</a> for
+					more information.</p>
+			</section>
+		</main>
+	</body>
+</html>

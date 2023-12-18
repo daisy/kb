@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-pagelist</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-pagelist role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A navigational aid that provides a list of links to the pagebreaks in the content.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Page list navigation</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;nav role="doc-pagelist" aria-labelledby="pg-hd">
+   &lt;h2 id="pg-hd">List of Pages&lt;/h2>
+   &lt;ol>
+      &lt;li>&lt;a href="#intro.html#pgi">i&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="#intro.html#pgii">ii&lt;/a>&lt;/li>
+      &#8230;
+      &lt;li>&lt;a href="#c01.html#pg001">1&lt;/a>&lt;/li>
+      &#8230;
+   &lt;/ol>
+&lt;/nav></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-pagelist</code> is a <a href="../landmarks.html">landmark role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-pagelist</code> is typically used on <code>nav</code> elements. Refer to <a
+						href="../../navigation/pagelist.html">page navigation</a> for more information about authoring
+					page lists.</p>
+
+				<p>A label must be provided for the role using one of the <code>aria-labelledby</code>,
+						<code>aria-label</code> or <code>title</code> attributes.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
+					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
+						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
+						Guide</a>. For the official list of allowed elements, refer to <a 
+							href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>Related Links</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagelist">DPUB-ARIA &#8212;
+								<code>doc-pagelist</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

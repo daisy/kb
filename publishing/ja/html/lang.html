@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Language</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for identifying the default language of an HTML page and changes in language within it.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Setting the language ensures that assistive technologies correctly interpret and render the text.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Set the <code>lang</code> and <code>xml:lang</code> attributes on the root <code>html</code> element. [[WCAG-3.1.1]]</p>
+					</li>
+					<li>
+						<p>Set the <code>lang</code> and <code>xml:lang</code> attributes whenever the default language changes. [[WCAG-3.1.2]]</p>
+					</li>
+					<li>
+						<p>Ensure language codes conform to <a href="https://tools.ietf.org/html/bcp47">BCP 47</a>. [[WCAG-3.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Declaring page language</div>
+						<p>The <code>lang</code> and <code>xml:lang</code> attributes are set on the <code>html</code>
+							element to declare the language for the page.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en"></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Overriding the page language</div>
+						<p>The <code>lang</code> and <code>xml:lang</code> attributes are used on <code>span</code> elements
+							within the <code>body</code> to change the language from English to French.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;html &#8230; lang="en" xml:lang="en">
+   &#8230;
+   &lt;body>
+     &#8230;
+     &lt;p>
+       Harsh gargoyle face that warred against me 
+       over our mess of hash of lights in 
+       &lt;span xml:lang="fr" lang="fr">rue 
+       Saint-André-des-Arts&lt;/span>. In words of
+       words for words, palabras. Oisin with
+       Patrick. Faunman he met in Clamart woods,
+       brandishing a winebottle.
+       &lt;i xml:lang="fr" lang="fr">C'est 
+       vendredi saint!&lt;/i> Murthering Irish.
+       His image, wandering, he met. I mine. I 
+       met a fool i'the forest.
+     &lt;/p>
+     &#8230;
+   &lt;/body>
+&lt;/html></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Is it necessary to specify a default language in content files?</dt>
+					<dd><p>The default language(s) for the publication are formally defined in the package document, but that
+						information is not used when rendering the content. To ensure the proper language for braille
+						rendering or TTS playback, the language must be set in each document.</p></dd>
+					<dt id="faq-002">Is it necessary to specify both the <code>lang</code> and <code>xml:lang</code>
+						attributes?</dt>
+					<dd><p>For optimal accessibility both should be specified when creating XHTML content. Assistive technologies may
+						only recognize one or the other attribute.</p>
+						<p>In addition, if XHTML documents are rendered as HTML by a user agent, only the
+							<code>lang</code> attribute may be recognized.</p>
+						<p>The <code>xml:lang</code> attribute is not valid in HTML documents, only in XHTML.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Specifying a document's default language &#8212; as well as any changes within the document, such as
+					instances of foreign language terms or dialogue or passages in another language &#8212; helps ensure that
+					assistive technologies can correctly render the text (e.g., that the correct braille characters are
+					presented, or a voice capable of rendering the language gets used).</p>
+				
+				<p>To define the default language of a document, the <code>lang</code> and <code>xml:lang</code>
+					language attributes need to be attached to the root <code>html</code> element. The language code defined
+					in these attributes should match one of the language codes specified in a <code>dc:language</code>
+					element in the package document's metadata section (<a href="#faq01">see the faq</a> for more
+					information).</p>
+				
+				<p>When attached to elements within the body, the language attributes identify the language of the text
+					content of that element (i.e., to identify a change in language).</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang">lang</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/dom.html#the-lang-and-xml:lang-attributes">The lang
+							and xml:lang attributes</a></li>
+					<li><a href="https://www.w3.org/International/getting-started/language">Language on the Web</a></li>
+					<li><a href="https://www.w3.org/International/articles/language-tags/">Language tags in HTML and
+						xml</a></li>
+					<li><a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC5646 &#8212; Tags for Identifying
+							Languages</a> (BCP 47)</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

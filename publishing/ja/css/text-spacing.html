@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Text Spacing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Best practices for ensuring users can control text and line spacing.">
+		<script>
+			var page_info = {
+				'category': 'CSS',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.figlabel {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure users can increase word and letter spacing, line height and paragraph spacing without
+					affecting the readability.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure line height can be increased to at least 1.5 times the font size. [[WCAG-1.4.12]]</p>
+					</li>
+					<li>
+						<p>Ensure spacing following paragraphs can be increased to at least 2 times the font size. [[WCAG-1.4.12]]</p>
+					</li>
+					<li>
+						<p>Ensure letter spacing can be increased to at least 0.12 times the font size. [[WCAG-1.4.12]]</p>
+					</li>
+					<li>
+						<p>Ensure word spacing can be increased to at least 0.16 times the font size. [[WCAG-1.4.12]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Text spacing plays an important role in the readability of digital publications. Text that is
+					densely packed together can be difficult to read and follow not just for those with low vision, but
+					also for those with dyslexia. It also reduces eye strain as users do not have to concentrate as
+					intensely on the screen while reading.</p>
+				
+				<p>Increased line height, for example, makes it easier for readers to distinguish one line from the
+					next and be able to scan quickly from the end of one line to the beginning of the next.</p>
+				
+				<p>Increased letter spacing, on the other hand ensure that the letters of a word do no blur together,
+					while increased word spacing improves the ability to distinguish one word from the next.</p>
+				
+				<p>WCAG's requirements for text spacing establish minimums that users should be able to space text to
+					without losing the content or its functionality (i.e., by using text spacing controls in reading
+					systems). Authors do not have to use these guidelines to prepare their publications, but meeting
+					and exceeding them will improve the default readability. The requirement is only that users be able
+					to increase the spacing without loss of content or functionality.</p>
+				
+				<p>Text spacing issues are more likely to arise in <a href="../fxl/overview.html">fixed-layout
+					publications</a> due to the absolute positioning of elements. When spacing is increased, for
+					example, text is more likely to be cut off from view or overlap with other fixed regions.</p>
+				
+				<p>Reflowable publications are not immune to text spacing issues, but they are rarer. One area where
+					problems can occur is with form controls. If a button is sized to exactly fit the default text
+					styling, for example, increasing the word spacing could cause part of its label to be cut off.</p>
+			</section>
+		</main>
+	</body>
+</html>

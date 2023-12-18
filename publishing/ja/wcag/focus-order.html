@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Focus Order</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.3 Focus Order">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.4.3</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Audio</li>
+								<li>Controls</li>
+								<li>Inputs</li>
+								<li>Interactive Content</li>
+								<li>Links</li>
+								<li>Tables</li>
+								<li>Video</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>If a Web page can be navigated sequentially and the navigation sequences affect meaning
+								or operation, focusable components receive focus in an order that preserves meaning and
+								operability.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">Understanding Success Criterion 2.4.3</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order">How to meet Success Criterion 2.4.3</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C27">C27: Making the DOM order match the visual order</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G59">G59: Placing the interactive elements in an order that follows sequences and relationships within the content</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H4">H4: Creating a logical tab order through links, form controls, and objects</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR26">SCR26: Inserting dynamic content into the Document Object Model immediately following its trigger element</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR27">SCR27: Reordering page sections using the Document Object Model</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR37">SCR37: Creating Custom Dialogs in a Device Independent Way</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that as readers tab through a document the order
+					in which they encounter content is consistent with understanding its purpose and meaning (i.e., to
+					prevent confusion).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>For native HTML controls that users can tab to, authors only need to ensure that the order of
+					elements makes logical sense. For example, if practice questions are laid out in columns, tabbing
+					should not jump the user back and forth between the columns (i.e., the questions should be reached
+					in sequential order).</p>
+				
+				<p>For custom controls and widgets, the author also needs to ensure that all the controls are in the
+					tab order and in sequence. Misuse of the HTML <code>tabindex</code> attribute, for example, could
+					cause readers to jump to unexpected destinations.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/tab-order.html">Tab Order</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

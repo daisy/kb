@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Three Flashes or Below Threshold</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.3.1 Three Flashes or Below Threshold">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.3.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Animations</li>
+								<li>Video</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Web pages do not contain anything that flashes more than three times in any one second
+								period, or the flash is below the general flash and red flash thresholds.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html">Understanding Success Criterion 2.3.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold">How to meet Success Criterion 2.3.1</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G15">G15: Using a tool to ensure that content does not violate the general flash threshold or red flash threshold</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G19">G19: Ensuring that no component of the content flashes more than three times in any 1-second period</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G176">G176: Keeping the flashing area small enough</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that photosensitive readers are not put at risk
+					of seizure when reading digital publications.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>If authors include video, animated images or applications, or other content that flashes more than
+					three times in a second, they need to ensure that the content is safe for photosensitive
+					readers.</p>
+				
+				<p>Content that flashes more than three times per second must meet the <a
+					href="https://www.w3.org/TR/WCAG2/#dfn-general-flash-and-red-flash-thresholds">general and red
+					flash thresholds</a>. Testing for conformance will normally require specialized software.</p>
+				
+				<p>Note that if the video or image that flashes occupies an area that is 21,824 square pixels or less,
+					it passes this success criterion. Below this size, the flashing will not impact users.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../metadata/schema.org/accessibilityHazard.html">accessibilityHazard</a>
+					<li><a href="../html/images-animated.html">Animated Images</a></li>
+					<li><a href="../html/video.html">Video</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

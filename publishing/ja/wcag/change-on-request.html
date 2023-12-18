@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Change on Request</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.2.5 Change on Request">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.2.5</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Buttons</li>
+								<li>Controls</li>
+								<li>Forms</li>
+								<li>Inputs</li>
+								<li>Links</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Changes of context are initiated only by user request or a mechanism is available to
+								turn off such changes.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/change-on-request.html">Understanding Success Criterion 3.2.5</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#change-on-request">How to meet Success Criterion 3.2.5</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G76">G76: Providing a mechanism to request an update of the content instead of updating automatically</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G110">G110: Using an instant client-side redirect</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H76">H76: Using meta refresh to create an instant client-side redirect</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H83">H83: Using the target attribute to open a new window on user request and indicating this in link text</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR24">SCR24: Using progressive enhancement to open new windows on user request</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19">SCR19: Using an onchange event on a select element without causing a change of context</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users have full control over any changes of
+					context (new pages opening, focus changing to a new element, content added or removed, redirects).</p>
+				
+				<p>Automatic changes of context can confuse users, especially if they cannot perceive that a change
+					has occurred.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Instead of automatically triggering changes of context, authors should provide users options to
+					confirm when they want such changes to occur (e.g., indicating in links when a new window will
+					open).</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/controls.html">Custom Controls</a></li>
+					<li><a href="../html/links.html">Links</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

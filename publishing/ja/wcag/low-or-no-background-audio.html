@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Low or No Background Audio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.7 Low or No Background Audio">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.4.7</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Audio</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true:</p>
+							
+							<dl>
+								<dt>No Background</dt>
+								<dd>
+									<p>The audio does not contain background sounds.</p>
+								</dd>
+								
+								<dt>Turn Off</dt>
+								<dd>
+									<p>The background sounds can be turned off.</p>
+								</dd>
+								
+								<dt>20 dB</dt>
+								<dd>
+									<p>The background sounds are at least 20 decibels lower than the foreground speech
+										content, with the exception of occasional sounds that last for only one or two
+										seconds.</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html">Understanding Success Criterion 1.4.7</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#low-or-no-background-audio">How to meet Success Criterion 1.4.7</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G56">G56: Mixing audio files so that non-speech sounds are at least 20 decibels lower than the speech audio content</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who are hard of heading can
+					distinguish speech from any background sounds.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that any audio of speech (not including musical expressions) has no
+					background noise, the background noise can be disabled, or the background noise is at least
+					20 decibels lower than the speech.</p>
+				
+				<p>Note that this success criterion only applies to audio clips. It does not apply to audio in a video,
+					interactive game, etc.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/audio.html">Audio</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
