@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>No Keyboard Trap</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.1.2 No Keyboard Trap">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.1.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Custom Controls</li>
+								<li>Interactive Content</li>
+								<li>Modal Dialogs</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>If keyboard focus can be moved to a component of the page using a keyboard interface,
+								then focus can be moved away from that component using only a keyboard interface, and,
+								if it requires more than unmodified arrow or tab keys or other standard exit methods,
+								the user is advised of the method for moving focus away.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html">Understanding Success Criterion 2.1.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#no-keyboard-trap">How to meet Success Criterion 2.1.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G21">G21: Ensuring that users are not trapped in content</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that keyboard users do become trapped by the
+					content taking away their ability to change the focus to another element.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>The most likely cause of keyboard traps in digital publications are embedded games, interactive
+					tools and tests, modal dialogs, and similar scripted interfaces.</p>
+				
+				<p>When including this kind of content, authors need to ensure that the functionality of the interface
+					does not prevent the user from being able to tab out to continue reading.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">Keyboard Control</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

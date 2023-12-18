@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Timeouts</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.2.6 Timeouts">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.1 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>2.2.6</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Forms</li>
+								<li>Interactive Content</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>Users are warned of the duration of any user inactivity that could cause data loss,
+								unless the data is preserved for more than 20 hours when the user does not take any
+								actions.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html">Understanding Success Criterion 2.2.6</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#timeouts">How to meet Success Criterion 2.2.6</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td>
+							WCAG currently only includes the following undocumented techniques for this success criterion:
+							<ul>
+								<li>Setting a session timeout to occur following at least 20 hours of inactivity.</li>
+								<li>Store user data for more than 20 hours.</li>
+								<li>Provide a warning of the duration of user inactivity at the start of a process.</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users are aware how much time there is before
+					a timeout will occur (i.e., their data is lost), as readers with cognitive disabilities, for example,
+					may require additional time to read, understand and interact with the content.</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>The use of timeouts in digital publications is not common, as timeouts are usually included on the
+					web as a security measure (i.e., to close a user's session in case they forgot to log out when they
+					quit).</p>
+				
+				<p>If authors do include a timeout (e.g., in an embedded game or application), they need to ensure that
+					users are aware before they begin interacting with the content how long they have before the timeout
+					occurs. The length of time before a timeout could be provided in the instructions for a game, for
+					example.</p>
+				
+				<p>In general, however, it is best to avoid timeouts unless there is a specific security concern.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../script/timers.html">Timers</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

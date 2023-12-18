@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Image Descriptions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for providing alternative text and descriptions for images and graphics.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-image-deco','html-image-select','html-image-anim','html-image-icon','html-image-text','html-image-textbased','html-image-maps'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure the information a user needs to understand from an image is also provided in textual
+					form.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Provide alternative text in the <code>alt</code> attribute if the image is not described in the
+							surrounding text. [[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>Provide an extended description for complex images. [[WCAG-1.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">Example &#8212; Significant simple image (no description
+							required)</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="covers/9781449328030_lrg.jpg"
+    alt="Accessible EPUB 3 - First Edition" /></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example &#8212; Extended description in <code>details</code></div>
+						<p>The following example uses the HTML <code>details</code> element to create a description that is
+							collapsed from view by default. The <code>aria-details</code> attribute is used to associate
+							the image with the description.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;figcaption>
+      The hydrologic cycle.
+   &lt;/figcaption>
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      aria-details="fig-01-desc"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+&lt;/figure>
+&lt;details id="fig-01-desc">
+   &lt;summary>Description&lt;/summary>
+   &lt;p>
+      The diagram shows the processes of 
+      evaporation, condensation,
+      evapotranspiration, water storage
+      in ice and snow, and precipitation.
+      A large body of water &#8230;
+   &lt;/p>
+&lt;/details></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example &#8212; Extended description via hyperlink</div>
+						<p>The following example uses simple hyperlinks to link to a description in a separate file.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+   &lt;figcaption>
+     The hydrologic cycle. &lt;a href="desc/fig-01.html">Description&lt;/a>
+   &lt;/figcaption>
+&lt;/figure></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example &#8212; Hidden description</div>
+						<p>The following example uses the <code>aria-describedBy</code> attribute to link to a hidden
+							description, leaving no visual indication at all that a description is available.</p>
+						<p>Note that <strong>support for this attribute is poor in EPUB</strong>, particularly when referencing
+							hidden content. While valid, it may prevent any users from reaching the description, so should be
+							used with caution. The Open Web Platform is moving away from hidden content that can only be
+							accessed via assistive technologies.</p>
+						<p>This technique is not recommended if the description contains structured markup like tables or
+							lists, as all tagging is stripped and only the text content read to users.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"
+      aria-describedby="desc01"/>
+   &lt;figcaption>
+     The hydrologic cycle.
+     &lt;aside id="desc01" hidden="hidden">
+        &lt;p>
+           The diagram shows the processes of 
+           evaporation, condensation,
+           evapotranspiration, water storage
+           in ice and snow, and precipitation.
+           A large body of water &#8230;
+        &lt;/p>
+     &lt;/aside>
+   &lt;/figcaption>
+&lt;/figure></code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">Example &#8212; Image with label and caption on opposite sides</div>
+						<p>The following example shows a figure with its label above the image and its caption below.
+							The <code>aria-labelledBy</code> attribute is used to associate the label with the figure
+							so that this information can still be readily presented to users.</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;figure id="fig-01" aria-labelledBy="fig1-label">
+   &lt;p class="label" id="fig1-label">Figure 1. Prime Mover&lt;/p>
+   &lt;img
+      src="graphics/prime_mover.jpg"
+      alt="The universe in motion through its attraction to the prime mover"/>
+   &lt;figcaption>
+      &lt;p>The primer mover is shown to be a &#8212;&lt;/p>
+   &lt;/figcaption>
+&lt;/figure>
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				<dl>
+					<dt id="faq-001">Why link to visible descriptions?</dt>
+					<dd>
+						<p>Even though a description is a visible part of the current page, linking to it provides a
+							programmatic means for users of assistive technologies to rapidly access the description without
+							having to hunt through the page content.</p>
+					</dd>
+					
+					<dt id="faq-002">Why not <code>longdesc</code>?</dt>
+					<dd>
+						<p>The <code>longdesc</code> attribute is now considered an obsolete feature of HTML.</p>
+						<p>Although published as a separate extension of HTML by W3C, it is not supported in EPUB.</p>
+					</dd>
+					
+					<dt id="faq-003">Why <code>aria-details</code>?</dt>
+					<dd>
+						<p>Although similar in purpose to the <code>aria-describedby</code> attribute,
+							the <code>aria-details</code> attribute does not result in stringified content
+							(i.e., the user will be able to navigate the description as structured HTML).
+							The <code>aria-details</code> attribute allows a user to navigate to the content
+							of a <code>details</code> element, for example.</p>
+					</dd>
+					
+					<dt id="faq-004">When is a <code>figure</code> tag needed?</dt>
+					<dd>
+						<p>If an image is important to the publication, but not required to be read at the point of
+							insertion (i.e., it is not part of the logical reading order), use a <code>figure</code>
+							tag to enclose it. See the <a href="figures.html">Figures</a> page for more
+							information.</p>
+					</dd>
+					
+					<dt id="faq-005">Should I use <code>img</code> or <code>picture</code>?</dt>
+					<dd>
+						<p>The <code>picture</code> element is only needed if you provide more than one version of the
+							image (e.g., different resolutions or different formats targeted for different devices).
+							The <code>picture</code> element otherwise does not have any accessibility advantages over
+							the <code>img</code> element if only a single image format is available. Both allow for 
+							alternative text and extended descriptions.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="writing">
+				<h3>Writing Descriptions</h3>
+				
+				<section id="alt">
+					<h4>Alternative Text</h4>
+					
+					<p>Images that are central to the understanding of a publication must always include a text
+						alternative in their <code>alt</code> attribute.</p>
+					
+					<div class="note" role="note" aria-labelledby="note-1">
+						<p id="note-1" class="label">Note</p>
+						<p>If an image is purely decorative, the <code>alt</code> attribute should be left empty. See the
+							<a href="images-deco.html">Decorative Images</a> page for more information.</p>
+					</div>
+					
+					<p>The alternative text representation of an image is not designed to be a full description of the
+						image. A common mistake authors make is to use the <code>alt</code> attribute to provide a
+						paragraph or longer explanation of an image. Users, however, only want a very brief description
+						of an image in its alternative text, as they often have to listen to the entire text before
+						they can continue reading. The alternative text should allow the user to decide if they want to
+						read the extended description without bogging down their reading experience.</p>
+					
+					<p>One of the best ways to think about writing the alternative text for an image is to consider why
+						it is there for visual readers. The goal is not completeness of detail. It is also not to add
+						detail that cannot be determined from the image itself (i.e., that visual readers will not have
+						access to).</p>
+					
+					<p>Writing short and concise alternative text is something of an art, as the information needed
+						from each image is never exactly the same. A useful technique, though, is to try and answer the
+						most relevant "who, what, where, when, why and how" questions about the image in as few words
+						as possible.</p>
+					
+					<p>For example, consider this <a
+						href="https://en.wikipedia.org/wiki/Battle_of_Waterloo#/media/File:Battle_of_Waterloo_1815.PNG">battle
+						scene</a>. Asking each question:</p>
+					
+					<ul>
+						<li>What is the picture? A painting by William Sadler II. The painter is not named in the
+							painting, so the alternative text should not introduce this information.</li>
+						<li>Who is in the picture? The French and English armies.</li>
+						<li>What are they doing? Engaging in a battle.</li>
+						<li>Where is this happening? Waterloo.</li>
+						<li>When is this happening? Not mentioned in the picture so should not be introduced in the
+							alternative text.</li>
+						<li>Why are they fighting? Too complicated to answer and not pertinent to the painting
+							itself.</li>
+						<li>How are they fighting? Again, too complicated for alternative text.</li>
+					</ul>
+					
+					<p>Combining the most relevant answers might net alternative text: "Painting of the English and
+						French armies at Battle of Waterloo".</p>
+					
+					<p>The context of the picture also plays an important role in how to describe it, though. If this
+						painting were in a book on British history, for example, the user may already know the
+						participants and dates, and the painter may not be relevant. In this case, the alternative text
+						could be further reduced to: "Painting of the Battle of Waterloo."</p>
+					
+					<p>If the painting were used in an anti-war book, on the other hand, its alternative text might
+						highlight the barbarity of the battle: "Painting depicting the slaughter of troops at the
+						Battle of Waterloo."</p>
+					
+					<p>So long as the alternative text accurately conveys the purpose of the image within the
+						publication, there are many ways you can frame the text.</p>
+				</section>
+				
+				<section id="extended">
+					<h4>Extended Descriptions</h4>
+					
+					<p>Writing the extended description for an image tends to cause less confusion as these
+						descriptions are not as restrictive about length as alternative text. But, like
+						alternative text, the goal when authoring extended descriptions is still to explain the purpose
+						of the image as succinctly as possible. It is not to describe every minute detail, but to
+						convey the essential information.</p>
+					
+					<p>So, the first step in writing an extended description is to determine if an extended description
+						is even necessary. Sometimes an image does not need a lot of description, especially if its
+						context is already provided in the surrounding text. Ask yourself if the description you intend
+						to write will add pertinent information that aids in the understanding, or is it detail for 
+						details sake?</p>
+					
+					<p>For example, consider an image of two world leaders smiling and shaking hands. If the image is
+						only included to show their cordial relationship, an alternative text that indicates who is in
+						the picture and what they are doing is probably sufficient. Adding an extended description of
+						the room they are, the clothes they are wearing, the people around them, etc. is not helpful to
+						the reader.</p>
+					
+					<p>Once you establish that an extended description is necessary, the process of writing the
+						description is like writing the alternative text. The same "who, what, where, when, why,
+						and how" questions need to be looked at, only this time with the goal being to fully capture
+						the essential information.</p>
+					
+					<p>The context of the picture will once again influence what information is essential to the
+						publication. Using the <a
+						href="https://en.wikipedia.org/wiki/Battle_of_Waterloo#/media/File:Battle_of_Waterloo_1815.PNG">battle
+						scene</a> from the alternative text section, for example, a book on military strategy might
+						focus on explaining the apparent disarray of the attack. It would not be necessary to explain
+						the actions of everyone in the painting, only to give a general sense of the surging
+						nature of the battle.</p>
+					
+					<p>The extended description should not introduce facts that are not discernible from the visual
+						depiction of the image. It is not the place, for example, to describe the generals, their
+						battle plans, etc. This information should be in a caption for the image if not described in
+						the surrounding text, as it is not apparent from the image alone.</p>
+					
+					<p>For additional help writing extended descriptions, the <a
+						href="https://poet.diagramcenter.org/how.html">DIAGRAM Center's interactive examples</a> show
+						how to approach describing various types of images.</p>
+				</section>
+			</section>
+			
+			<section id="methods">
+				<h3>Description Methods</h3>
+				
+				<p>The following sections explain some of the better supported methods for adding extended descriptions
+					to images. Other methods are possible, but support in reading systems is often not as robust as in
+					browsers. For testing information, refer to the DIAGRAM Center's <a 
+						href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
+						Practices for Authoring Extended Descriptions in EPUB</a>.</p>
+				
+				<section id="details">
+					<h4>The <code>details</code> element</h4>
+					
+					<p>The <code>details</code> element provides a collapsible means of including a description
+						for an image. The advantage of this element is that it allows both sighted and non-sighted
+						readers access to the description at their discretion (i.e., sighted readers can choose
+						whether to expand and read the description just as assistive technologies users can decide
+						whether to have the text read out).</p>
+					
+					<p>Support for this element is not yet universal in EPUB, however. The element text may always
+						be open by default, and expanding the element when initially closed can cause problems with the
+						pagination produced by user agents (e.g., opening the element pushes content at the bottom of
+						the page out of view).</p>
+					
+					<p>To use the element in EPUB publications, it is also recommended to put the element immediately
+						after a closing <code>figure</code> tag when the description is for a figure. The element often
+						does not work when included inside a <code>figure</code>.</p>
+					
+					<p>Despite these shortcomings, this element is still one of the more reliable techniques currently
+						supported in EPUB.</p>
+				</section>
+				
+				<section id="hyperlinks">
+					<h4>Hyperlinks</h4>
+					
+					<p>Plain old hyperlinks are another of the most widely accessible way to provide a link to a
+						description.</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;figure>
+	&lt;img src="crime-map.jpg" alt="Crime in Gotham City">
+	&lt;a href="crime-desc.xhtml">Description&lt;/a>
+&lt;/figure></code></pre>
+					
+					<p>Note that a hyperlink does not always have to reference a description in another document;
+						descriptions might be included at the end of a section, like footnotes.</p>
+					
+					<p>In EPUB, when possible, the linked description should be in a file by itself to avoid issues
+						reaching the description (i.e., not all reading systems are able to locate the user properly 
+						when there are multiple descriptions in the same file). If there are many images, however,
+						adding each description to a separate file can bloat the spine (i.e., every description file
+						must be listed).</p>
+					
+					<p>An image can be used to minimize the appearance of the link, but EPUB some reading systems
+						have issues with image links (they cannot be activated).</p>
+					
+					<p>Despite these shortcomings, however, hyperlinks are one of the more reliable techniques
+						currently supported in EPUB.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>DIAGRAM &#8212; <a 
+						href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
+						Practices for Authoring Extended Descriptions in EPUB</a></li>
+					<li>DIAGRAM &#8212; <a href="https://poet.diagramcenter.org/">POET Image Description Training
+						Tool</a></li>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"
+							>The <code>img</code> element</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-describedby"><code>aria-describedby</code> (property)</a></li>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#aria-details"><code>aria-details</code> (property)</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

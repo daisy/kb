@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Layout Tables</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing layout tables.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-scope','html-table-headers']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Use CSS styling rather than table elements to lay out content in a grid.</p>
+				
+				<div class="caution" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Caution</p>
+					<p>Using tables for layout purposes is no longer valid in HTML. See the 
+						<a href="#faq-001">frequently asked questions</a> for more information.</p>
+				</div>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Use CSS grid, flex, table, and similar alternative layouts for non-tabular content. [[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Layout table</div>
+						<p>In this example, a layout table is used to position to lists side-by-side. The following
+							examples show how to avoid this type of markup.</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table role="presentation">
+   &lt;tr>
+      &lt;td>
+         &lt;ul>
+            &#8230;
+         &lt;/ul>
+      &lt;/td>
+      &lt;td>
+         &lt;ul>
+            &#8230;
+         &lt;/ul>
+      &lt;/td>
+   &lt;/tr>
+&lt;/table></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Alternative CSS grid layout</div>
+						<p>In this example, the layout table in <a href="#ex-01">Example 1</a> is replaced by
+							CSS grid styling. The <code>grid-template-column</code> property assigns half the
+							available space to each of the two columns.</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="grid">
+   &lt;ul>
+      &#8230;
+   &lt;/ul>
+   &lt;ul>
+      &#8230;
+   &lt;/ul>
+&lt;/div>
+
+CSS:
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Alternative CSS flex layout</div>
+						<p>In this example, the layout table in <a href="#ex-01">Example 1</a> is replaced by
+							CSS flex styling.</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="flex">
+   &lt;ul>
+      &#8230;
+   &lt;/ul>
+   &lt;ul>
+      &#8230;
+   &lt;/ul>
+&lt;/div>
+
+CSS:
+.flex {
+   display: flex;
+   justify-content: space-evenly;
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Alternative CSS table layout</div>
+						<p>In this example, the layout table in <a href="#ex-01">Example 1</a> is replaced by
+							CSS table styling. The role <code>presentation</code> is added to ensure that assistive
+							technologies do not announce that there is a table (they may recognize the CSS as
+							table markup).</p>
+					</figcaption>
+					
+					<pre id="ex-04-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="table" role="presentation">
+   &lt;div class="row">
+      &lt;ul class="cell">
+         &#8230;
+      &lt;/ul>
+      &lt;ul class="cell">
+         &#8230;
+      &lt;/ul>
+   &lt;/div>
+&lt;/div>
+
+CSS:
+.table {
+   display: table;
+   width: 100vw;
+}
+.row {
+   display: table-row;
+}
+.cell {
+   display: table-cell;
+   width: 50vw;
+}</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">When did it become illegal to use layout tables?</dt>
+					<dd>
+						<p>There were originally two competing HTML5 specifications. The W3C version recommended not
+							using layout tables, while the WHATWG version made their use illegal.</p>
+						<p>The W3C's version of HTML has now been abandoned, and is no longer referenced by EPUB 3,
+							so it is no longer valid to use tables except to layout tabular data.</p>
+						<p>As a result of this divergent guidance, older digital publications may have layout
+							tables. These tables must follow the requirements for accessible layouts (i.e., no
+							semantic tags).</p>
+						<p>New content must not contain layout tables.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Given the variety of CSS layout models that are now supported, using tables for purely presentational 
+					purposes is no longer justified.</p>
+				
+				<p>The HTML specification now expressly forbids using tables for layout:</p>
+				
+				<blockquote>
+					<p>Tables must not be used as layout aids. Historically, some web authors have misused tables in
+						HTML as a way to control their page layout. This usage is non-conforming &#8230;</p>
+				</blockquote>
+				
+				<p>The use of tables for layouts has always been problematic for users of assistive technologies. While
+					the use of table markup was transparent to visual readers, it forced AT users into table reading mode.
+					Authors rarely considered that these users would be forced to navigate by cell and row to read
+					their content, and often failed to ensure that their layouts made logical reading sense. AT users
+					would often have to guess whether to read down a column or across rows to logically follow the
+					layout.</p>
+				
+				<div class="note" role="note" aria-labelledby="validation-note">
+					<p id="validation-note" class="label">Note</p>
+					<p>Validation tools, such as epubcheck, cannot detect layout tables. Manual inspection for
+						their presence is necessary.</p>
+				</div>
+				
+				<section id="compatibility">
+					<h4>Older Content</h4>
+					
+					<p>As digital publications created before the change in HTML requirements may contain layout tables,
+						it is still essential that this content follow the applicable accessibility guidelines.</p>
+					
+					<p>For layout tables, this means that the table markup must not include any data table elements or 
+						attributes. These include: the <code>thead</code>, <code>th</code> and <code>caption</code> 
+						elements, and <code>headers</code> and <code>scope</code> attributes
+						(also the <code>summary</code> attribute if creating HTML4 or XHTML 1.1 documents).</p>
+					
+					<p>Layout tables should also declare the role <code>presentation</code> to further ensure that
+						they are ignored by assistive technologies.</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table>: The Table
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element">The
+								<code>table</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

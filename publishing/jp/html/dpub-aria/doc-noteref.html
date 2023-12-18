@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-noteref</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-noteref role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A reference to a footnote or endnote, typically appearing as a superscripted number or
+					symbol in the main body of text.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Reference to a footnote</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p> &#8230; as exhibited in the work of Prof.
+   Farnsworth.&lt;a role="doc-noteref" href="#fn-01" class="sup">1&lt;/a>
+&lt;/p>
+&lt;aside id="fn-01" role="doc-footnote">
+   &lt;p>1. The Fing-Longer is one of the &#8230;&lt;/p>
+&lt;/aside></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-noteref</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#link">link role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-noteref</code> is typically used on <code>a</code> elements.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
+					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
+						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
+						Guide</a>. For the official list of allowed elements, refer to <a 
+							href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>Related Links</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-noteref">DPUB-ARIA &#8212;
+								<code>doc-noteref</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

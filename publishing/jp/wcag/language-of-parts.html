@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Language of Parts</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.1.2 Language of Parts">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.1.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Text</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>The human language of each passage or phrase in the content can be programmatically
+								determined except for proper names, technical terms, words of indeterminate language,
+								and words or phrases that have become part of the vernacular of the immediately
+								surrounding text.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html">Understanding Success Criterion 3.1.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#language-of-parts">How to meet Success Criterion 3.1.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H58">H58: Using language attributes to identify changes in the human language</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that reading systems and assistive technologies
+					can detect changes in the language to optimize the rendering of the text (e.g., to optimize
+					text-to-speech playback).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that any changes in text are reflected in the language metadata both in
+					the EPUB Package Document and in individual HTML and SVG content document. The
+					<code>xml:lang</code> and <code>lang</code> attributes are used to indicate changes, as appropriate
+					to the format.</p>
+				
+				<p>Note that this requirement does not require every word not in the default language to be identified.
+					Names, technical terms, and foreign expressions that have become common to the language, for
+					example, are not covered by this requirement.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/lang.html">Language</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

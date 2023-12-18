@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Keyboard Control</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on ensuring that users can control all content by keyboard alone.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure that users can control all functionality via their keyboard.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Ensure all controls are keyboard accessible. [[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>Ensure all links are keyboard accessible. [[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>Avoid keyboard traps. [[WCAG-2.1.2]]</p>
+					</li>
+					<li>
+						<p>Avoid keyboard shortcuts that consist of only a single character. [[WCAG-2.1.4]]</p>
+					</li>
+					<li>
+						<p>Ensure focus on active control is visible. [[WCAG-2.4.7]]</p>
+					</li>
+					<li>
+						<p>Do not trigger events when a control recieves focus. [[WCAG-3.2.1]]</p>
+					</li>
+					<li>
+						<p>Do trigger unexpected events when a user inputs values or changes settings. [[WCAG-3.2.1]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>For many users, the primary or only way they can interact with content is via a keyboard or
+					keyboard-like input device (e.g., voice recognition software, virtual keyboards). It is imperative
+					for these users that all functionality be operable by keyboard.</p>
+				
+				<p>The most common cause of keyboard interoperability issues is when authors add custom scripted
+					controls and links to their pages. Using HTML-native elements such as buttons, sliders and
+					hyperlinks generally avoids keyboard input pitfalls. In these cases, authors only need to ensure
+					that the controls are created accessibly &#8212; for example, that they are clearly labeled and
+					grouped according to their purpose.</p>
+				
+				<p>For custom controls, authors need to ensure that their creations meet all the same requirements
+					as native controls. Some examples include:</p>
+				
+				<ul>
+					<li>that users are able to reach the control;</li>
+					<li>that the purpose of the control is clear;
+					<li>that the control is operable by keyboard; and</li>
+					<li>that users do not get trapped in the control.</li>
+				</ul>
+				
+				<p>When creating custom controls, it is also important to consider the effects of shortcut keys on
+					their ability to use a publication. It may seem like a convenience to sighted readers to assign
+					single-key printable character (letters, numbers, punctuation) as a shortcut for an operation, but
+					readers trying to enter commands may have their input intercepted. The result may be that the user
+					cannot complete a necessary function or may potentially activate an unwanted action in the content.
+					Authors must always allow users to remap or turn off single-character shortcuts.</p>
+				
+				<p>It is also important to not cause changes of context when focus changes to the element (e.g., the
+					user tabs to it). Changing the context, such as opening a new window, submitting a form, or
+					altering the content, can cause confusion for readers who cannot see what has occurred.</p>
+				
+				<p>Similarly, entering input into a field or changing the setting of a control must not cause an
+					unexpected change of context.</p>
+				
+				<div class="note" role="note" aria-labelledby="kbd-note">
+					<p id="kbd-note" class="label">Note</p>
+					<p>The keyboard requirement for Level A conformance excludes functionality where the full path of
+						movement is essential, not just the start and end points. A program that allows a user to drag
+						an object and drop it, for example, is not excluded because the path to the destination does not
+						matter. A drawing program, on the other hand, would be exempt because full path affects the
+						drawn object.</p>
+				</div>
+			</section>
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">The
+						<code>link</code> element</a></li>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/forms.html#forms">Forms</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

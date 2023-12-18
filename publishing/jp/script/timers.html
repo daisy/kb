@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Timers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for creating accessible timers in publications">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure that users have the time they need to complete timed actions.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Allow users to turn off, adjust or extend time limits [[WCAG-2.2.1]]</p>
+					</li>
+					<li>
+						<p>Avoid time limits on activities [[WCAG-2.2.3]]</p>
+					</li>
+					<li>
+						<p>Warn users about periods of inactivity that can cause data loss [[WCAG-2.2.6]]</p>
+					</li>
+					<li>
+						<p>Ensure users can reauthenticate and continue sessions without loss of data [[WCAG-2.2.5]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The kind of time limits that WCAG addresses are not common in digital publications. These limits
+					typically occur due to user inactivity (e.g., to automatically log users out of sites so
+					that their accounts are not compromised) and to ensure the proper functioning of an application
+					(e.g., so users cannot hold purchases indefinitely).</p>
+				
+				<p>Some digital publications do make use of time limits, though, particularly educational works that
+					embed quizzes, tests, and interactive activities. Whether the timing is essential to the activity
+					&#8212; and therefore subject to the requirement to allow users to extend, adjust, or it turn off
+					&#8212; is more complex in these cases.</p>
+				
+				<p>For example, if a test is essential to the grading of the student, then having a time limit may be
+					exempt. If, however, an activity is only for practice, users should be able to control the timing.</p>
+				
+				<div class="note" role="note" aria-labelledby="test-note">
+					<p id="test-note" class="label">Note</p>
+					<p>In practice, whether students should be permitted more time to complete tests, and how to allow
+						this in a digital publication, is a complicated issue. Local laws may require accommodations
+						for students that allow additional time. It is better to avoid adding time-critical functions
+						to publications whenever possible.</p>
+				</div>
+				
+				<p>In general, it is best to allow users to control time limits that affect their interaction and
+					comprehension of the content. Users with vision and cognitive issues, for example, may need more
+					time to complete activities both because it requires more work to understand the layout of the
+					content and to comprehend the activity to perform.</p>
+				
+				<p>Users should also be alerted if periods of inactivity will result in the loss of any data they have
+					input or progress they have made in an activity. If the period of inactivity is set too short, some
+					users may appear inactive, for example, while they are still reading instructions.</p>
+				
+				<p>Moreover, if sessions are used to maintain the user's current state (i.e., they must log in to a
+					service that tracks their activities in a publication), the user should be able to reauthenticate
+					and not lose their data or progress.</p>
+			</section>
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>HTML &#8212; <a
+						href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers">Timers</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

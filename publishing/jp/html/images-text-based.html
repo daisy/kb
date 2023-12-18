@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Text-based Images</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Practices for identifying and describing text-based images">
+		<script>
+			var page_info = {
+				'topic': ['HTML'],
+				'appliesTo': ['EPUB3','EPUB2','Audiobooks*'],
+				'related': ['html-image-desc','html-image-text','html-image-deco','html-image-icon','html-image-select',]
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Identify and describe text-based imagery so that assistive technologies do not ignore, or attempt
+					to read out, the text they contain.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Use the <code>role</code> attribute value <code>img</code> to identify text-based images. [[WCAG-1.3.1]]</li>
+					<li>Provide alternative text and/or an extended description. [[WCAG-1.1.1]]</li>
+					<li>Ensure sufficient contrast between text and background. [[WCAG-1.4.3]]</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; ASCII drawing with alt text</div>
+						<p>The <code>aria-label</code> attribute provides the alternative text description.
+							This attribute serves the same purpose as the <code>alt</code> attribute as that
+							attribute is only allowed on <code>img</code> elements.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Winnie the Pooh with Hunny pot">
+    _
+ __( )_
+(      (o____
+ |          |
+ |      (__/
+   \     /   ___
+   /     \  \___/
+ /    ^    /     \
+|   |  |__|_HUNNY |
+|    \______)____/
+ \         /
+   \     /_
+    |  ( __)
+    (____)
+&lt;/pre></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Emoticon with alt text</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;span role="img" aria-label="shrug">¯\_(ツ)_/¯&lt;span></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Redacted text</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>In the case of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text">_____&lt;span>
+   it is clear that the crime of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text">_____&lt;span>
+   &#8230;
+&lt;p></code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 &#8212; ASCII drawing with description</div>
+						<p>The <code>aria-describedby</code> attribute is used to provide a description for
+							the ASCII image.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Skeleton in graveyard"
+    aria-describedby="skeleton-desc">
+           _..--""---.
+          /           ".
+          `            l
+          |'._  ,._ l/"\
+          |  _J&lt;__/.v._/
+           \( ,~._,,,,-)
+            `-\' \`,,j|
+               \_,____J
+          .--.__)--(__.--.
+         /  `-----..--'. j
+         '.- '`--` `--' \\
+        //  '`---'`  `-' \\
+       //   '`----'`.-.-' \\
+     _//     `--- -'   \' | \________
+    |  |         ) (      `.__.---- -'\
+     \7          \`-(               74\\\
+     ||       _  /`-(               l|//7__
+     |l    ('  `-)-/_.--.          f''` -.-"|
+     |\     l\_  `-'    .'         |     |  |
+     llJ   _ _)J--._.-('           |     |  l
+     |||( ( '_)_  .l   ". _    ..__I     |  L
+     ^\\\||`'   "   '"-. " )''`'---'     L.-'`-.._
+          \ |           ) /.              ``'`-.._``-.
+          l l          / / |                      |''|
+           " \        / /   "-..__                |  |
+           | |       / /          1       ,- t-...J_.'
+           | |      / /           |       |  |
+           J  \  /"  (            l       |  |
+           | ().'`-()/            |       |  |
+          _.-"_.____/             l       l.-l
+      _.-"_.+"|                  /        \.  \
+/"\.-"_.-"  | |                 /          \   \
+\_   "      | |                1            | `'|
+  |ll       | |                |            i   |
+  \\\       |-\               \j ..          L,,'. `/
+ __\\\     ( .-\           .--'    ``--../..'      '-..
+   `'''`----`\\\\ .....--'''
+              \\\\                           -nabis  ''
+
+&lt;/pre>
+&lt;p id="skeleton-desc" hidden="">
+   A skeleton is posing next to a grave marker &#8230;
+&lt;/p></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Are fill in the blank fields text-based images?</dt>
+					<dd>
+						<p>Yes, the use of underscores to identify where to write answers is a type of text-based
+							image. If these fields are not identified, users typically get no indication either that
+							an answer is needed or what length it should be.</p>
+						<p>The alternative text for the field can be used to describe the expected input.</p>
+						<p>For example, a free-form input field could be expressed like this:</p>
+						<pre class="prettyprint linenums"><code>&lt;p>The US capital
+   &lt;span role="img" aria-label="answer field">__________&lt;span>
+   is located on the Potomac River.&lt;/p></code></pre>
+						<p>While a field that expects a specific number of characters could be expressed like this:
+						<pre class="prettyprint linenums"><code>&lt;p>The quick brown 
+   &lt;span role="img" aria-label="answer field - 3 letters">_ _ _&lt;span>
+   jumped over the lazy dog.&lt;/p></code></pre>
+						<p>Ideally, publishers should use the native HTML form fields for text input, but this is not
+							always possible when the digital edition must exactly replicate the print.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the name "ASCII art" is commonly used to describe text-based images, it is no
+					longer the case that such artwork is composed solely of printable characters from the ASCII
+					set. Support for Unicode on modern computers means that all printable characters from the
+					Unicode planes are now usable.</p>
+				
+				<p>The requirements for text-based images are largely the same as those for raster and vector images,
+					but the implementation differs slightly. One key difference is that text-based images are
+					indistinguishable from the surrounding text by default (i.e., they are not a separate format or
+					have unique tagging, like JPEGs and SVGs).</p>
+				
+				<p>To identify that a series of characters represent a text-based image, add the ARIA <code>role</code>
+					attribute with the value "<code>img</code>" to a tag around the image (refer to 
+					<a href="#ex-01">Example 1</a>). Text-based images are often wrapped in <code>pre</code> tags to
+					retain their layout, but single-line images may, for example, be wrapped in <code>span</code> tags.</p>
+				
+				<p>If you do not identify the text-based image with a role, assistive technologies will try to announce
+					the text they contain. For images composed of punctuation, this may mean nothing is announced to
+					users (they may only hear a pause). For images with alphanumeric characters, users may hear
+					gibberish as the characters are read out.</p>
+				
+				<p>With the image identified, the requirements become familiar to those for any image. Alternative
+					text is typically required but cannot be provided by an <code>alt</code> attribute as it is only
+					allowed on <code>img elements</code>. For text-based images, the <code>aria-label</code> or
+					<code>aria-labelledby</code> attribute can be used to provide the alternative text (see 
+					<a href="#ex-01">Example 1</a>).</p>
+				
+				<p>For complex image, descriptions can be provided using the <code>aria-describedby</code> or
+					<code>aria-details</code> attribute (see <a href="#ex-04">Example 4</a>). For more information
+					about describing images, refer to the <a href="images-desc.html">Image Descriptions</a> page.</p>
+				
+				<p>It is also important to consider contrast issues with text-based images. Although not strictly
+					required by WCAG that images have sufficient contrast (except where they contain actual words),
+					the use of text characters allows authors control over the contrast between the text used to create
+					the image and the background the images appear on. Using sufficient contrast ensures readers will be
+					able to perceive the image.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#img"><code>img</code> (role)</a></li>
+					<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role">ARIA: img role</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

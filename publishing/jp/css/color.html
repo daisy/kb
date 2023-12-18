@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Color</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Describes best practices when using color to differentiate content.">
+		<script>
+			var page_info = {
+				'category': 'CSS',
+				'appliesTo': ['Audiobooks*','Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure sufficient contrast so that text is legible, and do not rely on color to impart information,
+					as not all users will be able to see the colors or perceive the differences.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Provide alternatives to color for identifying information. [[WCAG-1.4.1]]</p>
+					</li>
+					<li>
+						<p>Use CSS together with semantic markup. [[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Using borders for links</div>
+						<p>A dotted border is added to all links to avoid completely removing the default underline.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   padding-bottom: 2px;
+   border-bottom: 1px dotted rgb(0,0,238);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Using a label for a sidebar</div>
+						<p>The following sidebar is part of a series of historical events identified by green borders.
+							The <code>aria-label</code> attribute is used to add the missing context.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside
+       aria-label="historical event series"
+       class="historical">
+   &lt;h4>Battle of Waterloo&lt;/h4>
+   &#8230;
+&lt;/aside></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Including data in a figure caption</div>
+						<p>Data encoded in a pie chart is also available in the caption.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure>
+   &lt;figcaption>
+      &lt;p>Figure 1 &#8212; Political Affiliations&lt;/p>
+      &lt;p>Of 2000 people surveyed, 33% identified themselves as Conservatives,
+         25% as Liberal, 10% as Rhino, 2% as Green and 30% declared no affiliation.&lt;/p>
+   &lt;/figcaption>
+   &lt;img src="poll.jpg" alt="January 2018 political poll results"/>
+&lt;/figure></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the use of color is a common semantic method for conveying information to sighted users, it
+					should never be used as the sole means of imparting information. Semantic markup should always
+					underlie any use of border colors and shading so that the equal access is provided to users using
+					non-visual playback methods.</p>
+
+				<p>More generally, though, be sure to always cleanly separate styles from content. Separation of styling
+					ensures that users can apply their own style sheets and/or use and built-in color, brightness and
+					contrast controls in their user agent to tailor the display to their needs.</p>
+				
+				<p>But color is problematic for more than just the problems that arise conveying semantic meaning.
+					Green text on red backgrounds (and vice-versa) can be unreadable for some people, and can generally
+					cause what is known as visual vibrations. Red and black can also be indistinguishable to many
+					users. Black text on bright white backgrounds can lead to eye strain and headaches.</p>
+				
+				<p>Likewise, placing one shade of a color on another is also going to make reading difficult, as will
+					placing two light or dark colors on top of each other (luminosity).</p>
+				
+				<p>A user may be able to fix some of these issues with a configurable user agent, but it is better to
+					avoid them in the first place.</p>
+			</section>
+		</main>
+	</body>
+</html>

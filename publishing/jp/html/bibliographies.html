@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bibliographies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of bibliographies.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo':['EPUB3','EPUB2']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Structure bibliographies using sections and lists to simplify access to the references.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>Use the <code>section</code> element to group related sets of references. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Include a heading for each section [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Use list elements to structure the references. [[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">Example 1 &#8212; Simple bibliography</p>
+						<p>If a bibliography does not contain many entries, only a single list is necessary.</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
+   &lt;h1>Bibliography&lt;/h1>
+   &lt;dl>
+     &lt;dt>[pub-manfest]&lt;/dt>
+     &lt;dd>&lt;/dd>
+     &#8230;
+   &lt;/dl>
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">Example 2 &#8212; Bibliography with sections of references</p>
+						
+						<p>If a bibliography is split into topics, the <code>section</code>
+							element can be used to group the entries.</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
+   &lt;h2>Bibliography&lt;/h2>
+   
+   &lt;section>
+     &lt;h3>Normative References&lt;/h3>
+     &lt;dl>
+       &lt;dt>ARIA&lt;/dt>
+       &lt;dd>&#8230;&lt;/dd>
+       &#8230;
+     &lt;/dl>
+   &lt;/section>
+    
+   &lt;section>
+     &lt;h3>Informative References&lt;/h3>
+     &#8230;
+   &lt;/section>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">Example 2 &#8212; Bibliography with grouped references</p>
+						
+						<p>If a bibliography is grouped alphabetically, the <code>section</code> element can be used to 
+							group the entries. Use either an explicit heading (<code>h1</code> to <code>h6</code>) or 
+							an implied one (<code>aria-label</code>).</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography">
+   &lt;h1>Bibliography&lt;/h1>
+   
+   &lt;section aria-label="A">
+     &#8230;
+   &lt;/section>
+    
+   &lt;section aria-label="B">
+     &#8230;
+   &lt;/section>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Bibliographies should be marked up using list elements. Definition lists are commonly used, as the
+					term element (<code>dt</code>) is useful for highlighting the label used in the text. Unordered lists are
+					also commonly used when bibliographies are converted from a print source. The alphabetization of entries
+					does not infer sequential order (e.g., the bibliography can be reverse sorted without losing meaning).</p>
+				
+				<p>Use <code>section</code> elements to group alphabetically- and numerically-related entries and/or if the
+					bibliography is split up topically (e.g., normative and informative references). The <code>aria-label</code>
+					attribute can be attached to the enclosing section to include a title if the sections do not have headings
+					(i.e., if space is used to separate the groups).</p>
+				
+				<p>The use of lists is recommended as it simplifies navigation by users of assistive technologies. Not
+					only does it speed up the movement through entries, but the position within the list can be
+					announced, allowing the user to quickly return to the same spot again later, if needed.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria/#doc-bibliography"><code>doc-bibliography</code>
+						(role)</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element">The
+						<code>section</code> element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">Headings and
+						sections</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element">The
+						<code>dl</code> element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element">The
+						<code>ul</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

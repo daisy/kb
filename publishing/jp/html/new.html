@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>What's New</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<script>
+			var page_info = {
+				'category': ['HTML']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			dt { font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="overview">
+				<h3>Overview</h3>
+				
+				<p>Tracking changes to the HTML standard has become more difficult complicated since it changed to a
+					"living standard". The standard does not have a change log listing major changes; it instead refers
+					readers to the entire list of changes made in the standard's issue tracker. Although there is a
+					twitter account that tweets changes to the standard, even this is difficult to track now that
+					tweets appear out of order &#8212; plus not every change is relevant to publishers of digital
+					publications.</p>
+				
+				<p>This page will try to bring to fill this information void by drawing attention to any major changes
+					to the standard that are likely to impact publishers.</p>
+				
+				<p>Due to the ever-changing nature of the HTML standard, this page may not always be perfectly in sync.
+					If you are aware of a recent change that should be noted, please open an issue to have it
+					highlighted.</p>
+			</section>
+			<section id="changes">
+				<h3>Changes</h3>
+				
+				<dl>
+					<dt>March 23, 2023 &#8212; The <code>search</code> element added</dt>
+					<dd>
+						<p>The new <code>search</code> element is a dedicated container for a search box. It fills a
+							semantic gap that the <code>nav</code>, <code>section</code>, <code>article</code>, and
+							<code>aside</code> elements missed.</p>
+						<p>Although the element is unlikely to be used inside publications, it may be beneficial for
+							identifying search interfaces in web-based reading systems.</p>
+					</dd>
+					
+					<dt>July 1, 2022 &#8212; Outline algorithm removed; <code>hgroup</code> redefined</dt>
+					<dd>
+						<p>The outline algorithm has been fully removed from the HTML standard. The notion of the
+							sectioning of a document defining its outline, regardless of the headings used, has now
+							been put to rest.</p>
+						
+						<p>This change should only re-affirm best practices for structuring documents, as the outline
+							algorithm has never worked in practice.</p>
+						
+						<p>In removing the outline algorithm, the <code>hgroup</code> element has undergone a major
+							transformation. It is now designed to group a heading with its subheadings in a
+							semantically improved manner. The <code>hgroup</code> tag now allows only one heading tag
+							for the heading and can include subheadings in <code>p</code> tags. (This change will make
+							the DPUB-ARIA <code>doc-subtitle</code> role unnecessary moving forward.)</p>
+						
+						<p>For more information about using <code>hgroup</code>, please refer to the Knowledge Base's
+							<a href="./headings.html">headings page</a>.</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

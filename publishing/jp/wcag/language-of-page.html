@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Language of Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.1.1 Language of Page">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>3.1.1</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Text</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>The default human language of each Web page can be programmatically determined.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html">Understanding Success Criterion 3.1.1</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#language-of-page">How to meet Success Criterion 3.1.1</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H57">H57: Using language attributes on the html element</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that the language of the content is available to
+					reading systems and assistive technologies so that they can best render the text content (e.g., to
+					optimize text-to-speech playback).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>Authors need to ensure that the primary language is specified both in the EPUB Package Document
+					metadata (using <code>xml:lang</code> attributes and the <code>dc:language</code> element) and in
+					any HTML and SVG documents with text content (using the <code>xml:lang</code> and/or
+					<code>lang</code> attributes, as appropriate).</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/lang.html">Language</a></li>
+					<li><a href="../epub/lang.html">Publication Language</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

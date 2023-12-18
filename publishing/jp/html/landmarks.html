@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ARIA Landmarks</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Use of ARIA landmarks in HTML documents.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>Use ARIA landmarks for significant content components that a user is likely to want quick access to
+					and provide meaningful labels for each.</p>
+			</section>
+
+			<section id="tech">
+				<h3>Techniques</h3>
+
+				<ul>
+					<li>
+						<p>Use landmark roles to identify key content components [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>Provide meaningful labels for each landmark WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Landmark role with explicit label</div>
+						<p>The <code>aria-labelledby</code> attribute is used to ensure that a label is correctly
+							associated with its landmark role, the (the value of the attribute is the ID of
+							the element containing the label, in this example the <code>h2</code> element).</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-endnotes" aria-labelledby="note_hd">
+    &lt;h2 id="note_hd">End Notes&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-01a">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Landmark role with ambiguous label</div>
+						<p>If a landmark section contains content before its heading, the <code>aria-labelledby</code>
+							should always be used to ensure the heading is correctly identified as the label.</p>
+					</figcaption>
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-labelledby="c23_hd">
+	&lt;img src="img/comic/panel23.jpg" alt="Cartoon panel before chapter start"/>
+	&lt;details>
+		&lt;summary>Description&lt;/summary>
+		&lt;p>&#8230;&lt;/p>
+	&lt;/details>
+    &lt;h2 id="c23_hd">Chapter 23&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-01b">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Landmark role without a label</div>
+						<p>If there is only one instance of a landmark role in a document, an explicit label is 
+							not required. Assistive technologies will only announce the generic type of landmark
+							(e.g., that a <code>doc-index</code> is an "index"), but users will hear the heading
+							after navigating to it.</p>
+					</figcaption>
+					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter">
+    &lt;h2>Chapter 1&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 4 &#8212; Landmark with added label</div>
+						<p>The following landmark does not have an explicit title, so a label is provided using the
+								<code>aria-label</code> attribute.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="Chapter 21">
+    &lt;p>I awoke to find &#8230;&lt;/p>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 6 &#8212; Landmark without a unique label</div>
+						<p>The following landmark does not have a unique label (i.e., there is more than one of the same
+							landmark in the document with the same title). To differentiate the landmark, a sequential
+							number is provided for AT using the <code>hidden</code> attribute. Because this element is
+							hidden, it also needs to be referenced from the <code>aria-labelledby</code> attribute
+							(i.e., hidden descendant content is ignored, so an explicit reference is needed to capture
+							the number). Ideally, each landmark would be given a visible sequence number for the benefit
+							of all users.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2 pp2-num">
+    &lt;h4 id="pp2">Practice Problem &lt;span id="pp2-num" hidden="">2&lt;/span>&lt;/h4>
+    &#8230;
+&lt;/section>
+</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>ARIA landmarks are used with web sites to allow users to identify and quickly move between the
+					different primary regions of a page: site headers and footers, search boxes, advertisements, and the
+					main content area.</p>
+
+				<p>The landmarks found on a page are compiled by AT into a list of links. Users are expected to be able
+					to quickly scroll through the landmarks in order to orient themselves to the page and access the
+					specific section of content they are looking for.</p>
+
+				<p>While publications are typically structured such that each document only contains the text of a
+					single section or chapter, landmarks still play an important role in allowing users access to key
+					components within one of these major regions (e.g., to quickly access notes, a glossary, learning
+					objectives, practice problems, sidebars, or interactive widgets).</p>
+
+				<p>Not every section of content in a publication needs to be a landmark, or should be. Landmarks should
+					be reserved only for key sections that the user might need to access quickly. A user is more likely
+					to appreciate being able to reach a glossary, for example, than have a listing of every section and
+					subsection.</p>
+
+				<p>The <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA module</a> contains the following
+					landmark roles for publications:</p>
+
+				<ul class="multicol">
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgements</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-afterword">doc-afterword</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-appendix">doc-appendix</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-bibliography">doc-bibliography</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-chapter">doc-chapter</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-conclusion">doc-conclusion</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-credits">doc-credits</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnotes">doc-endnotes</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-epilogue">doc-epilogue</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-errata">doc-errata</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-foreword">doc-foreword</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-glossary">doc-glossary</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">doc-introduction</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-part">doc-part</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-preface">doc-preface</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-prologue">doc-prologue</a>
+					</li>
+				</ul>
+				<br />
+
+				<p>The following navigation roles are also landmarks:</p>
+
+				<ul class="multicol">
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-index">doc-index</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagelist">doc-pagelist</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-toc">doc-toc</a>
+					</li>
+				</ul>
+				<br/>
+
+				<p>In addition, the following roles in the core ARIA specification are landmarks:</p>
+
+				<ul class="multicol">
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#banner">banner</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#complementary">complementary</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#contentinfo">contentinfo</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#form">form</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#main">main</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#navigation">navigation</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#region">region</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#search">search</a>
+					</li>
+				</ul>
+				<br />
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt id="faq-001">Does every chapter/section need to be a landmark?</dt>
+					<dd>
+						<p>No.</p>
+						
+						<p>Landmarks should not be used as an alternative table of contents as they do no preserve the
+							heading structure of the document. Try to limit the use of landmarks to the components within
+							the page that a user would otherwise have to manually search for. Creating too many
+							landmarks forces users to hunt through a long list.</p>
+
+						<p>If the user wants to move by section heading or peruse the table of contents, options are
+							already available to do so. Only identify the major section(s) of content within a document,
+							if necessary (i.e., the chapters or top-level sections, not every subsection).</p>
+					</dd>
+					<dt id="faq-008">Is every <code>section</code> with a heading a landmark?</dt>
+					<dd>
+						<p>No.</p>
+						
+						<p>A <code>section</code> tag is only a landmark when one or both of the following are true:</p>
+						
+						<ul>
+							<li>It has a <code>role</code> attribute attached to it that specifies a landmark role.</li>
+							<li>It has an <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>
+								attribute attached to it.</li>
+						</ul>
+						
+						<p>In all other cases, a <code>section</code> has no specific semantic attached to it (i.e.,
+							it is similar in nature to a <code>div</code>).</p>
+					</dd>
+					<dt id="faq-009">Does every landmark require a label?</dt>
+					<dd>
+						<p>No.</p>
+						
+						<p><em>But</em>, the safest option is to always provide a label using one of the
+							<code>aria-labelledby</code>, <code>aria-label</code> or <code>title</code> attributes.</p>
+						
+						<p>Technically, you only have to use these attributes when more than one of the same landmark
+							role is present on the page (e.g., two or more <code>doc-chapter</code> or
+							<code>doc-bibliography</code>). In these cases, the lack of a unique label can make it
+							more difficult for users to find the one they are looking for. For example, if there are
+							two indexes, without unique labels a user would not be able to determine which is the
+							topical index and which the index of names without manually checking each.</p>
+						
+						<p>In workflows that combine data from different sources, or chunk content differently depending
+							on the out, it is best practice to make the labels explicit. Doing so will avoid unintended
+							violations of WCAG requirements.</p>
+					</dd>
+					<dt id="faq-004">Should I use the <code>title</code> or <code>aria-label</code> attribute for
+						hidden labels?</dt>
+					<dd>
+						<p>If a label is not available in the text, preference should always be given to the
+							<code>aria-label</code> attribute. It has higher precedence in the calculation of
+							accessible names for elements and controls and <code>title</code> has a history of poor
+							support.</p>
+					</dd>
+					<dt id="faq-002">Why should landmark names be unique?</dt>
+					<dd>
+						<p>When there is more than one of the same landmark role in a document, providing unique names
+							avoids confusion about which particular one is being accessed. Ideally, the title of each
+							component will make clear its purpose, but if the same name is reused for each (e.g.,
+							multiple "practice problem" sidebars), a unique identifier would improve the usability. The
+							identifier should be something helpful, such as the subsection the component belongs to or
+							the page it is found on in a print addition.</p>
+					</dd>
+					<dt id="faq-003">What is the difference between ARIA landmarks and EPUB's landmarks/guide?</dt>
+					<dd>
+						<p>ARIA landmarks are compiled for individual web pages, so they do not persist from one
+							document to the next. As EPUB publications consist of many documents, reading systems need
+							an effective way to locate key content across the entire publication. EPUB's <a
+								href="https://www.w3.org/TR/epub/#sec-nav-landmarks"
+								>landmarks (EPUB 3)</a> and <a
+								href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">guide</a> (EPUB 2)
+							were designed to solve this problem of landmarks spread across many documents.</p>
+						<p>For maximum interoperability, it is recommended to provide both types of landmarks.</p>
+					</dd>
+					<dt id="faq-005">Why can't I use the <code>landmark</code> role?</dt>
+					<dd>
+						<p>The <code>landmark</code> role is what the WAI-ARIA specification refers to as an <a
+								href="https://www.w3.org/TR/wai-aria/#abstract_roles">abstract role</a>. It is not meant
+							to be implemented directly, but used as the top-level definition from which the roles you
+							can use inherit.</p>
+						<p>For landmarks without a specific role, the <code>region</code> role can be used with an
+							meaningful label.</p>
+					</dd>
+					<dt id="faq-006">Why does <code>aside</code> require a label but not <code>section</code>?</dt>
+					<dd>
+						<p>Despite the best intentions when it was introduced, the <code>section</code> element has been
+							used the same way as <code>div</code> (i.e., for purely stylistic reasons). As a result, the
+							element does not have a default role to avoid this misuse disadvantaging users of assistive
+							technologies.</p>
+
+						<p>As a result, the following example <strong>is not a landmark</strong>, even though there is a
+							heading:</p>
+
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section>
+    &lt;h2>Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+						<p>If you assign a label to the element, however, it assumes the role of <code>region</code> and
+							becomes a landmark:</p>
+
+
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311">
+    &lt;h2 id="s311">Section 3.1.1 &#8212; Elephants on Parade&lt;/h2>
+    &#8230;
+&lt;/section>
+</code></pre>
+
+						<p>Conversely, the <code>aside</code> element has the implicit role of
+								<code>complementary</code> so requires a label. For more information about the implicit
+							roles of HTML elements, refer to the <a href="https://www.w3.org/TR/html-aria/">ARIA in
+								HTML</a> document.</p>
+					</dd>
+					<dt id="faq-007">Why can't I use landmarks on element X?</dt>
+					<dd>
+						<p>Some HTML elements are restricted in what roles they accept to prevent overriding necessary
+							semantics.</p>
+
+						<p>In particular, the <code>body</code> element has the special role <code>document</code> which
+							cannot be overridden by any other role.</p>
+
+						<p>Complete information about what roles are allowed on what elements is provided in the <a
+								href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document.</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>WAI-ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#landmark_roles">Landmark
+						Roles</a></li>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing WAI-ARIA Module 1.0</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

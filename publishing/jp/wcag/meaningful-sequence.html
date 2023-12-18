@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Meaningful Sequence</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.3.2 Meaningful Sequence">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>About</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>Version:</th>
+						<td>WCAG 2.0 and up</td>
+					</tr>
+					<tr>
+						<th>Number:</th>
+						<td>1.3.2</td>
+					</tr>
+					<tr>
+						<th>Level:</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>Applicability:</th>
+						<td class="docs">
+							<ul>
+								<li>Asides</li>
+								<li>Figures</li>
+								<li>Fixed Layouts</li>
+								<li>Tables</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Requirement:</th>
+						<td class="desc">
+							<p>When the sequence in which content is presented affects its meaning, a correct reading
+								sequence can be programmatically determined.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Guidance:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">Understanding Success Criterion 1.3.2</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence">How to meet Success Criterion 1.3.2</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Techniques:</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C6">C6: Positioning content based on structural markup</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C8">C8: Using CSS letter-spacing to control spacing within a word</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C27">C27: Making the DOM order match the visual order</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G57">G57: Ordering the content in a meaningful sequence</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H34">H34: Using a Unicode right-to-left mark (RLM) or left-to-right mark (LRM) to mix text direction inline</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H56">H56: Using the dir attribute on an inline element to resolve problems with nested directional runs</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>Purpose</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who cannot perceive the content can
+					still follow the logical reading ordering of the publication (i.e., the visual sequencing of the
+					content does not change the primary narrative).</p>
+			</section>
+			<section id="meeting">
+				<h3>How to Meet</h3>
+				
+				<p>This success criterion mostly commonly affects fixed-layout publications where authors can use CSS
+					to position content in a different sequence visually. Dialogue, for example, can be misordered in
+					the markup but made to read logically visually.</p>
+				
+				<p>Therefore, to meet this success criterion, the order of content in the markup must match the
+					expected reading order.</p>
+				
+				<p>This success criterion applies across page boundaries, as the narrative continues from
+					document to document. Sidebars, images, tables and other content split across documents has
+					to make sense from page to page, not just within the document that contains it.</p>
+				
+				<p>For example, consider a sidebar split across the bottom of two pages. If the markup for each part of
+					the sidebar is the last item in each document, users will struggle to follow the text from document
+					to document. In a case like this, the portion of the sidebar on the second page should be ordered
+					first so that a reader who starts reading it on the first page can continue reading it to its
+					conclusion immediately on the second. The author can then visually style the location to match with
+					the preceding page's layout.</p>
+			</section>
+			<section id="kb">
+				<h3>Additional Information</h3>
+				
+				<p>The following knowledge base pages provide more information about how to address this success
+					criterion for publishing content:</p>
+				
+				<ul>
+					<li><a href="../html/figures.html">Figures</a></li>
+					<li><a href="../html/order.html">Reading Order</a></li>
+					<li><a href="../html/sections.html">Sections</a></li>
+					<li><a href="../html/tables.html">Tables</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

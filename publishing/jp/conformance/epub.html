@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>EPUB Accessibility</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Provides an overview of the EPUB Accessibility specification and its requirements.">
+		<script>
+			var page_info = {
+				'category': 'Conformance',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+
+				<p>The <a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility specification</a> defines
+					discoverability requirements and accessibility conformance for <a>EPUB publications</a>.</p>
+			</section>
+
+			<section id="overview">
+				<h3>Overview</h3>
+
+				<p>As EPUB is built on Open Web Platform technologies like HTML and CSS, the EPUB Accessibility
+					specification builds on the <a href="wcag.html">Web Content Accessibility Guidelines (WCAG)</a> to
+					define accessibility conformance for EPUB publications.</p>
+
+				<p>The primary advantage of this approach to accessibility is that it keeps EPUB aligned with the body
+					of work that has already been done to make web content accessible. It also immediately makes web
+					content accessibility specialists knowledgeable about the issues involved in ebook production. And,
+					more generally, it means that content creators seeking to discover how to make their publications
+					more accessible have a wealth of general resources available to them beyond this knowledge base.</p>
+
+				<p>But EPUB is also its own unique format, and WCAG is not a simple blanket set of practices that all
+					apply in every situation. The knowledge base aims to bridge this gap for EPUB content by focusing on
+					how to make rich publications that adhere to WCAG. Unlike the general web, where each site's design
+					often brings its own unique issues, books are more often composed of the same sets of building
+					blocks, making accessibility mappings useful to a broad range of publishers.</p>
+			</section>
+
+			<section id="conformance">
+				<h3>Conformance</h3>
+
+				<p>The EPUB Accessibility specification defines two key areas for conformance:</p>
+
+				<dl>
+					<dt>1. Discoverability</dt>
+					<dd>
+						<p>The <a href="https://www.w3.org/TR/epub-a11y/#sec-discovery">discovery section of the
+							specification</a> identifies <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/"
+								>schema.org accessibility metadata</a> that publishers have to include in the EPUB
+							package document.</p>
+
+						<p>It is required that all publications include the following:</p>
+
+						<ul>
+							<li>A list of all accessibility features (<a
+								href="../metadata/schema.org/accessibilityFeature.html"
+									><code>accessibilityFeature</code></a>).</li>
+							<li>The modes in which the content is expressed (<a 
+								href="../metadata/schema.org/accessMode.html"><code>accessMode</code></a>).</li>
+							<li>Any potential physical hazards the content might present (<a
+								href="../metadata/schema.org/accessibilityHazard.html"
+									><code>accessibilityHazard</code></a>).</li>
+						</ul>
+						
+						<p>It is also recommended to provide a summary when the other metadata does not fully capture
+							everything a user needs to know (<a 
+								href="../metadata/schema.org/accessibilitySummary.html"
+								><code>accessibilitySummary</code></a>). Likewise, if there are sufficient access modes
+							that only require a single capability, it is recommended to identify these for users
+							(<a href="../metadata/schema.org/accessModeSufficient.html"
+								><code>accessModeSufficient</code></a>).</p>
+
+						<p>A more complete overview of this metadata is provided in the <a
+							href="../metadata/schema-org.html">Schema.org Metadata</a> section of this knowledge base.</p>
+
+						<p>The inclusion of this metadata allows EPUB publications to be self-descriptive about their
+							accessibility conformance, or lack thereof.</p>
+					</dd>
+
+					<dt>2. Content Accessibility</dt>
+					<dd>
+						<p>The <a href="https://www.w3.org/TR/epub-a11y/#sec-access-pub">accessibility section of the
+								specification</a> describes content conformance requirements. These requirements break
+							down into two sections:</p>
+						<dl>
+							<dt>WCAG Conformance</dt>
+							<dd>
+								<p>EPUB publications must, at a minimum, meet <a href="wcag.html">WCAG 2.0 Level A</a>
+									in order to conform to the specification. It is recommended that publishers strive to
+									meet the latest recommended version of WCAG 2 at level AA, however.</p>
+							</dd>
+							<dt>EPUB-specific Conformance</dt>
+							<dd>
+								<p>The specification defines two conformance criteria that are currently specific to
+									EPUB: <a href="https://www.w3.org/TR/epub-a11y/#sec-page-nav">page navigation</a> and
+									<a href="https://www.w3.org/TR/epub-a11y/#sec-sync-text-audio">synchronized media
+									playback</a>.</p>
+								<p>Meeting these requirements is not yet a firm requirement of the
+									specification, however. The pagination requirements only apply when publishers
+									can anticipate their publications will be used in mixed print-digital environments,
+									and the synchronization requirements are optional to meet.</p>
+							</dd>
+						</dl>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="reporting">
+				<h3>Reporting</h3>
+
+				<p>The accessibility specification defines the following <a
+					href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">reporting metadata for EPUB
+						publications</a>:</p>
+
+				<ul>
+					<li>What version of the specification and what <a href="wcag.html">WCAG</a> level was met.</li>
+					<li>Who evaluated the publication.</li>
+					<li>What credentials the evaluator has, if any.</li>
+					<li>Where to find a more in-depth evaluation report.</li>
+				</ul>
+
+				<p>A complete listing of this metadata and how to use it is provided in the <a
+						href="../metadata/evaluation.html">Evaluation Metadata</a> section of this knowledge base.</p>
+			</section>
+
+			<section id="opt">
+				<h3>Optimizations</h3>
+				
+				<p>An informative section of the specification deals with "<a
+					href="https://www.w3.org/TR/epub-a11y/#sec-opt-pubs">optimized publications</a>". These
+					are publications that do not meet the WCAG requirements for being widely accessible but that
+					are optimized for users with specific needs.</p>
+				
+				<p>An example of this type of publication is an audio book. Audio books are accessible for persons
+					who are blind, for example, but not for the deaf. Optimized publications are expected to conform
+					to a standard for their target audience, but the accessibility specification does not specify
+					these standards (i.e., this conformance is outside the scope of the specification).</p>
+				
+				<p>Although optimized publication cannot meet the requirements of the EPUB Accessibility
+					specification, that is not meant to discourage their production. When publishers create these
+					kinds of publications to another recognized standard, they can identify conformance to
+					that standard instead.</p>
+			</section>
+			
+			<section id="distribution">
+				<h3>Distribution</h3>
+
+				<p>Another informative section of the specification deals with <a 
+					href="https://www.w3.org/TR/epub-a11y/#sec-distribution">accessibility issues in distribution</a>.
+					Even though the publisher may do everything right in creating their content, issues in the distribution
+					chain that limit the accessibility of the publication that users receive.</p>
+
+				<p>The most important of these issues is to not apply digital rights management schemes to a publication
+					that limit access to the content. When this occurs, a perfectly accessible publication might no
+					longer be readable at all if, for example, assistive technologies are prevented from reading out the
+					text.</p>
+
+				<p>The other requirement is to provide accessibility metadata in whatever format a vendor uses to ingest
+					the publication. It is common in trade publishing, for example, for ONIX records to be provided to
+					distributors, which is also where they will harvest metadata about the publication. If the ONIX
+					accessibility fields are not completed, users may lose the ability to search and discover the
+					accessibility properties.</p>
+			</section>
+
+			<section id="techniques">
+				<h3>Techniques</h3>
+
+				<p>The EPUB Accessibility was published together with a set of <a
+					href="https://www.w3.org/TR/epub-a11y-tech/">advisory techniques</a> that explain how to
+					meet its requirements.</p>
+				
+				<p>These techniques do not delve into issues already covered by WCAG. Their focus is on explaining
+					how to understand WCAG's requirements where they might be confusing when applied to EPUB
+					publications.</p>
+			</section>
+
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+
+				<dl>
+					<dt id="faq-001">What tools are available to check conformance?</dt>
+					<dd>
+						<p>The DAISY Consortium maintains two tools to help check conformance of EPUB publications:</p>
+						<dl>
+							<dt>
+								<a href="https://daisy.github.io/ace/">Ace</a>
+							</dt>
+							<dd>
+								<p>The Ace tool provides automated checking and reporting on a number of WCAG
+									requirements. Passing the Ace validation tool is not sufficient to claim conformance
+									to the specification, however, as not all WCAG requirements can be checked by
+									machine.</p>
+							</dd>
+							<dt>
+								<a href="https://smart.daisy.org">SMART</a>
+							</dt>
+							<dd>The SMART tool is a complement to the Ace tool that helps evaluators walk through all
+								the manual checks needed to ensure conformance to the accessibility specification.</dd>
+						</dl>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>

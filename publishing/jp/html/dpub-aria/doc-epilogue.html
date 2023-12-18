@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-epilogue</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-epilogue role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A concluding section of narrative that wraps up or comments on the actions and events of
+					the work, typically from a future perspective.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Epilogue with a heading</div>
+						<p>The label is identified in the <code>aria-labelledby</code> attribute.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-epilogue" aria-labelledby="epi-hd">
+   &lt;h2 id="epi-hd">Ten Years Later&lt;/h2>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Epilogue without a heading</div>
+						<p>A label for the section is specified in the <code>aria-label</code> attribute.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;section role="doc-epilogue" aria-label="Epilogue">
+   &lt;p>Long after the events of the story concluded, I still found myself wondering &#8230;&lt;/p>
+   &#8230;
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-epilogue</code> is a <a href="../landmarks.html">landmark role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-epilogue</code> is typically used on <code>section</code> elements.</p>
+
+				<p>A label must be provided for the role using one of the <code>aria-labelledby</code>,
+						<code>aria-label</code> or <code>title</code> attributes.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
+					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
+						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
+						Guide</a>. For the official list of allowed elements, refer to <a 
+							href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>Related Links</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-epilogue">DPUB-ARIA &#8212;
+								<code>doc-epilogue</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

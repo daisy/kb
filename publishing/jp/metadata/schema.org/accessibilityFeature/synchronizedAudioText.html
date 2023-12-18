@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>synchronizedAudioText</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="synchronizedAudioText">
+				<h3>synchronizedAudioText</h3>
+				
+				<p>The <a 
+					href="https://w3c.github.io/a11y-discov-vocab/latest/#synchronizedAudioText"><code>synchronizedAudioText</code>
+					value</a> is used to indicate that synchronized playback of prerecorded audio with text
+					highlighting is available.</p>
+				
+				<p>Synchronized playback can help new language learners follow the text and hear how it is
+					pronounced, for example, but is also helpful for users who need only one or the other
+					modality. Audio playback can be used to provide an audiobook experience for users who are
+					blind or have low vision, while text highlighting can help users who have difficulty
+					following lines of text.</p>
+				
+				<p>Text and audio synchronization is typically provided using the SMIL language (e.g., in DAISY
+					talking books and EPUB 3 media overlays).</p>
+				
+				<p>See the <a href="../../sync-media/overlays.html">media overlays knowledge base page</a> for
+					more information.</p>
+				
+				<figure id="ex-sat">
+					<figcaption>
+						<p class="label">EPUB 3 media overlay file.</p>
+					</figcaption>
+					<pre id="ex-sat-src" class="prettyprint"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
+      xmlns:epub="http://www.idpf.org/2007/ops"
+      version="3.0">
+   &lt;body>
+  	&lt;seq id="id1" epub:textref="chapter_001.xhtml"
+             epub:type="bodymatter chapter">
+            &lt;par id="heading1">
+               &lt;text src="chapter_001.xhtml#c01h01"/>
+               &lt;audio src="audio/mobydick_001_002_melville.mp4"
+                      clipBegin="0:00:24.500"
+                      clipEnd="0:00:29.268"/>
+  	   &lt;/par>
+  	&lt;/seq>
+	  &#8230;
+   &lt;/body>
+&lt;/smil></code></pre>
+				</figure>
+			</section>
+		</main>
+	</body>
+</html>

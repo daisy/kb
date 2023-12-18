@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-qna</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-qna role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>Description</h3>
+
+				<p class="desc">A section of content structured as a series of questions and answers, such as an
+					interview or list of frequently asked questions.</p>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Author Question and Answer with a heading</div>
+						<p>The label is identified in the <code>aria-labelledby</code> attribute.</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-qna" aria-labelledby="qna-hd">
+   &lt;h2 id="qna-hd">Interview with the Author&lt;/h2>
+   &lt;dl>
+   	&lt;dt>What &#8230; is your favourite colour?&lt;/dt>
+   	&lt;dd>Blue. I mean yel&#8212;auuuugh!&lt;/dd>
+   &lt;/dl>
+&lt;/section></code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>Relation to ARIA</h3>
+
+				<p><code>doc-qna</code> inherits its semantics from the a <a
+						href="https://www.w3.org/TR/wai-aria/#section">section role</a> (i.e., it represents a container
+					of related content, but is not a landmark).</p>
+			</section>
+
+			<section id="usage">
+				<h3>Usage</h3>
+
+				<p><code>doc-qna</code> is typically used on <code>section</code> and <code>div</code> elements. The
+					role can also be used directly on a <code>dl</code> element as <code>dt</code> and <code>dd</code>
+					elements are not considered list items by default.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
+					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
+						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
+						Guide</a>. For the official list of allowed elements, refer to <a 
+							href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>Related Links</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-qna">DPUB-ARIA &#8212;
+							<code>doc-qna</code></a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Inline Frames</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using inline frames accessibly.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure that inline frames are uniquely titled so that users can decide whether they want to read or interact
+					with the contents, and that frame content remains consumable after resizing or zooming.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). [[WCAG-2.4.1]] and [[WCAG-4.1.2]]</li>
+					<li>Identify frames not intended for users in their label.</li>
+					<li>Use relative units to size the <code>iframe</code>.</li>
+					<li>Set scrolling to <code>auto</code>.</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Example</h3>
+				<figure id="ex-01">
+					<figcaption><span class="label">Example 1 &#8212; A basic <code>iframe</code></span></figcaption>
+					<p>The <code>iframe</code> identifies that it contains a quiz in its <code>title</code> attribute.
+						It includes fallback content to reach the file for reading systems that don't support frames.</p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;iframe
+      href="quiz01.xhtml"
+      title="Quiz 1"
+      class="quiz">
+   Your user agent does not support
+   inline frames. Please follow &lt;a 
+   href="quiz01.xhtml">this link&lt;/a> 
+   to open Quiz 1.
+&lt;/iframe></code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption><span class="label">Example 2 &#8212; An invisible <code>iframe</code></span></figcaption>
+					<p>The <code>iframe</code> contains code necessary for the page, so it is visually hidden and a label
+						also identifies that it contains no content.</p>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;iframe
+      href="script.xhtml"
+      title="empty"
+      tabindex="-1"
+      height="0"
+      width="0"
+      class="hidden">
+&lt;/iframe></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Inline frames generally integrate well with assistive technologies, but the following accessibility
+					considerations should always be adhered to when using them:</p>
+				
+				<ul>
+					<li>Each inline frame should include an explanatory title that clearly indicates the purpose of the
+						embedded content (in a <code>title</code> attribute on the <code>iframe</code> element).</li>
+					<li>When setting the height and width of the <code>iframe</code>, a relative unit such as percentage or
+						ems should be used to facilitate resizing.</li>
+					<li>Scrolling should be set to <code>auto</code> so that if the user resizes the content in the frame
+						it can still be accessed if it becomes bigger than the available space.</li>
+					<li>The <code>iframe</code> element should provide embedded fallback content for user agents that do
+						not support inline frames (e.g., a direct link to the content file).</li>
+					<li>If the frame does not contain content for the user, indicate as much in the <code>title</code>, set
+						its CSS <code>display</code> property to <code>none</code>, and height and width to 0. To ensure that
+						users cannot tab to the element, set the <code>tabindex</code> attribute to <code>-1</code>.</li>
+				</ul>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">&lt;iframe>: The Inline Frame
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-iframe-element">The
+								<code>iframe</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
