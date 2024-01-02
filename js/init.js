@@ -193,6 +193,7 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
+			kb.generateSponsorBox();
 		}
 		
 		kb.generateFooter();
@@ -645,6 +646,27 @@ KB.prototype.generateAppliesTo = function () {
 	else {
 		document.querySelector('div#body').insertAdjacentElement('beforeEnd', section)
 	}
+}
+
+
+
+/* create the sponsorhip box at the top of the categories box */
+
+KB.prototype.generateSponsorBox = function () {
+	
+	var sponsor = document.createElement('aside');
+		sponsor.setAttribute('id', 'sponsor');
+	
+	var sponsor_h2 = document.createElement('h2');
+		sponsor_h2.appendChild(document.createTextNode('Sponsored by'));
+	sponsor.appendChild(sponsor_h2);
+	
+	var sponsor_img = document.createElement('img');
+		sponsor_img.src = '/graphics/daisy_logo.png';
+		sponsor_img.alt = 'Example'
+	sponsor.appendChild(sponsor_img);
+	
+	document.getElementById('categories').insertAdjacentElement('afterBegin', sponsor);
 }
 
 

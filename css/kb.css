@@ -355,6 +355,25 @@ div#categories {
 }
 
 
+/* sponsorship box */
+
+aside#sponsor {
+	border-bottom: 0.1rem solid lightgrey;
+	margin-top: 0;
+	padding: 1rem;
+}
+
+aside#sponsor h2 {
+	margin: 0 0 0 3rem;
+	padding: 0;
+	font-size: 1.4rem;
+}
+
+aside#sponsor img {
+	margin-left: 3rem;
+	padding: 1rem 0;
+}
+
 /* page title */
 
 div#page-title {
