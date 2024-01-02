@@ -241,7 +241,7 @@ KB.prototype.generateHeader = function () {
 	// add the daisy logo
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
-		logo.setAttribute('src','/graphics/daisy_logo.png');
+		logo.setAttribute('src','/graphics/daisy_high.jpg');
 		logo.setAttribute('alt','DAISY');
 	
 	h1_a.appendChild(logo);
