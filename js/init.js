@@ -4,8 +4,8 @@
  * This file contains the KB class of functions, a set of callbacks
  * for copying examples, and the initiation code for each page.
  * It is only required that each page that needs formatting include
- * a reference to this script in its head - no further initiation
- * is needed.
+ * a reference to this script in its head, with page-specific
+ * configuration done through a json object in the header.
  * 
  */
 
@@ -243,7 +243,7 @@ KB.prototype.generateHeader = function () {
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
 		logo.setAttribute('src','/graphics/daisy_logo.png');
-		logo.setAttribute('alt','DAISY');
+		logo.setAttribute('alt', msg.header.logo);
 	
 	h1_a.appendChild(logo);
 	
@@ -1027,7 +1027,7 @@ KB.prototype.addExampleCopy = function() {
 		
 		var input = document.createElement('input');
 			input.setAttribute('type','button');
-			input.setAttribute('value','Copy');
+			input.setAttribute('value', msg.pageControl.copy);
 			input.setAttribute('class','copy');
 			
 			input.addEventListener('click', copyExampleDelegate(ex[i].id), false);
@@ -1069,7 +1069,7 @@ KB.prototype.addGlossaryLinks = function() {
 		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext.toLowerCase();
 		links[i].classList.add('gloss');
 		links[i].setAttribute('role', 'doc-glossref');
-		links[i].setAttribute('title', 'Go to definition');
+		links[i].setAttribute('title', msg.pageControl.dfnLink);
 	}
 }
 
@@ -1109,8 +1109,8 @@ KB.prototype.createPermaLink = function(num, label, dest) {
 	var a = document.createElement('a');
 		a.href = '#' + dest;
 		a.setAttribute('class', 'permalink');
-		a.setAttribute('aria-label', 'Permalink for ' + label + ' ' + num);
-		a.appendChild(document.createTextNode('§ '));
+		a.setAttribute('aria-label', msg.pageControl.permalink + label + ' ' + num);
+		a.appendChild(document.createTextNode(msg.pageControl.permalinkSymbol));
 	
 	return a;
 
@@ -1130,7 +1130,7 @@ KB.prototype.addTopicLinks = function() {
 		var toc = document.createElement('nav');
 			toc.id = 'toc';
 			toc.setAttribute('role', 'doc-toc');
-			toc.setAttribute('aria-label', 'Table of contents');
+			toc.setAttribute('aria-label', msg.topics.toc);
 		
 		if (!root_topic) {
 			console.log('No matching topic index for ' + page_info.root_id);

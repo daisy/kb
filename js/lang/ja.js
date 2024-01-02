@@ -47,7 +47,7 @@ var msg = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
 	
 	msg.appliesto = {};
-	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.';
+	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.'
 	
 	msg.pageControl = {};
 	msg.pageControl.copy = 'Copy';
