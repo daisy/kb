@@ -183,7 +183,6 @@ KB.prototype.writeTemplate = function () {
 			if (page_info.hasOwnProperty('related')) {
 				kb.generateRelatedTopics();
 			}
-		
 		}
 		
 		
@@ -254,7 +253,7 @@ KB.prototype.generateHeader = function () {
 	header.appendChild(h1);
 	
 	var search = document.createElement('search');
-		search.setAttribute('title','knowledge base');
+		search.setAttribute('title', msg.kb_name.kb);
 		search.setAttribute('hidden', 'hidden');
 	
 	var search_script = document.createElement('script');
@@ -501,7 +500,7 @@ KB.prototype.generateRelatedTopics = function () {
 		nav.setAttribute('class', 'mini-toc');
 	
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode('Related Topics'));
+		h3.appendChild(document.createTextNode(msg.topics.related));
 	
 	nav.appendChild(h3);
 	
@@ -592,14 +591,14 @@ KB.prototype.generateAppliesTo = function () {
 		thead.appendChild(th);
 		
 		if (page_info.appliesTo.includes(formats[i])) {
-			td.appendChild(document.createTextNode('Yes'));
+			td.appendChild(document.createTextNode(msg.appliesTo.yes));
 			td.setAttribute('class', 'yes');
 		}
 		
 		else if (page_info.appliesTo.includes('Audiobooks*') && formats[i] == 'Audiobooks') {
 			
 			td.setAttribute('class', 'partial');
-			td.appendChild(document.createTextNode('Partial'));
+			td.appendChild(document.createTextNode(msg.appliesTo.partial));
 			
 			var a_ref = document.createElement('a');
 				a_ref.setAttribute('href','#aud01');
@@ -618,7 +617,7 @@ KB.prototype.generateAppliesTo = function () {
 		}
 		
 		else {
-			td.appendChild(document.createTextNode('No'));
+			td.appendChild(document.createTextNode(msg.appliesTo.no));
 			td.setAttribute('class', 'no');
 		}
 		
@@ -662,7 +661,7 @@ KB.prototype.generateCategoryList = function () {
 		cat_nav.setAttribute('aria-labelledby', 'cat-hd');
 	
 	var cat_hd = document.createElement('h3');
-		cat_hd.appendChild(document.createTextNode('Categories'));
+		cat_hd.appendChild(document.createTextNode(msg.category.cat));
 		cat_hd.setAttribute('id', 'cat-hd');
 	
 	cat_nav.appendChild(cat_hd);

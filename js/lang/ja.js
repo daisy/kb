@@ -2,6 +2,7 @@ var msg = {};
 	
 	msg.kb_name = {}
 	msg.kb_name.publishing =  'Accessible Publishing Knowledge Base';
+	msg.kb_name.kb = 'Knowledge Base';
 	
 	msg.UI = {};
 	msg.UI.applies = 'Applies To';
@@ -13,6 +14,7 @@ var msg = {};
 	msg.header.logo = 'DAISY';
 	
 	msg.category = {};
+	msg.category.cat = 'Categories';
 	msg.category.conf = 'Conformance';
 	msg.category.css = 'CSS';
 	msg.category.epub = 'EPUB';
@@ -47,7 +49,7 @@ var msg = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
 	
 	msg.appliesto = {};
-	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.'
+	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.';
 	
 	msg.pageControl = {};
 	msg.pageControl.copy = 'Copy';
@@ -57,3 +59,9 @@ var msg = {};
 	
 	msg.topics = {};
 	msg.topics.toc = 'Table of contents';
+	msg.topics.related = 'Related Topics';
+	
+	msg.appliesTo = {};
+	msg.appliesTo.yes = 'Yes';
+	msg.appliesTo.no = 'No';
+	msg.appliesTo.partial = 'Partial';
