@@ -1534,14 +1534,3 @@ function createCSSSelector (selector, style) {
 		styleSheet.insertRule(selector + '{' + style + '}', styleSheetLength);
 	}
 }
-
-
-
-
-var terms = {
-	"accessibility tree": 1,
-	"ace": 1,
-	"aria": 1,
-	"assistive technology": 1,
-	"author": 1
-}
