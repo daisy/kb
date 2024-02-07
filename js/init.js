@@ -193,7 +193,10 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
-			kb.generateSponsorBox();
+			
+			if (!getCookieValue('donate')) {
+				kb.generateDonateBox();
+			}
 		}
 		
 		kb.generateFooter();
@@ -650,23 +653,39 @@ KB.prototype.generateAppliesTo = function () {
 
 
 
-/* create the sponsorhip box at the top of the categories box */
+/* create the donate box at the top of the categories box */
 
-KB.prototype.generateSponsorBox = function () {
+KB.prototype.generateDonateBox = function () {
 	
-	var sponsor = document.createElement('aside');
-		sponsor.setAttribute('id', 'sponsor');
+	var donate = document.createElement('aside');
+		donate.setAttribute('id', 'donate');
 	
-	var sponsor_h2 = document.createElement('h2');
-		sponsor_h2.appendChild(document.createTextNode('Sponsored by'));
-	sponsor.appendChild(sponsor_h2);
+	var donate_h2 = document.createElement('strong');
+		donate_h2.appendChild(document.createTextNode('Donate'));
 	
-	var sponsor_img = document.createElement('img');
-		sponsor_img.src = '/graphics/daisy_logo.png';
-		sponsor_img.alt = 'Example'
-	sponsor.appendChild(sponsor_img);
+	donate.appendChild(donate_h2);
 	
-	document.getElementById('categories').insertAdjacentElement('afterBegin', sponsor);
+	var donate_p = document.createElement('span');
+		donate_p.setAttribute('class', 'small');
+		donate_p.appendChild(document.createTextNode('Help keep the DAISY Knowledge Base up-to-date by '));
+	
+	var donate_a = document.createElement('a');
+		donate_a.appendChild(document.createTextNode('donating'));
+		donate_a.setAttribute('href', 'https://daisy.org');
+		
+		donate_p.appendChild(donate_a);
+		donate_p.appendChild(document.createTextNode(' today!'));
+	
+	donate.appendChild(donate_p);
+
+	var donate_close = document.createElement('input');
+		donate_close.setAttribute('type', 'button');
+		donate_close.setAttribute('value', 'X');
+		donate_close.setAttribute('onclick', 'closeDonateBox()');
+	
+	donate.appendChild(donate_close);
+	
+	document.getElementById('col-wrapper').insertAdjacentElement('beforeBegin', donate);
 }
 
 
@@ -980,7 +999,13 @@ KB.prototype.generateFooter = function () {
 	
 	var privacylink = document.createElement('a');
 		privacylink.setAttribute('href','https://daisy.org/about-us/terms-and-conditions/privacy/');
-		privacylink.appendChild(document.createTextNode(msg.footer.privacy));
+		privacylink.appendChild(document.createTextNode(msg.footer.privacy + spacer));
+	
+	daisy.appendChild(privacylink);
+	
+	var privacylink = document.createElement('a');
+		privacylink.setAttribute('href','https://daisy.org/');
+		privacylink.appendChild(document.createTextNode('Donate'));
 	
 	daisy.appendChild(privacylink);
 	
@@ -1559,12 +1584,19 @@ function createCSSSelector (selector, style) {
 }
 
 
+function closeDonateBox() {
+	document.getElementById('donate').setAttribute('hidden','hidden');
+	
+	// set cookie to not show again for a month
+	var date = new Date();
+		date.setDate(date.getDate() + 30);
+	
+	var expires = date.toGMTString();
+	
+	document.cookie = 'donate=false; expires= ' + expires + '; Secure';
+}
 
-
-var terms = {
-	"accessibility tree": 1,
-	"ace": 1,
-	"aria": 1,
-	"assistive technology": 1,
-	"author": 1
+function getCookieValue(value) {
+	var result = document.cookie.match('(^|;)\\s*' + value + '\\s*=\\s*([^;]+)');
+	return result ? result.pop() : '';
 }
