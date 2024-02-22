@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page Navigation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for including page navigation a digital publication.">
+		<script>
+			var page_info = {
+				'category': 'Navigation',
+				'related': ['nav-pagebreaks','nav-pagelist','nav-pagesrc']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="desc" aria-label="overview">
+				<p>Providing page navigation in digital publications has many benefits. It allows users in mixed
+					print-digital environments, such as schools, to easily coordinate locations (e.g., all students can
+					reach the same page, regardless of whether they have the print or digital edition, when instructed
+					by the teacher). It also has general benefits for digital-only publications, where users would
+					otherwise be forced to use the same reading systems, often with the same text settings, to
+					coordinate digital locations.</p>
+				
+				<p>There are three key aspects to page navigation:</p>
+				
+				<ul>
+					<li>Adding <a href="pagebreaks.html">page break markers</a> to the publication.</li>
+					<li>Including a <a href="pagelist.html">page list</a> to allow users to access the page breaks.</li>
+					<li>Identifying the <a href="pagesrc.html">source of the pagination</a> when it comes from a 
+						statically paginated source.</li>
+				</ul>
+				
+				<p>Page break markers are special markup destinations in a digital publication. They provide assistive
+					technologies information about the current page the user is on and also provide the link ends for a
+					page list. For more information, refer to the knowledge base's <a href="pagebreaks.html">Page 
+						Breaks</a> page.</p>
+				
+				<p>The page list provides essential information to reading systems to implement "go to page"
+					functionality. It is a list of links to all the page break destinations in the digital publication.
+					Users typically are not provided the entire list of pages to dig through, such as with the table of
+					contents. For more information, refer to the knowledge base's <a href="pagelist.html">Page 
+						List</a> page.</p>
+				
+				<p>Identifying the source of pagination is the final piece to providing page navigation. Users need to
+					know what statically paginated source the page breaks and page list align to when deciding whether
+					the pagination will be useful (e.g., does it match the physical textbook their classmates are
+					using). The pagination source is provided in the metadata for the digital publication. For more
+					information, refer to the knowledge base's <a href="pagesrc.html">Pagination Source</a> page.</p>
+				
+				<p>Not all of these aspects will be present in every digital publication with pagination. A publication
+					might only have a page list, for example, and omit the page break markers, or a digital-only
+					publication would not have a source for its pagination. In general, though, digital publications
+					that provide page navigation for accessibility will include them all.</p>
+			</section>
+		</main>
+	</body>
+</html>
