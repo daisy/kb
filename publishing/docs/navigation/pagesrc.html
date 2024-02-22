@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page Source</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for identifying the source of pagination in a digital publication.">
+		<script>
+			var page_info = {
+				'category': 'Navigation',
+				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2'],
+				'related': ['nav-pagenav','nav-pagebreaks','nav-pagelist']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Identify the source of pagination so users can be sure the digital publication will be useful for
+					their needs.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Identify the source of the page breaks in the metadata. [[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Page break source identification (<code>pageBreakSource</code>)</div>
+						
+						<p>Unlike having to pair <code>dc:source</code> and <code>source-of</code> properties to identify the
+							pagination source, the <code>pageBreakSource</code> property only requires the identifier for
+							static page source (i.e., it can do in one property what previously required two).</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource">urn:isbn:9781234567891&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Page break source identification (<code>source-of</code>)</div>
+						
+						<p>This example uses the old <code>source-of</code> property to identify the pagination source.
+							<strong>This method is no longer recommended.</strong> Refer to the <a href="#faq-001">FAQ
+								entry</a> below for more information.</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;dc:source id="pg-src">urn:isbn:9781234567891&lt;/dc:source>
+&lt;meta property="source-of" refines="#pg-src">pagination&lt;/meta></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Should I use the <code>source-of</code> or <code>pageBreakSource</code> property?</dt>
+					<dd>
+						<p>The older way to identify the pagination source in EPUB is through a combination of 
+							<code>dc:source</code> and <code>source-of</code> metadata properties. This approach has two
+							serious flaws, however: one is that it only works for EPUB (refining metadata does not work 
+							in other frameworks); the other is that it does not work for digital-only editions (i.e., 
+							where the page breaks do not have a source).</p>
+						
+						<p id="pbs">The replacement method that uses only a single property called 
+							<code>pageBreakSource</code> is now preferred (see <a href="#ex-07">example 7</a>).
+							Although it will take another revision of EPUB before this property is fully integrated
+							into the standard, there are no barriers to using it. Epubcheck correctly validates the
+							property.</p>
+						
+						<p>The value of the <code>pageBreakSource</code> property can be set to "none" if the page 
+							breaks were created specifically for the digital edition, overcoming the problem
+							of using <code>dc:source</code>.</p>
+						
+						<p>Refer to <a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source 
+							Identification</a> for more information about the <code>pageBreakSource</code> property.</p>
+					</dd>
+					
+					<dt id="faq-002">What if the pagination source does not have a unique identifier like an ISBN?</dt>
+					<dd>
+						<p>It is not required that the <code>pageBreakSource</code> property contain a unique identifier,
+							only that it uniquely identify the source. In the absence of a unique identifier, create a
+							unique name for the source document using the information you have about it.</p>
+						
+						<p>There are many types of documents with static pagination but without unique identifiers that
+							can be represented as EPUBs &#8212; PDF manuals, word processing documents, etc.</p>
+						
+						<p>For these types of documents, you can minimally use the title to identify the page break 
+							source. For greater specificity, add the author(s), creation date, etc. to the
+							identifier.</p>
+						
+						<pre><code>&lt;metadata &#8230;>
+&#8230;
+&lt;meta property="pageBreakSource">
+ACME Explosive Tennis Balls - 
+User Manual, 5th Edition, PDF
+&lt;/meta>
+&#8230;
+&lt;/metadata></code></pre>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Although the <a href="pagelist.html">page list</a> and <a href="pagebreaks.html">page break
+					markers</a> are the technologies that allow users to access static page break locations, without
+					knowing the source of the pagination, users cannot determine the usefulness of a digital
+					publication. A student in a classroom, for example, needs to know whether the pagination was
+					derived from the same version of a print book that the rest of their class is using.</p>
+				
+				<p>The source of the pagination is identified using the <code>pageBreakSource</code> property.</p>
+				
+				<pre id="expl-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource">urn:isbn:9780123456789&lt;/meta></code></pre>
+				
+				<p>The value of the property is a unique identifier for the statically paginated source, such as
+					its ISBN.</p>
+			</section>
+				
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>EPUB &#8212; <a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source
+						Identification</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
