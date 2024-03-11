@@ -89,8 +89,8 @@ var topic_list = [
 					{
 						'id': 'epub-val-overview',
 						'href': 'validation/overview.html',
-						'title': 'Overview',
-						'subtitle': 'Overview of validation tools for EPUB publications.'
+						'title': 'Validation Process',
+						'subtitle': 'Overview of the validation process and tools and for EPUB publications.'
 					},
 					{
 						'id': 'epub-val-epubcheck',
@@ -101,7 +101,7 @@ var topic_list = [
 					{
 						'id': 'epub-val-ace',
 						'href': 'validation/ace.html',
-						'title': 'Ace',
+						'title': 'Ace by DAISY',
 						'subtitle': 'How to use the Ace checker to find accessibility issues.'
 					},
 					{
