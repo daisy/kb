@@ -78,6 +78,12 @@ var topic_list = [
 						'href': 'language.html',
 						'title': 'Setting the Language',
 						'subtitle': 'Language identification in the package document and in content documents.'
+					},
+					{
+						'id': 'epub-dir',
+						'href': 'dir.html',
+						'title': 'Text Direction',
+						'subtitle': 'Specifying whether metadata text direction is left-to-right or right-to-left.'
 					}
 				]
 			},
@@ -412,6 +418,12 @@ var topic_list = [
 						'href': 'sections.html',
 						'title': 'Sections',
 						'subtitle': 'The <code>section</code> element'
+					},
+					{
+						'id': 'html-dir',
+						'href': 'dir.html',
+						'title': 'Text Direction',
+						'subtitle': 'The <code>dir</code> attribute'
 					},
 					{
 						'id': 'html-svg',
