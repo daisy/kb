@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>unlocked</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			
+			<section id="unlocked">
+				<h3>unlocked</h3>
+				
+				<p>The <a href="https://w3c.github.io/a11y-discov-vocab/latest/#unlocked"><code>unlocked</code>
+					value</a> is used to indicate that no digital rights management (DRM) or other content
+					restriction protocols are applied to the content.</p>
+				
+				<p>DRM schemes are often applied to digital publications to protect them from being copied, but
+					these schemes, or the rights applied to the content, can sometimes interfere with the
+					ability of assistive technologies to access or play back the text.</p>
+				
+				<div class="note" role="note" aria-labelledby="un-note">
+					<p id="un-note" class="label">Note</p>
+					<p>It is often vendors who apply DRM schemes to publications before distributing them to
+						users. As a result, before setting this value, authors need to ensure that the
+						publication will not subsequently have DRM applied. The pubication has to be guaranteed
+						to be unlocked after distribution.</p>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

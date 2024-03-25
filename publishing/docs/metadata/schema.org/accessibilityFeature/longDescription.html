@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>longDescription</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="longDescription">
+				<h3>longDescription</h3>
+				
+				<p>The <a 
+					href="https://w3c.github.io/a11y-discov-vocab/latest/#longDescription"><code>longDescription</code> 
+					value</a> is used to indicate that all complex content (images, tables, charts, equations,
+					etc.) include an extended description of their purpose.</p>
+				
+				<p>Complexity is determined by whether <a href="#alternativeText">alternative text</a> alone is
+					sufficient to convey the full information of the content (e.g., for images and charts), or
+					whether the structure is likely to be understood by someone who cannot see it (e.g., for
+					tables). See the <a
+						href="https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=111#non-text-content"
+						>techniques for WCAG success criterion 1.1.1</a> for more information on when extended
+					descriptions are needed.</p>
+				
+				<p>See the <a href="../../html/images-desc.html">Image Descriptions knowledge base page</a> for more
+					information.</p>
+				
+				<figure id="ex-ld-01">
+					<figcaption>
+						<p class="label">Long description included in an HTML <code>details</code> element.</p>
+					</figcaption>
+					<pre id="ex-ld-01-src" class="prettyprint"><code>&lt;figure id="fig01">
+   &lt;figcaption>
+      &lt;p>Figure 1 - Spectral analysis of an earthquake&lt;/p>
+      &lt;details>
+         &lt;summary>Description&lt;/summary>
+         &lt;p>The chart shows a typical &#8230;&lt;/p>
+      &lt;/details>
+   &lt;/figcaption>
+   &#8230;
+&lt;/figure></code></pre>
+				</figure>
+				
+				<figure id="ex-ld-02">
+					<figcaption>
+						<p class="label">Hidden long description attached using the
+							<code>aria-describedby</code> attribute.</p>
+					</figcaption>
+					<pre id="ex-ld-02-src" class="prettyprint"><code>&lt;img src="speheres.jpg" alt="Celestial spheres" aria-describedby="img-desc"/>
+&lt;p id="img-desc" hidden="">The 47 spheres are shown &#8230;&lt;/p></code></pre>
+				</figure>
+			</section>
+		</main>
+	</body>
+</html>
