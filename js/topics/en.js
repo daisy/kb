@@ -78,6 +78,12 @@ var topic_list = [
 						'href': 'language.html',
 						'title': 'Setting the Language',
 						'subtitle': 'Language identification in the package document and in content documents.'
+					},
+					{
+						'id': 'epub-dir',
+						'href': 'dir.html',
+						'title': 'Text Direction',
+						'subtitle': 'Specifying whether metadata text direction is left-to-right or right-to-left.'
 					}
 				]
 			},
@@ -89,8 +95,8 @@ var topic_list = [
 					{
 						'id': 'epub-val-overview',
 						'href': 'validation/overview.html',
-						'title': 'Overview',
-						'subtitle': 'Overview of validation tools for EPUB publications.'
+						'title': 'Validation Process',
+						'subtitle': 'Overview of the validation process and tools and for EPUB publications.'
 					},
 					{
 						'id': 'epub-val-epubcheck',
@@ -101,7 +107,7 @@ var topic_list = [
 					{
 						'id': 'epub-val-ace',
 						'href': 'validation/ace.html',
-						'title': 'Ace',
+						'title': 'Ace by DAISY',
 						'subtitle': 'How to use the Ace checker to find accessibility issues.'
 					},
 					{
@@ -120,30 +126,62 @@ var topic_list = [
 		'subtitle': 'The navigation topics describe how to author accessible navigation aids.',
 		'id': 'nav',
 		'path': 'navigation',
-		'topics': [
+		'categories': [
 			{
-				'id': 'nav-contentlist',
-				'href': 'content-list.html',
-				'title': 'Content Lists',
-				'subtitle': 'Describes how to add lists of tables, figures, etc.'
+				'id': 'nav-aids',
+				'title': 'Publication Navigation',
+				'path': 'nav',
+				'topics': [
+					{
+						'id': 'nav-contentlist',
+						'href': 'content-list.html',
+						'title': 'Content Lists',
+						'subtitle': 'Describes how to add lists of tables, figures, etc.'
+					},
+					{
+						'id': 'nav-landmarks',
+						'href': 'landmarks.html',
+						'title': 'Landmarks',
+						'subtitle': 'Describes the EPUB concept of publication landmarks.'
+					},
+					{
+						'id': 'nav-toc',
+						'href': 'toc.html',
+						'title': 'Table of Contents',
+						'subtitle': 'Describes best practices for including tables of contents.'
+					}
+				]
 			},
 			{
-				'id': 'nav-landmarks',
-				'href': 'landmarks.html',
-				'title': 'Landmarks',
-				'subtitle': 'Describes the EPUB concept of publication landmarks.'
-			},
-			{
-				'id': 'nav-pagelist',
-				'href': 'pagelist.html',
+				'id': 'nav-page',
 				'title': 'Page Navigation',
-				'subtitle': 'Describes the purpose and construction of a page list.'
-			},
-			{
-				'id': 'nav-toc',
-				'href': 'toc.html',
-				'title': 'Table of Contents',
-				'subtitle': 'Describes best practices for including tables of contents.'
+				'path': 'nav',
+				'topics': [
+					{
+						'id': 'nav-pagenav',
+						'href': 'pagenav.html',
+						'title': 'Overview',
+						'subtitle': 'Introduction to the components of page navigation.'
+					},
+					{
+						'id': 'nav-pagebreaks',
+						'href': 'pagebreaks.html',
+						'title': 'Page Break Markers',
+						'subtitle': 'Describes the how to add page break markers.'
+					},
+					{
+						'id': 'nav-pagelist',
+						'href': 'pagelist.html',
+						'title': 'Page List',
+						'subtitle': 'Describes the purpose and construction of a page list.'
+					},
+					{
+						'id': 'nav-pagesrc',
+						'href': 'pagesrc.html',
+						'title': 'Page Source',
+						'subtitle': 'How to identify the source of pagination.'
+					}
+				]
 			}
 		]
 	},
@@ -380,6 +418,12 @@ var topic_list = [
 						'href': 'sections.html',
 						'title': 'Sections',
 						'subtitle': 'The <code>section</code> element'
+					},
+					{
+						'id': 'html-dir',
+						'href': 'dir.html',
+						'title': 'Text Direction',
+						'subtitle': 'The <code>dir</code> attribute'
 					},
 					{
 						'id': 'html-svg',

@@ -43,6 +43,7 @@ function KB() {
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
 	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
+	this.isSubIndex = page_info.hasOwnProperty('subIndex') && page_info['subIndex'] ? true : false;
 	this.isSearch = page_info.hasOwnProperty('search') ? true : false;
 	this.isHomePage = page_info.hasOwnProperty('isSiteHome') ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
@@ -193,7 +194,6 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
-			// kb.generateSponsorBox();
 		}
 		
 		kb.generateFooter();
@@ -242,7 +242,7 @@ KB.prototype.generateHeader = function () {
 	// add the daisy logo
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
-		logo.setAttribute('src','/graphics/daisy_logo.png');
+		logo.setAttribute('src','/graphics/daisy_high.jpg');
 		logo.setAttribute('alt','DAISY');
 	
 	h1_a.appendChild(logo);
@@ -646,27 +646,6 @@ KB.prototype.generateAppliesTo = function () {
 	else {
 		document.querySelector('div#body').insertAdjacentElement('beforeEnd', section)
 	}
-}
-
-
-
-/* create the sponsorhip box at the top of the categories box */
-
-KB.prototype.generateSponsorBox = function () {
-	
-	var sponsor = document.createElement('aside');
-		sponsor.setAttribute('id', 'sponsor');
-	
-	var sponsor_h2 = document.createElement('h2');
-		sponsor_h2.appendChild(document.createTextNode('Sponsored by'));
-	sponsor.appendChild(sponsor_h2);
-	
-	var sponsor_img = document.createElement('img');
-		sponsor_img.src = '/graphics/daisy_logo.png';
-		sponsor_img.alt = 'Example'
-	sponsor.appendChild(sponsor_img);
-	
-	document.getElementById('categories').insertAdjacentElement('afterBegin', sponsor);
 }
 
 
@@ -1305,7 +1284,10 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 			}
 			
 			else {
-				a.setAttribute('href', (isRoot ? topic.path + '/' : '') + topic.topics[j].href);
+				const stripSubPath = /^.*?\//;
+				var href = this.isSubIndex ? topic.topics[j].href.replace(stripSubPath, '') : topic.topics[j].href;
+				
+				a.setAttribute('href', (isRoot ? topic.path + '/' : '') + href);
 			}
 			
 			if (topic.topics[j].hasOwnProperty('aria-label')) {
