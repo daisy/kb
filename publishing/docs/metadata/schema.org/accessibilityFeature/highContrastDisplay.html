@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>highContrastDisplay</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's highContrastDisplay value">
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
@@ -16,17 +16,62 @@
 
 	<body>
 		<main>
-			<section id="highContrastDisplay">
-				<h3>highContrastDisplay</h3>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Content meets the visual contrast threshold set out in WCAG Success Criteria 1.4.6.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">
+   highContrastDisplay
+&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="highContrastDisplay"/></code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["highContrastDisplay"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
 				
 				<p>The <a 
-					href="https://w3c.github.io/a11y-discov-vocab/latest/#highContrastDisplay"><code>highContrastDisplay</code>
+					href="https://www.w3.org/2021/a11y-discov-vocab/latest/#highContrastDisplay"><code>highContrastDisplay</code>
 					value</a> is used to indicate that there is at least a 7:1 contrast ratio between the
 					foreground text and the background, including for images of text (see <a 
 						href="https://www.w3.org/TR/WCAG2/#contrast-enhanced">WCAG success criterion 1.4.6</a>).</p>
 				
 				<p>High contrast display is helpful for users with moderately low vision or with color
 					deficiencies.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>Schema.org &#8212; <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a></li>
+					<li>Schema.org Accessibility Vocabulary &#8212; <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#highContrastDisplay">highContrastDisplay</a>
+					</li>
+				</ul>
 			</section>
 		</main>
 	</body>
