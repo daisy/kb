@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>highContrastAudio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's highContrastAudio value">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Audio content with speech in the foreground meets the contrast thresholds set out in WCAG Success Criteria 1.4.7.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">
+   highContrastAudio
+&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="highContrastAudio"/></code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["highContrastAudio"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The <a 
+					href="https://www.w3.org/2021/a11y-discov-vocab/latest/#highContrastAudio"><code>highContrastAudio</code></a>
+					value is used when a publication contains audio with speech and there is low or no background
+					noise. Low background noise is defined as a minimum 20dB difference between foreground speech
+					and background sounds (see <a
+						href="https://www.w3.org/TR/WCAG2/#low-or-no-background-audio">WCAG success criterion
+						1.4.7</a>).</p>
+				
+				<p>High contrast audio is helpful for users who are hard of hearing and have trouble separating
+					foreground speech from background noise.</p>
+				
+				<p>The requirement for low or no background noise does not apply to musical works where the
+					background sound is integral to the presentation.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>Schema.org &#8212; <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a></li>
+					<li>Schema.org Accessibility Vocabulary &#8212; <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#highContrastAudio">highContrastAudio</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

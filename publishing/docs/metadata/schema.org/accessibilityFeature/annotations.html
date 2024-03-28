@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>annotations</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's annotations value">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">The resource includes annotations from the author, instructor and/or others.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">
+   annotations
+&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="annotations"/></code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["annotations"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>The <a 
+					href="https://www.w3.org/2021/a11y-discov-vocab/latest/#annotations"><code>annotations</code> 
+					value</a> is used to indicate that a publication comes with explanatory annotations that
+					improve the accessibility of the work (i.e., the value should not be used where the
+					annotations are designed for general use, such as in annotated teacher's editions or
+					exercises with explanatory notes).</p>
+				
+				<p>Examples of annotations with an accessibility benefit could include extended descriptions
+					for images, plain language explanations of complex theorems, and text identifiers for
+					visual cues.</p>
+				
+				<p>Annotations can either be part of text of a publication or can be authored in a separate
+					technology such as Web Annotations.</p>
+				
+				<div class="note" role="note" aria-labelledby="anno-note">
+					<p id="anno-note" class="label">Note</p>
+					<p>The <a href="http://www.idpf.org/epub/oa">Open Annotation in EPUB</a> specification
+						is not currently known to be supported in any reading systems. A proposal is expected
+						to be adopted to include <a href="https://github.com/w3c/aria/issues/1109">accessible
+							annotations in ARIA 1.3</a>, however. As a result, this value is rarely applicable
+						to EPUB publications at this time.</p>
+				</div>
+				
+				<p>Do not use this value for ruby annotations. See the <a href="#rubyAnnotations"
+					><code>rubyAnnotations</code> value</a> instead.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>Schema.org &#8212; <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a></li>
+					<li>Schema.org Accessibility Vocabulary &#8212; <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#annotations">annotations</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
