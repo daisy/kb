@@ -586,16 +586,22 @@ var topic_list = [
 						'subtitle': 'Techniques for hiding content both from visual rendering and from assistive technologies.'
 					},
 					{
+						'id': 'htmk-refs',
+						'href': 'reflinks.html',
+						'title': 'Links to Reference Marks',
+						'subtitle': 'Practices for linking back to the references to tables, figures, notes, etc.'
+					},
+					{
 						'id': 'html-poetry',
 						'href': 'poetry.html',
 						'title': 'Poetry',
 						'subtitle': 'Techniques for formatting and describing line-based content.'
 					},
 					{
-						'id': 'htmk-refs',
-						'href': 'reflinks.html',
-						'title': 'Links to Reference Marks',
-						'subtitle': 'Practices for linking back to the references to tables, figures, notes, etc.'
+						'id': 'html-wordbreaks',
+						'href': 'wordbreaks.html',
+						'title': 'Word Breaks',
+						'subtitle': 'Techniques for breaking long words to fit the screen.'
 					}
 				]
 			},
