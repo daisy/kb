@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Text Direction</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the dir attribute in the EPUB package document">
+		<script>
+			var page_info = {
+				'category': ['EPUB'],
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Set the base direction for metadata in the package document to ensure that it is rendered correctly.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Set the <code>dir</code> attribute on the <code>package</code> element [[WCAG-1.3.2]]</li>
+					<li>Set the <code>dir</code> attribute on <code>meta</code> elements whenever the base direction changes [[WCAG-1.3.2]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Declaring the default base direction</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="he" dir="rtl">
+   &#8230;
+&lt;/package></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Overriding the default base direction</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="ar" dir="rtl">
+   &lt;metadata>
+      &#8230;
+      &lt;dc:subject dir="ltr">POETRY / Middle Eastern&lt;/dc:subject>
+      &#8230;
+   &lt;/metadata>
+   &#8230;
+&lt;/package></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Can I set the language of the text instead?</dt>
+					<dd>
+						<p>No. The language declaration does not affect the display directionality. <a 
+							href="lang.html">Setting the language</a> is important for text-to-speech rendering.</p>
+					</dd>
+					
+					<dt>Why do I need to declare a default left-to-right base direction in EPUB 3 but not HTML?</dt>
+					<dd>
+						<p>HTML defaults to left-to-right in the absence of a <code>dir</code> attribute.</p>
+						
+						<p>EPUB 3 did not define the default directionality for package document metadata prior to EPUB
+							3.3, or require support for both left-to-right and right-to-left text ranges, so reading
+							systems often only support a single direction regardless of what is authored. Adding the
+							<code>dir</code> attribute to set the default text direction, and to indicate changes on
+							individual metadata elements <a href="#faq-002">may help with rendering</a> in
+							these older reading systems, but is not guaranteed. Regardless, it is recommended to set
+							the attribute going forward to ensure the correct base direction is applied.</p>
+						
+						<p>If a base direction is not specified, reading systems are expected to default to using the
+							Unicode Bidi Algorithm to determine it. As there was initially no default base direction,
+							one could not be added when the requirements for the attribute were improved. Too many
+							publications were authored assuming their local base direction would be applied.</p>
+					</dd>
+					
+					<dt id="faq-002">Why is the attribute labelled "under-implemented" in EPUB 3.3?</dt>
+					<dd>
+						<p>Most reading systems only support display of a single default text directionality, which
+							leads to text in another direction being incorrectly displayed to users. Features like this
+							typically have to be removed from W3C standards, but it is hoped the support situation will
+							improve moving forward because of the attribute's importance for internationalization.</p>
+						
+						<p>W3C allowed existing EPUB features that did not meet the minimum support threshold to be
+							retained provided they offered essential functionality and were marked "under-implemented".
+							The label will be removed in the future when support increases.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>It is important to set the base direction for text in the package document to help ensure that it is
+					displayed properly by reading systems and read properly by assistive technologies.</p>
+				
+				<div class="note" role="note" aria-labelledby="html-dir">
+					<p id="html-dir" class="label">Note</p>
+					<p>The <code>dir</code> attribute only affects text content in the <code>metadata</code> section;
+						it does not affect how EPUB content documents are rendered. For information about setting the
+						base direction in EPUB content documents, refer to the Knowledge Base's <a 
+							href="../html/dir.html">HTML Text Direction</a> page.</p>
+				</div>
+				
+				<p>There are three ways to set the base direction in the package document:</p>
+				
+				<dl>
+					<dt>Globally</dt>
+					<dd>
+						<p>To set the base direction for all text content, set a <code>dir</code> attribute
+							on the root <code>package</code> element.</p>
+						
+						<pre id="desc-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="he" dir="rtl"></code></pre>
+						
+						<div class="note" role="note" aria-labelledby="epub2-support">
+							<p id="epub2-support" class="label">Note</p>
+							<p>EPUB 2 does not support the <code>dir</code> attribute in the package document,
+								so this technique does not apply.</p>
+						</div>
+					</dd>
+					
+					<dt>Per-element</dt>
+					<dd>
+						<p>To override the default base direction on the <code>package</code> element, add a
+							<code>dir</code> attribute to each metadata element with a different base direction.</p>
+						
+						<pre id="desc-02-src" class="prettyprint linenums"><code>&lt;dc:creator &#8230; xml:lang="ar" dir="rtl">&#8230;&lt;/dc:creator></code></pre>
+						
+						<div class="note" role="note" aria-labelledby="epub2-support">
+							<p class="label">Note</p>
+							<p>EPUB 2 does not support the <code>dir</code> attribute in the package document,
+								so this technique does not apply.</p>
+						</div>
+					</dd>
+					
+					<dt>Inline</dt>
+					<dd>
+						<p id="unicode-ctrl">It is not possible to identify inline changes in the base direction in the
+							package document. Although using markup to set the base direction is preferred, in these
+							cases you can use Unicode control characters to identify the changes. For an
+							introduction to the control characters and how to use them, refer to the W3C article <a 
+								href="https://www.w3.org/International/questions/qa-bidi-unicode-controls">How to use
+								Unicode controls for bidi text</a>.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub-33/#attrdef-dir">The <code>dir</code> attribute</a></li>
+					<li>W3C &#8212; <a href="https://www.w3.org/International/articles/inline-bidi-markup/uba-basics">Unicode Bidirectional Algorithm basics</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
