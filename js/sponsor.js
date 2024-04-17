@@ -58,6 +58,7 @@ var daisySponsor = (function() {
 			var sponsor = document.createElement('aside');
 				sponsor.setAttribute('id', 'sponsor');
 				sponsor.setAttribute('class', 'kb');
+				sponsor.setAttribute('aria-label', 'Sponsor');
 			document.getElementById('col-wrapper').insertAdjacentElement('beforeBegin', sponsor);
 		}
 		
