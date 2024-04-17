@@ -1,0 +1,37 @@
+
+/* sponsorship box */
+
+aside#sponsor {
+	font-size: 90%;
+	background-color: rgb(255,255,240);
+	border-bottom: 0.1rem solid lightgrey;
+	margin-top: 0;
+	padding: 1rem;
+	width: 98vw;
+	max-width: unset;
+}
+
+aside#sponsor input {
+	float: right;
+	margin-right: 1rem;
+}
+
+aside#sponsor span {
+	margin: 0 0 0 1rem;
+	display: inline-block;
+}
+
+aside#sponsor a {
+	display: inline-block;
+	margin-left: 1rem;
+}
+
+aside#sponsor a:visited {
+	color: rgb(0,0,200);
+}
+
+aside#sponsor a:hover {
+	color: rgb(200,0,0);
+	text-decoration: underline;
+}
+

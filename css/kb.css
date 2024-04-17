@@ -357,41 +357,11 @@ div#categories {
 
 /* sponsorship box */
 
-aside#donate {
-	border-bottom: 0.1rem solid lightgrey;
-	margin-top: 0;
-	padding: 1rem;
-	background-color: rgb(255,255,240);
-	width: 98vw;
-	max-width: unset;
+aside#sponsor.kb {
+	padding-left: 4rem;
+	width: 96vw;
 }
 
-aside#donate strong {
-	margin: 0 0 0 1rem;
-	padding: 0;
-	font-size: 1.4rem;
-	width: 100%;
-}
-
-aside#donate input {
-	font-size: 80%;
-	float: right;
-	margin-right: 1rem;
-}
-
-aside#donate span {
-	font-size: 80%;
-	margin: 0 0 0 1rem;
-}
-
-aside#donate a:visited {
-	color: rgb(0,0,200);
-}
-
-aside#donate a:hover {
-	color: rgb(200,0,0);
-	text-decoration: underline;
-}
 
 /* page title */
 
