@@ -26,7 +26,7 @@ var daisySponsor = (function() {
 	
 	const lang = document.documentElement.lang;
 	
-	function loadSponsorInfo(kb) {
+	function loadSponsorInfo(site) {
 	
 		if (getCookieValue('sponsor')) {
 			return;
@@ -37,50 +37,50 @@ var daisySponsor = (function() {
 			.then(response => {
 				if (!response.ok) {
 					// throw new Error("Error fetching config file: " + response.status);
-					generateSponsorInfo(sponsorship_fallback, kb);
+					generateSponsorInfo(sponsorship_fallback, site);
 				}
-				generateSponsorInfo(response.json(), kb);
+				generateSponsorInfo(response.json(), site);
 			})
 			
 			.catch(function () {
-				generateSponsorInfo(sponsorship_fallback, kb);
+				generateSponsorInfo(sponsorship_fallback, site);
 			})
 	}
 	
-	function generateSponsorInfo(json, kb) {
+	function generateSponsorInfo(json, site) {
 	
 		var sponsorInfo;
 		
-		if (kb) {
+		if (site == 'kb') {
 			sponsorInfo = json.KnowledgeBase
-			
-			// add the missing aside
-			var sponsor = document.createElement('aside');
-				sponsor.setAttribute('id', 'sponsor');
-				sponsor.setAttribute('class', 'kb');
-				sponsor.setAttribute('aria-label', 'Sponsor');
-			document.getElementById('col-wrapper').insertAdjacentElement('beforeBegin', sponsor);
 		}
 		
-		else {
+		else if (site == 'smart') {
 			sponsorInfo = json.SMART
 		}
 		
-		if (!sponsorInfo[lang].active) {
-			closeSponsorBox();
+		else {
 			return;
 		}
 		
-		var sponsorBox = document.getElementById('sponsor');
+		if (!sponsorInfo[lang].active) {
+			return;
+		}
 		
+		// add the aside
+		var sponsor = document.createElement('aside');
+			sponsor.setAttribute('id', 'sponsor');
+			sponsor.setAttribute('class', 'kb');
+			sponsor.setAttribute('aria-label', 'Sponsor');
+
 		var msg = document.createElement('span');
 			msg.appendChild(document.createTextNode(sponsorInfo[lang].messageText));
-		sponsorBox.appendChild(msg);
+		sponsor.appendChild(msg);
 		
 		var button = document.createElement('a');
 			button.href = sponsorInfo[lang].url;
 			button.appendChild(document.createTextNode(sponsorInfo[lang].buttonText));
-		sponsorBox.appendChild(button);
+		sponsor.appendChild(button);
 		
 		var sponsor_close = document.createElement('input');
 			sponsor_close.setAttribute('type', 'button');
@@ -88,8 +88,15 @@ var daisySponsor = (function() {
 			sponsor_close.setAttribute('onclick', 'daisySponsor.closeSponsorBox()');
 			sponsor_close.setAttribute('aria-label', 'Close');
 		
-		sponsorBox.appendChild(sponsor_close);
+		sponsor.appendChild(sponsor_close);
 		
+		if (site == 'kb') {
+			document.getElementById('col-wrapper').insertAdjacentElement('beforeBegin', sponsor);
+		}
+		
+		else if (site == 'smart') {
+			document.getElementById('page-wrapper').insertAdjacentElement('afterBegin', sponsor);
+		}
 	}
 	
 	function closeSponsorBox() {
@@ -111,11 +118,11 @@ var daisySponsor = (function() {
 	}
 
 	return {
-		loadSponsorInfo: function(kb) {
-			loadSponsorInfo(kb);
+		loadSponsorInfo: function(site) {
+			loadSponsorInfo(site);
 		},
 		
-		closeSponsorBox: function(kb) {
+		closeSponsorBox: function() {
 			closeSponsorBox();
 		}
 	}

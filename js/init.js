@@ -196,7 +196,7 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
-			daisySponsor.loadSponsorInfo(true);
+			daisySponsor.loadSponsorInfo('kb');
 		}
 		
 		kb.generateFooter();
