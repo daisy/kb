@@ -65,7 +65,7 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
-		this.writeHeadTag('js', '/js/sponsor.js');
+		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/sponsor.css');
 		this.writeHeadTag('css', '/css/prettify.css');
