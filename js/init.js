@@ -859,7 +859,7 @@ KB.prototype.generateFooter = function () {
 			href: 'about.html'
 		},
 		{
-			name: msg.footer.sponsor,
+			name: msg.footer.support,
 			href: 'https://daisy.org/KBSponsor'
 		}
 	];

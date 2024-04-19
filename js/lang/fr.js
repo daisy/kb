@@ -29,7 +29,7 @@ var msg = {};
 	msg.footer.top = '';
 	msg.footer.topics = '';
 	msg.header.whatnew = 'Quoi de neuf';
-	msg.footer.sponsor = '';
+	msg.footer.support = '';
 
 	msg.shortForm = {};
 	
