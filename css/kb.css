@@ -355,6 +355,14 @@ div#categories {
 }
 
 
+/* sponsorship box */
+
+aside#sponsor.kb {
+	padding-left: 4rem;
+	width: 96vw;
+}
+
+
 /* page title */
 
 div#page-title {

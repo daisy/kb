@@ -65,7 +65,9 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
+		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
+		this.writeHeadTag('css', '/css/sponsor.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
 		if (this.isIndex || this.isHomePage) {
@@ -194,6 +196,7 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
+			daisySponsor.loadSponsorInfo('kb');
 		}
 		
 		kb.generateFooter();
@@ -854,6 +857,10 @@ KB.prototype.generateFooter = function () {
 			/* about */
 			name: msg.footer.about,
 			href: 'about.html'
+		},
+		{
+			name: msg.footer.support,
+			href: 'https://daisy.org/KBSponsor'
 		}
 	];
 	
@@ -1538,15 +1545,4 @@ function createCSSSelector (selector, style) {
 		}
 		styleSheet.insertRule(selector + '{' + style + '}', styleSheetLength);
 	}
-}
-
-
-
-
-var terms = {
-	"accessibility tree": 1,
-	"ace": 1,
-	"aria": 1,
-	"assistive technology": 1,
-	"author": 1
 }
