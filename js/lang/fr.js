@@ -41,11 +41,11 @@ var msg = {};
 	msg.footer.request = 'Request Topics';
 	msg.footer.site = 'Site';
 	msg.footer.spec = 'Specifications';
+	msg.footer.support = '';
 	msg.footer.terms = 'Conditions générales d\'utilisation';
 	msg.footer.top = 'Back to Top \u2191';
 	msg.footer.topics = 'All Topics';
 	msg.header.whatnew = 'Quoi de neuf';
-	msg.footer.support = '';
 
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';

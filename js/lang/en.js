@@ -40,11 +40,11 @@ var msg = {};
 	msg.footer.request = 'Request Topics';
 	msg.footer.site = 'Site';
 	msg.footer.spec = 'Specifications';
+	msg.footer.support = 'Support';
 	msg.footer.terms = 'Terms of Use';
 	msg.footer.top = 'Back to Top \u2191';
 	msg.footer.topics = 'All Topics';
 	msg.footer.whatnew = 'What\'s New';
-	msg.footer.support = 'Support';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
