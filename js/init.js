@@ -43,6 +43,7 @@ function KB() {
 	this.isRootIndex = page_info.hasOwnProperty('isRootIndex') && page_info['isRootIndex'] ? true : false;
 	this.isCategoryIndex = (page_info.hasOwnProperty('isIndex') && page_info['isIndex']) ? true : false;
 	this.isIndex = (this.isRootIndex || this.isCategoryIndex) ? true : false;
+	this.isSubIndex = page_info.hasOwnProperty('subIndex') && page_info['subIndex'] ? true : false;
 	this.isSearch = page_info.hasOwnProperty('search') ? true : false;
 	this.isHomePage = page_info.hasOwnProperty('isSiteHome') ? true : false;
 	this.noCategory = (!page_info.hasOwnProperty('category')) ? true : false;
@@ -64,7 +65,9 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
 		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
+		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
+		this.writeHeadTag('css', '/css/sponsor.css');
 		this.writeHeadTag('css', '/css/prettify.css');
 		
 		if (this.isIndex || this.isHomePage) {
@@ -192,6 +195,7 @@ KB.prototype.writeTemplate = function () {
 		
 		else {
 			kb.generateCategoryList();
+			daisySponsor.loadSponsorInfo('kb');
 		}
 		
 		kb.generateFooter();
@@ -240,7 +244,7 @@ KB.prototype.generateHeader = function () {
 	// add the daisy logo
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
-		logo.setAttribute('src','/graphics/daisy_logo.png');
+		logo.setAttribute('src','/graphics/daisy_high.jpg');
 		logo.setAttribute('alt', msg.header.logo);
 	
 	h1_a.appendChild(logo);
@@ -852,6 +856,10 @@ KB.prototype.generateFooter = function () {
 			/* about */
 			name: msg.footer.about,
 			href: 'about.html'
+		},
+		{
+			name: msg.footer.support,
+			href: 'https://daisy.org/KBSponsor'
 		}
 	];
 	
@@ -1282,7 +1290,10 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 			}
 			
 			else {
-				a.setAttribute('href', (isRoot ? topic.path + '/' : '') + topic.topics[j].href);
+				const stripSubPath = /^.*?\//;
+				var href = this.isSubIndex ? topic.topics[j].href.replace(stripSubPath, '') : topic.topics[j].href;
+				
+				a.setAttribute('href', (isRoot ? topic.path + '/' : '') + href);
 			}
 			
 			if (topic.topics[j].hasOwnProperty('aria-label')) {

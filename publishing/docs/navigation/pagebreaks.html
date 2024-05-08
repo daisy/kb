@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page Break Markers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for including page break markers in digital publications.">
+		<script>
+			var page_info = {
+				'category': 'Navigation',
+				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2'],
+				'related': ['nav-pagenav','nav-pagelist','nav-pagesrc']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Adding page break markers enables users of digital publications to discover the equivalent static
+					page they are on.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Identify page break locations in the text. [[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Page break marker (inline)</div>
+						<p>An empty <code>span</code> element identifies a page break inside a block element. It
+							is identified as a page break using the <code>role</code> attribute with the value
+							<code>doc-pagebreak</code>. The <code>aria-label</code> attribute provides a
+							pronounceable value.</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p>
+   &#8230;
+   &lt;span
+       role="doc-pagebreak"
+       id="pg24"
+       aria-label="24"/>
+   &#8230;
+&lt;/p></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 &#8212; Page break marker (block)</div>
+						
+						<p>A <code>div</code> element identifies a page break where inline elements are not allowed.
+							This example shows an example of a page number that is intended to be visible in the
+							content.</p>
+						
+						<p>(Note that the <code>aria-label</code> is currently required even when the number is visible.
+							A future version of the DPUB-ARIA module is expected to fix this so that the page number
+							is automatically obtained from the content of the element when a label is not specified.)</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24">24&lt;/div></code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-pb-001">What if the order of my ebook doesn't exactly match the order of the print
+						equivalent?</dt>
+					<dd><p>It is sometimes the case when converting to digital that front and back matter
+						material gets shuffled around and/or omitted. These changes in content order are not
+						unexpected, and users will understand that their ebooks may not be formatted exactly
+						the same way as the print, and may not include all the print content.</p>
+						<p>Do not renumber the page break markers to be sequential when the digital order is
+							different from the static source. Their purpose is to help users locate the static
+							equivalent location.</p>
+						<p>If some content is ordered differently in the digital version, or not included, best
+							practice is to make note of this in the <a 
+								href="../metadata/schema-org.html#accessibilitySummary">accessibility summary</a>
+							for the publication.</p>
+					</dd>
+					
+					<dt id="faq-pb-002">Does the page number reflect the page that is ending or the page that is
+						starting?</dt>
+					<dd><p>The page number always reflects the page that is starting.</p>
+					</dd>
+					
+					<dt id="faq-pb-003">Should the page break marker placement follow the print position?</dt>
+					<dd><p>No, page break markers are always placed at the start of the page's content,
+						regardless of whether the page number is printed at the top or bottom of the page in
+						the print edition. When a user jumps to a specific page, they want to jump to the start
+						of the content for that page, not the end.</p>
+					</dd>
+					
+					<dt id="faq-pb-004">Should I include the page numbers as content or empty elements?</dt>
+					<dd><p>There are pros and cons to each approach.</p>
+						<p>If you include the page numbers as text content within a <code>span</code> or 
+							<code>div</code>, the pages will be more easily accessible to both sighted users
+							and users using assistive technologies. This method has been employed in previous
+							DAISY standards. The potential downside, however, is that mainstream user agents
+							will not provide equivalent functionality to turn off unwanted content, forcing
+							users to hear and view the page numbers.</p>
+						<p>Page numbers as empty elements are the more traditional mainstream approach, with
+							anchor tags having served this function in the past. Using the 
+							<code>aria-label</code> attribute on an empty element, however, limits the users
+							who will have access to the page number while reading.</p>
+						<p>Although user agents don't support toggling the visibility of page numbers, it is
+							possible to provide the functionality using JavaScript. A script could be included
+							in each document to show/hide the numbers.</p>
+					</dd>
+					
+					<dt id="faq-pb-005">Should I use the <code>aria-label</code> or <code>title</code>
+						attribute for the page number?</dt>
+					<dd>
+						<p>The use of <code>aria-label</code> is recommended when the page number is not
+							included as text content, but both attributes can be used. <code>aria-label</code>
+							has higher precedence than <code>title</code> in the <a 
+								href="https://www.w3.org/TR/accname-1.1/">accessible name computation 
+								algorithm</a>.</p>
+					</dd>
+					
+					<dt id="faq-pb-006">Where do I put a page number when the page break occurs in the middle
+						of a list?</dt>
+					<dd><p>Lists often break across pages, with one item ending at the bottom of one and a new
+						item starting at the top of the next. In these cases, it is not possible to locate the
+						page number between the two list items, as it is not valid for a list to contain
+						anything but list items.</p>
+						<p>The obvious solutions are to either insert the page number as the very last element
+							in the item that ends the page:</p>
+						<pre><code>&lt;li>&#8230;. &lt;span role="doc-pagebreak" aria-label="24"/>&lt;/li>
+&lt;li>&#8230;&lt;/li>
+</code></pre>
+						<p>or to place it as the very first element in the list item that starts the page</p>
+						<pre><code>&lt;li>&#8230;&lt;/li>
+&lt;li>&lt;span role="doc-pagebreak" aria-label="24"/> &#8230; &lt;/li>
+</code></pre>
+						<p>One practice to avoid is creating a new list item just for the page break. As page
+							breaks are often not visible content, an empty list item will be confusing to all
+							users and may alter the meaning of the list.</p>
+					</dd>
+					
+					<dt id="faq-pb-007">Where do I put the page break if a word is hyphenated across a
+						page?</dt>
+					<dd><p>Place the page marker after the word. Do not retain the print hyphenation and insert
+						the number in the middle of the word.</p></dd>
+					
+					<dt id="faq-pb-009">Can I put the page break inside a heading?</dt>
+					<dd>
+						<p>No, do not put page breaks inside headings. If you do this, the page number will
+							become part of the accessible name for the section (i.e., it is calculated as part
+							of the text content of the heading).</p>
+						<p>Put the page break number before the heading tag. If you are using an empty element for the
+							page break (i.e., the value is in a <code>title</code> attribute as in <a 
+								href="#ex-01">example 1</a>), moving the page break before the heading will not add
+							add extra space to the layout.</p>
+					</dd>
+					
+					<dt id="faq-pb-008">Can I use <code>a</code> tags for page numbers?</dt>
+					<dd><p>The <code>a</code> element has two specific uses defined in HTML5: for links when
+						the <code>href</code> attribute is present, and for placeholder links when it is not
+						(e.g., a link that might be active in another context or after some interaction by the
+						user). As page breaks are not links, and are never intended to be activated as links,
+						it is not recommended to use them for page break markers.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>If a digital publication is produced from the same workflow as a print document, page break
+					locations should be retained. Retaining the page break locations can allow assistive
+					technologies and reading systems to announce the current page users are on and also allow users
+					to move forward or backward by page. (This functionality is not yet available for EPUBs.)</p>
+				
+				<p>Page break locations can be added to the markup using <code>span</code> and <code>div</code>
+					tags with a <code>role</code> attribute set to the value <code>doc-pagebreak</code>.</p>
+				
+				<pre id="expl-pb-01-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" id="pg2">2&lt;/div></code></pre>
+				
+				<p>To hide the page number from visual
+					viewing, the <code>aria-label</code> attribute can be used to identify the number.</p>
+				
+				<pre id="expl-pb-02-src" class="prettyprint linenums"><code>&lt;span role="doc-pagebreak" id="pg5" aria-label="5"/&gt;</code></pre>
+				
+				<p>The <code>id</code> attribute on the page break allows linking to the location from the page
+					list.</p>
+				
+				<p>Although page breaks have traditionally been retained for accessibility purposes (i.e., to allow
+					users who must use a digital version to coordinate with those using print), it is becoming
+					more common to find them as a general user aid. Digital-only publications (i.e., that do not
+					have a statically paginated source), often include page break markers to make it easier for
+					users to coordinate their position.</p>
+				
+				<div class="note" role="note" aria-labelledby="epub2-pb-note">
+					<p id="epub2-pb-note" class="label">Note</p>
+					
+					<p>In EPUB 2, it is not possible to include a semantic that identifies page break locations in
+						the content, as XHTML 1.1 does not support either the ARIA <code>role</code> or
+						<code>epub:type</code> attributes.</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element">The <code>nav</code>
+						element</a></li>
+					<li>DPUB-ARIA &#8212; <a href="https://www.w3.org/TR/dpub-aria/#doc-pagebreak">doc-pagebreak property</a></li>
+					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub-ssv/#pagebreak">pagebreak property</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -45,7 +45,8 @@ var msg = {};
 	msg.footer.top = 'Back to Top \u2191';
 	msg.footer.topics = 'All Topics';
 	msg.header.whatnew = 'Quoi de neuf';
-	
+	msg.footer.support = '';
+
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
 	
