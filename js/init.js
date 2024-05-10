@@ -62,9 +62,9 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/ui.js');
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/topics.js');
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/sc.js');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/ui.json');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/topics.json');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/sc.json');
 		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/sponsor.css');
