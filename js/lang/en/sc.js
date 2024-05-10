@@ -1,5 +1,5 @@
 
-var sc_map = {
+var sc = {
 	"1.1.1": {
 		"id": "non-text-content",
 		"name": "Non-text Content",
