@@ -2,6 +2,7 @@ var msg = {};
 	
 	msg.kb_name = {}
 	msg.kb_name.publishing =  'Accessible Publishing Knowledge Base';
+	msg.kb_name.kb = 'Knowledge Base';
 	
 	msg.UI = {};
 	msg.UI.applies = 'Applies To';
@@ -10,8 +11,10 @@ var msg = {};
 	
 	msg.header = {};
 	msg.header.skip = 'Skip to Content';
+	msg.header.logo = 'DAISY';
 	
 	msg.category = {};
+	msg.category.cat = 'Categories';
 	msg.category.conf = 'Conformance';
 	msg.category.css = 'CSS';
 	msg.category.epub = 'EPUB';
@@ -37,14 +40,29 @@ var msg = {};
 	msg.footer.request = 'Request Topics';
 	msg.footer.site = 'Site';
 	msg.footer.spec = 'Specifications';
+	msg.footer.support = 'Support';
 	msg.footer.terms = 'Terms of Use';
 	msg.footer.top = 'Back to Top \u2191';
 	msg.footer.topics = 'All Topics';
 	msg.footer.whatnew = 'What\'s New';
-	msg.footer.support = 'Support';
 	
 	msg.shortForm = {};
 	msg.shortForm['Frequently Asked Questions'] = 'FAQ';
 	
 	msg.appliesto = {};
-	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.'
+	msg.appliesto.audiobooks = '* Applies to the table of contents and any supplementary HTML resources.';
+	
+	msg.pageControl = {};
+	msg.pageControl.copy = 'Copy';
+	msg.pageControl.dfnLink = 'Go to definition';
+	msg.pageControl.permalink = 'Permalink for ';
+	msg.pageControl.permalinkSymbol= '§ ';
+	
+	msg.topics = {};
+	msg.topics.toc = 'Table of contents';
+	msg.topics.related = 'Related Topics';
+	
+	msg.appliesTo = {};
+	msg.appliesTo.yes = 'Yes';
+	msg.appliesTo.no = 'No';
+	msg.appliesTo.partial = 'Partial';

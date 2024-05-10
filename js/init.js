@@ -4,8 +4,8 @@
  * This file contains the KB class of functions, a set of callbacks
  * for copying examples, and the initiation code for each page.
  * It is only required that each page that needs formatting include
- * a reference to this script in its head - no further initiation
- * is needed.
+ * a reference to this script in its head, with page-specific
+ * configuration done through a json object in the header.
  * 
  */
 
@@ -62,9 +62,9 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'.js');
-		this.writeHeadTag('js', '/js/topics/'+this.lang+'.js');
-		this.writeHeadTag('js', '/js/sc/'+this.lang+'.js');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/ui.js');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/topics.js');
+		this.writeHeadTag('js', '/js/lang/'+this.lang+'/sc.js');
 		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/sponsor.css');
@@ -186,7 +186,6 @@ KB.prototype.writeTemplate = function () {
 			if (page_info.hasOwnProperty('related')) {
 				kb.generateRelatedTopics();
 			}
-		
 		}
 		
 		
@@ -246,7 +245,7 @@ KB.prototype.generateHeader = function () {
 	var logo = document.createElement('img');
 		logo.setAttribute('class','logo');
 		logo.setAttribute('src','/graphics/daisy_high.jpg');
-		logo.setAttribute('alt','DAISY');
+		logo.setAttribute('alt', msg.header.logo);
 	
 	h1_a.appendChild(logo);
 	
@@ -258,7 +257,7 @@ KB.prototype.generateHeader = function () {
 	header.appendChild(h1);
 	
 	var search = document.createElement('search');
-		search.setAttribute('title','knowledge base');
+		search.setAttribute('title', msg.kb_name.kb);
 		search.setAttribute('hidden', 'hidden');
 	
 	var search_script = document.createElement('script');
@@ -505,7 +504,7 @@ KB.prototype.generateRelatedTopics = function () {
 		nav.setAttribute('class', 'mini-toc');
 	
 	var h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode('Related Topics'));
+		h3.appendChild(document.createTextNode(msg.topics.related));
 	
 	nav.appendChild(h3);
 	
@@ -596,14 +595,14 @@ KB.prototype.generateAppliesTo = function () {
 		thead.appendChild(th);
 		
 		if (page_info.appliesTo.includes(formats[i])) {
-			td.appendChild(document.createTextNode('Yes'));
+			td.appendChild(document.createTextNode(msg.appliesTo.yes));
 			td.setAttribute('class', 'yes');
 		}
 		
 		else if (page_info.appliesTo.includes('Audiobooks*') && formats[i] == 'Audiobooks') {
 			
 			td.setAttribute('class', 'partial');
-			td.appendChild(document.createTextNode('Partial'));
+			td.appendChild(document.createTextNode(msg.appliesTo.partial));
 			
 			var a_ref = document.createElement('a');
 				a_ref.setAttribute('href','#aud01');
@@ -622,7 +621,7 @@ KB.prototype.generateAppliesTo = function () {
 		}
 		
 		else {
-			td.appendChild(document.createTextNode('No'));
+			td.appendChild(document.createTextNode(msg.appliesTo.no));
 			td.setAttribute('class', 'no');
 		}
 		
@@ -666,7 +665,7 @@ KB.prototype.generateCategoryList = function () {
 		cat_nav.setAttribute('aria-labelledby', 'cat-hd');
 	
 	var cat_hd = document.createElement('h3');
-		cat_hd.appendChild(document.createTextNode('Categories'));
+		cat_hd.appendChild(document.createTextNode(msg.category.cat));
 		cat_hd.setAttribute('id', 'cat-hd');
 	
 	cat_nav.appendChild(cat_hd);
@@ -1013,7 +1012,7 @@ KB.prototype.addExampleCopy = function() {
 		
 		var input = document.createElement('input');
 			input.setAttribute('type','button');
-			input.setAttribute('value','Copy');
+			input.setAttribute('value', msg.pageControl.copy);
 			input.setAttribute('class','copy');
 			
 			input.addEventListener('click', copyExampleDelegate(ex[i].id), false);
@@ -1055,7 +1054,7 @@ KB.prototype.addGlossaryLinks = function() {
 		links[i].href = '/publishing/docs/glossary/' + linktext.substring(0,1).toLowerCase() + '.html#' + linktext.toLowerCase();
 		links[i].classList.add('gloss');
 		links[i].setAttribute('role', 'doc-glossref');
-		links[i].setAttribute('title', 'Go to definition');
+		links[i].setAttribute('title', msg.pageControl.dfnLink);
 	}
 }
 
@@ -1095,8 +1094,8 @@ KB.prototype.createPermaLink = function(num, label, dest) {
 	var a = document.createElement('a');
 		a.href = '#' + dest;
 		a.setAttribute('class', 'permalink');
-		a.setAttribute('aria-label', 'Permalink for ' + label + ' ' + num);
-		a.appendChild(document.createTextNode('§ '));
+		a.setAttribute('aria-label', msg.pageControl.permalink + label + ' ' + num);
+		a.appendChild(document.createTextNode(msg.pageControl.permalinkSymbol));
 	
 	return a;
 
@@ -1116,7 +1115,7 @@ KB.prototype.addTopicLinks = function() {
 		var toc = document.createElement('nav');
 			toc.id = 'toc';
 			toc.setAttribute('role', 'doc-toc');
-			toc.setAttribute('aria-label', 'Table of contents');
+			toc.setAttribute('aria-label', msg.topics.toc);
 		
 		if (!root_topic) {
 			console.log('No matching topic index for ' + page_info.root_id);
