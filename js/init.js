@@ -14,12 +14,30 @@ const lang = document.documentElement.lang ? document.documentElement.lang.toLow
 var msg, topic_list, sc_map;
 
 const fetchJSON = async () => {
-	const a = await fetch('/js/lang/'+lang+'/ui.json');
-	msg = await a.json();
-	const b = await fetch('/js/lang/'+lang+'/topics.json');
-	topic_list = await b.json();
-	const c = await fetch('/js/lang/'+lang+'/sc.json');
-	sc_map = await c.json();
+	
+	const ui_config = await fetch('/js/lang/'+lang+'/ui.json');
+	if (ui_config.ok) {
+		msg = await ui_config.json();
+	}
+	else {
+		console.log('Failed to retrieve UI config');
+	}
+	
+	const topic_config = await fetch('/js/lang/'+lang+'/topics.json');
+	if (topic_config.ok) {
+		topic_list = await topic_config.json();
+	}
+	else {
+		console.log('Failed to retrieve topics config');
+	}
+	
+	const sc_config = await fetch('/js/lang/'+lang+'/sc.json');
+	if (sc_config.ok) {
+		sc_map = await sc_config.json();
+	}
+	else {
+		console.log('Failed to retrieve success criteria config');
+	}
 };
 
 fetchJSON();
