@@ -9,7 +9,20 @@
  * 
  */
 
+const lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
 
+var msg, topic_list, sc_map;
+
+const fetchJSON = async () => {
+	const a = await fetch('/js/lang/'+lang+'/ui.json');
+	msg = await a.json();
+	const b = await fetch('/js/lang/'+lang+'/topics.json');
+	topic_list = await b.json();
+	const c = await fetch('/js/lang/'+lang+'/sc.json');
+	sc_map = await c.json();
+};
+
+fetchJSON();
 
 /* hack to eliminate the flash of unstyled content */
 
@@ -36,7 +49,7 @@ function KB() {
 	this.host = '';
 	
 	this.page_hd = document.getElementsByTagName('head')[0];
-	this.lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en'
+	this.lang = lang;
 
 	this.kb_root = '/' + this.kb_id + '/' + (this.lang == 'en' ? 'docs/' : this.lang + '/');
 	
@@ -62,9 +75,6 @@ function KB() {
 KB.prototype.initializePage = function (type) {
 	if (type == 'kb') {
 		this.host = 'kb';
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/ui.js');
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/topics.js');
-		this.writeHeadTag('js', '/js/lang/'+this.lang+'/sc.js');
 		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
 		this.writeHeadTag('css', '/css/sponsor.css');
