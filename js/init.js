@@ -15,7 +15,7 @@ var msg, topic_list, sc_map;
 
 const fetchJSON = async () => {
 	
-	const ui_config = await fetch('/js/lang/'+lang+'/ui.json');
+	const ui_config = await fetch('/js/lang/'+lang+'/ui.json', {cache: "no-store"});
 	if (ui_config.ok) {
 		msg = await ui_config.json();
 	}
@@ -23,7 +23,7 @@ const fetchJSON = async () => {
 		console.log('Failed to retrieve UI config');
 	}
 	
-	const topic_config = await fetch('/js/lang/'+lang+'/topics.json');
+	const topic_config = await fetch('/js/lang/'+lang+'/topics.json', {cache: "no-store"});
 	if (topic_config.ok) {
 		topic_list = await topic_config.json();
 	}
@@ -31,7 +31,7 @@ const fetchJSON = async () => {
 		console.log('Failed to retrieve topics config');
 	}
 	
-	const sc_config = await fetch('/js/lang/'+lang+'/sc.json');
+	const sc_config = await fetch('/js/lang/'+lang+'/sc.json', {cache: "no-store"});
 	if (sc_config.ok) {
 		sc_map = await sc_config.json();
 	}
@@ -1439,9 +1439,20 @@ else {
 	kb.initializePage('ace');
 }
 
-/* delay loading the template until the page has loaded so that the page elements are all available */
 window.onload = function () {
 
+	if (msg === undefined || topic_list === undefined || sc_map === undefined) {
+		setTimeout(function () { loadPage(); }, 100);
+	}
+	else {
+		loadPage();
+	}
+}
+
+/* delay loading the template until the page has loaded so that the page elements are all available */
+
+function loadPage() {
+	
 	kb.writeTemplate();
 	
 	document.documentElement.classList.remove('hidden');
