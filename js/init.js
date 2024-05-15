@@ -1212,6 +1212,10 @@ KB.prototype.addTopicLinks = function() {
 
 function findCategory(topic_list, id) {
 
+	if (!topic_list) {
+		return null;
+	}
+	
 	for (var i = 0; i < topic_list.length; i++) {
 	
 		if (topic_list[i].id == id) {
@@ -1327,7 +1331,7 @@ KB.prototype.generateWCAGLinks = function() {
 
 function wcagLink(match, p1) {
 	if (!sc_map) {
-		return '<span class="wcag-level">[WCAG ' + p1 + ' - ' + sc_map[p1].level + ']</span>';
+		return '<span class="wcag-level">[WCAG ' + p1 + ']</span>';
 	}
 	else {
 		return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
