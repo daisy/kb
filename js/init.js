@@ -1237,6 +1237,10 @@ function findCategory(topic_list, id) {
 
 function findTopic(topic_list, id) {
 
+	if (!topic_list) {
+		return null;
+	}
+	
 	for (var i = 0; i < topic_list.length; i++) {
 	
 		var topic;
@@ -1322,7 +1326,12 @@ KB.prototype.generateWCAGLinks = function() {
 }
 
 function wcagLink(match, p1) {
-	return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
+	if (!sc_map) {
+		return '<span class="wcag-level">[WCAG ' + p1 + ' - ' + sc_map[p1].level + ']</span>';
+	}
+	else {
+		return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
+	}
 }
 
 
