@@ -1,0 +1,36 @@
+{
+  "kb_name": {
+    "publishing": "アクセシブル出版ナレッジベース",
+    "kb": "ナレッジベース"
+  },
+  "UI": {
+    "applies": "適用されます"
+  },
+  "header": {
+    "logo": "DAISY"
+  },
+  "category": {
+    "css": "CSS",
+    "html": "HTML",
+    "tts": "テキスト読み上げ（TTS)"
+  },
+  "footer": {
+    "a11y": "EPUBアクセシビリティ",
+    "about": "ナレッジベースについて",
+    "epub3": "EPUB3",
+    "report": "問題を報告する",
+    "request": "トピックのリクエスト",
+    "spec": "規格"
+  },
+  "shortForm": {
+  },
+  "appliesto": {
+    "audiobooks": "* 目次および補足的なHTMLリソースに適用されます。"
+  },
+  "pageControl": {
+  },
+  "topics": {
+  },
+  "appliesTo": {
+  }
+}
