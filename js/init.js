@@ -201,7 +201,7 @@ KB.prototype.writeTemplate = function () {
 		
 		if (!this.isIndex && !this.isSearch && !this.isHomePage) {
 			kb.prettyPrint();
-			kb.addGlossaryLinks();
+			// kb.addGlossaryLinks();
 			kb.addPermaLinks();
 			kb.generateWCAGLinks();
 			/* add functions with event listeners after generating wcag links or they get stripped */
@@ -1039,7 +1039,7 @@ KB.prototype.addHeadingDestinations = function() {
 
 
 
-/* add links to glossary terms */
+/* add links to glossary terms
 
 KB.prototype.addGlossaryLinks = function() {
 
@@ -1057,6 +1057,7 @@ KB.prototype.addGlossaryLinks = function() {
 	}
 }
 
+*/
 
 /* add permalinks to examples and faqs */
 
