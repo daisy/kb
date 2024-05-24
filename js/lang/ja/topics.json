@@ -1,0 +1,712 @@
+[
+  {
+    "title": "アクセシビリティ適合",
+    "subtitle": "アクセシビリティ適合トピックでは、デジタル出版物に適用されるさまざまなアクセシビリティ仕様を満たすための情報を提供する。",
+    "id": "conformance",
+    "path": "conformance",
+    "topics": [
+      {
+        "id": "conf-epub",
+        "href": "epub.html",
+        "title": "EPUBアクセシビリティ",
+        "subtitle": "EPUBアクセシビリティ規格の解説。"
+      },
+      {
+        "id": "conf-s508",
+        "href": "s508.html",
+        "title": "米国リハビリテーション法508条",
+        "subtitle": "出版物に対する米国リハビリテーション法508条の要件の解説。"
+      },
+      {
+        "id": "conf-wcag",
+        "href": "wcag.html",
+        "title": "WCAGの概要",
+        "subtitle": "W3Cのウェブ・コンテンツ・アクセシビリティ・ガイドライン（WCAG）2.0の紹介。"
+      },
+      {
+        "id": "conf-wcag-expl",
+        "href": "../wcag/",
+        "title": "WCAG解説",
+        "subtitle": "各WCAG達成方法集の紹介。各トピックのサブメニューへのリンク。"
+      }
+    ]
+  },
+  {
+    "title": "EPUB",
+    "subtitle": "EPUBトピックでは、EPUBフォーマットに固有のアクセシビリティに関する事項について説明する。",
+    "id": "epub",
+    "categories": [
+      {
+        "id": "epub-general",
+        "title": "全般",
+        "path": "epub",
+        "topics": [
+          {
+            "id": "epub-cmt",
+            "href": "cmt.html",
+            "title": "コア メディア タイプ",
+            "subtitle": "EPUB出版物で使用できるフォーマットの解説。"
+          },
+          {
+            "id": "epub-cover",
+            "href": "cover.html",
+            "title": "表紙",
+            "subtitle": "表紙画像に関するアクセシビリティの実践。"
+          },
+          {
+            "id": "epub-title",
+            "href": "title.html",
+            "title": "出版物のタイトル",
+            "subtitle": "EPUB出版物のタイトルの指定。"
+          },
+          {
+            "id": "epub-order",
+            "href": "reading-order.html",
+            "title": "読み上げ順",
+            "subtitle": "spineによる文書の読み上げ順の指定。"
+          },
+          {
+            "id": "epub-remote",
+            "href": "remote-resources.html",
+            "title": "外部リソース",
+            "subtitle": "EPUBコンテナ外のリソースをホストする際の問題の概要。"
+          },
+          {
+            "id": "epub-language",
+            "href": "language.html",
+            "title": "言語の設定",
+            "subtitle": "パッケージ ドキュメントおよびコンテンツ ドキュメント内の言語識別。"
+          },
+          {
+            "id": "epub-dir",
+            "href": "dir.html",
+            "title": "テキストの進行方向",
+            "subtitle": "メタデータのテキストの進行方向が左から右か、右から左かを指定する。"
+          }
+        ]
+      },
+      {
+        "id": "epub-validation",
+        "title": "バリデート",
+        "path": "epub",
+        "topics": [
+          {
+            "id": "epub-val-overview",
+            "href": "validation/overview.html",
+            "title": "検証手順",
+            "subtitle": "EPUB出版物の検証手順とツールの概要。"
+          },
+          {
+            "id": "epub-val-epubcheck",
+            "href": "validation/epubcheck.html",
+            "title": "Epubcheck",
+            "subtitle": "epubcheckを使用して出版物の適合性の問題を確認する方法。"
+          },
+          {
+            "id": "epub-val-ace",
+            "href": "validation/ace.html",
+            "title": "DAISYのAce",
+            "subtitle": "Ace チェッカーを使用してアクセシビリティの問題を見つける方法。"
+          },
+          {
+            "id": "epub-val-smart",
+            "href": "validation/smart.html",
+            "title": "Ace SMART",
+            "subtitle": "Ace SMART ツールを使用して、EPUB アクセシビリティ仕様に照らして出版物を評価する方法。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "ナビゲーション",
+    "subtitle": "ナビゲーションのトピックでは、ナビゲーションをアクセシブルにする方法の説明。",
+    "id": "nav",
+    "path": "navigation",
+    "categories": [
+      {
+        "id": "nav-aids",
+        "title": "出版物ナビゲーション",
+        "path": "nav",
+        "topics": [
+          {
+            "id": "nav-contentlist",
+            "href": "content-list.html",
+            "title": "コンテンツリスト",
+            "subtitle": "表や図などのリストを追加する方法の説明。"
+          },
+          {
+            "id": "nav-landmarks",
+            "href": "landmarks.html",
+            "title": "ランドマーク",
+            "subtitle": "EPUBの出版物ランドマークの概念についての説明。"
+          },
+          {
+            "id": "nav-toc",
+            "href": "toc.html",
+            "title": "目次",
+            "subtitle": "目次を含める方法のベストプラクティスの解説。"
+          }
+        ]
+      },
+      {
+        "id": "nav-page",
+        "title": "ページナビゲーション",
+        "topics": [
+          {
+            "title": "概要",
+            "subtitle": "ページ ナビゲーションのコンポーネントの紹介。"
+          },
+          {
+            "title": "改ページのマーカー",
+            "subtitle": "改ページのマーカーを追加する方法の説明。"
+          },
+          {
+            "title": "ページリスト",
+            "subtitle": "ページリストの目的と構成についての説明。"
+          },
+          {
+            "title": "ページソース",
+            "subtitle": "ページ割りの原本の特定方法。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "メタデータ",
+    "subtitle": "メタデータ トピックでは、広く使用されている電子出版のメタデータ標準の中のアクセシビリティ プロパティについて説明する。",
+    "categories": [
+      {
+        "title": "全般",
+        "topics": [
+          {
+            "title": "評価",
+            "subtitle": "EPUB アクセシビリティ仕様で要求される適合性と評価のメタデータについて。"
+          },
+          {
+            "title": "ONIX",
+            "subtitle": "ONIX メタデータ標準のコード リスト 196 のアクセシビリティ プロパティについて。"
+          }
+        ]
+      },
+      {
+        "title": "Schema.org",
+        "topics": [
+          {
+            "title": "概要",
+            "subtitle": "schema.orgのCreativeWork タイプで定義されているアクセシビリティ メタデータ プロパティの概要。"
+          },
+          {
+            "title": "アクセシビリティ API",
+            "subtitle": "<code>accessibilityAPI</code> プロパティを使用してプラットフォーム API との互換性を識別する。"
+          },
+          {
+            "title": "アクセシビリティコントロール",
+            "subtitle": "<code>accessibilityControl</code> プロパティを使用して、利用者がコンテンツを操作する方法を特定する。"
+          },
+          {
+            "title": "アクセシビリティの特徴",
+            "subtitle": "<code>accessibilityFeature</code> プロパティを使用してコンテンツのアクセシビリティの特徴を明示する。"
+          },
+          {
+            "title": "アクセシビリティのハザード",
+            "subtitle": "<code>accessibilityHazard</code> プロパティを使用して、ユーザーに対する危険性を明示する。"
+          },
+          {
+            "title": "アクセシビリティの概要",
+            "subtitle": "<code>accessibilitySummary</code> プロパティを使用して概要を提供する。"
+          },
+          {
+            "title": "アクセスモード",
+            "subtitle": "<code>accessMode</code> プロパティを使用してコンテンツの性質を明示する。"
+          },
+          {
+            "title": "十分なアクセスモード",
+            "subtitle": "<code>accessModeSufficient</code> プロパティを使用して、情報へのアクセスに十分な読み取り手段を明示する。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "HTML",
+    "subtitle": "HTMLトピックでは、アクセシブルなHTML コンテンツの作成に関連する話題を取り上げます。ガイドラインには、要素と属性をアクセシブルに使用する方法、索引や用語集などの一般的な出版物の構造をアクセシブルに作成する方法、ARIA role、state、propertyの利用方法などが含まれます。",
+    "categories": [
+      {
+        "title": "要素と属性",
+        "topics": [
+          {
+            "title": "略語",
+            "subtitle": "<code>abbr</code> 要素"
+          },
+          {
+            "title": "アクセスキー",
+            "subtitle": "<code>accesskey</code> 属性"
+          },
+          {
+            "title": "記事",
+            "subtitle": "<code>article</code> 要素"
+          },
+          {
+            "title": "アサイド",
+            "subtitle": "<code>aside</code> 要素"
+          },
+          {
+            "title": "音声",
+            "subtitle": "<code>audio</code> 要素"
+          },
+          {
+            "title": "太字と斜体",
+            "subtitle": "<code>b</code>、<code>em</code>、<code>i</code>、<code>strong</code> 要素"
+          },
+          {
+            "title": "区切り",
+            "subtitle": "<code>hr</code> 要素"
+          },
+          {
+            "title": "詳細",
+            "subtitle": "<code>details</code> 要素"
+          },
+          {
+            "title": "フィギュア",
+            "subtitle": "<code>figure</code> 要素"
+          },
+          {
+            "title": "フォーム",
+            "subtitle": "<code>form</code> 要素"
+          },
+          {
+            "title": "見出し",
+            "subtitle": "<code>h1</code> から <code>h6</code>、<code>hgroup</code>、<code>heading</code> 要素"
+          },
+          {
+            "title": "識別子",
+            "subtitle": "<code>id</code> 属性"
+          },
+          {
+            "title": "インラインフレーム",
+            "subtitle": "<code>iframe</code> 要素"
+          },
+          {
+            "title": "言語",
+            "subtitle": "<code>lang</code> 属性と <code>xml:lang</code> 属性"
+          },
+          {
+            "title": "リンク",
+            "subtitle": "<code>a</code> 要素"
+          },
+          {
+            "title": "リスト",
+            "subtitle": "<code>dl</code>、<code>ol</code>、<code>ul<code> 要素"
+          },
+          {
+            "title": "メインコンテンツ",
+            "subtitle": "<code>main</code> 要素"
+          },
+          {
+            "title": "MathML",
+            "subtitle": "<code>math</code> 要素"
+          },
+          {
+            "title": "メタ",
+            "subtitle": "<code>meta</code> 要素"
+          },
+          {
+            "title": "オブジェクト",
+            "subtitle": "<code>object</code> 要素"
+          },
+          {
+            "title": "ページタイトル",
+            "subtitle": "<code>title</code> 要素"
+          },
+          {
+            "title": "引用",
+            "subtitle": "<code>blockquote</code> 要素と <code>q</code> 要素"
+          },
+          {
+            "title": "セクション",
+            "subtitle": "<code>section</code> 要素"
+          },
+          {
+            "title": "テキストの進行方向",
+            "subtitle": "<code>dir</code> 属性"
+          },
+          {
+            "title": "SVG",
+            "subtitle": "<code>svg</code> 要素"
+          },
+          {
+            "title": "ビデオ",
+            "subtitle": "<code>video</code> 要素"
+          }
+        ]
+      },
+      {
+        "title": "画像",
+        "topics": [
+          {
+            "title": "アニメーション画像",
+            "subtitle": "アクセシブルなアニメーション画像のベストプラクティス。"
+          },
+          {
+            "title": "装飾画像",
+            "subtitle": "利用者に情報を伝えていない画像を識別する方法。"
+          },
+          {
+            "title": "アイコン",
+            "subtitle": "アクセシブルなアイコンを含める方法のベストプラクティス。"
+          },
+          {
+            "title": "画像の説明",
+            "subtitle": "代替テキストと説明のための方法と書き方。"
+          },
+          {
+            "title": "イメージマップ",
+            "subtitle": "アクセシブルなイメージマップを含めるためのベストプラクティス。"
+          },
+          {
+            "title": "画像の選択",
+            "subtitle": "さまざまなデバイスのレンダリング機能に合わせて最適化された画像を含める方法。"
+          },
+          {
+            "title": "テキストの画像",
+            "subtitle": "画像にテキストが含まれている場合のベストプラクティス。"
+          },
+          {
+            "title": "テキストベースの画像",
+            "subtitle": "ASCII アート、絵文字、編集されたテキスト、空欄補充問題などのテキストベースの画像をアクセシブルにするためのテクニック。"
+          }
+        ]
+      },
+      {
+        "title": "表",
+        "topics": [
+          {
+            "title": "表の基本",
+            "subtitle": "アクセシブルな表のマークアップ方法の基本の紹介。"
+          },
+          {
+            "title": "複雑なヘッダー",
+            "subtitle": "複雑な表のヘッダーをアクセシブルにするためのベスト プラクティス。"
+          },
+          {
+            "title": "ヘッダースコープ",
+            "subtitle": "テーブル ヘッダーが行か列のどちらに適用されるかを識別する。"
+          },
+          {
+            "title": "表のレイアウト",
+            "subtitle": "表のレイアウトを避けられない場合のベストプラクティス。"
+          },
+          {
+            "title": "表のキャプション",
+            "subtitle": "表の目的を説明するキャプションを追加する。"
+          },
+          {
+            "title": "表の概要",
+            "subtitle": "表の構造を説明する要約を追加する。"
+          }
+        ]
+      },
+      {
+        "title": "構造",
+        "topics": [
+          {
+            "title": "文献リスト",
+            "subtitle": "アクセシブルな文献リストを作成するためのマークアップの推奨事項。"
+          },
+          {
+            "title": "用語集",
+            "subtitle": "アクセシブルな用語集を作成するためのマークアップの推奨事項。"
+          },
+          {
+            "title": "索引",
+            "subtitle": "アクセシブルな索引を作成するためのマークアップの推奨事項。"
+          }
+        ]
+      },
+      {
+        "title": "Patterns",
+        "topics": [
+          {
+            "title": "ドロップキャップ",
+            "subtitle": "アクセシブルなドロップキャップを作成する方法。"
+          },
+          {
+            "title": "脚注と文末脚注",
+            "subtitle": "注と注釈をアクセシブルに識別、構造化、リンクする。"
+          },
+          {
+            "title": "非表示コンテンツ",
+            "subtitle": "視覚的なレンダリングと支援技術の両方からコンテンツを非表示にする手法。"
+          },
+          {
+            "title": "詩",
+            "subtitle": "行ベースのコンテンツをフォーマットおよび記述するためのテクニック。"
+          },
+          {
+            "title": "参照マークへのリンク",
+            "subtitle": "表、図、注釈などの参照にリンクするための方法。"
+          }
+        ]
+      },
+      {
+        "title": "コンセプト",
+        "topics": [
+          {
+            "title": "論理的な読み順",
+            "subtitle": "主要な物語が二次的なコンテンツから明確に分離されるようにするための実践。"
+          },
+          {
+            "title": "スタイルの分離",
+            "subtitle": "スタイルに頼らずに必要な情報を伝達できるようにするための実践。"
+          }
+        ]
+      },
+      {
+        "title": "ARIA",
+        "topics": [
+          {
+            "title": "ARIA ランドマーク",
+            "subtitle": "出版物の重要なセクションを識別するための ARIA landmark roleを紹介する。"
+          },
+          {
+            "title": "ARIA role 属性",
+            "subtitle": "ARIA <code>role</code> 属性が、支援技術がその属性を持つ要素を理解するのにどのように影響するかを説明する。"
+          },
+          {
+            "title": "デジタル出版のロール",
+            "subtitle": "ARIA <code>role</code> 属性で使用する DPUB-ARIA モジュールの紹介。このページには、モジュール内の各ロールの詳細な説明へのリンクもある。"
+          }
+        ]
+      },
+      {
+        "title": "セマンティクス",
+        "topics": [
+          {
+            "title": "EPUB <code>type</code> 属性",
+            "subtitle": "支援技術に影響を与えなくても、属性が、リーディングシステムでの読書体験をどのように向上できるかの概要。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "CSS",
+    "subtitle": "CSS トピックでは、カスケード スタイル シート 技術を使用したコンテンツのアクセシブルなスタイル設定について説明する。",
+    "topics": [
+      {
+        "title": "色",
+        "subtitle": "色に頼らずに情報が伝わるようにするテクニック。"
+      },
+      {
+        "title": "コントラスト",
+        "subtitle": "文字色と背景色を設定するときに十分なコントラストを確保するためのテクニック。"
+      },
+      {
+        "title": "CSS プロパティリファレンス",
+        "subtitle": "既知のアクセシビリティの問題がある主な CSS プロパティへの参照。"
+      },
+      {
+        "title": "リフロー",
+        "subtitle": "WCAG のリフロー要件を満たす際にスタイルがもたらす問題についての説明。"
+      },
+      {
+        "title": "文字サイズの変更",
+        "subtitle": "文字のサイズを変更するときにアクセシビリティの問題を回避するテクニック。"
+      },
+      {
+        "title": "文字間隔",
+        "subtitle": "文字間隔が変更されたときにアクセシビリティの問題を回避するためのテクニック。"
+      }
+    ]
+  },
+  {
+    "title": "スクリプト化されたコンテンツとフォーム",
+    "subtitle": "スクリプトとフォームのトピックでは、電子出版物にインタラクティブなコンテンツを追加することについて説明する。",
+    "topics": [
+      {
+        "title": "オートコンプリート",
+        "subtitle": "<code>autocomplete</code> 属性を使用して、利用者が一般的なフォームに入力できるようにする。"
+      },
+      {
+        "title": "カスタムコントロール",
+        "subtitle": "ARIA role、state、propertiyを使用して、カスタムコントロールをアクセシブルにする。"
+      },
+      {
+        "title": "入力検証",
+        "subtitle": "利用者がフォームの入力エラーを理解して修正できるようにする手法。"
+      },
+      {
+        "title": "キーボードコントロール",
+        "subtitle": "キーボード ユーザーがスクリプト コンテンツを操作できるようにする手法。"
+      },
+      {
+        "title": "ラベル",
+        "subtitle": "入力とコントロールがアクセシブルにラベル付けされていることを保証する手法。"
+      },
+      {
+        "title": "プログレッシブエンハンスメント",
+        "subtitle": "スクリプトが利用できない場合でもアクセス可能な状態を維持できるように、コンテンツを段階的に強化する方法について検討する。"
+      },
+      {
+        "title": "タブ順序",
+        "subtitle": "キーボードのタブ順序がアクセシブルであることを確認するためのテクニック。"
+      },
+      {
+        "title": "タイマー",
+        "subtitle": "時間制限付きコンテンツへのアクセスを保証するテクニック。"
+      }
+    ]
+  },
+  {
+    "title": "固定レイアウト",
+    "subtitle": "固定レイアウトのトピックでは、固定寸法のページにレイアウトされるコンテンツ (つまり、コンテンツは画面に合わせてリフローされず、配置された場所に留まる) の作成に関して説明する。",
+    "categories": [
+      {
+        "title": "全般",
+        "topics": [
+          {
+            "title": "概要",
+            "subtitle": "EPUB で固定レイアウトを作成するための一般的な概要。"
+          },
+          {
+            "title": "HTMLレイアウト",
+            "subtitle": "HTMLでアクセシブルな固定レイアウトを作成する方法の概要。"
+          },
+          {
+            "title": "Spineの画像",
+            "subtitle": "EPUBのspineに画像を直接配置する場合のアクセシビリティの問題の概要。"
+          },
+          {
+            "title": "SVGレイアウト",
+            "subtitle": "SVGでアクセシブルな固定レイアウトを作成する方法の概要。"
+          },
+          {
+            "title": "WCAG準拠",
+            "subtitle": "固定レイアウトをWCAGアクセシビリティ要件に準拠させる際の難しさの概要。"
+          }
+        ]
+      },
+      {
+        "title": "テクニック",
+        "topics": [
+          {
+            "title": "画像",
+            "subtitle": "画像ベースの固定レイアウトをアクセシブルにするための問題を探る。"
+          },
+          {
+            "title": "複数ページスプレッド",
+            "subtitle": "固定レイアウトの複数ページにまたがるコンテンツに関する問題を検討する。"
+          },
+          {
+            "title": "画面の向き",
+            "subtitle": "固定レイアウトがレンダリングされる方向を制限することに関する問題について説明する。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "同期マルチメディア",
+    "subtitle": "同期マルチメディアのトピックでは、同期されたテキストと音声の再生を提供する電子出版物の作成について説明する。これらの出版物は、多くの場合、「読み上げ」本と呼ばれます。",
+    "categories": [
+      {
+        "title": "実装",
+        "topics": [
+          {
+            "title": "EPUB 3 メディアオーバーレイ",
+            "subtitle": "テキストを録音済み音声の再生と同期するためのEPUB3のメディア オーバーレイ機能の概要。"
+          }
+        ]
+      },
+      {
+        "title": "テクニック",
+        "topics": [
+          {
+            "title": "ハイライト",
+            "subtitle": "アクセシブルなテキストの強調表示に関する考慮事項。"
+          },
+          {
+            "title": "リスト",
+            "subtitle": "同期再生のためのリストの構造化。"
+          },
+          {
+            "title": "表",
+            "subtitle": "同期再生のための表の構造化。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "テキスト読み上げ（TTS)",
+    "subtitle": "テキスト読み上げ (TTS) のトピックでは、高品質の TTS 再生を実現するのに役立つ技術について説明する。",
+    "topics": [
+      {
+        "title": "概要",
+        "subtitle": "テキスト読み上げ（TTS）再生に関する問題と、その解決に役立つ技術の概要。"
+      },
+      {
+        "title": "CSS3 Speech",
+        "subtitle": "スタイルシートで TTS 再生を制御するための音声モジュールのプロパティを説明する。"
+      },
+      {
+        "title": "PLS 辞書",
+        "subtitle": "発音辞書を使用して用語の辞書を作成する方法の説明。"
+      },
+      {
+        "title": "SSML",
+        "subtitle": "EPUB の合成音声マークアップ言語（SSML)の属性実装の説明。"
+      }
+    ]
+  },
+  {
+    "title": "用語集",
+    "topics": [
+      {
+        "title": "A"
+      },
+      {
+        "title": "C"
+      },
+      {
+        "title": "D"
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      },
+      {
+      }
+    ]
+  }
+]
