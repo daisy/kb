@@ -170,7 +170,7 @@ KB.prototype.writeTemplate = function () {
 		
 		kb.generatePageTitle();
 		
-		if (this.isIndex) {
+		if (this.isIndex && page_info.root_id !== 'glossary') {
 			kb.addTopicLinks();
 		}
 		
