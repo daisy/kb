@@ -170,8 +170,14 @@ KB.prototype.writeTemplate = function () {
 		
 		kb.generatePageTitle();
 		
-		if (this.isIndex) {
+		if (this.isIndex && page_info.root_id !== 'glossary') {
 			kb.addTopicLinks();
+		}
+		
+		else if (this.isIndex && page_info.root_id === 'glossary') {
+			var sec_hd = document.getElementsByTagName('h2')[0];
+			var glossary = document.getElementById('toc');
+			sec_hd.insertAdjacentElement('afterEnd', glossary);
 		}
 		
 		if (!page_info.hasOwnProperty('nav') || page_info.nav) {
