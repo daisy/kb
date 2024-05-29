@@ -1,236 +1,392 @@
 {
   "1.1.1": {
-    "name": "非テキストコンテンツ"
+    "id": "non-text-content",
+    "name": "非テキストコンテンツ",
+    "level": "A"
   },
   "1.2.1": {
-    "name": "音声のみ及び映像のみ (収録済) "
+    "id": "audio-only-and-video-only-prerecorded",
+    "name": "音声のみ及び映像のみ (収録済) ",
+    "level": "A"
   },
   "1.2.2": {
-    "name": "キャプション (収録済)"
+    "id": "captions-prerecorded",
+    "name": "キャプション (収録済)",
+    "level": "A"
   },
   "1.2.3": {
-    "name": "音声解説、又はメディアに対する代替 (収録済)"
+    "id": "audio-description-or-media-alternative-prerecorded",
+    "name": "音声解説、又はメディアに対する代替 (収録済)",
+    "level": "A"
   },
   "1.2.4": {
-    "name": " キャプション (ライブ)"
+    "id": "captions-live",
+    "name": " キャプション (ライブ)",
+    "level": "AA"
   },
   "1.2.5": {
-    "name": "音声解説 (収録済) "
+    "id": "audio-description-prerecorded",
+    "name": "音声解説 (収録済) ",
+    "level": "AA"
   },
   "1.2.6": {
-    "name": "手話 (収録済) "
+    "id": "sign-language-prerecorded",
+    "name": "手話 (収録済) ",
+    "level": "AAA"
   },
   "1.2.7": {
-    "name": "拡張音声解説 (収録済)"
+    "id": "extended-audio-description-prerecorded",
+    "name": "拡張音声解説 (収録済)",
+    "level": "AAA"
   },
   "1.2.8": {
-    "name": "メディアに対する代替 (収録済)"
+    "id": "media-alternative-prerecorded",
+    "name": "メディアに対する代替 (収録済)",
+    "level": "AAA"
   },
   "1.2.9": {
-    "name": "音声のみ (ライブ)"
+    "id": "audio-only-live",
+    "name": "音声のみ (ライブ)",
+    "level": "AAA"
   },
   "1.3.1": {
-    "name": "情報及び関係性"
+    "id": "info-and-relationships",
+    "name": "情報及び関係性",
+    "level": "A"
   },
   "1.3.2": {
-    "name": "意味のあるシーケンス"
+    "id": "meaningful-sequence",
+    "name": "意味のあるシーケンス",
+    "level": "A"
   },
   "1.3.3": {
-    "name": "感覚的な特徴"
+    "id": "sensory-characteristics",
+    "name": "感覚的な特徴",
+    "level": "A"
   },
   "1.3.4": {
-    "name": "表示の向き"
+    "id": "orientation",
+    "name": "表示の向き",
+    "level": "AA"
   },
   "1.3.5": {
-    "name": "入力目的の特定"
+    "id": "identify-input-purpose",
+    "name": "入力目的の特定",
+    "level": "AA"
   },
   "1.3.6": {
-    "name": "目的の特定"
+    "id": "identify-purpose",
+    "name": "目的の特定",
+    "level": "AAA"
   },
   "1.4.1": {
-    "name": "色の使用"
+    "id": "use-of-color",
+    "name": "色の使用",
+    "level": "A"
   },
   "1.4.2": {
-    "name": "音声の制御"
+    "id": "audio-control",
+    "name": "音声の制御",
+    "level": "A"
   },
   "1.4.3": {
-    "name": "コントラスト (最低限)"
+    "id": "contrast-minimum",
+    "name": "コントラスト (最低限)",
+    "level": "AA"
   },
   "1.4.4": {
-    "name": "テキストのサイズ変更"
+    "id": "resize-text",
+    "name": "テキストのサイズ変更",
+    "level": "AA"
   },
   "1.4.5": {
-    "name": "文字画像"
+    "id": "images-of-text",
+    "name": "文字画像",
+    "level": "AA"
   },
   "1.4.6": {
-    "name": " コントラスト (高度)"
+    "id": "contrast-enhanced",
+    "name": " コントラスト (高度)",
+    "level": "AAA"
   },
   "1.4.7": {
-    "name": "小さな背景音、又は背景音なし"
+    "id": "low-or-no-background-audio",
+    "name": "小さな背景音、又は背景音なし",
+    "level": "AAA"
   },
   "1.4.8": {
-    "name": "視覚的提示"
+    "id": "visual-presentation",
+    "name": "視覚的提示",
+    "level": "AAA"
   },
   "1.4.9": {
-    "name": "文字画像 (例外なし)"
+    "id": "images-of-text-no-exception",
+    "name": "文字画像 (例外なし)",
+    "level": "AAA"
   },
   "1.4.10": {
-    "name": "リフロー"
+    "id": "reflow",
+    "name": "リフロー",
+    "level": "AA"
   },
   "1.4.11": {
-    "name": "非テキストのコントラスト"
+    "id": "non-text-contrast",
+    "name": "非テキストのコントラスト",
+    "level": "AA"
   },
   "1.4.12": {
-    "name": "テキストの間隔"
+    "id": "text-spacing",
+    "name": "テキストの間隔",
+    "level": "AA"
   },
   "1.4.13": {
-    "name": "ホバー又はフォーカスで表示されるコンテンツ"
+    "id": "content-on-hover-or-focus",
+    "name": "ホバー又はフォーカスで表示されるコンテンツ",
+    "level": "AA"
   },
   "2.1.1": {
-    "name": "キーボード"
+    "id": "keyboard",
+    "name": "キーボード",
+    "level": "A"
   },
   "2.1.2": {
-    "name": "キーボードトラップなし"
+    "id": "no-keyboard-trap",
+    "name": "キーボードトラップなし",
+    "level": "A"
   },
   "2.1.3": {
-    "name": "キーボード (例外なし)"
+    "id": "keyboard-no-exception",
+    "name": "キーボード (例外なし)",
+    "level": "AAA"
   },
   "2.1.4": {
-    "name": "文字キーのショートカット"
+    "id": "character-key-shortcuts",
+    "name": "文字キーのショートカット",
+    "level": "A"
   },
   "2.2.1": {
-    "name": "タイミング調整可能"
+    "id": "timing-adjustable",
+    "name": "タイミング調整可能",
+    "level": "A"
   },
   "2.2.2": {
-    "name": "一時停止、停止、非表示"
+    "id": "pause-stop-hide",
+    "name": "一時停止、停止、非表示",
+    "level": "A"
   },
   "2.2.3": {
-    "name": "タイミング非依存"
+    "id": "no-timing",
+    "name": "タイミング非依存",
+    "level": "AAA"
   },
   "2.2.4": {
-    "name": "割り込み"
+    "id": "interruptions",
+    "name": "割り込み",
+    "level": "AAA"
   },
   "2.2.5": {
-    "name": "再認証"
+    "id": "re-authenticating",
+    "name": "再認証",
+    "level": "AAA"
   },
   "2.2.6": {
-    "name": "タイムアウト"
+    "id": "timeouts",
+    "name": "タイムアウト",
+    "level": "AAA"
   },
   "2.3.1": {
-    "name": "3 回の閃光、又は閾値以下"
+    "id": "three-flashes-or-below-threshold",
+    "name": "3 回の閃光、又は閾値以下",
+    "level": "A"
   },
   "2.3.2": {
-    "name": "3 回の閃光"
+    "id": "three-flashes",
+    "name": "3 回の閃光",
+    "level": "AAA"
   },
   "2.3.3": {
-    "name": "インタラクションによるアニメーション"
+    "id": "animation-from-interactions",
+    "name": "インタラクションによるアニメーション",
+    "level": "AAA"
   },
   "2.4.1": {
-    "name": "ブロックスキップ"
+    "id": "bypass-blocks",
+    "name": "ブロックスキップ",
+    "level": "A"
   },
   "2.4.2": {
-    "name": "ページタイトル"
+    "id": "page-titled",
+    "name": "ページタイトル",
+    "level": "A"
   },
   "2.4.3": {
-    "name": "フォーカス順序"
+    "id": "focus-order",
+    "name": "フォーカス順序",
+    "level": "A"
   },
   "2.4.4": {
-    "name": "リンクの目的 (コンテキスト内)"
+    "id": "link-purpose-in-context",
+    "name": "リンクの目的 (コンテキスト内)",
+    "level": "A"
   },
   "2.4.5": {
-    "name": "複数の手段"
+    "id": "multiple-ways",
+    "name": "複数の手段",
+    "level": "AA"
   },
   "2.4.6": {
-    "name": "見出し及びラベル"
+    "id": "headings-and-labels",
+    "name": "見出し及びラベル",
+    "level": "AA"
   },
   "2.4.7": {
-    "name": "フォーカスの可視化"
+    "id": "focus-visible",
+    "name": "フォーカスの可視化",
+    "level": "AA"
   },
   "2.4.8": {
-    "name": "現在位置"
+    "id": "location",
+    "name": "現在位置",
+    "level": "AAA"
   },
   "2.4.9": {
-    "name": "リンクの目的 (リンクのみ)"
+    "id": "link-purpose-link-only",
+    "name": "リンクの目的 (リンクのみ)",
+    "level": "AAA"
   },
   "2.4.10": {
-    "name": "セクション見出し"
+    "id": "section-headings",
+    "name": "セクション見出し",
+    "level": "AAA"
   },
   "2.5.1": {
-    "name": "ポインタのジェスチャ"
+    "id": "pointer-gestures",
+    "name": "ポインタのジェスチャ",
+    "level": "A"
   },
   "2.5.2": {
-    "name": "ポインタのキャンセル"
+    "id": "pointer-cancellation",
+    "name": "ポインタのキャンセル",
+    "level": "A"
   },
   "2.5.3": {
-    "name": "ラベルを含む名前 (name)"
+    "id": "label-in-name",
+    "name": "ラベルを含む名前 (name)",
+    "level": "A"
   },
   "2.5.4": {
-    "name": "動きによる起動"
+    "id": "motion-actuation",
+    "name": "動きによる起動",
+    "level": "A"
   },
   "2.5.5": {
-    "name": "ターゲットのサイズ"
+    "id": "target-size",
+    "name": "ターゲットのサイズ",
+    "level": "AAA"
   },
   "2.5.6": {
-    "name": "入力メカニズムの共存"
+    "id": "concurrent-input-mechanisms",
+    "name": "入力メカニズムの共存",
+    "level": "AAA"
   },
   "3.1.1": {
-    "name": "ページの言語"
+    "id": "language-of-page",
+    "name": "ページの言語",
+    "level": "A"
   },
   "3.1.2": {
-    "name": "一部分の言語"
+    "id": "language-of-parts",
+    "name": "一部分の言語",
+    "level": "AA"
   },
   "3.1.3": {
-    "name": " 一般的ではない用語"
+    "id": "unusual-words",
+    "name": " 一般的ではない用語",
+    "level": "AAA"
   },
   "3.1.4": {
-    "name": "略語"
+    "id": "abbreviations",
+    "name": "略語",
+    "level": "AAA"
   },
   "3.1.5": {
-    "name": "読解レベル"
+    "id": "reading-level",
+    "name": "読解レベル",
+    "level": "AAA"
   },
   "3.1.6": {
-    "name": "発音"
+    "id": "pronunciation",
+    "name": "発音",
+    "level": "AAA"
   },
   "3.2.1": {
-    "name": "フォーカス時"
+    "id": "on-focus",
+    "name": "フォーカス時",
+    "level": "A"
   },
   "3.2.2": {
-    "name": "入力時"
+    "id": "on-input",
+    "name": "入力時",
+    "level": "A"
   },
   "3.2.3": {
-    "name": "一貫したナビゲーション"
+    "id": "consistent-navigation",
+    "name": "一貫したナビゲーション",
+    "level": "AA"
   },
   "3.2.4": {
-    "name": "一貫した識別性"
+    "id": "consistent-identification",
+    "name": "一貫した識別性",
+    "level": "AA"
   },
   "3.2.5": {
-    "name": "要求による変化"
+    "id": "change-on-request",
+    "name": "要求による変化",
+    "level": "AAA"
   },
   "3.3.1": {
-    "name": "エラーの特定"
+    "id": "error-identification",
+    "name": "エラーの特定",
+    "level": "A"
   },
   "3.3.2": {
-    "name": "ラベル又は説明"
+    "id": "labels-or-instructions",
+    "name": "ラベル又は説明",
+    "level": "A"
   },
   "3.3.3": {
-    "name": "エラー修正の提案"
+    "id": "error-suggestion",
+    "name": "エラー修正の提案",
+    "level": "AA"
   },
   "3.3.4": {
-    "name": "誤り防止 (法的、金融、データ)"
+    "id": "error-prevention-legal-financial-data",
+    "name": "誤り防止 (法的、金融、データ)",
+    "level": "AA"
   },
   "3.3.5": {
-    "name": "ヘルプ"
+    "id": "help",
+    "name": "ヘルプ",
+    "level": "AAA"
   },
   "3.3.6": {
-    "name": "誤り防止 (すべて)"
+    "id": "error-prevention-all",
+    "name": "誤り防止 (すべて)",
+    "level": "AAA"
   },
   "4.1.1": {
-    "name": "構文解析"
+    "id": "parsing",
+    "name": "構文解析",
+    "level": "A"
   },
   "4.1.2": {
-    "name": "名前 (name)・役割 (role)・値 (value)"
+    "id": "name-role-value",
+    "name": "名前 (name)・役割 (role)・値 (value)",
+    "level": "A"
   },
   "4.1.3": {
-    "name": "ステータスメッセージ"
+    "id": "status-messages",
+    "name": "ステータスメッセージ",
+    "level": "AAA"
   }
 }
