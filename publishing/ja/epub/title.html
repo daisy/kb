@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>出版物のタイトル</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on setting the title of an EPUB publication.">
+		<script>
+			var page_info = {
+				'category': 'EPUB',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>意味のあるタイトルにより、ユーザーは EPUB 出版物を見つけて整理することができます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p><code>dc:title</code>要素に説​​明的なタイトルを指定します。[[WCAG-2.4.2]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">例 1 — シンプルな出版物のタイトル</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/" …&gt;
+   &lt;dc:title&gt;Alice's Adventures in Wonderland&lt;/dc:title&gt;
+   …
+&lt;/metadata&gt;
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">シリーズのタイトルやサブタイトルなどに複数の<code>dc:title</code>要素を使用する必要がありますか?</dt>
+					<dd>
+						<p>EPUB では複数の<code>dc:title</code>要素を追加できますが、これはお勧めできません。ほとんどのリーディングシステムは、最初に見つかった title 要素のみを認識します。その結果、読者は他のタイトルにアクセスできない可能性があります。</p>
+						
+						<p>これは多くの場合問題にならないかもしれませんが、シリーズ タイトルがメタデータの最初のタイトルである場合、シリーズ内のすべての書籍がユーザーの本棚で同じ名前になる可能性があります (たとえば、固有の書籍タイトルが別の要素にある場合、ロード オブ ザ リングの 3 つのパートすべてが本棚で「ロード オブ ザ リング」という名前になる可能性があります)。</p>
+						
+						<p>EPUB 3 では、タイトルの種類や表示方法に関する詳細情報を指定するために<code>title-type</code>プロパティと<code>display-seq</code>プロパティを追加することで、複数の<code>dc:title</code>要素が存在する問題に対処しようとしましたが、リーディングシステムはこれらのプロパティをほとんど無視します。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>タイトルは、EPUB のすべてのバージョンで必須の要素です。パッケージ ドキュメントのメタデータ セクションの Dublin Core <code>title</code>要素で表現されます。</p>
+				
+				<p>このタイトルは通常、リーディングシステムで出版物を識別するために使用されます (ベンダー システムでは、出版社から直接提供されるメタデータなど、他のメタデータが使用される場合があります)。タイトルにより、ユーザーは自分の本棚やライブラリにどのような出版物があるかを知ることができるだけでなく、その出版物を簡単に再度見つけることもできます。</p>
+				
+				<p>著者がタイトルを省略すると、リーディングシステムは通常、「無題」などの一般的な名前を生成します。ユーザーが読み込むこのような出版物が増えるほど、どれがどれであるかを区別することが難しくなります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-opf-dctitle"><code>title</code>要素</a>
+</li>
+					<li>EPUB 2 — <a href="http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.1">&lt;タイトル&gt;&lt;/タイトル&gt;</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,7 +1,7 @@
 [
   {
     "title": "アクセシビリティ適合",
-    "subtitle": "アクセシビリティ適合トピックでは、デジタル出版物に適用されるさまざまなアクセシビリティ仕様を満たすための情報を提供する。",
+    "subtitle": "アクセシビリティ適合トピックでは、デジタル出版物に適用されるさまざまなアクセシビリティ仕様を満たすための情報を提供します。",
     "id": "conformance",
     "path": "conformance",
     "topics": [
@@ -14,14 +14,14 @@
       {
         "id": "conf-s508",
         "href": "s508.html",
-        "title": "米国リハビリテーション法508条",
+        "title": "リハビリテーション法508条（米国）",
         "subtitle": "出版物に対する米国リハビリテーション法508条の要件の解説。"
       },
       {
         "id": "conf-wcag",
         "href": "wcag.html",
         "title": "WCAGの概要",
-        "subtitle": "W3Cのウェブ・コンテンツ・アクセシビリティ・ガイドライン（WCAG）2.0の紹介。"
+        "subtitle": "W3Cのウェブ・コンテンツ・アクセシビリティ・ガイドライン（WCAG）の紹介。"
       },
       {
         "id": "conf-wcag-expl",
@@ -33,7 +33,7 @@
   },
   {
     "title": "EPUB",
-    "subtitle": "EPUBトピックでは、EPUBフォーマットに固有のアクセシビリティに関する事項について説明する。",
+    "subtitle": "EPUBトピックでは、EPUBフォーマットに固有のアクセシビリティに関する事項について説明します。",
     "id": "epub",
     "categories": [
       {
@@ -81,7 +81,7 @@
             "id": "epub-dir",
             "href": "dir.html",
             "title": "テキストの進行方向",
-            "subtitle": "メタデータのテキストの進行方向が左から右か、右から左かを指定する。"
+            "subtitle": "メタデータのテキストの進行方向が左から右か、右から左かを指定。"
           }
         ]
       },
@@ -152,20 +152,29 @@
       {
         "id": "nav-page",
         "title": "ページナビゲーション",
+        "path": "nav",
         "topics": [
           {
+            "id": "nav-pagenav",
+            "href": "pagenav.html",
             "title": "概要",
             "subtitle": "ページ ナビゲーションのコンポーネントの紹介。"
           },
           {
+            "id": "nav-pagebreaks",
+            "href": "pagebreaks.html",
             "title": "改ページのマーカー",
             "subtitle": "改ページのマーカーを追加する方法の説明。"
           },
           {
+            "id": "nav-pagelist",
+            "href": "pagelist.html",
             "title": "ページリスト",
             "subtitle": "ページリストの目的と構成についての説明。"
           },
           {
+            "id": "nav-pagesrc",
+            "href": "pagesrc.html",
             "title": "ページソース",
             "subtitle": "ページ割りの原本の特定方法。"
           }
@@ -175,53 +184,78 @@
   },
   {
     "title": "メタデータ",
-    "subtitle": "メタデータ トピックでは、広く使用されている電子出版のメタデータ標準の中のアクセシビリティ プロパティについて説明する。",
+    "subtitle": "メタデータ トピックでは、一般的に使用されている電子出版のメタデータ仕様で利用できるアクセシビリティ プロパティについて説明します。",
+    "id": "metadata",
     "categories": [
       {
+        "id": "meta-general",
         "title": "全般",
+        "path": "metadata",
         "topics": [
           {
+            "id": "meta-evaluation",
+            "href": "evaluation.html",
             "title": "評価",
-            "subtitle": "EPUB アクセシビリティ仕様で要求される適合性と評価のメタデータについて。"
+            "subtitle": "EPUB アクセシビリティ規格で要求される適合性と評価のメタデータについて。"
           },
           {
+            "id": "meta-onix",
+            "href": "onix.html",
             "title": "ONIX",
             "subtitle": "ONIX メタデータ標準のコード リスト 196 のアクセシビリティ プロパティについて。"
           }
         ]
       },
       {
+        "id": "meta-schema",
         "title": "Schema.org",
+        "path": "metadata",
         "topics": [
           {
+            "id": "schema-overview",
+            "href": "schema.org/index.html",
             "title": "概要",
             "subtitle": "schema.orgのCreativeWork タイプで定義されているアクセシビリティ メタデータ プロパティの概要。"
           },
           {
+            "id": "schema-a11yAPI",
+            "href": "schema.org/accessibilityAPI.html",
             "title": "アクセシビリティ API",
             "subtitle": "<code>accessibilityAPI</code> プロパティを使用してプラットフォーム API との互換性を識別する。"
           },
           {
+            "id": "schema-a11yControl",
+            "href": "schema.org/accessibilityControl.html",
             "title": "アクセシビリティコントロール",
-            "subtitle": "<code>accessibilityControl</code> プロパティを使用して、利用者がコンテンツを操作する方法を特定する。"
+            "subtitle": "<code>accessibilityControl</code> プロパティを使用して、ユーザーがコンテンツを制御する方法を識別する。"
           },
           {
+            "id": "schema-a11yFeature",
+            "href": "schema.org/accessibilityFeature.html",
             "title": "アクセシビリティの特徴",
             "subtitle": "<code>accessibilityFeature</code> プロパティを使用してコンテンツのアクセシビリティの特徴を明示する。"
           },
           {
+            "id": "schema-a11yHazard",
+            "href": "schema.org/accessibilityHazard.html",
             "title": "アクセシビリティのハザード",
             "subtitle": "<code>accessibilityHazard</code> プロパティを使用して、ユーザーに対する危険性を明示する。"
           },
           {
+            "id": "schema-a11ySummary",
+            "href": "schema.org/accessibilitySummary.html",
             "title": "アクセシビリティの概要",
             "subtitle": "<code>accessibilitySummary</code> プロパティを使用して概要を提供する。"
           },
           {
+            "id": "schema-accessMode",
+            "href": "schema.org/accessMode.html",
             "title": "アクセスモード",
             "subtitle": "<code>accessMode</code> プロパティを使用してコンテンツの性質を明示する。"
           },
           {
+            "id": "schema-accessModeSufficient",
+            "href": "schema.org/accessModeSufficient.html",
             "title": "十分なアクセスモード",
             "subtitle": "<code>accessModeSufficient</code> プロパティを使用して、情報へのアクセスに十分な読み取り手段を明示する。"
           }
@@ -232,260 +266,385 @@
   {
     "title": "HTML",
     "subtitle": "HTMLトピックでは、アクセシブルなHTML コンテンツの作成に関連する話題を取り上げます。ガイドラインには、要素と属性をアクセシブルに使用する方法、索引や用語集などの一般的な出版物の構造をアクセシブルに作成する方法、ARIA role、state、propertyの利用方法などが含まれます。",
+    "id": "html",
     "categories": [
       {
+        "id": "html-elem-attr",
         "title": "要素と属性",
+        "path": "html",
         "topics": [
           {
+            "id": "html-abbr",
+            "href": "abbr.html",
             "title": "略語",
             "subtitle": "<code>abbr</code> 要素"
           },
           {
+            "id": "html-accesskeys",
+            "href": "accesskeys.html",
             "title": "アクセスキー",
             "subtitle": "<code>accesskey</code> 属性"
           },
           {
+            "id": "html-articles",
+            "href": "articles.html",
             "title": "記事",
             "subtitle": "<code>article</code> 要素"
           },
           {
+            "id": "html-asides",
+            "href": "asides.html",
             "title": "アサイド",
             "subtitle": "<code>aside</code> 要素"
           },
           {
+            "id": "html-audio",
+            "href": "audio.html",
             "title": "音声",
             "subtitle": "<code>audio</code> 要素"
           },
           {
+            "id": "html-emphasis",
+            "href": "emphasis.html",
             "title": "太字と斜体",
             "subtitle": "<code>b</code>、<code>em</code>、<code>i</code>、<code>strong</code> 要素"
           },
           {
+            "id": "html-context",
+            "href": "context.html",
             "title": "区切り",
             "subtitle": "<code>hr</code> 要素"
           },
           {
+            "id": "html-details",
+            "href": "details.html",
             "title": "詳細",
             "subtitle": "<code>details</code> 要素"
           },
           {
+            "id": "html-figures",
+            "href": "figures.html",
             "title": "フィギュア",
             "subtitle": "<code>figure</code> 要素"
           },
           {
+            "id": "html-forms",
+            "href": "forms.html",
             "title": "フォーム",
             "subtitle": "<code>form</code> 要素"
           },
           {
+            "id": "html-headings",
+            "href": "headings.html",
             "title": "見出し",
             "subtitle": "<code>h1</code> から <code>h6</code>、<code>hgroup</code>、<code>heading</code> 要素"
           },
           {
+            "id": "html-ids",
+            "href": "ids.html",
             "title": "識別子",
             "subtitle": "<code>id</code> 属性"
           },
           {
+            "id": "html-iframes",
+            "href": "iframes.html",
             "title": "インラインフレーム",
             "subtitle": "<code>iframe</code> 要素"
           },
           {
+            "id": "html-lang",
+            "href": "lang.html",
             "title": "言語",
             "subtitle": "<code>lang</code> 属性と <code>xml:lang</code> 属性"
           },
           {
+            "id": "html-links",
+            "href": "links.html",
             "title": "リンク",
             "subtitle": "<code>a</code> 要素"
           },
           {
+            "id": "html-lists",
+            "href": "lists.html",
             "title": "リスト",
             "subtitle": "<code>dl</code>、<code>ol</code>、<code>ul<code> 要素"
           },
           {
+            "id": "html-main",
+            "href": "main.html",
             "title": "メインコンテンツ",
             "subtitle": "<code>main</code> 要素"
           },
           {
+            "id": "html-mathml",
+            "href": "mathml.html",
             "title": "MathML",
             "subtitle": "<code>math</code> 要素"
           },
           {
+            "id": "html-meta",
+            "href": "meta.html",
             "title": "メタ",
             "subtitle": "<code>meta</code> 要素"
           },
           {
+            "id": "html-object",
+            "href": "object.html",
             "title": "オブジェクト",
             "subtitle": "<code>object</code> 要素"
           },
           {
+            "id": "html-title",
+            "href": "title.html",
             "title": "ページタイトル",
             "subtitle": "<code>title</code> 要素"
           },
           {
+            "id": "html-quote",
+            "href": "quotes.html",
             "title": "引用",
             "subtitle": "<code>blockquote</code> 要素と <code>q</code> 要素"
           },
           {
+            "id": "html-sections",
+            "href": "sections.html",
             "title": "セクション",
             "subtitle": "<code>section</code> 要素"
           },
           {
+            "id": "html-dir",
+            "href": "dir.html",
             "title": "テキストの進行方向",
             "subtitle": "<code>dir</code> 属性"
           },
           {
+            "id": "html-svg",
+            "href": "svg.html",
             "title": "SVG",
             "subtitle": "<code>svg</code> 要素"
           },
           {
+            "id": "html-video",
+            "href": "video.html",
             "title": "ビデオ",
             "subtitle": "<code>video</code> 要素"
           }
         ]
       },
       {
+        "id": "html-images",
         "title": "画像",
+        "path": "html",
         "topics": [
           {
+            "id": "html-image-anim",
+            "href": "images-animated.html",
             "title": "アニメーション画像",
             "subtitle": "アクセシブルなアニメーション画像のベストプラクティス。"
           },
           {
+            "id": "html-image-deco",
+            "href": "images-deco.html",
             "title": "装飾画像",
-            "subtitle": "利用者に情報を伝えていない画像を識別する方法。"
+            "subtitle": "ユーザーに情報を伝えていない画像を識別する方法。"
           },
           {
+            "id": "html-image-icon",
+            "href": "images-icons.html",
             "title": "アイコン",
             "subtitle": "アクセシブルなアイコンを含める方法のベストプラクティス。"
           },
           {
+            "id": "html-image-desc",
+            "href": "images-desc.html",
             "title": "画像の説明",
             "subtitle": "代替テキストと説明のための方法と書き方。"
           },
           {
+            "id": "html-image-maps",
+            "href": "maps.html",
             "title": "イメージマップ",
             "subtitle": "アクセシブルなイメージマップを含めるためのベストプラクティス。"
           },
           {
+            "id": "html-image-select",
+            "href": "images-selection.html",
             "title": "画像の選択",
             "subtitle": "さまざまなデバイスのレンダリング機能に合わせて最適化された画像を含める方法。"
           },
           {
+            "id": "html-image-text",
+            "href": "images-text.html",
             "title": "テキストの画像",
             "subtitle": "画像にテキストが含まれている場合のベストプラクティス。"
           },
           {
+            "id": "html-textbased",
+            "href": "images-text-based.html",
             "title": "テキストベースの画像",
             "subtitle": "ASCII アート、絵文字、編集されたテキスト、空欄補充問題などのテキストベースの画像をアクセシブルにするためのテクニック。"
           }
         ]
       },
       {
+        "id": "html-tables",
         "title": "表",
+        "path": "html",
         "topics": [
           {
+            "id": "html-table-basics",
+            "href": "tables-basics.html",
             "title": "表の基本",
             "subtitle": "アクセシブルな表のマークアップ方法の基本の紹介。"
           },
           {
+            "id": "html-table-headers",
+            "href": "tables-headers.html",
             "title": "複雑なヘッダー",
             "subtitle": "複雑な表のヘッダーをアクセシブルにするためのベスト プラクティス。"
           },
           {
+            "id": "html-table-scope",
+            "href": "tables-scope.html",
             "title": "ヘッダースコープ",
             "subtitle": "テーブル ヘッダーが行か列のどちらに適用されるかを識別する。"
           },
           {
+            "id": "html-table-layout",
+            "href": "tables-layout.html",
             "title": "表のレイアウト",
             "subtitle": "表のレイアウトを避けられない場合のベストプラクティス。"
           },
           {
+            "id": "html-table-captions",
+            "href": "tables-captions.html",
             "title": "表のキャプション",
             "subtitle": "表の目的を説明するキャプションを追加する。"
           },
           {
+            "id": "html-table-summary",
+            "href": "tables-summary.html",
             "title": "表の概要",
             "subtitle": "表の構造を説明する要約を追加する。"
           }
         ]
       },
       {
+        "id": "html-structures",
         "title": "構造",
+        "path": "html",
         "topics": [
           {
+            "id": "html-biblio",
+            "href": "bibliographies.html",
             "title": "文献リスト",
             "subtitle": "アクセシブルな文献リストを作成するためのマークアップの推奨事項。"
           },
           {
+            "id": "html-glossary",
+            "href": "glossaries.html",
             "title": "用語集",
             "subtitle": "アクセシブルな用語集を作成するためのマークアップの推奨事項。"
           },
           {
+            "id": "html-indexes",
+            "href": "indexes.html",
             "title": "索引",
             "subtitle": "アクセシブルな索引を作成するためのマークアップの推奨事項。"
           }
         ]
       },
       {
+        "id": "html-patterns",
         "title": "Patterns",
+        "path": "html",
         "topics": [
           {
+            "id": "html-dropcaps",
+            "href": "dropcaps.html",
             "title": "ドロップキャップ",
             "subtitle": "アクセシブルなドロップキャップを作成する方法。"
           },
           {
+            "id": "html-notes",
+            "href": "notes.html",
             "title": "脚注と文末脚注",
             "subtitle": "注と注釈をアクセシブルに識別、構造化、リンクする。"
           },
           {
+            "id": "html-hidden-conent",
+            "href": "hidden.html",
             "title": "非表示コンテンツ",
             "subtitle": "視覚的なレンダリングと支援技術の両方からコンテンツを非表示にする手法。"
           },
           {
+            "id": "html-poetry",
+            "href": "poetry.html",
             "title": "詩",
             "subtitle": "行ベースのコンテンツをフォーマットおよび記述するためのテクニック。"
           },
           {
+            "id": "htmk-refs",
+            "href": "reflinks.html",
             "title": "参照マークへのリンク",
             "subtitle": "表、図、注釈などの参照にリンクするための方法。"
           }
         ]
       },
       {
+        "id": "html-concepts",
         "title": "コンセプト",
+        "path": "html",
         "topics": [
           {
+            "id": "html-reading-order",
+            "href": "order.html",
             "title": "論理的な読み順",
-            "subtitle": "主要な物語が二次的なコンテンツから明確に分離されるようにするための実践。"
+            "subtitle": "主要な物語を二次的なコンテンツから明確に分離するための実践。"
           },
           {
+            "id": "html-sep-style",
+            "href": "separation.html",
             "title": "スタイルの分離",
             "subtitle": "スタイルに頼らずに必要な情報を伝達できるようにするための実践。"
           }
         ]
       },
       {
+        "id": "html-aria",
         "title": "ARIA",
+        "path": "html",
         "topics": [
           {
+            "id": "html-landmarks",
+            "href": "landmarks.html",
             "title": "ARIA ランドマーク",
-            "subtitle": "出版物の重要なセクションを識別するための ARIA landmark roleを紹介する。"
+            "subtitle": "出版物の重要なセクションを識別するための ARIA landmark roleの紹介。"
           },
           {
+            "id": "html-role",
+            "href": "roles.html",
             "title": "ARIA role 属性",
-            "subtitle": "ARIA <code>role</code> 属性が、支援技術がその属性を持つ要素を理解するのにどのように影響するかを説明する。"
+            "subtitle": "ARIA <code>role</code> 属性が、支援技術がその属性を持つ要素を理解するのにどのように影響するかの説明。"
           },
           {
-            "title": "デジタル出版のロール",
+            "id": "html-dpub",
+            "href-override": "html/dpub-aria/index.html",
+            "title": "デジタル出版ロール",
             "subtitle": "ARIA <code>role</code> 属性で使用する DPUB-ARIA モジュールの紹介。このページには、モジュール内の各ロールの詳細な説明へのリンクもある。"
           }
         ]
       },
       {
+        "id": "html-semantics",
         "title": "セマンティクス",
+        "path": "html",
         "topics": [
           {
+            "id": "epub-type",
+            "href": "epub-type.html",
             "title": "EPUB <code>type</code> 属性",
-            "subtitle": "支援技術に影響を与えなくても、属性が、リーディングシステムでの読書体験をどのように向上できるかの概要。"
+            "subtitle": "属性が、支援技術に影響を与えなくても、リーディングシステムでの読書体験をどのように向上できるかの概要。"
           }
         ]
       }
@@ -493,29 +652,43 @@
   },
   {
     "title": "CSS",
-    "subtitle": "CSS トピックでは、カスケード スタイル シート 技術を使用したコンテンツのアクセシブルなスタイル設定について説明する。",
+    "subtitle": "CSS トピックでは、カスケード スタイル シート 技術を使用したコンテンツのアクセシブルなスタイル設定について説明します。",
+    "id": "css",
+    "path": "css",
     "topics": [
       {
+        "id": "css-color",
+        "href": "color.html",
         "title": "色",
         "subtitle": "色に頼らずに情報が伝わるようにするテクニック。"
       },
       {
+        "id": "css-contrast",
+        "href": "contrast.html",
         "title": "コントラスト",
         "subtitle": "文字色と背景色を設定するときに十分なコントラストを確保するためのテクニック。"
       },
       {
+        "id": "css-ref",
+        "href": "reference.html",
         "title": "CSS プロパティリファレンス",
         "subtitle": "既知のアクセシビリティの問題がある主な CSS プロパティへの参照。"
       },
       {
+        "id": "css-reflow",
+        "href": "reflow.html",
         "title": "リフロー",
         "subtitle": "WCAG のリフロー要件を満たす際にスタイルがもたらす問題についての説明。"
       },
       {
+        "id": "css-text-resize",
+        "href": "text-resize.html",
         "title": "文字サイズの変更",
         "subtitle": "文字のサイズを変更するときにアクセシビリティの問題を回避するテクニック。"
       },
       {
+        "id": "css-text-spacing",
+        "href": "text-spacing.html",
         "title": "文字間隔",
         "subtitle": "文字間隔が変更されたときにアクセシビリティの問題を回避するためのテクニック。"
       }
@@ -523,37 +696,55 @@
   },
   {
     "title": "スクリプト化されたコンテンツとフォーム",
-    "subtitle": "スクリプトとフォームのトピックでは、電子出版物にインタラクティブなコンテンツを追加することについて説明する。",
+    "subtitle": "スクリプトとフォームのトピックでは、電子出版物にインタラクティブなコンテンツを追加することについて説明します。",
+    "id": "script",
+    "path": "script",
     "topics": [
       {
+        "id": "script-autocomplete",
+        "href": "autocomplete.html",
         "title": "オートコンプリート",
-        "subtitle": "<code>autocomplete</code> 属性を使用して、利用者が一般的なフォームに入力できるようにする。"
+        "subtitle": "<code>autocomplete</code> 属性を使用して、ユーザーが一般的なフォームに入力できるようにする。"
       },
       {
+        "id": "script-controls",
+        "href": "controls.html",
         "title": "カスタムコントロール",
         "subtitle": "ARIA role、state、propertiyを使用して、カスタムコントロールをアクセシブルにする。"
       },
       {
+        "id": "script-validation",
+        "href": "input-validation.html",
         "title": "入力検証",
-        "subtitle": "利用者がフォームの入力エラーを理解して修正できるようにする手法。"
+        "subtitle": "ユーザーがフォームの入力エラーを理解して修正できるようにする手法。"
       },
       {
+        "id": "script-keyboard",
+        "href": "keyboard.html",
         "title": "キーボードコントロール",
         "subtitle": "キーボード ユーザーがスクリプト コンテンツを操作できるようにする手法。"
       },
       {
+        "id": "script-labels",
+        "href": "labels.html",
         "title": "ラベル",
         "subtitle": "入力とコントロールがアクセシブルにラベル付けされていることを保証する手法。"
       },
       {
+        "id": "script-pe",
+        "href": "pe.html",
         "title": "プログレッシブエンハンスメント",
         "subtitle": "スクリプトが利用できない場合でもアクセス可能な状態を維持できるように、コンテンツを段階的に強化する方法について検討する。"
       },
       {
+        "id": "script-tab-order",
+        "href": "tab-order.html",
         "title": "タブ順序",
         "subtitle": "キーボードのタブ順序がアクセシブルであることを確認するためのテクニック。"
       },
       {
+        "id": "script-timers",
+        "href": "timers.html",
         "title": "タイマー",
         "subtitle": "時間制限付きコンテンツへのアクセスを保証するテクニック。"
       }
@@ -561,47 +752,70 @@
   },
   {
     "title": "固定レイアウト",
-    "subtitle": "固定レイアウトのトピックでは、固定寸法のページにレイアウトされるコンテンツ (つまり、コンテンツは画面に合わせてリフローされず、配置された場所に留まる) の作成に関して説明する。",
+    "subtitle": "固定レイアウトのトピックでは、固定寸法のページにレイアウトされるコンテンツ (つまり、コンテンツは画面に合わせてリフローされず、配置された場所に留まる) の作成に関して説明します。",
+    "id": "fxl",
     "categories": [
       {
+        "id": "fxl-general",
         "title": "全般",
+        "path": "fxl",
         "topics": [
           {
+            "id": "fxl-overview",
+            "aria-label": "Fixed Layouts Overview",
+            "href": "overview.html",
             "title": "概要",
             "subtitle": "EPUB で固定レイアウトを作成するための一般的な概要。"
           },
           {
+            "id": "fxl-html",
+            "href": "html.html",
             "title": "HTMLレイアウト",
             "subtitle": "HTMLでアクセシブルな固定レイアウトを作成する方法の概要。"
           },
           {
+            "id": "fxl-img-spine",
+            "href": "img-spine.html",
             "title": "Spineの画像",
             "subtitle": "EPUBのspineに画像を直接配置する場合のアクセシビリティの問題の概要。"
           },
           {
+            "id": "fxl-svg",
+            "href": "svg.html",
             "title": "SVGレイアウト",
             "subtitle": "SVGでアクセシブルな固定レイアウトを作成する方法の概要。"
           },
           {
+            "id": "fxl-wcag",
+            "href": "wcag.html",
             "title": "WCAG準拠",
             "subtitle": "固定レイアウトをWCAGアクセシビリティ要件に準拠させる際の難しさの概要。"
           }
         ]
       },
       {
+        "id": "fxl-tech",
         "title": "テクニック",
+        "path": "fxl",
         "topics": [
           {
+            "id": "fxl-img",
+            "aria-label": "Fixed Layout Images",
+            "href": "img.html",
             "title": "画像",
             "subtitle": "画像ベースの固定レイアウトをアクセシブルにするための問題を探る。"
           },
           {
+            "id": "fxl-spreads",
+            "href": "spreads.html",
             "title": "複数ページスプレッド",
             "subtitle": "固定レイアウトの複数ページにまたがるコンテンツに関する問題を検討する。"
           },
           {
+            "id": "fxl-orient",
+            "href": "orientation.html",
             "title": "画面の向き",
-            "subtitle": "固定レイアウトがレンダリングされる方向を制限することに関する問題について説明する。"
+            "subtitle": "固定レイアウトがレンダリングされる方向を制限することに関する問題についての説明。"
           }
         ]
       }
@@ -610,28 +824,43 @@
   {
     "title": "同期マルチメディア",
     "subtitle": "同期マルチメディアのトピックでは、同期されたテキストと音声の再生を提供する電子出版物の作成について説明する。これらの出版物は、多くの場合、「読み上げ」本と呼ばれます。",
+    "id": "sync-media",
     "categories": [
       {
+        "id": "sync-implementation",
         "title": "実装",
+        "path": "sync-media",
         "topics": [
           {
+            "id": "sync-overview",
+            "href": "overlays.html",
             "title": "EPUB 3 メディアオーバーレイ",
             "subtitle": "テキストを録音済み音声の再生と同期するためのEPUB3のメディア オーバーレイ機能の概要。"
           }
         ]
       },
       {
+        "id": "sync-techniques",
         "title": "テクニック",
+        "path": "sync-media",
         "topics": [
           {
+            "id": "sync-highlight",
+            "href": "highlight.html",
             "title": "ハイライト",
             "subtitle": "アクセシブルなテキストの強調表示に関する考慮事項。"
           },
           {
+            "id": "sync-lists",
+            "aria-label": "Synchronized Media Lists",
+            "href": "lists.html",
             "title": "リスト",
             "subtitle": "同期再生のためのリストの構造化。"
           },
           {
+            "id": "sync-tables",
+            "aria-label": "Synchronized Media Tables",
+            "href": "tables.html",
             "title": "表",
             "subtitle": "同期再生のための表の構造化。"
           }
@@ -642,70 +871,32 @@
   {
     "title": "テキスト読み上げ（TTS)",
     "subtitle": "テキスト読み上げ (TTS) のトピックでは、高品質の TTS 再生を実現するのに役立つ技術について説明する。",
+    "id": "tts",
+    "path": "text-to-speech",
     "topics": [
       {
+        "id": "tts-overview",
+        "href": "overview.html",
         "title": "概要",
         "subtitle": "テキスト読み上げ（TTS）再生に関する問題と、その解決に役立つ技術の概要。"
       },
       {
+        "id": "tts-speech",
+        "href": "speech.html",
         "title": "CSS3 Speech",
         "subtitle": "スタイルシートで TTS 再生を制御するための音声モジュールのプロパティを説明する。"
       },
       {
+        "id": "tts-pls",
+        "href": "pls.html",
         "title": "PLS 辞書",
         "subtitle": "発音辞書を使用して用語の辞書を作成する方法の説明。"
       },
       {
+        "id": "tts-ssml",
+        "href": "ssml.html",
         "title": "SSML",
         "subtitle": "EPUB の合成音声マークアップ言語（SSML)の属性実装の説明。"
-      }
-    ]
-  },
-  {
-    "title": "用語集",
-    "topics": [
-      {
-        "title": "A"
-      },
-      {
-        "title": "C"
-      },
-      {
-        "title": "D"
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
-      },
-      {
       }
     ]
   }
