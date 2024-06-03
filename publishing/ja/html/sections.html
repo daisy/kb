@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>セクション見出し</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessibly structuring content.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>出版物のセクションを明確にすると、ユーザーがコンテンツを読み進めたり、内容理解をしたりしやすくなります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>コンテンツの主要なセクションには<code>section</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各セクションに見出しを含めます。 [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>主要なランドマーク（目印）に役割とアクセシブルな名前を追加します。 [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>副題（サブタイトル）には見出し要素を使用しないでください。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>サイドバーなどの補助的な素材には<code>aside</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 章（チャプター）の特定</div>
+						<p><code>doc-chapter</code>ロールは、 <code>section</code>要素に適用され、この中に章が含まれていることを識別します。ロールを使用して<code>aria-labelledby</code>属性で見出しを識別すると、支援技術でランドマーク（目印）が作成されます。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01"&gt;
+   &lt;h1 id="hd01"&gt;Chapter 1. Loomings.&lt;/h1&gt;
+   &lt;p&gt;Call me Ishmael. … &lt;/p&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 無題のセクション</div>
+						<p><code>aria-label</code>属性は、テキスト内の色のみで区別されるセクションを識別するために使用されます。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section aria-label="Self-examination tests"&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 副題（サブタイトル）の識別</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd02"&gt;
+   &lt;hgroup&gt;
+      &lt;h1 id="hd02"&gt;1. Europe 1930-1935&lt;/h1&gt;
+      &lt;p role="doc-subtitle"&gt;The Foreshadows of War&lt;/p&gt;
+   &lt;/hgroup&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — ランドマーク（目印）ではないサブセクションの追加</div>
+						<p><code>section</code>要素には<code>role</code>属性がなく、 <code>aria-labelledby</code>属性を使用してアクセシブルな名前を識別しないため、支援技術のランドマーク（目印）は作成されません。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;section&gt;
+   &lt;h4&gt;2.4.1 Electrical Impedance&lt;/h3&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">すべてのセクションをランドマーク（目印）にする必要がありますか?</dt>
+					<dd>
+						<p>いいえ、ランドマークは代替の目次として機能することを意図したものではありません。ランドマークはフラットなリストとしてユーザーに表示されるため、出版物の構造が失われ、出版物内を移動するための効果的な手段にはなりません。</p>
+						<p>一般的には、作品の主要なセクション (章など) と、ユーザーがすぐにアクセスしたい重要な前書きおよび参照セクションのみを識別することをお勧めします。ランドマークが多すぎると、ユーザーにとっての有用性が低下します。</p>
+						<p>セクションがランドマークにならないようにするには、セクションにロールやアクセシブルな名前を追加しないでください (つまり、 <code>section</code>要素で<code>role</code> 、 <code>aria-labelledby</code> 、 <code>aria-label</code> 、 <code>title</code>属性を使用しないでください)。</p>
+					</dd>
+					
+					<dt id="faq-002">補助的なコンテンツには<code>section</code>要素を使用する必要がありますか?</dt>
+					<dd>
+<p>いいえ、サイドバーやミニ記事などの自己完結型の補助コンテンツは、必要に応じて<code>aside</code>と<code>article</code>要素を使用して識別する必要があります。詳細については、 <a href="asides.html">asides</a>および<a href="articles.html">articles</a>ページを参照してください。</p>
+					</dd>
+					
+					<dt id="faq-003">パートの取り扱い方法は？</dt>
+					<dd>
+<p>出版物は通常、レンダリング速度を向上させるために小さなコンテンツ ファイルに分割されるため、1 つのファイルに全体を含められないことがよくあります。問題は、章（チャプター）を別々のファイルに分割しながら、パートを保持するにはどうすればよいかということです。</p>
+						<p>コンテンツをフラット化するには 2 つの方法がありますが、どちらも最適ではありません (少なくとも、マークアップ内の元の構造階層を保持するという点では)。1 つ目は、最初の章（チャプター）にパート見出しを含める方法です。</p>
+						<pre id="faq-01-src" class="prettyprint linenums"><code>&lt;body&gt;
+   &lt;section role="doc-part" aria-labelledby="hd01"&gt;
+	  &lt;h1 id="hd01"&gt;Part I&lt;/h1&gt;
+	  &lt;section role="doc-chapter" aria-labelledby="hd02"&gt;
+		 &lt;h2 id="hd02"&gt;Chapter I&lt;/h2&gt;
+	  &lt;/section&gt;
+   &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+						<p>後続の各章ファイルには、 <code>h2</code>見出しを持つ 1 つの<code>section</code>が含まれます。このマークアップアプローチでは、そのパートには 1 つの章のみが含まれているように見えますが、一貫した見出し番号付けにより、支援技術によってユーザーを正しく誘導できます。</p>
+						<p>もう一つの方法は、パート見出しを独自のファイルに分離することです。</p>
+						<pre id="faq-02-src" class="prettyprint linenums"><code>&lt;body&gt;
+   &lt;section role="doc-part" aria-labelledby="hd01"&gt;
+	  &lt;h1 id="hd01"&gt;Part I&lt;/h1&gt;
+   &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+						<p>後続の各章ファイルには、その章がパートに従属していることを示す<code>h2</code>見出しが含まれます。このアプローチの利点の 1 つは、ユーザーエージェントがパート見出しを最初の章のコンテンツとは別にレンダリングすることです。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><code>section</code>要素は、主要なコンテンツのセクションをカプセル化し、出版物の構造階層を確立するために使用されます。コンテンツを明確にグループ化して識別することで、支援技術を使用して読むすべてのユーザーがより適切にナビゲートできるようになります ( <a href="#faq03">FAQ も参照</a>)。</p>
+				
+				<p>該当する場合、 <a href="roles.html"><code>role</code>属性を</a><code>section</code>に追加して、コンテンツの特定の性質を示すことができます。属性で使用できる値のリストについては、<a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing WAI-ARIA モジュール</a>を参照してください。</p>
+				
+				<p><code>role</code>指定がされていない場合は、ネストレベル（入れ子階層の深さ）に基づいて一般的なセクション/サブセクションの性質とみなされます。</p>
+				
+				<p><code>section</code>に複数の子見出しを含めることはできません。見出しタグを使用して副題を追加しないでください。支援技術のユーザーにはサブセクションとして表示されてしまうためです。</p>
+				
+				<p>セクションに見出しがない場合は、 <code>section</code>の目的を識別させるために<code>aria-label</code>属性を含めることを検討してください。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">&lt;section&gt;: 汎用セクション要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code> 要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
