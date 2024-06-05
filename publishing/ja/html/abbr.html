@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>略語</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the use of abbreviations.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>略語が初めて使用される場合、またはあいまいさが生じる可能性がある場合は、略語の元の正式名称をユーザーが確認できるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>略語は、最初に元の正式名称を使用した後に、括弧で囲んで示します。[[WCAG-3.1.4]]</p>
+					</li>
+					<li>
+						<p>元の正式名称を提供するには、 <code>title</code>属性を持つ<code>abbr</code>要素を使用します。[[WCAG-3.1.4]]</p>
+					</li>
+					<li>
+						<p>略語の用語集を提供します。[[WCAG-3.1.4]]</p>
+</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">例1 — 最初に使用したあとに頭字語を提供する</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;The North American Free Trade Agreement (NAFTA) … &lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption><span class="label">例2 — <code>abbr</code>要素を使用して略していない語を含める</span></figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;abbr
+     title="The United States Mexico Canada Agreement"
+   &gt;USMCA&lt;/abbr&gt;
+   replaced &lt;abbr
+     title="The North American Free Trade Agreement"
+   &gt;NAFTA&lt;/abbr&gt; in 2019 … &lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption><span class="label">例3 — <code>abbr</code>要素を使用して類似の単語を区別する</span></figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;If you follow
+   &lt;abbr title="Saint"&gt;St.&lt;/abbr&gt;
+   Stephen
+   &lt;abbr title="Street"&gt;St.&lt;/abbr&gt;
+   north for ten blocks … &lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption><span class="label">例4 — 用語集のエントリへのリンク</span></figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;p&gt;Some &lt;a
+    href="glossary.html#snafu"
+    role="doc-glossref"&gt;SNAFUs&lt;/a&gt;
+   are not good to expand on PG sites… &lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>略語や頭字語を使用すると、スペースを節約でき、記憶に役に立ちますが、最初は用語に馴染みのない読者にとっては困難を伴います。これは、意味を理解したり覚えたりすることが困難な認知障害や学習障害のある人にとっては特に問題となります。</p>
+				
+				<p>著者が略語や頭字語をよりわかりやすくするために使用できるさまざまなテクニックがあります。ほとんどの執筆ガイドの一般的なルールは、用語の正式名称バージョンを、括弧で略語を紹介する前に常に提供することです (例: 「World Wide Web Consortium (W3C)」)。</p>
+				
+				<p>この手法は、略語や頭字語が作品のごく一部でのみ使用されている場合に最も効果的です。ただし、用語が一度だけ紹介され、その後出版物全体で繰り返されると、読者はその定義を見つけるのが難しくなります。</p>
+				
+				<p>この問題を回避するには、HTML <code>abbr</code>要素を使用して、 <code>title</code>属性で略していない語を指定することにより、略していない語を再提供することができます (<a href="#ex-02">例 2</a>を参照)。このマークアップは、すべての略語のインスタンスにタグ付けする控えめな方法です。</p>
+				
+				<p><code>abbr</code>要素を使用する欠点は、略していない語が支援技術のユーザーのみに利用可能になる可能性があることです。<code>title</code>属性を使用すると、マウスを略語の上に置くとツールヒントが表示されますが、読者はポインティング デバイスを備えた読み取りシステムを使用していないかもしれません。</p>
+				
+				<p>もう 1 つのオプションは、略語を用語集のエントリにリンクすることです (<a href="#ex-03">例 4</a>を参照)。このオプションを使用すると、すべてのユーザーが略していない語にアクセスできますが、用語集の用語へのリンクでドキュメントが過負荷にならないように注意する必要があります。ドキュメント内で用語へのリンクが繰り返し使用されるほど、支援技術のユーザーが一連の用語を確認する際の妨げになります。リンクを使用する場合は、セクションの最初の用語のみにリンクすることをお勧めします。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element"><code>abbr</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
