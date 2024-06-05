@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ONIX</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on adding accessibility metadata to an ONIX record.">
+		<script>
+			var page_info = {
+				'category': 'Metadata',
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style type="text/css">
+			dt {
+				font-weight: bold;
+				font-size: 95%;
+			}
+			blockquote {
+				font-size: 95%;
+				font-style: italic;
+				margin-left: 0;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>配布チャネルで利用できるように、アクセシビリティ メタデータを ONIX レコードに含めます。</p>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">例 1 — アクセシビリティ情報を記載した ONIX メッセージのサンプル</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;ONIXMessage release="3.0"&gt;
+  &lt;Header&gt;
+    …
+  &lt;/Header&gt;
+  &lt;Product&gt;
+    …
+    &lt;DescriptiveDetail&gt;
+      &lt;ProductFormFeature&gt;
+        &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+        &lt;ProductFormFeatureValue&gt;03&lt;/ProductFormFeatureValue&gt;
+      &lt;/ProductFormFeature&gt;
+      &lt;ProductFormFeature&gt;
+        &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+        &lt;ProductFormFeatureValue&gt;10&lt;/ProductFormFeatureValue&gt;
+      &lt;/ProductFormFeature&gt;
+      &lt;ProductFormFeature&gt;
+        &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+        &lt;ProductFormFeatureValue&gt;11&lt;/ProductFormFeatureValue&gt;
+      &lt;/ProductFormFeature&gt;
+      &lt;ProductFormFeature&gt;
+        &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+        &lt;ProductFormFeatureValue&gt;13&lt;/ProductFormFeatureValue&gt;
+      &lt;/ProductFormFeature&gt;
+    &lt;/DescriptiveDetail&gt;
+    …
+    &lt;TitleDetail&gt;
+      &lt;TitleType&gt;01&lt;/TitleType&gt;
+      &lt;TitleElement&gt;
+        &lt;TitleElementLevel&gt;01&lt;/TitleElementLevel&gt;
+        &lt;TitleText&gt;Accessible EPUB 3&lt;/TitleText&gt;
+      &lt;/TitleElement&gt;
+    &lt;/TitleDetail&gt;
+    …
+  &lt;/Product&gt;
+&lt;/ONIXMessage&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<span class="label">例2 — ONIXメッセージのリンク</span>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;package … &gt;
+    &lt;metadata&gt;
+        …
+        &lt;link
+              rel="onix-record"
+              href="#EPUB/meta/onix-9781234567890.xml"/&gt;
+        …
+    &lt;/metadata&gt; 
+    …
+&lt;/package&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">ONIX メッセージは EPUB コンテナに含める必要がありますか？</dt>
+					<dd>
+						<p>いいえ、ONIX メッセージは、出版物のリソースではないため、コンテナーの外部でホストできます。リソースの外部ホスティングを検討する場合は、すべてのユーザー エージェントがインターネットに接続されているわけではないことを十分に考慮してください。アクセス可能なデバイスが、アクセシビリティ情報にアクセスできなくなる可能性があります。</p>
+					</dd>
+					
+					<dt id="faq-002">アクセシビリティ情報を含めるために他のメタデータ標準を使用できますか？</dt>
+					<dd>
+						<p>はい、schema.org には、アクセシビリティ メタデータを EPUB パッケージ ファイルに直接埋め込むことができる<a href="schema-org.html">アクセシビリティ プロパティ</a>のセットが含まれています。</p>
+					</dd>
+					
+					<dt id="faq-003">このメタデータはどのように役立ちますか?</dt>
+					<dd>
+						<p>メタデータは、たとえば、配布チャネルで使用して、ユーザーが出版物が自分のニーズに適しているかどうかを確認できるようにすることができます。書店の検索エンジンは、この情報を使用して、ユーザーが利用可能な電子書籍を、自分の支援技術で動作することがわかっているものだけに絞り込むことができるようにすることができます。</p>
+						<p>同様に、ユーザー エージェントは、書籍がアクセシビリティの低いチャネルを通じて配信された場合でも、読む前にユーザーにアクセシビリティ情報を提示できます (例：電子書籍がユーザーのシステムと互換性がないことがわかっている場合は、電子書籍をより迅速に返却できるようにするなど)。</p>
+						<p>この情報がなければ、ユーザーは EPUB の品質を区別することができません。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>ONIX コード リスト 196 により、アクセシビリティ準拠メタデータを ONIX メッセージに含めることができます。この情報は、配布チャネルを通じて出版物とともに移動できるため、顧客は EPUB が提供するアクセシビリティ機能を知ることができます。このセクションでは、各達成基準を順に取り上げます。</p>
+				
+				<section id="desc-onix00">
+					<h4>00: アクセシビリティの概要</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、提供されるより具体的な適合性と機能の詳細と一致する、製品のアクセシビリティに関する短い説明の要約が含まれます。要約には、提供されるアクセシビリティ機能と潜在的な欠陥の両方を記載する必要があります。より詳細な情報は、コード 94～96 を使用して外部ファイルで提供できます。ONIX 3.0 でのみ使用できます。</p>
+					</blockquote>
+					
+					<p>この値は、Schema.org の<a href="schema.org/accessibilitySummary.html">accessibilitySummary プロパティ</a>と同じです。</p>
+					
+					<p>多くの場合、このフィールドは 500 文字までに制限されます。</p>
+					
+					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;00&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+   Publication lacks image descriptions and alt text.
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;
+</code></pre>
+				</section>
+				
+				<section id="desc-onix01">
+					<h4>01: LIAコンプライアンススキーム</h4>
+					
+					<p>EPUB が Libri Italiani Accessibili ガイドラインに準拠していることを示します。</p>
+					
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;01&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix02">
+					<h4>02: アクセシビリティ仕様 1.0 A</h4>
+					
+					<blockquote>
+						<p>EPUB アクセシビリティ仕様 1.0 および WCAG レベル A の要件に準拠しています。&lt;ProductFormFeatureDescription&gt; には、独立したサードパーティ認証機関によって提供される準拠レポートまたは認証にリンクする URL を含めることができます。URL がない場合、アクセシビリティ仕様の要件への準拠は発行者によって自己認証されます。</p>
+					</blockquote>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;02&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix03">
+					<h4>03: アクセシビリティ仕様 1.0 AA</h4>
+					
+					<blockquote>
+						<p>EPUB アクセシビリティ仕様 1.0 および WCAG レベル AA の要件に準拠しています。&lt;ProductFormFeatureDescription&gt; には、独立したサードパーティ認証機関によって提供される準拠レポートまたは認証にリンクする URL を含めることができます。URL がない場合、アクセシビリティ仕様の要件への準拠は発行者によって自己認証されます。</p>
+					</blockquote>
+					
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;03&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix09">
+					<h4>09:アクセシブルでない</h4>
+					
+					<blockquote>
+						<p>幅広いアクセシビリティに必要な重要な機能が不足していることが知られています。ONIX 3.0 でのみ使用できます。</p>
+					</blockquote>
+					
+					<pre id="ex-x9-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;09&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix10">
+					<h4>10: ユーザーエージェントのアクセシビリティオプションが無効になっていない（除く）</h4>
+					
+					<blockquote>
+						<p>リーディングシステム、デバイス、またはリーディングソフトウェアが提供するアクセシビリティ機能 (テキストサイズや書体の選択、テキストや背景色の選択、テキスト読み上げを含むが、これらに限定されない) は、ONIX 3 メッセージのみにおいて&lt;EpubUsageConstraint&gt; で制限または禁止の対象として明記されているものを除き、本製品で無効化、上書き、またはその他の方法で使用できなくなったりすることはありません。テキスト コンテンツの重要な部分を画像として提供すると (つまり、テキストではなくテキストの画像として、テキストに相当するものがない)、必然的にこれらのアクセシビリティ オプションを使用できなくなることに注意してください。</p>
+					</blockquote>
+					
+					<p>デジタル著作権管理 (DRM) の制限により、コンテンツ制作者は、出版物のアクセシビリティに影響する機能を有効または無効にできる場合があります。基準を満たすには、スクリーン リーダーによるコンテンツへのアクセスを無効にする制限が設定された出版物をバンドルまたは配布しないでください。</p>
+					
+					<p>次の例は、テキスト読み上げの再生を禁止する EPUB 出版物を示しています。</p>
+					
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;10&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;
+…
+&lt;EpubUsageConstraint&gt; 
+ &lt;EpubUsageType&gt;05&lt;/EpubUsageType&gt; 
+ &lt;EpubUsageStatus&gt;03&lt;/EpubUsageStatus&gt;
+&lt;/EpubUsageConstraint&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix11">
+					<h4>11: 目次ナビゲーション</h4>
+					
+					<blockquote>
+						<p>目次を使用すると、個々の段落の上にあるすべてのレベルのテキスト構成（例：すべてのセクションとサブセクションなど）や、すべての表、図、イラストなどに直接（ハイパーリンクなどを使用して）アクセスできます。イラスト、表、音声またはビデオ コンテンツなどの非テキスト項目は、目次から直接アクセスできるほか、同様のイラスト一覧、表一覧などからアクセスすることもできます。</p>
+					</blockquote>
+					
+					<p>EPUB ナビゲーション ドキュメントを含めるという要件は、それ自体ではこの要件を満たしません。出版物の完全な構造へのリンクを含む<code>toc nav</code>が必要です。詳細については<a href="../navigation/toc.html">、セクションの目次</a>を参照してください。</p>
+					
+					<p>表や図などのリストを表現するには、<a href="../navigation/content-list.html">コンテンツリスト</a>も参照してください。</p>
+					
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;11&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix12">
+					<h4>12: インデックスナビゲーション</h4>
+					
+					<blockquote>
+						<p>インデックスは、ドキュメント本文内のインデックス用語の使用に直接 (例：ハイパーリンクを通して) アクセスできるようにします。</p>
+					</blockquote>
+					
+					<p>インデックスのタグ付けの詳細については、 <a href="../html/indexes.html">「インデックス」</a>セクションを参照してください。</p>
+					
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;12&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix13">
+					<h4>13: 読み上げ順</h4>
+					
+					<blockquote>
+						<p>すべてまたはほぼすべてのテキストは、単一の論理的な読み上げ順で配置されます (ボックスアウト、キャプション、表、脚注、文末脚注、引用など、メインのテキスト フローとは別に視覚的に提示されるテキストを含む)。非テキスト コンテンツも、この論理的な読み上げ順内からリンクされます (純粋に装飾的な非テキスト コンテンツは無視できます)。</p>
+					</blockquote>
+					
+					<p>EPUB パッケージ ドキュメントで必須の<code>spine</code>の要素だけでは、この要件を満たすことはできません。出版物の論理的な読み上げ順は、マークアップで明確に記述する必要があります。脚注、表、画像、サイドバー、および同様の二次コンテンツはすべて、スキップできるようにマークアップする必要があります。</p>
+					
+					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;13&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix14">
+					<h4>14: 短い代替説明</h4>
+					
+					<blockquote>
+						<p>すべてまたはほぼすべての非テキスト コンテンツには、通常 alt 属性を介して提供される短い代替 (テキスト) 説明があります。これは、通常の画像 (写真、グラフ、図など) だけでなく、埋め込まれた音声、ビデオなどにも適用されます。音声およびビデオ コンテンツには、聴覚障害のある読者だけでなく視覚障害のある読者にも適した代替説明を含める必要があります (純粋に装飾的な非テキスト コンテンツは無視できますが、電子出版パッケージの一部としてではなく、ネットワーク接続を介して配信されるリソースのアクセシビリティは含める必要があります)。</p>
+					</blockquote>
+					
+					<p>詳細については、<a href="../html/images-desc.html">画像</a>セクションを参照してください。</p>
+					
+					<pre id="ex-09-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;14&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix15">
+					<h4>15: 完全な代替説明</h4>
+					
+					<blockquote>
+						<p>すべてまたはほぼすべての非テキスト コンテンツには、完全な代替 (テキスト) 説明があります。これは、通常の画像 (写真、チャート、図など) だけでなく、埋め込まれた音声、ビデオなどにも適用されます。音声およびビデオ コンテンツには、聴覚障害のある読者だけでなく視覚障害のある読者にも適した、完全な代替説明 (音声説明付きビデオなど) とトランスクリプト、字幕またはキャプション (クローズドまたはオープンであっても) を含める必要があります。(純粋に装飾的な非テキスト コンテンツは無視できますが、電子出版パッケージの一部としてではなく、ネットワーク接続を介して配信されるリソースのアクセシビリティは含める必要があります)。</p>
+					</blockquote>
+					
+					<p>この要件を満たすための詳細については、<a href="../html/images-desc.html">画像の説明</a>、<a href="../html/audio.html">オーディオ</a>、および<a href="../html/video.html">ビデオ</a>のセクションを参照してください。</p>
+					
+					<pre id="ex-10-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;15&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix16">
+					<h4>16: 視覚化されたデータは非グラフィックデータとしても利用可能</h4>
+					
+					<blockquote>
+						<p>データの視覚化（グラフやチャートなど）が提供されている場合、基礎となるデータは非グラフィック形式（通常は表形式、テキスト形式）でも利用できます。</p>
+					</blockquote>
+					
+					<pre id="ex-11-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;16&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix17">
+					<h4>17: アクセシブルな数式コンテンツ</h4>
+					
+					<blockquote>
+						<p>方程式などの数学的コンテンツは、MathML などの支援技術を使用して使用できます。セマンティック MathML が推奨されますが、装飾目的の MathML でもかまいません。</p>
+					</blockquote>
+					
+					<p>EPUB 読み取りシステムなどの Web ユーザー エージェントではセマンティックMathML はサポートされていないため、通常は、 装飾目的の MathML を提供することしかできません。</p>
+					
+					<pre id="ex-12-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;17&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix18">
+					<h4>18: アクセシブルな化学コンテンツ</h4>
+					
+					<blockquote>
+						<p>化学式などの化学コンテンツは、ChemML などを使って、支援技術を活用して使用できます。</p>
+					</blockquote>
+					
+					<p>EPUB は ChemML のネイティブ サポートを提供していません。他の文法を許可するため<code>epub:switch</code>の要素も推奨していません。</p>
+					
+					<pre id="ex-13-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;18&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix19">
+					<h4>19: 印刷相当のページ番号</h4>
+					
+					<blockquote>
+						<p>リフロー可能な電子出版物の場合、同等の印刷製品のページ番号への参照が含まれます。ページ番号のソースの識別子を指定するには、関連コード 13  &lt;RelatedProduct&gt; を使用します。</p>
+					</blockquote>
+					
+					<p>詳細については、 <a href="../html/pagenum.html">「ページ番号付け」</a>および<a href="../navigation/pagelist.html">「ページ リスト ナビゲーション」の</a>セクションを参照してください。</p>
+					
+					<pre id="ex-14-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;19&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;
+…
+&lt;RelatedProduct&gt;
+  &lt;ProductRelationCode&gt;13&lt;/ProductRelationCode&gt;
+  &lt;ProductIdentifier&gt;
+   &lt;ProductIDType&gt;15&lt;/ProductIDType&gt;
+   &lt;IDValue&gt;9780123456789&lt;/IDValue&gt;
+ &lt;/ProductIdentifier&gt;
+ &lt;ProductForm&gt;BB&lt;/ProductForm&gt;
+&lt;/RelatedProduct&gt;
+</code></pre>
+				</section>
+				
+				<section id="desc-onix20">
+					<h4>20: 同期された録音済み音声</h4>
+					
+					<blockquote>
+						<p>代替説明を含むほぼすべてのテキスト内容に、テキストと同期した録音済みの音声ナレーション（肉声または合成音声）が含まれています。</p>
+					</blockquote>
+					
+					<p>EPUB 3 の場合、テキストと音声 コンテンツを同期する<a href="../sync-media/overlays.html">メディア オーバーレイ</a>を含めるだけで、この要件を満たすことができます。</p>
+					
+					<pre id="ex-15-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;20&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix21">
+					<h4>21: テキスト読み上げのヒントが提供される</h4>
+					
+					<blockquote>
+						<p>テキスト読み上げは、PLS 辞書、SSML、または CSS 音声合成ヒントの提供を通じて最適化されています。</p>
+					</blockquote>
+					
+					<p>これらのテクノロジーは現在、EPUB 3 リーディングシステムではサポートされていません。</p>
+					
+					<pre id="ex-16-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;21&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix22">
+					<h4>22: 言語タグが提供される</h4>
+					
+					<blockquote>
+						<p>テキストの言語は、ドキュメント全体のレベルと、適切な場合には別の言語の個々の単語、フレーズ、または文章の両方で、テキスト読み上げ (およびその他の代替レンダリング) を最適化するために指定されています (たとえば、HTML または XML の lang 属性を使用)。</p>
+					</blockquote>
+					
+					<p>詳細については、ナレッジベースの<a href="../html/lang.html">言語</a>セクションを参照してください。</p>
+					
+					<pre id="ex-17-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;22&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix24">
+					<h4>24: ディスレクシアの読みやすさ</h4>
+					
+					<blockquote>
+						<p>特殊なフォント、文字間隔、行間、行揃え、段落間隔、色付け、その他のオプションは、ディスレクシアの読者の読みやすさを向上させるために特別に提供されています。フォント名（該当する場合）を含む詳細は、&lt;ProductFormFeatureDescription&gt; に記載する必要があります。</p>
+					</blockquote>
+					
+					<pre id="ex-18-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;24&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	Publication uses the Open Dyslexic font …
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;
+</code></pre>
+				</section>
+				
+				<section id="desc-onix25">
+					<h4>25: 色の使い方</h4>
+					
+					<blockquote>
+						<p>色覚異常のある読者にとって、色の使用（図表など）がグラフィックによる区別の唯一の手段ではありません。</p>
+					</blockquote>
+					
+					<p><a href="https://www.w3.org/TR/WCAG2/#use-of-color">WCAG 達成基準 1.4.1 - 色の使用</a>に対応しています。</p>
+					
+					<p>このプロパティは視覚的な読書に関するものであることに注意してください。このプロパティを通す方法では、非視覚的読者が同じ情報にアクセスできるとは限りません。</p>
+					
+					<pre id="ex-25-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;25&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix26">
+					<h4>26: コントラストの使用</h4>
+					
+					<blockquote>
+						<p>本文のテキストは、少なくとも 4.5:1 (または大きなテキスト/見出しテキストの場合は 3:1) のコントラスト比で表示されます。</p>
+					</blockquote>
+					
+					<p><a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG 達成基準 1.4.3 コントラスト (最小)</a>に対応しています。</p>
+					
+					<pre id="ex-26-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;26&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix27">
+					<h4>27: 音声の使用</h4>
+					
+					<blockquote>
+						<p>音声 コンテンツは、バックグラウンド ノイズ (周囲の音など) がないか、または低く、前景の音声のレベルより少なくとも 20 dB 低い状態で表示されます。</p>
+					</blockquote>
+					
+					<div class="caution" role="note" aria-labelledby="use-audio-note">
+						<p class="label" id="use-audio-note">注意</p>
+						<p>この値は、 <a href="https://www.w3.org/TR/WCAG2/#low-or-no-background-audio">WCAG達成基準 1.4.7「背景音声が小さい、または背景音声がない」</a>に対応しているように見えますが、文言の変更により適用があいまいになっています (つまり、主にスピーチである音声に限定されなくなりました)。この値を設定する場合は、SC 1.4.7 の要件に従うことをお勧めします。</p>
+					</div>
+					
+					<pre id="ex-27-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;27&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix28">
+					<h4>28: 完全な代替音声説明</h4>
+					
+					<blockquote>
+						<p>すべてまたはほぼすべての非テキスト コンテンツには、録音済みの音声による完全な代替説明があります。これは、通常の画像 (写真、チャート、図など) だけでなく、埋め込まれたビデオなどにも適用されます。ビデオ コンテンツには、聴覚障害のある読者だけでなく視覚障害のある読者にも適した完全な代替説明 (音声説明付きビデオなど) とトランスクリプト、字幕またはキャプション (クローズドまたはオープン) を含める必要があります。(純粋に装飾的な非テキスト コンテンツは無視できますが、電子出版パッケージの一部としてではなく、ネットワーク接続を介して配信されるリソースのアクセシビリティは含める必要があります)。</p>
+					</blockquote>
+					
+					<div class="caution" role="note" aria-labelledby="use-audio-desc">
+						<p class="label" id="use-audio-desc">注意</p>
+						<p>この値の ONIX の説明は曖昧です。たとえば、メディア オーバーレイでの説明のナレーションが許容されるかどうかは明らかではありません。また、出版物が要件を「実質的に」満たすのはいつなのか、または、<a href="#desc-onix15">値 15</a>ですでにカバーされているトランスクリプトなどの推奨事項も説明に追加されている理由も明らかではありません。</p>
+					</div>
+					
+					<pre id="ex-28-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;28&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix29">
+					<h4>29: 次へ / 前へのナビゲーション</h4>
+					
+					<blockquote>
+						<p>見出しおよびコンテンツのその他の構造要素のすべてのレベルが正しくマークアップされ、(該当する場合は) 番号が付けられているため、目次に戻らずに次の見出し/前の見出し、次の章/前の章にすばやく移動できます。</p>
+					</blockquote>
+					
+					<div class="caution" role="note" aria-labelledby="next-nav">
+						<p class="label" id="next-nav">注意</p>
+						<p>この値の適用は現時点では不明です。見出しタグを使用するだけで十分な場合もありますが、ARIA ロールの使用も必要になる場合があります。</p>
+					</div>
+					
+					<pre id="ex-29-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;29&lt;/ProductFormFeatureValue&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<p class="bridgehead">該当する場合は、次の情報フィールドを常に含める必要があります。</p>
+				
+				<section id="desc-onix93">
+					<h4>93: コンプライアンス認証</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、製品のコンプライアンス テストと認証を担当する組織の Web ページの URL が含まれます。通常は「ホームページ」または認証スキーム自体を説明するページです。ONIX 3.0 でのみ使用できます。</p>
+					</blockquote>
+					
+					<pre id="ex-93-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;93&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	http://standards-org.example.com/
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix94">
+					<h4>94: 詳細なアクセシビリティ情報についてはコンプライアンス Web ページをご覧ください</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品に関連するアクセシビリティ機能、互換性、テスト、認証などの詳細な説明が記載された Web ページの URL が含まれます。Web ページは、独立したコンプライアンス スキームまたはテストを行う組織によって管理される必要があります。</p>
+					</blockquote>
+					
+					<pre id="ex-19-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;94&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	http://standards-org.example.com/book/123/compliance
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix95">
+					<h4>95: 詳細なアクセシビリティ情報については、信頼できる仲介者のウェブページをご覧ください。</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品に関連するアクセシビリティ機能、互換性、テストなどについてさらに詳しく説明する Web ページの URL が含まれます。Web ページは、発行元が指定した信頼できる仲介者または第三者によって提供される必要があります。</p>
+					</blockquote>
+					
+					<pre id="ex-20-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;95&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	http://intermediary.example.com/book/123/compliance
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix96">
+					<h4>96: 詳細なアクセシビリティ情報については出版社のウェブページをご覧ください</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品に関連するアクセシビリティ機能、互換性、テストなどについてさらに詳しく説明する Web ページの URL が含まれます。Web ページは発行元によって提供される必要があります。</p>
+					</blockquote>
+					
+					<pre id="ex-21-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;96&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	http://publisher.example.com/book/123/compliance
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix97">
+					<h4>97: 互換性テスト済み</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品に対して実行された互換性テストの簡単な説明が記載された Web ページの URL が含まれます。これには、サードパーティのスクリーン リーダー ソフトウェアなどのさまざまな支援技術との詳細な互換性が含まれます。製品自体のアクセシビリティ機能の概要については、コード 00 も参照してください。</p>
+					</blockquote>
+					
+					<pre id="ex-22-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;97&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	Content has been tested to work on iBooks,
+	Sony User and Adobe Digital Editions in 
+	both scripting enabled and disabled modes.
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix98">
+					<h4>98: 信頼できる仲介業者の連絡先</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品のアクセシビリティに関する詳細な質問を送信できる「信頼できる仲介者」の連絡先の電子メール アドレスが含まれます。</p>
+					</blockquote>
+					
+					<pre id="ex-23-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;98&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	accessinfo@global-library.example.com
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+				
+				<section id="desc-onix99">
+					<h4>99: アクセシビリティに関する詳細情報については、発行元にお問い合わせください。</h4>
+					
+					<blockquote>
+						<p>&lt;ProductFormFeatureDescription&gt; には、この製品のアクセシビリティに関する詳細な質問を送信できる出版社の連絡先の電子メール アドレスが含まれます。</p>
+					</blockquote>
+					
+					<pre id="ex-24-src" class="prettyprint linenums"><code>&lt;ProductFormFeature&gt;
+ &lt;ProductFormFeatureType&gt;09&lt;/ProductFormFeatureType&gt;
+ &lt;ProductFormFeatureValue&gt;99&lt;/ProductFormFeatureValue&gt;
+ &lt;ProductFormFeatureDescription&gt;
+	accessibility-officer@example.com
+ &lt;/ProductFormFeatureDescription&gt;
+&lt;/ProductFormFeature&gt;</code></pre>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>ONIX —<a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">リスト 196: 電子出版物のアクセシビリティの詳細</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
