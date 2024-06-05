@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>記事</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for identifying and structuring articles.">
+		<script>
+			var page_info = {
+				'category': 'HTML',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>デジタル出版物内の自己完結型のコンテンツ記事を識別するには、 <code>article</code>要素を使用します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>雑誌、ジャーナル、新聞などに掲載されているような自己完結型の記事には<code>article</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各記事に見出しを含めます。 [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>サイドバーなど、記事内の補助的な素材には<code>aside</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 基本的な記事</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;article&gt;
+   &lt;header&gt;
+      &lt;h2&gt;The Deterrent Effects of Slap-Induced Cranial Trauma&lt;/h2&gt;
+      &lt;p class="byline"&gt;M. Howard, C. Howard, and L. Fine&lt;/p&gt;
+      &lt;p class="id"&gt;DOI: &lt;a href="https://dx.doi.org/10xxx/"
+         &gt;https://dx.doi.org/10xxx/&lt;/a&gt;&lt;/p&gt;
+   &lt;/header&gt;
+   &lt;section id="abstract" role="doc-abstract"&gt;
+      &lt;p&gt;… &lt;/p&gt;
+   &lt;/section&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">
+<code>aside</code>と<code>article</code>どちらを使うべきでしょうか?</dt>
+					<dd>
+						<p><code>aside</code>要素は、コンテンツが主要な物語を説明または補足する場合に最適です。サイドバー、用語集、および同様の説明コンテンツに最適です。</p>
+						
+						<p><code>article</code>要素は、コンテンツがドキュメントまたは出版物の他のコンテンツから独立している場合に最適です。たとえば、科学雑誌では、共通のテーマがあっても、各記事は他の記事から独立しています。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>記事ベースの出版物は商業出版では一般的ではありませんが、科学雑誌などの出版分野では中心的な存在です。出版物に記事が含まれている場合、意味的に正確な<code>article</code>要素を使用してタグ付けすることができます。</p>
+				
+				<p>HTML 仕様によれば、 <code>article</code>要素のコンテンツは、「原則として、（例: シンジケーション内などで）独立して配布または再利用可能」です 。この意味で、記事は、より大きなデジタル作品内の自己完結型のミニ出版物のようなものです。 <code>section</code>要素を使用して作品を小さなセクションに分割する場合、 <code>article</code>要素は、 <code>section</code>要素を使用してさらに分割できる個別のコンテンツコンテナーを表します。</p>
+				
+				<p>支援技術のユーザーにとって、 <code>article</code>と<code>section</code>タグの主な違いは、それらの識別方法にあります。 <code>section</code>はランドマーク（目印）と見なされますが、 <code>article</code>はそうではありません。Jaws や NVDA などのスタンドアロンの支援技術では、通常、この違いに関係なく、ユーザーは記事に移動できますが、記事はページのランドマーク（目印）のリストには含まれません。</p>
+				
+				<p><code>article</code>要素は、インタラクティブゲームなどのスクリプトコンテンツをカプセル化するために使用されることもあります。記事という従来の公開概念に限定されず、コンテンツの個別の項目をカプセル化するものとして考えることができます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">&lt;article&gt;: 記事コンテンツ要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-article-element"><code>article</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
