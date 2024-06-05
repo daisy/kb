@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>アクセスキー</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Recommendation against the use of access keys.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>アクセスキーは、ブラウザーや支援技術のキーマッピングに干渉する可能性があるため、使用を避けることをお勧めします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>すべてのアクセスキーが一意であることを確認します。[[WCAG-2.1.1]]</li>
+					<li>オペレーティングシステムや支援技術のキーマッピングとの競合を避けてください。[[WCAG-2.1.1]]</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 目次へのジャンプ</div>
+						<p>アクセスキーを有効にすると、ユーザーは自動的に目次に移動します。数字キーはブラウザーまたはユーザーエージェントのショートカットの組み合わせと競合する可能性が低いため、キー<code>1</code>が選択されます。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;a href="toc.html" accesskey="1"&gt;Table of Contents&lt;/a&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>アクセスキーを使用すると、ユーザーはキーボードの対応するキーの組み合わせを押すことで、ドキュメントの特定の場所にすばやく移動できます。これは便利な機能のように思えますが、実際にはアクセスキーは解決するよりも多くの問題を引き起こします。</p>
+				
+				<p>特に、アクセスキーは、ブラウザーや支援技術の既存のキーマッピングと競合することがよくあります。このような場合、通常、アクセスキーは無視され、ショートカットには何も値が割り当てられません。既存のマッピングが上書きされると、ユーザーはショートカットキー組み合わせの通常の機能にアクセスできなくなります。</p>
+				
+				<p>作成者は、誤って同じアクセス キーを複数の要素に割り当てないようにする必要があります。このようなことが発生した場合、最初のインスタンスのみが認識されます。</p>
+				
+				<p>原則として、幅広いユーザーを対象としたコンテンツを作成する場合は、アクセスキーを避けるのが最善です。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN —<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey">アクセスキー</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/editing.html#the-accesskey-attribute"><code>accesskey</code>属性</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
