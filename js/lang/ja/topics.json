@@ -232,20 +232,20 @@
           {
             "id": "schema-a11yFeature",
             "href": "schema.org/accessibilityFeature.html",
-            "title": "アクセシビリティの特徴",
-            "subtitle": "<code>accessibilityFeature</code> プロパティを使用してコンテンツのアクセシビリティの特徴を明示する。"
+            "title": "アクセシビリティの機能",
+            "subtitle": "<code>accessibilityFeature</code> プロパティを使用してコンテンツのアクセシビリティの機能を明示する。"
           },
           {
             "id": "schema-a11yHazard",
             "href": "schema.org/accessibilityHazard.html",
-            "title": "アクセシビリティのハザード",
+            "title": "アクセシビリティ上の危険性",
             "subtitle": "<code>accessibilityHazard</code> プロパティを使用して、ユーザーに対する危険性を明示する。"
           },
           {
             "id": "schema-a11ySummary",
             "href": "schema.org/accessibilitySummary.html",
-            "title": "アクセシビリティの概要",
-            "subtitle": "<code>accessibilitySummary</code> プロパティを使用して概要を提供する。"
+            "title": "アクセシビリティの要約",
+            "subtitle": "<code>accessibilitySummary</code> プロパティを使用して要約を提供する。"
           },
           {
             "id": "schema-accessMode",
