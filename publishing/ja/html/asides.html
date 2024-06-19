@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>アサイド（補足説明）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessibly structuring content.">
+		<script>
+			var page_info = {
+				'category': 'HTML',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>補助的なコンテンツを<code>aside</code>要素でマークすると、支援技術がそれを主要な文脈と区別できるようになり、ユーザーはその内容をスキップできるようになります。</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">注</p>
+					<p><code>aside</code>要素のデフォルトの性質が今後変更されます。 <code>section</code>要素内にある、アクセシブルな名前がついていない<code>asides</code> は、補完的なランドマーク（目印）とは見なされなくなります。代わりに、汎用要素（つまり、 <code>div</code>要素と同じ）と見なされます。</p>
+					<p>この変更が実際に実装された時点で、このページは更新されます。当面の間、このページのガイダンスは現在のベストプラクティスとして有効です。</p>
+				</div>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>サイドバーなどの補助的な素材には<code>aside</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各アサイドに見出しを含めます [[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — サイドバー</div>
+						<p>サイドバーの見出しは、それを含むセクションより 1 レベル下にあります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section …&gt;
+   &lt;h2 id="s02"&gt;Section 2: The War of 1812&lt;/h2&gt;
+   …
+   &lt;aside aria-labelledby="sb01"&gt;
+      &lt;h3 id="sb01"&gt;Timeline of Events&lt;/h3&gt;
+      …
+   &lt;/aside&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<figure id="ex-02">
+				<figcaption>
+					<div class="label">例 2 — 脚注</div>
+					<p><code>doc-footnote</code>ロールは、 <code>aside</code>にアクセシブルな名前が必要ないことを意味します。</p>
+				</figcaption>
+				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside
+    role="doc-footnote"
+    id="fn01"&gt;
+   &lt;p&gt;[1] …&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+			</figure>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">サイドバーにロールの定義が必要ないのはなぜですか?</dt>
+					<dd>
+						<p><code>aside</code>要素は、HTML 仕様定義に従って、サイドバーを定義します。</p>
+						
+						<blockquote>
+							<p><code>aside</code>要素は、コンテンツに間接的に関連するコンテンツで構成されるページのセクションを表します。このようなセクションは、印刷されたタイポグラフィではサイドバー付きの文章として表されることがよくあります。</p>
+						</blockquote>
+						
+						<p>これにロールの定義を追加してもアクセシビリティは向上しません。</p>
+					</dd>
+					
+					<dt id="faq-002">アサイド（補足説明）にはどの見出しレベルを使用すればよいですか?</dt>
+					<dd>
+						<p>マークアップ内の補足コンテンツの位置は主要な文脈と同じように固定されていませんが（つまり、コンテンツをどこに配置するのが最適かは多くの場合選択の問題です）、補足コンテンツは常にセクションに属します。そのため、補足コンテンツは、それを含む<code>section</code>のサブセクションとして扱われる必要があります。したがって、 <code>aside</code>内の最初の見出しレベルは、それを含むセクションより常に 1 レベル低くする必要があります。</p>
+						
+						<p>たとえば、章に<code>h2</code>タグの見出しがある場合、その章内のサイドバーの見出しは<code>h3</code>で始まる必要があります。これにより、支援技術のユーザーが見出しレベルで移動するときに、コンテンツのサブセクションを論理的に見つけられるようになります。このようなシナリオでは、サイドバーに<code>h1</code>見出しがあるとはユーザーは予想しません。これは、サイドバーが上位レベルのコンテンツ セクションになってしまうためです。</p>
+						
+						<p>出版者が見出し番号の一貫性を維持できない場合は、ユーザーが予測できる別の方法を見つける必要があります。たとえば、すべてのサイドバーに<code>h6</code>を使用するなどです。ただし、この場合、出版者は、たとえば電子書籍の使用方法のセクションで、この規則についてユーザーに説明する必要があります。</p>
+						
+						<p>見出しの番号の空白や一貫性のない番号は、技術的には WCAG 要件に違反しているわけではありませんが、見出しごとに移動する必要があるユーザーにとっては、読みやすいとは言えません。</p>
+					</dd>
+					
+					<dt id="faq-003">サイドバーにはアクセシブルな名前が必要ですか?</dt>
+					<dd>
+						<p>ドキュメント内にいくつあるかによって異なります。</p>
+						
+						<p>ドキュメントにロールのない<code>aside</code>要素が 1 つだけある場合は、アクセシブルな名前は必要ありません。</p>
+						
+						<p>ただし、複数ある場合は、それらを区別するためのアクセシブルな名前がないと、ユーザーは順番に移動しない限り、どれがどれであるかを判断できません。</p>
+						
+						<p>（このルールは、ランドマークのロールに適用されるアクセシブルな名前を追加する際のルールと同じであることに留意してください。）</p>
+					</dd>
+					
+					<dt id="faq-004">
+<code>aside</code>と<code>article</code>どちらを使うべきでしょうか?</dt>
+					<dd>
+						<p><code>aside</code>要素は、コンテンツが主要な文脈を説明または拡張する場合に最適です。サイドバー、用語集、および同様の説明コンテンツに最も適しています。</p>
+						
+						<p><code>article</code>要素は、コンテンツがドキュメントまたは出版物の他のコンテンツから独立している場合に最適です。たとえば、科学雑誌では、共通のテーマがあっても、各記事は他の記事から独立しています。</p>
+					</dd>
+					
+					<dt id="faq-005">すべてのロールにアクセシブルな名前が必要ではないのはなぜですか?</dt>
+					<dd>
+						<p><code>aside</code>に、 <code>doc-footnote</code>や<code>doc-pullquote</code>などのロールが指定された場合、要素の性質はデフォルトの補足的ランドマークから変更されます。これらのロールが適用されると、 <code>aside</code>はもはや補足的ランドマークとして認識されなくなるため、アクセシブルな名前は必要なくなります。</p>
+						<p>ロールを使用する場合は、その定義を参照して、アクセシブルな名前が必要かどうかを判断します。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><code>aside</code>要素は、作成者がサイドバーなどの補助的なコンテンツを識別できるようにするために HTML5 で導入されました。支援技術のユーザーが<code>aside</code>に遭遇すると、そのコンテンツは通常「補足的」なものとして紹介され、主要な文脈の一部ではないことを認識できるようにします。</p>
+				
+				<p>この要素が導入される前は、背景色と境界線が、補助的なコンテンツを主要な文脈と区別する唯一の方法であることがよくありました。ただし、これらの方法は支援技術には不透明であるため、サイドバーに見出しがないと文脈が突然変わる理由がわかりにくく、見出しがある場合でも主要なコンテンツの新しいセクションが始まるかどうかが必ずしも明確ではありませんでした。</p>
+				
+				<p><code>aside</code>要素を使用すると、ユーザーは読んでいるときにコンテンツをスキップできるだけでなく、補完的なランドマークとして、セクションを終えた後にコンテンツを簡単に見つけて戻ることもできます。この機能を最も効果的にするには、各サイドバーにアクセシブルな名前を付ける必要があります。そうしないと、ユーザーはサイドバーを区別できなくなります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">&lt;aside&gt;: アサイド要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-aside-element"><code>aside</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
