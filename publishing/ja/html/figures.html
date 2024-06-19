@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>図表（Figure）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of figures.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>図表にはその目的を示すキャプションが含まれているようにします。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>キャプションを付けます。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — キャプションと説明付きの画像</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;img src="images/blob.jpeg" alt="the blob"
+           aria-describedby="img01-desc"/&gt;
+   &lt;figcaption&gt;
+      Figure 3.7 — The blob is digesting Steve 
+      McQueen in this unreleased ending to the 
+      classic movie.
+      &lt;aside class="hidden" id="img01-desc"&gt;
+         &lt;p&gt;
+            In the photo, Steve McQueen can be seen
+            floating within the gelatinous body of 
+            the blob as it moves down main street …
+         &lt;/p&gt;
+      &lt;/aside&gt;
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 説明リンク付きの画像</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;p&gt;&lt;a href="blob-desc.xhtml"&gt;Description&lt;/a&gt;&lt;/p&gt;
+   &lt;img src="images/blob.jpeg" alt="the blob"/&gt;
+   &lt;figcaption&gt;
+      Figure 3.7 — The blob is digesting Steve 
+      McQueen in this unreleased ending to the 
+      classic movie.
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — figcaption を使用した説明付きの表</div>
+					</figcaption>
+					<p>図表に表が含まれている場合は、表の<code>caption</code>要素を使用しないでください。 <code>figcaption</code>と<code>caption</code>両方を含めると、両方がレンダリングされます。</p>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;figcaption&gt;
+      Characteristics with positive and 
+      negative sides.
+      &lt;aside class="hidden" id="tbl01-summary"&gt;
+         &lt;p&gt;Summary&lt;/p&gt;
+         &lt;p&gt;
+            Characteristics are given 
+            in the second column…
+         &lt;/p&gt;
+      &lt;/aside&gt;
+   &lt;/figcaption&gt;
+   &lt;table aria-describedby="tbl01-summary"&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — 見出し付きの図表</div>
+						<p>図表にキャプションとは別の見出しがある場合、図表を<code>aside</code>要素で囲み、その要素に見出しを配置することをお勧めします。図表は<a>セクション化されたコンテンツ</a>ではないため、見出しを<code>figure</code>タグ内に配置すると、支援技術を使用するユーザーによるナビゲーションの妨げになります。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="fig-hd"&gt;
+   &lt;h3 id="fig-hd"&gt;Figure 1.2 — Hello Universe!&lt;/h3&gt;
+   &lt;figure&gt;
+      &lt;pre&gt;
+         …
+      &lt;/pre&gt;
+      &lt;figcaption&gt;
+         The original "hello world" example is expanded to show how …
+      &lt;/figcaption&gt;
+   &lt;/figure&gt;
+&lt;/aside&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>図表には、画像、グラフ、表、コードスニペットなど、さまざまな形式があります。ただし、図表の中心的な特徴は、それが主要な説明の補助的要素であることです（つまり、図表をすぐに読まなくても、テキストを追うことができます）。画像、グラフ、および同様のコンテンツが主要な文脈の一部である場合は、 <code>figure</code>タグで囲まないでください。</p>
+
+				<p>図表のコンテンツは HTML の<code>figure</code>要素にカプセル化されており、 <code>figcaption</code>要素を使用して説明的なキャプションをコンテンツに関連付けることもできます。</p>
+
+				<p>キャプションは図表の内容の後に置かれることが多いため、これまでは、画像や表に続く説明文に到達するまで、読者は図表の内容がわからないことが多かったのですが、 <code>figcaption</code>要素により、読者が図表に入るとすぐに支援技術がキャプションを読み上げられるようになりました。</p>
+
+				<p><code>figcaption</code>要素は<code>figure</code>の最初または最後に配置<strong>しなければならない</strong>ことに注意してください。</p>
+				
+				<div class="note" role="note" aria-labelledby="content-note">
+					<p class="label" id="content-note">注</p>
+					
+					<p>キャプションを提供することは、図表内のコンテンツをアクセシブルにすることの代替にはなりません。最も一般的なタイプの図表のコンテンツに対するアクセシブルな実践の詳細については、<a href="./images-desc.html">画像の説明</a>と<a href="./tables-basics.html">表の基本</a>に関するナレッジベースページを参照してください。</p>
+				</div>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">&lt;figure&gt;: キャプションが付けられる図表要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-figure-element"><code>figure</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-figcaption-element"><code>figcaption</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
