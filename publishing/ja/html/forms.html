@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>フォーム</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the creation of accessible forms.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>視覚的な表現に頼らずに、フォームが理解しやすく操作しやすいようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>フォームコントロールの使用方法についてラベルを付け、説明を提供します。[[WCAG-3.3.2]]</p>
+					</li>
+					<li>
+						<p>チェックボックスやラジオボタンなどの関連するコントロールのセットをグループ化します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>必須のフォームフィールドを識別します。[[WCAG-3.3.2]]</p>
+					</li>
+					<li>
+						<p>フォーム入力エラーを特定して説明します。</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				<p>フォームを効果的に使用するための最大の障害の 1 つは、フォームのレイアウトを理解し操作することです。ユーザーを支援するために、フォームコントロールには常に <code>label</code>要素を使用してラベルを明確に付けてください。</p>
+
+				<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;label id="label" for="fname"&gt;First name:&lt;/label&gt;
+
+&lt;input type="text"
+      id="fname"
+      name="first-name"/&gt;</code></pre>
+
+				<p><code>for</code>属性は、ラベルをそのコントロールに明示的に関連付けるために使用されます。 <code>label</code>にコントロールが含まれている場合でも、この属性を含める必要があります。</p>
+
+				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label id="label" for="q1a"&gt;
+   &lt;input type="radio"
+        id="q1a"
+        name="q1-answer"/&gt; a. Apples
+&lt;/label&gt;</code></pre>
+
+				<div class="note" role="note" aria-labelledby="note-1">
+					<p id="note-1" class="label">注</p>
+					<p>フォームコントロールが<code>label</code>によって識別されない場合は、コントロールの<code>aria-labelledby</code>属性を使用して、ラベルを含む要素を識別します。</p>
+				</div>
+
+				<p>追加の指示（テキスト制限や文字制限など）を含める場合は、ラベル内にそれらを含めて、ユーザーがすぐに情報を利用できるようにしてください。これが不可能な場合は、追加の指示を含む要素を識別するコントロールに<code>aria-describedby</code>属性を追加します。</p>
+
+				<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;label for="uname"&gt;User name:&lt;/label&gt;
+
+&lt;input type="text"
+      id="uname"
+      name="username"
+      aria-describedby="req" /&gt;
+
+&lt;span id="req"&gt;
+   User names must be between 8 and 16 characters in 
+   length and contain only alphanumeric characters.
+&lt;/span&gt;</code></pre>
+
+				<p>視覚的な手がかりがない場合でも支援技術を使用するユーザーが認識できるように、必須フィールドには必ず HTML5 の<code>required</code>属性を付加する必要があります。</p>
+
+				<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input type="text"
+      id="uname"
+      name="username"
+      aria-describedby="req"
+      required="required"
+      aria-required="true"/&gt;</code></pre>
+
+				<div class="note" role="note" aria-labelledby="note-2">
+					<p id="note-2" class="label">注</p>
+					<p>すべての支援技術が新しい HTML5 属性を認識するとは限らないため、 <code>aria-required</code>属性を含めることが推奨されます。</p>
+				</div>
+
+				<p class="bridgehead">検証</p>
+
+				<p>フォームにユーザーによる修正が必要な無効なデータが含まれている場合、各フィールドに<code>aria-invalid</code>属性を追加することで、支援技術によってフィールドをすばやく識別してユーザーをそのフィールドに移動できるようにします。</p>
+
+
+				<pre id="ex-05-src" class="prettyprint linenums"><code>if (country.value == 'US' &amp;&amp; zip.value = '') {
+   zip.setAttribute('aria-invalid', true);
+}
+
+else {
+   zip.setAttribute('aria-invalid', false);
+}</code></pre>
+
+				<p>デフォルトでは、フォーム要素に<code>aria-valid</code>をつけないでください。ユーザーがフォームを送信するまで、フォーム内のフィールドは有効でも無効でもありません。</p>
+
+				<p>すべてのユーザーの体験向上のため、フォームフィールドに、シンプルな構文で検証できる新しい HTML5の <code>pattern</code>属性を使用することを検討してください。ユーザーは、送信するまで待つ必要がなく、問題があればすぐに警告されます。 <code>pattern</code>検証を使用する場合は、要件を説明するために<code>title</code>属性も必ずつける必要があります。ユーザー名フィールドでは、次のように文字数と文字の種類を制限できます。</p>
+
+				<pre id="ex-06-src" class="prettyprint linenums small"><code>&lt;input type="text"
+      id="uname"
+      name="username"
+      aria-labelledby="username-label"
+      pattern="[A-Za-z0-9]{8,16}"
+      title="User names must be 8 to 16 alphanumeric characters"
+      required="required"
+      aria-required="true" /&gt;</code></pre>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">&lt;form&gt;</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sec-forms.html#sec-forms">フォーム</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
