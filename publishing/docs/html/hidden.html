@@ -210,11 +210,7 @@
 &lt;p>The first of the three gas giants is &#8230;&lt;/p>
 &lt;/details></code></pre>
 						
-						<p class="figlabel">Demo:</p>
-						<details>
-							<summary>Description</summary>
-							<p>The first of the three gas giants is &#8230;</p>
-						</details>
+						<p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/1/">Demo</a></p>
 					</figure>
 					
 					<p>It is not required that the content begin in a collapsed state. By adding the
@@ -233,11 +229,7 @@
 &lt;p>The first of the three gas giants is &#8230;&lt;/p>
 &lt;/details></code></pre>
 						
-						<p class="figlabel">Demo:</p>
-						<details open="">
-							<summary>Description</summary>
-							<p>The first of the three gas giants is &#8230;</p>
-						</details>
+						<p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/2/">Demo</a></p>
 					</figure>
 					
 					<p>A current limitation, however, is that reading systems do not always repaginate well when the
@@ -1074,71 +1066,7 @@ function revealResult(correct) {
 }
 &lt;/script></code></pre>
 					
-					<p class="figlabel">Demo:</p>
-					
-					<fieldset>
-						<label>Which of the following is a liquid?</label>
-						<ul class="q">
-							<li><input type="radio" id="q1-a" name="q1-ans" value="a" onclick="revealResult(true)" hidden="" autocomplete="off"> A - Water</li>
-							<li><input type="radio" id="q1-b" name="q1-ans" value="b" onclick="revealResult(false)" hidden="" autocomplete="off"> B - Ice</li>
-							<li><input type="radio" id="q1-c" name="q1-ans" value="c" onclick="revealResult(false)" hidden="" autocomplete="off"> C - Steam</li>
-						</ul>
-						<div id="q1-result" aria-live="assertive" hidden=""></div>
-						<details id="q1-static-ans">
-							<summary>Answer</summary>
-							<p>A - Water</p>
-						</details>
-						<div style="margin-top: 1rem;">
-							<input type="button" value="Reset" onclick="resetQ()"/>
-							<input type="button" value="Toggle View" onclick="toggleQ()"/>
-						</div>
-					</fieldset>
-					<script>
-						document.onload = configureTest();
-						
-						function configureTest() {
-							document.getElementById('q1-static-ans').classList.add('hidden');
-							document.getElementById('q1-result').removeAttribute('hidden');
-							var q1_ans = document.getElementsByName('q1-ans');
-							q1_ans.forEach( function(checkbox) {
-								checkbox.removeAttribute('hidden');
-							});
-						}
-						
-						function revealResult(correct) {
-							var res_elem = document.getElementById('q1-result');
-							var result = correct ? 'Correct!' : 'Sorry, try again!';
-							res_elem.textContent = '';
-							res_elem.appendChild(document.createTextNode(result));
-						}
-						
-						function resetQ() {
-							var ans = document.getElementsByName("q1-ans");
-							for (var i = 0; i < ans.length; i++) {
-								ans[i].checked = false;
-							}
-							document.getElementById('q1-result').textContent = '';
-						}
-						
-						function toggleQ() {
-							if (document.getElementById('q1-result').hidden) {
-								resetQ();
-								configureTest();
-							}
-							else {
-								configureStaticTest();
-							}
-						}
-						
-						function configureStaticTest() {
-							document.getElementById('q1-static-ans').classList.remove('hidden');
-							document.getElementById('q1-result').setAttribute('hidden','');
-							var q1_ans = document.getElementsByName('q1-ans');
-							q1_ans.forEach( function(checkbox) {
-								checkbox.setAttribute('hidden','');
-							});
-						}
-					</script>
+					<p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/">Demo</a></p>
 				</figure>
 			</section>
 			

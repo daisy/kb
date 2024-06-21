@@ -12,6 +12,10 @@
 				'addh4': true
 			};</script>
 		<script src="/js/init.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<style>
+			div.details > div.details-body { display:none; }
+		</style>
 	</head>
 	<body>
 		<main>
@@ -215,10 +219,11 @@
 						<img src="../../../../graphics/publishing/smart/smart-discovery-metadata.png" width="550"
 							alt="EPUB 3 discovery metadata tags" aria-details="discovery-meta-details" />
 						
-						<details id="discovery-meta-details" class="desc">
-							<summary>Description</summary>
-							<p>The following EPUB 3 accessiblity metadata tags are depicted in the dialog window:</p>
-							<pre id="discovery-meta-src" class="prettyprint"><code>&lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta>
+						<div id="discovery-meta-details" class="details desc">
+							<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">&#9654;</span> Description</button>
+							<div class="details-body" id="desc01">
+								<p>The following EPUB 3 accessiblity metadata tags are depicted in the dialog window:</p>
+								<pre id="discovery-meta-src" class="prettyprint"><code>&lt;meta property="schema:accessibilityFeature">alternativeText&lt;/meta>
 &lt;meta property="schema:accessibilityFeature">readingOrder&lt;/meta>
 &lt;meta property="schema:accessibilityFeature">tableOfContents&lt;/meta>
 &lt;meta property="schema:accessibilitySummary">This EPUB Publication meets the requirements of the EPUB Accessibility specification with conformance to WCAG 2.0 Level AA. The publication is screen reader friendly.&lt;/meta>
@@ -228,7 +233,8 @@
 &lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
 &lt;meta property="schema:accessModeSufficient">textual&lt;/meta>
 </code></pre>
-						</details>
+							</div>
+						</div>
 					</section>
 					
 					<section id="smart-distribution">
@@ -263,10 +269,11 @@
 						<img src="../../../../graphics/publishing/smart/smart-distribution-metadata.png" width="550"
 							alt="ONIX accessibility metadata tags" aria-details="distribution-meta-details" />
 						
-						<details id="distribution-meta-details" class="desc">
-							<summary>Description</summary>
-							<p>The following ONIX metadata tags are depicted in the dialog window:</p>
-							<pre id="distribution-meta-src" class="prettyprint"><code>&lt;descriptiveDetail>
+						<div id="distribution-meta-details" class="details desc">
+							<button type="button" aria-controls="desc02" aria-expanded="false" class="summary"><span class="status">&#9654;</span> Description</button>
+							<div class="details-body" id="desc02">
+								<p>The following ONIX metadata tags are depicted in the dialog window:</p>
+								<pre id="distribution-meta-src" class="prettyprint"><code>&lt;descriptiveDetail>
    &lt;productFormFeature>
       &lt;productFormFeatureType>09&lt;/producFormFeatureType>
       &lt;productFormFeatureValue>03&lt;/productFormFeatureValue>
@@ -280,7 +287,8 @@
       &lt;productFormFeatureValue>14&lt;/productFormFeatureValue>
    &lt;/productFormFeature>
 &lt;/descriptiveDetail></code></pre>
-						</details>
+							</div>
+						</div>
 					</section>
 					
 					<section id="smart-result">
@@ -308,15 +316,17 @@
 						<img src="../../../../graphics/publishing/smart/smart-result-metadata.png" width="650"
 							alt="EPUB 3 evaluation metadata tags" aria-details="eval-meta-details" />
 						
-						<details id="eval-meta-details" class="desc">
-							<summary>Description</summary>
-							<p>The following three EPUB metadata tags are depicted in the dialog window:</p>
-							<pre id="eval-meta-src" class="prettyprint"><code>&lt;meta property="dcterms:conformsTo">
+						<div id="eval-meta-details" class="details desc" tabindex="0">
+							<button type="button" aria-controls="desc03" aria-expanded="false" class="summary"><span class="status">&#9654;</span> Description</button>
+							<div class="details-body" id="desc03">
+								<p>The following three EPUB metadata tags are depicted in the dialog window:</p>
+								<pre id="eval-meta-src" class="prettyprint"><code>&lt;meta property="dcterms:conformsTo">
    EPUB Accessibility 1.1 - WCAG 2.1 Level AA
 &lt;/meta>
 &lt;meta property="a11y:certifiedBy">Matt Garrish&lt;/meta>
 &lt;link rel="a11y:certifierReport" href="http://example.org/books/epub_3_accessibility/a11y.html"/></code></pre>
-						</details>
+							</div>
+						</div>
 					</section>
 				</section>
 				
@@ -481,5 +491,8 @@
 				</ul>
 			</section>
 		</main>
+		<script>
+			$('body').on('click', 'div.details', function() { var expanded = $(this).find('button').attr('aria-expanded'); $(this).find('button').attr('aria-expanded', expanded === 'false' ? 'true' : 'false');$(this).find('span.status').html(expanded === 'true' ? '▶' : '▼');$(this).find('div.details-body').toggle(); });
+		</script>
 	</body>
 </html>

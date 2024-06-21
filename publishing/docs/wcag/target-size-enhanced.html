@@ -12,6 +12,10 @@
 			};
 		</script>
 		<script src="/js/init.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<style>
+			div.details > div.details-body { display:none; }
+		</style>
 	</head>
 	<body>
 		<main>
@@ -49,34 +53,35 @@
 						<td class="desc">
 							<p>The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:</p>
 							
-							<details>
-								<summary>View exceptions</summary>
-								
-								<dl>
-									<dt>Equivalent</dt>
-									<dd>
-										<p>The target is available through an equivalent link or control on the same
-											page that is at least 44 by 44 CSS pixels;</p>
-									</dd>
-									
-									<dt>Inline</dt>
-									<dd>
-										<p>The target is in a sentence or block of text;</p>
-									</dd>
-									
-									<dt>User Agent Control</dt>
-									<dd>
-										<p>The size of the target is determined by the user agent and is not modified
-											by the author;</p>
-									</dd>
-									
-									<dt>Essential</dt>
-									<dd>
-										<p>A particular presentation of the target is essential to the information
-											being conveyed.</p>
-									</dd>
-								</dl>
-							</details>
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">&#9654;</span> View exceptions</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>Equivalent</dt>
+										<dd>
+											<p>The target is available through an equivalent link or control on the same
+												page that is at least 44 by 44 CSS pixels;</p>
+										</dd>
+										
+										<dt>Inline</dt>
+										<dd>
+											<p>The target is in a sentence or block of text;</p>
+										</dd>
+										
+										<dt>User Agent Control</dt>
+										<dd>
+											<p>The size of the target is determined by the user agent and is not modified
+												by the author;</p>
+										</dd>
+										
+										<dt>Essential</dt>
+										<dd>
+											<p>A particular presentation of the target is essential to the information
+												being conveyed.</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -127,5 +132,8 @@
 				</ul>
 			</section>
 		</main>
+		<script>
+			$('body').on('click', 'div.details', function() { var expanded = $(this).find('button').attr('aria-expanded'); $(this).find('button').attr('aria-expanded', expanded === 'false' ? 'true' : 'false');$(this).find('span.status').html(expanded === 'true' ? '▶' : '▼');$(this).find('div.details-body').toggle(); });
+		</script>
 	</body>
 </html>

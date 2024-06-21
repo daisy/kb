@@ -12,6 +12,10 @@
 			};
 		</script>
 		<script src="/js/init.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<style>
+			div.details > div.details-body { display:none; }
+		</style>
 	</head>
 	<body>
 		<main>
@@ -50,20 +54,22 @@
 								by user interface components and responding to the motion can be disabled to prevent
 								accidental actuation, except when:</p>
 							
-							<details>
-								<summary>View exceptions</summary>
-								<dl>
-									<dt>Supported Interface</dt>
-									<dd>
-										<p>The motion is used to operate functionality through an accessibility supported interface;</p>
-									</dd>
-									
-									<dt>Essential</dt>
-									<dd>
-										<p>The motion is essential for the function and doing so would invalidate the activity.</p>
-									</dd>
-								</dl>
-							</details>
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">&#9654;</span> View exceptions</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>Supported Interface</dt>
+										<dd>
+											<p>The motion is used to operate functionality through an accessibility supported interface;</p>
+										</dd>
+										
+										<dt>Essential</dt>
+										<dd>
+											<p>The motion is essential for the function and doing so would invalidate the activity.</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -107,5 +113,8 @@
 					Refer to the <a href="#guidance">WCAG guidance documents</a> for additional information.</p>
 			</section>
 		</main>
+		<script>
+			$('body').on('click', 'div.details', function() { var expanded = $(this).find('button').attr('aria-expanded'); $(this).find('button').attr('aria-expanded', expanded === 'false' ? 'true' : 'false');$(this).find('span.status').html(expanded === 'true' ? '▶' : '▼');$(this).find('div.details-body').toggle(); });
+		</script>
 	</body>
 </html>

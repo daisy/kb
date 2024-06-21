@@ -12,6 +12,10 @@
 			};
 		</script>
 		<script src="/js/init.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<style>
+			div.details > div.details-body { display:none; }
+		</style>
 	</head>
 	<body>
 		<main>
@@ -54,54 +58,56 @@
 							<p>All non-text content that is presented to the user has a text alternative that serves the
 								equivalent purpose, except for the situations listed below.</p>
 							
-							<details>
-								<summary>View exceptions</summary>
-								<dl>
-									<dt>Controls, Input</dt>
-									<dd>
-										<p>If non-text content is a control or accepts user input, then it has a name
-											that describes its purpose. (Refer to Success Criterion 4.1.2 for additional
-											requirements for controls and content that accepts user input.)</p>
-									</dd>
-									
-									<dt>Time-Based Media</dt>
-									<dd>
-										<p>If non-text content is time-based media, then text alternatives at least
-											provide descriptive identification of the non-text content. (Refer to
-											Guideline 1.2 for additional requirements for media.)</p>
-									</dd>
-									
-									<dt>Test</dt>
-									<dd>
-										<p>If non-text content is a test or exercise that would be invalid if presented
-											in text, then text alternatives at least provide descriptive identification
-											of the non-text content.</p>
-									</dd>
-									
-									<dt>Sensory</dt>
-									<dd>
-										<p>If non-text content is primarily intended to create a specific sensory
-											experience, then text alternatives at least provide descriptive
-											identification of the non-text content.</p>
-									</dd>
-									
-									<dt>CAPTCHA</dt>
-									<dd>
-										<p>If the purpose of non-text content is to confirm that content is being
-											accessed by a person rather than a computer, then text alternatives that
-											identify and describe the purpose of the non-text content are provided, and
-											alternative forms of CAPTCHA using output modes for different types of
-											sensory perception are provided to accommodate different disabilities.</p>
-									</dd>
-									
-									<dt>Decoration, Formatting, Invisible</dt>
-									<dd>
-										<p>If non-text content is pure decoration, is used only for visual formatting,
-											or is not presented to users, then it is implemented in a way that it can be
-											ignored by assistive technology.</p>
-									</dd>
-								</dl>
-							</details>
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">&#9654;</span> View exceptions</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>Controls, Input</dt>
+										<dd>
+											<p>If non-text content is a control or accepts user input, then it has a name
+												that describes its purpose. (Refer to Success Criterion 4.1.2 for additional
+												requirements for controls and content that accepts user input.)</p>
+										</dd>
+										
+										<dt>Time-Based Media</dt>
+										<dd>
+											<p>If non-text content is time-based media, then text alternatives at least
+												provide descriptive identification of the non-text content. (Refer to
+												Guideline 1.2 for additional requirements for media.)</p>
+										</dd>
+										
+										<dt>Test</dt>
+										<dd>
+											<p>If non-text content is a test or exercise that would be invalid if presented
+												in text, then text alternatives at least provide descriptive identification
+												of the non-text content.</p>
+										</dd>
+										
+										<dt>Sensory</dt>
+										<dd>
+											<p>If non-text content is primarily intended to create a specific sensory
+												experience, then text alternatives at least provide descriptive
+												identification of the non-text content.</p>
+										</dd>
+										
+										<dt>CAPTCHA</dt>
+										<dd>
+											<p>If the purpose of non-text content is to confirm that content is being
+												accessed by a person rather than a computer, then text alternatives that
+												identify and describe the purpose of the non-text content are provided, and
+												alternative forms of CAPTCHA using output modes for different types of
+												sensory perception are provided to accommodate different disabilities.</p>
+										</dd>
+										
+										<dt>Decoration, Formatting, Invisible</dt>
+										<dd>
+											<p>If non-text content is pure decoration, is used only for visual formatting,
+												or is not presented to users, then it is implemented in a way that it can be
+												ignored by assistive technology.</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -221,5 +227,8 @@
 				</ul>
 			</section>
 		</main>
+		<script>
+			$('body').on('click', 'div.details', function() { var expanded = $(this).find('button').attr('aria-expanded'); $(this).find('button').attr('aria-expanded', expanded === 'false' ? 'true' : 'false');$(this).find('span.status').html(expanded === 'true' ? '▶' : '▼');$(this).find('div.details-body').toggle(); });
+		</script>
 	</body>
 </html>
