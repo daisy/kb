@@ -52,6 +52,7 @@ function KB() {
 	this.noTopLink = page_info.hasOwnProperty('noTopLink') ? true: false;
 	this.noTitle = page_info.hasOwnProperty('noTitle') ? true: false;
 	this.noFooter = (page_info.hasOwnProperty('footer') && !page_info['footer']) ? true : false;
+	this.details = (page_info.hasOwnProperty('details') && page_info['details']) ? true : false;
 	
 	this.title = document.title;
 }
@@ -76,6 +77,11 @@ KB.prototype.initializePage = function (type) {
 		this.writeHeadTag('js', '/js/prettify.js');
 		this.writeGoogleAnalytics();
 		this.writeHeadTag('favicon', null, null);
+		
+		if (this.details) {
+			this.writeHeadTag('js', 'https://code.jquery.com/jquery-2.2.4.min.js', { 'integrity': 'sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=', 'crossorigin': 'anonymous'});
+			this.writeHeadTag('js', '/js/details.js', {'defer': 'true'});
+		}
 	}
 	else {
 		this.host = 'ace';

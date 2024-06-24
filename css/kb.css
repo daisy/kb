@@ -932,6 +932,10 @@ details.desc pre {
 }
 
 
+/* details patch for localization */
+div.details > div.details-body { display:none; }
+
+
 /* wcag explainer tables */
 
 table.sc-info {
