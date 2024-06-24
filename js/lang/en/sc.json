@@ -411,12 +411,12 @@
 		"level": "A"
 	},
 	"3.3.8": {
-		"id": "accessible-authentication",
+		"id": "accessible-authentication-minimum",
 		"name": "Accessible Authentication (Minimum)",
 		"level": "AA"
 	},
 	"3.3.9": {
-		"id": "accessible-authentication-no-exception",
+		"id": "accessible-authentication-enhanced",
 		"name": "Accessible Authentication ('Enhanced')",
 		"level": "AAA"
 	},
