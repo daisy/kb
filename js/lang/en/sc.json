@@ -260,6 +260,21 @@
 		"name": "Section Headings",
 		"level": "AAA"
 	},
+	"2.4.11": {
+		"id": "focus-not-obscured-minimum",
+		"name": "Focus Not Obscured (Minimum)",
+		"level": "AA"
+	},
+	"2.4.12": {
+		"id": "focus-not-obscured-enhanced",
+		"name": "Focus Not Obscured (Enhanced)",
+		"level": "AAA"
+	},
+	"2.4.13": {
+		"id": "focus-appearance",
+		"name": "Focus Appearance",
+		"level": "AAA"
+	},
 	"2.5.1": {
 		"id": "pointer-gestures",
 		"name": "Pointer Gestures",
@@ -289,6 +304,16 @@
 		"id": "concurrent-input-mechanisms",
 		"name": "Concurrent Input Mechanisms",
 		"level": "AAA"
+	},
+	"2.5.7": {
+		"id": "dragging-movements",
+		"name": "Dragging Movements",
+		"level": "AA"
+	},
+	"2.5.8": {
+		"id": "target-size-minimum",
+		"name": "Target Size (Minimum)",
+		"level": "AA"
 	},
 	"3.1.1": {
 		"id": "language-of-page",
@@ -345,6 +370,11 @@
 		"name": "Change on Request",
 		"level": "AAA"
 	},
+	"3.2.6": {
+		"id": "consistent-help",
+		"name": "Consistent Help",
+		"level": "A"
+	},
 	"3.3.1": {
 		"id": "error-identification",
 		"name": "Error Identification",
@@ -373,6 +403,21 @@
 	"3.3.6": {
 		"id": "error-prevention-all",
 		"name": "Error Prevention (All)",
+		"level": "AAA"
+	},
+	"3.3.7": {
+		"id": "redundant-entry",
+		"name": "Redundant Entry",
+		"level": "A"
+	},
+	"3.3.8": {
+		"id": "accessible-authentication",
+		"name": "Accessible Authentication (Minimum)",
+		"level": "AA"
+	},
+	"3.3.9": {
+		"id": "accessible-authentication-no-exception",
+		"name": "Accessible Authentication ('Enhanced')",
 		"level": "AAA"
 	},
 	"4.1.1": {

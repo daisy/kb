@@ -9,13 +9,10 @@
 			var page_info = {
 				'category':[ 'EPUB', 'Validation'],
 				'appliesTo':[ 'EPUB3', 'EPUB2'],
-				'addh4': true
+				'addh4': true,
+				'details': true
 			};</script>
 		<script src="/js/init.js"></script>
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<style>
-			div.details > div.details-body { display:none; }
-		</style>
 	</head>
 	<body>
 		<main>
@@ -491,8 +488,5 @@
 				</ul>
 			</section>
 		</main>
-		<script>
-			$('body').on('click', 'div.details', function() { var expanded = $(this).find('button').attr('aria-expanded'); $(this).find('button').attr('aria-expanded', expanded === 'false' ? 'true' : 'false');$(this).find('span.status').html(expanded === 'true' ? '▶' : '▼');$(this).find('div.details-body').toggle(); });
-		</script>
 	</body>
 </html>
