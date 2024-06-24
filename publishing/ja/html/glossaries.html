@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>用語集</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of glossaries.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>セクションとリストを使用して用語集を構成し、用語へのアクセスを簡単にします。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>
+						<p>関連する用語のセットをグループ化するには、 <code>section</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各セクションに見出しを含めます [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>用語のリストを構造化するには<code>dl</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例 — 基本的な用語集</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary of Terms&lt;/h1&gt;
+   
+   &lt;dl&gt;
+      &lt;dt&gt;AstroSeneca&lt;/dt&gt;
+      &lt;dd&gt;
+         &lt;p&gt;First Roman philosopher in space.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+  &lt;/dl&gt;
+&lt;/section&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例 — アルファベットでの分類のためのわかりやすい小見出しが付いた用語集</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary&lt;/h2&gt;
+   
+   &lt;section&gt;
+     &lt;h3&gt;A&lt;/h3&gt;
+     
+     &lt;dl&gt;
+       &lt;dt&gt;Absorbitron&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;Transformer known to change into a sponge.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例 — 暗黙的な見出しを持つ用語集</p>
+						<p>用語セットが視覚的なスペースによってのみ区切られている場合は、 <code>aria-label</code>属性を使用して支援技術用の見出しを付けます。</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary&lt;/h2&gt;
+   
+   &lt;section aria-label="A"&gt;
+     &lt;dl&gt;
+       &lt;dt&gt;Anti-oxidants&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;People who dislike oxidants.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   &lt;section aria-label="B"&gt;
+     &lt;dl&gt;
+       &lt;dt&gt;Beta-Carotene&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;Carotene that is still in a debugging stage.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-indexes-spec">EPUB 辞書と用語集の仕様に従う必要がありますか？</dt>
+					<dd>
+						<p>このドキュメントの構造化原則に従うことが推奨されます。アクセシビリティに最も役立つ原則がこのページで繰り返されていますが、 <code>epub:type</code>セマンティクスの使用は必須ではありません。これらのセマンティクスは出版社の内部ワークフローには役立つかもしれませんが、現時点ではリーディングシステムの用語集を拡張するものではなく、 <code>epub:type</code>セマンティクスはアクセシビリティを提供しません。</p>
+
+						<p>パッケージドキュメントの識別要件については、現時点ではこの仕様の採用は限定的であるため、従う必要はありません。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>技術用語や一般的でない方法で使用される用語について、用語集を提供することは、学習障害や認知障害のあるユーザーにとって特に役立ちます。ユーザーが定義を調べやすくするために、用語が使用されている場所から定義へのリンクが提供されるようにしてください。通常、用語集の用語のすべてのインスタンスにリンクする必要はありません。リンクが多すぎると、支援技術のユーザーのナビゲーションに影響する可能性があります（つまり、ドキュメント内のリンクを確認するのが難しくなります）。新しいセクションの最初のインスタンスのみにリンクすることを検討してください。</p> 
+
+				<p>用語集のアルファベット順および数字順の項目を簡単に移動できるようにするには、入れ子になった<code>section</code>要素を使用します。多くの用語集では、各項目の間に数字または文字がヘッダーとして含まれていますが、ヘッダーが存在しないか必要でない場合は、囲んでいるセクションの<code>aria-label</code>属性に数字または文字を含めて、支援技術によって読み上げられるようにします。明示的または暗黙的な見出しがないと、支援技術ではセクション間を移動する機能が提供されないことがよくあります（純粋にスタイル要素として扱われます）。</p>
+
+				<p>各セクションの用語を、定義リストを使用して、構造化します。これらのリストを使用すると、支援技術のユーザーは、段落や同様のマークアップを使用する場合のように一度に 1 つずつ移動する必要がなくなり、リスト項目を前後に移動できるようになります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-glossary"><code>doc-glossary</code>（ロール）</a>
+</li>
+					<li><a href="http://www.idpf.org/epub/dict">EPUB 辞書と用語集 1.0</a></li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"><code>dl</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
