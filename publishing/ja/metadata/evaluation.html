@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>評価メタデータ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on reporting the outcome of an accessibility evaluation in an EPUB publication's package document metadata.">
+		<script>
+			var page_info = {
+				'category': 'Metadata',
+				'appliesTo': ['EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			section > dl > dt {
+				font-weight: bold;
+				font-size: 110%;
+				padding-top: 2em;
+			}
+			section > dl > dd > dl > dt {
+				font-weight: bold;
+			}
+			blockquote {
+				margin-left: 1rem;
+			}
+			dl.conf-map dt, dl.conf-map dd {
+				margin-left: 2rem;
+			}
+			dl.conf-map dt {
+				margin-top: 1.5rem;
+			}
+			dl.conf-map {
+				font-size: 85%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>アクセシビリティ評価メタデータを含めることで、適合性の発見を可能にし、評価者とその資格情報の識別を提供します。</p>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — パッケージ ドキュメントのメタデータ （EPUB 3）</div>
+						<p>次の例は、WCAG レベル AA の EPUB アクセシビリティ 1.1 規格に準拠した出版物の評価メタデータの完全なセットを示しています。</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta property="dcterms:conformsTo"&gt;
+     EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+  &lt;/meta&gt;
+  &lt;meta property="a11y:certifiedBy"&gt;Dewey, Checkett and Howe&lt;/meta&gt;
+  &lt;meta property="a11y:certifierCredential"&gt;Certifiably Accessible&lt;/meta&gt;
+  &lt;link rel="a11y:certifierReport"
+        href="https://example.com/reports/a11y/pub.html"/&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — パッケージ ドキュメントのメタデータ （EPUB 2）</div>
+						<p>次の例は、 <code>meta</code>タグの<code>name</code>と<code>content</code>属性を使用して、EPUB 2 出版物の評価用メタデータを表現する方法を示しています。</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta name="dcterms:conformsTo"
+        content="EPUB Accessibility 1.1 - WCAG 2.0 Level AA"/&gt;
+  &lt;meta name="a11y:certifiedBy" content="Dewey, Checkett and Howe"/&gt;
+  &lt;meta name="a11y:certifierCredential" content="Certifiably Accessible"/&gt;
+  &lt;meta name="a11y:certifierReport"
+        content="https://example.com/reports/a11y/pub.html"/&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+				</figure>
+			</section>
+			<section id="faq">
+				<h3>よくある質問</h3>
+				<dl>
+					<dt id="faq-001">EPUB パッケージ ドキュメントで<code>a11y:</code>プレフィックスを宣言する必要がありますか?</dt>
+					<dd>
+						<p>技術的には必要ありませんが、常にプレフィックスを宣言することがベストプラクティスです。EPUB には「<a href="https://www.w3.org/TR/epub-33/#sec-reserved-prefixes">予約済み</a>」という概念があり、これは宣言しなくても使用できるプレフィックスです。ただし、実際には、epubcheck 検証ツールの古いバージョンは、新しい追加に対応しておらず、新しい定義済みのプリフィックスをエラーとしてフラグ付けします。プレフィックスを宣言すると、検証の問題がなくなることが保証されます。</p>
+						<p><code>a11y:</code>プリフィックスは次のように宣言されます。</p>
+						<pre id="ex-faq01-src" class="prettyprint linenums"><code>&lt;package … prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#"&gt;</code></pre>
+					</dd>
+				</dl>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>評価メタデータは、アクセシビリティ規格に照らして出版物を評価した個人または組織に関する追加情報を提供します。また、出版物が準拠している規格を識別することもできます。</p>
+
+				<p>このセクションで説明されている<code>a11y:</code>プレフィックスが付いたすべての評価用メタデータは<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">、EPUB アクセシビリティ語彙</a>で定義されています。</p>
+
+				<section id="dcterms:conformsTo">
+					<h4>dcterms:conformsTo　（準拠する規格）</h4>
+					
+					<blockquote>
+						<p>
+							<em>記述されたリソースが準拠する確立された規格</em>
+						</p>
+					</blockquote>
+					
+					<p><code>dcterms:conformsTo</code>プロパティが出版物に含まれている場合、誰かがその出版物が規格に準拠していることをチェックして確認したことを示します。要素の値は、標準を識別する文字列または URL です。</p>
+					
+					<p id="syntax-11">特に、EPUB アクセシビリティ 1.1 規格では、このプロパティを使用して、その要件に準拠している出版物を識別します。プロパティの値は、出版物が準拠している規格のバージョンと、 <a href="../conformance/wcag.html">WCAG 準拠</a>のバージョンとレベルの両方を識別し、次のパターンと一致する必要があります。</p>
+					
+					<blockquote>
+						<code>EPUB Accessibility 1.1 - WCAG 2.X Level (A|AA|AAA)</code>
+					</blockquote>
+					
+					<p>値「 <code>2.X</code> 」は WCAG のバージョン (例: 2.0 または 2.1) に置き換えられ、「 <code>(A|AA|AAA)</code> 」は達成されたレベルに置き換えられます。</p>
+					
+					<p>たとえば、現在このプロパティで使用できる値は次のとおりです。</p>
+					
+					<ul>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level A</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AAA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level A</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AA</code>
+						</li>
+						<li>
+							<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AAA</code>
+						</li>
+					</ul>
+					
+					<p>これらの適合値の詳細については、EPUB アクセシビリティ仕様の<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting-pub">出版物適合セクション</a>を参照してください。</p>
+					
+					<dl>
+						<dt>EPUB 3で の使用法:</dt>
+						<dd>
+							<pre id="expl-01-src" class="prettyprint linenums small"><code>&lt;meta property="dcterms:conformsTo"&gt;
+  EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+&lt;/meta&gt;</code></pre>
+						</dd>
+						<dt>EPUB 2 での使用法:</dt>
+						<dd>
+							<pre id="expl-02-src" class="prettyprint linenums small"><code>&lt;meta
+  name="dcterms:conformsTo"
+  content="EPUB Accessibility 1.1 - WCAG 2.0 Level AA"/&gt;</code></pre>
+						</dd>
+					</dl>
+					
+					<section id="a11y-transition">
+						<h5>EPUB アクセシビリティ 1.0 から 1.1 への移行</h5>
+						
+						<p>EPUB アクセシビリティ 1.0規格は<a href="https://idpf.org/">IDPF</a>によって開発され、<a href="https://idpf.org/epub/a11y/#sec-conf-reporting">その組織のドメイン</a>( <code>idpf.org</code> ) を含む適合 URL を使用しました。</p>
+						
+						<p>このバージョンに準拠するには、次の例のように、 <code>idpf.org</code> URL を含むパッケージ ドキュメント メタデータの<code>link</code>要素を使用します。</p>
+						
+						<pre><code>&lt;link
+     rel="dcterms:conformsTo"
+     href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/&gt;</code></pre>
+						
+						<p>IDPF はもう存在しないため、EPUB ワーキング グループは適合識別子として IDPF URL の使用をやめ、前述の<a href="#syntax-11">文字列ベースの識別子システム</a>に移行することを決定しました。IDPF URL は既存の 1.0 コンテンツに対しては引き続き有効ですが、アクセシビリティ 1.0 要件に準拠している発行者は、新しい 1.1 規格への適合を宣言することをお勧めします。</p>
+						
+						<p><strong>EPUB アクセシビリティ 1.0 規格に準拠する出版物は、同じ WCAG レベルの 1.1 規格にも準拠します。</strong></p>
+						
+						<p>次のリストは、古い識別子と置換識別子をマッピングします。</p>
+						
+						<dl class="conf-map">
+							<dt>WCAG 2.0 レベル A</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 マークアップ：</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-a"/&gt;</code></pre>
+									</li>
+									<li>
+										<p>1.1 マークアップ：</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo"&gt;
+   EPUB Accessibility 1.1 - WCAG 2.0 Level A
+&lt;/meta&gt;</code></pre>
+									</li>
+								</ul>
+							</dd>
+							
+							<dt>WCAG 2.0 レベル AA</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 markup:</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/&gt;</code></pre>
+									</li>
+									<li>
+										<p>1.1 markup:</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo"&gt;
+   EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+&lt;/meta&gt;</code></pre>
+									</li>
+								</ul>
+							</dd>
+							
+							<dt>WCAG 2.0 レベル AAA</dt>
+							<dd>
+								<ul>
+									<li>
+										<p>1.0 markup：</p>
+										<pre><code>&lt;link rel="dcterms:conformsTo"
+       href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aaa"/&gt;</code></pre>
+									</li>
+									<li>
+										<p>1.1 markup:</p>
+										<pre><code>&lt;meta property="dcterms:conformsTo"&gt;
+   EPUB Accessibility 1.1 - WCAG 2.0 Level AAA
+&lt;/meta&gt;</code></pre>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</section>
+				</section>
+				
+				<section id="a11y:certifiedBy">
+					<h4>a11y:certifiedBy</h4>
+					
+					<blockquote>
+						<p>
+							<em>EPUB 出版物のアクセシビリティのテストと認証を担当する当事者を識別します。</em>
+						</p>
+					</blockquote>
+					
+					<p><code>a11y:certifiedBy</code>プロパティは、アクセシビリティ適合性について誰がレビューしたかを示すために出版物に含まれています。EPUB アクセシビリティ規格では、出版物がアクセシビリティ要件を満たしていない場合でも、発行者がこのプロパティを設定することが義務付けられています。</p>
+					
+					<dl>
+						<dt>EPUB 3 での使用法:</dt>
+						<dd>
+							<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifiedBy"&gt;Dewey, Checkett and Howe&lt;/meta&gt;</code></pre>
+						</dd>
+						<dt>EPUB 2での使用法:</dt>
+						<dd>
+							<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifiedBy" content="Dewey, Checkett and Howe"/&gt;</code></pre>
+						</dd>
+					</dl>
+				</section>
+				
+				<section id="a11y:certifierCredential">
+					<h4>a11y:certifierCredential</h4>
+					
+					<blockquote>
+						<p>
+							<em>コンテンツがアクセシブルであることを証明するために、 <code>certifiedBy</code>プロパティで識別される当事者の権限を確立する資格情報またはバッジを識別します。</em>
+						</p>
+					</blockquote>
+					
+					<p><code>a11y:certifierCredential</code>プロパティは、認証者が所有する資格情報、具体的にはアクセシビリティ評価を実行するための資格情報を識別します。</p>
+					
+					<p>プロパティは、保持されている資格情報の名前を含むテキスト フィールド、または資格情報の説明へのリンクにすることができます。</p>
+					
+					<dl>
+						<dt>EPUB 3 での使用法:</dt>
+						<dd>
+							<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;meta property="a11y:certifierCredential"&gt;Certifiably Accessible&lt;/meta&gt;
+&lt;link rel="a11y:certifierCredential"
+  href="https://example.com/a11y/credential"/&gt;</code></pre>
+						</dd>
+						<dt>EPUB 2 での使用法:</dt>
+						<dd>
+							<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifierCredential" content="Certifiably Accessible"/&gt;
+&lt;meta name="a11y:certifierCredential"
+  content="https://example.com/a11y/credential"/&gt;</code></pre>
+						</dd>
+					</dl>
+				</section>
+				
+				<section id="a11y:certifierReport">
+					<h4>a11y:certifierReport</h4>
+					
+					<blockquote>
+						<p>
+							<em><code>certifiedBy</code>プロパティで識別される当事者が作成したアクセシビリティ レポートへのリンクを提供します。</em>
+						</p>
+					</blockquote>
+					
+					<p>出版物のアクセシビリティ適合レポートが公開されている場合、出版社は<code>a11y:certifierReport</code>プロパティを使用してレポートへのリンクを提供できます。ベンダーとリーディングシステムは、タイトルに関する詳細情報を確認するためにこのレポートにアクセスするオプションをユーザーに提供できます。</p>
+					
+					<dl>
+						<dt>EPUB 3で の使用法:</dt>
+						<dd>
+							<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;link rel="a11y:certifierReport"
+  href="https://example.com/reports/a11y/pub.html"/&gt;</code></pre>
+						</dd>
+						<dt>EPUB 2 での使用法：</dt>
+						<dd>
+							<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;meta name="a11y:certifierReport"
+  content="https://example.com/reports/a11y/pub.html"/&gt;</code></pre>
+						</dd>
+					</dl>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">EPUB アクセシビリティ — 適合レポート</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB アクセシビリティ語彙</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
