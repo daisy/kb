@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>読み上げ順</title>
@@ -27,8 +27,7 @@
 				
 				<ul>
 					<li>すべてのコンテンツ ドキュメントのエントリを順序付けます。</li>
-					<li>
-<code>linear</code>属性を使用して、リニアコンテンツと非リニアコンテンツを区別します。</li>
+					<li> <code>linear</code>属性を使用して、リニアコンテンツと非リニアコンテンツを区別します。</li>
 				</ul>
 			</section>
 
@@ -132,7 +131,7 @@
     linear="no"/&gt;</code></pre>
 					
 					<div class="note" role="note" aria-labelledby="linear-note-01">
-						<p id="linear-note-01" class="label">注</p>
+						<p id="linear-note-01" class="label">注記</p>
 						<p>リーディングシステムは、 <code>linear</code>属性のない<code>itemref</code>要素がリニアコンテンツ ドキュメントを表すと想定するため、EPUB 出版物で<code>linear="yes"</code>が設定されていることはほとんどありません。</p>
 					</div>
 					
@@ -145,7 +144,7 @@
 					<p>非リニアコンテンツのもう 1 つのオプションは、リニアの読書体験への影響が最も少ない場所に配置することです。たとえば、画像の説明とポップアウト画像をspineのすべてのリニアコンテンツの後に配置できます (<a href="#ex-02">例 2</a>を参照)。 <code>spine</code>の最後に配置することは、コンテンツを適切に説明できない場合に特に便利です。たとえば、画像の拡大バージョンには、明示的なキャプションが適さない場合があります。</p>
 					
 					<div class="note" role="note" aria-labelledby="linear-note-02">
-						<p id="linear-note-02" class="label">注</p>
+						<p id="linear-note-02" class="label">注記</p>
 						<p>EPUB 3 の非リニアコンテンツ要件は、EPUB 2 とは 1 つの重要な点で異なります。つまり、著者はspineにすべての非リニアドキュメントへのリンクを含める必要があります。この要件により、手動で出版物のページをめくっているときにリーディングシステムが非リニアコンテンツをレンダリングするかどうかに関係なく、読者が非リニアコンテンツにアクセスできるようになります。</p>
 						
 						<p>ほとんどの場合、著者はリニアコンテンツからリンクされていない非リニアコンテンツを含めないことが一般的であるため、この要件を満たすのは困難ではありません。既知の問題の 1 つは、spineに非リニアの表紙を含めることです (<a href="#ex-01">例 1</a>を参照)。このドキュメントへのリンク要件を満たすには、 <a href="../navigation/landmarks.html"><code>landmarks nav</code></a>に表紙へのリンクを含めることができます。</p>
@@ -157,10 +156,8 @@
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a>
-</li>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear"><code>linear</code>属性</a>
-</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a> </li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear"><code>linear</code>属性</a> </li>
 				</ul>
 			</section>
 		</main>
