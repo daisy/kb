@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>音声</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of audio content, covering controls, tracks and transcripts.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>音声にラベルを付け、ユーザーが再生を制御できるようにし、音声が聞こえないユーザーや情報の処理に時間がかかるユーザーのための代替手段を用意します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>音声の内容を説明するラベルを付けます。[[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>デフォルトで<code>audio</code>要素のネイティブコントロールを有効にします。[[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>トランスクリプトを付けます。[[WCAG-1.2.1]]</p>
+					</li>
+					<li>
+						<p>自動的に開始される音声をユーザーが無効にしたり、音量をオフにしたりできるようにします。[[WCAG-1.4.2]]</p>
+					</li>
+					<li>
+						<p>音声を録音する際は、背景ノイズが少ないか、または全くないことを確認してください。[[WCAG-1.4.7]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 - ネイティブコントロールの有効化</div>
+						<p><code>controls</code>属性を設定すると、ネイティブ HTML コントロールがデフォルトで有効になります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;audio … controls="controls"/&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 — ラベルの追加</div>
+						<p><code>aria-label</code>属性は、音声クリップの主題を識別します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;audio … aria-label="Moon landing"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 — トランスクリプトを付ける</div>
+						<p>音声クリップの後にトランスクリプトへのリンクが提供されます。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;div&gt;
+   &lt;audio src="audio/01.mp3"
+          controls="controls"
+          aria-label="Truman's fair deal"/&gt;
+   &lt;a href="transcript01.html"&gt;Read the transcript&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 — 代替エラーメッセージを付ける</div>
+						<p>ユーザーエージェントは、音声要素をサポートしていない場合にのみ、 <code>audio</code>要素内のコンテンツをレンダリングします。ユーザーエージェントは、提供された音声形式をサポートしていない場合、このコンテンツを表示しません（このような場合、ユーザーエージェントは独自のエラーメッセージを表示します）。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;audio
+       src="audio/clip12.mp3"
+       controls="controls"
+       aria-label="Churchill's 'We Shall Never Surrender' speech"&gt;
+   &lt;div class="err"&gt;
+     &lt;p&gt;
+       Sorry, it appears your system does not support audio playback.
+     &lt;/p&gt;
+   &lt;/div&gt;
+&lt;/audio&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>音声クリップを含める場合は、もともとのユーザーエージェントのコントロールがデフォルトで有効になっていることを確認します（つまり、 <code>audio</code>要素に<code>controls</code>属性を設定します）。この方法により、スクリプトが利用できない場合でもコントロールにアクセスできるようになります。独自のカスタムコントロールを定義する場合は、スクリプトをサポートしていないユーザーエージェントでもコントロールが利用できるよう、JavaScript でネイティブコントロールを無効にしてください。</p>
+				
+				<p>音声クリップにラベルを付けると、ユーザーはビデオを視聴するかどうかを決める前に、ビデオの目的を理解できるようになります。たとえば、高額の通信費がかかるユーザーは、興味のないクリップをダウンロードする必要がないため、時間と費用の両方を節約できます。</p>
+				
+				<p>代替手段を提供するという点では、WCAG は音声コンテンツに「メディア代替手段」を要求しています。これはトランスクリプト（文字起こし）のようなものですが、単に話された台詞を羅列しただけのものではいけません。代替手段は、重要な非言語的な音についても記述する必要があります。</p>
+				
+				<p><code>audio</code>要素では代替手段として子コンテンツが許可されていますが、そのようなコンテンツはアクセシブルな代替手段として機能するよう意図されているわけではありません。この子コンテンツは、 <code>audio</code>要素をサポートしていないユーザーエージェント（例： EPUB 2 ユーザーエージェント）の場合にのみ、ユーザーに提供されます。</p>
+				
+				<p>また、ユーザーが支援技術（スクリーンリーダーなど）によって生成された音声を聞くことができるようにすることも重要です。たとえば、音声を自動的に再生すると、テキストを聞く妨げになることがあります。音声クリップの再生時間が3秒以内など、ごく短い場合を除いて、ユーザーは支援技術をミュートにすることなく、音声再生を無効にしたり、音量をミュートしたりできる必要があります。（つまり、システムの音声コントロールは支援技術を含むすべての音声を同期して上げ下げするため、この要件を満たすのに十分ではありません）。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">&lt;audio&gt;: 埋め込み音声要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-audio-element"><code>audio</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-track-element"><code>track</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
