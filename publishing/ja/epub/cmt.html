@@ -57,7 +57,7 @@
 					
 				<p>EPUB 仕様では<dfn>、コア メディア タイプと</dfn>呼ばれる一連のファイル形式が定義されています。これは、作成者が、EPUB コンテンツ ドキュメントに、フォールバックを必要とせずに含めることができるファイル形式です。</p>
 				
-				<p>Reading systems are required to support these formats so long as they support the necessary 					rendering (e.g., a reading system that only reads back the text does not have to support CSS or image 					formats, but a reading system with a visual display does).</p>
+				<p>リーディングシステムは、必要なレンダリングをサポートしている限り、これらの形式をサポートする必要があります（たとえば、テキストのみを読み上げるリーディングシステムは CSS または画像形式をサポートする必要はありませんが、視覚的な表示を備えたリーディングシステムはサポートする必要があります）。</p>
 				
 				<p>EPUB 出版物でコア メディア タイプのみを使用すると、どのリーディングシステムを使ってもその出版物を読めるように保障できます。</p>
 				
@@ -109,7 +109,7 @@
 &lt;/object&gt;</code></pre>
 					</figure>
 					
-					<p>Embedding fallbacks for images used to be problematic, but the addition of the <code>srcset</code> 						attribute and <code>picture</code> element have greatly improved the situation (the lack of 						fallbacks was a major reason for the creation of <a href="#fallbacks-epub">manifest 							fallbacks</a> in EPUB).</p>
+					<p>画像のフォールバックを埋め込むことは以前は困難でしたが、 <code>srcset</code>属性と<code>picture</code>要素の追加により状況は大幅に改善されました（フォールバックの欠如が EPUB で<a href="#fallbacks-epub">マニフェスト フォールバック</a>が作成された主な理由でした）。</p>
 					
 					<figure>
 						<figcaption>
@@ -144,7 +144,7 @@
 							<li>
 <code>track</code> （キャプション、字幕、および同様の音声/ビデオ トラック形式を含めることができます）</li>
 							<li>
-<code>video</code> (EPUB does not define a single video format that all reading 								systems must support).</li>
+<code>video</code>（EPUB では、すべてのリーディングシステムがサポートする必要がある単一のビデオ形式は定義されていません）。</li>
 						</ul>
 						
 						<p>このような場合、作成者は任意の形式を指定できますが、リーディングシステムがその形式のレンダリングをサポートするという保証はありません。</p>
