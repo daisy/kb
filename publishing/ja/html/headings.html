@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>見出し</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for ensuring that headings are meaningful and structurally identifiable.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>見出しタグを使用すると、ユーザーは視覚的なスタイルに頼ることなく、文書のアウトラインを理解してナビゲートすることができます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>すべての見出しが特定されているようにします。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>セクションごとに見出しを1つずつ使用し、文書のアウトラインを明確にします。[[WCAG-2.4.10]]</p>
+					</li>
+					<li>
+						<p>見出しがセクションを説明していることを確認します。[[WCAG-2.4.6]]</p>
+					</li>
+					<li>
+						<p>見出しとサブタイトルを<code>hgroup</code>要素でグループ化します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — レベル番号付き見出し</div>
+						<p>見出し番号は、各サブセクション (h1、h2、h3) に合わせて 1 つずつ減ります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-part" aria-labelledby="hd01"&gt;
+  &lt;h1 id="hd01"&gt;Book One: 1805&lt;/h1&gt;
+     &lt;section role="doc-part" aria-labelledby="hd02"&gt;
+       &lt;h2 id="hd02"&gt;Part 1&lt;/h2&gt;
+         &lt;section role="doc-chapter" aria-labelledby="hd03"&gt;
+           &lt;h3 id="hd03"&gt;Chapter 1&lt;/h3&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 - 見出しとサブタイトルを分ける</div>
+						<p>タイトルとサブタイトルは、関連付けるために<code>hgroup</code>要素でグループ化されます。</p>
+						<p><code>aria-labelledby</code>属性は、アクセシブルな名前にもサブタイトルが追加されるのを避けるために、 <code>hgroup</code>全体ではなく、見出し要素のみを参照することに注意してください。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="hd01"&gt;
+   &lt;hgroup&gt;
+     &lt;h1 id="hd01"&gt;ORIGIN OF THE WORLD.—FIRST DYNASTY.&lt;/h1&gt;
+     &lt;p role="doc-subtitle"&gt;URANUS AND GÆA. (Cœlus and Terra.)&lt;/p&gt;
+   &lt;/hgroup&gt;
+   …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 見出しのないセクション</div>
+						<p><code>aria-label</code>属性は、視覚的な見出しを含まないセクションに意味のあるタイトルを提供します。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;section role="region" aria-label="preamble"&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">すべてのセクションに<code>h1</code>見出しを使用できますか?</dt>
+					<dd>
+<p>HTML アウトラインアルゴリズムは HTML 仕様から削除されました（ユーザーエージェントと支援技術はこの機能をサポートしませんでした）。すべてのセクションに<code>h1</code>見出しを使用すると、支援技術にとってはすべてがトップレベルの見出しとして表示され、ユーザーがコンテンツをナビゲートする妨げとなります。</p>
+					</dd>
+					
+					<dt id="faq-002">見出しレベルは連続している必要がありますか?</dt>
+					<dd>
+<p>見出しは出版物の階層構造を反映する必要があるため、第 2 レベルの見出しには常に<code>h2</code>を使用し、第 3 レベルの見出しには<code>h3</code>を使用します。可能な限り、レベル番号が飛ばないようにしてください （例えば、 <code>h1</code>の下の見出しに<code>h3</code>を使用しないなど）。</p>
+						<p>一貫した番号付けを使用すると、ユーザーが出版物の構造に混乱することがなくなります。支援技術には、たとえば見出しレベルで、ユーザーが効率的にコンテンツ内を移動できるようにするショートカットキーが用意されています。レベル番号が飛んでいると、ユーザーは移動方法によってはサブセクションがあることに気付かない可能性があります（つまり、特定の見出しレベルに移動しようとしても機能せず、次の見出しに移動する一般的なオプションのみが機能します）。</p>
+					</dd>
+					
+					<dt id="faq-003">
+<code>hgroup</code>は長い間推奨されていなかったのではないですか?</dt>
+					<dd>
+						<p>はい、この要素は元々 HTML アウトラインアルゴリズムの一部であり、ブラウザーや支援技術では実装されなかった機能です。この機能により、複数の見出し要素をグループ化することはできましたが、文書に適用されるのは 1 つの見出しのみでした。しかし、このモデルに従うと、支援技術によってタグ内のすべての見出しが読み上げられてしまいます。</p>
+						
+						<p>HTML からアウトラインアルゴリズムが削除され、要素のコンテンツモデルが変更されたことで、複数の見出し要素を含めることは無効になりました。そのため、支援技術で問題が発生することはなくなりました。</p>
+						
+						<p>以前は、見出しとすべてのサブタイトルを<code>header</code>要素で囲むことが推奨されていましたが、ドキュメントのヘッダーにはタイトルとサブタイトル以外の要素も含めることができます。<code>hgroup</code> を使用すると、これらの見出しをより効果的にグループ化できます。 <code>header</code>内に<code>hgroup</code>を含めることで、見出しグループを他のヘッダーコンテンツと組み合わせることができます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>見出しは、支援技術のユーザーにとって主要なナビゲーション手段の 1 つです。</p>
+				
+				<p>各<code>section</code>に、文書内の階層レベルを反映するレベル番号付きの見出し（例： <code>h1</code> ）が必要です。レベル番号付きの見出しにより、支援技術で文書構造をナビゲートできるようになります。</p>
+				
+				<p>各見出し要素は、1 つの見出しを表す必要があります。見出しを視覚的な書式設定のために個別のタグに分割しないでください。サブタイトルを含める必要がある場合は、メインの見出しに組み込むか、 後続の段落に含めて、<code>header</code>タグを使用して見出し全体をカプセル化します。</p>
+				
+				<p>テキストのセクションに見出しがない場合は、囲んでいる要素の<code>aria-label</code>属性に見出しを含めます。支援技術によってこのラベルが読み上げられ、新しいセクションが始まることがユーザーに通知されます。</p>
+				
+				<div class="note" role="note" aria-labelledby="note-1">
+					<p id="note-1" class="label">注記</p>
+					<p><code>figure</code> 、 <code>blockquote</code> 、およびその他の HTML5 セクションルート要素内では見出し要素を使用しないでください。これらの機能にはタイトルが付いている場合がありますが、見出し要素を使用すると、ユーザーが次のセクションを見つける際に、それらの要素間も移動しなければならなくなってしまいます。</p>
+				</div>
+				
+				<section id="hgroup">
+					<h4>見出しグループ</h4>
+					
+					<p><code>hgroup</code>要素は、単一のユニットとして機能する複数レベルの見出しのニーズを解決します。</p>
+					
+					<p>この要素は、セクションの見出しとして単一のレベル番号付き見出しタグ（<code>h1</code>から<code>h6</code> ）を使用しますが、サブタイトルを定義するために複数の<code>p</code>タグをグループに含めることもできます（<a href="#ex-02">例 2</a>を参照）。この方法で、サブタイトルにレベル番号付き見出しを使用して読者が新しいセクションが始まっていると勘違いしてしまう問題を回避できます。</p>
+					
+					<p>また、 <code>header</code>要素にタイトルとサブタイトル以外のものも含めることができるため（たとえば、ヘッダーにはエピグラフや画像などを含めることもできます）、見出しとサブタイトルをグループ化するために<code>header</code>要素を使用する場合の問題も回避できます。追加のコンテンツがある場合は、 <code>header</code>要素に見出しグループを追加できます。</p>
+					
+					<pre id="ex-expl-01-src" class="prettyprint linenums"><code>&lt;section id="c01" aria-labelledby="c01-hd"&gt;
+   &lt;header&gt;
+      &lt;img src="graphics/chapter-marker.png" alt=""/&gt;
+      &lt;hgroup&gt;
+         &lt;h2 id="c01-hd"&gt;Chapter 1&lt;h2&gt;
+         &lt;p role="doc-subtitle"&gt;Let there be light&lt;/p&gt;
+      &lt;/hgroup&gt;
+      &lt;p role="doc-epigraph"&gt;Now the earth was formless and void, 
+         and darkness was over the surface of the deep.&lt;/p&gt;
+   &lt;/header&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">&lt;h1&gt;–&lt;h6&gt;: HTML の見出し要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup">&lt;hgroup&gt;</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements"><code>h1</code> 、 <code>h2</code> 、 <code>h3</code> 、 <code>h4</code> 、 <code>h5</code> 、 <code>h6</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element"><code>hgroup</code>要素</a>
+</li>
+					<li>WCAG — <a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H42">h1-h6 を使用して見出しを識別する</a>
+</li>
+					<li>WCAG —<a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H69">コンテンツの各セクションの先頭に見出し要素を提供する</a>
+</li>
+					<li>WCAG —<a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G141">見出しを使用してページを整理する</a>
+</li>
+					<li>WCAG — <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">HTML — 見出しとセクション</a>
+</li>
+					<li>WCAG — <a href="https://html.spec.whatwg.org/multipage/common-idioms.html#sub-head">HTML — 小見出し、サブタイトル、代替タイトル、タグライン</a>
+</li>
+					<li>WCAG —<a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G130">説明的な見出しを提供する</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
