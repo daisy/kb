@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>太字と斜体</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the application of bolding and italics.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>強調を適切に用いることで、ユーザーは音声の強調とキーワード、純粋にスタイル的な装飾を、区別できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>強調されたテキストがユーザーにとって重要な情報（例：声の強勢、キーワード）を伝える場合は、 <code>em</code>や<code>strong</code>などのセマンティックマークアップを使用します。[[WCAG-1.3.1]]</li>
+					<li>強調や太字を純粋にスタイル上使用する場合は CSS を使用します。[[WCAG-1.3.1]]</li>
+				</ul>
+				
+				<p>HTML 5 では、 <code>em</code> 、 <code>strong</code> 、 <code>i</code> 、 <code>b</code>要素のより正確な使用方法が定義されていることに注意してください (以下の<a href="#emph-expl">説明表</a>を参照)。 WCAG 2.0 に準拠するためにこれらのルールに従う必要はありませんが、ベストプラクティスとして考慮する必要があります。 このセクションの例は、これらのガイドラインに従っています。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption><span class="label">例1 — 声の強勢を表す<code>em</code>の使用</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;
+   … There was nothing so &lt;em&gt;very&lt;/em&gt; remarkable
+   in that; nor did Alice think it so &lt;em&gt;very&lt;/em&gt;
+   much out of the way to hear the Rabbit say to
+   itself, &lt;q&gt;Oh dear! Oh dear! I shall be 
+   late!&lt;/q&gt; …
+&lt;/p&gt;</code></pre>
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   … 'Really this is what is meant by the Fourth
+   Dimension, though some people who talk about the 
+   Fourth Dimension do not know they mean it. It is 
+   only another way of looking at Time. &lt;em&gt;There 
+   is no difference between Time and any of the 
+   three dimensions of Space except that our 
+   consciousness moves along it&lt;/em&gt;. …
+&lt;/p&gt;</code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption><span class="label">例2 — 重要性を示すための<code>strong</code>の使用</span></figcaption>
+					<pre id="ex-02a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;strong&gt;Warning&lt;/strong&gt;, all features should 
+   be considered unstable …
+&lt;/p&gt;</code></pre>
+					<pre id="ex-02b-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;strong&gt;Do not feed the bears!&lt;/strong&gt; 
+&lt;/p&gt;</code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption><span class="label">例3 — ラテン語の用語に対する<code>i</code>要素の使用</span></figcaption>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   When hybrids are able to breed &lt;i&gt;inter se&lt;/i&gt;, 
+   they transmit …
+&lt;/p&gt;</code></pre>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;p&gt;
+   Among the sea-shells, the most abundant was the 
+   &lt;i&gt;Patella deaurat&lt;/i&gt; …
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>太字と斜体には、強調する点、トーンや場所の変更、特別な名前など、テキストに関連するさまざまな情報が含まれます。ただし、正しいセマンティックタグを用いてこの書式設定を適用しないと、同じ情報を視覚障害のあるユーザーに伝えることはできません。</p>
+				
+				<p>次の表は、太字と斜体にさまざまな HTML5 および CSS メソッドを適用する方法を示しています。</p>
+				
+				<table id="emph-expl">
+					<colgroup>
+						<col style="width: 10em;">
+						<col style="width: 60em;">
+					</colgroup>
+					<tr>
+						<th>要素/プロパティ</th>
+						<th>目的</th>
+					</tr>
+					<tr>
+						<td class="center"><code>em</code></td>
+						<td>
+<code>em</code>要素は、テキストが音声的に強調されることを示します。</td>
+					</tr>
+					<tr>
+						<td class="center"><code>strong</code></td>
+						<td>
+<code>strong</code>要素は、命令文を述べるときや、「警告」や「警戒」などのシグナルワードを使用するときなどに、重要性を示します。</td>
+					</tr>
+					<tr>
+						<td class="center"><code>i</code></td>
+						<td>
+<code>i</code>要素はイタリック体の使用が口調や声の変化を示す場合に使用されます。HTML5 仕様で例として挙げられているのは、夢の内容が長く続く場合ですが、メインの物語から思考や思い出へと話が逸れる場合など、同様の状況にも使用できます。<code>i</code>要素は、強調の背後に意味的な重要性がある場合（例：イタリック体の単語が、専門用語、外国語などを示す場合など）にも使用されます。</td>
+					</tr>
+					<tr>
+						<td class="center"><code>b</code></td>
+						<td>
+<code>b</code>要素は、太字で意味を伝える場合に常に使用されます。これは、（キーワードなどの）セマンティックタグの付与に<code>i</code>が使用されるのと同様です。</td>
+					</tr>
+					<tr>
+						<td class="center">
+							<code class="property">font-style: italic</code><br>
+							<code class="property">font-weight: bold</code>
+						</td>
+						<td>太字と斜体の CSS プロパティは、太字と斜体が装飾の目的で使用される場合（見出しや導入語など）に必ず使用してください。CSS フォーマットにはセマンティクス（意味）が含まれないため、支援技術では強調が認識されません。</td>
+					</tr>
+				</table>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">&lt;em&gt;: 強調要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">&lt;strong&gt;: 強い重要性要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i">&lt;i&gt;: 慣用テキスト要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b">&lt;b&gt;: 注目付け要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"><code>em</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element"><code>strong</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element"><code>i</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element"><code>b</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
