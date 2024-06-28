@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>詳細</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the details element to provide additional information.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo':[ 'EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary" role="doc-chapter">
+				<h3>要約</h3>
+				<p><code>details</code>要素を使用すると、すべてのユーザーがいつ追加情報を読むかを決定できます。</p>
+			</section>
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>追加情報を折りたたむには<code>details</code>要素を使用します [[WCAG-1.3.1]]</li>
+					<li>
+<code>summary</code>要素に意味のあるラベルを付けます [[WCAG-2.4.6]]</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 画像の拡張説明を提供する</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;figure id="fig-01"&gt;
+   &lt;figcaption&gt;
+      The hydrologic cycle.
+   &lt;/figcaption&gt;
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"
+      aria-details="desc"/&gt;
+   &lt;details id="desc"&gt;
+      &lt;summary&gt;Description&lt;/summary&gt;
+      &lt;p&gt;
+         The diagram shows the processes of 
+         evaporation, condensation,
+         evapotranspiration, water storage
+         in ice and snow, and precipitation.
+         A large body of water …
+      &lt;/p&gt;
+   &lt;/details&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 - 表の概要の追加</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table aria-details="summary"&gt;
+   …
+&lt;/table&gt;
+
+&lt;details id="summary"&gt;
+   &lt;summary&gt;Summary&lt;/summary&gt;
+   &lt;p&gt;
+      Embedded within the result column are separate
+      tables that break down each of the … 
+   &lt;/p&gt;
+&lt;/details&gt;</code></pre>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+				<p><code>details</code>要素により、JavaScript に依存せずに情報を展開したり折りたたんだりすることができます。スクリプトがサポートされていないことが多いデジタル出版物での使用に最適であり、すべてのユーザーが情報を利用できるため、拡張説明を提供するためのアクセシブルな方法でもあります。</p>
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">注記</p>
+					<p>EPUB リーディングシステムにおける<code>details</code>要素のサポートはまだ一貫していません。</p>
+					<p>リーディングシステムが出版物を静的にページ付けする方法により、 <code>details</code>要素を展開すると、ページの内容が画面外に押し出される可能性があります（つまり、次のページにリフローされません）。</p>
+					<p>ユーザーは、コンテンツにアクセスするために、ページ区切りモードではなくスクロールモードで読む必要がある場合があります。</p>
+				</div>
+				<p>デフォルトでは、 <code>details</code>要素内のテキストは最初は折りたたまれています。 <code>summary</code>要素で提供されるラベルのみが表示されます。ユーザーがこのラベルを（たとえば、クリックまたはタップして）アクティブ化すると、要素が展開され、追加情報が表示されます。</p>
+				<p><code>details</code>要素は、ユーザーが最も恩恵を受けそうな場所に配置する必要があります。たとえば、表の要約はその表の前に表示されると最も役立ちます。また、画像の説明は、説明している画像の前に表示できます。あいまいさをなくすために、 <code>aria-details</code>属性を使用して、<code>details</code>要素を関連するコンテンツ項目に紐付けることができます。情報を論理的な順序で配置できない場合、この属性は支援技術のユーザーが関連付けられているコンテンツに遭遇したときに、その要素の位置を特定できるようになります。</p>
+				<p><code>details</code>要素を使用する場合は、意味のあるラベル（つまり、情報の目的を説明するラベル）を必ず提供してください。要素に拡張説明が含まれている場合は、ラベルを「説明」にします。「詳細」のような一般的なラベルは使用しないでください。このラベルを使用すると、探している情報かどうかを判断するために、ユーザーが要素を展開して情報の一部またはすべてを読む必要があるからです。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>KB —<a href="hidden.html">非表示コンテンツ</a>
+</li>
+<li>KB —<a href="images-desc.html">画像の説明</a>
+</li>
+<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">&lt;details&gt;: 詳細折りたたみ要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>要素</a>
+</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-details"><code>aria-details</code>（プロパティ）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
