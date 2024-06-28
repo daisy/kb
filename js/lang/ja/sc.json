@@ -259,6 +259,21 @@
     "name": "セクション見出し",
     "level": "AAA"
   },
+  "2.4.11": {
+    "id": "focus-not-obscured-minimum",
+    "name": "隠されないフォーカス（最低限）",
+    "level": "AA"
+  },
+  "2.4.12": {
+    "id": "focus-not-obscured-enhanced",
+    "name": "隠されないフォーカス（高度）",
+    "level": "AAA"
+  },
+  "2.4.13": {
+    "id": "focus-appearance",
+    "name": "フォーカスの外観",
+    "level": "AAA"
+  },
   "2.5.1": {
     "id": "pointer-gestures",
     "name": "ポインタのジェスチャ",
@@ -288,6 +303,16 @@
     "id": "concurrent-input-mechanisms",
     "name": "入力メカニズムの共存",
     "level": "AAA"
+  },
+  "2.5.7": {
+    "id": "dragging-movements",
+    "name": "ドラッグ動作",
+    "level": "AA"
+  },
+  "2.5.8": {
+    "id": "target-size-minimum",
+    "name": "ターゲットのサイズ（最低限）",
+    "level": "AA"
   },
   "3.1.1": {
     "id": "language-of-page",
@@ -344,6 +369,11 @@
     "name": "要求による変化",
     "level": "AAA"
   },
+  "3.2.6": {
+    "id": "consistent-help",
+    "name": "一貫したヘルプ",
+    "level": "A"
+  },
   "3.3.1": {
     "id": "error-identification",
     "name": "エラーの特定",
@@ -372,6 +402,21 @@
   "3.3.6": {
     "id": "error-prevention-all",
     "name": "誤り防止 (すべて)",
+    "level": "AAA"
+  },
+  "3.3.7": {
+    "id": "redundant-entry",
+    "name": "冗長な入力項目",
+    "level": "A"
+  },
+  "3.3.8": {
+    "id": "accessible-authentication-minimum",
+    "name": "アクセシブルな認証 (最低限)",
+    "level": "AA"
+  },
+  "3.3.9": {
+    "id": "accessible-authentication-enhanced",
+    "name": "アクセシブルな認証 (高度)",
     "level": "AAA"
   },
   "4.1.1": {
