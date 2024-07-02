@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>テキストの進行方向</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the dir attribute in the EPUB package document">
+		<script>
+			var page_info = {
+				'category': ['EPUB'],
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>パッケージ ドキュメント内のメタデータの基本方向を設定して、正しくレンダリングされるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+<code>package</code>要素に<code>dir</code>属性を設定する[[WCAG-1.3.2]]</li>
+					<li>基本方向が変わるたびに、 <code>meta</code>要素に<code>dir</code>属性を設定する[[WCAG-1.3.2]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — デフォルトの基本方向の宣言</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package … xml:lang="he" dir="rtl"&gt;
+   …
+&lt;/package&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — デフォルトの基本方向を上書きする</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package … xml:lang="ar" dir="rtl"&gt;
+   &lt;metadata&gt;
+      …
+      &lt;dc:subject dir="ltr"&gt;POETRY / Middle Eastern&lt;/dc:subject&gt;
+      …
+   &lt;/metadata&gt;
+   …
+&lt;/package&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">代わりにテキストの言語を設定できますか?</dt>
+					<dd>
+						<p>いいえ。言語の宣言は表示の方向性には影響しません。<a href="lang.html">言語の設定は、</a>テキスト読み上げのレンダリングにとって重要です。</p>
+					</dd>
+					
+					<dt>EPUB 3 ではデフォルトの左から右の基本方向を宣言する必要があるのに、HTML では宣言する必要がないのはなぜですか?</dt>
+					<dd>
+						<p><code>dir</code>属性がない場合、HTML はデフォルトで左から右になります。</p>
+						
+						<p>EPUB 3 では、EPUB 3.3 より前のパッケージ ドキュメント メタデータのデフォルトの方向が定義されておらず、左から右と右から左の両方のテキスト範囲のサポートも必要としなかったため、リーディングシステムは、作成内容に関係なく、多くの場合、単一の方向のみをサポートします。 <code>dir</code>属性を追加してデフォルトのテキスト方向を設定し、個々のメタデータ要素の変更を示すと、これらの古いリーディングシステムでの<a href="#faq-002">レンダリングに役立つ場合があります</a>が、保証されているわけではありません。いずれにしても、正しい基本方向が適用されるように、今後は属性を設定することをお勧めします。</p>
+						
+						<p>基本方向が指定されていない場合、リーディングシステムはデフォルトで Unicode Bidi アルゴリズムを使用してそれを決定すると予想されます。 当初はデフォルトの基本方向がなかったため、属性の要件が改善されたときに基本方向を追加できませんでした。 ローカルの基本方向が適用されることを前提として作成された出版物が多すぎました。</p>
+					</dd>
+					
+					<dt id="faq-002">EPUB 3.3 で属性が「実装不足」とラベル付けされているのはなぜですか?</dt>
+					<dd>
+						<p>ほとんどのリーディングシステムは、単一のデフォルトのテキスト方向の表示のみをサポートしているため、方向の違うテキストがあった場合にユーザーに誤って表示されます。このような機能は通常、W3C 標準から削除する必要がありますが、この属性は国際化にとって重要であるため、今後サポート状況が改善されることが期待されます。</p>
+						
+						<p>W3C は、最低限のサポートしきい値を満たしていない既存の EPUB 機能については、必須の機能が提供され、「実装不足」とマークされている限り、保持することを許可しました。将来サポートが強化されると、このラベルは削除されます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>パッケージ ドキュメント内のテキストの基本方向を設定することは、テキストがリーディングシステムによって適切に表示され、支援技術によって適切に読み取られることを保証するために重要です。</p>
+				
+				<div class="note" role="note" aria-labelledby="html-dir">
+					<p id="html-dir" class="label">注記</p>
+					<p><code>dir</code>属性は、 <code>metadata</code>セクションのテキスト コンテンツにのみ影響し、EPUB コンテンツ ドキュメントのレンダリング方法には影響しません。EPUB コンテンツ ドキュメントでの基本方向の設定については、ナレッジ ベースの<a href="../html/dir.html">HTML テキストの進行方向</a>ページを参照してください。</p>
+				</div>
+				
+				<p>パッケージ ドキュメントで基本方向を設定するには、次の 3 つの方法があります。</p>
+				
+				<dl>
+					<dt>グローバル</dt>
+					<dd>
+						<p>すべてのテキスト コンテンツの基本方向を設定するには、ルート<code>package</code>要素に<code>dir</code>属性を設定します。</p>
+						
+						<pre id="desc-01-src" class="prettyprint linenums"><code>&lt;package … xml:lang="he" dir="rtl"&gt;</code></pre>
+						
+						<div class="note" role="note" aria-labelledby="epub2-support">
+							<p id="epub2-support" class="label">注記</p>
+							<p>EPUB 2 はパッケージ ドキュメント内の<code>dir</code>属性をサポートしていないため、この手法は適用されません。</p>
+						</div>
+					</dd>
+					
+					<dt>要素ごと</dt>
+					<dd>
+						<p><code>package</code>要素のデフォルトの基本方向を上書きするには、異なる基本方向を持つ各メタデータ要素に<code>dir</code>属性を追加します。</p>
+						
+						<pre id="desc-02-src" class="prettyprint linenums"><code>&lt;dc:creator … xml:lang="ar" dir="rtl"&gt;…&lt;/dc:creator&gt;</code></pre>
+						
+						<div class="note" role="note" aria-labelledby="epub2-support">
+							<p class="label">注記</p>
+							<p>EPUB 2 はパッケージ ドキュメント内の<code>dir</code>属性をサポートしていないため、この手法は適用されません。</p>
+						</div>
+					</dd>
+					
+					<dt>インライン</dt>
+					<dd>
+						<p id="unicode-ctrl">パッケージ ドキュメント内の基本方向のインライン変更を識別することはできません。基本方向を設定するにはマークアップを使用することをお勧めしますが、このような場合は、Unicode 制御文字を使用して変更を識別できます。制御文字の概要とその使用方法については、W3C の記事<a href="https://www.w3.org/International/questions/qa-bidi-unicode-controls">「How to use Unicode controls for bidi text」</a>を参照してください。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub-33/#attrdef-dir"><code>dir</code>属性</a>
+</li>
+					<li>W3C — <a href="https://www.w3.org/International/articles/inline-bidi-markup/uba-basics">Unicode 双方向アルゴリズムの基礎</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

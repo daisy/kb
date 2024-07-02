@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>accessibilityFeature</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>定義</h3>
+
+				<p class="desc">アクセシブルなメディア、アクセシビリティと代替手段のためにサポートされている拡張機能など、リソースのコンテンツ機能。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">例 1 — EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature"&gt;captions&lt;/meta&gt;
+&lt;meta property="schema:accessibilityFeature"&gt;alternativeText&lt;/meta&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">例 2 — EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature" content="captions"/&gt;
+&lt;meta name="schema:accessibilityFeature" content="alternativeText"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">例3 — オーディオブック</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["captions", "alternativeText"]</code></pre>
+				</figure>
+				
+				<figure id="ex-rdfa">
+					<figcaption>
+						<div class="label">例4 — RDFaを使用したHTML</div>
+					</figcaption>
+					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;p&gt;Video includes
+   &lt;span property="accessibilityFeature"&gt;captions&lt;/span&gt;.&lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-micro">
+					<figcaption>
+						<div class="label">例5 — マイクロデータを含むHTML</div>
+					</figcaption>
+					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;p&gt;Video includes
+   &lt;span itemprop="accessibilityFeature"&gt;captions&lt;/span&gt;.&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="value">
+				<h3>値</h3>
+
+				<p>次の値は、アクセシビリティに役立つコンテンツの機能を識別するために使用されます。</p>
+				
+				<div class="note" role="note" aria-labelledby="format-note">
+					<p class="label" id="format-note">注記</p>
+					<p>使用するメタデータ形式（JSON-LD など）がリストをサポートしていない場合は、機能ごとに個別のプロパティ宣言を使用します。スペース、カンマ、その他の区切り文字を使用して値を 1 つのプロパティに結合しないでください。</p>
+				</div>
+				
+				<ul>
+					<li><a href="accessibilityFeature/alternativeText.html">alternativeText</a></li>
+					<li><a href="accessibilityFeature/annotations.html">annotations</a></li>
+					<li><a href="accessibilityFeature/ARIA.html">ARIA</a></li>
+					<li><a href="accessibilityFeature/audioDescription.html">audioDescription</a></li>
+					<li>bookmarks（非推奨）</li>
+					<li><a href="accessibilityFeature/braille.html">braille</a></li>
+					<li>captions（非推奨）</li>
+					<li><a href="accessibilityFeature/ChemML.html">ChemML</a></li>
+					<li><a href="accessibilityFeature/closedCaptions.html">closedCaptions</a></li>
+					<li><a href="accessibilityFeature/describedMath.html">describedMath</a></li>
+					<li><a href="accessibilityFeature/displayTransformability.html">displayTransformability</a></li>
+					<li><a href="accessibilityFeature/fullRubyAnnotations.html">fullRubyAnnotations</a></li>
+					<li><a href="accessibilityFeature/highContrastAudio.html">highContrastAudio</a></li>
+					<li><a href="accessibilityFeature/highContrastDisplay.html">highContrastDisplay</a></li>
+					<li><a href="accessibilityFeature/horizontalWriting.html">horizontalWriting</a></li>
+					<li><a href="accessibilityFeature/index.html">index</a></li>
+					<li><a href="accessibilityFeature/largePrint.html">largePrint</a></li>
+					<li><a href="accessibilityFeature/latex.html">latex</a></li>
+					<li><a href="accessibilityFeature/longDescription.html">longDescription</a></li>
+					<li><a href="accessibilityFeature/MathML.html">MathML</a></li>
+					<li><a href="accessibilityFeature/none.html">none</a></li>
+					<li><a href="accessibilityFeature/openCaptions.html">openCaptions</a></li>
+					<li><a href="accessibilityFeature/pageBreakMarkers.html">pageBreakMarkers</a></li>
+					<li><a href="accessibilityFeature/pageNavigation.html">pageNavigation</a></li>
+					<li><a href="accessibilityFeature/readingOrder.html">readingOrder</a></li>
+					<li><a href="accessibilityFeature/rubyAnnotations.html">rubyAnnotations</a></li>
+					<li><a href="accessibilityFeature/signLanguage.html">signLanguage</a></li>
+					<li><a href="accessibilityFeature/structuralNavigation.html">structuralNavigation</a></li>
+					<li><a href="accessibilityFeature/synchronizedAudioText.html">synchronizedAudioText</a></li>
+					<li><a href="accessibilityFeature/tableOfContents.html">tableOfContents</a></li>
+					<li><a href="accessibilityFeature/tactileGraphic.html">tactileGraphic</a></li>
+					<li><a href="accessibilityFeature/tactileObject.html">tactileObject</a></li>
+					<li><a href="accessibilityFeature/taggedPDF.html">taggedPDF</a></li>
+					<li><a href="accessibilityFeature/timingControl.html">timingControl</a></li>
+					<li><a href="accessibilityFeature/transcript.html">transcript</a></li>
+					<li><a href="accessibilityFeature/ttsMarkup.html">ttsMarkup</a></li>
+					<li><a href="accessibilityFeature/unknown.html">unknown</a></li>
+					<li><a href="accessibilityFeature/unlocked.html">unlocked</a></li>
+					<li><a href="accessibilityFeature/verticalWriting.html">verticalWriting</a></li>
+					<li><a href="accessibilityFeature/withAdditionalWordSegmentation.html">withAdditionalWordSegmentation</a></li>
+					<li><a href="accessibilityFeature/withoutAdditionalWordSegmentation.html">withoutAdditionalWordSegmentation</a></li>
+				</ul>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>Schema.org —<a href="https://schema.org/accessibilityFeature">accessibilityFeature</a>
+</li>
+					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature">accessibilityFeature</a>
+</li>
+					<li>IMS Global — <a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
