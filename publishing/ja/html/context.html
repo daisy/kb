@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>区切り</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for identifying changes in context.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p><code>hr</code>要素を使用してコンテキスト（文脈）の区切りを示すと、支援技術によってユーザーはコンテキストの変化がわかるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>コンテキストの区切りが発生する場合は必ず<code>hr</code>要素を使用してください。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 空白行のコンテキスト変更</div>
+						<p>CSS の<code>margin</code>プロパティは、 <code>hr</code>タグの周囲に 1em のスペースを追加するために使用されます (上下に 0.5em)。 <code>width</code>を 0 に設定すると、罫線が描画されなくなります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;style type="text/css"&gt;hr.transition {
+   width: 0;
+   margin: 0.5em 0;
+}
+&lt;/style&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;hr class="transition"/&gt;
+&lt;p&gt;&lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — アステリズム（⁂）</div>
+						<p>背景画像は、ルールの代わりにアスタリスクを追加するために使用されます。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code class="language-css">&lt;style type="text/css"&gt;hr.transition {
+   background: url('img/asterisks.gif') no-repeat center;
+   height: 1em;
+   border: none;
+   margin: 0.5em 0em;
+}
+&lt;/style&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;hr class="transition"/&gt;
+&lt;p&gt;&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">同じ効果を得るために、CSS を使用してパディングやマージンを増やすべきではないのはなぜですか？</dt>
+					<dd>
+<p>同じ視覚効果が得られるかもしれませんが、コンテキストの変化が発生したという情報はユーザーには提供されません。CSS クラス名には意味的なものはありません。</p>
+						<p>印刷優先ワークフローツールでは、エクスポート時にコンテキストの変化を示すためにこの CSS テクニックがよく使用されますが、本質的にはアクセシブルではありません。</p>
+</dd>
+					
+					<dt id="faq-002">コンテキストの変化を示すために<code>img</code>タグを挿入できますか？</dt>
+					<dd><p>画像はセマンティックな情報を持たないため、コンテキストの変化を示す最適な方法とは言えません。単なるCSSでの解決策とは異なり、<code>alt</code>属性はコンテキストの変化を示すために使うことができますが、 <code>hr</code>要素が提供できるような、より統一的なユーザー体験を補うことはできません。</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>コンテキストの区切りは、フィクションやノンフィクションの作品における考え、時間、場所などの変化を表します。これらの変化は、通常、段落間の目立つ空白スペース（つまり、段落間に発生するよりもかなり長い）によって表されます。コンテキストの区切りには、アスタリスクやその他の装飾が含まれることもあります（通常、変化が印刷ページのすぐ下で発生し、目立たない可能性がある場合）。</p>
+				
+				<p>これまで、コンテキストの区切りを含めるために CSS マージンと画像が使用されていましたが、HTML5 仕様では、この目的のために<code>hr</code>要素のセマンティクスが再定義されました。CSS スタイルを適用して、デフォルトの外観を変更できます。</p>
+				
+				<p><code>hr</code>要素は、セクション間の装飾やセクションの先頭または末尾の装飾など、純粋に装飾的な目的では使用しないでください。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr">&lt;hr&gt;: 主題区切り（水平線）要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element"><code>hr</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
