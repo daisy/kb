@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>検証手順</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of validating EPUB publications for conformance and accessibility.">
+		<script>
+			var page_info = {
+				'category': ['EPUB','Validation'],
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="process">
+				<h3>概要</h3>
+				
+				<p>検証（Validation）とは、出版物が EPUB 規格および WCAG アクセシビリティ ガイドラインの要件から逸脱していないかを確認するプロセスです。一部のテストは自動化してプロセスを高速化できますが、他のテストは人間によってのみ確実に実行できます。たとえば、画像に代替テキストがあるかどうかは機械で検出できますが、テキストが十分に意味があるかどうかを確認できるのは人間だけです。</p>
+				
+				<p>検証メッセージの解読は複雑な場合もありますが、エラーを見つけて修正するプロセスは実行することが重要です。これにより、出版物が障害者にとってアクセシブルになるだけでなく、出版物があらゆる読者にとって期待どおりに表示されることが保証されます。この手順を省略すると、EPUB 出版物がまったく使用できなくなる可能性があります。</p>
+				
+				<p>出版物を完全にチェックするには、次の検証手順を実行する必要があります。</p>
+				
+				<ol>
+					<li>
+<a href="epubcheck.html">EPUBCheck</a> — EPUBCheck を使用して出版物を検証すると、EPUB規格の要件に準拠していることが保証されます。</li>
+					
+					<li>
+<a href="ace.html">DAISYのAce</a> — Ace ツールを使用して出版物を検証すると、自動的にテストできるアクセシビリティの問題を発見するのに役立ちます。</li>
+					
+					<li>
+<a href="smart.html">Ace SMART</a> — SMART ツールを使用して出版物を手動でチェックすることで、WCAG のすべての要件を満たしていることを確認し、適合性を主張できるようになります。</li>
+				</ol>
+				
+				<p>これらの手順は EPUB 3 と EPUB 2 の両方の出版物で実行できますが、Ace ツールと SMART ツールは EPUB 2 のチェック用に特に最適化されているわけではありません。詳細については、各ツールのナレッジ ベース ページを参照してください。</p>
+				
+				<div class="note" role="note" aria-labelledby="val-note">
+					<p class="label" id="val-note">注記</p>
+					<p>将来的には、3 つのステップを 1 つのアプリケーションに統合する取り組みにより、このプロセスが簡素化される予定です。</p>
+				</div>
+			</section>
+			
+			<section id="ref">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
+					<li><a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">DAISYのAce</a></li>
+					<li><a href="https://smart.daisy.org/">Ace SMART</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
