@@ -1,7 +1,7 @@
 [
   {
-    "title": "アクセシビリティ適合",
-    "subtitle": "アクセシビリティ適合トピックでは、デジタル出版物に適用されるさまざまなアクセシビリティ仕様を満たすための情報を提供します。",
+    "title": "アクセシビリティ適合（conformance）",
+    "subtitle": "アクセシビリティ適合トピックでは、電子書籍に適用されるさまざまなアクセシビリティ規格を満たすための情報を提供します。",
     "id": "conformance",
     "path": "conformance",
     "topics": [
@@ -21,7 +21,7 @@
         "id": "conf-wcag",
         "href": "wcag.html",
         "title": "WCAGの概要",
-        "subtitle": "W3Cのウェブ・コンテンツ・アクセシビリティ・ガイドライン（WCAG）の紹介。"
+        "subtitle": "W3Cのウェブ コンテンツ アクセシビリティ ガイドライン（WCAG）の紹介。"
       },
       {
         "id": "conf-wcag-expl",
@@ -112,7 +112,7 @@
             "id": "epub-val-smart",
             "href": "validation/smart.html",
             "title": "Ace SMART",
-            "subtitle": "Ace SMART ツールを使用して、EPUB アクセシビリティ仕様に照らして出版物を評価する方法。"
+            "subtitle": "Ace SMART ツールを使用して、EPUB アクセシビリティ規格に照らして出版物を評価する方法。"
           }
         ]
       }
@@ -184,7 +184,7 @@
   },
   {
     "title": "メタデータ",
-    "subtitle": "メタデータ トピックでは、一般的に使用されている電子出版のメタデータ仕様で利用できるアクセシビリティ プロパティについて説明します。",
+    "subtitle": "メタデータ トピックでは、一般的に使用されている電子書籍のメタデータ仕様で利用できるアクセシビリティ プロパティについて説明します。",
     "id": "metadata",
     "categories": [
       {
@@ -294,7 +294,7 @@
           {
             "id": "html-asides",
             "href": "asides.html",
-            "title": "アサイド",
+            "title": "アサイド（補足説明）",
             "subtitle": "<code>aside</code> 要素"
           },
           {
@@ -324,7 +324,7 @@
           {
             "id": "html-figures",
             "href": "figures.html",
-            "title": "フィギュア",
+            "title": "フィギュア（図表）",
             "subtitle": "<code>figure</code> 要素"
           },
           {
@@ -630,7 +630,7 @@
           {
             "id": "html-dpub",
             "href-override": "html/dpub-aria/index.html",
-            "title": "デジタル出版ロール",
+            "title": "電子書籍ロール",
             "subtitle": "ARIA <code>role</code> 属性で使用する DPUB-ARIA モジュールの紹介。このページには、モジュール内の各ロールの詳細な説明へのリンクもある。"
           }
         ]
@@ -696,7 +696,7 @@
   },
   {
     "title": "スクリプト化されたコンテンツとフォーム",
-    "subtitle": "スクリプトとフォームのトピックでは、電子出版物にインタラクティブなコンテンツを追加することについて説明します。",
+    "subtitle": "スクリプトとフォームのトピックでは、電子書籍にインタラクティブなコンテンツを追加することについて説明します。",
     "id": "script",
     "path": "script",
     "topics": [
@@ -823,7 +823,7 @@
   },
   {
     "title": "同期マルチメディア",
-    "subtitle": "同期マルチメディアのトピックでは、同期されたテキストと音声の再生を提供する電子出版物の作成について説明する。これらの出版物は、多くの場合、「読み上げ」本と呼ばれます。",
+    "subtitle": "同期マルチメディアのトピックでは、同期されたテキストと音声の再生を提供する電子書籍の作成について説明する。これらの出版物は、多くの場合、「読み上げ」本と呼ばれます。",
     "id": "sync-media",
     "categories": [
       {

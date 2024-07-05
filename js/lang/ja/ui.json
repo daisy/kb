@@ -14,7 +14,7 @@
   },
   "category": {
     "cat": "カテゴリー",
-    "conf": "適合性",
+    "conf": "適合性（conformance）",
     "css": "CSS",
     "epub": "EPUB",
     "fxl": "固定レイアウト",
