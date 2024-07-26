@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>音声の制御</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.2 Audio Control">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>音声</li>
+								<li>映像</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ウェブページ上にある音声が自動的に再生され、3秒より長く続く場合、その音声を一時停止又は停止するメカニズム、もしくはシステム全体の音量レベルに影響を与えずに音量レベルを調整できるメカニズムが利用できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html">達成基準 1.4.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">達成基準 1.4.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G60">G60：音声の再生を3秒以内に自動的に停止する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G170">G170：自動的に再生される音声を停止するコントロールを、Webページの先頭付近で提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G171">G171：利用者の要求に応じてのみ、音声を再生する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、自動的に再生される音声が、支援技術によって生成された音声を聞くユーザーの能力を妨げないようにすることです。（例：スクリーンリーダーが読み上げるテキストの音声をかき消してしまうなど）</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準を満たすには、自動的に開始されて3秒以上再生される音声の再生をユーザーが停止できるか、または支援技術とは別に音量を制御できる必要があります。 （デバイスのサウンドコントロールはすべてのオーディオを同期して上げ下げするため、この要件を満たしません）</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページには、コンテンツを出版する際にこの達成基準を満たす方法が記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/audio.html">音声</a></li>
+					<li><a href="../html/video.html">映像</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
