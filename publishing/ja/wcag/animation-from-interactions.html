@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>インタラクションによるアニメーション</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.3.3 Animation from Interactions">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.3.3</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>CSSアニメーション</li>
+								<li>ページ遷移</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>アニメーションが、機能又は伝達されている情報に必要不可欠でない限り、インタラクションによって引き起こされるモーションアニメーションを無効にできる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html">達成基準 2.3.3の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions">達成基準 2.3.3を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C39">C39：モーションの防止にCSS reduce-motionクエリを使用する</a></li>
+								<li>Gx：アニメーションを防止する環境設定をユーザーができるようにする（文書化されていません）</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、前庭障害のある読者への弊害を防ぐことです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準は主に Web上のページ遷移とスクロールアニメーションを対象としているため、デジタル出版物では必須でないモーションアニメーションの使用は一般的ではありません。</p>
+				
+				<p>ただし、視差スクロールやページ遷移のサポートを見つけた場合、読者がこれらの機能を無効にできるようにする必要があります。</p>
+				
+				<p>コンテンツ制作者は、リーディングシステムが導入するページめくりアニメーションについて責任を負いません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>出版フォーマットでの実装が不十分であるため、ナレッジベースには現在モーションアニメーションに関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>
