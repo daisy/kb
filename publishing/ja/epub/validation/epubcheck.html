@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>EPUBCheck</title>
@@ -49,10 +49,10 @@
 				
 				<p>以下は、コマンドラインからEPUBCheckを呼び出して<code>accessible_epub_3.epub</code>ファイルを検証する方法の例です。</p>
 				
-				<pre class="console">&gt; java -jar c:\epubcheck\epubcheck.jar c:\epubs\accessible_epub_3.epub</pre>
+				<pre class="console">&gt; java -jar epubcheck.jar -mode exp -s accessible_epub_3</pre>
 				
 				<div class="note" role="note" aria-labelledby="ec-note-02">
-					<p id="ec-note-02" class="label">注記</p>
+					<p id="ec-note-02" class="label">情報（Info）</p>
 					<p>読みやすさを考慮して、このページの残りの例では、 <code>epubcheck.jar</code>ファイルとチェック対象の出版物への完全なパスは省略されています。</p>
 				</div>
 				
@@ -85,7 +85,7 @@ EPUBCheck completed</pre>
 				
 				<p>EPUBCheckのエラーメッセージは、エラーを含むファイル ( <code>accessible_epub_3.epub/EPUB/ch01.xhtml</code> ) と、エラーが発生した行番号 ( <code>98</code> ) および文字オフセット ( <code>5</code> ) の両方を示します。また、問題を説明する簡単なメッセージも提供します。この場合、次のファイルのスクリーンショットに示すように、 <code>p</code>タグが許可されていない場所で使用されています。</p>
 				
-				<img src="../../../../graphics/publishing/epubcheck/epubcheck-markup-error.png" width="450" alt="pタグがbody終了タグの後に含まれる">
+				<img src="../../../../graphics/publishing/epubcheck/epubcheck-markup-error.png" alt="A p tag is included after the closing body tag" width="450">
 				
 				<p>残念ながら、すべてのメッセージがこのように簡単に理解できるわけではなく、EPUBCheckが有用な行番号や文字オフセットを提供しない場合もあります (たとえば、問題が特定の場所に追跡できない場合、 <code>(-1,-1)</code>が報告されることがよくあります)。その結果、エラーを修正するには、多くの場合、ある程度の調査作業が必要になります。</p>
 				
@@ -318,17 +318,13 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 				<p>EPUBCheckをコマンドラインから実行するのが面倒な場合は、より簡単なオプションがあります。次に、よく使用されるその他の方法をいくつか紹介します。</p>
 				
 				<ul>
-					<li>
-<a href="http://validator.idpf.org/">EPUB Validator</a> — DAISYコンソーシアムが管理する無料のオンライン検証ツール。アップロードされたファイルはEPUBCheckで検証され、その結果が新しいWebページに返されます。（商業出版には使用できません。）</li>
+					<li> <a href="http://validator.idpf.org/">EPUB Validator</a> — DAISYコンソーシアムが管理する無料のオンライン検証ツール。アップロードされたファイルはEPUBCheckで検証され、その結果が新しいWebページに返されます。（商業出版には使用できません。）</li>
 					
-					<li>
-<a href="https://ebookflightdeck.com/">FlightDeck</a> — ベンダー固有のコンテンツルールにも重点を置いた、Webベースの商用検証ツールです。EPUBCheckエラーの解決方法に関する役立つ追加情報も含まれています。</li>
+					<li> <a href="https://ebookflightdeck.com/">FlightDeck</a> — ベンダー固有のコンテンツルールにも重点を置いた、Webベースの商用検証ツールです。EPUBCheckエラーの解決方法に関する役立つ追加情報も含まれています。</li>
 					
-					<li>
-<a href="https://www.oxygenxml.com/xml_editor.html">Oxygen Editor</a> — パッケージ化されたEPUB出版物をチェックするためのEPUBCheckの組み込みバージョンを含む商用ファイルエディター。このプログラムは、パッケージドキュメントやコンテナーファイルなどの EPUB固有のファイルに対して、リアルタイム検証とコード補完も提供します。</li>
+					<li> <a href="https://www.oxygenxml.com/xml_editor.html">Oxygen Editor</a> — パッケージ化されたEPUB出版物をチェックするためのEPUBCheckの組み込みバージョンを含む商用ファイルエディター。このプログラムは、パッケージドキュメントやコンテナーファイルなどの EPUB固有のファイルに対して、リアルタイム検証とコード補完も提供します。</li>
 					
-					<li>
-<a href="https://www.pagina.gmbh/produkte/epub-checker/">Pagina EPUB-Checker</a> — EPUBCheckを実行するための無料のグラフィカルインターフェイス。ドイツ語、フランス語、スペイン語、日本語を含む多数の異なる言語にローカライズ可能です。</li>
+					<li> <a href="https://www.pagina.gmbh/produkte/epub-checker/">Pagina EPUB-Checker</a> — EPUBCheckを実行するための無料のグラフィカルインターフェイス。ドイツ語、フランス語、スペイン語、日本語を含む多数の異なる言語にローカライズ可能です。</li>
 				</ul>
 				
 				<p>追加の代替手段のリストは、 <a href="https://github.com/w3c/epubcheck/wiki/GUI">EPUBCheck wiki</a>で確認できます。</p>
@@ -339,8 +335,7 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 				
 				<ul>
 					<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
-					<li>EPUBCheck —<a href="https://github.com/w3c/epubcheck/wiki">使用方法</a>
-</li>
+					<li>EPUBCheck —<a href="https://github.com/w3c/epubcheck/wiki">使用方法</a> </li>
 				</ul>
 			</section>
 		</main>
