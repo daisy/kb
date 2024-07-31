@@ -17,45 +17,46 @@
 	<body>
 		<main>
 			<section id="summary">
-				<h3>Summary</h3>
+				<h3>要約</h3>
 				
-				<p>The <code>epub:type</code> attribute can enhance the user experience in EPUB reading systems but 					<strong>does not</strong> improve the accessibility in assistive technologies.</p>
+				<p><code>epub:type</code>属性は EPUB リーディングシステムでのユーザー体験を向上させることができますが、支援技術でのアクセシビリティは向上<strong>しません</strong>。</p>
 			</section>
 			
 			<section id="tech">
-				<h3>Techniques</h3>
+				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Identify footnotes and endnotes using the <code>epub:type</code> attribute.</li>
+					<li>
+<code>epub:type</code>属性を使用して脚注と文末脚注を識別します。</li>
 				</ul>
 				
 				<div class="note" role="note" aria-labelledby="note-1">
-					<p id="note-1" class="label">Note</p>
-					<p>No other uses of <code>epub:type</code> are known to provide user enhancements at this time.</p>
+					<p id="note-1" class="label">注記</p>
+					<p>現時点では、ユーザー機能強化を提供する<code>epub:type</code>の他の使用法は知られていません。</p>
 				</div>
 			</section>
 
 			<section id="ex">
-				<h3>Examples</h3>
+				<h3>例</h3>
 
 				<figure id="ex-01">
-					<figcaption><span class="label">Common note semantics</span></figcaption>
+					<figcaption><span class="label">一般的な注のセマンティクス</span></figcaption>
 					<dl>
-						<dt id="ex01-footnote">Footnote and reference</dt>
+						<dt id="ex01-footnote">脚注と参考文献</dt>
 						<dd>
 <pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;p&gt;lorum ipsum.&lt;a epub:type="noteref" href="#fn01"&gt;1&lt;/a&gt;&lt;/p&gt;
 &lt;aside epub:type="footnote"&gt;
    …
 &lt;/aside&gt;</code></pre>
 						</dd>
-						<dt id="ex01-endnote">Endnote and reference</dt>
+						<dt id="ex01-endnote">文末脚注と参考文献</dt>
 						<dd>
 <pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;p&gt;lorum ipsum.&lt;a epub:type="noteref" href="#en01"&gt;1&lt;/a&gt;&lt;/p&gt;
 &lt;aside epub:type="endnote"&gt;
    …
 &lt;/aside&gt;</code></pre>
 						</dd>
-						<dt id="ex01-endnotes">Endnotes section</dt>
+						<dt id="ex01-endnotes">文末脚注セクション</dt>
 						<dd>
 <pre id="ex-01b-src" class="prettyprint linenums small"><code>&lt;section epub:type="endnotes"&gt;
    &lt;h1&gt;Endnotes&lt;/h1&gt;
@@ -75,32 +76,32 @@
 			</section>
 			
 			<section id="desc">
-				<h3>Explanation</h3>
+				<h3>解説</h3>
 				
-				<p>The enabling of specialized behaviors, such as the opening of footnotes, requires that content be 					properly identified for reading systems.</p>
+				<p>脚注を開くなどの特殊な動作を有効にするには、コンテンツがリーディングシステムで適切に識別される必要があります。</p>
 				
-				<p>The <code>epub:type</code> attribute can be attached to any element in the body of a document to add 					additional semantics. It accepts any of the terms defined in the <a href="https://www.w3.org/TR/epub-ssv/">EPUB Structural Semantics Vocabulary</a>, but the attribute 					has limited adoption outside of pop-up footnotes.</p>
+				<p><code>epub:type</code>属性は、ドキュメント本文内の任意の要素に追加のセマンティクスを付与するために使用できます。<a href="https://www.w3.org/TR/epub-ssv/">EPUB Structural Semantics Vocabulary</a>で定義されている用語であればどれでも使用できますが、この属性はポップアップ脚注以外ではあまり使用されていません。</p>
 				
-				<p>Note that only certain semantics make sense to use on any given tag. Marking an <code>aside</code> 					element as a footnote is appropriate, for example, but marking a <code>section</code> as a footnote 					not as much. The <a href="https://www.w3.org/TR/epub-ssv/">Structural Semantics 						Vocabulary</a> lists the common element(s) each semantic is intended to be used in conjunction 					with to facilitate this process (although exceptions to the rule may arise).</p>
+				<p>特定のセマンティクスのみが特定のタグで使用できることに注意してください。たとえば、 <code>aside</code>要素を脚注としてマークすることは適切ですが、 <code>section</code>を脚注としてマークすることはあまり適切ではありません。<a href="https://www.w3.org/TR/epub-ssv/">Structural Semantics Vocabulary</a>には、このプロセスを容易にするために各セマンティクスと組み合わせて使用​​される共通要素がリストアップされています（ただし、ルールに例外が発生する場合もあります）。</p>
 			</section>
 			
 			<section id="a11y">
-				<h3>Comparison to ARIA roles</h3>
+				<h3>ARIA ロールとの比較</h3>
 					
-				<p>The <code>epub:type</code> attribute only facilitates user agent behaviors like pop-up notes. It was 					hoped it would bridge the need for publisher workflow semantics with accessibility, but did not 					succeed. It <strong>does not</strong> improve the accessibility of publications on its own.</p>
+				<p><code>epub:type</code>属性は、ポップアップ形式の脚注などのユーザーエージェントの動作を容易にするだけです。これは、出版社のワークフローのセマンティクスとアクセシビリティのニーズの橋渡しをすることが期待されていましたが、成功しませんでした。それ自体では出版物のアクセシビリティは向上<strong>しません</strong>。</p>
 				
-				<p>The attribute may still be useful for internal workflows as a means of generating <a href="roles.html">ARIA roles</a>, but in these cases the requirements of the ARIA specification 					must be closely followed. The use of roles is much more restrictive than <code>epub:type</code>.</p>
+				<p>この属性は<a href="roles.html">、ARIAロール</a>を生成する手段として内部ワークフローで依然として役立つ可能性がありますが、このような場合には ARIA 仕様の要件に厳密に従う必要があります。ロールの使用は<code>epub:type</code>よりもはるかに制限的です。</p>
 				
-				<p>It is also possible to use both the <code>epub:type</code> and <code>role</code> attributes 					where both accessibility and enhanced user agent behaviors overlap.</p>
+				<p>アクセシビリティと拡張ユーザーエージェントの動作が重複する場合には、 <code>epub:type</code>と<code>role</code>属性の両方を使用することもできます。</p>
 				
-				<p>Refer to the <a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role  					Authoring Guide</a> for a list of bad practices to avoid when switching from the <code>epub:type</code> 					to the ARIA <code>role</code> attribute.</p>
+				<p><code>epub:type</code>から ARIA<code>role</code>属性に切り替えるときに避けるべき悪習慣の一覧については、「<a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role Authoring Guide</a>」を参照してください。</p>
 			</section>
 			
 			<section id="refs">
-				<h3>Related Links</h3>
+				<h3>関連リンク</h3>
 
 				<ul>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute">The <code>epub:type</code> attribute</a>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"><code>epub:type</code>属性</a>
 </li>
 				</ul>
 			</section>
