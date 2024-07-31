@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>用語集 - A</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Glossary of terms starting with the letter A">
+		<script>
+			var page_info = {
+				'nav': false
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="accessibility-tree">
+						<dfn>Accessibility tree（アクセシビリティツリー）</dfn>
+					</dt>
+					<dd>
+						<p>アクセシビリティツリーは、<a role="doc-glossref" href="#at">支援技術</a>によるナビゲーションに最適化された、ブラウザーによって作成された Webドキュメントの表現です。</p>
+
+						<p>アクセシビリティツリーは、本質的には<a role="doc-glossref" href="h.html#html">HTML</a> <a role="doc-glossref" href="d.html#dom">DOM</a>の修正版です。アクセシビリティツリーには、アクセシブルな名前（accessible name）や説明などの追加情報が含まれ、視覚的な<a role="doc-glossref" href="r.html#render">レンダリング</a>にのみ役立つ不要な情報は省略されています。</p>
+					</dd>
+
+					<dt id="ace">
+						<dfn>Ace（エース）</dfn>
+					</dt>
+					<dd>
+						<p>Ace は、 <a role="doc-glossref" href="e.html#epub-pub">DAISY コンソーシアム</a>によって開発された<a role="doc-glossref" href="d.html#daisy">EPUB 出版物</a>のアクセシビリティ チェック ツールです。</p>
+
+						<p>Ace は、機械で検出できる一般的な<a role="doc-glossref" href="w.html#wcag">WCAG</a>違反がないか出版物をチェックし、発見した内容に関するレポートを生成します。</p>
+
+						<p>More information about the tool is available from the <a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">Ace web 							site</a>.</p>
+					</dd>
+
+					<dt id="aria">
+						<dfn>ARIA（アリア）</dfn>
+					</dt>
+					<dd>
+						<p>Accessible Rich Internet Applications (ARIA) 仕様は、スクリプトを多用する最新の Web アプリケーションを<a role="doc-glossref" href="#at">支援技術</a>のユーザーが利用できるようにするための問題に対処します。これらのアプリケーションは、多くの場合、インターフェイスでボタンなどの組み込み HTML 要素を使用しないで、画像などの静的コンテンツをユーザーがクリックしてアクションを実行できるオブジェクトに変換します。これはインターフェイスの視覚的な魅力を高めるために行われますが、ARIA 以前は、これらの機能を動作させるために必要なスクリプトは<a role="doc-glossref" href="#a11y-tree">アクセシビリティツリー</a>に反映されていませんでした。その結果、このようなインターフェイスは使用不可能でした。</p>
+
+						<p>ARIA は、<a href="r.html#roles-states-props">役割（role）、状態（state）、プロパティ（property）</a>を定義して静的要素をより自然な対応物のように表示できるようにすることでこの問題に対処します（たとえば、支援技術によってインタラクティブにできるように、画像にボタンの役割を割り当てることができます）。</p>
+
+						<p>詳細については、 <a href="https://www.w3.org/TR/wai-aria/">ARIA 仕様</a>を参照してください。</p>
+					</dd>
+
+					<dt id="assistive-technology">
+						<dfn>Assistive Technology（支援技術）</dfn>
+					</dt>
+					<dd>
+						<p>支援技術 (AT) は、障害のある人が読みやすいようにコンテンツを<a role="doc-glossref" href="r.html#render">レンダリング</a>できるデバイスまたはソフトウェアプログラムです。</p>
+
+						<p>支援技術は、<a role="doc-glossref" href="r.html#rs">リーディングシステム</a>に完全に統合されている場合もあれば、ハードウェアやソフトウェアと連携して、読者の好みのモダリティ（例：JAWS や NVDA などのスクリーンリーダー ソフトウェア、拡大技術、点字ディスプレイ）に合わせてより適切に調整された読み取りエクスペリエンスを提供する場合もあります。</p>
+					</dd>
+
+					<dt id="author">
+						<dfn>Author（コンテンツ制作者、または著者）</dfn>
+					</dt>
+					<dd>
+						<p>電子出版物を制作し、最終製品の品質とアクセシビリティを確保することに直接責任を負う個人または組織。</p>
+
+						<p>電子出版物の仕様とドキュメントの文脈では、「author」は出版物を書いた人を指すものではありません。人称代名詞（具体的には「あなた」）は、他の言語への翻訳をより複雑にするため、それを避けるために使用されています。</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>
