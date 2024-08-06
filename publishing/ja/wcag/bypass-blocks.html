@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ブロックスキップ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.1 Bypass Blocks">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>セクション</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>複数のウェブページ上で繰り返されているコンテンツのブロックをスキップするメカニズムが利用できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html">達成基準 2.4.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#bypass-blocks">達成基準 2.4.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA11">ARIA11：ページのリージョンを特定するために ARIA ランドマークを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G1">G1：メインコンテンツエリアへ直接移動するリンクを各ページの先頭に追加する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G123">G123：繰り返しているコンテンツのブロックの先頭に、そのブロックの末尾へのリンクを追加する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G124">G124：ページの先頭に、コンテンツの各エリアへのリンクを追加する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H69">H69：コンテンツの各セクションの開始位置に見出し要素を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H70">H70：繰り返されているコンテンツのブロックをグループ化するために、frame要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H64">H64：frame要素及びiframe要素のtitle属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR28">SCR28：コンテンツのブロックをバイパスするために、展開可能及び折り畳み可能なメニューを使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、読者が文書の冒頭で繰り返される内容を簡単に読み飛ばして、本文にたどりつけるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準は、各ページに共通のテンプレートを使用するWebサイトに特有のものです。バイパスメカニズムがなければ、ページのレイアウトが見ることができない読者は、サイトのヘッダー、ナビゲーションおよび検索エリアなどを手動でナビゲートしてコンテンツに到達する必要があります。このプロセスは時間がかかり、Web上での読解力が低下する可能性があります。</p>
+				
+				<p>デジタル出版物は同じようなWebサイトのトラップで構成されていないため、この達成基準が提供される可能性はほとんどありません。唯一のケースは、Webから直接Webページをかき集めて作った出版物かもしれません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>出版フォーマットでの実装が不十分であるため、ナレッジベースには現在ブロックスキップに関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>
