@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>用語集 - S</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Glossary of terms starting with the letter S">
+		<script>
+			var page_info = {
+				'nav': false
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section aria-label="Terms">
+				<dl class="glossary">
+					<dt id="semantic-inflection">
+						<dfn>Semantic Inflection（セマンティック インフレクション）</dfn>
+					</dt>
+					<dd>
+						<p>セマンティック インフレクションは、 <a role="doc-glossref" href="#semantics">HTML</a>などのマークアップ言語で要素が果たす役割に関する追加情報を階層的に追加する<a role="doc-glossref" href="h.html#html">セマンティック マークアップ</a>手法です。</p>
+
+						<p>Although markup elements often have implied semantics (e.g., <code>&lt;table&gt;</code> for 							tables) many are generic in nature (e.g., <code>&lt;div&gt;</code> for a block of content or 								<code>&lt;span&gt;</code> for a run of inline text). Semantic inflection is the process of 							adding more specific information to these elements using attributes like <a role="doc-glossref" href="e.html#epub-type"><code>epub:type</code></a>.</p>
+
+						<p>たとえば、 <code>epub:type</code>属性は、セクションに本の前付けが含まれていることを示すために次のように使用できます：<code>&lt;section epub:type="frontmatter"&gt;</code> 。（詳細については、<a href="https://www.w3.org/TR/epub-ssv/">EPUB Structural Semantics Vocabulary</a>を参照してください。）</p>
+
+						<p><a href="a.html#aria">ARIA</a> <code>role</code>属性は追加のコンテキストを提供するために使用されますが、支援技術でドキュメントをアクセシブルにすることに、より重要な役割を果たします。使用できるroleと使用できる場所が制限されているため、これは汎用的なセマンティック インフレクションの手法ではありません。roleを誤って適用すると、ドキュメントの読みやすさに悪影響を与える可能性があります。</p>
+					</dd>
+
+					<dt id="semantics">
+						<dfn>Semantic Markup（セマンティック マークアップ）</dfn>
+					</dt>
+					<dd>
+						<p><a role="doc-glossref" href="h.html#html">HTML</a>などのマークアップ言語では、セマンティック マークアップとは、コンテンツの目的を識別するタグ付けの使用を指します。</p>
+
+						<p>要素名だけでコンテンツの性質が説明される場合もあります（ <code>table</code>や<code>article</code>のようなものは、名前から目的が推測できます）。また、<a role="doc-glossref" href="#semantic-inflection">セマンティック インフレクション</a>のテクニックを使用して要素に追加の意味を追加し、性質を明示的またはより正確にする場合もあります。</p>
+
+						<p>セマンティック マークアップを使用すると、<a role="doc-glossref" href="a.html#at">支援技術</a>は、コンテンツのよりインテリジェントなナビゲーションを提供できます（たとえば、コンテンツを<a role="doc-glossref" href="e.html#escapable">エスケープ可能</a>および<a role="doc-glossref" href="#skippable">スキップ可能に</a>するなど）。</p>
+					</dd>
+
+					<dt id="skippable">
+						<dfn>Skippable（スキッパブル/読み飛ばし可能）</dfn>
+					</dt>
+					<dd>
+						<p>Skippableとは、視覚障害のある読者が興味のないコンテンツのブロックを読み飛ばせる機能を指します。</p>
+
+						<p>サイドバーは読み飛ばし可能な構造の一例です。ユーザーはサイドバーを読むことに興味があるかもしれませんが、通常はメインのストーリーを読んでいる間にサイドバーを読み飛ばし、後で戻ってくることができるようにしたいと考えています。</p>
+
+						<p>構造を読み飛ばしできるかどうかは、マークアップ内で構造を識別できるかどうか（つまり、<a href="#semantics">セマンティック マークアップ</a>の使用）に大きく依存します。</p>
+					</dd>
+
+					<dt id="smil">
+						<dfn>SMIL（スマイル）</dfn>
+					</dt>
+					<dd>
+						<p>Synchronized Media Integration Language（同期メディア統合言語（SMIL、スマイルと発音））は、インタラクティブなマルチメディア プレゼンテーションを記述するための<a role="doc-glossref" href="x.html#xml">XML</a>文法です。</p>
+
+						<p>SMIL のサブセットは、テキストと音声の同期再生のために、<a role="doc-glossref" href="d.html#dtb">DAISY</a>形式と<a role="doc-glossref" href="e.html#epub">EPUB</a>形式の両方で使用されます。</p>
+
+						<p>詳細については、 <a href="https://www.w3.org/TR/SMIL/">SMIL 仕様</a>を参照してください。</p>
+					</dd>
+
+					<dt id="spine">
+						<dfn>Spine（スパイン）</dfn>
+					</dt>
+					<dd>
+						<p>Spineは、出版物内のコンテンツの読み取り順序を定義する<a role="doc-glossref" href="e.html#epub">EPUB</a><a role="doc-glossref" href="p.html#package-doc">パッケージ ドキュメント</a>の一部です。</p>
+
+						<p>この名前は、製本された出版物の背表紙（英語でspine）のような役割を果たし、出版物を正しい順序でまとめていることから付けられました。</p>
+					</dd>
+
+					<dt id="svg">
+						<dfn>SVG（エスブイジー）</dfn>
+					</dt>
+					<dd>
+						<p>Scalable Vector Graphics（スケーラブル ベクター グラフィックス（SVG）） は、2 次元ベクターおよびベクター/ラスター混合画像を記述するための<a role="doc-glossref" href="x.html#xml">XML</a>文法です。</p>
+
+						<p>SVG 画像は、スケーラビリティ以外にも、他の形式に比べてアクセシビリティの面で多くの利点があります。テキスト コンテンツをテキストとして表現できるため、<a role="doc-glossref" href="a.html#at">支援技術</a>で利用できます。画像コンポーネントにタイトルを付けて、その目的の説明を含めることができます。<a role="doc-glossref" href="a.html#aria">ARIA</a>の<a role="doc-glossref" href="r.html#roles">role、state、property</a>を使用して、インタラクティブな要素をアクセシブルにすることができます。</p>
+
+						<p>詳細については、 <a href="https://www.w3.org/TR/SVG/">SVG 仕様</a>を参照してください。</p>
+					</dd>
+
+					<dt id="svg-doc">
+						<dfn>SVG Content Document（エスブイジー コンテンツ ドキュメント）</dfn>
+					</dt>
+					<dd>
+						<p>SVG コンテンツ ドキュメントは、 <a role="doc-glossref" href="e.html#epub3">EPUB 3</a>で使用される用語で、その形式の要件に準拠する SVG 画像を指します。EPUB 3 には、使用する SVG のバージョンに関するルールと、使用できる要素に関するいくつかの制限があります。</p>
+
+						<p>詳細については、EPUB 3 仕様の<a href="https://www.w3.org/TR/epub/#sec-svg">SVG コンテンツ ドキュメントの定義</a>を参照してください。</p>
+					</dd>
+				</dl>
+			</section>
+		</main>
+	</body>
+</html>
