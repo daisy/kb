@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>要求による変化</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.2.5 Change on Request">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.2.5</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>コントロール</li>
+								<li>フォーム</li>
+								<li>入力</li>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>コンテキストの変化は利用者の要求によってだけ生じるか、又は、そのような変化を止めるメカニズムが利用できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/change-on-request.html">達成基準 3.2.5の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#change-on-request">達成基準 3.2.5を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G76">G76：自動的に更新する代わりに、利用者がコンテンツの更新を要求するメカニズムを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G110">G110：クライアントサイドの瞬間的なリダイレクトを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H76">H76：クライアントサイドで瞬間的にリダイレクトするために、meta要素のrefreshを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H83">H83：利用者の要求に応じて新しいウィンドウを開くためにtarget属性を使用して、そのことをリンクテキストで明示する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR24">SCR24：利用者の要求に応じて新しいウィンドウを開くために、プログレッシブエンハンスメントを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19">SCR19：select 要素の onchange イベントは、コンテキストの変化を引き起こすことのないように使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザーがコンテキストの変更（新しいページを開く、新しい要素にフォーカス変更、コンテンツの追加または削除、リダイレクト）を完全にコントロールできるようにすることです。</p>
+				
+				<p>コンテキストの自動変更は、特に変更が発生したことをユーザーが認識できない場合、ユーザーを混乱させる可能性があります。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテキストの変更を自動的にトリガーする（引き起こす）代わりに、コンテンツ制作者はそのような変更をいつしたいか確認するオプションをユーザーに提供する必要があります。 （例えば、新しいウィンドウが開くタイミングをリンク内に示す。）</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページには、コンテンツを出版する際にこの達成基準を満たす方法が記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/controls.html">カスタムコントロール</a></li>
+					<li><a href="../html/links.html">リンク</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
