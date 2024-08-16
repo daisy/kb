@@ -76,62 +76,6 @@
 				
 				<p>Media Overlays documents are built using the following elements:</p>
 				
-				<table class="elemDef">
-						<tr>
-							<th>Element</th>
-							<th>Use</th>
-						</tr>
-						<tr>
-							<td class="root"><a href="https://www.w3.org/TR/epub/#sec-smil-smil-elem"
-								>smil</a></td>
-							<td class="use">The <code>smil</code> element is the root element of each Media Overlay, and
-								contains an optional <code>head</code> and required <code>body</code> element.</td>
-						</tr>
-						<tr>
-							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-head-elem"
-								>head</a></td>
-							<td class="use">The <code>head</code> element may contain metadata in an optional
-								<code>metadata</code> element, but none is required by the EPUB 3 specification.</td>
-						</tr>
-						<tr>
-							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem"
-								>metadata</a></td>
-							<td class="use">The <code>metadata</code> element is an extension element that allows metadata
-								from foreign namespaces to be included in the overlay.</td>
-						</tr>
-						<tr>
-							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-body-elem"
-								>body</a></td>
-							<td class="use">The <code>body</code> element defines playback through the order of
-								<code>seq</code> and <code>par</code> elements it contains.</td>
-						</tr>
-						<tr>
-							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem"
-								>seq</a></td>
-							<td class="use">The <code>seq</code> element is used to structure an overlay. It is used to
-								represent complex structures such as sections, tables and lists that a user may want to
-								skip or escape from.</td>
-						</tr>
-						<tr>
-							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-par-elem"
-								>par</a></td>
-							<td class="use">The <code>par</code> element defines a synchronization point in its child
-								<code>text</code> and/or <code>audio</code> elements.</td>
-						</tr>
-						<tr>
-							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-text-elem"
-								>text</a></td>
-							<td class="use">The <code>text</code> element identifies the content document and element to
-								synchronize visual rendering to.</td>
-						</tr>
-						<tr>
-							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-audio-elem"
-								>audio</a></td>
-							<td class="use">The <code>audio</code> element identifies the audio file and optional start and
-								end points for playback.</td>
-						</tr>
-				</table>
-				
 				<p>In order to synchronize a publication, each content document in a publication must have its own overlay
 					associated with it. Overlays are tied to content documents in the package document manifest using a
 					<code>media-overlay</code> attribute with the ID of the <code>item</code> that defines the
