@@ -143,6 +143,64 @@
 				
 			</section>
 			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>Example 1 &#8212; A basic overlay document</figcaption>
+					
+					<p>The following example shows an overlay document for a chapter that consists of only a heading and two
+						paragraphs.</p>
+					
+<!--					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
+	  xmlns:epub="http://www.idpf.org/2007/ops"
+	  version="3.0">
+   &lt;body>
+	  &lt;seq
+		   epub:textref="chapter_001.xhtml"
+		   epub:type="bodymatter chapter">
+	  
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01h01"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:00.000" 
+				   clipEnd="0:00:05.250"/>
+		 &lt;/par>
+		 
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01p0001"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:05.250"
+				   clipEnd="0:00:58.100"/>
+		 &lt;/par>
+		 
+		 &lt;par>
+			&lt;text src="chapter_001.xhtml#c01p0002"/>
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:58.100"
+				   clipEnd="0:02:04.000"/>
+		 &lt;/par>
+	  &lt;/seq>
+   &lt;/body>
+&lt;/smil></code></pre> -->
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>Example 2 &#8212; Linking a chapter document to its overlay</figcaption>
+					
+<!--					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;item id="xchapter_001"
+	  href="chapter_001.xhtml"
+	  media-type="application/xhtml+xml"
+	  media-overlay="chapter_001_overlay"/>
+
+&lt;item id="chapter_001_overlay"
+	  href="chapter_001_overlay.smil"
+	  media-type="application/smil+xml"/></code></pre> -->
+				</figure>
+			</section>
 			
 			<section id="samp" class="sample">
 				<h3>Samples</h3>
