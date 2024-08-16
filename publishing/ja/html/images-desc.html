@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>画像の説明（Image Descriptions）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for providing alternative text and descriptions for images and graphics.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-image-deco','html-image-select','html-image-anim','html-image-icon','html-image-text','html-image-textbased','html-image-maps'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>ユーザーが画像から理解する必要がある情報は、テキスト形式でも提供されるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>画像が周囲のテキストで説明されていない場合は、 <code>alt</code>属性に代替テキストを指定します。[[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>複雑な画像には拡張説明を提供します。[[WCAG-1.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">例 － きわめてシンプルな画像（説明は不要）</span></figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="covers/9781449328030_lrg.jpg"
+    alt="Accessible EPUB 3 - First Edition" /&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 － <code>details</code>（詳細）な拡張説明</div>
+						<p>次の例では、HTML <code>details</code>要素を使用して、デフォルトで折りたたまれて表示されない説明文を作成します。<code>aria-details</code>属性は、画像と説明文を関連付けるために使用されます。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig-01"&gt;
+   &lt;figcaption&gt;
+      The hydrologic cycle.
+   &lt;/figcaption&gt;
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      aria-details="fig-01-desc"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/&gt;
+&lt;/figure&gt;
+&lt;details id="fig-01-desc"&gt;
+   &lt;summary&gt;Description&lt;/summary&gt;
+   &lt;p&gt;
+      The diagram shows the processes of 
+      evaporation, condensation,
+      evapotranspiration, water storage
+      in ice and snow, and precipitation.
+      A large body of water …
+   &lt;/p&gt;
+&lt;/details&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 - ハイパーリンクによる拡張説明</div>
+						<p>次の例では、単純なハイパーリンクを使用して、別のファイルの説明文にリンクします。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure id="fig-01"&gt;
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/&gt;
+   &lt;figcaption&gt;
+     The hydrologic cycle. &lt;a href="desc/fig-01.html"&gt;Description&lt;/a&gt;
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 — 非表示の説明</div>
+						<p>次の例では、 <code>aria-describedBy</code>属性を使用して非表示の説明文にリンクしています。これにより視覚的には説明文の存在がまったくわからないようにすることができます。</p>
+						<p>特に非表示のコンテンツを参照する場合、<strong>EPUB では、この属性のサポートが不十分であること</strong>に注意してください。規格上有効であっても、ユーザーが説明文にアクセスできなくなる可能性があるため、注意して使うべきです。オープン Web プラットフォームは、支援技術を介してのみアクセスできる非表示コンテンツからは、脱却しつつあります。</p>
+						<p>説明文に表やリストなどの構造化マークアップが含まれている場合、この手法は推奨されません。というのも、すべてのタグ付けが削除され、テキスト コンテンツのみがユーザーに読まれるからです。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01"&gt;
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"
+      aria-describedby="desc01"/&gt;
+   &lt;figcaption&gt;
+     The hydrologic cycle.
+     &lt;aside id="desc01" hidden="hidden"&gt;
+        &lt;p&gt;
+           The diagram shows the processes of 
+           evaporation, condensation,
+           evapotranspiration, water storage
+           in ice and snow, and precipitation.
+           A large body of water …
+        &lt;/p&gt;
+     &lt;/aside&gt;
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">例 － ラベルとキャプションが反対側にある画像</div>
+						<p>次の例は、画像の上にラベル、下にキャプションがある図を示しています。 <code>aria-labelledBy</code>属性は、ラベルを図に関連付けるために使用され、この情報は引き続きユーザーに簡単に提示できます。</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;figure id="fig-01" aria-labelledBy="fig1-label"&gt;
+   &lt;p class="label" id="fig1-label"&gt;Figure 1. Prime Mover&lt;/p&gt;
+   &lt;img
+      src="graphics/prime_mover.jpg"
+      alt="The universe in motion through its attraction to the prime mover"/&gt;
+   &lt;figcaption&gt;
+      &lt;p&gt;The primer mover is shown to be a —&lt;/p&gt;
+   &lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				<dl>
+					<dt id="faq-001">なぜ目に見える説明文にリンクを張るのですか?</dt>
+					<dd>
+						<p>説明文が現在のページの目に見える部分にあっても、説明文にリンクすることで、支援技術のユーザーがページ コンテンツを探し回ることなく、説明文にすばやくアクセスするためのプログラム手段が提供されます。</p>
+					</dd>
+					
+					<dt id="faq-002">なぜ<code>longdesc</code>はないのですか?</dt>
+					<dd>
+						<p><code>longdesc</code>属性は現在、HTML の廃止された機能と見なされています。</p>
+						<p>W3C によって HTML の別の拡張機能として公開されていますが、EPUB ではサポートされていません。</p>
+					</dd>
+					
+					<dt id="faq-003">なぜ<code>aria-details</code>なのか?</dt>
+					<dd>
+						<p><code>aria-details</code>属性は、目的が<code>aria-describedby</code>属性と似ていますが、文字列化されたコンテンツにはなりません（つまり、ユーザーは構造化された HTML として説明をナビゲートできます）。<code>aria-details</code>属性を使用すると、たとえば、ユーザーは<code>details</code>要素のコンテンツに移動できます。</p>
+					</dd>
+					
+					<dt id="faq-004">
+<code>figure</code>タグはいつ必要ですか?</dt>
+					<dd>
+						<p>画像が出版物にとって重要であるものの、挿入時点では読み取る必要がない場合（つまり、論理的な読み取り順序の一部ではない場合）、 <code>figure</code>タグを使用して囲みます。詳細については、「<a href="figures.html">フィギュア（図表）</a>」ページを参照してください。</p>
+					</dd>
+					
+					<dt id="faq-005">
+<code>img</code>と<code>picture</code>どちらを使用すればよいですか?</dt>
+					<dd>
+						<p><code>picture</code>要素は、複数のバージョンの画像（異なる解像度や、異なるデバイスを対象とした異なる形式など）を提供する場合にのみ必要です。それ以外の場合、使用可能な画像形式が 1 つしかない場合は、 <code>picture</code>要素に<code>img</code>要素を超えるアクセシビリティの利点はありません。どちらも代替テキストと拡張説明を許可します。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="writing">
+				<h3>説明文を書く</h3>
+				
+				<section id="alt">
+					<h4>代替テキスト</h4>
+					
+					<p>出版物の理解に中心的な役割を果たす画像には、必ず<code>alt</code>属性に代替テキストを含める必要があります。</p>
+					
+					<div class="note" role="note" aria-labelledby="note-1">
+						<p id="note-1" class="label">注記</p>
+						<p>画像が純粋に装飾目的である場合、 <code>alt</code>属性は空のままにしておきます。詳細については、<a href="images-deco.html">装飾画像</a>のページを参照してください。</p>
+					</div>
+					
+					<p>画像の代替テキスト表現は、画像の完全な説明になるようには設計されていません。コンテンツ製作者によくある間違いは、段落またはより長い画像の説明を提供するために<code>alt</code>属性を使用することです。しかし、ユーザーは、代替テキストには画像のごく簡単な説明しか求めていません。読み続ける前にテキスト全体を聞かなければならないことが多いためです。代替テキストは、ユーザーの読書体験を妨げずに、ユーザーが拡張説明を読むかどうかを決定できるようにする必要があります。</p>
+					
+					<p>画像の代替テキストの書き方について考える最も良い方法の 1 つは、視覚的に読む読者にとってなぜそのテキストが必要なのかを考えることです。目標は詳細情報を網羅することではありません。また、画像自体からは判断できない詳細情報（つまり、視覚的に読む読者がアクセスできない情報）を追加することでもありません。</p>
+					
+					<p>短く簡潔な代替テキストを書くことは、それぞれの画像から必要とされる情報がまったく同じになることは決してないため、ある種の芸術です。しかし、画像に関する最も関連性の高い「誰が、何を、どこで、いつ、なぜ、どのように」という質問に、できるだけ少ない言葉で答えるようにすることは、役に立つテクニックです。</p>
+					
+					<p>たとえば、この <a href="https://en.wikipedia.org/wiki/Battle_of_Waterloo#/media/File:Battle_of_Waterloo_1815.PNG">戦闘シーン</a>を考えてみましょう。それぞれの質問をします。</p>
+					
+					<ul>
+						<li>この絵は何でしょうか？ ウィリアム・サドラー2世による絵画です。絵画には画家の名前が記されていないため、代替テキストでこの情報を紹介すべきではありません。</li>
+						<li>絵に描かれているのは誰でしょうか？ フランス軍とイギリス軍です。</li>
+						<li>彼らは何をしているのでしょうか？ 戦闘中です。</li>
+						<li>これはどこで起こっているのでしょうか？ ワーテルローです。</li>
+						<li>これはいつ起きたのでしょうか？ 画像には記載されていないため、代替テキストで紹介すべきではありません。</li>
+						<li>彼らはなぜ戦っているのでしょうか？答えるには複雑すぎるし、絵画自体にも関係ありません。</li>
+						<li>彼らはどうやって戦っているのでしょうか？ これも代替テキストには複雑すぎます。</li>
+					</ul>
+					
+					<p>最も関連性の高い回答を組み合わせると、「ワーテルローの戦いにおけるイギリス軍とフランス軍の絵画」という代替テキストが得られる可能性があります。</p>
+					
+					<p>ただし、絵のコンテキストも、絵の説明に重要な役割を果たします。たとえば、この絵画が英国の歴史に関する本に掲載されていた場合、ユーザーは戦いの参加者と日付をすでに知っている可能性があり、画家は関係ない可能性があります。この場合、代替テキストはさらに「ワーテルローの戦いの絵」に短縮できます。</p>
+					
+					<p>一方、この絵画が反戦本で使われた場合、その代替テキストは「ワーテルローの戦いでの兵士の虐殺を描いた絵画」のように、戦闘の残虐性を強調することになるかもしれません。</p>
+					
+					<p>代替テキストが出版物内の画像の目的を正確に伝えている限り、テキストを組み立てる方法は数多くあります。</p>
+				</section>
+				
+				<section id="extended">
+					<h4>拡張説明</h4>
+					
+					<p>画像の拡張説明を記述すると、代替テキストほど長さの制限がないため、混乱が少なくなる傾向があります。ただし、代替テキストと同様に、拡張説明を作成する際の目標は、画像の目的をできるだけ簡潔に説明することです。細部まですべてを説明するのではなく、重要な情報を伝えることです。</p>
+					
+					<p>したがって、拡張説明を書くための最初のステップは、拡張説明が本当に必要かどうかを判断することです。特に周囲の文章でコンテキストがすでに提供されている場合、画像には説明がほとんど不要な場合があります。自分が書こうとしている説明文が、理解を助ける適切な情報を追加するものなのか、それとも詳細のための詳細説明なのか、自問してみてください。</p>
+					
+					<p>たとえば、2 人の世界的なリーダーが笑顔で握手している画像を考えてみましょう。彼らの友好的な関係を示すためだけの画像であれば、だれが写真に写っていて、その人物が何をしているかを示す代替テキストで十分でしょう。彼らがいる部屋、着ている服、周囲にいる人々などについて長々と説明しても、読者の役には立ちません。</p>
+					
+					<p>拡張説明が必要であることがわかったら、説明を書くプロセスは代替テキストを書くプロセスと同様になります。同じように「誰が、何を、どこで、いつ、なぜ、どのように」という質問を検討する必要がありますが、今回は重要な情報を完全に把握することが目標となります。</p>
+					
+					<p>絵の文脈は、出版物にとってどのような情報が不可欠であるかを左右します。たとえば、代替テキスト セクションの <a href="https://en.wikipedia.org/wiki/Battle_of_Waterloo#/media/File:Battle_of_Waterloo_1815.PNG">戦闘シーン</a>を使用すると、軍事戦略に関する本では、攻撃の混乱を説明することに重点が置かれる可能性があります。絵に描かれた全員の行動を説明する必要はなく、戦闘の激しさを大まかに伝えるだけで十分です。</p>
+					
+					<p>拡張説明では、画像の視覚的描写から判別できない事実を紹介しないでください。たとえば、将軍やその戦闘計画などを説明する場所ではありません。この情報は、画像だけでは明らかではないため、周囲のテキストで説明されていない場合は、画像のキャプションに含める必要があります。</p>
+					
+					<p>拡張説明を書くための追加のヘルプとして、 <a href="https://poet.diagramcenter.org/how.html">DIAGRAM Center のインタラクティブな例</a>には、さまざまな種類の画像を説明する方法が記載されています。</p>
+				</section>
+			</section>
+			
+			<section id="methods">
+				<h3>説明方法</h3>
+				
+				<p>次のセクションでは、画像に拡張説明を追加するための、より適切にサポートされているいくつかの方法について説明します。他の方法も可能ですが、リーディングシステムでのサポートは、ブラウザーほど堅牢ではないことがよくあります。テスト情報については、DIAGRAM Center の<a href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">「EPUB で拡張説明を作成するためのベスト プラクティス」</a>を参照してください。</p>
+				
+				<section id="details">
+					<h4>
+<code>details</code>要素</h4>
+					
+					<p><code>details</code>要素は、画像の説明を含めるための折りたたみ可能な手段を提供します。この要素の利点は、目の見える読者と見えない読者の両方が自分の判断で説明文にアクセスできることです (つまり、支援技術のユーザーがテキストを読み上げるかどうかを決定できるのと同じように、目の見える読者は説明を展開して読むかどうかを選択できます)。</p>
+					
+					<p>ただし、この要素のサポートは EPUB ではまだ普遍的ではありません。要素テキストはデフォルトで常に開いている可能性があり、また最初は閉じていた場合には要素を展開するとユーザー エージェントによって生成されるページネーションに問題が発生する可能性があります（たとえば、要素を開くと、ページの下部にあるコンテンツが表示されなくなります）。</p>
+					
+					<p>EPUB 出版物でこの要素を使用する場合、説明が図に関するものであるときは、この要素を<code>figure</code>タグ終了の直後に配置することも推奨されます。この要素は、 <code>figure</code>内に含まれていると機能しないことがよくあります。</p>
+					
+					<p>これらの欠点にもかかわらず、この要素は、現在 EPUB でサポートされている最も信頼性の高い手法の 1 つです。</p>
+				</section>
+				
+				<section id="hyperlinks">
+					<h4>ハイパーリンク</h4>
+					
+					<p>昔ながらの単純なハイパーリンクは、説明へのリンクを提供するための最も広くアクセシブルな方法の 1 つです。</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;figure&gt;
+	&lt;img src="crime-map.jpg" alt="Crime in Gotham City"&gt;
+	&lt;a href="crime-desc.xhtml"&gt;Description&lt;/a&gt;
+&lt;/figure&gt;</code></pre>
+					
+					<p>ハイパーリンクは必ずしも別のドキュメントの説明文を参照する必要はないことに注意してください。説明文は、脚注のようにセクションの最後に記述されている場合があります。</p>
+					
+					<p>EPUB では、可能であれば、リンクされた説明文は、説明文に到達する際の問題を回避するために、１つのファイルに１つの説明文にする必要があります（つまり、同じファイルに複数の説明がある場合、すべてのリーディングシステムが正しい位置に移動できるわけではありません）。ただし、画像が多数ある場合は、各説明を別のファイルに追加すると、spineが膨れ上がってしまう可能性があります（つまり、すべての説明ファイルをリストする必要があります）。</p>
+					
+					<p>画像を使用するとリンクの見た目を最小限に抑えることができますが、EPUB の一部のリーディングシステムでは画像リンクに問題があります（アクティブ化できません）。</p>
+					
+					<p>これらの欠点にもかかわらず、ハイパーリンクは現在 EPUB でサポートされているより信頼性の高い手法の 1 つです。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>DIAGRAM — <a href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">EPUB で拡張説明を作成するためのベスト プラクティス</a>
+</li>
+					<li>DIAGRAM — <a href="https://poet.diagramcenter.org/">POET 画像説明トレーニングツール</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
+</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-describedby"><code>aria-describedby</code> (プロパティ)</a>
+</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-details">aria-details（プロパティ）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
