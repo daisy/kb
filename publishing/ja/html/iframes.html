@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>インラインフレーム（Inline Frames）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using inline frames accessibly.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>Ensure that inline frames are uniquely titled so that users can decide whether they want to read or interact 					with the contents, and that frame content remains consumable after resizing or zooming.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). [[WCAG-2.4.1]] and [[WCAG-4.1.2]]</li>
+					<li>特定のユーザー向けではないフレームを、ラベルで識別します。</li>
+					<li>
+<code>iframe</code>のサイズを設定する際には相対単位を使用します。</li>
+					<li>スクロールを<code>auto</code>に設定します。</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption><span class="label">例 1 — 基本的な<code>iframe</code></span></figcaption>
+					<p>この<code>iframe</code> では、 <code>title</code>属性でクイズが含まれていることを示します。フレームをサポートしていないリーディングシステム用に、ファイルにアクセスするためのフォールバック コンテンツが含まれています。</p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;iframe
+      href="quiz01.xhtml"
+      title="Quiz 1"
+      class="quiz"&gt;
+      あなたのユーザーエージェントはインラインフレームをサポートしていません。クイズ１を開くには、&lt;a href="quiz01.xhtml"&gt;こちらのリンク&lt;/a&gt; を開いてください。
+&lt;/iframe&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption><span class="label">例 2 — 目に見えない<code>iframe</code></span></figcaption>
+					<p><code>iframe</code>にはページに必要なコードが含まれているため、視覚的には非表示になっており、ラベルによってコンテンツが含まれていないことも示されています。</p>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;iframe
+      href="script.xhtml"
+      title="empty"
+      tabindex="-1"
+      height="0"
+      width="0"
+      class="hidden"&gt;
+&lt;/iframe&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>インラインフレームは一般的に支援技術とうまく動作しますが、使用時には次のアクセシビリティの考慮事項に常に従う必要があります。</p>
+				
+				<ul>
+					<li>Each inline frame should include an explanatory title that clearly indicates the purpose of the 						embedded content (in a <code>title</code> attribute on the <code>iframe</code> element).</li>
+					<li>
+<code>iframe</code>の高さと幅を設定するときは、サイズ変更を容易にするために、パーセンテージや em などの相対単位を使用する必要があります。</li>
+					<li>スクロールは<code>auto</code>に設定する必要があります。そうすることで、ユーザーがフレーム内のコンテンツのサイズを変更し、枠内に収まらなくなった場合でも、コンテンツにアクセスできるようになります。</li>
+					<li>The <code>iframe</code> element should provide embedded fallback content for user agents that do 						not support inline frames (e.g., a direct link to the content file).</li>
+					<li>フレームにユーザー向けのコンテンツが含まれていない場合は、 <code>title</code>にその旨を示し、CSS <code>display</code>プロパティを<code>none</code>に設定し、高さと幅を 0 に設定します。ユーザーが要素にタブ移動できないようにするには、 <code>tabindex</code>属性を<code>-1</code>に設定します。</li>
+				</ul>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">&lt;iframe&gt;: The Inline Frame 						element</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-iframe-element"><code>iframe</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
