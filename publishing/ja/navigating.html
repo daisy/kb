@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>サイトのナビゲーション</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The Accessible Publishing Knowledge Base provides best practices for creating accessible digital publications. Its primary focus is on EPUB but can be used as a reference for any HTML-based format.">
+		<script>
+			var page_info = {
+				'nav': false
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			dt {
+				font-size: 115%;
+				color: rgb(0,0,90);
+				text-indent: 2rem;
+			}
+			h2.noCategory {
+				font-size: 130%; 
+			}
+			section {
+				margin-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<section id="navigating">
+				<p>「アクセシブル出版 ナレッジベース」では、アクセシブルな電子出版物の製作に関する幅広いトピックを扱っています。そのため、必要なページを見つけるのが難しい場合があります。</p>
+				
+				<p>サイト上で情報を検索するには、主に２つの方法があります。</p>
+				
+				<ul>
+					<li>Manually searching the categories for topics of interest.</li>
+					<li>サイト検索機能を使用して、コンテンツをより深くスキャンします。</li>
+				</ul>
+				
+				<p>問題がどの分野に該当するか分かっている場合は、ページのカテゴリーメニュー（通常は各ページの右側にあります）で対応するカテゴリーリンクをクリックするところから始めるのが最適です。これらのリンクをクリックすると、ナレッジベースで取り上げられているすべてのトピックのリストが表示され、各トピックにはその目的を説明する短い説明が含まれています。</p>
+					
+				<p>The following list provides a brief explanation of each of the major categories:</p>
+				
+				<dl>
+					<dt>適合性（Conformance）</dt>
+					<dd>
+						<p><a href="conformance/">アクセシビリティ適合のトピック</a>では、EPUBアクセシビリティ規格や ウェブ コンテンツ アクセシビリティ ガイドライン (WCAG) など、電子出版物に適用されるさまざまなアクセシビリティ規格を満たすための情報が提供されます。</p>
+					</dd>
+					
+					<dt>CSS</dt>
+					<dd>
+						<p><a href="css/">CSSのトピック</a>では、コンテンツのアクセシブルなスタイル設定について取り上げます。これには、色知覚、コントラスト、文字サイズと文字間隔、コンテンツのリフロー可能性に関する問題が含まれます。</p>
+					</dd>
+					
+					<dt>EPUB</dt>
+					<dd>
+						<p><a href="epub/">EPUBのトピック</a>では、EPUB 形式に固有の問題について説明します。たとえば、EPUB パッケージ ドキュメントのアクセシビリティ要件はこのセクションで説明されています。</p>
+					</dd>
+					
+					<dt>固定レイアウト（Fixed Layout）</dt>
+					<dd>
+						<p><a href="fxl/">固定レイアウトのトピック</a>では、固定寸法のページにレイアウトされるコンテンツ（つまり、コンテンツは画面に合わせてリフローされず、配置された場所に留まる）の作成に関する問題について詳しく説明します。このタイプのコンテンツはアクセシビリティ規格を満たすことはほとんどありませんが、読みやすさを向上させるために出版者が実行できる対策があります。</p>
+					</dd>
+					
+					<dt>HTML</dt>
+					<dd>
+						<p><a href="html/">HTMLのトピック</a>では、アクセシブルなHTMLコンテンツの作成に関連する幅広い問題を取り上げます。ガイドラインには、要素と属性をアクセシブルに使用する方法、索引や用語集などの一般的な公開構造をアクセシブルに作成する方法、ARIA の role（役割）、state（状態）、property（プロパティ）を適用する方法などが含まれます。</p>
+					</dd>
+					
+					<dt>メタデータ（Metadata）</dt>
+					<dd>
+						<p><a href="metadata/">メタデータのトピック</a>では、 schema.org や ONIX などの広く使用されているメタデータ規格で利用可能なアクセシビリティ プロパティについて説明します。</p>
+					</dd>
+					
+					<dt>ナビゲーション（Navigation）</dt>
+					<dd>
+						<p><a href="navigation/">ナビゲーションのトピック</a>では、目次やページリストなどのアクセシブルなナビゲーション補助を作成する方法について説明します。</p>
+					</dd>
+					
+					<dt>スクリプトとフォーム（Scripted Content and Forms）</dt>
+					<dd>
+						<p><a href="script/">スクリプトとフォームのトピック</a>では、電子出版物にインタラクティブなコンテンツを追加することに関連するさまざまな問題を取り上げます。ユーザーがこの種類のコンテンツを理解し、制御できるようにすることが、この分野の鍵となります。</p>
+					</dd>
+					
+					<dt>マルチメディアの同期（Synchronized Multimedia）</dt>
+					<dd>
+						<p><a href="sync-media/">マルチメディアの同期のトピック</a>では、 EPUB 3 メディア オーバーレイ（media overlays）機能など、同期されたテキストと音声の再生を提供する電子出版物の作成について説明します。これらの種類の出版物は、多くの場合、「読み上げ（read aloud）」本と呼ばれます。</p>
+					</dd>
+					
+					<dt>Text to Speech（テキスト読み上げ）</dt>
+					<dd>
+						<p><a href="text-to-speech/">テキスト読み上げのトピック</a>では、高品質の TTS 再生の作成に役立つ技術について説明します。</p>
+					</dd>
+				</dl>
+				
+				<div class="note" role="note" aria-labelledby="topic-note">
+					<p id="topic-note" class="label">注記</p>
+					<p><a href="topics.html">サイト上のすべてのトピック</a>を含む単一のページにアクセスすることもできます。ページの下部にある [サイト] メニューには、このページへのリンクが含まれています。</p>
+				</div>
+				
+				<p>The search box at the top of each page also allows you to search for topics by keyword. It may 					return unrelated topics depending on what you are looking for, however, so it is often better to 					start by checking the appropriate category index first. The search feature is best if you are not 					sure where to start looking or did not find the information you were looking for in an existing 					topic.</p>
+			</section>
+		</main>
+	</body>
+</html>
