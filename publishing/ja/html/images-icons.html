@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>アイコン</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for creating accessible icons.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-images-desc','html-image-deco','html-image-select','html-image-anim']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.min-ex {
+				max-width: 10rem;
+			}
+			.dark {
+				background-color: rgb(0,0,200);
+			}
+			.shrink {
+				height: 24px;
+				width: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>アイコンの目的を識別できるように、アイコンに明確かつ一貫したラベルを付けるようにします。</p>
+			</section>
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>アイコンが一貫して識別されるようにします。[[WCAG-3.2.4]]</p>
+					</li>
+					<li>
+						<p>アイコンと背景の間に十分なコントラストがあるようにします。[[WCAG-1.4.11]]</p>
+					</li>
+					<li>
+						<p>フォントアイコンを識別し、ラベルを付けます。[[WCAG-3.2.4]]</p>
+					</li>
+					<li>
+						<p>アイコンがコントロール用である場合は、サイズが少なくとも44 x 44ピクセルであることを確認します。[[WCAG-2.5.5]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例 1 — 一般的なサイドバーの識別</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;aside
+    id="warn-001"
+    class="warning"&gt;
+   &lt;img src="bomb.png" alt="Warning"/&gt;
+   &lt;p&gt;The following experiment may cause
+      bodily harm if … &lt;/p&gt;
+&lt;/aside&gt;
+
+…
+
+&lt;aside
+    id="warn-002"
+    class="warning"&gt;
+   &lt;img src="bomb.png" alt="Warning"/&gt;
+   &lt;p&gt;Risk of explosion increases as the
+    coefficient … &lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例2 — 十分なコントラスト</p>
+					</figcaption>
+					<p>次の例は、十分な背景コントラストを持つアイコンを示しています。</p>
+					<p class="min-ex">
+						</p>
+<img src="../../../graphics/info.png" alt="Image Description">
+					
+					<p>次の例は、背景のコントラストが不十分な同じアイコンを示しています。</p>
+					<p class="min-ex dark">
+						</p>
+<img src="../../../graphics/info.png" alt="Image Description">
+					
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例 3 — フォントアイコン</p>
+						<p>次の例では、私的使用領域のコードポイントを使用して、架空の「Icons」フォント ファミリーから電子メール アイコンをレンダリングします。</p>
+					</figcaption>
+					<p class="figlabel">CSS</p>
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>.icon { font-family: 'Icons' !important; }
+.email { background-color: #ffffff; }
+.email:before { content: "\f8ee"; }</code></pre>
+					<p class="figlabel">HTML</p>
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;span
+    class="icon email"
+    role="img"
+    aria-label="Email the publisher"&gt;&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<p class="label">例4 — 十分なサイズ</p>
+					</figcaption>
+					
+					<p>次の例は、WCAG 2.1 で要求される 44 x 44 ピクセルの AAA 最小ターゲット サイズを示しています。</p>
+					<p class="min-ex"></p>
+<img src="../../../graphics/info.png" alt="Image Description">
+						
+					<p>次の例は、WCAG 2.2 で要求される 24 x 24 ピクセルの AA 最小ターゲット サイズを示しています。</p>
+					<p class="min-ex"></p>
+<img class="shrink" src="../../../graphics/info.png" alt="画像の説明">
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>電子出版物では、アイコンは Webほど一般的ではありませんが、珍しいものではありません。アイコンは、教科書やその他のノンフィクション作品にあるさまざまな種類のサイドバーなど、出版物内の重要な項目を識別するためによく使用されます。また、テキストの代わりに、画像の拡張説明があることを示すためにもよく使用されます。そしてもちろん、インタラクティブ コンテンツのコントロールとしてもよく使用されます。</p>
+				
+				<p>アイコンをアクセシブルにするには、一般的に画像と同じ要件に従いますが、アイコンに固有の追加要件もいくつかあります。これらの中でも重要なのは、ネーミングの一貫性です。ラベルを提供するだけでは十分ではありません。ユーザーは、アイコンの意味と目的が出版物全体で一貫していることを期待するようになるからです。たとえば、拡張説明へのリンクに使用されるアイコンには、ある場所では「図 1 の拡張説明」というラベルを付け、次の場所では「図 2 の詳細を読む」というラベルを付けるべきではありません。図の番号は変わるため、ラベルは同一にはなりませんが、言い回しは一貫している必要があります。</p>
+				
+				<p>アイコンが明確に区別できることも重要です。アイコンとその背景のコントラスト比が 3:1 であることで、ユーザーはアイコンが使用されている場所とそれが表すものの両方を認識できるようになります。同様に、画像がクリックなどの入力アクションのターゲットを表す場合、アイコンの長さと高さは少なくとも 24 ピクセルが必要です。特に WCAG の要件ではありませんが、アイコンは、できるだけ幅広いユーザーが拡大しなくても判読できるようにサイズを設定する必要があります。アイコンに複雑な画像を使用しないことも推奨されます。目の見えるユーザーでも意味を理解するのに苦労する可能性があるためです。</p>
+				
+				<p>フォントアイコンは、画像アイコンとは少し異なります。フォントアイコンは、製作者が Unicode の私的使用領域（つまり、どの文字にも割り当てられていない特別なコードポイントで、製作者がそれらのコードポイントのアイコンを定義するフォントを提供できます）を使用することに依存しています。このアプローチの問題は、私的使用領域のコードポイントがユーザーエージェントと支援技術に認識されないため、アイコンの意味を通知する方法がないことです。この問題を回避するために、製作者は ARIA ロール "img" を添付し、アイコンが挿入される場所にラベルを付けることができます（上記の<a href="#ex-03">例 3</a>を参照）。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

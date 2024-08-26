@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>画像の選択（Image Selection）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the picture and img elements to provide alternative images.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-image-desc','html-image-deco','html-image-anim','html-image-icon','html-image-text','html-image-maps'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p><code>picture</code>要素と<code>img</code>要素の画像選択機能を使用して、さまざまなデバイスに最適化された画像を提供します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>代替画像を提供するには、 <code>picture</code>要素の子である<code>source</code>要素を使用します。</p>
+					</li>
+					<li>
+						<p>代替画像を提供するには、 <code>img</code>要素の<code>srcset</code>属性を使用します。</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — フォールバック画像を追加する</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;picture&gt;
+   &lt;source
+        srcset="covers/9781449328030.avif"
+        type="image/avif"/&gt;
+   &lt;img
+        src="covers/9781449328030.jpg"
+        alt="Accessible EPUB 3 - First Edition"/&gt; 
+&lt;/picture&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 白黒ディスプレイに最適化された画像を追加する</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;picture&gt;
+   &lt;source
+        srcset="covers/9781449328030_bw.jpg"
+        media="(monochrome)"/&gt;
+   &lt;img
+        src="covers/9781449328030_color.jpg"
+        alt="Accessible EPUB 3 - First Edition"/&gt;
+&lt;/picture&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 異なるディスプレイ解像度に対応した画像を提供する</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;img
+     srcset="covers/9781449328030_small.jpg 1x,
+             covers/9781449328030_large.jpg 2x"
+     src="covers/9781449328030_small.jpg"
+     alt="Accessible EPUB 3 - First Edition"/&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				<dl>
+					<dt id="faq-001">どの要素を使うかは重要ですか？</dt>
+					<dd>
+						<p>いいえ。<code>picture</code> 要素は表示要素ではありません。この要素は、子要素である<code>img</code>タグに他の画像を関連付ける機能を提供するだけです。選択した画像の実際のレンダリングは<code>img</code>要素によって行われるため、使用するタグによってレンダリングが変わることはありません。</p>
+						<p><code>picture</code>要素の利点の１つは、出版者がより複雑な選択基準を定義できることです。<code>picture</code>要素が良く使われるのは、その複数の子要素<code>source</code>要素によって選択基準の読み取りが容易になるためです。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>代替画像を提供することは、より一般的なユーザビリティの問題ですが、ユーザーのディスプレイに最適化された画像を提供することで、アクセシビリティにとって多くの副次的なメリットがあります。</p>
+				
+				<p>たとえば、カラー ディスプレイ用に最適化された表紙画像は、モノクロ ディスプレイのデバイスでレンダリングすると判読できない場合があります。同様に、画面解像度に合わせて適切なサイズで最適化された画像を提供することで、視力の弱いユーザーを支援することができます。最適化された画像は、すべてのデバイスの表示能力に合わせて単一の画像を使用せざるを得ないことで発生するピクセル化の問題を回避するのに役立ちます。</p>
+				
+				<p>次のセクションでは、 <code>picture</code>要素と<code>img</code>要素の主な機能について簡単に説明します。これらの要素の詳細については、 <a href="#refs">「関連リンク」</a>セクションのリソースを参照してください。</p>
+				
+				<section id="picture">
+					<h4>
+<code>picture</code>要素</h4>
+					
+					<p><code>picture</code>要素は<code>img</code>要素のラッパー（包摂要素）であり、追加の画像をそのタグに関連付けることができます。したがって、 <code>picture</code>要素には常に子<code>img</code>要素が必要です。</p>
+					
+					<p>新しい<code>picture</code>要素が認識されない場合でも、子の<code>img</code>要素により、画像を表示できます。また、 <code>img</code>要素は、代替テキストや、必要に応じて拡張説明も提供できます。</p>
+					
+					<p>表示される画像に関係なく、同じ代替テキストと説明が使用されるため、セット内の画像の違いは表示特性のみである必要があります（つまり、画像内の情報が異なってはなりません）。</p>
+					
+					<p>ユーザーエージェントが表示できる代替画像は、子要素<code>source</code>で指定されます (例<a href="#ex-01">1</a>と<a href="#ex-02">2</a>を参照)。</p>
+					
+					<p>各<code>source</code>要素で指定された画像の特性は、次の属性を使用して定義されます。</p>
+					
+					<dl>
+						<dt id="srcset"><code>srcset</code></dt>
+						<dd>
+							<p>この属性が指定するのは、使用する画像への 1 つ以上の URL のリストです。</p>
+							<p>各画像 URL の後に<a href="https://html.spec.whatwg.org/multipage/images.html#width-descriptor">幅記述子</a>が続く場合もあります。</p>
+							<pre class="prettyprint linenums"><code>srcset="covers/small.jpg 480w, covers/large.jpg 960w"</code></pre>
+							<p>または<a href="https://html.spec.whatwg.org/multipage/images.html#pixel-density-descriptor">ピクセル密度の宣言</a>が続きます。</p>
+							<pre class="prettyprint linenums"><code>srcset="covers/low_res.jpg 1x, covers/hi_res.jpg 2x"</code></pre>
+							<p>幅記述子は、画像の幅をユーザー エージェントに伝え、ビューポートに最適に収まるかどうかを判断できるようにします。幅記述子を指定する場合は、 <a href="#sizes"><code>sizes</code>属性</a>も設定する必要があります。</p>
+							<p>ピクセル密度はディスプレイの解像度を指します。標準解像度の画面は 1 倍、Retina ディスプレイは 2 倍（ピクセル密度が 2 倍）、より新しい画面解像度は 3 倍や 4 倍の解像度にも達しています。</p>
+							<p><code>src</code>属性は、<code>picture</code>要素の<code>source</code>子要素では無効であることに注意してください。画像オプションが 1 つしかない場合でも、 <code>srcset</code>で指定する必要があります。複数の画像を指定する場合は、 <code>sizes</code>属性を設定する必要があります。</p>
+						</dd>
+						
+						<dt id="type"><code>type</code></dt>
+						<dd>
+							<p>画像のメディアタイプ。</p>
+							<pre class="prettyprint linenums"><code>type="image/jpeg"</code></pre>
+							<p><code>source</code>要素が異なるメディアタイプの複数の画像を参照する場合は、属性を設定しないでください。</p>
+						</dd>
+						
+						<dt id="media"><code>media</code></dt>
+						<dd>
+							<p>画像を使用する条件を指定するメディアクエリー。</p>
+							<pre class="prettyprint linenums"><code>media="(monochrome)"</code></pre>
+						</dd>
+						
+						<dt id="sizes"><code>sizes</code></dt>
+						<dd>
+							<p><code>sizes</code>属性は、画像の表示幅を指定します。各幅（最後の幅を除く）には、画像を使用する条件を指定するメディアクエリーを含めることができます。他の条件が適用されない場合は、最後に指定されたサイズがデフォルトになります。</p>
+							<p>たとえば、次の宣言では、最大画面幅が 480 ピクセルの場合、画像は画面幅全体を占めます。それより大きい場合は、画像は画面幅の半分だけを占めます。</p>
+							<pre class="prettyprint linenums"><code>sizes="(max-device-width: 480px) 100vw,
+        50vw"</code></pre>
+							<p>ユーザーエージェントは、デバイスに適用される幅を決定し、その情報を使用して<a href="#srcset"><code>srcset</code>属性</a>から使用する最も適切な画像を計算します。</p>
+						</dd>
+					</dl>
+				</section>
+				
+				<section id="img">
+					<h4>
+<code>img</code>要素</h4>
+					
+					<p><code>img</code>要素は<code>picture</code>要素と似ていますが、より基本的なオプション セットを提供します。つまり、 <a href="#srcset"><code>srcset</code></a>と<a href="#sizes"><code>sizes</code></a>属性のみが許可されます。これらの属性はまったく同じように機能するため、詳細については<a href="#picture"><code>picture</code>要素のセクション</a>の定義を参照してください。</p>
+<p><code>img</code>要素は、 <code>picture</code>要素内で使用されるかどうかに関係なく、常にデフォルトの画像を含む<code>src</code>属性を指定する必要があります。この画像は、ユーザー エージェントがデバイスに適した画像を見つけられない場合、他のオプションが指定されていない場合、またはユーザー エージェントが画像の選択をサポートしていない場合に表示されます。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">&lt;picture&gt;: 画像要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-picture-element"><code>picture</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

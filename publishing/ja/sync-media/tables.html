@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>表（Tables）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Practices for identifying tables to improve synchronized text-audio playback.">
+		<script>
+			var page_info = {
+				'category': 'Synchronized Multimedia',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>同期メディア形式の書籍内の表構造を識別して、同期メディアの再生中のナビゲーションをより良いものにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+<code>seq</code>要素を使用して表、行、セルを構造化します。[[WCAG-1.3.1]]</li>
+					<li>
+<code>epub:type</code>属性を使用して<code>seq</code>要素のタイプを識別します。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<p>例 1 — XHTML 表 マークアップと、オーバーレイ 表 マークアップの比較</p>
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;table&gt;
+   &lt;tr&gt;
+	  &lt;td&gt;
+		 &lt;p&gt;…&lt;/p&gt;
+		 &lt;p&gt;…&lt;/p&gt;
+	  &lt;/td&gt;
+	  &lt;td&gt;…&lt;/td&gt;
+	  &lt;td&gt;
+		 &lt;ul&gt;
+			&lt;li&gt;…&lt;/lt&gt;
+		 &lt;/ul&gt;
+	  &lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+					
+					<pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;seq epub:type="table"&gt;
+   &lt;seq epub:type="table-row"&gt;
+	  &lt;seq epub:type="table-cell"&gt;
+		 &lt;par&gt;…&lt;/par&gt;
+		 &lt;par&gt;…&lt;/par&gt;
+	  &lt;/seq&gt;
+	  &lt;par epub:type="table-cell"&gt;…&lt;/par&gt;
+	  &lt;seq epub:type="table-cell"&gt;
+		 &lt;seq epub:type="list"&gt;
+			&lt;par epub:type="list-item"&gt;…&lt;/par&gt;
+		 &lt;/seq&gt;
+	  &lt;/seq&gt;
+   &lt;/seq&gt;
+&lt;/seq&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>XHTMLの表が、支援技術を使用するユーザーがナビゲートできるマークアップ構造を提供するのと同様に、メディア オーバーレイ ドキュメントも再生を容易にするためにマークアップを通じて同等の読み飛ばし（skippability）と回避（escapability）の機能を提供する必要があります。</p>
+				
+				<p>この構造は、マークアップ内の対応する行とセルを表す<code>seq</code>要素を使用してオーバーレイに階層化できます。表マークアップをオーバーレイ マークアップに変換する一般的なプロセスは次のとおりです。</p>
+				
+				<ul>
+					<li>表全体を、<code class="property">epub:type</code>属性でプロパティ<code>table</code>を指定した、１つの<code>seq</code>要素で囲みます。</li>
+					<li>表の各行は、<code>epub:type</code>属性でプロパティ<code>table-row</code>を指定した<code class="property">seq</code>要素を使用して表されます。</li>
+					<li>複雑な表セル（2 つ以上の同期ポイントを含むセル）は、<code>epub:type</code>属性で、プロパティ<code>table-cell</code>を指定した<code class="property">seq</code>要素を使用して識別されます。セルにネストされた表やリストなどの複雑な構造が含まれている場合は、その構造を適切にマークアップして、そこからの回避と読み飛ばしが可能になるようにする必要があります。</li>
+					<li>単一の同期ポイントのみを含む単純な表セルは、<code>epub:type</code>属性でプロパティ<code>table-cell</code>を指定した<code class="property">par</code>要素を使用して表すことができます。</li>
+				</ul>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem"><code>seq</code>要素</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-smil-par-elem"><code>par</code>要素</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-skippability">読み飛ばし（Skippability）</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-escapability">回避（Escapability）</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub-ssv/#sec-tables">構造セマンティクス語彙 — 表（Stuctural Semantics 						Vocabulary — Tables）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

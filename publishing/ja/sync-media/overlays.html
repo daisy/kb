@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>メディアオーバーレイ（Media Overlays）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of the EPUB 3 Media Overlays feature.">
+		<script>
+			var page_info = {
+				'category': 'Synchronized Multimedia',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			/* element tables */
+			
+			table.elemDef {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			table.elemDef thead {
+				background-color: rgb(240,240,240);
+			}
+			
+			table.elemDef th {
+				font-size: 90%;
+				padding: 0.25em;
+			}
+			
+			table.elemDef td {
+				border-style: solid;
+				border-color: rgb(0,0,0);
+				border-width: 1px 0 0 0;
+				vertical-align: top;
+			}
+			
+			table.elemDef a {
+				font-weight: bold;
+			}
+			
+			td.root {
+				padding-left: 0.5em;
+			}
+			
+			td.firstChild {
+				padding-left: 2em;
+			}
+			
+			td.secondChild {
+				padding-left: 3em;
+			}
+			
+			td.thirdChild {
+				padding-left: 4em;
+				padding-right: 1em;
+			}
+			
+			td.use {
+				max-width: 25em;
+				padding: 0.25em 2em;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="def">
+				<h3>概要</h3>
+				
+				<p>EPUB 3 では、<a href="https://www.w3.org/TR/epub/#sec-media-overlays">メディアオーバーレイ</a>と呼ばれるメディアの同期の実装が定義されています。この仕様では、テキストのレンダリングと音声の再生を同期するための<a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">SMIL</a>文法のプロファイルが定義されています。</p>
+				
+				<p>メディアオーバーレイ ドキュメントは、次の要素を使用して構築されています。</p>
+				
+				<table class="elemDef">
+					<thead>
+						<tr>
+							<th>要素</th>
+							<th>使用</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="root"><a href="https://www.w3.org/TR/epub/#sec-smil-smil-elem">smil</a></td>
+							<td class="use">
+<code>smil</code>要素は、各メディアオーバーレイのルート要素であり、オプションの<code>head</code>と必須の<code>body</code>要素が含まれます。</td>
+						</tr>
+						<tr>
+							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-head-elem">head</a></td>
+							<td class="use">
+<code>head</code>要素には、オプションの<code>metadata</code>要素にメタデータを含めることができますが、EPUB 3 仕様ではメタデータは必須ではありません。</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">metadata</a></td>
+							<td class="use">
+<code>metadata</code>要素は、外部の名前空間からのメタデータをオーバーレイに含めることができる拡張要素です。</td>
+						</tr>
+						<tr>
+							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-body-elem">body</a></td>
+							<td class="use">
+<code>body</code>要素は、含まれる<code>seq</code>と<code>par</code>要素の順序によって再生を定義します。</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">seq</a></td>
+							<td class="use">
+<code>seq</code>要素は、オーバーレイを構造化するために使用されます。ユーザーが読み飛ばし、または回避したいセクション、表、リストなどの複雑な構造を表すために使用されます。</td>
+						</tr>
+						<tr>
+							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-par-elem">par</a></td>
+							<td class="use">
+<code>par</code>要素は、子の<code>text</code>や<code>audio</code>要素内の同期ポイントを定義します。</td>
+						</tr>
+						<tr>
+							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-text-elem">text</a></td>
+							<td class="use">
+<code>text</code>要素は、視覚的なレンダリングを同期するコンテンツ ドキュメントと要素を識別します。</td>
+						</tr>
+						<tr>
+							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-audio-elem">audio</a></td>
+							<td class="use">
+<code>audio</code>要素で、音声ファイルを指定します。オプションで再生の開始点と終了点を指定します。</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>出版物を同期するには、出版物内の各コンテンツ ドキュメントに独自のオーバーレイが関連付けられている必要があります。オーバーレイは、オーバーレイを定義する<code>item</code>の ID を持つ<code>media-overlay</code>属性を使用して、パッケージ ドキュメント マニフェスト内のコンテンツ ドキュメントに関連付けられます。</p>
+				
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<div id="ex-01">
+					<div>例 1 — 基本的なオーバーレイ ドキュメント</div>
+					
+					<p>次の例は、見出しと 2 つの段落のみで構成される章のオーバーレイ ドキュメントを示しています。</p>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
+	  xmlns:epub="http://www.idpf.org/2007/ops"
+	  version="3.0"&gt;
+   &lt;body&gt;
+	  &lt;seq
+		   epub:textref="chapter_001.xhtml"
+		   epub:type="bodymatter chapter"&gt;
+	  
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01h01"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:00.000" 
+				   clipEnd="0:00:05.250"/&gt;
+		 &lt;/par&gt;
+		 
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01p0001"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:05.250"
+				   clipEnd="0:00:58.100"/&gt;
+		 &lt;/par&gt;
+		 
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01p0002"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:58.100"
+				   clipEnd="0:02:04.000"/&gt;
+		 &lt;/par&gt;
+	  &lt;/seq&gt;
+   &lt;/body&gt;
+&lt;/smil&gt;</code></pre>
+				</div>
+				
+				<div id="ex-02">
+					<div>例 2 — 章のドキュメントをオーバーレイにリンクする</div>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;item id="xchapter_001"
+	  href="chapter_001.xhtml"
+	  media-type="application/xhtml+xml"
+	  media-overlay="chapter_001_overlay"/&gt;
+
+&lt;item id="chapter_001_overlay"
+	  href="chapter_001_overlay.smil"
+	  media-type="application/smil+xml"/&gt;</code></pre>
+				</div>
+			</section>
+			
+			<section id="samp" class="sample">
+				<h3>サンプル</h3>
+				
+				<p><a href="http://code.google.com/p/epub-samples/">EPUB サンプル プロジェクト</a>には、メディア オーバーレイを実装する次の出版物が含まれています。</p>
+				
+				<ul>
+					<li><a href="http://code.google.com/p/epub-samples/source/browse/#svn%2Ftrunk%2F30%2Fmoby-dick-mo%2FOPS">Moby Dick</a></li>
+				</ul>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li><a href="https://www.w3.org/TR/epub/#sec-media-overlays">EPUB メディア オーバーレイ 3.0</a></li>
+					<li><a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">同期マルチメディア統合言語 (SMIL 3.0)</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

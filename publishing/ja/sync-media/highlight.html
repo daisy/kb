@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ハイライト（Highlighting）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on accessible highlighting during playback of synchronized text and audio.">
+		<script>
+			var page_info = {
+				'category': 'Synchronized Multimedia',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>再生中のテキストのハイライトが、テキストの読み取りの邪魔にならないように気をつけます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>前景色と背景色の間に十分なコントラストを提供します。 <span class="wcag-level">[ <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG 1.4.3 - AA</a>および<a href="https://www.w3.org/TR/WCAG2/#contrast-enhanced">WCAG 1.4.6 - AAA</a> ]</span></p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 背景のハイライトの定義（EPUB 3）</div>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   background-color: rgb(255,255,220);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — コントラストを向上させるためにデフォルトの色を割り当てる（EPUB 3）</div>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code class="language-css">.-epub-overlay-active {
+   color: rgb(0,0,0);
+   background-color: rgb(255,255,0);
+}</code></pre>
+					
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">背景の陰影のみを適用できますか?</dt>
+					<dd>
+<p>いいえ、アクティブなテキストに任意の CSS プロパティを適用できますが、選択した内容が出版物のアクセシビリティに影響する可能性があることに注意してください。</p>
+						<p>また、メディアも考慮してください。フォント サイズを大きくすると、アクティブなテキストが目立ちやすくなるように思えるかもしれませんが、実際の結果では、EPUB のページ上でテキストが飛び回ってしまう可能性があります。たとえば、1 つの段落がフォーカスを失うと、そのテキストサイズは縮小され、次の段落は拡大されるため、レイアウトが「移動」します。また、ページが最初にレンダリングされたときに表示されていたテキストが、新しいハイライトが適用されるとビューポートから押し出される場合もあります。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>再生中にテキストが同期されている場合、どの部分がナレーションされているかがより明確になるようにスタイルを設定することもできます。</p>
+				
+				<section id="epub3">
+					<h4>EPUB 3</h4>
+					
+					<p>EPUB 3 では、特別な<code class="property">media:active-class</code>プロパティを使用して、パッケージ ドキュメント メタデータ内のアクティブ要素に適用する CSS クラスを定義できます。</p>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;meta property="media:active-class"&gt;
+-epub-overlay-active
+&lt;/meta&gt;</code></pre>
+					
+					<p>この場合、リーディングシステムは、添付されたすべてのCSSファイルで<code class="value">-epub-overlay-active</code>というクラスをチェックし、再生中に同期された各要素に定義されているスタイルを適用します。</p>
+					
+					<div class="note" role="note" aria-labelledby="note-1">
+						<p id="note-1" class="label">注記</p>
+						<p>CSS クラスに使用する名前は重要ではありませんが、わかりやすくするために、クラスの目的を示す名前を付けることをお勧めします。</p>
+					</div>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>エラー回避（法的、金融及びデータ）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.3.4 Error Prevention (Legal, Financial, Data)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.3.4</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>フォーム</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>利用者にとって法律行為もしくは金融取引が生じる、利用者が制御可能なデータストレージシステム上のデータを変更若しくは削除する、又は利用者が試験の解答を送信するウェブページでは、次に示す事項のうち、少なくとも一つを満たしている。</p>
+							
+							<dl>
+								<dt>取消</dt>
+								<dd>
+									<p>送信を取り消すことができる。</p>
+								</dd>
+								
+								<dt>チェック</dt>
+								<dd>
+									<p>利用者が入力したデータの入力エラーがチェックされ、利用者には修正する機会が提供される。</p>
+								</dd>
+								
+								<dt>確認</dt>
+								<dd>
+									<p>送信を完了する前に、利用者が情報の見直し、確認及び修正をするメカニズムが利用できる。</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html">達成基準 3.3.4の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data">達成基準 3.3.4を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G98">G98：送信する前に、利用者が回答を確認及び修正できるようにする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G99">G99：削除した情報を復元する機能を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G155">G155：送信ボタンに加えてチェックボックスを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G164">G164：オンラインリクエスト後に、利用者がそのリクエスト（又はトランザクション）を修正又はキャンセルできる一定の時間を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G168">G168：選択されたアクションを続行するために確認を求める</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、データを保存するサーバーに送信する前に、ユーザーがデータのエラーを修正したり、データを見直したりする機会を確保することです。あるいは、送信を取り消す機能をユーザーに提供する必要があります。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>デジタル出版物では通常、法的データや財務データは収集されないため、この達成基準はほとんどの場合、テストにのみ適用されます。</p>
+				
+				<p>デジタル教科書には、リモート サーバー（例：学校のコース ポータルなど）に提出されるテストが含まれている場合があります。このような場合、コンテンツ製作者は入力を検証し、送信前にユーザーがエラーを修正できるようにするか、ユーザーに入力を確認するための変更を提供する必要があります。理想的には、両方のオプションが提供されることです。</p>
+				
+				<p>提出を取り消すことが、この基準を満たす唯一の方法である場合は、出版物以外の代替手段を見つけることが推奨されます。たとえば、ユーザーは、テストを完了するために与えられた期間が終了するまで、コース ポータルから提出を取り消すことができるかもしれません。</p>
+				
+				<p>達成基準は、データがリモート サーバーに転送され、保存される場合にのみ適用されることに注意してください。デジタル出版物内でのみ実行されるクイズやその他の埋め込みテストは、これらの要件の対象ではありません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページには、コンテンツを出版する際にこの達成基準を満たす方法が記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/input-validation.html">入力検証</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
