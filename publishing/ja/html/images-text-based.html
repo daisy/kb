@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>テキストベースの画像（Text-based Images）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Practices for identifying and describing text-based images">
+		<script>
+			var page_info = {
+				'topic': ['HTML'],
+				'appliesTo': ['EPUB3','EPUB2','Audiobooks*'],
+				'related': ['html-image-desc','html-image-text','html-image-deco','html-image-icon','html-image-select',]
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>テキストベースの画像を識別して説明することで、その中に含まれるテキストを支援技術が無視したり読み上げようとしたりしないようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>テキストベースの画像を識別するには、 <code>role</code>属性の値<code>img</code>を使用します。[[WCAG-1.3.1]]</li>
+					<li>代替テキストや拡張説明を提供します。[[WCAG-1.1.1]]</li>
+					<li>テキストと背景の間に十分なコントラストがあるようにします。[[WCAG-1.4.3]]</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 代替テキスト付きの ASCII 描画</div>
+						<p><code>aria-label</code>属性は代替テキストの説明を提供します。この属性は、 <code>img</code>要素でのみ許可される<code>alt</code>属性と同じ目的を果たします。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Winnie the Pooh with Hunny pot"&gt;
+    _
+ __( )_
+(      (o____
+ |          |
+ |      (__/
+   \     /   ___
+   /     \  \___/
+ /    ^    /     \
+|   |  |__|_HUNNY |
+|    \______)____/
+ \         /
+   \     /_
+    |  ( __)
+    (____)
+&lt;/pre&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 代替テキスト付きの絵文字</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;span role="img" aria-label="shrug"&gt;¯\_(ツ)_/¯&lt;span&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — 編集テキスト</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;In the case of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text"&gt;_____&lt;span&gt;
+   it is clear that the crime of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text"&gt;_____&lt;span&gt;
+   …
+&lt;p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 4 — 説明付きのASCII描画</div>
+						<p><code>aria-describedby</code>属性は、ASCII 画像の説明を提供するために使用されます。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Skeleton in graveyard"
+    aria-describedby="skeleton-desc"&gt;
+           _..--""---.
+          /           ".
+          `            l
+          |'._  ,._ l/"\
+          |  _J&lt;__/.v._/
+           \( ,~._,,,,-)
+            `-\' \`,,j|
+               \_,____J
+          .--.__)--(__.--.
+         /  `-----..--'. j
+         '.- '`--` `--' \\
+        //  '`---'`  `-' \\
+       //   '`----'`.-.-' \\
+     _//     `--- -'   \' | \________
+    |  |         ) (      `.__.---- -'\
+     \7          \`-(               74\\\
+     ||       _  /`-(               l|//7__
+     |l    ('  `-)-/_.--.          f''` -.-"|
+     |\     l\_  `-'    .'         |     |  |
+     llJ   _ _)J--._.-('           |     |  l
+     |||( ( '_)_  .l   ". _    ..__I     |  L
+     ^\\\||`'   "   '"-. " )''`'---'     L.-'`-.._
+          \ |           ) /.              ``'`-.._``-.
+          l l          / / |                      |''|
+           " \        / /   "-..__                |  |
+           | |       / /          1       ,- t-...J_.'
+           | |      / /           |       |  |
+           J  \  /"  (            l       |  |
+           | ().'`-()/            |       |  |
+          _.-"_.____/             l       l.-l
+      _.-"_.+"|                  /        \.  \
+/"\.-"_.-"  | |                 /          \   \
+\_   "      | |                1            | `'|
+  |ll       | |                |            i   |
+  \\\       |-\               \j ..          L,,'. `/
+ __\\\     ( .-\           .--'    ``--../..'      '-..
+   `'''`----`\\\\ .....--'''
+              \\\\                           -nabis  ''
+
+&lt;/pre&gt;
+&lt;p id="skeleton-desc" hidden=""&gt;
+   A skeleton is posing next to a grave marker …
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">空欄を埋めるフィールドはテキストベースの画像ですか?</dt>
+					<dd>
+						<p>はい、回答を記入する場所を示すために下線を使用するのは、テキストベースの画像の一種です。これらのフィールドが識別されていない場合、通常、回答が必要であることや回答の長さがユーザーにはわかりません。</p>
+						<p>フィールドの代替テキストを使用して、予想される入力内容を説明できます。</p>
+						<p>たとえば、自由形式の入力フィールドは次のように表現できます。</p>
+						<pre class="prettyprint linenums"><code>&lt;p&gt;The US capital
+   &lt;span role="img" aria-label="answer field"&gt;__________&lt;span&gt;
+   is located on the Potomac River.&lt;/p&gt;</code></pre>
+						<p>特定の文字数を期待するフィールドは次のように表現できます。</p>
+<pre class="prettyprint linenums"><code>&lt;p&gt;The quick brown 
+   &lt;span role="img" aria-label="answer field - 3 letters"&gt;_ _ _&lt;span&gt;
+   jumped over the lazy dog.&lt;/p&gt;</code></pre>
+						<p>理想的には、出版社はテキスト入力にネイティブ HTML フォーム フィールドを使用すべきですが、デジタル版で印刷版を正確に複製する必要がある場合に、これが常に可能であるとは限りません。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>「ASCII アート」という名前は、一般的にテキストベースの画像を表すために使用されますが、そのようなアートワークが ASCII セットの印刷可能な文字のみで構成されているわけではありません。最新のコンピューターで Unicode がサポートされているということは、Unicode プレーンのすべての印刷可能な文字が使用可能になっていることを意味します。</p>
+				
+				<p>テキストベースの画像の要件は、ラスター画像やベクター画像とほぼ同じですが、実装が若干異なります。重要な違いの 1 つは、テキストベースの画像は、デフォルトでは周囲のテキストと区別できないことです（つまり、JPEG や SVG のように、別の形式ではなく、固有のタグもありません）。</p>
+				
+				<p>一連の文字がテキストベースの画像を表すことを識別するには、画像の周囲のタグに、値が「 <code>img</code> 」である ARIA <code>role</code>属性を追加します（<a href="#ex-01">例 1</a>を参照）。テキストベースの画像は、レイアウトを維持するために<code>pre</code>タグで囲まれることがよくありますが、たとえば、1 行の画像は<code>span</code>タグで囲まれることがあります。</p>
+				
+				<p>テキストベースの画像をロールで識別しない場合、支援技術は画像に含まれるテキストを読み上げようとします。句読点で構成される画像の場合、ユーザーには何も読み上げられない可能性があります（一時停止のみが聞こえる場合があります）。英数字を含む画像の場合、文字が読み上げられるときにユーザーには意味不明な内容が聞こえる場合があります。</p>
+				
+				<p>画像が特定されると、要件は他の画像の場合と同様になります。代替テキストは通常必須ですが、 <code>img elements</code>でのみ許可されるため、 <code>alt</code>属性で指定することはできません。テキストベースの画像の場合、 <code>aria-label</code>または<code>aria-labelledby</code>属性を使用して代替テキストを指定できます（<a href="#ex-01">例 1</a>を参照）。</p>
+				
+				<p>複雑な画像の場合、 <code>aria-describedby</code>または<code>aria-details</code>属性を使用して説明を提供できます（<a href="#ex-04">例 4</a>を参照）。画像の説明の詳細については、<a href="images-desc.html">画像の説明</a>ページを参照してください。</p>
+				
+				<p>テキストベースの画像のコントラストの問題を考慮することも重要です。WCAG では画像に十分なコントラストがあることは厳密には要求されていませんが（画像に実際の文字が含まれている場合を除く）、テキスト文字を使用すると、画像の作成に使用されたテキストと画像が表示される背景とのコントラストを、製作者が制御できます。十分なコントラストを使用することで、読者が画像を認識できるようになります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#img"><code>img</code>（ロール）</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role">ARIA: img ロール</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
