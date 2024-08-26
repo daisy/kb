@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Schema.org アクセシビリティ メタデータ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using schema.org accessibility metadata in publications">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>出版物がどのように配布または消費されるかに関係なく発見を可能にするために、schema.orgアクセシビリティ メタデータを含めます。</p>
+			</section>
+
+			<section id="prop">
+				<h3>プロパティ</h3>
+
+				<p><a href="http://www.schema.org/CreativeWork">schema.org の CreativeWork クラスには、</a>出版物のアクセス可能な品質を識別するために使用される一連のプロパティが含まれています。このメタデータは、RDFa または microdata 属性を使用して HTML ドキュメントで表現され、コンテンツ (ビデオなど) のアクセス可能な品質を識別できます。また、EPUB パッケージ ドキュメントに含めることで、出版物の特定のレンディションのアクセシビリティの全体像を提供することもできます。</p>
+
+				<p>各プロパティの使用方法の詳細については、それぞれのナレッジ ベース ページを参照してください。</p>
+
+				<ul>
+					<li>
+						<a href="accessibilityFeature.html"><code>accessibilityFeature</code></a>
+					</li>
+					<li>
+						<a href="accessibilityHazard.html"><code>accessibilityHazard</code></a>
+					</li>
+					<li>
+						<a href="accessibilitySummary.html"><code>accessibilitySummary</code></a>
+					</li>
+					<li>
+						<a href="accessMode.html"><code>AccessMode</code></a>
+					</li>
+					<li>
+						<a href="accessModeSufficient.html"><code>accessModeSufficient</code></a>
+					</li>
+				</ul>
+				
+				<div class="note" role="note" aria-labelledby="opt-note">
+					<p id="opt-note" class="label">注記</p>
+					<p><a href="accessibilityAPI.html"><code>accessibilityAPI</code></a>と<a href="accessibilityControl.html"><code>accessibilityControl</code></a>も schema.org アクセシビリティの プロパティですが、デジタル出版物の記述に使用されることはほとんどありません。</p>
+				</div>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — パッケージ ドキュメントのメタデータ （EPUB 3）</div>
+						<p>次の例は、MathML と説明付き画像、およびアクセシブルなスクリプト コンテンツを含む数式の教科書の典型的なメタデータ セットを示しています。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta property="schema:accessibilitySummary"&gt;
+     This publication conforms to WCAG 2.0 Level AA.
+  &lt;/meta&gt;
+  &lt;meta property="schema:accessMode"&gt;textual&lt;/meta&gt;
+  &lt;meta property="schema:accessMode"&gt;visual&lt;/meta&gt;
+  &lt;meta property="schema:accessModeSufficient"&gt;textual&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;structuralNavigation&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;MathML&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;alternativeText&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;longDescription&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noFlashingHazard&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noSoundHazard&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noMotionSimulationHazard&lt;/meta&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — パッケージ ドキュメントのメタデータ （EPUB 2）</div>
+						<p>以下は、EPUB 2 パッケージ ドキュメントで使用されるわずかに異なる構文（つまり、 <code>name</code>と<code>content</code>属性の使用）を示す<a>例 1</a>の部分的なレンダリングです。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta name="schema:accessibilitySummary" content="This publication conforms to WCAG 2.0 Level AA."/&gt;
+  &lt;meta name="schema:accessMode" content="textual"/&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — オーディオブックのマニフェストメタデータ</div>
+						<p>次の例は、オーディオブックのマニフェストで使用するために、例 1 を JSON で書き直したものです。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums small"><code>…
+  "accessibilitySummary": "This publication conforms to WCAG 2.0 Level AA.",
+  "accessMode": ["textual", "visual"],
+  "accessModeSufficient" : [
+    {
+      "type": "ItemList",
+      "itemListElement": [textual]
+    }
+  ],
+  "accessibilityFeature": ["structuralNavigation", "MathML", "alternativeText", "longDescription"],
+  "accessibilityHazard": ["noFlashingHazard", "noSoundHazard", "noMotionSimulationHazard"],
+  …</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — 埋め込みメタデータ（RDFa）</div>
+						<p>単一のビデオを説明するアクセシビリティ メタデータは、HTML ドキュメントの本文に含まれています。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video"&gt;
+  &lt;video controls="controls" src="croc.mp4"/&gt;
+  &lt;meta property="accessibilityFeature" content="captions"/&gt;
+  &lt;meta property="accessibilityFeature" content="transcript"/&gt;
+  &lt;meta property="accessibilityHazard" content="none"/&gt;
+  &lt;p&gt;A transcript of the video follows:&lt;/p&gt;
+  …
+&lt;/div&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li> 						<a href="http://www.a11ymetadata.org">a11ymetadata プロジェクト</a>
+</li>
+					<li> 						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS Global Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
