@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ホバー又はフォーカスで表示されるコンテンツ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.13 Content on Hover or Focus">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.13</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ポインタホバー又はキーボードフォーカスを受け取ってから外すことで、追加コンテンツを表示させてから非表示にさせる場合は、以下の要件を全て満たす：</p>
+							
+							<dl>
+								<dt>非表示にすることができる</dt>
+								<dd>
+									<p>ポインタホバー又はキーボードフォーカスを動かさずに追加コンテンツを非表示にするメカニズムが存在する。ただし、追加コンテンツが入力エラーを伝える場合や、他のコンテンツを不明瞭にしたり置き換えたりしない場合は除く。</p>
+								</dd>
+								
+								<dt>ホバーすることができる</dt>
+								<dd>
+									<p>ポインタホバーによって追加コンテンツを表示させることができる場合、その追加コンテンツを消すことなく、ポインタを追加コンテンツ上で動かすことができる。</p>
+								</dd>
+								
+								<dt>表示が継続される</dt>
+								<dd>
+									<p>ホバーやフォーカスが解除される、利用者が非表示にする、又はその情報が有効でなくなるまでは、追加コンテンツが表示され続ける。</p>
+								</dd>
+							</dl>
+							
+							<p>例外：追加コンテンツの視覚的提示がユーザエージェントによって制御されていて、かつコンテンツ制作者が変更していない場合は例外とする。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">達成基準 1.4.13の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus">達成基準 1.4.13を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">WCAG には現在、この達成基準に関して次の文書化されていない達成方法のみが含まれています。<ul>
+<li> ARIA：role="tooltip" を使用する</li>
+<li>CSS：hover 及び focus 疑似クラスを使用する</li>
+</ul>
+</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ホバーまたはフォーカス イベントで表示される情報の表示をユーザーがコントロールできるようにし、下にあるコンテンツの読み取りを妨げないようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ制作者がホバーまたはフォーカス イベントで表示されるコンテンツを追加する場合、達成基準の各要件が満たされていることを確認する必要があります。</p>
+				
+				<p>デジタル出版物は、ポインティング デバイスとキーボードを使用してユーザーが読むように設計されていることはほとんどないため、この達成基準は一般的に適用されません。出版物で最も近い類似点はポップアップ脚注ですが、これらはリーディングシステムによって生成され、また通常は表示するためにクリック イベントを必要とするため、この達成基準には該当しません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>出版フォーマットでの実装が不十分であるため、ナレッジベースには現在ライブ ストリーミングコンテンツに関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>入力メカニズムの共存</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.6 Concurrent Input Mechanisms">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.6</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>フォーム</li>
+								<li>インタラクティブ コンテンツ</li>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>プラットフォームで提供されている入力モダリティの使用を、ウェブコンテンツが制限しない。ただし、その制限が必要不可欠な場合、コンテンツのセキュリティのために必要な場合、又は利用者による設定を尊重するうえで必要な場合は例外とする。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html">達成基準 2.5.6の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#concurrent-input-mechanisms">達成基準 2.5.6を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">WCAGには現在、この達成基準に関して文書化されていない次の達成方法のみ含まれます。： 							<ul> <li>Javascriptでは、高レベルの入力に依存しないイベントハンドラ（フォーカス、ぼかし、クリック）のみを使用する。（オペレーティングシステム／UAは、すべての入力メカニズムに対してこれらのイベントを発生させる。）</li>
+</ul>
+</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、利用者が好みの入力方法でコンテンツをコントロールできることを保証することです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ制作者は、特定種類の入力でのみ動作するようにコントロールを設計してはなりません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースでは、現在、アクセシブルな入力モダリティの作成について含まれておりません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

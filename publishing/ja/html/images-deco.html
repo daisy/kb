@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>装飾画像（Decorative Images）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for identifying decorative images.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-image-desc','html-image-select','html-image-anim','html-image-icon','html-image-text']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>装飾的な画像がユーザーに表示されないようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>装飾画像には空の alt 属性（ <code>alt=""</code> ）を入れるようにします。[[WCAG-1.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 — 空の<code>alt</code>属性</div>
+						<p><code>alt</code>属性が空の場合、画像にはユーザー向けの情報が含まれていないことを示します。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    alt=""/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 - ARIA ロールの<code>presentation</code>を持つ空の<code>alt</code>属性</div>
+						<p>空の<code>alt</code>属性は、ロールの<code>presentation</code>によって補完され、画像にユーザー向けの情報が含まれていないことを示します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    role="presentation"
+    alt=""/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 — ARIA ロールの<code>presentation</code>
+</div>
+						<p>コンテンツ製作者は空の<code>alt</code>属性の代わりに <code>presentation</code>ロールを使用できますが、この方法は十分にサポートされていません。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;img
+    src="graphics/gothic-border.png"
+    role="presentation"/&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>出版物のすべての画像に、テキストを理解するための重要な情報が含まれているわけではありません。新しい章の始まりを強調するために装飾的な趣向が使われている場合もありますが、こうした画像の形や形式はテキストの理解とは無関係です。同様に、教科書には、新しいセクションの始まりに、ページを視覚的に埋めることだけを目的とした装飾的な写真が含まれていることがあります。</p>
+				
+				<p>画像が純粋に装飾的なものである場合は、その<code>alt</code>属性を空のままにしておく必要があります。これにより、画像の存在を通知しないように支援技術に指示し、説明のない画像が表示されている理由を理解しようとするユーザーの負担を軽減します。</p>
+				
+				<p>装飾画像がアナウンスされないようにするために、プロパティ<code>presentation</code>を持つ ARIA <code class="property">role</code>属性を追加できます。この方法は、編集者が空の<code>alt</code>属性を持つすべての画像をチェックして装飾用であることを確認するために、一部の出版社で使用されています。</p>
+				
+				<div class="note" role="note" aria-labelledby="bp-note">
+					<p id="bp-note" class="label">注記</p>
+					<p>画像が純粋に装飾的なものである場合は ARIA ロールを追加するのがベストプラクティスですが、WCAG への準拠には必須ではありません。</p>
+					
+					<p>ARIA 1.1 では、 <code>presentation</code>よりも<code>none</code>ロールが優先されますが、これは十分にサポートされていません。<a href="https://www.w3.org/TR/wai-aria-1.1/#none">ARIA 1.1 仕様</a>では、 <code>presentation</code>単独で使用するか、 <code>none</code>のフォールバックとして使用することを推奨しています。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>DIAGRAM — <a href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">EPUB で拡張説明を作成するためのベスト プラクティス</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

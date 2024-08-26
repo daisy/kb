@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>識別子</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for ensuring that identifiers do not conflict.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>すべての識別子が一意であることを確認することで、コンテンツのナビゲーションやアクセスに関する問題を防ぐことができます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>すべての<code>id</code>属性が一意の値を持つことを確認します。[[WCAG-4.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 一意性のために<a href="https://tools.ietf.org/html/rfc4122">UUID</a>を使用する</div>
+						<p>UUID は一意である可能性が非常に高いため、 <code>id</code>属性で使用されます。(X)HTML5 では、UUID は文字または数字で始めることができますが、XML 形式では文字で始まる必要があります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section id="fad1bb2a-ecdc-4cb5-886f-aedbd7cb2adb"&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — ニーモニック（簡略記憶記号）の使用</div>
+						<p>ニーモニックは、コンテンツを識別するのに役立つ命名規則です。この例の場合、 <code>c01</code>は「Chapter 1」に使用されます。ニーモニックは、コンテンツが移動またはリミックスされるたびに更新する必要があるため、多くの場合、適切な選択ではありません。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section id="c01"&gt;
+   &lt;h2&gt;Chapter 1&lt;/h2&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>ドキュメント内のすべての<code>id</code>属性が一意でない場合、ユーザー エージェントはどの属性が参照されているかを理解できません。たとえば、ユーザーが特定のセクションに移動しようとしている場合、ユーザー エージェントはどのセクションに移動すべきかを判断できません。識別子を持つ最初のセクションにユーザーを移動させるか、ドキュメントの先頭でユーザーを放置するかのどちらかになります。</p>
+				
+				<p>(X)HTML5 の識別子の唯一の要件は、一意であること以外に、スペースを含まないことです。</p>
+				
+				<p>識別子がドキュメント全体で一意であることは必須ではありませんが、すべての識別子の一意性を確保することをお勧めします。</p>
+				
+				<section id="epub">
+					<h4>EPUB</h4>
+					
+					<p>(X)HTML5 では任意の文字列を識別子として使用できますが、XML および XHTML 1.1 のルールはより厳格です（たとえば、識別子は数字で始めることやコロンを含めることはできません）。たとえば、EPUB 2 出版物などで無効な識別子を使用すると、XML エラーが発生し、コンテンツではなくエラーが表示される可能性があります。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id">id</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute"><code>id</code>属性</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
