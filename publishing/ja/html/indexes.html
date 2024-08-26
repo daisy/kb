@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>索引（Indexes）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of indexes.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>セクションとリストを使用して索引を構成し、各項目へのアクセスを簡素化します。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>
+						<p><code>section</code>要素を使用して、関連するエントリーのセットをグループ化します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各セクションに見出しを含めます [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p><code>ul</code>要素を使用して、エントリーのリストを構造化します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>リンクを容易にするために、静的なページ区切り位置をテキストに含めます。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例1 — 明確な見出しのある索引</p>
+					</figcaption>
+
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-index"&gt;
+   &lt;h1&gt;Subject Index&lt;/h1&gt;
+   
+   &lt;section&gt;
+     &lt;h2&gt;A&lt;/h2&gt;
+     
+     &lt;ul&gt;
+       &lt;li&gt;
+         Apples, &lt;a href="#page01"&gt;1&lt;/a&gt;, 
+         &lt;a href="#page27"&gt;27&lt;/a&gt;
+       &lt;/li&gt;
+       …
+     &lt;/ul&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/nav&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例 2 — 暗黙的な見出しのある索引</p>
+						<p>索引エントリーのセットが視覚的なスペースによってのみ区切られている場合は、 <code>aria-label</code>属性を使用して支援技術用の見出しを提供します。</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-index"&gt;
+   &lt;h1&gt;Index&lt;/h1&gt;
+   
+   &lt;section aria-label="A"&gt;
+     &lt;ul&gt;
+       &lt;li&gt;
+         Apples, &lt;a href="#page01"&gt;1&lt;/a&gt;, 
+         &lt;a href="#page27"&gt;27&lt;/a&gt;
+       &lt;/li&gt;
+       …
+     &lt;/ul&gt;
+   &lt;/section&gt;
+   
+   &lt;section aria-label="B"&gt;
+     &lt;ul&gt;
+       &lt;li&gt;
+         Blueberries, &lt;a href="#page01"&gt;1&lt;/a&gt;, 
+         &lt;a href="#page27"&gt;27&lt;/a&gt;
+       &lt;/li&gt;
+       …
+     &lt;/ul&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/nav&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例3 — ヘッダー付き索引</p>
+						<p><code>header</code>要素を使用して、索引エントリーのリストの前に予備情報をグループ化します。</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-index"&gt;
+   &lt;header&gt;
+      &lt;h1&gt;Index&lt;/h1&gt;
+      
+      &lt;p&gt;This is an index to the main text …&lt;/p&gt;
+	
+      &lt;p&gt;Alphabetization is word-by-word: …&lt;/p&gt;
+   &lt;/header&gt;
+   
+   …
+&lt;/nav&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-indexes-spec">EPUB インデックス仕様に従う必要がありますか？</dt>
+					<dd>
+						<p> <code>epub:type</code>セマンティクスの使用は必須ではありませんが、この文書の構造化原則に従うことが推奨され、アクセシビリティに最も役立つ原則はこのページで繰り返し説明されています。これらのセマンティクスは出版社の内部ワークフローには役立つかもしれませんが、現時点ではリーディングシステムの索引を強化するものではなく、 <code>epub:type</code>セマンティクスはアクセシビリティを提供しません。</p>
+
+						<p>現時点では仕様の採用が限られているため、仕様のパッケージ ドキュメント識別要件に従う必要はありません。</p>
+					</dd>
+
+					<dt id="faq-element">索引には<code>nav</code>要素と<code>section</code>要素のどちらを使用すればよいですか?</dt>
+					<dd>
+						<p>どちらも技術的には許容されますが、 <code>nav</code>要素を優先するべきです。索引は、目次と似て非なるナビゲーション補助機能で、コンテンツの重要な領域へのリンクのリストです。</p>
+					</dd>
+
+					<dt id="faq-range">複数のページにまたがるトピックにリンクするにはどうすればよいですか?</dt>
+					<dd>
+						<p>トピックにページ範囲が含まれている場合は、範囲全体にタグを付け、最初のページにリンクします。</p>
+
+						<pre id="ex-faq-range" class="prettyprint"><code>&lt;a href="c02.xhtml#pg49" aria-label="49 to 51"&gt;49–51&lt;/a&gt;</code></pre>
+
+						<p>最初のページと最後のページにリンクしたり、範囲を分割して個々のページにリンクしたりすることは避けてください。索引エントリーの意味は十分に確立されているため、範囲を一連のページにすると、特に句読点を読み上げない支援技術を使用している場合は、議論の範囲について読者を混乱させる可能性があります。</p>
+
+						<p>ユーザーが範囲の終わりに到達したことを判断できるように、テキストに<a href="../navigation/pagelist.html">ページ区切りマーカー</a>を含めるようにしてください。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>索引のアルファベット順および数字順に関連するエントリー間のナビゲーションを容易にするには、ネストされた<code>section</code>要素を使用します。多くの索引には、エントリーセット間の見出しとして数字または文字が含まれていますが、これらが存在しないか必要でない場合は、囲んでいるセクションの<code>aria-label</code>属性に数字または文字を含めて、支援技術によって読み上げられるようにします。また、明示的または暗黙的な見出しがないと、支援技術ではセクション間を移動する機能が提供されないことがよくあります（純粋にスタイル要素として扱われます）。</p>
+
+				<p>各セクションのエントリーは、順序なしリストを使用して構造化します。エントリーのアルファベット順の順序は重要ではないためです（たとえば、索引は、情報を失うことなく逆順に並べ替えることができます）。リストを使用すると、支援技術のユーザーは、段落や同様のマークアップを使用した場合のように、一度に 1 つずつ移動する必要がなくなり、リスト項目をジャンプして前後に行き来できます。</p>
+
+				<p>リストを使用すると、ナビゲーションが簡単になるだけでなく、リスト内の位置が通知されるため、ユーザーは必要に応じて後で同じ場所にすばやく戻ることができます。</p>
+
+				<p>電子出版物を参照するための最適な方法はまだ進化していますが、多くの出版物では静的な<a href="../navigation/pagelist.html">ページ区切りマーカー</a>が使用されています。これらは印刷版ソースと一致したものでなければならないわけではなく、索引からの安定した参照を確保するために、純粋にデジタル作品のみにも追加できます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-index"><code>doc-index</code> (ロール)</a>
+</li>
+					<li><a href="http://www.idpf.org/epub/idx">EPUB インデックス 1.0</a></li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code>要素</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element"><code>ul</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
