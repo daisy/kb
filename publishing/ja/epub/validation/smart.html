@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Ace SMART</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of using the Ace SMART tool to manually verify accessibility.">
+		<script>
+			var page_info = {
+				'category':[ 'EPUB', 'Validation'],
+				'appliesTo':[ 'EPUB3', 'EPUB2'],
+				'addh4': true,
+				'details': true
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="getting-started">
+				<h3>はじめに</h3>
+				
+				<p><a href="https://smart.daisy.org">SMARTツール</a>は、<a href="ace.html">Aceアクセシビリティ チェッカー</a>を補完する無料のWebベース ツールです。評価者がWCAGおよびEPUBアクセシビリティ規格に準拠していることを確認するために必要な手動チェックを行うのに役立ちます。</p>
+				
+				<section id="smart-load">
+					<h4>評価をはじめる</h4>
+					
+					<div class="note" role="note" aria-labelledby="report-note">
+						<p id="report-note" class="label">注記</p>
+						<p>このガイドは<a href="ace.html#ace-export">、Aceから<code>report.json</code>ファイルを出力する</a>方法に関する基本的な知識があることを前提としています。</p>
+					</div>
+					
+					<p>SMARTにログインすると、Aceツールと同様に新しい評価が開始されます。ただし、EPUBファイルをアプリケーションにドラッグする代わりに、Aceによって出力された<code>report.json</code>ファイルをページ上の青いボックスにドラッグ アンド ドロップするか、ボックス内のリンクを使用してアップロードするファイルを選択します。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-load.png" width="650" alt="ドラッグアンドドロップボックスとリンク">
+					
+					<div class="note" role="note" aria-labelledby="blank-note">
+						<p id="blank-note" class="label">注記</p>
+						<p>ボックスの下のリンクを使用してはじめから評価を開始することもできますが、最初にAceを実行せずに出版物を評価することはお勧めしません。詳細については、 <a href="#limitations">「制限事項」</a>を参照してください。</p>
+					</div>
+					
+					<p>Aceレポート ファイルが正常に読み込まれると、レポートのインポート ダイアログが表示されます。</p>
+					<img src="../../../../graphics/publishing/smart/smart-import.png" width="450" alt="インポートダイアログ">
+					
+					<p>このダイアログには、SMART ツールが出版物に対してどのように最適化されているかが表示されます。たとえば、出版物に見つからないメディア タイプに対して無効になっているテストが一覧表示されます（たとえば、音声がない場合は音声チェックを一覧表示する必要はありません）。</p>
+					
+					<p>SMARTツールは、存在すべきメタデータを提案することもできます。提案された場合は、このダイアログで設定されているものが表示されます。</p>
+					
+					<p>インポートの詳細を確認した後、ダイアログを閉じて出版物の評価を開始できます。</p>
+				</section>
+				
+				<section id="smart-eval">
+					<h4>出版物の評価</h4>
+					
+					<section id="smart-metadata">
+						<h5>出版物情報</h5>
+						
+						<p>出版物情報タブは、SMART評価インターフェースのデフォルト ビューです。このタブでは、タイトルや著者など、出版物に関する一般的な情報を確認および変更できます。ただし、このメタデータは、SMARTツールが生成する最終レポートでのみ使用されます。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-pub-metadata.png" width="650" alt="出版情報入力フィールド">
+						
+						<p>注目すべき重要なフィールドの1つは、出版形式です。SMARTツールは、Aceレポートに基づいてこのフィールドを EPUB 3 または 2 に自動的に設定しますが、ここで指定された値は、後の評価手順（つまり、<a href="#smart-discovery">検出</a>および<a href="#smart-result">結果</a>のメタデータ）で生成するタグ付けのタイプを決定するためにも使用されます。ツールが間違ったタグを出力する場合は、形式が正しく設定されていることを確認してください。</p>
+						
+						<p>レポートを生成するには、出版物のタイトルと最終更新日の2つのメタデータ フィールドが必要です。これらはレポートの重要なコンテキストを提供するため、設定する必要があります。</p>
+						
+						<p>フォームの下部にある「追加メタデータ」フィールドは、最終レポートに追加情報を含めるために使用されます。ここで入力するデータは、メタデータ標準に準拠する必要はありません。このフィールドには、コロンとスペースで区切られた、人間が判読できるラベルを入力します（例: 「地域: 北米」）。</p>
+						
+						<div class="note" role="note" aria-labelledby="meta-note">
+							<p id="meta-note" class="label">注記</p>
+							<p>最終レポートでメタデータを人間が読めるように翻訳するため、SMARTツールでは現在、変更が行われた際に新しいメタデータ タグを生成するオプションは提供されていません。このような場合は、元の出版物を手動で更新する必要があります。</p>
+						</div>
+					</section>
+					
+					<section id="smart-conformance">
+						<h5>適合性</h5>
+						
+						<p>適合性タブには、出版物がアクセシブルであることを確認するために実行する必要があるすべてのテストが含まれています。各テストは自己完結型のユニットであり、適合性を評価する方法に関する指示と、合格か不合格かを示すフィールドが含まれています。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-sc.png" width="550" alt="達成基準の評価">
+						
+						<p>各テストにはラベルが付けられ、どの規格に準拠しているかが識別されます。WCAG達成基準の場合、適合レベル（A または AA）も提供されます。</p>
+						
+						<p>ラベルの下には、テストを評価する方法の説明があります。マークアップに問題がないか確認するには、編集プログラムで出版物を開く必要があります。</p>
+						
+						<div class="note" role="note" aria-labelledby="conf-note">
+							<p id="conf-note" class="label">注記</p>
+							<p><a href="ace.html#ace-report">Ace HTML レポート</a>は、ドキュメント構造と画像を確認できるため、適合性評価中に開くと便利です。</p>
+						</div>
+						
+						<p>SMARTツールで提供される手順は、テストに合格するためにチェックする必要があるすべての項目を網羅することを目的としていますが、これはすべてのケースで提供可能です。一部のWCAG基準では、マークアップの詳細なチェックが必要です。これらのテストでは、最も一般的な問題のリストが含まれています。</p>
+						
+						<p>ツールで提供されるガイダンスに加えて、このナレッジベース、WCAG サポート ドキュメント、および EPUB アクセシビリティ テクニック内の追加文書へのリンクも提供されます。これらのリンクは最初は非表示になっていますが、関連する見出しを展開すると表示できます。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-sc-doc.png" width="350" alt="WCAG達成方法集へのリンクの拡張">
+						
+						<p>ステータス セクションは、テストの評価結果を指定するためのものです。テストには、完全な基準が満たされたかどうかに基づいて、単純な合格/不合格のステータスが割り当てられます。</p>
+						
+						<p>不合格の評価をする場合は、表示されるメモフィールドに不合格の理由を指定する必要があります。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-sc-fail.png" width="550" alt="エラーメモ欄">
+						
+						<p>テストが出版物に適用できない場合は、N/Aステータスを設定すると説明とリンクが折りたたまれ、ステータス セクションのグレーのボックスのみが残ります。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-sc-na.png" width="550" alt="該当しないテスト">
+						
+						<p>SMARTツールは、Aceレポートからテストが適用されそうにないと判断した場合、自動的にテストをN/Aに設定します（たとえば、テキスト コンテンツのみの場合、すべての画像、音声、およびビデオ テストは適用不可に設定されます）。</p>
+						
+						<p>一般的なメモフィールドは、割り当てられているステータスに関係なく、どのテストでも使用できます。メモを追加するには、ステータス セクションの下のチェックボックスをクリックします。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-sc-note.png" width="550" alt="メモ欄">
+						
+						<p>このフィールドのメモには、たとえば、エラーを修正する方法の指示や、テストが適用できないとみなされる理由の説明などが記載されます。</p>
+						
+						<p>該当するすべての適合性テストを完了したら、次のステップは、出版物に埋め込まれた発見メタデータを確認することです。</p>
+					</section>
+					
+					<section id="smart-discovery">
+						<h5>発見可能性</h5>
+						
+						<p>[発見可能性]タブには、出版物のアクセシビリティ メタデータが表示されます。タブには、<a href="https://www.w3.org/TR/epub-a11y/#sec-disc-package">EPUBアクセシビリティ規格</a>で要求または推奨されている各プロパティの入力フィールドが含まれています。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-discovery.png" width="650" alt="発見メタデータフィールド">
+						
+						<p>これらのフィールドを入力する方法の詳細については、次の各ナレッジベース ページを参照してください。</p>
+						
+						<ul>
+							<li> 								<a href="../../metadata/schema.org/accessibilityFeature.html">アクセシビリティの機能</a>— アクセシビリティを著しく向上させるコンテンツの機能（例: 数式の理解とナビゲーションを向上させるMathMLマークアップ）。</li>
+							<li> 								<a href="../../metadata/schema.org/accessibilityHazard.html">アクセシビリティ上の危険性</a>— コンテンツがもたらす可能性のある潜在的な物理的危険性（例: 閃光による発作）。</li>
+							<li> 								<a href="../../metadata/schema.org/accessMode.html">アクセスモード</a>— 出版物内の情報が認識または処理される方法（例: 画像ベースのコンテンツが含まれている場合は視覚的に）。</li>
+							<li> 								<a href="../../metadata/schema.org/accessModeSufficient.html">十分なアクセスモード</a>— 出版物の情報を消費できるアクセスモードの組み合わせ（例: 画像を含む出版物は、テキスト処理と視覚認識の両方を使用して読み取ることができるだけでなく、画像の説明テキストがある場合は、テキストのみで読み取ることができる場合があります）。</li>
+							<li> 								<a href="../../metadata/schema.org/accessibilitySummary.html">アクセシビリティの概要</a>— 出版物のアクセシビリティに関する、人間が読める形式の要約。</li>
+						</ul>
+						
+						<p>SMARTツールは、値が適用される可能性があると判断した場合、新しい評価の読み込み中にこれらのフィールドを自動的に入力します。ただし、出版物を評価すると一部のフィールドが変更される場合があるため、設定された値を必ず確認してください（たとえば、すべての画像が装飾用であると判断された場合、画像関連のメタデータセットは適用されなくなる可能性があります）。</p>
+						
+						<p>アクセシビリティ メタデータが追加または変更された場合、SMARTツールは、出版物のパッケージ ドキュメントで使用する新しいタグのセットを作成できます。ページの下部にある [生成] ボタンをクリックすると、新しいマークアップを含むダイアログが開きます。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-discovery-metadata.png" width="550" aria-details="discovery-meta-details" alt="EPUB 3 発見メタデータタグ">
+						
+						<div id="discovery-meta-details" class="details desc">
+							<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span>説明</button>
+							<div class="details-body" id="desc01">
+								<p>次のEPUB3 アクセシビリティ メタデータ タグが、ダイアログウィンドウに表示されます。</p>
+								<pre id="discovery-meta-src" class="prettyprint"><code>&lt;meta property="schema:accessibilityFeature"&gt;alternativeText&lt;/meta&gt;
+&lt;meta property="schema:accessibilityFeature"&gt;readingOrder&lt;/meta&gt;
+&lt;meta property="schema:accessibilityFeature"&gt;tableOfContents&lt;/meta&gt;
+&lt;meta property="schema:accessibilitySummary"&gt;This EPUB Publication meets the requirements of the EPUB Accessibility specification with conformance to WCAG 2.0 Level AA. The publication is screen reader friendly.&lt;/meta&gt;
+&lt;meta property="schema:accessibilityHazard"&gt;none&lt;/meta&gt;
+&lt;meta property="schema:accessMode"&gt;textual&lt;/meta&gt;
+&lt;meta property="schema:accessMode"&gt;visual&lt;/meta&gt;
+&lt;meta property="schema:accessModeSufficient"&gt;textual,visual&lt;/meta&gt;
+&lt;meta property="schema:accessModeSufficient"&gt;textual&lt;/meta&gt;
+</code></pre>
+							</div>
+						</div>
+					</section>
+					
+					<section id="smart-distribution">
+						<h5>配布</h5>
+						
+						<p>[配布] タブは<a href="#smart-discovery">[発見可能性] タブ</a>と似ていますが、ONIX アクセシビリティ メタデータが表示される点が異なります。</p>
+						
+						<div class="note" role="note" aria-labelledby="onix-note">
+							<p id="onix-note" class="label">注記</p>
+							<p>ONIXは、販売用にベンダーに業界出版物を配布するために使用されるメタデータ形式です。出版物をこの方法で配布しない限り、このタブを確認する必要はありません。</p>
+						</div>
+						
+						<img src="../../../../graphics/publishing/smart/smart-distribution.png" width="650" alt="配布メタデータフィールド">
+						
+						<p>配布メタデータフィールドは発見可能性フィールドに似ていますが、2つの規格にはいくつかの違いがあります。発見可能性タブで設定されたメタデータに同等のONIXプロパティがある場合、そのフィールドは配布タブでも自動的に設定されます。たとえば、発見可能性タブに入力された要約は、ONIX <code>00</code>フィールドに自動的にコピーされます。</p>
+						
+						<p>ONIXレコードとアクセシビリティ メタデータの表現の詳細については、 <a href="../../metadata/onix.html">ONIX ナレッジベース ページ</a>を参照してください。</p>
+						
+						<p>発見メタデータと同様に、タブの下部にある [生成] ボタンをクリックすると、配布メタデータをネイティブ形式で出力することもできます。ONIXタグは新しいダイアログ ウィンドウに表示されます。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-distribution-metadata.png" width="550" aria-details="distribution-meta-details" alt="ONIX アクセシビリティ メタデータ タグ">
+						
+						<div id="distribution-meta-details" class="details desc">
+							<button type="button" aria-controls="desc02" aria-expanded="false" class="summary"><span class="status">▶</span>説明</button>
+							<div class="details-body" id="desc02">
+								<p>ダイアログ ウィンドウには、次の ONIX メタデータ タグが表示されます。</p>
+								<pre id="distribution-meta-src" class="prettyprint"><code>&lt;descriptiveDetail&gt;
+   &lt;productFormFeature&gt;
+      &lt;productFormFeatureType&gt;09&lt;/producFormFeatureType&gt;
+      &lt;productFormFeatureValue&gt;03&lt;/productFormFeatureValue&gt;
+   &lt;/productFormFeature&gt;
+   &lt;productFormFeature&gt;
+      &lt;productFormFeatureType&gt;09&lt;/producFormFeatureType&gt;
+      &lt;productFormFeatureValue&gt;11&lt;/productFormFeatureValue&gt;
+   &lt;/productFormFeature&gt;
+   &lt;productFormFeature&gt;
+      &lt;productFormFeatureType&gt;09&lt;/producFormFeatureType&gt;
+      &lt;productFormFeatureValue&gt;14&lt;/productFormFeatureValue&gt;
+   &lt;/productFormFeature&gt;
+&lt;/descriptiveDetail&gt;</code></pre>
+							</div>
+						</div>
+					</section>
+					
+					<section id="smart-result">
+						<h5>結果</h5>
+						
+						<p>結果タブには、出版物がEPUBアクセシビリティ規格の要件を満たしているかどうかが表示されます。このフィールドは、評価の実行時に自動的に更新されるため、編集できません。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-result.png" width="650" alt="結果メタデータ">
+						
+						<p>テストが完了していない場合、または必要なメタデータが欠落している場合、結果は[不完全]になります。不完全なセクションを見つける方法の詳細については、<a href="#smart-validaton">評価の検証に関するセクション</a>を参照してください。</p>
+						
+						<p>最後の2つのフィールドはオプションであり、最終レポートを生成する場合にのみ入力する必要があります。最初のフィールド（評価者）は、評価を実施した組織または個人の名前を宣言するために使用されます。2番目のフィールド（レポートへのリンク）は、最終レポートが公開される場合に、レポートがホストされるURLです。</p>
+						
+						<p>発見メタデータタブと配布メタデータタブと同様に、タブの下部には、パッケージ ドキュメントに貼り付けることができるメタデータ タグを作成するためのボタンが用意されています。</p>
+						
+						<img src="../../../../graphics/publishing/smart/smart-result-metadata.png" width="650" aria-details="eval-meta-details" alt="EPUB3評価メタデータタグ">
+						
+						<div id="eval-meta-details" class="details desc" tabindex="0">
+							<button type="button" aria-controls="desc03" aria-expanded="false" class="summary"><span class="status">▶</span>説明</button>
+							<div class="details-body" id="desc03">
+								<p>ダイアログ ウィンドウには、次の3つのEPUBメタデータタグが表示されます。</p>
+								<pre id="eval-meta-src" class="prettyprint"><code>&lt;meta property="dcterms:conformsTo"&gt;
+   EPUB Accessibility 1.1 - WCAG 2.1 Level AA
+&lt;/meta&gt;
+&lt;meta property="a11y:certifiedBy"&gt;Matt Garrish&lt;/meta&gt;
+&lt;link rel="a11y:certifierReport" href="http://example.org/books/epub_3_accessibility/a11y.html"/&gt;</code></pre>
+							</div>
+						</div>
+					</section>
+				</section>
+				
+				<section id="smart-validation">
+					<h4>評価を検証する</h4>
+					
+					<p>SMARTツールには、インターフェースの左上隅に検証ボタンが含まれています。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-app-buttons.png" width="225" alt="検証ボタン">
+					
+					<p>このボタンをいつでもクリックすると、SMARTツールが現在の評価を分析し、完​​了していないフィールドを報告します。</p>
+					
+					<p>検証中に見つかった問題は、SMARTインターフェイスの下部にあるメッセージ コンソールに報告されます（このコンソールは検証後に自動的に表示されます）。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-validation-messages.png" width="650" alt="検証メッセージコンソール">
+					
+					<p>各メッセージには深刻度（エラーまたは警告）が先頭に付いており、問題について説明します。メッセージをクリックすると、評価における問題の場所が読み込まれます。</p>
+					
+					<p><a href="#smart-reporting">プレビューまたは最終レポートが</a>作成されるたびに、検証も自動的に実行されます。</p>
+				</section>
+				
+				<section id="smart-reporting">
+					<h4>レポートを作成する</h4>
+					
+					<p>評価を完了して検証すると、SMARTツールの [レポート] タブでアクセシビリティ レポートを生成するオプションが提供されます。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-reporting.png" width="650" alt="レポートオプションとボタン">
+					
+					<p>評価にメモが含まれている場合は、タブの上部にあるラジオボタンを使用して、出力するメモを制御できます。デフォルトでは、すべてのメモがレポートに含まれますが、出力を問題の説明のみ、メモのみ、またはメモなしに制限することもできます。</p>
+					
+					<p>プレビューボタンをクリックすると、レポートのプレビューを作成できます。検証の問題が検出されない場合、生成されたレポートは新しいブラウザウィンドウで開きます。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-preview-report.png" width="650" alt="HTML プレビュー レポート">
+					
+					<p>SMARTツールが検証の問題を発見した場合、プレビューをキャンセルして問題を表示するか、プレビューを続行するかを選択するプロンプトが表示されます。</p>
+					
+					<p>プレビューで修正が必要な問題がない場合、次のステップはダウンロード可能なバージョンのレポートを生成することです。[作成] ボタンをクリックすると、レポートファイルを保存するためのブラウザープロンプトが表示されます（ブラウザーの設定によっては、プロンプトが表示されずにファイルが自動的にダウンロードされる場合があります）。</p>
+				</section>
+				
+				<section id="smart-save">
+					<h4>評価を保存する</h4>
+					
+					<p>評価を1回で完了できないこともあるため、SMARTツールでは、保存して後で評価を再開するオプションが用意されています。アプリケーションの左上隅にある [保存] ボタンをクリックすると、評価を保存する場所を尋ねるダイアログが開きます。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-save-location.png" width="400" alt="保存ダイアログ">
+					
+					<p>評価を保存する方法は２つあります。</p>
+					
+					<ol>
+						<li>SMARTサーバーへ — 評価はSMARTサイトのデータベースに保存されます。このオプションは、ボタンをクリックするだけで後で評価を<a href="#smart-history">再読み込み</a>できるため、非常に便利です。</li>
+						<li>ローカル ファイル システム — 評価を再ロードするために必要なデータを含むダウンロード可能なファイルが作成されます。このファイルが失われた場合は、評価をやりなおす必要があります。</li>
+					</ol>
+					
+					<p>評価は必要な回数だけ保存できますが、後で再開するには少なくとも1回は保存する<strong>必要があります</strong>。SMARTツールはデフォルトでは評価を保存しないため、データが保存されていない場合は、<a href="#smart-history">履歴</a>から評価を再読み込みすることはできません。</p>
+				</section>
+				
+				<section id="smart-history">
+					<h4>評価を再読み込みする</h4>
+					
+					<p>保存された評価は、アプリケーションのメインページの評価履歴セクションから再読み込みできます。このセクションは、新しい評価を開始するために使用されるドラッグ アンド ドロップ ボックスの下にあります。</p>
+					
+					<img src="../../../../graphics/publishing/smart/smart-history.png" width="650" alt="評価履歴">
+					
+					<p>評価履歴テーブルの各行は、保存された評価1つを表します。出版物の名前、評価が開始された日時、最後に保存された日時、現在のステータス、および評価を維持するための一連のボタンの列があります。</p>
+					
+					<p>ステータス列には、評価が保存されている場所に関する情報が表示されます。次の3つの値のいずれかが含まれます。</p>
+					
+					<ul>
+						<li>保存済み — 評価はSMARTサーバーに保存されています。再開ボタンをクリックすると、評価が読み込まれます。</li>
+						<li>ローカルに保存済み - 評価はローカル コンピューターに保存されています。再開ボタンを選択するには、保存されたデータ ファイルを選択する必要があります。</li>
+						<li>保存されていない - データを保存せずに評価が終了しました。評価を再開する方法がないため、これらの記録は情報提供のみとなります。</li>
+					</ul>
+					
+					<p>ローカルに保存された評価は、JSON評価ファイル（Aceレポートではありません）を、評価の開始画面でドラッグ アンド ドロップすることで再開することもできます。SMARTアプリケーションはデータファイルを識別し、履歴の記録と一致する場合は評価を自動的に読み込みます。</p>
+				</section>
+				
+				<section id="smart-delete">
+					<h4>評価を削除する</h4>
+					
+					<p><a href="#smart-history">評価履歴</a>内の関連付けられた削除ボタンをクリックすると、評価を削除できます。</p>
+					
+					<p>評価がSMARTサーバーに保存されている場合、ファイルを削除すると、そのすべての記録が完全に削除されます。評価がローカル ファイル システムに保存されている場合は、データ ファイルも削除する必要があります。</p>
+					
+					<p>評価が誤って削除された場合でも、データがローカルに保存されていれば復元できます。Aceレポート ファイルを使用して評価をやり直し、既存の保存データを上書きしないで、データをローカルに保存してください。これで、元の評価データを評価履歴から再読み込みできるようになります。</p>
+					
+					<p>評価がSMARTサーバーに保存されている場合、削除されたデータを復元する方法はありません。</p>
+				</section>
+			</section>
+			
+			<section id="limitations">
+				<h3>制限事項</h3>
+				
+				<p>SMARTツールには主に2つの制限があります。</p>
+				
+				<ol>
+					<li>人間は、マークアップエラーを見つけるのに機械ほど信頼性がありません。</li>
+					<li>WCAGは完全に評価するには複雑な規格であり、人間の解釈は主観的です。</li>
+				</ol>
+				
+				<p>最初の問題は、<a href="epubcheck.html">EPUBCheck</a>と<a href="ace.html">Ace</a>の両方が常に最初に実行されるようにすることで軽減できます。</p>
+				
+				<p>後者の問題は、より困難な問題です。SMARTツールは、何を確認すべきかを特定し、評価者が見つけた問題を説明するレポートを提供することで、この問題を軽減しようとします。いずれにしても、評価者が2人いれば、同じ出版物に異なる評価をする可能性はあります。</p>
+				
+				<p>したがって、SMARTツールは誰でも出版物のアクセシビリティを向上させるために使用できるように設計されていますが、WCAGに精通し、その達成基準を評価できる人以外は、コンテンツがアクセシブルであると認定するために使用しないでください。</p>
+			</section>
+			
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://smart.daisy.org/">Ace SMART</a>
+</li>
+					<li>Ace SMART —<a href="https://smart.daisy.org/user-guide/">ユーザーガイド</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
