@@ -483,6 +483,12 @@
 						"subtitle": "Best practices when images contain text."
 					},
 					{
+						"id": "html-image-qr",
+						"href": "images-qr.html",
+						"title": "QR Codes",
+						"subtitle": "Best practices for adding QR codes."
+					},
+					{
 						"id": "html-textbased",
 						"href": "images-text-based.html",
 						"title": "Text-based Images",

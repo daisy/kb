@@ -5,9 +5,24 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2024 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Thur, 28 Mar 2024 00:01:00 +0500</lastBuildDate>
-		<pubDate>Thur, 28 Mar 2024 12:00:00 +0500</pubDate>
+		<lastBuildDate>Thur, 19 Sept 2024 00:01:00 +0500</lastBuildDate>
+		<pubDate>Thur, 19 Sept 2024 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>New pages for QR codes</title>
+			<link>https://kb.daisy.org/publishing/docs/html/images-qr.html</link>
+			<description>
+				<![CDATA[
+				<p>Although QR codes are most often associated with getting people from physical to digital media,
+					they are starting to appear in digital publications. QR codes can be helpful for devices that
+					are not connected to the internet, but they need to be created accessibly to be useful to the
+					greatest number of readers. The knowledge base now includes a page covering best practices for
+					<a href="https://kb.daisy.org/publishing/docs/html/images-qr.html">QR codes</a>.</p>
+				]]>	
+			</description>
+			<pubDate>Thur, 19 Sept 2024 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>New pages for accessibility features</title>

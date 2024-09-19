@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>QR Codes</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for creating accessible QR codes.">
+		<script>
+			var page_info = {
+				'category': ['HMTL'],
+				'appliesTo': ['EPUB3','EPUB2','Audiobooks*'],
+				'related': ['html-images-desc','html-image-deco','html-image-icons','html-image-select','html-image-anim']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Ensure that Quick Response (QR) codes follow image accessibility best practices and that
+					alternative means of following their links are provided.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure QR codes are clearly identified. [[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>Include instructions on how to activate QR codes. [[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>Provide an alternative link to the same destination. [[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>Ensure sufficient contrast between the QR code and the background. [[WCAG-1.4.11]]</p>
+					</li>
+					<li>
+						<p>Ensure QR codes are large enough to be scanned easily. [[WCAG-2.5.8]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 &#8212; Clickable QR code with activation details</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;a href="https://publisher.example.com/promo">
+   &lt;img src="img/qr-promo.jpg" aria-details="qr-desc"/>
+&lt;/a>
+&lt;details id="qr-desc">
+   &lt;summary>Details&lt;/summary>
+   &lt;p>Buy one get one book by the author until September 25, 2025.&lt;/p>
+   &lt;p>If you are reading this book on a device that cannot connect to the internet,
+      use the camera on a phone or tablet to scan the QR code and open our site.
+      Alternatively, you can access the promo by typing the following URL in a
+      browser: &lt;a 
+      href="https://publisher.example.com/promo">publisher.example.com/promo&lt;/a>
+   &lt;/p>
+&lt;/details>
+					</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">What should I do with a QR code on the cover?</dt>
+					<dd>
+						<p>If a QR code is part of the front or back cover, make sure that users will be able to
+							interact with the image long enough to scan it. Reading systems often only flash the front
+							cover image while a book is loading, or show a thumbnail of it in the user's bookshelf.</p>
+						<p>Placing the QR code in its own document in the reading order will make it more accessible.
+							It will be the only content on the page, for example, which will make scanning easier for
+							all users. Alternatively, incorporate it into the related front or back matter.</p>
+						<p>If the QR code is kept as part of the cover, make sure that the cover image description
+							indicates that there is a scannable code. Also, make sure that the cover image can be
+							accessed long enough to scan it, typically by making it part of the linear reading order.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Quick Response (QR) codes have become ubiquitous in print media as a simple means of directing people
+					to web sites. Users do not have to remember URLs or manually retype them into their mobile device's
+					browser. They can just point the camera on their smart phone or tablet at the QR code and a scanner
+					will read the embedded URL and offer to open the web site or app for them.</p>
+				
+				<p>QR codes are now commonly found in print books, especially on covers but also within the content.
+					Some common uses include to direct users to:</p>
+				
+				<ul>
+					<li>book reviews</li>
+					<li>the author's biography, contact details, social media and web sites</li>
+					<li>free previews, sales, and promotions</li>
+					<li>additional works by the author or in the same genre</li>
+					<li>interactive media such as images, audio, and video that accompany the book</li>
+				</ul>
+				
+				<p>Although these kinds of links are essential to get users from print to digital, QR codes
+					are making a presence in ebooks, as well, as reading devices are not always connected
+					to the web and may lack the ability to open web links. QR codes are an effective means
+					of getting users from static reading systems when done accessibly.</p>
+				
+				<p>Although QR codes offer some obvious benefits when a device is not connected to the internet,
+					they also have some drawbacks, more so than with typical graphical images. In particular:</p>
+				
+				<ul>
+					<li>Blind users may not be able to ensure that the code is fully on the screen in order to
+						scan it. With ebook reading systems, there is also the risk that the image will get split
+						between page breaks.</li>
+					<li>Users with low vision or color perception issues may not be aware that the image represents
+						a scannable QR code if the code is not black and white.</li>
+					<li>Users may not have another device to scan the code with, and users with mobility issues
+						may not be able to hold a second device to scan it.</li>
+					<li>The image may be too small or too far away from the user to effectively scan it.</li>
+					<li>Users unfamiliar with the codes or with cognitive disabilities may struggle to understand
+						what to do with them.</li>
+				</ul>
+			
+				<section id="desc-a11y">
+					<h4>Accessibility considerations</h4>
+					
+					<p>To create accessible QR codes, the following issues need to be considered:</p>
+					
+					<dl>
+						<dt>Contrast</dt>
+						<dd>
+							<p>Although QR codes are most commonly black and white, this is not a requirement. Any color
+								can be used for the QR code. If the contrast between the foreground and background is not
+								sufficient, it is possible that some users may not be able to make out that there is a
+								QR code present. Meeting the contrast requirements in WCAG success criterion 1.4.11 is
+								a minimum for any QR code.</p>
+						</dd>
+						
+						<dt>Identification</dt>
+						<dd>
+							<p>If a user is not aware that an image represents a QR code, they will not know that they
+								can interact with it. Ensure that the alt text for the image clearly indicates that it
+								contains a QR code. For users with low vision, consider placing a border around the
+								image to draw attention to it so it is not mistaken as decorative.</p>
+						</dd>
+						
+						<dt>Size</dt>
+						<dd>
+							<p>The size of the QR code image can affect its usability. For one, if the image is too
+								large or small, users may have trouble scanning it. The image may be blurry, or the code
+								sequences might not be differentiable, if it is too small. Too large and users may have
+								trouble fitting the code on screen to scan it, or a reading system might split the
+								image to create a page break. The minimum recommended physical size for QR codes is
+								often cited as 2cm by 2cm. For a digital code, this is roughly the equivalent of 76
+								pixels by 76 pixels. (This size will easily meet both the minimum and enhanced target
+								size requirements in WCAG success criteria 2.5.5 and 2.5.8 if the code is clickable.)</p>
+						</dd>
+						
+						<dt>Usage</dt>
+						<dd>
+							<p>Although QR codes have become more common, not everyone is familiar with how to use
+								them. Users may get even more confused about what to do when they do not have a second
+								device to scan the code with. This may require them to save the image to their local
+								file system and open the image in a dedicated scanning application. While it is not
+								expected that publishers can account for every scenario, some general instructions on
+								how to use the QR code will help users unfamiliar with them.</p>
+						</dd>
+						
+						<dt>Alternatives</dt>
+						<dd>
+							<p>Although QR codes can be effective for getting users from reading systems without
+								internet connections, they are burdensome for users who are connected. Clicking a
+								hyperlink is much simpler than scanning a code. This is especially true for users
+								who cannot see the code or may have difficulties scanning it. Making the QR code
+								clickable and/or providing a hyperlink in an extended description will help ensure
+								that users can pick the most effective method for them. Ensuring that the URL
+								contained in the code is the text of an alternative hyperlink also allows users to
+								copy and paste it into a browser.</p>
+						</dd>
+					</dl>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN &#8212; <a
+						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+						element</a></li>
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"
+						>The <code>img</code> element</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
