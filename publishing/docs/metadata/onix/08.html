@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>08: Unknown accessibility</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 00: Unknown accessibility.">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'ONIX Code List 196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Product has not yet been assessed for accessibility, or no or insufficient 
+					accessibility information is provided. It should be treated as likely to be inaccessible (and also
+					may not have been checked for hazards). &lt;ProductFormFeatureDescription> may carry details of why
+						the accessibility of the title is unknown. Only for use in ONIX 3.0 or later</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Unknown accessibility with no reason</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>08&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<span class="label">Example 2 &#8212; Unknown accessibility with reason</span>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>08&lt;/ProductFormFeatureValue>
+   &lt;ProductFormFeatureDescription>
+      Automatically transformed from older format.
+      Accessibility checks not yet performed.
+   &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature>
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>This value is the same as the Schema.org <a href="schema.org/accessibilitySummary.html"
+					>accessibilitySummary property</a>.</p>
+				
+				<p>The field is often limited to only 500 characters.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
+							196: E-publication Accessibility Details</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

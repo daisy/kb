@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>03: EPUB Accessibility Specification 1.0 AA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 03: EPUB Accessibility Specification 1.0 AA.">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'ONIX Code List 196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Conforms with the requirements of EPUB Accessibility Spec 1.0 and WCAG level AA.
+					&lt;ProductFormFeatureDescription> may carry a URL linking to a compliance report or certification
+					provided by an independent third party certifier. In the absence of a URL, conformance with the
+					requirements of the Accessibility Specification is self-certified by the publisher</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; ONIX markup</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>03&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>This value indicates that the publication conforms to the EPUB Accessibility 1.0 specification
+					and meets WCAG 2.0 Level AA requirements.</p>
+				
+				<p>The value is the same as declaring the following <a 
+					href="https://idpf.org/epub/a11y/#wcag-aa">conformance identifier</a> in the EPUB package
+					document metadata:</p>
+				
+				<pre id="ex-desc-01" class="prettyprint linenums"><code>http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa</code></pre>
+				
+				<p>Note that conforming to the EPUB Accessibility 1.0 specification is no longer recommended.
+					Publishers should be following the 1.1 version. Refer to <a href="04.html">code 04</a> for more
+					information.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>EPUB &#8212; <a href="https://idpf.org/epub/a11y/">EPUB Accessibility 1.0</a></li>
+					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
+						196: E-publication Accessibility Details</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>04: Epub Accessibility Specification 1.1</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 04: Epub Accessibility Specification 1.1.">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'ONIX Code List 196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Conforms with the requirements of EPUB Accessibility Spec v1.1 – see 
+					https://www.w3.org/TR/epub-a11y-11/. &lt;ProductFormFeatureDescription> may carry a URL linking to
+					a compliance report or certification provided by an independent third-party certifier. In the
+					absence of a URL, conformance with the requirements of the Accessibility Specification is self-
+					certified by the publisher. Use with other List 196 codes to indicate WCAG version and level, ARIA
+					inclusion. Only for use in ONIX 3.0 or later</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; EPUB Accessibility 1.1 conformance at WCAG 2.1 Level AA</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>04&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>81&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>85&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<span class="label">Example 2 &#8212; EPUB Accessibility 1.1 conformance at WCAG 2.0 Level A</span>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>04&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>80&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>84&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<span class="label">Example 3 &#8212; Link to certifier's report</span>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums small"><code>&lt;ProductFormFeature>
+  &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+  &lt;ProductFormFeatureValue>04&lt;/ProductFormFeatureValue>
+  &lt;ProductFormFeatureDescription>
+   https://publisher.example.com/reports/a11y/isbn9780123456789.html
+  &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature>
+&#8212;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>This value indicates that the publication conforms to the EPUB Accessibility 1.1 specification.</p>
+				
+				<p>The value must be used together with a declaration for the version of WCAG 2 that the publication
+					conforms to: <a href="80.html">80</a> for WCAG 2.0, <a href="81.html">81</a> for WCAG 2.1, or
+					<a href="82.html">80</a> for WCAG 2.2.</p>
+				
+				<p>The WCAG 2 conformance level also must be specified: <a href="84.html">84</a> for Level A, 
+					<a href="85.html">85</a> for Level AA, or <a href="86.html">86</a> for Level AAA.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>EPUB &#8212; <a href="https://www.w3.org/TR/epub-a11y-11/">EPUB Accessibility 1.1</a></li>
+					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
+							196: E-publication Accessibility Details</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
