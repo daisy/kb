@@ -26,7 +26,7 @@
 
 						<p>たとえば、 <code>epub:type</code>属性は、セクションに本の前付けが含まれていることを示すために次のように使用できます：<code>&lt;section epub:type="frontmatter"&gt;</code> 。（詳細については、<a href="https://www.w3.org/TR/epub-ssv/">EPUB Structural Semantics Vocabulary</a>を参照してください。）</p>
 
-						<p><a href="a.html#aria">ARIA</a> <code>role</code>属性は追加のコンテキストを提供するために使用されますが、支援技術でドキュメントをアクセシブルにすることに、より重要な役割を果たします。使用できるroleと使用できる場所が制限されているため、これは汎用的なセマンティック インフレクションの手法ではありません。roleを誤って適用すると、ドキュメントの読みやすさに悪影響を与える可能性があります。</p>
+						<p>一方、<a href="a.html#aria">ARIA</a> <code>role</code>属性は追加のコンテキスト情報を提供するのに使用され、支援技術でドキュメントをアクセシブルにする重要な役割を果たします。使用できるroleと使用できる場所が制限されているため、これは汎用的なセマンティック インフレクションの手法ではありません。roleを誤って適用すると、ドキュメントの読みやすさに悪影響を与える可能性があります。</p>
 					</dd>
 
 					<dt id="semantics">
@@ -35,9 +35,9 @@
 					<dd>
 						<p><a role="doc-glossref" href="h.html#html">HTML</a>などのマークアップ言語では、セマンティック マークアップとは、コンテンツの目的を識別するタグ付けの使用を指します。</p>
 
-						<p>要素名だけでコンテンツの性質が説明される場合もあります（ <code>table</code>や<code>article</code>のようなものは、名前から目的が推測できます）。また、<a role="doc-glossref" href="#semantic-inflection">セマンティック インフレクション</a>のテクニックを使用して要素に追加の意味を追加し、性質を明示的またはより正確にする場合もあります。</p>
+						<p>要素名だけでコンテンツの性質が説明される場合もあります（<code>table</code>や<code>article</code>のようなものは、名前から目的が推測できます）。あるいは、<a role="doc-glossref" href="#semantic-inflection">セマンティック インフレクション</a>のテクニックを使用して要素に追加の意味を追加し、性質を明示あるいは正確に表現する場合もあります。</p>
 
-						<p>セマンティック マークアップを使用すると、<a role="doc-glossref" href="a.html#at">支援技術</a>は、コンテンツのよりインテリジェントなナビゲーションを提供できます（たとえば、コンテンツを<a role="doc-glossref" href="e.html#escapable">エスケープ可能</a>および<a role="doc-glossref" href="#skippable">スキップ可能</a>にするなど）。</p>
+						<p>セマンティック マークアップが使用されると、<a role="doc-glossref" href="a.html#at">支援技術</a>は、より理にかなったコンテンツのナビゲーションを提供できるようになります（たとえば、コンテンツを<a role="doc-glossref" href="e.html#escapable">回避可能</a>および<a role="doc-glossref" href="#skippable">読み飛ばし可能</a>にするなど）。</p>
 					</dd>
 
 					<dt id="skippable">
