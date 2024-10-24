@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>EPUBCheck</title>
@@ -9,8 +9,7 @@
 			var page_info = {
 				'category':[ 'EPUB', 'Validation'],
 				'appliesTo':[ 'EPUB3', 'EPUB2']
-			};
-		</script>
+			};</script>
 		<script src="/js/init.js"></script>
 	</head>
 	<body>
@@ -45,19 +44,19 @@
 <code>-jar path\to\epubcheck.jar</code> — 最初の引数は、EPUBCheckプログラムを含む Java jar ファイル ( <code>epubcheck.jar</code> ) への参照です。このファイルを参照するために使用される正確なパスは、EPUBCheckがインストールされている場所と、EPUBCheckが実行されるディレクトリによって異なります。</li>
 					
 					<li>
-<code>publication.epub</code> — 2番目の引数は、チェックするパッケージ化されたEPUB出版物の名前です。EPUBCheckが実行されるディレクトリと同じディレクトリにない場合は、ファイルへのフルパスを指定する必要があります。</li>
+<code>publication.epub</code> — The second argument is the name of the packaged EPUB 						publication to check. The full path to the file has to be specified if it is not in the same 						directory where EPUBCheck is run.</li>
 				</ol>
 				
-				<p>以下は、コマンドラインからEPUBCheckを呼び出して<code>accessible_epub_3.epub</code>ファイルを検証する方法の例です。</p>
+				<p>The following is an example of how EPUBCheck could be called from the command line to validate the 						<code>accessible_epub_3.epub</code> file:</p>
 				
-				<pre class="console">&gt; java -jar epubcheck.jar -mode exp -s accessible_epub_3</pre>
+				<pre class="console">&gt; java -jar c:\epubcheck\epubcheck.jar c:\epubs\accessible_epub_3.epub</pre>
 				
 				<div class="note" role="note" aria-labelledby="ec-note-02">
-					<p id="ec-note-02" class="label">情報（Info）</p>
-					<p>読みやすさを考慮して、このページの残りの例では、 <code>epubcheck.jar</code>ファイルとチェック対象の出版物への完全なパスは省略されています。</p>
+					<p id="ec-note-02" class="label">注記</p>
+					<p>Full paths to the <code>epubcheck.jar</code> file and publication to be checked are omitted from 						the rest of the examples on this page for readability purposes.</p>
 				</div>
 				
-				<p>EPUBCheckで問題が検出されない場合は、次のような一連のメッセージが表示されます。</p>
+				<p>If EPUBCheck does not detect any problems, it will emit a series of messages like the following:</p>
 				
 				<pre class="console">Validating using EPUB version 3.2 rules.
 No errors or warnings detected.
@@ -65,13 +64,13 @@ Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
 
 EPUBCheck completed</pre>
 				
-				<p>最初の行は、検証するEPUBのバージョンを指定します。前の例の場合、プログラムはEPUB 3.2の要件に照らしてチェックしています。</p>
+				<p>The first line specifies what version of EPUB is being validated. In the case of the preceding 					example, the progam is checking against the requirements of EPUB 3.2.</p>
 				
-				<p>次の2行は問題が見つからなかったことを示していますが、問題がある場合はここに報告されます。</p>
+				<p>The next line two lines indicate that no issues were found, but this is where any issues will be 					reported when there are problems.</p>
 				
-				<p>最後のステートメントは、プログラムが正常に終了したことを確認するだけです。</p>
+				<p>The final statement just confirms that the program has terminated successfully.</p>
 				
-				<p>出版物のアクセシビリティのチェックに進む前に、クリーンな検証結果を得ることが望ましいです。ただし、実際には、EPUBCheckでは、最初に修正が必要な警告やエラーが見つかることがよくあります。</p>
+				<p>A clean validation result is preferred outcome before moving on to check the accessibility of a 					publication. In practice, however, EPUBCheck will often uncover warnings and errors that need fixing 					first.</p>
 				
 				<p>以下はマークアップエラーを含むレポートの例です。</p>
 				
@@ -84,15 +83,15 @@ Messages: 0 fatals / 1 error / 0 warnings / 0 infos
 
 EPUBCheck completed</pre>
 				
-				<p>EPUBCheckのエラーメッセージは、エラーを含むファイル ( <code>accessible_epub_3.epub/EPUB/ch01.xhtml</code> ) と、エラーが発生した行番号 ( <code>98</code> ) および文字オフセット ( <code>5</code> ) の両方を示します。また、問題を説明する簡単なメッセージも提供します。この場合、次のファイルのスクリーンショットに示すように、 <code>p</code>タグが許可されていない場所で使用されています。</p>
+				<p>The EPUBCheck error message identifies both the file containing the error 						(<code>accessible_epub_3.epub/EPUB/ch01.xhtml</code>) as well as the line number 						(<code>98</code>) and character offset (<code>5</code>) where it occurs. It also provides a 					brief message explaining the problem — in this case, a <code>p</code> tag is used where it is 					not allowed, as shown in the following screen grab of the file:</p>
 				
 				<img src="../../../../graphics/publishing/epubcheck/epubcheck-markup-error.png" width="450" alt="pタグが、body終了タグの後に含まれる">
 				
-				<p>残念ながら、すべてのメッセージがこのように簡単に理解できるわけではなく、EPUBCheckが有用な行番号や文字オフセットを提供しない場合もあります (たとえば、問題が特定の場所に追跡できない場合、 <code>(-1,-1)</code>が報告されることがよくあります)。その結果、エラーを修正するには、多くの場合、ある程度の調査作業が必要になります。</p>
+				<p>Unfortunately, not every message is as easy to understand as this one, and there are times when 					EPUBCheck will not provide useful a line number or character offset (e.g., it often reports 						<code>(-1,-1)</code> when a problem cannot be traced to a specific location). As a result, 					fixing errors will often require some sleuth work.</p>
 				
-				<p>EPUBCheckが出力するメッセージ数は、報告される数値が誤解を招くことが多いですが、実行間で問題が解決されているかどうかを追跡するのに便利です。</p>
+				<p>The message counts that EPUBCheck outputs is more of a convenience for tracking that problems are 					being solved between runs, as the numbers reported can often be misleading.</p>
 				
-				<p>たとえば、1つのマークアップエラーが他の多くのエラーの原因となる可能性があるため、1 つの問題を修正すると、他の多くの問題またはすべて解消される可能性があります。すでに解決されている問題を探すのに時間を費やさないように、バグを修正するときは、頻繁に出版物を再検証することをお勧めします。</p>
+				<p>For example, one markup error could be the cause of many other errors, so fixing one problem can lead 					to many or all the other problems disappearing. It is recommended to re-validate publications often 					when fixing bugs to avoid spending time look for problems that have already been solved.</p>
 				
 				<p>また、EPUBCheckが提起するすべての問題を修正しなければならないわけではありません。これについては、次のメッセージの深刻度に関するセクションで説明します。</p>
 			</section>
