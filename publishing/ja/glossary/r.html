@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>用語集 - R</title>
@@ -20,16 +20,16 @@
 						<dfn>Reading System（リーディングシステム）</dfn>
 					</dt>
 					<dd>
-						<p>リーディングシステムは、 <a role="doc-glossref" href="e.html#epub">EPUB</a>で出版物の読み取りまたは処理に使用されるアプリケーションを表すために使用される一般的な用語です。</p>
+						<p>リーディングシステムは、<a role="doc-glossref" href="e.html#epub">EPUB</a>において出版物の読書や処理に使用するアプリケーションを表すのに使用する一般的な用語です。</p>
 
-						<p>リーディングシステムは、eInk タブレットのような専用デバイスの場合もあれば、タブレット、携帯電話、コンピューターで実行される Kobo Books、Google Play Books、Apple iBooks などのアプリケーションの場合もあります。</p>
+						<p>リーディングシステムは、eInkタブレットのような専用デバイスの場合もあれば、タブレット、携帯電話、コンピューターで実行されるKobo Books、Google Play Books、Apple iBooksなどのアプリケーションの場合もあります。</p>
 					</dd>
 
 					<dt id="remote-res">
 						<dfn>Remote Resource（リモートリソース）</dfn>
 					</dt>
 					<dd>
-						<p><a role="doc-glossref" href="e.html#epub3">EPUB 3</a>では、リモート リソースは<a role="doc-glossref" href="#resource">ZIP コンテナー ファイル</a>内に含まれるのではなく、 Web上でホストされる<a role="doc-glossref" href="c.html#container">リソース</a>です。</p>
+						<p><a role="doc-glossref" href="e.html#epub3">EPUB 3</a>において、リモートリソースは<a role="doc-glossref" href="#resource">ZIPコンテナーファイル</a>の中に含まれず、Web上でホストされる<a role="doc-glossref" href="c.html#container">リソース</a>です。</p>
 
 						<p>音声、ビデオ、フォントは、Web上に置くことが許可されているリソースの例です。これが許可されている理由は、出版物のダウンロード時間を短縮し、ユーザーがより早く読み始めることができるようにするためです。</p>
 					</dd>
@@ -38,7 +38,7 @@
 						<dfn>Render（レンダリング）</dfn>
 					</dt>
 					<dd>
-						<p>レンダリングは、プレゼンテーションによってその内容が変わる用語で、<a role="doc-glossref" href="#rs">リーディングシステム</a>が<a role="doc-glossref" href="p.html#publication">出版物</a>をユーザーが読みやすいようにする方法を説明するために使用されます。</p>
+						<p>レンダリングは<a role="doc-glossref" href="#rs">リーディングシステム</a>が<a role="doc-glossref" href="p.html#publication">出版物</a>をユーザーが読める形にする方法を説明するのに使用される、表現手段中立な用語です。</p>
 
 						<p>たとえば、視覚的な読書の場合、レンダリングには画面上のコンテンツの視覚的なレイアウトとスタイル設定が含まれます。聴覚的な読書の場合、レンダリングには、事前に録音された音声の再生や、<a role="doc-glossref" href="t.html#tts">テキスト読み上げ（TTS）</a>の生成が含まれます。</p>
 					</dd>
@@ -47,7 +47,7 @@
 						<dfn>Rendition（レンディション）</dfn>
 					</dt>
 					<dd>
-						<p><a role="doc-glossref" href="e.html#epub3">EPUB 3</a>では、出版物のレンディションはそのコンテンツの1つのプレゼンテーションです。</p>
+						<p><a role="doc-glossref" href="e.html#epub3">EPUB 3</a>では、出版物のレンディションとはそのコンテンツの1つの表現を示します。</p>
 
 						<p>すべての出版物は1つのデフォルトのプレゼンテーションで構成されていますが、技術的には複数のプレゼンテーションを1つにまとめることができます。たとえば、電子出版物に英語版とフランス語版を別々に用意したり、固定レイアウト版とリフロー版を用意して読者が選択できるようにしたりできます。</p>
 
@@ -71,7 +71,7 @@
 					<dd>
 						<p><a role="doc-glossref" href="a.html#aria">ARIA</a>仕様の3つの主要コンポーネントは、インタラクティブ コンテンツをアクセシブルにするためのRole、State、Propertyの定義です。</p>
 
-						<p><em>Role</em>は、要素の目的を識別し、<a role="doc-glossref" href="a.html#at">支援技術</a>が、コンテンツをどのように使いやすくできるか分かるようにします。たとえば、 <code>span</code>要素に<code>button</code> というロール（役割）を割り当てると、クリック可能なボタンのように機能するようにスクリプト化されていることを示します。支援技術は、通常はクリックできない要素をユーザーがクリックできるようにすることができます。</p>
+						<p><em>Role</em>は、<a role="doc-glossref" href="a.html#at">支援技術</a>によって要素の目的を識別し、判定し、コンテンツを利用できるようにします。たとえば、 <code>span</code>要素に対して<code>button</code> というロール（役割）を割り当てると、クリック可能なボタンとして機能するようにスクリプト化されていることを示せます。すると、支援技術によって通常はクリックできない要素を、ユーザーがクリックできるようにできます。</p>
 
 						<p><em>State</em>は、ユーザーが要素を操作するときに要素に加えられた変更を追跡するために使用されます。たとえば、要素に<code>checkbox</code>ロール（役割）が割り当てられている場合、支援技術はチェックボックスがオンになっているかオフになっているかを認識する必要があります。Stateは、変更されるとスクリプトによって管理されます。</p>
 
