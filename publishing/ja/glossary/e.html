@@ -29,7 +29,7 @@
 						<dfn>EPUB（イーパブ）</dfn>
 					</dt>
 					<dd>
-						<p>EPUBは、<a role="doc-glossref" href="d.html#digital-pub">電子出版物</a>の配布および交換フォーマットです。構造化され意味的に強化された Web コンテンツ（<a role="doc-glossref" href="h.html#html">HTML</a> 、 <a role="doc-glossref" href="c.html#css">CSS</a> 、 <a role="doc-glossref" href="s.html#svg">SVG</a> 、その他のリソースを含む）を表現、パッケージ化、エンコードし、単一ファイル<a role="doc-glossref" href="c.html#container">コンテナー</a>で配布する機能があります。</p>
+						<p>EPUBは、<a role="doc-glossref" href="d.html#digital-pub">電子出版物</a>の配布および交換フォーマットです。構造化され意味的に強化されたWebコンテンツ（<a role="doc-glossref" href="h.html#html">HTML</a> 、<a role="doc-glossref" href="c.html#css">CSS</a> 、<a role="doc-glossref" href="s.html#svg">SVG</a> 、その他のリソースを含む）を表現し、パッケージ化、エンコード、単一ファイル<a role="doc-glossref" href="c.html#container">コンテナー</a>で配布する機能があります。</p>
 
 						<p>EPUBはもともと<a role="doc-glossref" href="i.html#idpf">IDPF</a>によって開発されましたが、現在は<a href="https://www.w3.org/community/epub3/">W3C</a>の<a role="doc-glossref" href="w.html#w3c">EPUB 3 コミュニティグループ</a>によって管理されています。</p>
 					</dd>
@@ -73,7 +73,7 @@
 					<dd>
 						<p>EPUB コンテンツ ドキュメントは、 <a role="doc-glossref" href="x.html#xhtml">EPUB</a>規格の要件に準拠する<a role="doc-glossref" href="s.html#svg">XHTML</a>または<a role="doc-glossref" href="#epub">SVG</a>ドキュメントに使用される総称です。</p>
 
-						<p><a href="#publication">EPUB 出版物</a>は、読むと1つのドキュメントのように見えますが、コンテンツは通常、<a role="doc-glossref" href="c.html#container">コンテナー</a>内で多数の個別のコンテンツ ドキュメントに分割されています。<a role="doc-glossref" href="p.html#package-doc">パッケージ ドキュメント</a>の<a role="doc-glossref" href="s.html#spine">spine（スパイン）</a>と呼ばれる機能は、コンテンツ ドキュメントを表示する順序を定義し、1つのシームレスなドキュメントのような印象を与えます。</p>
+						<p><a href="#publication">EPUB 出版物</a>は、読むと1つのドキュメントのように見えますが、コンテンツは通常、<a role="doc-glossref" href="c.html#container">コンテナー</a>内で多数の個別のコンテンツ ドキュメントに分割されています。<a role="doc-glossref" href="p.html#package-doc">パッケージ ドキュメント</a>の<a role="doc-glossref" href="s.html#spine">スパイン（spine）</a>と呼ばれる機能によって、コンテンツ ドキュメントを表示する順序が定義され、1つのシームレスなドキュメントのような印象を与えます。</p>
 					</dd>
 
 					<dt id="epub-navigation-document">
@@ -98,11 +98,11 @@
 						<dfn>EPUB Style Sheet（イーパブ スタイルシート）</dfn>
 					</dt>
 					<dd>
-						<p>EPUB 3 では当初、「EPUB スタイル シート」という名前で、<a href="c.html#css">作成者</a>が使用し、<a role="doc-glossref" href="a.html#author">リーディングシステム</a>がサポートすることが推奨される<a href="r.html#rs">CSS</a>のベースライン セットが定義されました。</p>
+						<p>当初、EPUB 3では「EPUB スタイル シート」という名前で、<a href="c.html#css">コンテンツ製作者</a>が使用し、<a role="doc-glossref" href="a.html#author">リーディングシステム</a>によるサポートが推奨される<a href="r.html#rs">CSS</a>の基本セットが定義されました。</p>
 
-						<p>しかし、この命名により、EPUB が独自の CSS バージョンを定義していると誤解されることがあり、混乱が生じました。その結果、この名前は EPUB 仕様では使用されなくなり、より一般的な CSS の参照に置き換えられました。</p>
+						<p>しかし、この命名により、EPUBが独自のCSSバージョンを定義していると誤解されることがあり、混乱が生じました。その結果、この名前はEPUB仕様では使用されなくなり、より一般的なCSSの参照に置き換えられました。</p>
 
-						<p>「EPUB スタイル シート」への言及はすべて、「CSS スタイル シート」と同義として理解する必要があります。</p>
+						<p>「EPUBスタイル シート」に関する言及はすべて、「CSSスタイル シート」の同義として解釈すべきです。</p>
 					</dd>
 
 					<dt id="epub:type">
@@ -111,7 +111,7 @@
 					<dd>
 						<p><code>epub:type</code>は、<a role="doc-glossref" href="#epub3">意味の変化</a>(要素の目的に関する情報を追加する機能) を提供するために<a role="doc-glossref" href="s.html#semantic-inflection">EPUB 3</a>で導入された属性の名前です。</p>
 
-						<p>これは、<a href="https://www.w3.org/TR/epub-ssv/">EPUB コンテンツ ドキュメント</a>のマークアップを強化するために、 <a role="doc-glossref" href="#contentdoc">EPUB Structural Semantics Vocabulary（EPUB 構造セマンティクス語彙）</a>とともに使用されます。</p>
+						<p>これは、<a href="https://www.w3.org/TR/epub-ssv/">EPUB コンテンツ ドキュメント</a>内のマークアップを強化するために、<a role="doc-glossref" href="#contentdoc">EPUB 構造セマンティクス語彙（EPUB Structural Semantics Vocabulary）</a>とともに使用されます。</p>
 
 						<p>当初、この属性は出版社の社内で、<a role="doc-glossref" href="s.html#semantics">セマンティック マークアップ</a>のニーズとアクセシビリティの橋渡しとなることが期待されていましたが、アクセシビリティの面でこの属性が支持されることはなく、この目的での使用は推奨されなくなりました。</p>
 
@@ -119,12 +119,12 @@
 					</dd>
 
 					<dt id="epubcheck">
-						<dfn>Epubcheck（イーパブ チェック）</dfn>
+						<dfn>EPUBcheck（イーパブ チェック）</dfn>
 					</dt>
 					<dd>
-						<p>Epubcheck は、EPUB ファイルに問題がないか検査する検証ツールです。特に、ファイルを開けなくなる可能性のある致命的なエラーや、コンテンツが期待どおりに動作しない原因となる一般的なエラーを報告し、推奨されない方法についての警告もします。</p>
+						<p>EPUBcheck は、EPUBのファイルに問題がないかを検査する検証ツールです。特に、ファイルを開けなくなる可能性のある致命的なエラーや、コンテンツが期待どおりに動作しない原因となる一般的なエラーを報告し、推奨されない方法についての警告も行います。</p>
 
-						<p>epubcheck の詳細については、 <a href="https://github.com/w3c/epubcheck/wiki">Epubcheck wiki</a>を参照してください。</p>
+						<p>EPUBcheckの詳細については、 <a href="https://github.com/w3c/epubcheck/wiki">EPUBcheck wiki</a>を参照してください。</p>
 					</dd>
 
 					<dt id="escapable">
