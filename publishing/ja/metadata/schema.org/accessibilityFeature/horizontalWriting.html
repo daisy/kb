@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>horizontalWriting</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's horizontalWriting value">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="def">
+				<h3>定義</h3>
+				
+				<p class="desc">コンテンツを水平にレイアウトできることを示します（例: [css-writing-modes-3] のhorizo​​ntal-tb writing modeを使用）。</p>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 — EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature"&gt;
+   horizontalWriting
+&lt;/meta&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">例 2 — EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="horizontalWriting"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">例3 — オーディオブック</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["horizontalWriting"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#horizontalWriting"><code>horizontalWriting</code></a>値は、書字方向が横書きであること、つまり左から右または右から左に読むことを示します。</p>
+				
+				<p>横書きまたは縦書きが可能な言語の読者の中には、どちらか一方の書字方向で読みにくいと感じる人もいます。この値を設定すると、読者はテキストが読みやすいかどうかを判断できます。</p>
+				
+				<p>横書きと縦書きの両方が可能な言語 （例: 日本語） でのみ、 <code>horizontalWriting</code>値を使用してください。横書きしかできない言語にはこの値を設定しないでください。</p>
+				
+				<p>縦書きの場合は<a href="verticalWriting.html"><code>verticalWriting</code></a>値を使用します。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>Schema.org —<a href="https://schema.org/accessibilityFeature">accessibilityFeature</a>
+</li>
+					<li>Schema.org アクセシビリティ語彙 —<a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#horizontalWriting">horizontalWriting</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
