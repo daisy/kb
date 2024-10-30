@@ -2,27 +2,28 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>11</title>
+		<title>11: Table of contents navigation</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidance on using ONIX code list 196 value 00.">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 11: Table of contents navigation.">
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'ONIX Code List 196'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
-		<script src="/js/init.js"></script>
+		<script src="/js/init.js"></script>
+
 	</head>
 	<body>
 		<main>
 			<section id="def">
 				<h3>Definition</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> contains a short explanatory summary of the
-					accessibility of the product, consistent with the more specific conformance and feature details
-					provided. The summary should note both the accessibility features provided and any potential
-					deficiencies. More detailed information may be provided in an external file using codes
-					94–96. For use in ONIX 3.0 only</p>
+				<p class="desc">Table of contents allows direct (eg hyperlinked) access to all levels of text
+					organization above individual paragraphs (ie to all chapters, sections and subsections that exist
+					within the text), and to all tables, figures, illustrations etc (non-textual items such as
+					illustrations, tables, audio or video content may be directly accessible from the Table of
+					contents, or from a similar List of illustrations, List of tables, etc)</p>
 			</section>
 			
 			<section id="ex">
@@ -35,10 +36,7 @@
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-   &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
-   &lt;ProductFormFeatureDescription>
-   Publication lacks image descriptions and alt text.
- &lt;/ProductFormFeatureDescription>
+   &lt;ProductFormFeatureValue>11&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature>
 </code></pre>
 				</figure>
@@ -47,10 +45,13 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>This value is the same as the Schema.org <a href="schema.org/accessibilitySummary.html"
-					>accessibilitySummary property</a>.</p>
+				<p>The requirement to include an EPUB navigation document does not, in and of itself, satisfy this
+					requirement. A <code>toc nav</code> with links to the complete structure of the publication is
+					required. See the <a href="../../navigation/toc.html">Table of Contents section</a> for more
+					information.</p>
 				
-				<p>The field is often limited to only 500 characters.</p>
+				<p>See also the <a href="../navigation/content-list.html">Content Lists</a> for expressing lists of
+					tables, illustrations, and the like.</p>
 			</section>
 			
 			<section id="refs">

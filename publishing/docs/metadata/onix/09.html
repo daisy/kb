@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>09</title>
+		<title>09: Inaccessible, or known limited accessibility</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidance on using ONIX code list 196 value 00.">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 09: Inaccessible, or known limited accessibility.">
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'ONIX Code List 196'],
@@ -19,11 +19,9 @@
 			<section id="def">
 				<h3>Definition</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> contains a short explanatory summary of the
-					accessibility of the product, consistent with the more specific conformance and feature details
-					provided. The summary should note both the accessibility features provided and any potential
-					deficiencies. More detailed information may be provided in an external file using codes
-					94–96. For use in ONIX 3.0 only</p>
+				<p class="desc">Known to lack significant features required for broad accessibility. Details of and
+					reasons for limitations on accessibility can be given in &lt;ProductFormFeatureDescription>. Only
+					for use in ONIX 3.0 or later</p>
 			</section>
 			
 			<section id="ex">
@@ -36,10 +34,7 @@
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-   &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
-   &lt;ProductFormFeatureDescription>
-      Publication lacks image descriptions and alt text.
- &lt;/ProductFormFeatureDescription>
+   &lt;ProductFormFeatureValue>09&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature>
 </code></pre>
 				</figure>
@@ -48,10 +43,7 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>This value is the same as the Schema.org <a href="schema.org/accessibilitySummary.html"
-					>accessibilitySummary property</a>.</p>
-				
-				<p>The field is often limited to only 500 characters.</p>
+				<p></p>
 			</section>
 			
 			<section id="refs">
