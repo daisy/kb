@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Schema.org アクセシビリティ メタデータ</title>
@@ -19,13 +19,13 @@
 			<section id="summary">
 				<h3>要約</h3>
 
-				<p>出版物がどのように配布または消費されるかに関係なく発見を可能にするために、schema.orgアクセシビリティ メタデータを含めます。</p>
+				<p>出版物がどのように配布または消費されるかに関係なく、schema.orgアクセシビリティ メタデータを組み込み、発見できるようにします。</p>
 			</section>
 
 			<section id="prop">
 				<h3>プロパティ</h3>
 
-				<p><a href="http://www.schema.org/CreativeWork">schema.org の CreativeWork クラスには、</a>出版物のアクセス可能な品質を識別するために使用される一連のプロパティが含まれています。このメタデータは、RDFa または microdata 属性を使用して HTML ドキュメントで表現され、コンテンツ (ビデオなど) のアクセス可能な品質を識別できます。また、EPUB パッケージ ドキュメントに含めることで、出版物の特定のレンディションのアクセシビリティの全体像を提供することもできます。</p>
+				<p><a href="http://www.schema.org/CreativeWork">schema.orgのCreativeWorkクラス</a>には、出版物のアクセシビリティに関する品質を識別するのに使用する一連のプロパティがあります。HTMLドキュメントでは、このメタデータをRDFaまたはmicrodata属性を使用してコンテンツ (ビデオなど) のアクセシビリティに関する品質を識別できます。また、EPUBパッケージ ドキュメントに組み込んで、特定の出版物のレンディションについてのアクセシビリティの全体像も提供できます。</p>
 
 				<p>各プロパティの使用方法の詳細については、それぞれのナレッジ ベース ページを参照してください。</p>
 
@@ -49,7 +49,7 @@
 				
 				<div class="note" role="note" aria-labelledby="opt-note">
 					<p id="opt-note" class="label">注記</p>
-					<p><a href="accessibilityAPI.html"><code>accessibilityAPI</code></a>と<a href="accessibilityControl.html"><code>accessibilityControl</code></a>も schema.org アクセシビリティの プロパティですが、デジタル出版物の記述に使用されることはほとんどありません。</p>
+					<p><a href="accessibilityAPI.html"><code>accessibilityAPI</code></a>と<a href="accessibilityControl.html"><code>accessibilityControl</code></a>もschema.orgアクセシビリティに関するプロパティですが、デジタル出版物に対する利用は希です。</p>
 				</div>
 			</section>
 
@@ -59,7 +59,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例 1 — パッケージ ドキュメントのメタデータ （EPUB 3）</div>
-						<p>次の例は、MathML と説明付き画像、およびアクセシブルなスクリプト コンテンツを含む数式の教科書の典型的なメタデータ セットを示しています。</p>
+						<p>次の例は、MathMLと説明付き画像、およびアクセシブルなスクリプト コンテンツを含む数学の教科書の典型的なメタデータ セットを示しています。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
   &lt;meta property="schema:accessibilitySummary"&gt;
@@ -113,7 +113,7 @@
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">例4 — 埋め込みメタデータ（RDFa）</div>
-						<p>単一のビデオを説明するアクセシビリティ メタデータは、HTML ドキュメントの本文に含まれています。</p>
+						<p>ある一つのビデオを説明するアクセシビリティ メタデータは、HTMLドキュメントのbodyに組み込まれています。</p>
 					</figcaption>
 					<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;div vocab="http://www.schema.org" typeof="VideoObject" property="video"&gt;
   &lt;video controls="controls" src="croc.mp4"/&gt;
@@ -130,10 +130,8 @@
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li> 						<a href="http://www.a11ymetadata.org">a11ymetadata プロジェクト</a>
-</li>
-					<li> 						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS Global Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a>
-</li>
+					<li> 						<a href="http://www.a11ymetadata.org">a11ymetadata プロジェクト</a> </li>
+					<li> 						<a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS Global Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a> </li>
 				</ul>
 			</section>
 		</main>
