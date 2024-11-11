@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>コンテンツリスト（Content Lists）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Best practices for adding navigational lists of tables, figures, and similar content.">
+		<script>
+			var page_info = {
+				'category': 'Navigation',
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>Providing lists of key content, like tables, illustrations and video, allows readers to more easily 					return to these items later.</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>二次コンテンツ用のナビゲーションリストを含めます。[[WCAG-2.4.5]]</p>
+					</li>
+					<li>
+						<p>リスト内の項目を区別するために意味のある名前を付けます。[[WCAG-2.4.6]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 図表一覧</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="loi"&gt;
+&lt;h2&gt;List of Figures&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+	&lt;a href="s01.xhtml#fig1"&gt;Figure 1 — Gaseous anomalies&lt;/a&gt;
+  &lt;/li&gt;
+  …
+&lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — ビデオのリスト</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav epub:type="lov"&gt;
+&lt;h2&gt;List of Video&lt;/h2&gt;
+&lt;ol&gt;
+  …
+  &lt;li&gt;
+	&lt;a href="s04.xhtml#vid04-1"&gt;4.1 — Cell mitosis&lt;/a&gt;
+  &lt;/li&gt;
+  …
+&lt;/nav&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">Should content lists be included in the EPUB navigation document?</dt>
+					<dd>
+<p><em>Only if the navigation document is included in the spine.</em></p>
+						<p>Although these lists are an ideal for the navigation document, EPUB reading systems typically 							only provide access to the table of contents and sometimes the page list. This is true despite 							the EPUB specification requiring that there be some way to access all the content of the 							navigation document. Consequently, readers will not be able to access the lists when the 							navigation document is not in the spine.</p>
+					</dd>
+					<dt id="faq-002">Do I need to use the <code>epub:type</code> attribute?</dt>
+					<dd>
+						<p>Only if the lists are included in the navigation document. These values can help a reading 							system determine the purpose of the list, although there is no known use of them at this 							time. Only the <a href="toc.html"><code>toc</code></a>, <a href="pagelist.html"><code>pagelist</code></a> and <a href="landmarks.html"><code>landmarks</code></a> 							values are typically ever recognized.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>Print publications have long included lists of figures, tables and illustrations as a way to quickly 					relocate this information. Readers often skip this information when reading the primary narrative 					in order not to lose their train of thought, only returning to it after completing the work or 					the chapter that contained the item.</p>
+				
+				<p>視覚的に読む読者は、そのようなコンテンツを視覚的に素早くざっと読み飛ばせるという利点がありますが、支援技術を使用している人や認知障害のある人にとっては、このコンテンツに戻るのは時間がかかり、困難な場合があります。</p>
+				
+				<p>When creating a content list, use the HTML <code>nav</code> element and provide a meaningful 					title for the list. Also, ensure that each entry in the list meaningfully describes the content 					that is linked to (e.g., do not use simple labels like "Figure 1" without any further context).</p>
+				
+				<p>Digital publications are not limited to lists of traditional two-dimensional content as are found 					in print. Lists of audio, video and interactive content can also be included when a publication 					contains this type of content.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-package-nav-def-types-other">その他の<code>toc nav</code>要素</a>
+</li>
+					<li>EPUB Structural Semantics Vocabulary — <a href="https://www.w3.org/TR/epub-ssv/#navigation">ドキュメントナビゲーション</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
