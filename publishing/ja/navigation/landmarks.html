@@ -20,14 +20,14 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Landmarks provide easy access to major structural sections spread across a multi-document publication.</p>
+				<p>ランドマークを使用すると、出版物の複数ドキュメントに広がる主要な構造セクションに容易にアクセスできます。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Include a landmarks navigation element. [[WCAG-2.4.5]]</li>
+					<li>ランドマーク ナビゲーション要素を組み込みます。[[WCAG-2.4.5]]</li>
 				</ul>
 			</section>
 
@@ -35,8 +35,8 @@
 				<h3>例</h3>
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 — Landmarks navigation (EPUB 3)</div>
-						<p>Landmarks are always expressed a flat list of links (no nested links).</p>
+						<div class="label">例 1 — ランドマーク ナビゲーション（EPUB 3）</div>
+						<p>ランドマークは、通常リンクを均一に並べたリストとして表現します（ネストしたリンクはありません）。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="landmarks"&gt;
    &lt;h2&gt;Guide&lt;/h2&gt;
@@ -85,22 +85,22 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-001">Why should I include a <code>landmarks nav</code> if the <code>toc nav</code> 						already links to everything?</dt>
+					<dt id="faq-001">すでに<code>toc nav</code>ですべてにリンクしている場合、なぜ<code>landmarks nav</code>を含める必要があるのですか？</dt>
 					<dd><p><code>landmarks nav</code>により、目次全体をナビゲートしなくても出版物の主要セクションに簡単にアクセスできるようになるだけでなく、ユーザー エージェントの動作も容易になります。たとえば、本文の最初のページを自動的に開くオプションを提供したり、索引や用語集へのクイック リンクを提供したりできるデバイスでは、 <code>landmarks nav</code>の追加のセマンティクスをこの目的で利用できます。</p></dd>
-					<dt id="faq-002">Do I need to include a <code>guide</code> in the package document?</dt>
-					<dd><p>Like the ability to include an NCX file, the <code>guide</code> element exists in EPUB 3 only to 						facilitate forwards compatibility in older user agents. You are not required to support older 						systems, but if you decide to you should include a <code>guide</code>.</p></dd>
+					<dt id="faq-002">パッケージドキュメントに<code>guide</code>を組み込む必要がありますか？</dt>
+					<dd><p>NCX ファイルを組み込む機能と同様に、<code>guide</code>要素は、古いユーザー エージェントでの前方互換性を容易にするためだけにEPUB 3に存在します。古いシステムのサポートは必須ではありませんが、サポートしたい場合には<code>guide</code>を組み込むべきです。</p></dd>
 				</dl>
 			</section>
 			
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Landmarks navigation enables quick access to major sections of the content. It is similar to ARIA landmarks, 					but ARIA landmarks are dynamically compiled by an assistive technology for the current page a user is on.  					Landmarks navigation, on the other hand, is a static list of locations that allows sections across a multi-document 					publication to be listed. Also, unlike ARIA landmarks, a landmarks navigation element can be made available  					to all users, not just users of assistive technologies.</p>
+				<p>ランドマーク ナビゲーションを使用すると、コンテンツの主要なセクションに素早くアクセスできます。これはARIAランドマークと似ていますが、ARIAランドマークは、ユーザーが現在いるページを対象に支援技術によって動的に構成されます。一方、ランドマーク ナビゲーションは、複数のドキュメントから構成される出版物全体に広がるセクションを一覧できる静的リストです。また、ランドマーク ナビゲーション要素は、ARIAランドマークとは異なり、支援技術ユーザーだけでなくすべてのユーザーが利用できます。</p>
 				
 				<section>
 					<h4>EPUB 3</h4>
 					
-					<p>Every EPUB publication should include a guide to all the major landmarks (the <code>landmarks 						nav</code>).</p>
+					<p>すべてのEPUB出版物には、すべての主要なランドマーク（<code>landmarks nav</code>）へのガイドが組み込まれるべきです。</p>
 					
 					<p>各ランドマークの性質は、そのリンク要素 ( <code>a</code> ) の<code>epub:type</code>属性で識別される必要があります。<a href="https://www.w3.org/TR/epub-ssv/">EPUB 3 Structural Semantics Vocabulary</a>の一般的なランドマーク プロパティには、次のものがあります。</p>
 					
@@ -112,13 +112,13 @@
 						<li>glossary（用語集）</li>
 					</ul>
 					
-					<p>Unlike the <a href="toc.html"><code>toc nav</code></a>, the <code>landmarks nav</code> must only be a 						single flat listing of links.</p>
+					<p><a href="toc.html"><code>toc nav</code></a>とは異なり、<code>landmarks nav</code>リンクは、単一の均一なリストでなければなりません。</p>
 				</section>
 				
 				<section>
 					<h4>EPUB 2</h4>
 					
-					<p>Landmarks are specified in EPUB 2 using the <code>guide</code> element in the NCX.</p>
+					<p>EPUB 2では、ランドマークはNCX の<code>guide</code>要素を用いて指定します。</p>
 				</section>
 			</section>
 			
