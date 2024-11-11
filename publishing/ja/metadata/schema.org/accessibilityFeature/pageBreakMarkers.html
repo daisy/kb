@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>pageBreakMarkers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's pageBreakMarkers value">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>定義</h3>
+				
+				<p class="desc">The resource includes static page markers, such as those identified by the  					<a href="https://www.w3.org/TR/dpub-aria/#doc-pagebreak">doc-pagebreak role</a> [DPUB-ARIA-1.0].</p>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">例 1 — EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature"&gt;
+   pageBreakMarkers
+&lt;/meta&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">例 2 — EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="pageBreakMarkers"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">例3 — オーディオブック</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["pageBreakMarkers"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#pageBreakMarkers"><code>pageBreakMarkers</code>値は</a>、静的なページ区切り位置がテキストに含まれていることを示します。</p>
+				
+				<p>The inclusion of page break markers from a print source allows users to identify where they 					are in a digital publication relative to its print equivalent. The page break markers are 					typically accompanied by a <a href="#pageList">page list</a> that allows users to quickly 					navigate to a specific location.</p>
+				
+				<p>Page break markers are also added to digital publications without a static paginated source to 					aid users in navigating the text.</p>
+				
+				<p>詳細については、<a href="../../../navigation/pagelist.html">ページ ナビゲーションのナレッジ ベース ページ</a>を参照してください。</p>
+				
+				<figure id="ex-pbm">
+					<figcaption>
+						<p class="label">DPUB-ARIA <code>doc-pagebreak</code>ロールを使用して識別されるページ区切り。</p>
+					</figcaption>
+					<pre id="ex-ppn-src" class="prettyprint"><code>&lt;span id="pg24" role="doc-pagebreak" aria-label="page 24"/&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>Schema.org — <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a>
+</li>
+					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#pageBreakMarkers">pageBreakMarkers</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
