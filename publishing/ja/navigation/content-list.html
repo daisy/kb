@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Providing lists of key content, like tables, illustrations and video, allows readers to more easily 					return to these items later.</p>
+				<p>表、イラスト、ビデオなどの重要なコンテンツのリストを提供することで、読者は容易にそれらの項目との間を往復できます。</p>
 			</section>
 			
 			<section id="tech">
@@ -73,14 +73,15 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-001">Should content lists be included in the EPUB navigation document?</dt>
+					<dt id="faq-001">EPUBナビゲーション ドキュメントにコンテンツリストを組み込むべきでしょうか？</dt>
 					<dd>
-<p><em>Only if the navigation document is included in the spine.</em></p>
-						<p>Although these lists are an ideal for the navigation document, EPUB reading systems typically 							only provide access to the table of contents and sometimes the page list. This is true despite 							the EPUB specification requiring that there be some way to access all the content of the 							navigation document. Consequently, readers will not be able to access the lists when the 							navigation document is not in the spine.</p>
+<p><em>spineにナビゲーション ドキュメントを含んでいる場合に限り必要です。</em></p>
+						<p>ナビゲーション ドキュメントにコンテンツリストを組み込むのが理想ですが、EPUBリーディングシステムは通常は目次のみのサポートであり、場合によってページ一覧がサポートされるといった状況です。EPUB規格の上ではEPUBリーディングシステムはナビゲーション ドキュメントのすべてのコンテンツにアクセスできるようにする必要がありますが、現実にはそのようになっていません。以上のような理由で、ナビゲーション ドキュメントがspineにない場合には読者はリストにアクセスできません。</p>
 					</dd>
-					<dt id="faq-002">Do I need to use the <code>epub:type</code> attribute?</dt>
+					<dt id="faq-002">
+<code>epub:type</code>属性を付ける必要はありますか？</dt>
 					<dd>
-						<p>Only if the lists are included in the navigation document. These values can help a reading 							system determine the purpose of the list, although there is no known use of them at this 							time. Only the <a href="toc.html"><code>toc</code></a>, <a href="pagelist.html"><code>pagelist</code></a> and <a href="landmarks.html"><code>landmarks</code></a> 							values are typically ever recognized.</p>
+						<p>リストがナビゲーション ドキュメントに含まれている場合のみ必要です。これらの値は、リーディングシステムがリストの目的を判断するのに役立ちますが、現時点ではそれらの使用法は知られていません。通常、<a href="toc.html"><code>toc</code></a> 、<a href="pagelist.html"><code>pagelist</code></a> 、および<a href="landmarks.html"><code>landmarks</code></a>の値のみが認識されます。</p>
 					</dd>
 				</dl>
 			</section>
@@ -88,13 +89,13 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Print publications have long included lists of figures, tables and illustrations as a way to quickly 					relocate this information. Readers often skip this information when reading the primary narrative 					in order not to lose their train of thought, only returning to it after completing the work or 					the chapter that contained the item.</p>
+				<p>印刷出版物では、情報のある場所をすぐに見つけられるように、図、表、イラストのリストが組み込まれてきました。読者が主要な内容を読む際には、思考の流れを見失わないようにこの情報をスキップすることが多く、通常、この項目を含む作品や章を読み終えた後などに、この情報に戻ります。</p>
 				
 				<p>視覚的に読む読者は、そのようなコンテンツを視覚的に素早くざっと読み飛ばせるという利点がありますが、支援技術を使用している人や認知障害のある人にとっては、このコンテンツに戻るのは時間がかかり、困難な場合があります。</p>
 				
 				<p>When creating a content list, use the HTML <code>nav</code> element and provide a meaningful 					title for the list. Also, ensure that each entry in the list meaningfully describes the content 					that is linked to (e.g., do not use simple labels like "Figure 1" without any further context).</p>
 				
-				<p>Digital publications are not limited to lists of traditional two-dimensional content as are found 					in print. Lists of audio, video and interactive content can also be included when a publication 					contains this type of content.</p>
+				<p>デジタル出版物のリストでは、印刷物のような従来の2次元コンテンツに限定されません。出版物に音声、ビデオ、インタラクティブ コンテンツが含まれている場合には、これらのコンテンツのリストを組み込めます。</p>
 			</section>
 			
 			<section id="refs">
