@@ -13,7 +13,7 @@
 			};
 		</script>
 		<script src="/js/init.js"></script>
-		<style type="text/css">
+		<style>
 			dt {
 				font-weight: bold;
 				font-size: 95%;
@@ -133,440 +133,67 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<section id="desc-onix14">
-					<h4>14: Short alternative descriptions</h4>
-					
-					<blockquote>
-						<p>All or substantially all non-text content has short alternative (textual) descriptions,
-							usually provided via alt attributes. Note this applies to normal images (eg photographs,
-							charts and diagrams) and also to any embedded audio, video etc. Audio and video content
-							should include alternative descriptions suitable for hearing-impaired as well as for
-							visually-impaired readers. (Purely decorative non-text content can be ignored, but the
-							accessibility of resources delivered via a network connection rather than as part of the
-							e-publication package must be included).</p>
-					</blockquote>
-					
-					<p>Refer to the <a href="../html/images-desc.html">Images</a> section for more information.</p>
-					
-					<pre id="ex-09-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>14&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix15">
-					<h4>15: Full alternative descriptions</h4>
-					
-					<blockquote>
-						<p>All or substantially all non-text content has full alternative (textual) descriptions. Note
-							this applies to normal images (eg photographs, charts and diagrams) and also to any embedded
-							audio, video etc. Audio and video content should include full alternative descriptions (eg
-							audio-described video) and transcript, subtitles or captions (whether closed or open)
-							suitable for hearing-impaired as well as for visually-impaired readers. (Purely decorative
-							non-text content can be ignored, but the accessibility of resources delivered via a network
-							connection rather than as part of the e-publication package must be included).</p>
-					</blockquote>
-					
-					<p>See the <a href="../html/images-desc.html">Image Descriptions</a>, <a href="../html/audio.html"
-							>Audio</a>, and <a href="../html/video.html">Video</a> sections for more information on
-						meeting this requirement.</p>
-					
-					<pre id="ex-10-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>15&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix16">
-					<h4>16: Visualised data also available as non-graphical data</h4>
-					
-					<blockquote>
-						<p>Where data visualisations are provided (eg graphs and charts), the underlying data is also
-							available in non-graphical (usually tabular, textual) form.</p>
-					</blockquote>
-					
-					<pre id="ex-11-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>16&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix17">
-					<h4>17: Accessible math content</h4>
-					
-					<blockquote>
-						<p>Mathematical content such as equations is usable with assistive technology, eg through use of
-							MathML. Semantic MathML is preferred but Presentational MathML is acceptable.</p>
-					</blockquote>
-					
-					<p>There is no support for Semantic MathML in web user agents, such as EPUB reading systems, so
-						providing Presentational MathML is generally all that is possible.</p>
-					
-					<pre id="ex-12-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>17&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix18">
-					<h4>18: Accessible chem content</h4>
-					
-					<blockquote>
-						<p>Chemistry content such as chemical formulae is usable with assistive technology, eg through
-							use of ChemML.</p>
-					</blockquote>
-					
-					<p>EPUB does not provide native support for ChemML. The <code>epub:switch</code> element for
-						allowing other grammars is also now deprecated.</p>
-					
-					<pre id="ex-13-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>18&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix19">
-					<h4>19: Print-equivalent page numbering</h4>
-					
-					<blockquote>
-						<p>For a reflowable e-publication, contains references to the page numbering of an equivalent
-							printed product. Use &lt;RelatedProduct> with relation code 13 to specify an identifier for
-							the source of the page numbers.</p>
-					</blockquote>
-					
-					<p>Refer to the <a href="../html/pagenum.html">Page Numbering</a> and <a href="../navigation/pagelist.html"
-							>Page List Navigation</a> sections for more information.</p>
-					
-					<pre id="ex-14-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>19&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature>
-&#8230;
-&lt;RelatedProduct>
-  &lt;ProductRelationCode>13&lt;/ProductRelationCode>
-  &lt;ProductIdentifier>
-   &lt;ProductIDType>15&lt;/ProductIDType>
-   &lt;IDValue>9780123456789&lt;/IDValue>
- &lt;/ProductIdentifier>
- &lt;ProductForm>BB&lt;/ProductForm>
-&lt;/RelatedProduct>
-</code></pre>
-				</section>
-				
-				<section id="desc-onix20">
-					<h4>20: Synchronised pre-recorded audio</h4>
-					
-					<blockquote>
-						<p>Text-synchronised pre-recorded audio narration (natural or synthesised voice) is included for
-							substantially all textual matter, including all alternative descriptions.</p>
-					</blockquote>
-					
-					<p>For EPUB 3, the inclusion of <a href="../sync-media/overlays.html">media overlays</a> to
-						synchronize text and audio content is sufficient to meet this requirement.</p>
-					
-					<pre id="ex-15-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>20&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix21">
-					<h4>21: Text-to-speech hinting provided</h4>
-					
-					<blockquote>
-						<p>Text-to-speech has been optimised through provision of PLS lexicons, SSML or CSS Speech
-							synthesis hints.</p>
-					</blockquote>
-					
-					<p>These technologies are not currently supported in EPUB 3 reading systems.</p>
-					
-					<pre id="ex-16-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>21&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix22">
-					<h4>22: Language tagging provided</h4>
-					
-					<blockquote>
-						<p>The language of the text has been specified (eg via the HTML or XML lang attribute) to
-							optimise text-to-speech (and other alternative renderings), both at whole document level
-							and, where appropriate, for individual words, phrases or passages in a different
-							language.</p>
-					</blockquote>
-					
-					<p>For more information, refer to the <a href="../html/lang.html">Language</a> section of the
-						knowledge base.</p>
-					
-					<pre id="ex-17-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>22&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix24">
-					<h4>24: Dyslexia readability</h4>
-					
-					<blockquote>
-						<p>Specialised font, character and/or line spacing, justification and paragraph spacing,
-							coloring and other options provided specifically to improve readability for dyslexic
-							readers. Details, including the name of the font if relevant, should be listed in
-							&lt;ProductFormFeatureDescription></p>
-					</blockquote>
-					
-					<pre id="ex-18-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>24&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	Publication uses the Open Dyslexic font &#8230;
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature>
-</code></pre>
-				</section>
-				
-				<section id="desc-onix25">
-					<h4>25: Use of color</h4>
-					
-					<blockquote>
-						<p>For readers with color vision deficiency, use of color (eg in diagrams) is not the sole means
-							of graphical distinction.</p>
-					</blockquote>
-					
-					<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#use-of-color">WCAG Success Criterion 1.4.1 -
-							Use of Color</a>.</p>
-					
-					<p>Note that this property is for visual reading. The methods for passing it do not ensure that
-						non-visual readers can access the same information.</p>
-					
-					<pre id="ex-25-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>25&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix26">
-					<h4>26: Use of contrast</h4>
-					
-					<blockquote>
-						<p>Body text is presented with a contrast ratio of at least 4.5:1 (or 3:1 for large/heading
-							text).</p>
-					</blockquote>
-					
-					<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG Success Criterion
-							1.4.3 Contrast (Minimum)</a>.</p>
-					
-					<pre id="ex-26-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>26&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix27">
-					<h4>27: Use of audio</h4>
-					
-					<blockquote>
-						<p>Audio content is presented with no or low background noise (eg ambient sounds), at least 20dB
-							below the level of foreground speech.</p>
-					</blockquote>
-					
-					<div class="caution" role="note" aria-labelledby="use-audio-note">
-						<p class="label" id="use-audio-note">Caution</p>
-						<p>This value appears to correspond to <a
-								href="https://www.w3.org/TR/WCAG2/#low-or-no-background-audio">WCAG Success Criterion
-								1.4.7 Low or No Background Audio</a>, but has introduced wording changes that make its
-							application ambiguous (i.e., it is no longer restricted to audio that is primarily speech).
-							For the purposes of setting this value, it is advised to follow the requirements of SC
-							1.4.7.</p>
-					</div>
-					
-					<pre id="ex-27-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>27&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix28">
-					<h4>28: Full alternative audio descriptions</h4>
-					
-					<blockquote>
-						<p>All or substantially all non-text content has full alternative descriptions as pre-recorded
-							audio. Note this applies to normal images (eg photographs, charts and diagrams) and also to
-							any embedded video etc. Video content should include full alternative descriptions (eg
-							audio-described video) and transcript, subtitles or captions (whether closed or open)
-							suitable for hearing-impaired as well as for visually-impaired readers. (Purely decorative
-							non-text content can be ignored, but the accessibility of resources delivered via a network
-							connection rather than as part of the e-publication package must be included).</p>
-					</blockquote>
-					
-					<div class="caution" role="note" aria-labelledby="use-audio-desc">
-						<p class="label" id="use-audio-desc">Caution</p>
-						<p>The ONIX description of this value is ambiguous. It is not clear whether the narration of
-							descriptions in media overlays is acceptable, for example. It is also not clear when a
-							publication "substantively" meets the requirements, or why the description also adds
-							recommendations for transcripts, etc. that are already covered by <a href="#desc-onix15"
-								>value 15</a>.</p>
-					</div>
-					
-					<pre id="ex-28-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>28&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix29">
-					<h4>29: Next / Previous navigation</h4>
-					
-					<blockquote>
-						<p>All levels of heading and other structural elements of the content are correctly marked up
-							and (if applicable) numbered, to enable fast next heading / previous heading, next chapter /
-							previous chapter navigation without returning to the table of contents.</p>
-					</blockquote>
-					
-					<div class="caution" role="note" aria-labelledby="next-nav">
-						<p class="label" id="next-nav">Caution</p>
-						<p>The application of this value is currently unclear. It may be that using heading tags is
-							sufficient, or it may also require the use of ARIA roles.</p>
-					</div>
-					
-					<pre id="ex-29-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>29&lt;/ProductFormFeatureValue>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<p class="bridgehead">The following informational fields should always be included when applicable:</p>
-				
-				<section id="desc-onix93">
-					<h4>93: Compliance certification by</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the URL of a web page belonging to the
-							organisation responsible for compliance testing and certification of the product – typically
-							a ‘home page’ or a page describing the certification scheme itself. For use in ONIX 3.0
-							only.</p>
-					</blockquote>
-					
-					<pre id="ex-93-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>93&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	http://standards-org.example.com/
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix94">
-					<h4>94: Compliance web page for detailed accessibility information</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the URL of a web page giving further detailed
-							description of the accessibility features, compatibility, testing, certification etc
-							relevant to this product. The web page should be maintained by an independent compliance
-							scheme or testing organization.</p>
-					</blockquote>
-					
-					<pre id="ex-19-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>94&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	http://standards-org.example.com/book/123/compliance
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix95">
-					<h4>95: Trusted intermediary’s web page for detailed accessibility information</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the URL of a web page giving further detailed
-							description of the accessibility features, compatibility, testing etc relevant to this
-							product. The web page should be provided by a trusted intermediary or third party nominated
-							by the publisher.</p>
-					</blockquote>
-					
-					<pre id="ex-20-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>95&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	http://intermediary.example.com/book/123/compliance
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix96">
-					<h4>96: Publisher’s web page for detailed accessibility information</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the URL of a web page giving further detailed
-							description of the accessibility features, compatibility, testing etc relevant to this
-							product. The web page should be provided by the publisher.</p>
-					</blockquote>
-					
-					<pre id="ex-21-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>96&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	http://publisher.example.com/book/123/compliance
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix97">
-					<h4>97: Compatibility tested</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the URL of a web page giving a short description
-							of compatibility testing carried out for this product, including detailed compatibility with
-							various assistive technology such as third-party screen-reading software. See also code 00
-							for a summary of the accessibility features of the product itself.</p>
-					</blockquote>
-					
-					<pre id="ex-22-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>97&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	Content has been tested to work on iBooks,
-	Sony User and Adobe Digital Editions in 
-	both scripting enabled and disabled modes.
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix98">
-					<h4>98: Trusted Intermediary contact</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the e-mail address for a contact at a ‘trusted
-							intermediary’, to whom detailed questions about accessibility for this product may be
-							directed.</p>
-					</blockquote>
-					
-					<pre id="ex-23-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>98&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	accessinfo@global-library.example.com
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
-				
-				<section id="desc-onix99">
-					<h4>99: Publisher contact for further accessibility information</h4>
-					
-					<blockquote>
-						<p>&lt;ProductFormFeatureDescription> carries the e-mail address for a contact at the publisher
-							to whom detailed questions about accessibility of this product may be directed.</p>
-					</blockquote>
-					
-					<pre id="ex-24-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
- &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
- &lt;ProductFormFeatureValue>99&lt;/ProductFormFeatureValue>
- &lt;ProductFormFeatureDescription>
-	accessibility-officer@example.com
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature></code></pre>
-				</section>
+				<ul>
+					<li><a href="00.html">00: Accessibility summary</a></li>
+					<li><a href="01.html">01: LIA Compliance Scheme</a></li>
+					<li><a href="02.html">02: EPUB Accessibility Specification 1.0 A</a></li>
+					<li><a href="03.html">03: EPUB Accessibility Specification 1.0 AA</a></li>
+					<li><a href="04.html">04: Epub Accessibility Specification 1.1</a></li>
+					<li><a href="05.html">05: PDF/UA-1</a></li>
+					<li><a href="06.html">06: PDF/UA-2</a></li>
+					<li><a href="08.html">08: Unknown accessibility</a></li>
+					<li><a href="09.html">09: Inaccessible, or known limited accessibility</a></li>
+					<li><a href="10.html">10: No reading system accessibility options actively disabled (except)</a></li>
+					<li><a href="11.html">11: Table of contents navigation</a></li>
+					<li><a href="12.html">12: Index navigation</a></li>
+					<li><a href="13.html">13: Single logical reading order</a></li>
+					<li><a href="14.html">14: Short alternative textual descriptions</a></li>
+					<li><a href="15.html">15: Full alternative textual descriptions</a></li>
+					<li><a href="16.html">16: Visualised data also available as non-graphical data</a></li>
+					<li><a href="17.html">17: Accessible math content as MathML</a></li>
+					<li><a href="18.html">18: Accessible chemistry content as ChemML</a></li>
+					<li><a href="19.html">19: Print-equivalent page numbering</a></li>
+					<li><a href="20.html">20: Synchronised pre-recorded audio</a></li>
+					<li><a href="21.html">21: Text-to-speech hinting provided</a></li>
+					<li><a href="22.html">22: Language tagging provided</a></li>
+					<li><a href="24.html">24: Dyslexia readability</a></li>
+					<li><a href="25.html">25: Use of color is not sole means of conveying information</a></li>
+					<li><a href="26.html">26: Use of high contrast between text and background color</a></li>
+					<li><a href="27.html">27: Use of high contrast between foreground and background audio</a></li>
+					<li><a href="28.html">28: Full alternative audio descriptions</a></li>
+					<li><a href="29.html">29: Next / Previous structural navigation</a></li>
+					<li><a href="30.html">30: ARIA roles provided</a></li>
+					<li><a href="31.html">31: Accessible controls provided</a></li>
+					<li><a href="32.html">32: Landmark navigation</a></li>
+					<li><a href="34.html">34: Accessible chemistry content (as MathML)</a></li>
+					<li><a href="35.html">35: Accessible math content (as LaTeX)</a></li>
+					<li><a href="36.html">36: All textual content can be modified</a></li>
+					<li><a href="37.html">37: Use of ultra-high contrast between text foreground and background</a></li>
+					<li><a href="38.html">38: Unusual words or abbreviations explained</a></li>
+					<li><a href="39.html">39: Supplementary material to an audiobook is accessible</a></li>
+					<li><a href="40.html">40: Link purposes clear</a></li>
+					<li><a href="51.html">51: All non-decorative content supports reading via pre-recorded audio</a></li>
+					<li><a href="52.html">52: All non-decorative content supports reading without sight</a></li>
+					<li><a href="75.html">75: EAA exception 1 – Micro-enterprises</a></li>
+					<li><a href="76.html">76: EAA exception 2 – Disproportionate burden</a></li>
+					<li><a href="77.html">77: EAA exception 3 – Fundamental modification</a></li>
+					<li><a href="80.html">80: WCAG v2.0</a></li>
+					<li><a href="81.html">81: WCAG v2.1</a></li>
+					<li><a href="82.html">82: WCAG v2.2</a></li>
+					<li><a href="84.html">84: WCAG level A</a></li>
+					<li><a href="85.html">85: WCAG level AA</a></li>
+					<li><a href="86.html">86: WCAG level AAA</a></li>
+					<li><a href="90.html">90: Compliance certification by (name)</a></li>
+					<li><a href="91.html">91: Latest accessibility assessment date</a></li>
+					<li><a href="92.html">92: Accessibility addendum</a></li>
+					<li><a href="93.html">93: Compliance certification by (URL)</a></li>
+					<li><a href="94.html">94: Compliance web page for detailed accessibility information</a></li>
+					<li><a href="95.html">95: Trusted intermediary's web page for detailed accessibility information</a></li>
+					<li><a href="96.html">96: Publisher's web page for detailed accessibility information</a></li>
+					<li><a href="97.html">97: Compatibility tested</a></li>
+					<li><a href="98.html">98: Trusted Intermediary contact</a></li>
+					<li><a href="99.html">99: Publisher contact for further accessibility information</a></li>
+				</ul>
 			</section>
 			
 			<section id="refs">

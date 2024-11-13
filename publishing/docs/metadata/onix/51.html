@@ -2,27 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>51</title>
+		<title>51: All non-decorative content supports reading via pre-recorded audio</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Guidance on using ONIX code list 196 value 00.">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 51: All non-decorative content supports reading via pre-recorded audio.">
 		<script>
 			var page_info = {
 				'category': ['Metadata', 'ONIX Code List 196'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
-		<script src="/js/init.js"></script>
+		<script src="/js/init.js"></script>
+
 	</head>
 	<body>
 		<main>
 			<section id="def">
 				<h3>Definition</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> contains a short explanatory summary of the
-					accessibility of the product, consistent with the more specific conformance and feature details
-					provided. The summary should note both the accessibility features provided and any potential
-					deficiencies. More detailed information may be provided in an external file using codes
-					94–96. For use in ONIX 3.0 only</p>
+				<p class="desc">All contents of the digital publication necessary to use and understanding, including
+					any text, images (via alternative descriptions), video (via audio description) is fully accessible
+					via suitable audio reproduction. The entire publication can be navigated and ‘read’ using only
+					pre-recorded sound, and does not require visual or tactile perception. NB this implies that all
+					&lt;ProductContent> types listed can be accessed without sight. Only for use in ONIX 3.0 or
+					later</p>
 			</section>
 			
 			<section id="ex">
@@ -35,22 +37,14 @@
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
-   &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
-   &lt;ProductFormFeatureDescription>
-   Publication lacks image descriptions and alt text.
- &lt;/ProductFormFeatureDescription>
-&lt;/ProductFormFeature>
-</code></pre>
+   &lt;ProductFormFeatureValue>51&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
 				</figure>
 			</section>
 			
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>This value is the same as the Schema.org <a href="schema.org/accessibilitySummary.html"
-					>accessibilitySummary property</a>.</p>
-				
-				<p>The field is often limited to only 500 characters.</p>
 			</section>
 			
 			<section id="refs">
