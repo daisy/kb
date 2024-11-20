@@ -27,7 +27,7 @@
 				
 				<ul>
 					<li>
-						<p>Include a table of contents. [[WCAG-2.4.5]]</p>
+						<p>目次を組み込みます。[[WCAG-2.4.5]]</p>
 					</li>
 					<li>
 						<p>目次に出版物内の各文書へのリンクが少なくとも1つあることを確認します。[[WCAG-2.4.5]]</p>
@@ -42,7 +42,7 @@
 					<figcaption>
 						<div class="label">例 1 — 基本的な目次</div>
 						<p>目次は、コンテンツへのリンクを順序付けたリストです。</p>
-						<p>Note that the <code>epub:type</code> attribute is not used outside of EPUB. Similarly, 							the <code>role</code> attribute is not necessary in EPUB unless the navigation document 							is included in the spine.</p>
+						<p><code>epub:type</code>属性は EPUB 以外では使用されないことに注意してください。同様に、ナビゲーション ドキュメントがspineに含まれていなければ、<code>role</code>属性はEPUBでは不要です。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
@@ -87,7 +87,7 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">例 3 — 非表示のブランチを含む目次 (EPUB 3 のみ)</div>
-						<p>The following example hides branches of the table of contents from visual rendering. 							These branches are normally not accessible to anyone, but in EPUB 3 the <code>hidden</code> 							attribute has special handling that is supposed to allow the branches to be viewable 							when the reading system renders the table of contents.</p>
+						<p>次の例では、目次の枝が視覚的なレンダリングでは非表示になっています。このような枝は通常、誰もアクセスできませんが、EPUB 3では、<code>hidden</code>属性に特別な処理があり、リーディングシステムが目次をレンダリングする再にはこの枝を表示します。</p>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
@@ -112,11 +112,11 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-001">Why does EPUB 3 allow NCX files, and do I need to include one?</dt>
+					<dt id="faq-001">EPUB 3でNCXファイルが許可されているのはなぜですか？また、NCXファイルを組み込む必要はありますか？</dt>
 					<dd>
-<p>The NCX file is allowed for forwards compatibility purposes only. An EPUB 2 user agents may 						open an EPUB 3 publication, but it will not be able to use the new navigation document 						format.</p>
-						<p>You can ignore the NCX file if your book won't render properly as EPUB 2 content, or if you aren't 							targeting cross-compatibility.</p>
-						<p>Your publication may still open on EPUB 2 user agents even without an NCX. Some user 							agents, like Adobe Digital Editions, will not provide navigation by table of contents but will 							open the publication.</p>
+<p>NCXファイルは、前方互換性の目的でのみ許可されます。EPUB 2ユーザー エージェントはEPUB 3出版物を開くことができますが、新しいナビゲーション ドキュメント形式は使用できません。</p>
+						<p>本がEPUB 2コンテンツとして適切にレンダリングされない場合、あるいは相互互換性を考慮していないならば、NCXファイルは無視できます。</p>
+						<p>NCXがなくても、EPUB 2ユーザー エージェントで出版物が開く場合があります。Adobe Digital Editions などの一部のユーザー エージェントでは、目次によるナビゲーションは利用できませんが、出版物は開きます。</p>
 					</dd>
 				</dl>
 			</section>
@@ -124,26 +124,26 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>The table of contents is one of the key methods users use to move around the content of a publication, as 					it provides users easy access to the major sections of the publication. This, in turn, simplifies quick traversal 					and random inspection of the content.</p>
+				<p>目次は、ユーザーが出版物のコンテンツ内を移動する際に使用する主要な方法の1つであり、出版物の主要セクションに簡単にアクセスできます。これにより、コンテンツ内の素早い移動やランダムな内容確認が容易になります。</p>
 				
-				<p>A table of contents is typically constructed using an ordered list (<code>ol</code>) inside of a 					<code>nav</code> element, but the requirements for specific technologies are listed below.</p>
+				<p>目次は通常、<code>nav</code>要素内の順序付きリスト ( <code>ol</code> ) を使用して構築されますが、これらの技術要件について以下に示します。</p>
 				
 				<section>
 					<h4>EPUB 3</h4>
 					
-					<p>In EPUB 3, publications must provide a table of contents in the <a href="https://www.w3.org/TR/epub/#sec-nav">EPUB navigation document</a> (the <code>toc 							nav</code>).</p>
+					<p>EPUB 3では、出版物は<a href="https://www.w3.org/TR/epub/#sec-nav">EPUBナビゲーション ドキュメント</a>( <code>toc nav</code> ) 内で目次を組み込まなければなりません。</p>
 					
-					<p>Each list item must either contain a single link (<code>a</code>) to a section of the document, or a  						link or heading (<code>span</code>) followed by a list of subsections.</p>
+					<p>各リスト項目には、ドキュメントのセクションへの単一のリンク ( <code>a</code> )、または、リンクまたは見出し ( <code>span</code> ) とそれに続くサブセクションのリストが含まれていなければなりません。</p>
 					
-					<p>If the pronunciation of a link will be ambiguous or incomplete due to embedded images, math content, or 						other content without intrinsic text, a <code>title</code> attribute must be attached containing an 						alternate pronunciation.</p>
+					<p>埋め込まれた画像、数学コンテンツ、または固有のテキストのないその他のコンテンツが原因でリンクの発音が曖昧または不完全な場合は、代替の発音を含む<code>title</code>属性を付与しなければなりません。</p>
 					
-					<p>If an author intends to include the table of contents in the spine of the publication, the <code>hidden</code> 						attribute can be used to hide branches from the visual rendering. EPUB user agents are required to ignore 						this attribute when they present the table of contents to users outside of the spine (i.e., the hidden links 						will be available in the user agent-generated table of contents).</p>
+					<p>コンテンツ製作者が出版物のspineに目次を組み込むならば、<code>hidden</code>属性を使用して視覚的なレンダリングから特定の枝を隠せます。EPUBユーザー エージェントがspineの外側でユーザーに目次を表示する際には、この属性を無視することが求められます (つまり、非表示のリンクはユーザー エージェントが生成した目次では使用可能になります)。</p>
 				</section>
 				
 				<section>
 					<h4>EPUB 2</h4>
 					
-					<p>EPUB 2 makes use of the <a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">DAISY NCX file</a> 						for provision of a table of contents. The entries of the table of contents are constructed using <code>navPoint</code> 						elements. These elements can be nested to create a hierarchical list of navigation points.</p>
+					<p>EPUB 2では、目次を提供するために<a href="http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">DAISY NCX ファイル</a>を使用します。目次のエントリは、<code>navPoint</code>要素を使用して構築します。これらの要素をネストして、ナビゲーション位置を階層化したリストを作成できます。</p>
 				</section>
 			</section>
 			
