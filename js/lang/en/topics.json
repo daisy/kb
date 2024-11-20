@@ -203,7 +203,7 @@
 					},
 					{
 						"id": "meta-onix",
-						"href": "onix.html",
+						"href": "onix/index.html",
 						"title": "ONIX",
 						"subtitle": "Covers the ONIX metadata standard's code list 196 accessibility properties."
 					}

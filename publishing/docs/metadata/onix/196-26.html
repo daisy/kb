@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>196 - 26: Use of high contrast between text and background color</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 26: Use of high contrast between text and background color.">
+		<script>
+			var page_info = {
+				'category': ['Metadata', 'ONIX Accessibility'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Definition</h3>
+				
+				<p class="desc">Body text is presented with a contrast ratio of at least 4.5:1 (or 3:1 for 
+					large/heading text). Only for use in ONIX 3.0 or later</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; ONIX markup</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>26&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG Success Criterion
+					1.4.3 Contrast (Minimum)</a>.</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
+							196: E-publication Accessibility Details</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
