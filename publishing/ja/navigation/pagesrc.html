@@ -20,14 +20,14 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Identify the source of pagination so users can be sure the digital publication will be useful for 					their needs.</p>
+				<p>ページネーションのソースを設定して、電子出版物がユーザーのニーズに確実に役立つようにします。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Identify the source of the page breaks in the metadata. [[WCAG-1.3.1]]</li>
+					<li>メタデータの中でページ区切りのソースを設定します。[[WCAG-1.3.1]]</li>
 				</ul>
 			</section>
 
@@ -38,7 +38,7 @@
 					<figcaption>
 						<div class="label">例 1 - ページ区切りソースの識別 ( <code>pageBreakSource</code> )</div>
 						
-						<p>Unlike having to pair <code>dc:source</code> and <code>source-of</code> properties to identify the 							pagination source, the <code>pageBreakSource</code> property only requires the identifier for 							static page source (i.e., it can do in one property what previously required two).</p>
+						<p>ページネーション ソースを識別するために、<code>dc:source</code>と<code>source-of</code>の二つのプロパティを用いる必要は無く、<code>pageBreakSource</code>プロパティのみを用います（つまり、以前は2つのプロパティが必要だったことを1つのプロパティで表現できます)。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource"&gt;urn:isbn:9781234567891&lt;/meta&gt;</code></pre>
 				</figure>
@@ -58,7 +58,8 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-001">Should I use the <code>source-of</code> or <code>pageBreakSource</code> property?</dt>
+					<dt id="faq-001">
+<code>source-of</code>プロパティまたは<code>pageBreakSource</code>プロパティのどちらを使用するべきでしょうか？</dt>
 					<dd>
 						<p>EPUB でページ区切りのソースを識別する古い方法は、 <code>dc:source</code>と<code>source-of</code>メタデータ プロパティの組み合わせです。ただし、この方法には 2 つの重大な欠陥があります。1 つは、EPUB でしか機能しないこと (メタデータの調整は他のフレームワークでは機能しません)、もう 1 つは、デジタル版のみでは機能しないこと (つまり、ページ区切りにソースがない場合) です。</p>
 						
@@ -75,7 +76,7 @@
 						
 						<p>PDF マニュアル、ワードプロセッサ ドキュメントなど、静的なページ番号を持ちながら一意の識別子を持たない、EPUB として表現できるドキュメントの種類は多数あります。</p>
 						
-						<p>For these types of documents, you can minimally use the title to identify the page break  							source. For greater specificity, add the author(s), creation date, etc. to the 							identifier.</p>
+						<p>このような種類のドキュメントでは、ページ区切りのソース識別のために最低でもタイトルが利用できます。より詳細にするには、作成者、作成日などを識別子に追加します。</p>
 						
 						<pre><code>&lt;metadata …&gt;
 …
@@ -92,7 +93,7 @@ User Manual, 5th Edition, PDF
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Although the <a href="pagelist.html">page list</a> and <a href="pagebreaks.html">page break 					markers</a> are the technologies that allow users to access static page break locations, without 					knowing the source of the pagination, users cannot determine the usefulness of a digital 					publication. A student in a classroom, for example, needs to know whether the pagination was 					derived from the same version of a print book that the rest of their class is using.</p>
+				<p><a href="pagelist.html">ページ リスト</a>と<a href="pagebreaks.html">ページ区切りマーカー</a>は、ユーザーが静的なページ区切りの場所にアクセスできるテクノロジーですが、ページ区切りのソースが判らなければ、ユーザーは電子出版物の有用性を判断できません。たとえば、教室の生徒は、ページ区切りがクラスの他の生徒が使用している印刷書籍と同じバージョンから派生したものかを知る必要があります。</p>
 				
 				<p>ページ区切りのソースは、 <code>pageBreakSource</code>プロパティを使用して識別されます。</p>
 				
