@@ -20,14 +20,14 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Include a page list so users of digital publications can coordinate their position with a statically 					paginated equivalent.</p>
+				<p>電子出版物のユーザーが、（紙媒体のような）静的にページ付けされた出版物と同じ位置に移動できるようにするために、ページリストを組み込んでください。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Include a page list when a publication has statically paginated equivalent. [[WCAG-2.4.5]]</li>
+					<li>出版物に静的にページ付けされた同等の出版物がある場合、ページリストを組み込んでください。[[WCAG-2.4.5]]</li>
 				</ul>
 			</section>
 
@@ -38,8 +38,8 @@
 					<figcaption>
 						<div class="label">例 1 — ページリスト（EPUB 3）</div>
 						<p>ページリストは、ページ区切り位置へのリンクの単純な順序付きリストです。これは<code>epub:type</code>属性値<code>page-list</code>によって識別されます。</p>
-						<p>Note that the page list includes the <code>hidden</code> attribute so that the list is 							not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
-						<p>An ARIA <code>role</code> attribute (see the <a href="#ex-02">next example</a>) is not necessary if the  							page list is always hidden from users or the EPUB navigation document is not included in the spine.</p>
+						<p>spineに<a href="toc.html">目次</a>を含んでいる場合には、リストがユーザーに表示されないようにページリストに対して<code>hidden</code>属性を設定するよう注意してください。</p>
+						<p>ページリストが常にユーザーに対して非表示になっている場合、あるいはEPUBナビゲーション ドキュメントがspineに含まれていない場合には、ARIA <code>role</code>属性（<a href="#ex-02">次の例</a>を参照）は必要ありません。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden"&gt;
  &lt;ol&gt;
@@ -113,14 +113,14 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-pl-001">How should I order the links the page list?</dt>
+					<dt id="faq-pl-001">ページリストのリンクはどのような順序にすれば良いでしょうか？</dt>
 					<dd>
-						<p>There is currently no requirement on how to order the links in the page list. A 							common technique is to order the links numerically, but sometimes the order of the 							content in the digital publication does not match the order in the physical (e.g., 							sometimes the publisher might move front matter to the back). Some EPUB creators  							prefer to order the page list to match the digital content in these cases.</p>
+						<p>現在、ページリスト内のリンクの順序に関する要件はありません。一般的な手法はリンクを数字順に並べることですが、電子出版物のコンテンツの順序が物理的な順序と一致しない場合があります（たとえば、出版社が前書きを最後に移動する場合があります）。このような場合、一部のEPUB作成者は、デジタルコンテンツに合わせたページリスト順番を好みます。</p>
 					</dd>
 					
-					<dt id="faq-pl-002">Does a publication with a page list have to have page break markers?</dt>
+					<dt id="faq-pl-002">ページリストを含む出版物にはページ区切りマーカーが必要ですか？</dt>
 					<dd>
-						<p>A page list may be included in a digital publication that does not have page break 							markers, but this practice tends to be rare and is often not very helpful for  							users. An example would be a page list that only links to the first page of each 							chapter. The page list could link to the chapter headings instead of having a page 							break marker. But since the table of contents would already provide access to each 							chapter, this approach has limited use.</p>
+						<p>ページリストは、ページ区切りマーカーのない電子出版物に含まれる場合がありますが、この方法はまれであり、ユーザーにとってあまり役に立ちません。例としては、各章の最初のページにのみリンクするページリストがあります。ページリストは、ページ区切りマーカーの代わりに、章の見出しにリンクできます。ただし、通常は目次によって各章へのアクセスが提供されるので、このアプローチの活用は限定的です。</p>
 					</dd>
 				</dl>
 			</section>
@@ -128,9 +128,9 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>If a reflowable publication is derived from a statically paginated source, such as a print 					edition, including a page list allows users to coordinate positions. For example, a student 					using a digital edition in a class where her peers are using print books would be able to jump 					to the same pages during instruction.</p>
+				<p>印刷物のような静的にページ番号が付けられた原本よりリフロー可能な出版物が製作される場合、ページリストを組み込むと、ユーザーは静的なページ位置に移動できます。たとえば、クラスメイトが印刷物の本を使用しているクラスでデジタル版を使用している学生は、授業中にまったく同じページに移動できます。</p>
 				
-				<p>The page list itself is a list of links to all the page break locations. User agents can use 					this list to provide automatic page jump functionality, or a user can access it directly to 					manually select the page they wish to go to.</p>
+				<p>ページリスト自体は、すべてのページ区切り位置へのリンクのリストです。ユーザーエージェントはこのリストを使用して自動ページ ジャンプ機能を提供できます。また、ユーザーはこのリストに直接アクセスして手動で移動したいページを選択できます。</p>
 				
 				<p>EPUB 3 では、ページリストはナビゲーション ドキュメント内の<a href="https://www.w3.org/TR/epub-33/#sec-nav-pagelist">ページリスト nav 要素</a>で表現されます。この要素は、基本的に各ページ区切り位置へのリンクのフラットリストです。</p>
 				
