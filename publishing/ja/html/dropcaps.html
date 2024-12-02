@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>ドロップキャップ</title>
@@ -30,35 +30,35 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>ドロップキャップは複数のユーザーグループにとって問題があり、アクセシビリティを確保しながら一貫してレンダリングするのは簡単ではありません。</p>
+				<p>ドロップキャップは複数のユーザーグループにとって問題があり、アクセシビリティを確保しつつ一貫してレンダリングするのは容易ではありません。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>ドロップキャップをフォーマットするには、CSSの<code>initial-letter</code>プロパティを使用します[[WCAG-1.3.1]]</li>
+					<li>ドロップキャップをフォーマットするには、CSSの<code>initial-letter</code>プロパティを使用します。[[WCAG-1.3.1]]</li>
 				</ul>
 			</section>
 			
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>ドロップキャップは、従来、文書の新しいセクションを強調するために使用されていました。たとえば、ラテン語の写本では、新しいセクションの開始時に区切りがなかったため、ドロップキャップは、テキストをざっと読むユーザーに視覚的な合図を提供しました。</p>
+				<p>ドロップキャップは伝統的に文書の新しいセクションを強調するために使用されていました。たとえば、ラテン語の写本では、新しいセクションの開始時の区切りがなかったため、テキストをざっと読むユーザーに対して、ドロップキャップによる視覚的な目印が提供されていました。</p>
 				
-				<p>出版物はもはやこのようにフォーマットされなくなり、主要な新しいセクションは通常、新しいページの先頭に大きな見出しを付けて配置することで強調表示されるようになりました。</p>
+				<p>出版物はもはやこのようにレイアウトされなくなり、今では主要な新しいセクションは、新しいページの先頭に大きな文字で見出しを付けて配置し強調表示されます。</p>
 				
-				<p>装飾的なドロップキャップは、出版物に華やかさを加えるために今でも時々使用されていますが、様式化された文字はもはや機能的な目的を果たしません。残念ながら、この余分な書式設定により、一部のユーザーはテキストを読めなくなります。たとえば、次のような例があります。</p>
+				<p>装飾的なドロップキャップは、出版物に華やかさを加えるために今でも時々使用されていますが、様式化された文字はもはや機能的な目的を果たしません。この余分な書式設定は、残念ながら一部のユーザーにとっては読みの妨げとなります。次のような例があります。</p>
 				
 				<ul>
-					<li>様式化されたドロップキャップの書式設定によって最初の単語が単語の残りの部分から分離されている場合、支援技術では最初の単語を適切に読み取ることができません。</li>
+					<li>様式化されたドロップキャップの書式設定によって最初の文字が単語の残りの部分から分離されている場合、支援技術では最初の単語を適切に読み上げできません。</li>
 					<li>画像が使用されている場合、ズームするとドロップキャップの画像がピクセル化されます。</li>
 					<li>ドロップキャップのサイズが拡大すると、テキストの流れを追うことが困難になります（たとえば、ディスレクシアのユーザーは、ドロップキャップから最初の行まで追うことや、読み続けるための正しい次の行を見つけることが困難な場合があります）。</li>
 				</ul>
 				
 				<p>これらの理由から、ドロップキャップの使用を避けるのが最善のアドバイスです。</p>
 				
-				<p>ただし、実際にはドロップキャップを完全に回避することはできません。次のセクションでは、ドロップキャップをアクセシビリティ対応にフォーマットするための最も一般的な方法をいくつか確認します。</p>
+				<p>ただし、実際にはドロップキャップを完全に回避することはできません。次のセクションでは、ドロップキャップをアクセシビリティ対応しつつフォーマットする最も一般的な方法をいくつか紹介します。</p>
 				
 				<section id="first-letter">
 					<h4>CSS <code>::first-letter</code>疑似要素</h4>
@@ -86,17 +86,17 @@
 					
 					<p class="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 						ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 						in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 						cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					
-					<p>ドロップキャップのマークアップは CSS のみを使用して行われるため、最初の単語を音声化する支援技術の機能には影響がありません。また、文字が拡大されて読みにくくなる場合は、ユーザーがリーディングシステムでテキストの書式を変更できる可能性があります。</p>
+					<p>ドロップキャップのマークアップはCSSのみを使用して行われるため、最初の単語を音声化する支援技術の機能には影響がありません。また、文字が拡大されて読みにくい場合は、ユーザーがリーディングシステムの設定でテキストの書式を変更できるでしょう。</p>
 					
-					<p>このアプローチの唯一の欠点は、ドロップキャップの書式設定が常に一定ではないことです。文字をフローティングして行の高さを調整することに依存するため、リーディングシステムやブラウザーによってドロップキャップの配置が異なります。</p>
+					<p>このアプローチの唯一の欠点は、ドロップキャップの書式設定が常に一定ではないことです。文字をフローティングして行の高さを調整することに依存するため、リーディングシステムやブラウザーによってドロップキャップの配置が異なってきます。</p>
 				</section>
 				
 				<section id="initial-letter">
 					<h4>CSS <code>initial-letter</code>プロパティ</h4>
 					
-					<p>CSS の<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials"><code>initial-letter</code>プロパティは、</a>フロートと行の高さを持つ<code>first-letter</code>セレクターを使用してドロップキャップを作成しようとしたときに発生する書式設定の問題を修正する可能性があります。このプロパティの値は、選択したテキストを何行の高さにするかを定義します。</p>
+					<p>CSSの<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials"><code>initial-letter</code>プロパティは、</a>フロートと行の高さを持つ<code>first-letter</code>セレクターを使用してドロップキャップを作成しようとしたときに発生する書式設定の問題を解消できる可能性があります。このプロパティの値を用いて、対象となるテキストを何行分の高さにするかを指定します。</p>
 					
-					<p>たとえば、2 行の高さのドロップキャップを作成するには、次の CSS のみが必要です。</p>
+					<p>たとえば、2行の高さのドロップキャップを作成するには、次のCSSを指定するだけです。</p>
 					
 					<pre id="ex-il-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child {
 	initial-letter: 2;
@@ -110,11 +110,11 @@
 				<section id="html-img">
 					<h4>画像</h4>
 					
-					<p>HTML <code>img</code>タグは、次の例のようにドロップキャップをフォーマットするために使用されることがあります。</p>
+					<p>HTMLの<code>img</code>タグは、次の例のようにドロップキャップをフォーマットするために使用されることがあります。</p>
 					
 					<pre id="ex-hi-01" class="prettyprint linenums"><code>&lt;img src="images/caps/a.jpg" alt="C"/&gt;all me Ishmael …</code></pre>
 					
-					<p>ただし、 <code>img</code>タグを使用すると、スクリーンリーダーがテキストを適切にレンダリングできなくなります。この場合、スクリーンリーダーは「Image Cee all me Ishmael」と読み上げます。</p>
+					<p><code>img</code>タグを使用すると、スクリーンリーダーはテキストを適切にレンダリングできなくなります。この場合、スクリーンリーダーは「Image Cee all me Ishmael」のように読み上げてしまうでしょう。</p>
 					
 					<p>同様のパターンとして、ドロップキャップをフォーマットするために<code>span</code>タグを使用する方法があります。</p>
 					
@@ -138,10 +138,8 @@
 				<h3>Related Links</h3>
 				
 				<ul>
-					<li>CSS — <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter">The :first-letter 疑似要素</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials">頭文字の作成: initial-letter プロパティ</a>
-</li>
+					<li>CSS — <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter">The :first-letter 疑似要素</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials">頭文字の作成: initial-letter プロパティ</a> </li>
 				</ul>
 			</section>
 		</main>
