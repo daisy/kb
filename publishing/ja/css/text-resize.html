@@ -18,7 +18,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Ensure that changes to font size do not prevent users from being able to read reflowable text.</p>
+				<p>フォントサイズを変更しても、ユーザーがリフロー可能なテキストを読めるようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -29,7 +29,7 @@
 						<p>相対的なサイズ単位を使用する [[WCAG-1.4.4]]</p>
 					</li>
 					<li>
-						<p>Ensure container elements can resize [[WCAG-1.4.4]]</p>
+						<p>コンテナ要素のサイズを変更可能にする [[WCAG-1.4.4]]</p>
 					</li>
 				</ul>
 			</section>
@@ -39,7 +39,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example — Setting font size in <code>em</code> units</div>
+						<div class="label">例 — <code>em</code>の単位を用いてフォントサイズを設定する</div>
 						<p>The following example sets the font size of <code>h1</code> elements to the 							equivalent of 22px.</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>h1 {
@@ -80,11 +80,11 @@ h1 {
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>The requirement to ensure users can resize text is defined by WCAG <a href="https://www.w3.org/TR/WCAG2/#reflow">success criterion 1.4.4</a>. Although this success 					criterion allows the user agent to provide this functionality through zoom, zooming is not a 					reliable feature of most reading systems for reflowable content.</p>
+				<p>ユーザーがテキストサイズを変更できるようにする要件は、WCAGの<a href="https://www.w3.org/TR/WCAG2/#reflow">達成基準 1.4.4</a>で定義されています。この達成基準では、ユーザーエージェントのズーム機能を用いてこの機能を提供することを認めていますが、リフロー型のコンテンツの場合、ほとんどのリーディングシステムのズーム機能は頼れるような機能ではありません。</p>
 				
 				<p>むしろ、ほとんどのリーディングシステムでは、ユーザーが自分のニーズに合わせてデフォルトのフォントサイズを拡大または縮小できるようにしており、通常はデフォルトの半分から二倍まで選択できます。</p>
 				
-				<p>In the absence of CSS and explicit dimension declarations (e.g., height and width attributes), text 					resizing does not normally present any issues for reflowable content. Once authors fix the 					dimensions of elements, however, it is possible that the text gets clipped as it is expanded, 					making it impossible for users to read the content.</p>
+				<p>CSSと明示的な寸法宣言（例：高さと幅の属性）がない場合、リフロー型のコンテンツでは通常、テキストサイズの変更によって問題が発生することはありません。ただし、コンテンツ製作者が要素の寸法を固定すると、テキストが拡大された時に要素内に収まらない部分がはみ出して見切れてしまい、ユーザーがコンテンツを読み取れなくなる可能性があります。</p>
 				
 				<p>このような問題はボタンでよく発生します。CSSによって高さと幅がピクセル単位で指定された次のボタンの例を考えてみましょう。</p>
 				
@@ -96,7 +96,7 @@ h1 {
 				
 				<p>フォントサイズの変更に適応できない寸法を持つコンテナー要素でも同じ問題が発生します。</p>
 				
-				<p>To avoid this problem, authors need to ensure that they use flexible measurement units like 					<code>em</code>, <code>rem</code> and <code>%</code> (percent) when specifying both font and 					element sizes as this allows both to adapt to changes in size. Using inflexible units like 					pixels will cause text to be clipped or overflow into other content.</p>
+				<p>この問題を回避するには、フォントと要素のサイズを指定するときに、<code>em</code>、<code>rem</code>、<code>%</code>（パーセント）などの柔軟な寸法単位を使用してください。これにより、サイズを変更すると、フォントと要素の両方が適応できるようになります。ピクセルなどの柔軟性のない単位を使用すると、テキストがはみ出して見切れてしまったり、他のコンテンツに被さってしまうでしょう。</p>
 				
 				<div class="note" role="note" aria-labelledby="fxl-note">
 					<p id="fxl-note" class="label">注記</p>
