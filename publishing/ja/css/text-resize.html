@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>文字サイズの変更</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on ensuring content adapts to text resizing.">
+		<script>
+			var page_info = {
+				'category': 'CSS',
+				'appliesTo': ['Audiobooks*','EPUB3', 'EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>フォントサイズを変更しても、ユーザーがリフロー可能なテキストを読めるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>相対的なサイズ単位を使用する [[WCAG-1.4.4]]</p>
+					</li>
+					<li>
+						<p>コンテナ要素のサイズを変更可能にする [[WCAG-1.4.4]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 — <code>em</code>の単位を用いてフォントサイズを設定する</div>
+						<p>次の例では、<code>h1</code>要素のフォントサイズを22px相当に設定します。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>h1 {
+   font-size: 1.3750em;
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 — ルートフォントサイズを62.5%に設定する</div>
+						<p>一般的なデザイン手法では、ルート<code>html</code>要素のフォントサイズを62.5%に設定します。これにより、1remは10pxに相当し、コンテンツ製作者はフォントサイズをより簡単に定義できます（たとえば、1.6remは16pxに相当します）。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>html {
+   font-size: 62.5%;
+}
+
+h1 {
+   font-size: 2.2rem;
+}</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">EPUBリーディングシステムは拡大縮小やフォントサイズの変更をサポートしていますか？</dt>
+					<dd>
+						<p>リーディングシステムは通常、リフロー型の出版物ではフォントサイズの変更を、固定レイアウトでは拡大縮小をサポートしています。</p>
+						
+						<p>したがって、コンテンツ製作者は、リフロー型の出版物のテキストコンテンツのサイズが変更されても問題が発生しないようにする必要があります（例：フォントサイズを大きくするとボタンが判読できなくなるなど）。</p>
+						
+						<p>固定レイアウトは拡大縮小できるため、通常はこの達成基準を満たしますが、拡大縮小するとリフローの要件は満たせなくなります（<a href="https://www.w3.org/TR/WCAG2/#reflow">達成基準 1.4.10</a>）。</p>
+					</dd>
+				</dl>
+			</section>
+						
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>ユーザーがテキストサイズを変更できるようにする要件は、WCAGの<a href="https://www.w3.org/TR/WCAG2/#reflow">達成基準 1.4.4</a>で定義されています。この達成基準では、ユーザーエージェントのズーム機能を用いてこの機能を提供することを認めていますが、リフロー型のコンテンツの場合、ほとんどのリーディングシステムのズーム機能は頼れるような機能ではありません。</p>
+				
+				<p>むしろ、ほとんどのリーディングシステムでは、ユーザーが自分のニーズに合わせてデフォルトのフォントサイズを拡大または縮小できるようにしており、通常はデフォルトの半分から二倍まで選択できます。</p>
+				
+				<p>CSSと明示的な寸法宣言（例：高さと幅の属性）がない場合、リフロー型のコンテンツでは通常、テキストサイズの変更によって問題が発生することはありません。ただし、コンテンツ製作者が要素の寸法を固定すると、テキストが拡大された時に要素内に収まらない部分がはみ出して見切れてしまい、ユーザーがコンテンツを読み取れなくなる可能性があります。</p>
+				
+				<p>このような問題はボタンでよく発生します。CSSによって高さと幅がピクセル単位で指定された次のボタンの例を考えてみましょう。</p>
+				
+				<input type="button" value="Submit" style="width: 75px; height: 30px">
+				
+				<p>ユーザーがフォントサイズを二倍にすると、ボタンの固定された寸法からはみ出した部分は切れてしまいます。</p>
+				
+				<input type="button" value="Submit" style="width: 75px; height: 30px; font-size: 200%;">
+				
+				<p>フォントサイズの変更に適応できない寸法を持つコンテナー要素でも同じ問題が発生します。</p>
+				
+				<p>この問題を回避するには、フォントと要素のサイズを指定するときに、<code>em</code>、<code>rem</code>、<code>%</code>（パーセント）などの柔軟な寸法単位を使用してください。これにより、サイズを変更すると、フォントと要素の両方が適応できるようになります。ピクセルなどの柔軟性のない単位を使用すると、テキストがはみ出して見切れてしまったり、他のコンテンツに被さってしまうでしょう。</p>
+				
+				<div class="note" role="note" aria-labelledby="fxl-note">
+					<p id="fxl-note" class="label">注記</p>
+					<p>固定レイアウトの出版物では、通常、リーディングシステムによってユーザーがフォントサイズを変更する代わりにコンテンツを拡大縮小できるため、この問題は回避されます。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/syndata.html#length-units">長さ</a>
+</li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/fonts.html#font-size-props">フォントサイズ：'font-size'プロパティ</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
