@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>リフロー</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on making content reflow when zoomed for easier reading.">
+		<script>
+			var page_info = {
+				'category': 'CSS',
+				'appliesTo': ['Audiobooks*','EPUB3', 'EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>400%まで拡大しても出版物のコンテンツが画面スペース内にリフローして収まるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>CSSを使用してレイアウトを調整する[[WCAG-1.4.10]]</p>
+					</li>
+					
+					<li>
+						<p>Use relative size units for container elements [[WCAG-1.4.10]]</p>
+					</li>
+					
+					<li>
+						<p>長い単語の改行を有効にする [[WCAG-1.4.10]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>WCAGの<a href="https://www.w3.org/TR/WCAG2/#reflow">リフローの達成基準</a>では、幅1080ピクセル、高さ1024ピクセルの解像度の、標準デスクトップ画面で400%に拡大されたコンテンツが二次元スクロールを必要としないことが求められています。この要件は、縦スクロールページの場合、ユーザーがコンテンツを読むために横スクロールする必要がないことを意味します（適応すると使用不能または判読不能になるコンテンツは例外）。コンテンツは画面領域内に収まるように調整される必要があります。</p>
+				
+				<p>This sort of adaptation is known as responsive web design. Web site authors use CSS layouts together 					with media queries to reduce multi-column page layouts down to a single column as the available 					screen space is reduced.</p>
+				
+				<section id="reflow">
+					<h4>リフロー型の出版物</h4>
+					
+					<p>Webサイトとは異なり、リフロー型の電子出版物は、通常、列やグリッドにレイアウトされません。そのため、小説などの基本的な作品のほとんどでは、リフロー要件を満たすための追加作業はあまり必要になることはありません。</p>
+					
+					<p>Authors only need to ensure that they have styled the content so that it can adapt as it is zoomed. 						Some common problems that can break the reflow requirement even in reflowable books include:</p>
+					
+					<ul>
+						<li>ピクセルなどの絶対単位を使用して要素をスタイリングする — 画面の表示領域が縮小された時に、これらの単位は変更に適応できず、固定されたままになります（つまり、スクロールバーの使用が強制されます）。</li>
+						<li>レイアウトテーブルを使用してコンテンツをグリッドに配置する — テーブルはある程度しか圧縮できませんが、SSスタイルを使用すると、コンテンツ製作者は拡大率の変更に応じてグリッドレイアウトから単一の列に変更できます。</li>
+						<li>Not allowing word wrapping of long words — Soft hyphens (&amp;shy;) and CSS word break 							handling rules can minimize scrolling caused by very long words or URLs.</li>
+					</ul>
+				</section>
+				
+				<section id="fxl">
+					<h4>固定レイアウト</h4>
+					
+					<div class="caution" aria-labelledby="note-hd">
+						<p id="note-hd" class="label">注意</p>
+						<p>The problems of meeting this requirement for fixed layouts are currently under discussion in 							the W3C EPUB 3 Working Group. Additional guidance will be provided in future updates to 							this page.</p>
+					</div>
+					
+					<p>固定レイアウトがリフロー要件を満たすかどうかは、その構築方法によって異なります。</p>
+					
+					<ul>
+						<li>
+							<p>Image-based fixed layouts, where the two-dimensional presentation is essential to the 								content, are likely exempt from the requirement not to need scrolling as they are 								scaled. This category includes pages in comics and manga, pages in illustrated 								children's books (where the text is part of the illustration), maps, and graphics.</p>
+						</li>
+						<li>
+							<p>その他のすべての種類の固定レイアウト（つまり、コンテンツの配置に意味がなく、純粋にプレゼンテーション用である場合）は、リフローの要件を満たす必要があります。</p>
+						</li>
+					</ul>
+					
+					<p>理論的には、アダプティブデザイン手法を使って、固定レイアウトコンテンツを拡大縮小したときにリフローさせることができますが、現時点では、EPUBの固定レイアウトページを拡大縮小したときに再レンダリングするリーディングシステムがないため、要件に準拠したコンテンツは作成できません。</p>
+					
+					<p>EPUBリーディングシステムでは通常、モバイルデバイスのみで固定レイアウトのページを拡大縮小できますが、ここでもページ全体が拡大縮小されます。そのため、製作者がコンテンツをアクセシブルにするためにどのような対策を講じても、固定レイアウトのコンテンツはユーザーエージェントのアクセシビリティサポートに関するWCAG要件を満たすことはできません。</p>
+					
+					<p>さらに、固定レイアウトコンテンツの場合、デスクトップ リーディングシステムでの拡大縮小も十分にサポートされていないため、アクセシビリティサポートの要件を満たすことができない可能性があります。</p>
+					
+					<p>As a result, it is likely not possible to make a claim of WCAG AA support for fixed layout 						publications at this time.</p>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
