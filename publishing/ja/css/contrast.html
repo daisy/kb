@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>コントラスト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Best practices for ensuring sufficient color contrast.">
+		<script>
+			var page_info = {
+				'category': 'CSS',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			.figlabel {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>背景色や背景画像を設定するときは、CSSを使って十分なコントラストを確保してください。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure minimum contrast between foreground text and background. [[WCAG-1.4.3]]</p>
+					</li>
+					<li>
+						<p>Consider enhanced contrast between foreground text and background. [[WCAG-1.4.6]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">Example 1 — Setting default foreground and background text</p>
+						<p>The following example creates a contrast of 19.2:1.</p>
+					</figcaption>
+					<p class="figlabel">CSS</p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>body {
+   color: rgb(0,0,0);
+   background-color: rgb(251,245,224);
+}</code></pre>
+					<p class="figlabel">デモ</p>
+					<p style="padding: 0.3rem; color: rgb(0,0,0); background-color: rgb(251,245,224)">Call me Ishmael, Dummy.</p>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>Contrast, as it relates to accessible reading, is the difference in luminance (amount of light emitted) 					between the foreground text and the background behind it. By taking the <a href="https://www.w3.org/TR/WCAG2/#relativeluminancedef">relative luminance</a> of each, a 					contrast ratio between 1:1 (no contrast) and 21:1 (darkest black on whitest white) can be 					determined.</p> 
+				
+				<p>Ensuring sufficient contrast between the foreground text and background colors and images is 					necessary to ensure that users with low vision and color deficiencies can read the publication.</p>
+				
+				<p>WCAGレベルAAガイドラインを満たすための最小コントラストは4.5:1ですが、デフォルトサイズが18ポイント（太字の場合は14ポイント）以上のテキストの場合は3:1に引き下げられます。このコントラスト要件は、発行元やインプリントなどのロゴや、装飾画像に含まれるテキストには適用されません。</p>
+				
+				<p>To meet WCAG AAA, the minimum contrast requirement increases to 7:1 and the large text requirement 					to 4.5:1. While it is not required to meet this contrast level, the better the contrast that can be 					achieved the greater the audience that will be able to read the publication.</p>
+				
+				<p>Avoid overlaying text on noisy (multi-color) background images, and relying on 					positioning to avoid color contrasts, as different reading system may reflow content in unexpected 					ways.</p>
+				
+				<p>コントラスト比の計算は、ほとんどの場合、機械で簡単かつ正確に実行でき、次のような多数の無料アプリケーションが利用できます。</p>
+				
+				<ul>
+					<li>
+<a href="../epub/validation/ace.html">Ace</a> — The Ace validator checks EPUB publications 						for various WCAG violations including contrast issues. Ace is the only tool that checks entire 						publications.</li>
+					<li>
+<a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> — Lighthouseは、ChromeやEdgeなどのChromiumベースのブラウザに組み込まれている開発者ツールです。個々のHTMLページで、コントラストの問題などのアクセシビリティの問題をチェックできます。</li>
+<li>
+<a href="https://developer.paciellogroup.com/resources/contrastanalyser/">カラー コントラスト アナライザー（CCA）</a> — CCAは、手動で入力した色間のコントラスト比をテストする便利なツールです。新しい組み合わせが規格に準拠しているかどうかを判断するために出版物全体を再チェックする必要がないため、コントラストの問題を解決するプロセスを迅速化できます。</li>
+				</ul>
+				
+				<p>Although these tools are useful at comparing CSS color declarations for problems, they typically are 					not able to check for problems with text overlaying background images (or images with text). It is 					generally advised not to use background images in reflowable publications as support is often poor, 					but text on images is very common in <a href="../fxl/overview.html">fixed layout publications</a>.</p>
+				
+				<p>テキストが画像の上に配置されている場合、または画像の一部である場合は、コントラストを手動で検証する必要があります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>CSS — <a href="https://www.w3.org/TR/CSS22/colors.html#colors">Foreground color: the 'color' 						property</a>
+</li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/colors.html#background">背景</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
