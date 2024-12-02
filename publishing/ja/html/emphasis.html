@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>太字と斜体</title>
@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>強調を適切に用いることで、ユーザーは音声の強調とキーワード、純粋にスタイル的な装飾を、区別できるようになります。</p>
+				<p>強調を適切に用いると、ユーザーはキーワードと純粋にスタイル的な装飾を音声の強調によって区別できるようになります。</p>
 			</section>
 			
 			<section id="tech">
@@ -30,7 +30,7 @@
 					<li>強調や太字を純粋にスタイル上使用する場合は CSS を使用します。[[WCAG-1.3.1]]</li>
 				</ul>
 				
-				<p>HTML 5 では、 <code>em</code> 、 <code>strong</code> 、 <code>i</code> 、 <code>b</code>要素のより正確な使用方法が定義されていることに注意してください (以下の<a href="#emph-expl">説明表</a>を参照)。 WCAG 2.0 に準拠するためにこれらのルールに従う必要はありませんが、ベストプラクティスとして考慮する必要があります。 このセクションの例は、これらのガイドラインに従っています。</p>
+				<p>HTML 5では、<code>em</code>、<code>strong</code>、<code>i</code>、<code>b</code>要素のより正確な使用方法が定義されていることに注意してください (以下の<a href="#emph-expl">説明表</a>を参照)。 WCAG 2.0に準拠するためにこれらのルールに従う必要はありませんが、ベストプラクティスとして考慮してください。このセクションの例は、これらのガイドラインに従っています。</p>
 			</section>
 
 			<section id="ex">
@@ -95,30 +95,27 @@
 					</tr>
 					<tr>
 						<td class="center"><code>em</code></td>
-						<td>
-<code>em</code>要素は、テキストが音声的に強調されることを示します。</td>
+						<td> <code>em</code>要素は、テキストが音声的に強調されることを示します。</td>
 					</tr>
 					<tr>
 						<td class="center"><code>strong</code></td>
 						<td>
-<code>strong</code>要素は、命令文を述べるときや、「警告」や「警戒」などのシグナルワードを使用するときなどに、重要性を示します。</td>
+<code>strong</code>要素は重要さを示し、命令文を述べるときや、「警告」や「警戒」などのシグナルワードを使用するときなどに用います。</td>
 					</tr>
 					<tr>
 						<td class="center"><code>i</code></td>
-						<td>
-<code>i</code>要素はイタリック体の使用が口調や声の変化を示す場合に使用されます。HTML5 仕様で例として挙げられているのは、夢の内容が長く続く場合ですが、メインの物語から思考や思い出へと話が逸れる場合など、同様の状況にも使用できます。<code>i</code>要素は、強調の背後に意味的な重要性がある場合（例：イタリック体の単語が、専門用語、外国語などを示す場合など）にも使用されます。</td>
+						<td> <code>i</code>要素はイタリック体の使用が口調や声の変化を示す場合に使用されます。HTML5 仕様で例として挙げられているのは、夢の内容が長く続く場合ですが、メインの物語から思考や思い出へと話が逸れる場合など、同様の状況にも使用できます。<code>i</code>要素は、強調の背後に意味的な重要性がある場合（例：イタリック体の単語が、専門用語、外国語などを示す場合など）にも使用されます。</td>
 					</tr>
 					<tr>
 						<td class="center"><code>b</code></td>
-						<td>
-<code>b</code>要素は、太字で意味を伝える場合に常に使用されます。これは、（キーワードなどの）セマンティックタグの付与に<code>i</code>が使用されるのと同様です。</td>
+						<td> <code>b</code>要素は、太字で意味を伝える場合に常に使用されます。これは、（キーワードなどの）セマンティックタグの付与に<code>i</code>が使用されるのと同様です。</td>
 					</tr>
 					<tr>
 						<td class="center">
 							<code class="property">font-style: italic</code><br>
 							<code class="property">font-weight: bold</code>
 						</td>
-						<td>太字と斜体の CSS プロパティは、太字と斜体が装飾の目的で使用される場合（見出しや導入語など）に必ず使用してください。CSS フォーマットにはセマンティクス（意味）が含まれないため、支援技術では強調が認識されません。</td>
+						<td>太字と斜体が装飾の目的で使用される場合（見出しや導入語など）には太字と斜体のCSSプロパティを使用してください。CSSフォーマットにはセマンティクス（意味）を含まないので、強調は支援技術を通じて認識されません。</td>
 					</tr>
 				</table>
 			</section>
@@ -127,22 +124,14 @@
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">&lt;em&gt;: 強調要素</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">&lt;strong&gt;: 強い重要性要素</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i">&lt;i&gt;: 慣用テキスト要素</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b">&lt;b&gt;: 注目付け要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"><code>em</code>要素</a>
-</li>
-					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element"><code>strong</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element"><code>i</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element"><code>b</code>要素</a>
-</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">&lt;em&gt;: 強調要素</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">&lt;strong&gt;: 強い重要性要素</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i">&lt;i&gt;: 慣用テキスト要素</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b">&lt;b&gt;: 注目付け要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"><code>em</code>要素</a> </li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element"><code>strong</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element"><code>i</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element"><code>b</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>
