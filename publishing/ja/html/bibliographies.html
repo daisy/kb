@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>文献リスト（書誌）</title>
+		<title>文献リスト</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidelines for the accessible inclusion of bibliographies.">
 		<script>
@@ -17,7 +17,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>セクションとリストを使用して文献リスト（書誌）を構造化し、参考文献に簡単にアクセスできるようにします。</p>
+				<p>セクションとリストを使用して文献リストを構造化し、参考文献に簡単にアクセスできるようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -40,8 +40,8 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<p class="label">例 1 — シンプルな文献リスト（書誌）</p>
-						<p>文献リスト（書誌）に多くのエントリが含まれていない場合は、1 つのリストのみが必要です。</p>
+						<p class="label">例 1 — シンプルな文献リスト</p>
+						<p>文献リストに多くのエントリが含まれていない場合は、1 つのリストのみが必要です。</p>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography"&gt;
@@ -56,9 +56,9 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<p class="label">例 2 — 参考文献のセクションを含む文献リスト（書誌）</p>
+						<p class="label">例 2 — 参考文献のセクションを含む文献リスト</p>
 						
-						<p>文献リスト（書誌）がトピックに分割されている場合は、 <code>section</code>要素を使用してエントリをグループ化できます。</p>
+						<p>文献リストがトピックに分割されている場合は、 <code>section</code>要素を使用してエントリをグループ化できます。</p>
 					</figcaption>
 					
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-bibliography"&gt;
@@ -83,7 +83,7 @@
 				
 				<figure id="ex-03">
 					<figcaption>
-						<p class="label">例 2 — 参考文献がグループ化されている文献リスト（書誌）</p>
+						<p class="label">例 2 — 参考文献がグループ化されている文献リスト</p>
 						
 						<p>文献リストがアルファベット順にグループ化されている場合は、 <code>section</code>要素を使用してエントリをグループ化できます。明示的な見出し ( <code>h1</code> ～ <code>h6</code> ) または暗黙的な見出し ( <code>aria-label</code> ) のいずれかを使用します。</p>
 					</figcaption>
@@ -106,7 +106,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>文献リスト（書誌）はリスト要素を使用してマークアップする必要があります。定義リストには、テキスト内で使用されるラベルを強調表示するのに役立つ説明用語要素 ( <code>dt</code> ) が、よく使用されます。文献リスト（書誌）が印刷ソースから変換されたものである場合は、順序なしリストもよく使用されます。エントリのアルファベット順は、順序をあらわすものではありません（たとえば、文献リストを逆順に並べ替えても意味は失われません）。</p>
+				<p>文献リストはリスト要素を使用してマークアップする必要があります。定義リストには、テキスト内で使用されるラベルを強調表示するのに役立つ説明用語要素 ( <code>dt</code> ) が、よく使用されます。文献リストが印刷ソースから変換されたものである場合は、順序なしリストもよく使用されます。エントリのアルファベット順は、順序をあらわすものではありません（たとえば、文献リストを逆順に並べ替えても意味は失われません）。</p>
 				
 				<p>アルファベット順や数字順に関連するエントリをグループ化する場合や、文献リスト（書誌）がトピック別に分割されている場合（例：規範的参照と参考的参照）に、 <code>section</code>要素を使用します。セクションに見出しがない場合（つまり、グループを区切るためにスペースが使用されている場合）、セクションを囲む要素に <code>aria-label</code>属性を追加してタイトルを含めることができます。</p>
 				
@@ -117,16 +117,11 @@
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-bibliography"><code>doc-bibliography</code> (ロール)</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code>要素</a>
-</li>
-					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"><code>dl</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element"><code>ul</code>要素</a>
-</li>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-bibliography"><code>doc-bibliography</code> (ロール)</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code>要素</a> </li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"><code>dl</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element"><code>ul</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>
