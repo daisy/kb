@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ページソース（Page Source）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for identifying the source of pagination in a digital publication.">
+		<script>
+			var page_info = {
+				'category': 'Navigation',
+				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2'],
+				'related': ['nav-pagenav','nav-pagebreaks','nav-pagelist']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>ページネーションのソースを設定して、電子出版物がユーザーのニーズに確実に役立つようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>メタデータの中でページ区切りのソースを設定します。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 - ページ区切りソースの識別 ( <code>pageBreakSource</code> )</div>
+						
+						<p>ページネーション ソースを識別するために、<code>dc:source</code>と<code>source-of</code>の二つのプロパティを用いる必要は無く、<code>pageBreakSource</code>プロパティのみを用います（つまり、以前は2つのプロパティが必要だったことを1つのプロパティで表現できます)。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource"&gt;urn:isbn:9781234567891&lt;/meta&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — ページ区切りのソース識別 ( <code>source-of</code> )</div>
+						
+						<p>この例では、古い<code>source-of</code>プロパティを使用してページネーション ソースを識別します。<strong>この方法は推奨されなくなりました。</strong>詳細については、以下の<a href="#faq-001">FAQ エントリ</a>を参照してください。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;dc:source id="pg-src"&gt;urn:isbn:9781234567891&lt;/dc:source&gt;
+&lt;meta property="source-of" refines="#pg-src"&gt;pagination&lt;/meta&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">
+<code>source-of</code>プロパティまたは<code>pageBreakSource</code>プロパティのどちらを使用するべきでしょうか？</dt>
+					<dd>
+						<p>EPUB でページ区切りのソースを識別する古い方法は、 <code>dc:source</code>と<code>source-of</code>メタデータ プロパティの組み合わせです。ただし、この方法には 2 つの重大な欠陥があります。1 つは、EPUB でしか機能しないこと (メタデータの調整は他のフレームワークでは機能しません)、もう 1 つは、デジタル版のみでは機能しないこと (つまり、ページ区切りにソースがない場合) です。</p>
+						
+						<p id="pbs">現在は、<code>pageBreakSource</code>という単一のプロパティのみを使用する方法が推奨されています (<a href="#ex-07">例 7</a>を参照)。このプロパティが標準に完全に統合されるまでには EPUB の別の改訂が必要になりますが、使用に問題はありません。Epubcheck はこのプロパティを正しく検証します。</p>
+						
+						<p>ページ区切りがデジタル版専用に作成された場合は、 <code>pageBreakSource</code>プロパティの値を「none」に設定して、 <code>dc:source</code>の使用に関する問題を解決できます。</p>
+						
+						<p><code>pageBreakSource</code>プロパティの詳細については、 <a>「ページ ソースの識別」</a>を参照してください。</p>
+					</dd>
+					
+					<dt id="faq-002">ページネーション ソースに ISBN のような一意の識別子がない場合はどうなりますか?</dt>
+					<dd>
+						<p><code>pageBreakSource</code>プロパティに一意の識別子が含まれている必要はなく、ソースを一意に識別するだけで十分です。一意の識別子がない場合は、ソース ドキュメントに関する情報を使用して、ソース ドキュメントの一意の名前を作成します。</p>
+						
+						<p>PDF マニュアル、ワードプロセッサ ドキュメントなど、静的なページ番号を持ちながら一意の識別子を持たない、EPUB として表現できるドキュメントの種類は多数あります。</p>
+						
+						<p>このような種類のドキュメントでは、ページ区切りのソース識別のために最低でもタイトルが利用できます。より詳細にするには、作成者、作成日などを識別子に追加します。</p>
+						
+						<pre><code>&lt;metadata …&gt;
+…
+&lt;meta property="pageBreakSource"&gt;
+ACME Explosive Tennis Balls - 
+User Manual, 5th Edition, PDF
+&lt;/meta&gt;
+…
+&lt;/metadata&gt;</code></pre>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><a href="pagelist.html">ページ リスト</a>と<a href="pagebreaks.html">ページ区切りマーカー</a>は、ユーザーが静的なページ区切りの場所にアクセスできるテクノロジーですが、ページ区切りのソースが判らなければ、ユーザーは電子出版物の有用性を判断できません。たとえば、教室の生徒は、ページ区切りがクラスの他の生徒が使用している印刷書籍と同じバージョンから派生したものかを知る必要があります。</p>
+				
+				<p>ページ区切りのソースは、 <code>pageBreakSource</code>プロパティを使用して識別されます。</p>
+				
+				<pre id="expl-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource"&gt;urn:isbn:9780123456789&lt;/meta&gt;</code></pre>
+				
+				<p>プロパティの値は、ISBN など、静的にページ分けされたソースの一意の識別子です。</p>
+			</section>
+				
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>EPUB —<a href="https://www.w3.org/publishing/a11y/page-source-id/">ページソース識別</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
