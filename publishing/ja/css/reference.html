@@ -295,7 +295,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>The <code class="property">direction</code> property is not supported in EPUB 										3. HTML5 markup, such as the <code>&lt;a 											href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" 											&gt;bdi&lt;/a&gt;</code> and <code>&lt;a 												href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" 												&gt;bdo&lt;/a&gt;</code> elements and <code>&lt;a 													href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code> 										attribute, are used to express directionality</li>
+									<li>EPUB3では<code class="property">direction</code>プロパティはサポートされていません。方向を表現するには<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" &gt;bdi&lt;/a&gt;</code>要素や<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" &gt;bdo&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code>属性などのHTML5マークアップを使用してください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -359,7 +359,7 @@
 							<td class="issues">
 								<ul>
 									<li>スケーリングを容易にするために、パーセンテージやemなどの相対的なサイズを使用します。</li>
-									<li>Ensure default font size does not affect legibility of the prose (e.g., avoid 										specifying <code class="value">x-small</code>, <code class="value">xx-small</code> 										and equivalent font sizes)</li>
+									<li>デフォルトのフォントサイズが文章の読みやすさに影響しないようにします（例：<code class="value">x-small</code>、<code class="value">xx-small</code>および同等のフォントサイズを指定しないでください）。</li>
 								</ul>
 							</td>
 						</tr>
@@ -369,7 +369,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Use CSS to apply italics only for decorative purposes (similar to using the 											<code>i</code> element). Use <code>em</code> tags if the words are to be 										stressed</li>
+									<li>CSSを使用して斜体にするのは装飾目的の場合のみにしてください（<code>i</code>要素と同様）。単語を強調したい場合は<code>em</code>タグを使用してください。</li>
 									<li>イタリック体は読みにくい場合があるので、装飾的なイタリック体は多用しないでください。</li>
 								</ul>
 							</td>
@@ -428,7 +428,7 @@
 						<tr>
 							<td class="property" id="list-style"> 								<a href="http://www.w3.org/TR/CSS22/generate.html#propdef-list-style">list-style</a>
 </td>
-							<td class="issues"> The <code class="property">list-style</code> property is a shorthand for 								defining one or more properties. Refer to each individual list-style-* property for issues 							</td>
+							<td class="issues"> <code class="property">list-style</code>プロパティは、一つ以上のプロパティを定義するための省略形です。詳細については、各list-style-*プロパティを参照してください。</td>
 						</tr>
 
 						<tr>
@@ -452,7 +452,8 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Do not change the nature of a list using the <code class="property">list-style-type</code> property (e.g., to not use the property to give an 										unordered list the appearance of ordering)</li>
+									<li>
+<code class="property">list-style-type</code>プロパティを使用してリストの性質を変更しないでください（例：順序なしリストに順序があるように見せるためにプロパティを使用しない）。</li>
 								</ul>
 							</td>
 						</tr>
@@ -518,7 +519,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Avoid using the <code class="value">hidden</code> value, as content may not be 										visible, especially when zoomed</li>
+									<li>拡大したときなどに、コンテンツが表示されない可能性があるため、<code class="value">hidden</code>値は使用しないでください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -615,7 +616,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>The <code class="property">unicode-bidi</code> property is not supported in 										EPUB 3. HTML5 markup, such as the <code>&lt;a 											href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" 											&gt;bdi&lt;/a&gt;</code> and <code>&lt;a 												href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" 												&gt;bdo&lt;/a&gt;</code> elements and <code>&lt;a 													href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code> 										attribute, should be used to express directionality</li>
+									<li>EPUB 3では、<code class="property">unicode-bidi</code>プロパティはサポートされていません。テキストの記述方向を表現するには、<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" &gt;bdi&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" &gt;bdo&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code>属性などのHTML5マークアップを使用する必要があります。</li>
 								</ul>
 							</td>
 						</tr>
