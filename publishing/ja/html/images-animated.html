@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>アニメーショングラフィック（Animated Graphics）</title>
+		<title>アニメーション グラフィック（Animated Graphics）</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidelines for accessible animated graphics.">
 		<script>
@@ -19,11 +19,11 @@
 		<main>
 			<section id="summary">
 				<h3>要約</h3>
-				<p>アニメーション グラフィックが発作のリスクをもたらさないこと、およびユーザーがそれを無効にできることを確認します。</p>
+				<p>アニメーション グラフィックに発作を及ぼすリスクが無いこと、およびユーザーがそれを無効にできることを確認してください。</p>
 				
 				<div class="note" role="note" aria-labelledby="note-1">
 					<p id="note-1" class="label">注記</p>
-					<p>このページでは、アニメーション グラフィック形式によって発生する固有の問題のみを取り上げます。これらのグラフィックには、WCAG 要件を満たすために、必要に応じて<a href="images-desc.html">代替テキストと拡張説明</a>も必要です。</p>
+					<p>このページでは、アニメーション グラフィック形式によって発生する固有の問題についてのみ説明しています。WCAG要件を満たすために、これらのグラフィックには必要に応じて<a href="images-desc.html">代替テキストと拡張説明</a>も必要です。</p>
 				</div>
 			</section>
 			
@@ -44,7 +44,7 @@
 				
 				<figure id="ex-01">
 					<figcaption><span class="label">例 — 置き換え可能なグラフィック</span></figcaption>
-					<p>JavaScript を使用してアニメーション GIF を静的な代替画像に置き換えるためのボタンが用意されています。</p>
+					<p>アニメーションGIFを代替となる静止画像に置き換えるJavaScriptを使用したボタンが設けられています。</p>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img id="rocket"
     src="rocket-launch.gif"
     alt="Rocket blasting off" /&gt;
@@ -57,25 +57,23 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>アニメーション GIF などのアニメーション グラフィックは、出版物ではあまり使用されませんが、その使用には、<a href="images-desc.html">基本的な説明</a>を超えたアクセシビリティに関する特有の課題があります。アニメーション グラフィックは非常に短いビデオクリップに似ているため、ビデオに影響するいくつかの問題も考慮する必要があります。</p>
+				<p>アニメーションGIFなどのアニメーション グラフィックは、出版物ではあまり使用されませんが、その使用には、画像に関する<a href="images-desc.html">基本的な説明</a>を超える、アクセシビリティに関する特有の課題があります。アニメーション グラフィックは非常に短いビデオクリップのようなものなので、ビデオが引き起こすいくつかの問題についても考慮しなければなりません。</p>
 				
-				<p>主な懸念事項は、画像が発作の危険をもたらさないことです。画像はアニメーション化されているため、フラッシュは 1 秒あたり 3 回を超えてはなりません。アニメーションが 1 秒未満で、アニメーションが無限ループで再生される場合は、アニメーション内のフラッシュの数と 1 秒間のアニメーションのループ回数を掛けて、1 秒あたりのフラッシュを計算する必要があります。</p>
+				<p>主な懸案事項は、画像が発作の危険をもたらさないかという点です。画像はアニメーション化されているため、フラッシュは1秒あたり3回を超えてはなりません。アニメーションが1秒未満でありアニメーションが無限ループで再生される場合には、アニメーションのフラッシュ回数に1秒間あたりのアニメーションのループ回数を掛けて、1秒あたりのフラッシュ回数を計算しなければなりません。</p>
 				
 				<p>アニメーションが 5 秒後に自動的に終了する場合は、ユーザーが動画コンテンツの再生を停止できるという WCAG の要件を満たしています。電子出版物のページ付けにより、通常、ユーザーはアニメーションが完了しないと画像にたどりつけません。この問題を回避するには、ドキュメント内のアニメーション グラフィックをアニメーション化されていないグラフィックに置き換えるコントロール（通常はボタン）を追加します。その後、ユーザーはアニメーションを再生するかどうかを決定できます。</p>
 				
 				<div class="note" role="note" aria-labelledby="note-2">
 					<p id="note-2" class="label">注記</p>
-					<p><code>canvas</code>要素を使用して作成されたアニメーションでは、点滅やユーザーによるオフ設定の必要性という同じ問題が発生しますが、このセクションでは説明されていない追加の問題も発生します。ナレッジ ベースの今後の更新では、アニメーション化されたキャンバスについても取り扱う予定です。</p>
+					<p><code>canvas</code>要素を使用して作成されたアニメーションでも、点滅やユーザーによるオフ設定が必要となるという同じ課題がありますが、このセクションでは説明していない追加の課題も発生します。ナレッジ ベースの今後の更新では、アニメーション化されたキャンバスについても取り扱う予定です。</p>
 				</div>
 			</section>
 			
 			<section id="refs">
 				<h3>関連リンク</h3>
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
-</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>
