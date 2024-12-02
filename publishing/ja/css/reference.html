@@ -76,7 +76,7 @@
 	<body>
 		<main>
 			<section id="usage">
-				<p>EPUB 3 user agents that visually render content are expected to provide support for the CSS properties 					listed on this page, but support is not required. Properties not listed here may still be used (e.g., 					from evolving CSS 3 modules), but content authors should use due diligence and assess the impact on 					rendering and accessibility when using such properties.</p>
+				<p>このページに記載されているCSSプロパティは、コンテンツを視覚的にレンダリングするEPUB3ユーザーエージェントによってサポートされることが期待されますが、必須ではありません。ここに記載されていないプロパティも引き続き使用できます（例えば、進化するCSS3モジュールから）が、コンテンツ製作者は、このようなプロパティを使用する場合には、レンダリングとアクセシビリティへの影響を慎重に評価する必要があります。</p>
 			</section>
 
 			<section>
@@ -110,7 +110,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Ensure sufficient contrast with text color</li>
+									<li>テキストの色と十分なコントラストを確保してください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -120,8 +120,8 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Ensure sufficient contrast with content color (text and graphic)</li>
-									<li>High mix of gradients and colors in images can make reading text that 										is overlaid difficult</li>
+									<li>コンテンツの色（テキストとグラフィック）との十分なコントラストを確保してください。</li>
+									<li>画像内のグラデーションや色の混合率が高いと、重ねられたテキストが読みにくくなることがあります。</li>
 								</ul>
 							</td>
 						</tr>
@@ -317,7 +317,7 @@
 							<td class="issues">
 								<ul>
 									<li>HTM5の表では、枠線がレンダリングされるため、 <code class="property">empty-cells</code>プロパティを設定する必要はありません（ダッシュや改行なしスペースなどのプレースホルダーテキストを挿入しないでください）。</li>
-									<li>For forwards compatibility with EPUB 2 user agents, the property should be set to 										the value <code class="value">show</code> to ensure table borders are drawn around 										empty cells</li>
+									<li>EPUB2ユーザーエージェントとの前方互換性を保つために、空のセルの周囲に表の枠線が描画されるように、プロパティを<code class="value">show</code>の値に設定する必要があります。</li>
 								</ul>
 							</td>
 						</tr>
@@ -345,7 +345,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Avoid fonts that do not provide sufficient character differentiation, such as 										sans-serif fonts that represent capital I, lower-case L and the number 1 as identical 										(or near-identical) characters (e.g., Arial).</li>
+									<li>大文字の「I」、小文字の「L」、数字の「1」を同一（またはほぼ同一）の文字として表すサンセリフフォント（例えばArial）など、文字の区別が十分に行えないフォントの使用は避けてください。</li>
 									<li>ユーザーが判読しにくい筆記体や装飾の多いフォントは避けてください。</li>
 									<li>出版物で使用するフォントの数を制限し、一貫したフォントファミリーを使用するようにしてください（例：見出しに一種類のフォント、本文に一種類のフォント）</li>
 									<li>文字間のカーニングが十分なフォントを優先します。</li>
@@ -386,8 +386,8 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Use CSS to apply bolding only for decorative purposes. Use <code>strong</code> 										tags if the words are to be stressed or <code>b</code> for keywords</li>
-									<li>Avoid lengthy use of decorative bolding, as bolded words can be harder to read than 										roman face</li>
+									<li>CSSを使用して太字にするのは装飾目的に限定してください。単語を強調する場合は<code>strong</code>タグを使用し、キーワードには<code>b</code>を使用してください。</li>
+									<li>太字はローマン体よりも読みにくい場合があるので、装飾的な太字の多用は避けてください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -397,7 +397,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Assistive technologies typically ignore content that has 0 height and/or width set on 										its containing element, so do not use this property to hide content that is only 										intended for non-visual playback.</li>
+									<li>支援技術では通常、要素の高さや幅が0に設定されているコンテンツは無視されますが、だからといって非視覚的な再生のみを目的としたコンテンツを、非表示にするためにこのプロパティを使用しないでください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -407,7 +407,8 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>The <code class="property">letter-spacing</code> property can be used to increase the 										kerning between letters to improve the readability of tightly constructed fonts</li>
+									<li>
+<code class="property">letter-spacing</code>プロパティを使用すると、文字間のカーニングを増やし、密に構成されたフォントを読みやすくできます。</li>
 									<li>一文字ずつ綴りを読み上げる意図がない単語の文字間に空白は追加しないでください。文字間のスペースが必要な場合は、このプロパティを使用して視覚的にスペースを広げます。</li>
 								</ul>
 							</td>
@@ -435,7 +436,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Avoid using images to convey the meaning of a list. If the image is important to 										comprehension of the items, ensure that a semantic is attached to the list to convey 										that meaning. If the list represents a figure or aside, use the appropriate container 										element and include a caption</li>
+									<li>リストの意味を伝えるための画像使用は避けてください。画像が項目の理解に重要ならば、リストにセマンティックに関する記載を追加し意味が伝わるようにしてください。リストが図や補足の場合は、適切なコンテナ要素を使用してキャプションを加えてください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -552,7 +553,7 @@
 							<td class="issues">
 								<ul>
 									<li>絶対配置を、マークアップでレイアウトされているのと違う順序でコンテンツを再配置する目的では使用しないでください。</li>
-									<li>Elements should not be absolutely positioned in a way that makes their 										discoverability problematic for users with low vision and/or using zooming 										software</li>
+									<li>視力の弱いユーザーや拡大ソフトウェアを使用しているユーザーが発見しにくくなるので、絶対位置に要素を配置しないでください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -574,7 +575,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Avoid justifying text, as the uneven spacing that occurs between words can reduce the 										readability for some people.</li>
+									<li>単語間の間隔が不均等になると、一部の人にとっては読みにくくなるので、テキストは両端揃えにしないでください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -584,7 +585,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Use the <code>del</code> element to semantically mark deleted text</li>
+									<li>意味的に削除されたテキストであることを示すには<code>del</code>要素を使用します。</li>
 								</ul>
 							</td>
 						</tr>
@@ -594,7 +595,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>A technique used to hide text for assistive technologies is to use a large 										negative value for the indent, but like negative margins this technique is not  										reliable in EPUB user agents and may cause issues depending on the user's  										preferred text direction</li>
+									<li>インデントに大きな負の値を使用して、支援技術用のテキストを隠すことがありますが、余白の負の値と同様に、この手法はEPUBユーザーエージェントではあてにできず、ユーザーの好みのテキスト方向によっては問題が発生する可能性があります。</li>
 								</ul>
 							</td>
 						</tr>
@@ -630,7 +631,7 @@
 </td>
 							<td class="issues">
 								<ul>
-									<li>Hidden content is not available to assistive technologies, so do not use this 										property to hide content from visual rendering that is intended to be read out</li>
+									<li>非表示のコンテンツは支援技術では利用できないので、読み上げ用のコンテンツを視覚的なレンダリングから隠す目的ではこのプロパティを使用しないでください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -657,7 +658,7 @@
 							<td class="issues">
 								<ul>
 									<li>単語間隔を広げると、密に構成されたフォントの読みやすさが向上します。</li>
-									<li>Use this property in preference to adding non-breaking spaces to increase the space 										between words</li>
+									<li>単語間のスペースを増やすには、複数のノン ブレイキング スペースを追加するより、このプロパティを使用してください。</li>
 								</ul>
 							</td>
 						</tr>
@@ -732,7 +733,8 @@
 						<tr>
 							<td class="property" id="hover"> 								<a href="http://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:hover</a>
 </td>
-							<td class="issues">The <code>:hover</code> pseudo-selector should never be used, as it is not 								device independent and may not be activatable by many users</td>
+							<td class="issues">
+<code>:hover</code>疑似セレクターはデバイスに依存し、多くのユーザーが有効化できないかもしれないので、使用しないでください。</td>
 						</tr>
 						<tr>
 							<td class="property" id="lang"> 								<a href="http://www.w3.org/TR/CSS22/selector.html#lang">:lang</a>
