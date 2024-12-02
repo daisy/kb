@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Ensure that Quick Response (QR) codes follow image accessibility best practices and that 					alternative means of following their links are provided.</p>
+				<p>QR（クイックレスポンス）コードは、画像アクセシビリティのベストプラクティスに従うようにします。また、別の方法でもそのリンク先にアクセスできるようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -33,10 +33,10 @@
 						<p>QRコードを有効化する方法を説明します。[[WCAG-1.1.1]]</p>
 					</li>
 					<li>
-						<p>Provide an alternative link to the same destination. [[WCAG-1.1.1]]</p>
+						<p>同じリンク先にアクセスできる代替リンクを用意します。[[WCAG-1.1.1]]</p>
 					</li>
 					<li>
-						<p>Ensure sufficient contrast between the QR code and the background. [[WCAG-1.4.11]]</p>
+						<p>QRコードと背景の間に十分なコントラストを確保します。[[WCAG-1.4.11]]</p>
 					</li>
 					<li>
 						<p>簡単にスキャンできるようQRコードは十分な大きさを確保してください。[[WCAG-2.5.8]]</p>
@@ -49,7 +49,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 — Clickable QR code with activation details</div>
+						<div class="label">例 1 — 有効化の詳細を記載したクリック可能なQRコード</div>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;a href="https://publisher.example.com/promo"&gt;
    &lt;img src="img/qr-promo.jpg" aria-details="qr-desc"/&gt;
@@ -75,8 +75,8 @@
 					<dt id="faq-001">表紙のQRコードはどうすればいいですか？</dt>
 					<dd>
 						<p>QRコードが表紙または裏表紙の一部である場合は、ユーザーがスキャンをするのに十分な時間、画像を操作できるようにしてください。リーディングシステムは多くの場合、書籍の読み込み中に表紙の画像をちらっと表示するのみであったり、ユーザーの本棚にサムネイルを表示するだけです。</p>
-						<p>Placing the QR code in its own document in the reading order will make it more accessible. 							It will be the only content on the page, for example, which will make scanning easier for 							all users. Alternatively, incorporate it into the related front or back matter.</p>
-						<p>If the QR code is kept as part of the cover, make sure that the cover image description 							indicates that there is a scannable code. Also, make sure that the cover image can be 							accessed long enough to scan it, typically by making it part of the linear reading order.</p>
+						<p>QRコードを、独自のドキュメントに読み順に配置すると、よりアクセシブルになります。たとえば、そのページがQRコードのみになり、すべてのユーザーがスキャンしやすくなります。あるいは、関連した前書きや後書きに組み込めます。</p>
+						<p>QRコードを表紙に保持したい場合は、表紙画像の説明においてスキャン可能なコードがあることを明示してください。あるいは、表紙画像をスキャンするのに十分な時間アクセスできるように、読み順の一部にします。</p>
 					</dd>
 				</dl>
 			</section>
@@ -84,7 +84,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Quick Response (QR) codes have become ubiquitous in print media as a simple means of directing people 					to web sites. Users do not have to remember URLs or manually retype them into their mobile device's 					browser. They can just point the camera on their smart phone or tablet at the QR code and a scanner 					will read the embedded URL and offer to open the web site or app for them.</p>
+				<p>QRコードは、人々をWebサイトに誘導するシンプルな手段として、印刷メディアで広く使われるようになりました。ユーザーはURLを覚えたり、モバイルデバイスのブラウザーに手で入力したりする必要はありません。スマートフォンやタブレットのカメラをQRコードに向けるだけで、埋め込まれたURLをスキャナーが読み取り、Webサイトまたはアプリを開いてくれます。</p>
 				
 				<p>QRコードは現在、印刷された書籍、特に表紙だけでなくコンテンツ内にもよく見られます。一般的な用途として、ユーザーを以下の場所に誘導します。</p>
 				
@@ -101,17 +101,17 @@
 				<p>QRコードには、デバイスがインターネットに接続されていない場合に明らかな利点がありますが、一般的なグラフィック画像と比べて欠点もいくつかあります。具体的には、次のとおりです。</p>
 				
 				<ul>
-					<li>Blind users may not be able to ensure that the code is fully on the screen in order to 						scan it. With ebook reading systems, there is also the risk that the image will get split 						between page breaks.</li>
-					<li>Users with low vision or color perception issues may not be aware that the image represents 						a scannable QR code if the code is not black and white.</li>
-					<li>Users may not have another device to scan the code with, and users with mobility issues 						may not be able to hold a second device to scan it.</li>
-					<li>The image may be too small or too far away from the user to effectively scan it.</li>
-					<li>Users unfamiliar with the codes or with cognitive disabilities may struggle to understand 						what to do with them.</li>
+					<li>目の不自由なユーザーは、スキャンするコードが画面上に完全に表示されているかどうかを確認できないかもしれません。電子書籍のリーディングシステムでは、ページ区切りで画像が分割される可能性があります。</li>
+					<li>弱視、または色覚に問題のあるユーザーは、QRコードが白黒でない場合、画像がスキャン可能なQRコードであることに気付かないかもしれません。</li>
+					<li>ユーザーはコードをスキャンする別のデバイスを保有していない可能性があり、また、運動機能に問題のあるユーザーはスキャンするために２つ目のデバイスを手で持てないかもしれません。</li>
+					<li>画像が小さすぎたり、ユーザーから遠すぎるために、うまくスキャンできないかもしれません。</li>
+					<li>コードに慣れていないユーザーや認知障害のあるユーザーは、コードを使って何をするのかを理解するのに苦労するかもしれません。</li>
 				</ul>
 			
 				<section id="desc-a11y">
 					<h4>アクセシビリティに関する考慮事項</h4>
 					
-					<p>To create accessible QR codes, the following issues need to be considered:</p>
+					<p>アクセシブルなQRコードを作成するには、以下の課題を考慮してください。</p>
 					
 					<dl>
 						<dt>コントラスト</dt>
@@ -126,7 +126,7 @@
 						
 						<dt>サイズ</dt>
 						<dd>
-							<p>The size of the QR code image can affect its usability. For one, if the image is too 								large or small, users may have trouble scanning it. The image may be blurry, or the code 								sequences might not be differentiable, if it is too small. Too large and users may have 								trouble fitting the code on screen to scan it, or a reading system might split the 								image to create a page break. The minimum recommended physical size for QR codes is 								often cited as 2cm by 2cm. For a digital code, this is roughly the equivalent of 76 								pixels by 76 pixels. (This size will easily meet both the minimum and enhanced target 								size requirements in WCAG success criteria 2.5.5 and 2.5.8 if the code is clickable.)</p>
+							<p>QRコード画像のサイズは、使いやすさに影響します。まず、画像が大きすぎたり小さすぎたりすると、ユーザーはスキャンしにくくなります。画像が小さすぎると、画像がぼやけたり、コードシーケンスが区別できなくなったりするかもしれませんん。大きすぎると、ユーザーはコードを画面に収めてスキャンしにくくなったり、リーディングシステムによって画像が分割されてページ区切りを跨いでしまうかもしれません。QRコードの推奨される最小物理サイズは、2cm x 2cmとよく言われます。デジタルコードの場合、これはおよそ76ピクセルx76ピクセルに相当します（コードがクリック可能であれば、このサイズはWCAG達成基準2.5.5および2.5.8の最低限と高度のターゲットのサイズ要件の両方を容易に満たします）。</p>
 						</dd>
 						
 						<dt>使用方法（Usage）</dt>
@@ -136,7 +136,7 @@
 						
 						<dt>その他の方法</dt>
 						<dd>
-							<p>Although QR codes can be effective for getting users from reading systems without 								internet connections, they are burdensome for users who are connected. Clicking a 								hyperlink is much simpler than scanning a code. This is especially true for users 								who cannot see the code or may have difficulties scanning it. Making the QR code 								clickable and/or providing a hyperlink in an extended description will help ensure 								that users can pick the most effective method for them. Ensuring that the URL 								contained in the code is the text of an alternative hyperlink also allows users to 								copy and paste it into a browser.</p>
+							<p>QRコードは、インターネットに接続していないリーディングシステムからユーザーを獲得するのに効果的ですが、インターネットに接続しているユーザーにとってはちょっとした負担になります。ハイパーリンクをクリックする方が、コードをスキャンするよりもはるかに容易であり、これは、コードが見えなかったり、スキャンするのが難しいユーザーにとっては当然です。QRコードをクリック可能にしたり、拡張説明にハイパーリンクを付けることで、ユーザーにとって最も効果的な方法を選択できるようになります。コードに含まれるURLが代替ハイパーリンクのテキストであることがわかれば、ユーザーはそれをコピーしてブラウザーに貼り付けることもできます。</p>
 						</dd>
 					</dl>
 				</section>
