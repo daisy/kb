@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>インラインフレーム（Inline Frames）</title>
@@ -19,18 +19,18 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>インラインフレームに一意のタイトルを付けて、ユーザーがコンテンツを読むか操作するかを決定できるようにし、フレームのコンテンツをサイズ変更やズーム後も使用可能にします。</p>
+				<p>インラインフレームに一意のタイトルを付け、ユーザーがコンテンツを読むか操作するかを決定できるようにします。そして、サイズ変更やズーム後もフレーム内のコンテンツを使用できるようにします。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>フレームに意味のあるラベル（ <code>aria-label</code> 、 <code>aria-labelledby</code> 、 <code>title</code> ）をつけるようにします。<br>[[WCAG-2.4.1]] および [[WCAG-4.1.2]]</li>
-					<li>特定のユーザー向けではないフレームを、ラベルで識別します。</li>
 					<li>
-<code>iframe</code>のサイズを設定する際には相対単位を使用します。</li>
-					<li>スクロールを<code>auto</code>に設定します。</li>
+<code>aria-label</code>、<code>aria-labelledby</code>、<code>title</code> により、フレームに意味のあるラベルを付けます。<br>[[WCAG-2.4.1]] および [[WCAG-4.1.2]]</li>
+					<li>特定のユーザー向けではないフレームを、ラベルで識別します。</li>
+					<li> <code>iframe</code>のサイズを設定する際には相対単位を使用します。</li>
+					<li>scrolling属性を<code>auto</code>に設定します。（訳注：HTML5ではiframeのscrolling属性は廃止されています。）</li>
 				</ul>
 			</section>
 			
@@ -38,18 +38,13 @@
 				<h3>例</h3>
 				<figure id="ex-01">
 					<figcaption><span class="label">例 1 — 基本的な<code>iframe</code></span></figcaption>
-					<p>この<code>iframe</code> では、 <code>title</code>属性でクイズが含まれていることを示します。フレームをサポートしていないリーディングシステム用に、ファイルにアクセスするためのフォールバック コンテンツが含まれています。</p>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;iframe
-      href="quiz01.xhtml"
-      title="Quiz 1"
-      class="quiz"&gt;
-      あなたのユーザーエージェントはインラインフレームをサポートしていません。クイズ１を開くには、&lt;a href="quiz01.xhtml"&gt;こちらのリンク&lt;/a&gt; を開いてください。
-&lt;/iframe&gt;</code></pre>
+					<p><code>title</code>属性により、この<code>iframe</code>内には質問が含まれていることを示します。フレームをサポートしていないリーディングシステム用に、その内容にアクセスするためのフォールバック コンテンツを付けます。</p>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;iframe href="quiz01.xhtml" title="Quiz 1" class="quiz"&gt; Your user agent does not support inline frames. Please follow &lt;a  href="quiz01.xhtml"&gt;this link&lt;/a&gt;  to open Quiz 1. &lt;/iframe&gt;</code></pre>
 				</figure>
 
 				<figure id="ex-02">
 					<figcaption><span class="label">例 2 — 目に見えない<code>iframe</code></span></figcaption>
-					<p><code>iframe</code>にはページに必要なコードが含まれているため、視覚的には非表示になっており、ラベルによってコンテンツが含まれていないことも示されています。</p>
+					<p><code>iframe</code>にはそのページに必要なコードが含まれており、視覚的に非表示になっていて、ラベルによってもコンテンツを含んでいないことを示しています。</p>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;iframe
       href="script.xhtml"
       title="empty"
@@ -64,16 +59,15 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>インラインフレームは一般的に支援技術とうまく動作しますが、使用時には次のアクセシビリティの考慮事項に常に従う必要があります。</p>
+				<p>一般的にインラインフレームは支援技術とうまく調和しますが、使用時には以下のアクセシビリティにおける考慮事項に従ってください。</p>
 				
 				<ul>
-					<li>各インラインフレームには、埋め込まれたコンテンツの目的を明確に示す説明的なタイトル（ <code>iframe</code>要素の<code>title</code>属性）を含める必要があります。</li>
+					<li>各インラインフレームには、埋め込まれたコンテンツの目的を明確に示す説明をタイトル（<code>iframe</code>要素の<code>title</code>属性）として付けてください。</li>
 					<li>
-<code>iframe</code>の高さと幅を設定するときは、サイズ変更を容易にするために、パーセンテージや em などの相対単位を使用する必要があります。</li>
-					<li>スクロールは<code>auto</code>に設定する必要があります。そうすることで、ユーザーがフレーム内のコンテンツのサイズを変更し、枠内に収まらなくなった場合でも、コンテンツにアクセスできるようになります。</li>
-					<li>
-<code>iframe</code>要素は、インラインフレームをサポートしていないユーザーエージェントに対して、埋め込まれたフォールバック コンテンツ（コンテンツ ファイルへの直接リンクなど）を提供する必要があります。</li>
-					<li>フレームにユーザー向けのコンテンツが含まれていない場合は、 <code>title</code>にその旨を示し、CSS <code>display</code>プロパティを<code>none</code>に設定し、高さと幅を 0 に設定します。ユーザーが要素にタブ移動できないようにするには、 <code>tabindex</code>属性を<code>-1</code>に設定します。</li>
+<code>iframe</code>の高さと幅を設定する際は、サイズ変更を容易にするために、パーセンテージやemなどの相対単位を使用してください。</li>
+					<li>scrollingは<code>auto</code>に設定する必要があります。そうすることで、ユーザーがフレーム内のコンテンツのサイズを変更し、枠内に収まらなくなった場合でも、コンテンツにアクセスできるようになります。（訳注：HTML5ではiframeのscrolling属性は廃止されています。）</li>
+					<li> <code>iframe</code>要素は、インラインフレームをサポートしていないユーザーエージェントに対して、埋め込まれたフォールバック コンテンツ（コンテンツ ファイルへの直接リンクなど）を提供する必要があります。</li>
+					<li>フレームにユーザー向けのコンテンツが含まれていない場合は、<code>title</code>属性でその旨を示し、CSS <code>display</code>プロパティを<code>none</code>に設定し、高さと幅を0に設定します。ユーザーが要素にタブ移動できないように、<code>tabindex</code>属性を<code>-1</code>に設定します。</li>
 				</ul>
 			</section>
 			
@@ -81,10 +75,8 @@
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">&lt;iframe&gt;: インラインフレーム要素</a>
-</li>
-					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-iframe-element"><code>iframe</code>要素</a>
-</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">&lt;iframe&gt;: インラインフレーム要素</a> </li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-iframe-element"><code>iframe</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>

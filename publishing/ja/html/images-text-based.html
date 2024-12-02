@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>テキストベースの画像（Text-based Images）</title>
@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>テキストベースの画像を識別して説明することで、その中に含まれるテキストを支援技術が無視したり読み上げようとしたりしないようにします。</p>
+				<p>（訳注：アスキーアートのような）テキストベースの画像を識別し説明を設けることで、その中に含まれるテキスト情報を、支援技術が無視したり読み上げないようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -28,7 +28,7 @@
 				<ul>
 					<li>テキストベースの画像を識別するには、 <code>role</code>属性の値<code>img</code>を使用します。[[WCAG-1.3.1]]</li>
 					<li>代替テキストや拡張説明を提供します。[[WCAG-1.1.1]]</li>
-					<li>テキストと背景の間に十分なコントラストがあるようにします。[[WCAG-1.4.3]]</li>
+					<li>テキストと背景の間に十分なコントラストを設けます。[[WCAG-1.4.3]]</li>
 				</ul>
 			</section>
 			
@@ -37,7 +37,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">例 1 — 代替テキスト付きの ASCII 描画</div>
+						<div class="label">例 1 — 代替テキスト付きのアスキーアート</div>
 						<p><code>aria-label</code>属性は代替テキストの説明を提供します。この属性は、 <code>img</code>要素でのみ許可される<code>alt</code>属性と同じ目的を果たします。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;pre
@@ -87,8 +87,8 @@
 				
 				<figure id="ex-04">
 					<figcaption>
-						<div class="label">例 4 — 説明付きのASCII描画</div>
-						<p><code>aria-describedby</code>属性は、ASCII 画像の説明を提供するために使用されます。</p>
+						<div class="label">例 4 — 説明付きのアスキーアート</div>
+						<p><code>aria-describedby</code>属性は、アスキーアートの説明を提供するために使用されます。</p>
 					</figcaption>
 					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;pre
     role="img"
@@ -164,29 +164,27 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>「ASCII アート」という名前は、一般的にテキストベースの画像を表すために使用されますが、そのようなアートワークが ASCII セットの印刷可能な文字のみで構成されているわけではありません。最新のコンピューターで Unicode がサポートされているということは、Unicode プレーンのすべての印刷可能な文字が使用可能になっていることを意味します。</p>
+				<p>「アスキーアート」という名称は、一般的にテキストベースの画像を表すために使用されますが、そのようなアートワークが ASCIIの文字コードセットの印刷可能な文字のみで構成されているとは限りません。最新のコンピューターではUnicodeがサポートされており、Unicodeのすべての印刷可能な文字が使用できることを意味します。</p>
 				
 				<p>テキストベースの画像の要件は、ラスター画像やベクター画像とほぼ同じですが、実装が若干異なります。重要な違いの 1 つは、テキストベースの画像は、デフォルトでは周囲のテキストと区別できないことです（つまり、JPEG や SVG のように、別の形式ではなく、固有のタグもありません）。</p>
 				
-				<p>一連の文字がテキストベースの画像を表すことを識別するには、画像の周囲のタグに、値が「 <code>img</code> 」である ARIA <code>role</code>属性を追加します（<a href="#ex-01">例 1</a>を参照）。テキストベースの画像は、レイアウトを維持するために<code>pre</code>タグで囲まれることがよくありますが、たとえば、1 行の画像は<code>span</code>タグで囲まれることがあります。</p>
+				<p>一連の文字がテキストベースの画像を表すことを識別するには、画像の周囲のタグに、値が「<code>img</code>」であるARIAの<code>role</code>属性を付与します（<a href="#ex-01">例 1</a>を参照）。テキストベースの画像は、レイアウトを維持するために<code>pre</code>タグで囲まれることがよくありますが、たとえば、1行の画像は<code>span</code>タグで囲まれるかもしれません。</p>
 				
-				<p>テキストベースの画像をロールで識別しない場合、支援技術は画像に含まれるテキストを読み上げようとします。句読点で構成される画像の場合、ユーザーには何も読み上げられない可能性があります（一時停止のみが聞こえる場合があります）。英数字を含む画像の場合、文字が読み上げられるときにユーザーには意味不明な内容が聞こえる場合があります。</p>
+				<p>テキストベースの画像をロールで識別されないと、支援技術は画像を構成しているテキストを読み上げようとします。句読点で構成される画像の場合、ユーザーには何も読み上げられないかもしれません（一時停止のみが聞こえる場合があります）。英数字を含む画像の場合、文字が読み上げられると、ユーザーにはちんぷんかんぷんな内容になるでしょう。</p>
 				
-				<p>画像が特定されると、要件は他の画像の場合と同様になります。代替テキストは通常必須ですが、 <code>img elements</code>でのみ許可されるため、 <code>alt</code>属性で指定することはできません。テキストベースの画像の場合、 <code>aria-label</code>または<code>aria-labelledby</code>属性を使用して代替テキストを指定できます（<a href="#ex-01">例 1</a>を参照）。</p>
+				<p>画像と特定されると、要件は他の画像と同様になります。代替テキストは通常必須ですが、<code>alt</code>属性は、<code>img</code>要素の利用に限られるためこの方法では指定できません。テキストベースの画像の場合には<code>aria-label</code>または<code>aria-labelledby</code>属性を使用して代替テキストを指定します（<a href="#ex-01">例 1</a>を参照）。</p>
 				
 				<p>複雑な画像の場合、 <code>aria-describedby</code>または<code>aria-details</code>属性を使用して説明を提供できます（<a href="#ex-04">例 4</a>を参照）。画像の説明の詳細については、<a href="images-desc.html">画像の説明</a>ページを参照してください。</p>
 				
-				<p>テキストベースの画像のコントラストの問題を考慮することも重要です。WCAG では画像に十分なコントラストがあることは厳密には要求されていませんが（画像に実際の文字が含まれている場合を除く）、テキスト文字を使用すると、画像の作成に使用されたテキストと画像が表示される背景とのコントラストを、製作者が制御できます。十分なコントラストを使用することで、読者が画像を認識できるようになります。</p>
+				<p>テキストベースの画像のコントラストの問題についての考慮も重要です。WCAGでは画像に十分なコントラストがあることは厳密には要求していませんが（画像に実際の文字が含まれている場合を除く）、テキスト文字を使用すると、画像の作成に使用されたテキストと画像が表示される背景とのコントラストを製作者が制御できます。十分なコントラストを設けると読者が画像を認識できるようになるでしょう。</p>
 			</section>
 			
 			<section id="refs">
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#img"><code>img</code>（ロール）</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role">ARIA: img ロール</a>
-</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#img"><code>img</code>（ロール）</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role">ARIA: img ロール</a> </li>
 				</ul>
 			</section>
 		</main>

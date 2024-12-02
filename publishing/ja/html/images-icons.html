@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>アイコン</title>
@@ -10,7 +10,7 @@
 				'category': ['HTML'],
 				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
 				'related': ['html-images-desc','html-image-deco','html-image-select','html-image-anim']
-			}; 
+			};
 		</script>
 		<script src="/js/init.js"></script>
 		<style>
@@ -76,24 +76,24 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<p class="label">例2 — 十分なコントラスト</p>
+						<p class="label"> 					<figcaption> 						<p class="label">例2 — 十分なコントラスト</p> 					</figcaption></p>
 					</figcaption>
-					<p>次の例は、十分な背景コントラストを持つアイコンを示しています。</p>
+					<p>次の例は、背景のコントラストが不十分な同じアイコンを示しています。</p>
 					<p class="min-ex">
 						</p>
-<img src="../../../graphics/info.png" alt="Image Description">
+<img src="../../../graphics/info.png" alt="">
 					
 					<p>次の例は、背景のコントラストが不十分な同じアイコンを示しています。</p>
 					<p class="min-ex dark">
 						</p>
-<img src="../../../graphics/info.png" alt="Image Description">
+<img src="../../../graphics/info.png" alt="">
 					
 				</figure>
 				
 				<figure id="ex-03">
 					<figcaption>
 						<p class="label">例 3 — フォントアイコン</p>
-						<p>次の例では、私的使用領域のコードポイントを使用して、架空の「Icons」フォント ファミリーから電子メール アイコンをレンダリングします。</p>
+						<p>次の例では、（訳注：Unicodeの）私的使用領域のコードポイントを使用して、架空の「Icons」フォント ファミリーから電子メール アイコンをレンダリングしています。</p>
 					</figcaption>
 					<p class="figlabel">CSS</p>
 					<pre id="ex-03a-src" class="prettyprint linenums"><code>.icon { font-family: 'Icons' !important; }
@@ -110,7 +110,7 @@
 				
 				<figure id="ex-04">
 					<figcaption>
-						<p class="label">例4 — 十分なサイズ</p>
+						<p class="label"> 					<figcaption> 						<p class="label">例4 — 十分なサイズ</p> 					</figcaption></p>
 					</figcaption>
 					
 					<p>次の例は、WCAG 2.1 で要求される 44 x 44 ピクセルの AAA 最小ターゲット サイズを示しています。</p>
@@ -119,7 +119,7 @@
 						
 					<p>次の例は、WCAG 2.2 で要求される 24 x 24 ピクセルの AA 最小ターゲット サイズを示しています。</p>
 					<p class="min-ex"></p>
-<img class="shrink" src="../../../graphics/info.png" alt="画像の説明">
+<img class="shrink" src="../../../graphics/info.png" alt="Image Description">
 				</figure>
 			</section>
 			<section id="desc">
@@ -127,7 +127,7 @@
 				
 				<p>電子出版物では、アイコンは Webほど一般的ではありませんが、珍しいものではありません。アイコンは、教科書やその他のノンフィクション作品にあるさまざまな種類のサイドバーなど、出版物内の重要な項目を識別するためによく使用されます。また、テキストの代わりに、画像の拡張説明があることを示すためにもよく使用されます。そしてもちろん、インタラクティブ コンテンツのコントロールとしてもよく使用されます。</p>
 				
-				<p>アイコンをアクセシブルにするには、一般的に画像と同じ要件に従いますが、アイコンに固有の追加要件もいくつかあります。これらの中でも重要なのは、ネーミングの一貫性です。ラベルを提供するだけでは十分ではありません。ユーザーは、アイコンの意味と目的が出版物全体で一貫していることを期待するようになるからです。たとえば、拡張説明へのリンクに使用されるアイコンには、ある場所では「図 1 の拡張説明」というラベルを付け、次の場所では「図 2 の詳細を読む」というラベルを付けるべきではありません。図の番号は変わるため、ラベルは同一にはなりませんが、言い回しは一貫している必要があります。</p>
+				<p>アイコンをアクセシブルにするには、一般的に画像と同じ要件に従いますが、いくつかのアイコンに固有の追加要件があります。中でも重要なのは、ネーミングの一貫性です。ラベルを提供するだけでは十分ではなく、ユーザーはアイコンの意味と目的が出版物全体で一貫していることを期待します。たとえば、拡張説明へのリンクに使用されるアイコンには、ある場所では「図1の拡張説明」というラベルを付け、次の場所では「図2 の詳細を読む」というラベルを付けるべきではありません。図の番号は変わるため、ラベルは同一にはなりませんが、言い回しは一貫している必要があります。</p>
 				
 				<p>アイコンが明確に区別できることも重要です。アイコンとその背景のコントラスト比が 3:1 であることで、ユーザーはアイコンが使用されている場所とそれが表すものの両方を認識できるようになります。同様に、画像がクリックなどの入力アクションのターゲットを表す場合、アイコンの長さと高さは少なくとも 24 ピクセルが必要です。特に WCAG の要件ではありませんが、アイコンは、できるだけ幅広いユーザーが拡大しなくても判読できるようにサイズを設定する必要があります。アイコンに複雑な画像を使用しないことも推奨されます。目の見えるユーザーでも意味を理解するのに苦労する可能性があるためです。</p>
 				
