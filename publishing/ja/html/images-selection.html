@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>画像の選択（Image Selection）</title>
@@ -21,7 +21,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p><code>picture</code>要素と<code>img</code>要素の画像選択機能を使用して、さまざまなデバイスに最適化された画像を提供します。</p>
+				<p><code>picture</code>要素と<code>img</code>要素の画像選択機能を使用して、さまざまなデバイスに最適化した画像を提供します。</p>
 			</section>
 			
 			<section id="tech">
@@ -95,15 +95,14 @@
 				
 				<p>代替画像を提供することは、より一般的なユーザビリティの問題ですが、ユーザーのディスプレイに最適化された画像を提供することで、アクセシビリティにとって多くの副次的なメリットがあります。</p>
 				
-				<p>たとえば、カラー ディスプレイ用に最適化された表紙画像は、モノクロ ディスプレイのデバイスでレンダリングすると判読できない場合があります。同様に、画面解像度に合わせて適切なサイズで最適化された画像を提供することで、視力の弱いユーザーを支援することができます。最適化された画像は、すべてのデバイスの表示能力に合わせて単一の画像を使用せざるを得ないことで発生するピクセル化の問題を回避するのに役立ちます。</p>
+				<p>たとえば、カラー ディスプレイ用に最適化された表紙画像は、モノクロ ディスプレイのデバイスでレンダリングすると判読できない場合があります。同様に、画面解像度に合わせた適切なサイズに最適化した画像を提供することで、視力の弱いユーザーを支援できます。単一の画像を各デバイスの表示能力に合わせて使用すると生じるピクセル化の問題は、最適化された画像を提供すると回避できます。</p>
 				
 				<p>次のセクションでは、 <code>picture</code>要素と<code>img</code>要素の主な機能について簡単に説明します。これらの要素の詳細については、 <a href="#refs">「関連リンク」</a>セクションのリソースを参照してください。</p>
 				
 				<section id="picture">
-					<h4>
-<code>picture</code>要素</h4>
+					<h4> <code>picture</code>要素</h4>
 					
-					<p><code>picture</code>要素は<code>img</code>要素のラッパー（包摂要素）であり、追加の画像をそのタグに関連付けることができます。したがって、 <code>picture</code>要素には常に子<code>img</code>要素が必要です。</p>
+					<p><code>picture</code>要素は<code>img</code>要素のラッパー（包摂要素）であり、追加画像をそのタグに関連付けできます。したがって、<code>picture</code>要素には常に一つの子<code>img</code>要素が必須です。</p>
 					
 					<p>新しい<code>picture</code>要素が認識されない場合でも、子の<code>img</code>要素により、画像を表示できます。また、 <code>img</code>要素は、代替テキストや、必要に応じて拡張説明も提供できます。</p>
 					
@@ -151,25 +150,20 @@
 				</section>
 				
 				<section id="img">
-					<h4>
-<code>img</code>要素</h4>
+					<h4> <code>img</code>要素</h4>
 					
 					<p><code>img</code>要素は<code>picture</code>要素と似ていますが、より基本的なオプション セットを提供します。つまり、 <a href="#srcset"><code>srcset</code></a>と<a href="#sizes"><code>sizes</code></a>属性のみが許可されます。これらの属性はまったく同じように機能するため、詳細については<a href="#picture"><code>picture</code>要素のセクション</a>の定義を参照してください。</p>
-<p><code>img</code>要素は、 <code>picture</code>要素内で使用されるかどうかに関係なく、常にデフォルトの画像を含む<code>src</code>属性を指定する必要があります。この画像は、ユーザー エージェントがデバイスに適した画像を見つけられない場合、他のオプションが指定されていない場合、またはユーザー エージェントが画像の選択をサポートしていない場合に表示されます。</p>
+<p><code>img</code>要素は、 <code>picture</code>要素内で使用されるかどうかに関係なく、常にデフォルトの画像を含む<code>src</code>属性を指定しなければなりません。この画像は、ユーザー エージェントがデバイスに適した画像を見つけられない場合、他のオプションが指定されていない場合、またはユーザー エージェントが画像の選択をサポートしていない場合に表示されます。</p>
 				</section>
 			</section>
 			
 			<section id="refs">
 				<h3>関連リンク</h3>
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">&lt;picture&gt;: 画像要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-picture-element"><code>picture</code>要素</a>
-</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">&lt;picture&gt;: 画像要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-img-element"><code>img</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-picture-element"><code>picture</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>
