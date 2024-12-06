@@ -17,7 +17,7 @@
 	<body>
 		<main>
 			<section id="desc">
-				<h3>Explanation</h3>
+				<h3>解説</h3>
 
 				<p>デジタル出版 WAI-ARIAモジュール（DPUB-ARIA）は、ARIA仕様を拡張したものです。ARIA<a href="roles.html"><code>role</code>属性</a>で使用するための、出版物に特化したロールが用意されています。</p>
 
@@ -27,7 +27,7 @@
 			</section>
 
 			<section id="roles">
-				<h3>Roles</h3>
+				<h3>ロール</h3>
 
 				<nav role="doc-index" id="Roles" aria-label="index of roles">
 					<ul class="multicol">
@@ -118,7 +118,7 @@
 				<h3>よくある質問</h3>
 
 				<dl>
-					<dt id="faq-001">What are implicit roles and why do they matter?</dt>
+					<dt id="faq-001">暗黙のロールとは何ですか？また、なぜそれが重要なのですか？</dt>
 					<dd>
 						<p>多くのHTML要素にはデフォルトのアクセシビリティ セマンティクスがあるため、明示的なロールは必要ありません。たとえば、 <code>nav</code>要素には暗黙のロール<code>navigation</code>があります。同様に、 <code>aside</code>要素には暗黙のロール<code>complementary</code>があります（要素とその暗黙のロールの完全なリストについては、 <a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください）。</p>
 
@@ -153,7 +153,7 @@
 						<p>Landmarks are also an unstructured list of links, so setting every section as a landmark 							actually makes it harder for users to understand the structure. Making every section a 							landmark also unnecessarily proliferates the total number of landmarks in a page, which in 							turn reduces the usefulness of the list (i.e., being able to quickly locate a key 							section).</p>
 					</dd>
 
-					<dt id="faq-004">Why isn't there a role for every semantic in the EPUB Structural Semantic vocabulary?</dt>
+					<dt id="faq-004">EPUB構造セマンティクス語彙にすべてのセマンティクスのロールがないのはなぜですか？</dt>
 					<dd>
 						<p>EPUB構造セマンティクス語彙は、主に出版社の内部ワークフローにセマンティクスを提供するために設計されました。それに加えて、この属性は有用なロールにアクセシビリティマッピングを提供するという役割も果たすことが期待されていましたが、この期待が実行可能なソリューションとして実現することはありませんでした。EPUB構造セマンティクス語彙とともに使用される<code>epub:type</code>属性は支援技術に認識されておらず、既存のARIAロールとどのように調和させるかという関心も持たれていません。</p>
 
