@@ -21,7 +21,7 @@
 
 				<p>デジタル出版 WAI-ARIAモジュール（DPUB-ARIA）は、ARIA仕様を拡張したものです。ARIA<a href="roles.html"><code>role</code>属性</a>で使用するための、出版物に特化したロールが用意されています。</p>
 
-				<p>The publishing roles are intended to improve the usability of publications both by providing 					assistive technologies (AT) with additional information about important structures and by ensuring 					that common publishing markup idioms are accessible.</p>
+				<p>出版ロールは、出版物を使いやすくすることを目的としており、具体的には、支援技術おいて重要な構造に関する追加情報を提供し、一般的な出版のマークアップの用法をアクセシブルにします。</p>
 
 				<p>これらのロールはワークフローのセマンティクスの機構として意図されたものではないため、たとえばEPUB構造セマンティクス語彙と同じ対象範囲に使用しないでください。ロールの使用回数と使用方法の両方に注意する必要があります。ロールを誤って使用すると、出版物のアクセシビリティに悪い影響があります。</p>
 			</section>
@@ -141,16 +141,16 @@
 							<pre role="doc-example" id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-tip note"&gt;</code></pre>
 						</figure>
 
-						<p>The order of roles is important so do not add ARIA roles before the DPUB roles or the DPUB 							roles will never be recognized.</p>
+						<p>ロールの順序は重要なので、DPUBロールの前にARIAロールを追加しないでください。そうした場合DPUBロールが認識されなくなります。</p>
 
-						<p>Similar to the issue of <a href="#faq01">matching implied semantics</a>, the need for 							fallback semantics will diminish with time. The use of fallback semantics is also known to 							be imperfect, as the fallbacks are not recognized in all cases.</p>
+						<p><a href="#faq01">暗黙のセマンティクスの一致</a>の問題と同様に、フォールバック セマンティクスの必要性は、時間が経つにつれて減少していくでしょう。フォールバック セマンティクスを使う方法は完璧ではないことも知られており、フォールバックがすべてのケースで認識されるとは限りません。</p>
 					</dd>
 
 					<dt id="faq-003">出版物のすべてのセクションをランドマークにしないのはなぜですか？</dt>
 					<dd>
-						<p>Users already have access to the table of contents, which is a much more effective tool for 							understanding and navigating the structure of a publication. Landmarks are intended to 							provide quick access to the key sections a user might want to reach.</p>
+						<p>ユーザーは既に目次を利用できます。目次の方が、出版物の構造を理解して移動する上で、はるかに効果的な手段です。ランドマークは、ユーザーがアクセスしたい重要なセクションにすぐに移動するできることを目的としています。</p>
 
-						<p>Landmarks are also an unstructured list of links, so setting every section as a landmark 							actually makes it harder for users to understand the structure. Making every section a 							landmark also unnecessarily proliferates the total number of landmarks in a page, which in 							turn reduces the usefulness of the list (i.e., being able to quickly locate a key 							section).</p>
+						<p>ランドマークは構造化されていないリンクのリストなので、すべてのセクションをランドマークに設定すると、かえってユーザーが構造を理解しにくくなります。すべてのセクションをランドマークにすると、ページ内のランドマークの総数が不必要に増え、リストの有用性（つまり、重要なセクションをすばやく見つけられるかどうか）が低下します。</p>
 					</dd>
 
 					<dt id="faq-004">EPUB構造セマンティクス語彙にすべてのセマンティクスのロールがないのはなぜですか？</dt>
