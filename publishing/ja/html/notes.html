@@ -20,7 +20,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Identifying notes and placing them at logical breaks in the text minimizes their 					impact on the reading of the primary text.</p>
+				<p>注釈を識別し、それをテキスト内の論理的な区切りに配置すると、主要なテキストの読みやすさへの影響を最小限にできます。</p>
 			</section>
 			
 			<section id="tech">
@@ -41,7 +41,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例1 — 本文中の脚注</div>
-						<p>Note that the <code>doc-footnote</code> role is used on an <code>aside</code>. Do not 							apply it to list items, as it will break the lists they belong to. Use <code>doc-endnotes</code> 							to group notes into lists.</p>
+						<p><code>doc-footnote</code>ロールは<code>aside</code>内で使用する点に注意してください。リスト項目には適用しないでください。リスト項目が属するリストが壊れてしまいます。注釈をリストにグループ化するには<code>doc-endnotes</code>使用してください。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;
    In that
@@ -85,7 +85,7 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">例3 — 注釈の参照を上付き文字にするCSS</div>
-						<p>Note the use of the CSS <code>~=</code> selector. If the <code>role</code> attribute contains 							more than one value (i.e., a fallback role) this selector ensures a match will still 							occur. See <a href="https://www.w3.org/TR/CSS22/selector.html#attribute-selectors">attribute 								selectors in CSS 2</a> for more information.</p>
+						<p>CSS<code>~=</code>セレクターの使用に注意してください。<code>role</code>に複数の値（フォールバックロールなど）を含んでいる場合でも、このセレクターによって確実に一致できます。詳細については、<a href="https://www.w3.org/TR/CSS22/selector.html#attribute-selectors">CSS 2の属性セレクター</a>を参照してください。</p>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code class="language-css">a[role~='doc-noteref'] {
    vertical-align: super;
@@ -97,7 +97,7 @@
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">例4 — 脚注からのバックリンク</div>
-						<p>The backlink precedes the note text so that the user will be aware that such a link is 							available.</p>
+						<p>バックリンクは注釈のテキストの前にあるため、ユーザーはそのようなリンクを利用できるのを認識できます。</p>
 					</figcaption>
 					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;div role="doc-footnote"&gt;
    &lt;p&gt;&lt;a href="#ref" role="doc-backlink"
@@ -127,8 +127,8 @@
 <code>doc-endnote</code>ロールを使用する必要がありますか？</dt>
 					<dd>
 						<p><strong>いいえ。</strong><code>doc-endnote</code>ロールの使用は、コアARIAロールモジュールとの技術的な互換性がないため、現在は非推奨です。ARIAでは、モジュールからのロールがコアロールの要件を満たすことを許可していないため、<code>doc-endnote</code>はリスト項目のように動作しますが、技術的にはリストにリスト項目の子を持つという要件を満たしていません。そのため、HTMLのリスト要素としても 、ARIAの<code>list</code>ロールの子としても、無効になります。</p>
-						<p>While AT uses should not experience any problems if you have already used the role, it is 							best to avoid it moving forward to avoid errors in your content.</p>
-						<p>The role is also generally redundant. If a section of notes is identified using the 							<code>doc-endnotes</code> role, users and assistive technologies will understand the list 							within the section contains the endnotes.</p>
+						<p>すでにこのロールを使用している場合、支援技術の使用で問題は発生しないはずですが、コンテンツのエラーを回避するために、今後は使用しないことをお勧めします。</p>
+						<p>また、このロールは一般的に冗長です。<code>doc-endnotes</code>ロールを使用して注釈のセクションが識別されると、ユーザーは支援技術によってセクション内のリストに文末脚注があると認識します。</p>
 					</dd>
 				</dl>
 			</section>
@@ -166,7 +166,7 @@
 					
 					<p>アクセシビリティが特に要求されているわけではありませんが、注釈のグループをテキスト内の参照位置にバックリンクすることは良い習慣です（<a href="#ex-04">例4</a>を参照）。ユーザーが注釈を調べている場合、バックリンクを使用すると注釈が参照しているテキストをすぐに見つけることができます。</p>
 					
-					<p>Ensure that the link text for each back reference clearly identifies where the link goes. Avoid 						using the same text over and over, like "Go to reference". When users of assistive technologies 						access the list of links on the page, the context of each link is lost.</p>
+					<p>それぞれのバックリファレンスのリンクテキストは、リンク先を明確に判るようにしてください。「参照元へ移動」のような同じ表現の繰り返しの使用は避けてください。支援技術のユーザーがこのページ上のリンクリストにアクセスすると、各リンクのコンテキストが失われてしまいます。</p>
 				</section>
 			</section>
 			
