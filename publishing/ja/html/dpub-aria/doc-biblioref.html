@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-biblioref</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-biblioref role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">A reference to a bibliography entry.</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">Example 1 — Reference to a bibliography entry</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p&gt;
+   … "with great power comes great responsibility" &lt;a href="biblio.html#spidey" role="doc-biblioref"&gt;[SPIDERMAN]&lt;/a&gt;…
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-biblioref</code> inherits its semantics from the <a href="https://www.w3.org/TR/wai-aria/#link">link role</a>.</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-biblioref</code> is typically used on <code>a</code> elements.</p>
+				
+				<p>For a simplified list of all the elements the role is allowed on, refer to the <a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring  						Guide</a>. For the official list of allowed elements, refer to <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-biblioref">DPUB-ARIA — 							<code>doc-biblioref</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
