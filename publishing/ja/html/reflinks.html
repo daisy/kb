@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>参照箇所へのリンク</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on bidirectional linking to figures, notes and similar content.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>注釈、図、表や、その他の種類の参照箇所への（訳注：逆方向の）リンクを組み込むと、便利な双方向の移動手段となり、読む場所を容易に変更できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>
+						<p><a href="dpub-aria/doc-backlink.html"><code>doc-backlink</code>ロール</a>を使って、参照箇所と通常のテキストへのリンクを区別します。</p>
+					</li>
+					<li>
+						<p>Use the <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code> 							attribute</a> to add additional context if the purpose of the link is not clear. 							[[WCAG-2.4.4]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 — Link to footnote reference</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;… was extra
+   crunchy.&lt;a id="fn01-ref" href="#fn01" role="doc-noteref"&gt;1&lt;/a&gt;
+&lt;/p&gt;
+…
+&lt;aside role="doc-footnote" id="fn01"&gt;
+   &lt;p&gt;&lt;a href="#fn01-ref" role="doc-backlink"&gt;[1]&lt;/a&gt; The first
+      known instance of human cannibalistic …&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 — Link to figure reference</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p&gt;… as shown in &lt;a id="fig01-ref" href="#fig01"&gt;Figure 1.0&lt;/a&gt;&lt;/p&gt;
+…
+&lt;figure id="fig01"&gt; 
+   &lt;figcaption&gt;Figure 1.0 …&lt;/figcaption&gt;
+   &lt;img src="img01.jpg" alt="…"/&gt;
+   &lt;p&gt;
+      &lt;a href="#fig01-ref"&gt;&lt;img src="back-arrow.jpg"
+         alt="Text reference to figure"/&gt;&lt;/a&gt;
+   &lt;/p&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 — Link to figure reference with additional context</div>
+						<p>The following example shows a link to the reference placed on the figure number. As the 							destination of this link is likely to confuse users, additional context is provided in 							the <code>aria-label</code> attribute. See the <a href="#desc">explanation</a> section 							for more information on why this kind of linking is suboptimal.</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;… as shown in &lt;a id="fig01-ref" href="#fig01"&gt;Figure 1.0&lt;/a&gt;&lt;/p&gt;
+…
+&lt;figure id="fig01"&gt;
+   &lt;figcaption&gt;
+      &lt;a href="#fig01-ref"
+         aria-label="Figure 1.0 text reference"&gt;Figure 1.0&lt;/a&gt;
+      …
+   &lt;/figcaption&gt;
+   &lt;img src="img01.jpg" alt="…"/&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">Example 4 — Table with multiple reference marks</div>
+						<p>References to static page markers are added to help users determine where 							the links go back to.</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="table01"&gt; 
+   &lt;figcaption&gt;
+      Table 1 … 
+      &lt;a href="tbl01-ref01" role="doc-backlink"
+         aria-label="Reference on page 235"&gt;[1]&lt;/a&gt;,
+      &lt;a href="tbl01-ref02" role="doc-backlink"
+         aria-label="Reference on page 303"&gt;[2]&lt;/a&gt;,
+      &lt;a href="tbl01-ref03" role="doc-backlink"
+         aria-label="Reference on page 318"&gt;[3]&lt;/a&gt;
+   &lt;/figcaption&gt;
+   &lt;table&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>本文から参照されているコンテンツへと、コンテンツから本文へとの双方向のリンクがあると、ユーザーの読書体験は大幅に向上します。一般的にはユーザーは、例えば脚注に行くときに参照をたどると考えられますが、章やセクション内の本文を全て読み終わってから、補助的な情報を読むことも考えられます。このような場合に本文内の該当するテキストの参照マークに戻るリンクがなければ、本文との関連性に関する理解が難しくなります。</p>
+				
+				<p>In EPUB, two-way linking is also beneficial as many reading systems lack a back button, so once a 					user has followed a link, the only way they can return to where they were is manually. While this 					is a nuisance even for sighted readers, users of assistive technologies often must manually listen 					to the start of each paragraph until they find where they were.</p>
+				
+				<p>Perhaps the most important consideration when adding links to reference marks is to avoid confusing 					the user about the purpose of the link and about its destination.</p>
+				
+				<p>Although some linking patterns are commonly understood — for example, a "back link" on the 					reference number of a footnote to take the user to where the note was referenced — care 					should be taken when re-using such patterns in unfamiliar contexts. <a href="#ex-03">Example 3</a>, 					depicts one such scenario. Linking a figure number is not as intuitive a pattern as linking a 					footnote reference. Users may misunderstand this as a link back to the figure since no mention of 					the reference is provided in the link or its surrounding context. In cases like these, if no other 					means of providing a link is possible (see <a href="#ex-02">example 2</a> for an alternative 					approach), the <code>aria-label</code> attribute should be used to add the missing context.</p>
+				
+				<p>Similarly confusing for users is when there is more than one reference to a note, figure or table in 					the text, but only a single link back can be provided. If the user follows the second or third 					link, they will be confused if they are returned to the first reference. Adding context that the 					link returns the user to the first reference will help avoid confusion.</p>
+				
+				<p>Note that even when multiple links back to reference marks can be provided, how to meaningfully 					label them can be a challenge. If <a href="../navigation/pagelist.html">static page break 						markers</a> are present in the text, referring to the location by page number is one option to 					help users determine which is the correct way back (see <a href="ex-04">example 4</a>). But even 					this approach is problematic, as no assistive technologies currently announce page numbers. The 					user may have to try each link in turn until they find the right one.</p>
+				
+				<div role="note" aria-labelledby="multiref-note" class="caution">
+					<p id="multiref-note" class="label">Caution</p>
+					<p>クリックしたリンク先からそのリンク元に戻る機能があるリーディングシステムが普及するまで、EPUBでは同じ項目への複数のリンクを避けることをお勧めします。一つ目の参照マークのリンク先に対し、一つ目の参照マークに戻れるようにすれば、複数のリンク「イン」に対してリンク「アウト」が一つしかないという混乱が避けられます。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				
+				<ul>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-backlink"><code>doc-backlink</code> role</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
