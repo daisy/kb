@@ -56,7 +56,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>The use of proper semantic markup provides equal access to users who cannot see or distinguish all  					color variations.</p>
+				<p>適切なセマンティック マークアップを使用すると、ユーザーが目が見えない場合や、すべての色の違いを区別できない場合でも、平等に利用できるようになります。</p>
 			</section>
 			
 			<section id="tech">
@@ -64,7 +64,7 @@
 				
 				<ul>
 					<li>
-						<p>Ensure that color is not the primary means of conveying information. [[WCAG-1.4.1]]</p>
+						<p>色を情報を伝達する主要な手段にしないでください。[[WCAG-1.4.1]]</p>
 					</li>
 				</ul>
 			</section>
@@ -75,7 +75,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例 1 — 例に枠線を追加する</div>
-						<p>CSS is used to highlight examples with a thick grey left border. The CSS selector finds 							<code>pre</code> elements whose <code>role</code> attribute contains the value <code>doc-example</code>.</p>
+						<p>例を強調表示するために、左側に太い灰色の枠線をCSSで付けています。このCSSセレクターは、<code>role</code>属性に値<code>doc-example</code>を含んだ<code>pre</code>要素に合致します。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code class="lang-css">pre[role~='doc-example'] {
    border-left: solid 3px; rgb(180,180,180);
@@ -84,8 +84,8 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 — Including style overrides for mobile rendering</div>
-						<p>The second linked style sheet is only applied when the maximum screen width is no more than 							480 pixels, allowing styles optimized for mobile devices to override the defaults.</p>
+						<div class="label">例 2 — モバイル レンダリング用のスタイルで上書きする</div>
+						<p>二番目にリンクされたスタイルシートは、最大画面幅が480ピクセル以下の（訳注：モバイルデバイスの）場合にのみ適用されるので、モバイルデバイス向けに最適化されたスタイルで、デフォルトのスタイルを上書きできます。</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;html …&gt;
    &lt;head&gt;
@@ -111,15 +111,15 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>The visual appearance of content is often the only consideration that authors take into account when 					producing content, but this focus excludes that many users are not going to be reading visually (e.g., 					refreshable braille, text-to-speech playback, etc.). Separating style from markup is consequently not 					just about keeping CSS in a separate file from your markup, but recognizing that markup must convey 					meaning to be useful to all users, and that visual rendering is only one possible use case.</p>
+				<p>多くの場合、製作者がコンテンツを作成する際に配慮する唯一の考慮事項はコンテンツの見た目でしょう。しかしこの考慮事項には、視覚的に読むわけではない（たとえば、点字ディスプレイや、テキスト読み上げ再生などで読む）ユーザーが多く存在するという観点が欠けています。マークアップからのスタイル分離は、単にCSSを別のファイルに分離するだけでなく、マークアップは全てのユーザーに意味を伝えるものであり、視覚的なレンダリングは一つの使い方にすぎない点を認識することにもなります。</p>
 				
-				<p>Semantically-rich markup enables meaningful styling, and the <a href="roles.html">ARIA <code>role</code>  					attribute</a> can be used with CSS selectors to apply styling by purpose. The use of semantic styling  					is encouraged as it ensures focus is kept on how the data is represented, not just how it looks when  					rendered.</p>
+				<p>意味付けがしっかりされているマークアップにより、意味のあるスタイル設定が可能になり、 <a href="roles.html">ARIAの<code>role</code>属性</a>をCSSセレクターとともに使用して、目的に応じてスタイル設定を適用できます。レンダリング時の見た目だけでなく、データの表現方法にも重点が置かれるようになるので、セマンティックなスタイル設定の使用をお勧めします。</p>
 				
-				<p>But note that the choices that you make for your content are not necessarily the optimal ones for 					many visual users. A user may prefer a different color scheme, to increase the contrast levels, to 					change the justification, fonts or line height to better suit their needs.</p>
+				<p>製作者がコンテンツに付与したスタイル設定が、必ずしも視覚ユーザーにとって最適なものであるとは限りません。ユーザーは、自分のニーズに合わせて、異なる配色や、コントラストレベルの向上、配置、フォント、行の高さの変更をしたいかもしれません。</p>
 				
 				<p>このため、習慣として、スタイル情報をマークアップから明確に分離しておくのがよいでしょう。その際、<code>style</code>属性は、ユーザーがドキュメントをリフローしたり、スタイルを変更したりする機能を妨げる可能性があるため、使用しないでください。</p>
 				
-				<p>CSS style definitions can be linked to the content documents to which they apply via the HTML5 					<code>link</code> element. Multiple style sheets may be attached to a document to target different 					rendering mediums and/or to more cleanly group style by function.</p>
+				<p>CSSのスタイル定義は、HTML5の<code>link</code>要素を介して、適用先のコンテンツ ドキュメントにリンクできます。複数のスタイルシートをドキュメントに添付して、さまざまなレンダリング媒体をターゲットにしたり、スタイルを機能別にすっきりとグループ化したりもできます。</p>
 			</section>
 			
 			<section id="refs">
