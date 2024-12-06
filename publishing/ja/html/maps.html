@@ -20,7 +20,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Ensure the areas of an image map are labelled so that the map is accessible to users who cannot 					see it or easily activate the regions.</p>
+				<p>イメージマップの領域にラベルを付け、マップを見ることができないユーザーや領域を簡単にアクティブ化できないユーザーが、マップにアクセスできるようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -28,7 +28,7 @@
 				
 				<ul>
 					<li>
-						<p>Ensure each <code>area</code> element has descriptive alternative text [[WCAG-1.1.1]]</p>
+						<p>各<code>area</code>要素に説明を含む代替テキストを付けてください。[[WCAG-1.1.1]]</p>
 					</li>
 				</ul>
 			</section>
@@ -38,7 +38,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例1 — クライアントサイドマップ</div>
-						<p>Each of the map's <code>area</code> elements contains an alternative text description.</p>
+						<p>マップの各<code>area</code>要素に、代替テキストによる説明が付与されています。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
     src="north-america.png"
@@ -78,7 +78,7 @@
 				
 				<p>サーバーサイド マップは、本質的にアクセシビリティが低いものになります。ユーザーが画像を見て領域を判別する必要があり、また、ユーザーが画像の正確な場所をクリックする必要があるためです。</p>
 				
-				<p>Client-side maps make use of an associated <code>map</code> element to define the clickable regions. Each 					region is specified in an <code>area</code> element, and each <code>area</code> should include an 					<code>alt</code> attribute that indicates its purpose so that non-visual users can easily discover 					the functionality. Assistive technologies allow users to iterate over these areas, making them a much 					friendlier option than server-side maps, and without requiring intrusive fallbacks.</p>
+				<p>クライアントサイド マップでは、関連付けられた<code>map</code>要素を使用してクリック可能な領域を定義します。各領域は<code>area</code>要素内で指定され、各<code>area</code>にはその目的を示す<code>alt</code>属性が付与されている必要があります。これにより、視覚に障害のあるユーザーが機能を簡単に見つけることができます。支援技術により、ユーザーはこれらの領域を繰り返し利用できるため、サーバーサイド マップよりもはるかに使いやすいオプションとなり、煩わしいフォールバックも必要ありません。</p>
 				
 				<p>実際のところ、サーバーサイド マップは追加機能を提供しないため、その使用は推奨されません。使用する必要がある場合は、マップを操作できないユーザーが機能に平等にアクセスできるように、クリック可能な各領域に対応するリンクのセットを提供する必要があります。</p>
 				
