@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ヘッダースコープ（見出しの範囲）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for indicating the scope of table headers.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-headers','html-table-layout']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			table {
+				width: 80%;
+			}
+			td {
+				text-align: center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>読み取っているデータのコンテキストを支援技術のユーザーが理解できるように、テーブルヘッダーが適用される列または行を識別します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>Ensure that table headers are identified and their scope (row or column) is defined.[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption><span class="label">例1 — セクション分けされた表</span></figcaption>
+					
+					<p>この例では、表は時間の経過に伴う人口の変化を示しています。表は架空の地域ごとにセクションに分割されているため、各セクションの見出しにスコープ「<code>rowgroup</code>」が適用され、グループ内のすべてのセルに関連付けられます（各<code>tbody</code>要素は新しいグループを定義します）。</p>
+					
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>1950</th>
+								<th>1975</th>
+								<th>2000</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th colspan="4" scope="rowgroup">Gondor</th>
+							</tr>
+							<tr>
+								<th>Male</th>
+								<td>1,001,542</td>
+								<td>1,583,771</td>
+								<td>2,221,945</td>
+							</tr>
+							<tr>
+								<th>Female</th>
+								<td>1,122,947</td>
+								<td>1,782,371</td>
+								<td>2,544,187</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<th colspan="4" scope="rowgroup">Mordor</th>
+							</tr>
+							<tr>
+								<td colspan="4" class="center">…</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th&gt;&lt;/th&gt;
+         &lt;th&gt;1950&lt;/th&gt;
+         &lt;th&gt;1975&lt;/th&gt;
+         &lt;th&gt;2000&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;th colspan="4" scope="rowgroup"&gt;Gondor&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th&gt;Male&lt;/th&gt;
+         &lt;td&gt;1,001,542&lt;/td&gt;
+         &lt;td&gt;1,583,771&lt;/td&gt;
+         &lt;td&gt;2,221,945&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th&gt;Female&lt;/th&gt;
+         &lt;td&gt;1,122,947&lt;/td&gt;
+         &lt;td&gt;1,782,371&lt;/td&gt;
+         &lt;td&gt;2,544,187&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;th colspan="4" scope="rowgroup"&gt;Mordor&lt;/th&gt;
+      &lt;/tr&gt;
+      …
+   &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><code>scope</code>属性は、ヘッダーとセルの関係を明確にするために使用されます。この属性は、要素の方向性を明確にするために<code>th</code>要素に付加され、次の四つの値のいずれかを取ります。</p>
+				
+				<dl>
+					<dt><code>col</code></dt>
+					<dd>
+						<p><code>col</code>値は、ヘッダーがその下のセルまたは上のセルに適用されることを示します（言語の方向性によって異なります）。</p>
+						<p><code>col</code>値は、複数の列にまたがるヘッダー（つまり、<code>colspan</code>属性を持つヘッダー）で使用できます。</p>
+					</dd>
+					
+					<dt><code>colgroup</code></dt>
+					<dd>
+						<p><code>colgroup</code>値は、ヘッダーが対応する<code>colgroup</code>要素定義内のセルに適用されることを示します。</p>
+						<p><code>colgroup</code>値は、常にテーブルの<code>colgroup</code>要素宣言に対応しています。<code>colgroup</code>要素が定義されていない場合、値は無効です。</p>
+					</dd>
+					
+					<dt><code>row</code></dt>
+					<dd>
+						<p><code>row</code>値は、ヘッダーがその右側または左側のセルに適用されることを示します（言語の方向性によって異なります）。</p>
+						<p><code>row</code>値は、複数の行にまたがるヘッダー（つまり、 <code>rowspan</code>属性を持つヘッダー）で使用できます。</p>
+					</dd>
+					
+					<dt><code>rowgroup</code></dt>
+					<dd>
+						<p><code>rowgroup</code>値は、ヘッダーが属する行のグループ内の上または下、および右または左（言語の方向性によって異なります）のセルにヘッダーが適用されることを示します。</p>
+						<p>行グループは、ヘッダーが含まれる<code>thead</code> 、 <code>tbody</code> 、または<code>tfoot</code>によって定義されます。これらの要素のいずれも指定されていない場合、属性値は無効です。</p>
+					</dd>
+				</dl>
+				
+				<p>最初の行または列にヘッダーセルが含まれる単純な表では、スコープを指定する必要はありません。あいまいな場合は常にスコープを指定することをお勧めします。</p>
+				
+				<p>たとえば、表がセクションに分割されている場合、行グループが適切に定義されていないと、各セクションのヘッダー行が各セルに対して読み上げられる可能性があります（<a href="#ex-01">例1</a>を参照）。</p>
+				
+				<p>このような曖昧さがある場合にスコープ情報を宣言しないと、支援技術はヘッダーを適用する方法について最善の推測をしようとして、誤った解釈をしてしまう可能性があります。</p>
+				
+				<div class="note" role="note" aria-labelledby="group-note">
+					<p id="group-note" class="label">注記</p>
+					<p>一部のガイダンスでは、 <code>colspan</code>と<code>rowspan</code>属性が宣言されている場合には、<code>col</code>スコープと<code>row</code>スコープを使用できず、適用可能な構造化要件を使用して<code>colgroup</code>と<code>rowgroup</code>のスコープを定義する必要があるとされています。このアドバイスは正しくありません。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: テーブル要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element"><code>table</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
