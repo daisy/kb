@@ -18,30 +18,30 @@
 	<body>
 		<main>
 			<section id="summary">
-				<h3>Summary</h3>
+				<h3>要約</h3>
 				
-				<p>Use CSS styling rather than table elements to lay out content in a grid.</p>
+				<p>コンテンツをグリッド状にレイアウトするには、テーブル要素ではなくCSSスタイルを使用します。</p>
 				
 				<div class="caution" role="note" aria-labelledby="support-note">
-					<p id="support-note" class="label">Caution</p>
-					<p>Using tables for layout purposes is no longer valid in HTML. See the  						<a href="#faq-001">frequently asked questions</a> for more information.</p>
+					<p id="support-note" class="label">注意</p>
+					<p>HTML では、レイアウト目的でテーブルを使用することは規格違反になりました。詳細については、<a href="#faq-001">よくある質問</a>を参照してください。</p>
 				</div>
 			</section>
 			
 			<section id="tech">
-				<h3>Techniques</h3>
+				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Use CSS grid, flex, table, and similar alternative layouts for non-tabular content. [[WCAG-1.3.1]]</li>
+					<li>表形式以外のコンテンツには、CSSグリッド、フレックス、テーブル、および同様の代替レイアウトを使用します。[[WCAG-1.3.1]]</li>
 				</ul>
 			</section>
 
 			<section id="ex">
-				<h3>Examples</h3>
+				<h3>例</h3>
 
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 — Layout table</div>
+						<div class="label">例1 — レイアウトテーブル</div>
 						<p>この例では、レイアウトテーブルを使用してリストを並べて配置しています。続く例は、このタイプのマークアップを回避する方法を示しています。</p>
 					</figcaption>
 					
@@ -63,7 +63,7 @@
 				
 				<figure id="ex-02">
 					<figcaption>
-						<div class="label">Example 2 — Alternative CSS grid layout</div>
+						<div class="label">例2 — 代替CSSグリッドレイアウト</div>
 						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのグリッドスタイルに置き換えられています。<code>grid-template-column</code>プロパティは、使用可能なスペースの半分を二つの列のそれぞれに割り当てます。</p>
 					</figcaption>
 					
@@ -143,7 +143,7 @@ CSS:
 			</section>
 			
 			<section id="faq">
-				<h3>Frequently Asked Questions</h3>
+				<h3>よくある質問</h3>
 				
 				<dl>
 					<dt id="faq-001">レイアウトテーブルの使用が違反になったのはいつですか？</dt>
@@ -157,25 +157,25 @@ CSS:
 			</section>
 			
 			<section id="desc">
-				<h3>Explanation</h3>
+				<h3>解説</h3>
 				
 				<p>現在は、様々なCSSレイアウトモデルがサポートされているので、純粋に体裁を整える目的でテーブルを使用することは、もはや正当化されません。</p>
 				
 				<p>現在のHTML仕様では、レイアウト用のテーブル使用は明確に禁止されています。</p>
 				
 				<blockquote>
-					<p>Tables must not be used as layout aids. Historically, some web authors have misused tables in 						HTML as a way to control their page layout. This usage is non-conforming …</p>
+					<p>テーブルをレイアウト補助として使用しないでください。歴史的に、一部のウェブ製作者は、ページレイアウトを制御する方法として HTMLのテーブルを誤用してきました。この使用法は、不適切です。</p>
 				</blockquote>
 				
-				<p>The use of tables for layouts has always been problematic for users of assistive technologies. While 					the use of table markup was transparent to visual readers, it forced AT users into table reading mode. 					Authors rarely considered that these users would be forced to navigate by cell and row to read 					their content, and often failed to ensure that their layouts made logical reading sense. AT users 					would often have to guess whether to read down a column or across rows to logically follow the 					layout.</p>
+				<p>レイアウトにテーブルを使用することは、支援技術のユーザーにとって常に問題でした。テーブルマークアップの使用は視覚的な読者には透過的ですが、支援技術のユーザーにはテーブル読み取りモードを強いることになります。これらのユーザーがコンテンツを読むためにはセルと行を移動しなければならないことをコンテンツ製作者がほとんど考慮せず、論理的に読みやすいレイアウトを保証していないことがよくありました。支援技術のユーザーはしばしば、レイアウトを論理的にたどるには、列を下に読むか、行を横切って読むかを推測しなければなりませんでした。</p>
 				
 				<div class="note" role="note" aria-labelledby="validation-note">
-					<p id="validation-note" class="label">Note</p>
+					<p id="validation-note" class="label">注記</p>
 					<p>epubcheckなどの検証ツールではレイアウト用のテーブルを検出できません。レイアウト用のテーブルが存在するかどうかは手動で検査しなければなりません。</p>
 				</div>
 				
 				<section id="compatibility">
-					<h4>Older Content</h4>
+					<h4>古いコンテンツ</h4>
 					
 					<p>HTML要件の変更前に作成された電子出版物にはレイアウト用のテーブルが含まれている可能性があるため、このコンテンツは適切なアクセシビリティ ガイドラインに従うことが依然として重要です。</p>
 					
@@ -186,12 +186,12 @@ CSS:
 			</section>
 			
 			<section id="refs">
-				<h3>Related Links</h3>
+				<h3>関連リンク</h3>
 
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: The Table 						element</a>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: テーブル要素</a>
 </li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element">The 								<code>table</code> element</a>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element"><code>table</code>要素</a>
 </li>
 				</ul>
 			</section>
