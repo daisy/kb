@@ -27,10 +27,10 @@
 				
 				<ul>
 					<li>
-						<p>Use the <code>ol</code> element for lists whose order cannot be changed without changing the meaning of the list. [[WCAG-1.3.1]]</p>
+						<p>順序を変更するとリストの意味が変わってしまうリストには、<code>ol</code>要素を使用します。[[WCAG-1.3.1]]</p>
 					</li>
 					<li>
-						<p>Use the <code>ul</code> element for lists whose default ordering can be rearranged without changing the meaning of the list. [[WCAG-1.3.1]]</p>
+						<p>デフォルトの順序をリストの意味を変えずに変更できるリストには<code>ul</code>要素を使用します。[[WCAG-1.3.1]]</p>
 					</li>
 					<li>
 						<p>用語と定義のグループには<code>dl</code>要素を使用します。[[WCAG-1.3.1]]</p>
@@ -68,7 +68,7 @@
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">例 2 — ヘッダー付きリスト</div>
-						<p>A header is associated with a list using the <code>aria-labelledby</code> attribute. 							The order of the entries is important, so an <code>ol</code> element is used.</p>
+						<p>ヘッダーは<code>aria-labelledby</code>属性を使用してリストに関連付けられています。エントリーの順序は重要なので、 <code>ol</code>要素を使用しています。</p>
 					</figcaption>
 					
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div class="list-hd" id="race-hd"&gt;Race Result&lt;/div&gt;
@@ -117,16 +117,16 @@
 					<dt id="faq-001">リスト項目に段落やdiv を使用できないのはなぜですか？</dt>
 					<dd>
 <p>段落やdivを使用すると、支援技術を使用してドキュメント内を移動するユーザーは、読み続けるためにすべての項目を１つずつ移動する必要があります。リストを適切に使用すると、ユーザーはリスト全体を簡単にスキップし、いつでもリスト内を移動してリストから抜けることができます。</p>
-						<p>Also, when using paragraphs, any hierarchical relationship is typically lost, as indenting is 							emulated using CSS.</p>
+						<p>また、段落を使用すると、インデントはCSSを使用してエミュレートされるため、通常は階層関係が失なわれてしまいます。</p>
 						<p>さらに、適切なリストを作成すると、ユーザーエージェントはリスト内の項目の合計数と、ユーザーがナビゲートする際の現在の位置をアナウンスできるため、必要に応じて再度場所を参照することが容易になります。</p>
 					</dd>
 					<dt id="faq-002">リストを作成するのに<code>br</code>タグを使用できないのはなぜですか？</dt>
 					<dd>
-<p>Print-first tools often generate lists like this (usually from bad formatting), where single 						paragraphs contain the entire list and each item is delineated by a hard line break (the 						<code>br</code> tag). Although this might seem to solve the problem of being able to quickly 						skip past or escape out of the list, it makes navigating the list quickly by item impossible. The 						user now has to listen to every <q>item</q> in turn.</p>
-						<p>Using <code>br</code> tags also makes it difficult to return to a specific item, as there is no 							way to navigate back to the text at a later time but to listen to the content again in full.</p>
+<p>印刷優先のツールはしばしばこのようなリストを生成します（たいていは不適切な書式設定から）。リスト全体が１つの段落で表現され、各項目は強制改行（ <code>br</code>タグ）で区切られます。これにより、リストをすばやくスキップしたり、リストから抜け出したりできるという問題は解決されているように見えますが、リストを項目ごとにすばやくナビゲートできなくなります。ユーザーは、すべての<q>項目</q>を順番に聞かなければいけなくなります。</p>
+						<p>また、<code>br</code>タグを使用すると、後でテキストに戻る方法がないので、コンテンツをもう一度初めから聞かなければならず、特定の項目に戻るのが難しくなります。</p>
 					</dd>
 					<dt id="faq-003">箇条書きの行頭文字にカスタム画像を使用したいのですが、ルールは無視しても良いですか？</dt>
-					<dd><p>No, for all the reasons above plus CSS has always allowed custom images to be defined for list 						items without having to resort to the <code>img</code> element. See the CSS 						<code>list-style-image</code> property.</p></dd>
+					<dd><p>いいえ、前述のすべての理由に加えて、CSSでは<code>img</code>要素に頼ることなく、リスト項目にカスタム画像を定義できます。CSS の<code>list-style-image</code>プロパティを参照してください。</p></dd>
 				</dl>
 			</section>
 			
@@ -135,7 +135,7 @@
 				
 				<p>Lists are often overlooked as an accessibility feature, but the ability to move quickly and effectively 					through long lists of data points is a key reading need. Unfortunately, it's still the case that lists 					are rendered as anything but proper HTML (e.g., using a new paragraph for each item, using manual line 					breaks to separate entries, etc.).</p>
 				
-				<p>Sighted users rarely notice the advantage of being able to quickly skim a list, determine if it's of any 					interest and/or selectively read items. When a user has to traverse every item in the list one item at 					a time to get to the end, or listen to the entire list from beginning to end, the problems of bad markup 					become more pronounced (see <a href="#faq">the faq section</a> for a deeper explanation of the 					problems). Properly tagging lists is a small measure that can greatly decrease user frustration.</p>
+				<p>目が見えるユーザーは、リストをざっと読み、興味のあるものかどうかを判断したり、項目を選択して読んだりできる利点にほとんど気づきません。ユーザーがリストの最後まで行き着くためにリスト内のすべての項目を１つずつ辿ったり、リスト全体を最初から最後まで聞いたりする必要がある場合、不適切なマークアップの問題はより顕著になります（問題の詳細な説明については<a href="#faq">FAQセクション</a>を参照してください）。リストに適切なタグを付けることはちょっとした対策ですが、ユーザーのフラストレーションを大幅に軽減できるでしょう。</p>
 				
 				<p>リストのナビゲーションを容易にするために、適切な順序付き（<code>ol</code>）または順序なし（<code>ul</code>）リスト要素を使用して、セット内の項目すべてにタグを付けます。ナビゲーションの妨げになるので、項目を別々の行に視覚的にレンダリングするために<code>br</code>タグを使用したり、リストの視覚的な表現のために同じようなスタイリングのトリックを使用したりしないでください。</p>
 				
