@@ -27,7 +27,7 @@
 				
 				<ul>
 					<li>
-						<p>Provide an HTML alternative or description of the object in the body of the <code>object</code>. [[WCAG-1.1.1]] and [[WCAG-1.2.3]]</p>
+						<p><code>object</code>本体にオブジェクトのHTMLの代替表現（訳注：フォールバック）または説明を提供します。[[WCAG-1.1.1]]および[[WCAG-1.2.3]]</p>
 					</li>
 				</ul>
 			</section>
@@ -38,7 +38,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例1 — 埋め込みスプレッドシートのフォールバック</div>
-						<p>A table is included inside the <code>object</code> tag with comparable data.</p>
+						<p><code>object</code>タグ内には比較データが入った表が組み込まれています。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;object data="data/timesheet.xls"&gt;
    &lt;table&gt;
@@ -63,7 +63,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>The <code>object</code> element allows the embedding of multimedia content in HTML documents. Its 					use for audio and video content is generally discouraged, however, as it lacks the accessible playback 					controls provided by the <a href="audio.html"><code>audio</code></a> 					and <a href="video.html"><code>video</code></a> elements.</p>
+				<p><code>object</code>要素を使用すると、HTMLドキュメントにマルチメディア コンテンツを埋め込めます。ただし、<a href="audio.html"><code>audio</code></a>や<a href="video.html"><code>video</code></a>要素によって提供されるアクセシブルな再生コントロールがないため、音声やビデオコンテンツに使用することは一般的に推奨されません。</p>
 				
 				<p><code>object</code>のボディに、トランスクリプト（文字起こし）などの代替メディアを含めないでください。音声またはビデオ形式が再生可能な場合、トランスクリプトが必要なユーザーがそれにアクセスできなくなります。</p>
 				
