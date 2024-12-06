@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-qna</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-qna role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">インタビューやよくある質問のリストなど、一連の質問と回答として構成されたコンテンツのセクション。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 ― 見出し付きの著者の質問と回答</div>
+						<p>ラベルは<code>aria-labelledby</code>属性で識別します。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-qna" aria-labelledby="qna-hd"&gt;
+   &lt;h2 id="qna-hd"&gt;Interview with the Author&lt;/h2&gt;
+   &lt;dl&gt;
+   	&lt;dt&gt;What … is your favourite colour?&lt;/dt&gt;
+   	&lt;dd&gt;Blue. I mean yel—auuuugh!&lt;/dd&gt;
+   &lt;/dl&gt;
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-qna</code>は、<a href="https://www.w3.org/TR/wai-aria/#section">sectionロール</a>からセマンティクスを継承します（つまり、関連コンテンツのコンテナーを表しますが、ランドマークではありません）。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-qna</code> is typically used on <code>section</code> and <code>div</code> elements. The 					role can also be used directly on a <code>dl</code> element as <code>dt</code> and <code>dd</code> 					elements are not considered list items by default.</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-qna">DPUB-ARIA — <code>doc-qna</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
