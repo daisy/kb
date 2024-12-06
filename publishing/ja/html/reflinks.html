@@ -71,7 +71,7 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">例3 — 追加のコンテキストを含む図表参照へのリンク</div>
-						<p>The following example shows a link to the reference placed on the figure number. As the 							destination of this link is likely to confuse users, additional context is provided in 							the <code>aria-label</code> attribute. See the <a href="#desc">explanation</a> section 							for more information on why this kind of linking is suboptimal.</p>
+						<p>次の例は、図表番号についている参照先へのリンクを示しています。このリンク先はユーザーを混乱させる可能性があるため、 <code>aria-label</code>属性で追加のコンテキストが提供されています。このようなリンクがなぜ最適でないのかについては、<a href="#desc">説明</a>のセクションを参照してください。</p>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;… as shown in &lt;a id="fig01-ref" href="#fig01"&gt;Figure 1.0&lt;/a&gt;&lt;/p&gt;
 …
@@ -120,7 +120,7 @@
 				
 				<p>同様に、テキスト内に一つの注釈、図、表に対する参照が複数あるのに、戻るリンクが一つしか提供されていない場合も、ユーザーを混乱させます。二つ目または三つ目のリンクをたどった場合に、一つ目の参照に戻ると混乱します。一つ目の参照に戻るというコンテキストをリンクに追加することで、ユーザーが混乱するのを避けられます。</p>
 				
-				<p>Note that even when multiple links back to reference marks can be provided, how to meaningfully 					label them can be a challenge. If <a href="../navigation/pagelist.html">static page break 						markers</a> are present in the text, referring to the location by page number is one option to 					help users determine which is the correct way back (see <a href="ex-04">example 4</a>). But even 					this approach is problematic, as no assistive technologies currently announce page numbers. The 					user may have to try each link in turn until they find the right one.</p>
+				<p>参照マークへのリンクが複数用意されている場合でも、それをどのように意味あるラベルにするかは難しい問題です。テキスト内に<a href="../navigation/pagelist.html">静的な改ページマーカー</a>があれば、ユーザーが正しい戻り方を判断するのに、ページ番号で場所を参照するのも一つの方法です（<a href="ex-04">例 4</a>を参照）。しかし、この方法にも問題があります。現在のところ、ページ番号を読み上げる支援技術がないのです。ユーザーは、正しいリンクを見つけるまで、順番にそれぞれのリンクを試さなければならないかもしれません。</p>
 				
 				<div role="note" aria-labelledby="multiref-note" class="caution">
 					<p id="multiref-note" class="label">注意</p>
