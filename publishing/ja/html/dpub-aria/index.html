@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><a>デジタル出版ロール</a></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guide to using the DPUB-ARIA roles module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="desc">
+				<h3>Explanation</h3>
+
+				<p>デジタル出版 WAI-ARIAモジュール（DPUB-ARIA）は、ARIA仕様を拡張したものです。ARIA<a href="roles.html"><code>role</code>属性</a>で使用するための、出版物に特化したロールが用意されています。</p>
+
+				<p>The publishing roles are intended to improve the usability of publications both by providing 					assistive technologies (AT) with additional information about important structures and by ensuring 					that common publishing markup idioms are accessible.</p>
+
+				<p>これらのロールはワークフローのセマンティクスの機構として意図されたものではないため、たとえばEPUB構造セマンティクス語彙と同じ対象範囲に使用しないでください。ロールの使用回数と使用方法の両方に注意する必要があります。ロールを誤って使用すると、出版物のアクセシビリティに悪い影響があります。</p>
+			</section>
+
+			<section id="roles">
+				<h3>Roles</h3>
+
+				<nav role="doc-index" id="Roles" aria-label="index of roles">
+					<ul class="multicol">
+						<li> 							<a href="doc-abstract.html">doc-abstract</a>
+</li>
+						<li> 							<a href="doc-acknowledgments.html">doc-acknowledgments</a>
+</li>
+						<li> 							<a href="doc-afterword.html">doc-afterword</a>
+</li>
+						<li> 							<a href="doc-appendix.html">doc-appendix</a>
+</li>
+						<li> 							<a href="doc-backlink.html">doc-backlink</a>
+</li>
+						<li> 							<a href="doc-biblioentry.html">doc-biblioentry</a>
+</li>
+						<li> 							<a href="doc-bibliography.html">doc-bibliography</a>
+</li>
+						<li> 							<a href="doc-biblioref.html">doc-biblioref</a>
+</li>
+						<li> 							<a href="doc-chapter.html">doc-chapter</a>
+</li>
+						<li> 							<a href="doc-colophon.html">doc-colophon</a>
+</li>
+						<li> 							<a href="doc-conclusion.html">doc-conclusion</a>
+</li>
+						<li> 							<a href="doc-cover.html">doc-cover</a>
+</li>
+						<li> 							<a href="doc-credit.html">doc-credit</a>
+</li>
+						<li> 							<a href="doc-credits.html">doc-credits</a>
+</li>
+						<li> 							<a href="doc-dedication.html">doc-dedication</a>
+</li>
+						<li> 							<a href="doc-endnote.html">doc-endnote</a>
+</li>
+						<li> 							<a href="doc-endnotes.html">doc-endnotes</a>
+</li>
+						<li> 							<a href="doc-epigraph.html">doc-epigraph</a>
+</li>
+						<li> 							<a href="doc-epilogue.html">doc-epilogue</a>
+</li>
+						<li> 							<a href="doc-errata.html">doc-errata</a>
+</li>
+						<li> 							<a href="doc-example.html">doc-example</a>
+</li>
+						<li> 							<a href="doc-footnote.html">doc-footnote</a>
+</li>
+						<li> 							<a href="doc-foreword.html">doc-foreword</a>
+</li>
+						<li> 							<a href="doc-glossary.html">doc-glossary</a>
+</li>
+						<li> 							<a href="doc-glossref.html">doc-glossref</a>
+</li>
+						<li> 							<a href="doc-index.html">doc-index</a>
+</li>
+						<li> 							<a href="doc-introduction.html">doc-introduction</a>
+</li>
+						<li> 							<a href="doc-noteref.html">doc-noteref</a>
+</li>
+						<li> 							<a href="doc-notice.html">doc-notice</a>
+</li>
+						<li> 							<a href="doc-pagebreak.html">doc-pagebreak</a>
+</li>
+						<li> 							<a href="doc-pagelist.html">doc-pagelist</a>
+</li>
+						<li> 							<a href="doc-part.html">doc-part</a>
+</li>
+						<li> 							<a href="doc-preface.html">doc-preface</a>
+</li>
+						<li> 							<a href="doc-prologue.html">doc-prologue</a>
+</li>
+						<li> 							<a href="doc-pullquote.html">doc-pullquote</a>
+</li>
+						<li> 							<a href="doc-qna.html">doc-qna</a>
+</li>
+						<li> 							<a href="doc-subtitle.html">doc-subtitle</a>
+</li>
+						<li> 							<a href="doc-tip.html">doc-tip</a>
+</li>
+						<li> 							<a href="doc-toc.html">doc-toc</a>
+</li>
+					</ul>
+					<br>
+				</nav>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">What are implicit roles and why do they matter?</dt>
+					<dd>
+						<p>多くのHTML要素にはデフォルトのアクセシビリティ セマンティクスがあるため、明示的なロールは必要ありません。たとえば、 <code>nav</code>要素には暗黙のロール<code>navigation</code>があります。同様に、 <code>aside</code>要素には暗黙のロール<code>complementary</code>があります（要素とその暗黙のロールの完全なリストについては、 <a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください）。</p>
+
+						<p>これらの暗黙のロールの特徴として、割り当てられたロールが認識されない場合、支援技術が不明なロールを無視して暗黙のロールをデフォルトとして使用します。これにより、支援技術は、たとえば認識していない新しいロールに遭遇した場合でも、文書を理解できます。</p>
+
+						<p>支援技術がDPUB ARIAロールを認識しない問題を回避するために、要素に暗黙のロールがある場合は、使用するロールが同じ親ロールを持つようにします（例：<code>nav</code>要素でナビゲーション ロールを使用する）。</p>
+
+						<p>この問題は、DPUB ARIAモジュールのサポートが普及するにつれて減少するでしょう。暗黙のロールがいつも認識されるわけではないという報告もあり、この解決策は完璧ではありません。</p>
+					</dd>
+					<dt id="faq-002">フォールバックロールはどのような時に使いますか？</dt>
+					<dd>
+						<p>暗黙のロールがないHTML要素（例えば、<code>span</code>や<code>div</code>）には、DPUB ARIAモジュールからロールを割り当てる際に、<a href="https://www.w3.org/TR/wai-aria/">コアARIA仕様</a>のフォールバックロールも併せて割り当てることをお勧めします。これにより、そのDPUBロールが支援技術によってまだサポートされていない場合でも、ロールのおおまかな目的を把握できるようになります。</p>
+
+						<p><code>role</code>属性ではスペースで区切られた複数のロールを使用できるため、DPUB ARIAロールの後にARIAフォールバック ロールを追加できます。</p>
+
+						<figure id="faq-ex-01">
+							<figcaption>
+								<p><strong>例</strong>：<code>note</code>ロールは、DPUB ARIA <code>doc-tip</code>ロールのフォールバックとして使用できます。</p>
+							</figcaption>
+							<pre role="doc-example" id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-tip note"&gt;</code></pre>
+						</figure>
+
+						<p>The order of roles is important so do not add ARIA roles before the DPUB roles or the DPUB 							roles will never be recognized.</p>
+
+						<p>Similar to the issue of <a href="#faq01">matching implied semantics</a>, the need for 							fallback semantics will diminish with time. The use of fallback semantics is also known to 							be imperfect, as the fallbacks are not recognized in all cases.</p>
+					</dd>
+
+					<dt id="faq-003">出版物のすべてのセクションをランドマークにしないのはなぜですか？</dt>
+					<dd>
+						<p>Users already have access to the table of contents, which is a much more effective tool for 							understanding and navigating the structure of a publication. Landmarks are intended to 							provide quick access to the key sections a user might want to reach.</p>
+
+						<p>Landmarks are also an unstructured list of links, so setting every section as a landmark 							actually makes it harder for users to understand the structure. Making every section a 							landmark also unnecessarily proliferates the total number of landmarks in a page, which in 							turn reduces the usefulness of the list (i.e., being able to quickly locate a key 							section).</p>
+					</dd>
+
+					<dt id="faq-004">Why isn't there a role for every semantic in the EPUB Structural Semantic vocabulary?</dt>
+					<dd>
+						<p>EPUB構造セマンティクス語彙は、主に出版社の内部ワークフローにセマンティクスを提供するために設計されました。それに加えて、この属性は有用なロールにアクセシビリティマッピングを提供するという役割も果たすことが期待されていましたが、この期待が実行可能なソリューションとして実現することはありませんでした。EPUB構造セマンティクス語彙とともに使用される<code>epub:type</code>属性は支援技術に認識されておらず、既存のARIAロールとどのように調和させるかという関心も持たれていません。</p>
+
+						<p>その結果、EPUB語彙には、出版物のユーザビリティを向上させるためのものだけでなく、それ以上に膨大な数のセマンティクスが含まれています。出版物にすべてのセマンティクスを実装すると、ユーザーに不要な情報が大量に送信され、出版物が読みにくくなります（つまり、読んでいるときに多くのセマンティクスノイズが発生します）。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria/">デジタル出版 WAI-ARIA モジュール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
