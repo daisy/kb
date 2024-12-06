@@ -27,11 +27,14 @@
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Identify the default language and any language changes using the <code>lang</code> and <code>xml:lang</code> attributes 						[[WCAG-3.1.1]]</li>
-					<li>Provide a title using the <code>title</code> element 						[[WCAG-2.4.2]]</li>
-					<li>Provide a description using the <code>desc</code> element 						[[WCAG-1.1.1]]</li>
-					<li>Use ARIA roles, states and properties to make scripted components accessible 						[[WCAG-4.1.2]]</li>
-					<li>Provide sufficient contrast between foreground and background colors. 						[[WCAG-1.4.3]] and [[WCAG-1.4.6]]</li>
+					<li>
+<code>lang</code>属性と<code>xml:lang</code>属性を使い、デフォルト言語と、言語指定の変更を識別します。[[WCAG-3.1.1]]</li>
+					<li>
+<code>title</code>要素を使用してタイトルを付けます。[[WCAG-2.4.2]]</li>
+					<li>
+<code>desc</code>要素を使用して説明文を付けます。[[WCAG-1.1.1]]</li>
+					<li>ARIA role、state、propertiyを使用して、スクリプト化されたコンポーネントをアクセシブルにします。[[WCAG-4.1.2]]</li>
+					<li>前景色と背景色の間に十分なコントラストを設けます。[[WCAG-1.4.3]] および [[WCAG-1.4.6]]</li>
 					<li>情報を識別するために色に頼らない代替手段も提供します。[[WCAG-1.4.1]]</li>
 				</ul>
 				
@@ -65,7 +68,7 @@
 				
 				<figure id="ex-03">
 					<figcaption>
-						<div class="label">Example 3 — Including an SVG title and description</div>
+						<div class="label">例3 — SVGにタイトルと説明文を付ける</div>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;svg
 	 xmlns="http://www.w3.org/2000/svg"
@@ -116,11 +119,11 @@
 				<dl>
 					<dt id="faq-001">HTMLにSVGを埋め込むにはどのような方法が最適ですか？</dt>
 					<dd>
-						<p>The best answer is to embed the SVG markup directly in the HTML document, as it exposes the SVG's 							DOM to assistive technologies. As embedding is not often feasible, the next best option 							is to use the <code>object</code> element. Some browser and assistive technology pairings have 							been reported to have issues with this approach (e.g., not exposing the DOM), but it is generally 							accessible and a fallback can be provided inside the <code>object</code> element.</p>
+						<p>SVGマークアップをHTMLドキュメントに直接埋め込む方法が最善であり、SVGのDOMが支援技術から参照できるようになります。埋め込みが機能するケースは多くないので、次に最適な方法は<code>object</code>要素を使用する方法です。一部のブラウザーと支援技術の組み合わせでは、このアプローチには問題（DOMが公開されないなど）があることが報告されていますが、一般的にはこれはアクセシブルであり、<code>object</code>要素内にフォールバックを提供できます。</p>
 						
 						<p><code>iframe</code>要素の方が良い選択のように思えるかもしれませんが、この要素には、ユーザーエージェントがSVGをサポートしていない場合に、フォールバックを提供するための効果的な方法がないという欠点があります。</p>
 						
-						<p>The <code>img</code> tag should only be used for SVGs that a user does not need to interact with 							and that have no dynamic components (scripting or animation).</p>
+						<p><code>img</code>タグは、ユーザーが操作する必要がなく動的コンポーネント（スクリプトやアニメーション）を持たないSVGに限って使用してください。</p>
 					</dd>
 				</dl>
 			</section>
@@ -135,7 +138,7 @@
 					
 					<p><code>xml:lang</code>属性は、SVG画像のルート要素である<code>svg</code>要素に付与されている場合に、画像内のテキストコンテンツのデフォルト言語を識別します。SVGがXMLパーサーによって解釈されない場合は、 <code>lang</code>属性も指定する必要があります。</p>
 					
-					<p>The <code>xml:lang</code> and <code>lang</code> attribute can also be attached to individual components 						and text elements within the image to designate that they contain prose in a different language than the 						default.</p>
+					<p>画像内の個々のコンポーネントとテキスト要素には<code>xml:lang</code>属性と<code>lang</code>属性を付与でき、デフォルト言語とは異なる言語のテキストを組み込めます。</p>
 				</section>
 				
 				<section id="desc-title">
@@ -145,15 +148,15 @@
 					
 					<p>提供される説明は、画像に含まれる情報に見合ったものでなければなりません。単純な画像には<code>alt</code>のような説明を、複雑な画像にはより長い説明を使用します。</p>
 					
-					<p>If an SVG image is purely decorative, do not include a title or description. The SVG element should 						additional be identified as presentational using the ARIA <code>role</code> attribute.</p>
+					<p>SVG画像を純粋に装飾目的で用いる場合は、タイトルや説明を付けないでください。このSVG要素に、ARIA <code>role</code>属性を付けて装飾用であると示してください。</p>
 					
-					<p>All significant graphical components within the SVG image should also contain their own title and/or 						description to improve the overall accessibility of the image.</p>
+					<p>SVG画像内のすべての重要なグラフィックコンポーネントには、画像全体のアクセシビリティを向上させるために、独自のタイトルや説明を付ける必要があります。</p>
 				</section>
 				
 				<section id="desc-text">
 					<h4>テキスト要素</h4>
 					
-					<p>When including text content in images, use <code>text</code> elements so that the prose is available to 						assistive technologies. When distorting and changing the appearance of text, using <code>text</code> 						elements ensures the prose can be made available to anyone who cannot decipher the alterations.</p>
+					<p>画像にテキストコンテンツを組み込む場合は、支援技術から文章を利用できるように<code>text</code>要素を使用します。テキストの外観を歪めたり変更したりする場合にも、<code>text</code>要素を使うと、その変更を解読できない人にも文章を利用できるようになります。</p>
 					
 					<p>コンポーネントの<code>title</code>がSVGにテキストとして含まれている場合は、新しい<code>text</code>ノードを作成する代わりに、 <code>tref</code>要素を使用して文章を参照できます。</p>
 				</section>
@@ -161,7 +164,7 @@
 				<section id="desc-linking">
 					<h4>リンク</h4>
 					
-					<p>SVG graphical components can be made linkable by wrapping them in <code>a</code> elements. Linked elements 						should always include a <code>title</code> element identifying the nature of the referenced 						resource.</p>
+					<p>SVGグラフィックコンポーネントは、 <code>a</code>要素でラップすることでリンクを付けることができます。リンクが付けられた要素には、参照されるリンク先リソースの特徴がわかるように、常に<code>title</code>要素を付けるようにしてください。</p>
 					
 					<p>また、画像を拡大したり、どのコンポーネントがリンクされているかを下線や枠線などで確認できないユーザーのためには、特定のグラフィックコンポーネントがリンク可能で、他のコンポーネントがリンク不可能であることを明確に示す必要があります。</p>
 				</section>
