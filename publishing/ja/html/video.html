@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Ensure the video is labeled, the user can control playback, and there are alternatives for users who 					cannot see or hear the video or who need more time to process the information.</p>
+				<p>ビデオにラベルを付け、ユーザーによって再生を制御できるようにし、また、ビデオを見たり聞いたりできないユーザーや情報の処理に時間がかかるユーザーのために代替手段を設けます。</p>
 			</section>
 			
 			<section id="tech">
@@ -39,10 +39,10 @@
 						<p>音声のないビデオの場合は、トランスクリプトまたは代替音声を含めます。[[WCAG-1.2.1]]</p>
 					</li>
 					<li>
-						<p>Include a transcript and/or audio descriptions when the video has audio. [[WCAG-1.2.1]], [[WCAG-1.2.3]], and [[WCAG-1.2.5]]</p>
+						<p>ビデオに音声がある場合は、トランスクリプトや音声解説を組み込みます。[[WCAG-1.2.1]]、[[WCAG-1.2.3]]、[[WCAG-1.2.5]]</p>
 					</li>
 					<li>
-						<p>Ensure the video does not present the risk of seizures. [[WCAG-2.3.1]] and [[WCAG-2.3.2]]</p>
+						<p>ビデオに発作のリスクが無いことを確認します。[[WCAG-2.3.1]] および [[WCAG-2.3.2]]</p>
 					</li>
 					<li>
 						<p>自動的に開始される音声をユーザーが無効にしたり、音量をオフにしたりできるようにします。[[WCAG-1.4.2]]</p>
@@ -116,7 +116,7 @@
 				
 				<figure id="ex-06">
 					<figcaption>
-						<div class="label">Example — Including a fallback error message</div>
+						<div class="label">例 — フォールバック時のエラーメッセージを付ける</div>
 						<p>ユーザーエージェントは、<code>video</code>要素をサポートしていない場合にのみ、この要素内のコンテンツをレンダリングします。提供されたビデオ形式をサポートしていない場合、ユーザーエージェントは、このコンテンツを表示しません（このような場合、ユーザーエージェントは独自のエラーメッセージを表示します）。</p>
 					</figcaption>
 					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;video
@@ -136,7 +136,7 @@
 				<figure id="ex-07">
 					<figcaption>
 						<div class="label">例 ― さまざまなアクセシビリティ機能を備えたビデオ</div>
-						<p>This example combines elements from the previous examples to show a possible complete 							example of an embedded video. It includes English subtitles and captions, fallback 							content, a link to a web-hosted version, and a transcript.</p>
+						<p>この例では、以上の例の要素を組み合わせた、埋め込みビデオの完全な例を示します。英語の字幕とキャプション、フォールバック時のコンテンツ、Webホスト バージョンへのリンク、およびトランスクリプトが組み込まれています。</p>
 					</figcaption>
 					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;video
       src="https://example.com/videos/the_general.mp4"
@@ -175,7 +175,7 @@
 						<div class="label">例 — 代替ビデオへのリンク</div>
 						<p>厳密にはアクセシビリティの問題ではありませんが、EPUB出版物がWeb上のビデオを参照する場合、ビデオへの別のリンクを提供することで、一部のユーザーが、リーディングシステムによってビデオにアクセスできない場合（リーディングシステムが外部リソースをブロックしている場合や、提供された形式を再生できない場合など）でもビデオにアクセスできるようになります。詳細については、<a href="../epub/remote-resources.html">リモートリソース</a>に関するナレッジベースのページを参照してください。</p>
 						<p>ただし、この手法はユーザーがインターネットにアクセスできない場合には役に立たないので、可能な限りEPUBにビデオを埋め込むことを推奨します。</p>
-						<p>Accessibility features have been omitted from the markup for brevity.</p>
+						<p>以下の例は、簡潔のためアクセシビリティ機能をマークアップから省略しています。</p>
 					</figcaption>
 					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;video src="https://example.org/videos/the_general.mp4" …&gt;
    …
@@ -191,7 +191,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>When including video clips, ensure that the native user agent controls are enabled by default (i.e., 					by setting the <code>controls</code> attribute on the <code>video</code> element). This practice 					ensures that the controls are accessible even if scripting is not available. If you define your own 					custom controls, disable the native controls by JavaScript so they remain available in user agent 					that do not support scripting.</p>
+				<p>ビデオクリップを組み込む場合は、元からあるユーザーエージェント コントロールをデフォルトで有効にします（つまり、<code>video</code>要素に<code>controls</code>属性を設定します）。この方法により、スクリプトが利用できない場合でもコントロールにアクセスできるようになります。独自のカスタムコントロールを定義する場合は、JavaScriptでネイティブコントロールを無効にして、スクリプトをサポートしていないユーザーエージェントでもコントロールを利用できるようにしてください。</p>
 				
 				<p>ビデオにラベルを付けると、ユーザーはビデオを視聴するかどうかを決める前に、ビデオの目的を理解できるようになります。たとえば、視覚的な読者向けにビデオのスナップショットを見せるために、コンテンツ製作者がポスター画像を指定できるとしても、全盲のユーザーには利用できません。これらのユーザーにとって、ラベルは、コンテンツをダウンロードせずに理解するための唯一の手段です。特に通信コストが高いモバイルデバイスのユーザーは、この情報があれば時間と費用の両方を節約できます。</p>
 				
