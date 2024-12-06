@@ -26,7 +26,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Structuring and describing lines of poetry and lyrics improves access for users who cannot 					see the difference in layout from regular prose.</p>
+				<p>詩や歌詞の行を構造化して表現すると、通常の散文とのレイアウトの違いが見えないユーザーにとってのアクセシビリティが向上します。</p>
 			</section>
 			
 			<section id="tech">
@@ -35,7 +35,7 @@
 				<ul>
 					<li>改行には<code>br</code>タグを使用します。[[WCAG-1.3.1]]</li>
 					<li>行の書式設定が追加で必要な場合は、<code>span</code>タグを使用します。</li>
-					<li>Include descriptions for poetry that conveys meaning through its visual layout.</li>
+					<li>視覚的なレイアウトで意味を伝える詩には、説明を追加します。</li>
 				</ul>
 			</section>
 
@@ -44,8 +44,8 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<div class="label">Example 1 — A basic poem with multiple stanzas</div>
-						<p>As the lines of the poems do not require any special formatting, only <code>br</code> 							tags are needed to identify the line endings. <code>p</code> tags are used to separate 							the stanzas.</p>
+						<div class="label">例1 — 複数の節（スタンザ）からなる基本的な詩</div>
+						<p>詩の行には特別な書式設定は必要ないので、行末を識別するには<code>br</code>タグのみが必要です。節を区切るには<code>p</code>タグを使用します。</p>
 					</figcaption>
 					
 					<blockquote>
@@ -138,7 +138,7 @@ flowers&lt;br/&gt;
 					<dd>
 						<p>一部の詩のレイアウトは、HTMLやCSSで表現するには複雑すぎる場合があります。このような場合、原本を表現するために、画像を使用するほかないことがあります。</p>
 						<p>画像を使用する必要がある場合は、レイアウトを認識できないユーザーのために詩のテキストを提供する必要があります（<code>details</code>要素など）。また、読者が詩の意図を理解できるように、画像内でテキストがどのように配置されているかを説明する必要があります。</p>
-						<p>The use of images should be a last resort for only the most difficult of layouts.</p>
+						<p>画像の使用は、レイアウトが困難な場合における最後の手段としてください。</p>
 					</dd>
 					
 					<dt id="faq-002">レイアウトに<code>pre</code>タグを使用できますか？</dt>
@@ -164,7 +164,7 @@ flowers&lt;br/&gt;
 						
 						<p>これらのリーディングシステムは、テキスト読み上げ（TTS）再生が有効になっているときには単語をつなげて発音します。</p>
 						
-						<p>To avoid this issue, ensure that there is always at least one whitespace character before 							or after the <code>br</code> tag. Adding a line break after each <code>br</code> tag, as 							in the <a href="#ex">examples above</a>, will avoid this issue, as will adding a space 							before the <code>br</code> tag.</p>
+						<p>この問題を回避するには、<code>br</code>タグの前後に少なくとも 一つの空白文字を付けてください。<a>上記の例</a>のように、各<code>br</code>タグの後に改行を追加すると、この問題を回避できます。あるいは、<code>br</code>タグの前に空白文字を追加しても、この問題を回避できます。</p>
 					</dd>
 				</dl>
 			</section>
@@ -184,7 +184,7 @@ flowers&lt;br/&gt;
 				
 				<div class="note" role="note" aria-labelledby="bug-note">
 					<p id="bug-note" class="label">注記</p>
-					<p>There is a known bug with chromium-based reading systems on MacOS where VoiceOver repeats lines 						when <code>br</code> tags are used inside a <code>blockquote</code>. This affects quoted poetry 						and lyrics (e.g., in epigraphs). For more information on the current status, refer to the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1322784">bug report</a>.</p>
+					<p>MacOSのChromiumベースのリーディングシステムには、<code>blockquote</code>内で<code>br</code>タグが使用されている場合にVoiceOverが行を繰り返すという既知のバグがあります。これは詩や歌詞（例：題詞）が引用された場合に発生します。現在の状況の詳細については、<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1322784">バグレポート</a>を参照してください。</p>
 				</div>
 				
 				<p>このマークアップ パターンは基本的な詩には有効ですが、制限が多すぎる状況も数多くあります。詩では、意味を伝えるために視覚的なレイアウトが使用されることがよくあります。このような場合、テキストのインデントと配置を維持するためにCSSスタイルも必要になります（例<a href="#ex-02">2</a>と<a href="#ex-03">3</a>を参照）。</p>
