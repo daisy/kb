@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>SVG（エスブイジー）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the production of accessible SVG graphics.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'addh4': true
+			}
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>視覚コンテンツ、テキスト、スクリプトのWCAGテクニックに従って、SVGをアクセシブルにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>Identify the default language and any language changes using the <code>lang</code> and <code>xml:lang</code> attributes 						[[WCAG-3.1.1]]</li>
+					<li>Provide a title using the <code>title</code> element 						[[WCAG-2.4.2]]</li>
+					<li>Provide a description using the <code>desc</code> element 						[[WCAG-1.1.1]]</li>
+					<li>Use ARIA roles, states and properties to make scripted components accessible 						[[WCAG-4.1.2]]</li>
+					<li>Provide sufficient contrast between foreground and background colors. 						[[WCAG-1.4.3]] and [[WCAG-1.4.6]]</li>
+					<li>情報を識別するために色に頼らない代替手段も提供します。[[WCAG-1.4.1]]</li>
+				</ul>
+				
+				<p>SVGでサポートされているアクセシビリティ機能の詳細なリストについては、 <a href="https://www.w3.org/TR/SVG2/access.html">SVG 2.0の付録D</a>を参照してください。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — デフォルトの言語指定</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" lang="en"&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — 言語指定の上書き</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" lang="en"&gt;
+   …
+   &lt;text … &gt;I think therefore I am...&lt;/text&gt;
+   &lt;text … xml:lang="fr" lang="fr"&gt;Je pense donc je suis...&lt;/text&gt;
+   &lt;text … xml:lang="it" lang="it"&gt;Penso dunque sono...&lt;/text&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">Example 3 — Including an SVG title and description</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;svg
+	 xmlns="http://www.w3.org/2000/svg"
+	 xml:lang="en" lang="en"&gt;
+   &lt;title&gt;The New EPUB Logo&lt;/title&gt;
+   &lt;desc&gt;
+	  The EPUB logo is a lower-case letter E that has 
+	  been tilted 45 degrees to counter-clockwise so 
+	  that it appears to be sitting in balance on its 
+	  lower-left corner. The E is drawn as a single, 
+	  unclosed line of green starting at the centre 
+	  of the image, moving to the outer edge and then 
+	  continuing around in a box-like pattern. The
+	  external corners have all been rounded.
+   &lt;/desc&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — 装飾的なSVG</div>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;svg
+     xmlns="http://www.w3.org/2000/svg"
+     xml:lang="en" lang="en"
+     role="presentation"&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">例5 — リンクにタイトルを追加する</div>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;a href="http://www.ontario.ca"&gt;
+   &lt;title&gt;Ontario government web site&lt;/title&gt;
+   &lt;g …&gt;
+      …
+   &lt;/g&gt;
+&lt;/a&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">HTMLにSVGを埋め込むにはどのような方法が最適ですか？</dt>
+					<dd>
+						<p>The best answer is to embed the SVG markup directly in the HTML document, as it exposes the SVG's 							DOM to assistive technologies. As embedding is not often feasible, the next best option 							is to use the <code>object</code> element. Some browser and assistive technology pairings have 							been reported to have issues with this approach (e.g., not exposing the DOM), but it is generally 							accessible and a fallback can be provided inside the <code>object</code> element.</p>
+						
+						<p><code>iframe</code>要素の方が良い選択のように思えるかもしれませんが、この要素には、ユーザーエージェントがSVGをサポートしていない場合に、フォールバックを提供するための効果的な方法がないという欠点があります。</p>
+						
+						<p>The <code>img</code> tag should only be used for SVGs that a user does not need to interact with 							and that have no dynamic components (scripting or animation).</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>説明</h3>
+				
+				<section id="desc-lang">
+					<h4>言語</h4>
+					
+					<p>支援技術がコンテンツを適切にレンダリングできるように、SVG画像内に含まれるテキストコンテンツには、常に言語を設定してください。</p>
+					
+					<p><code>xml:lang</code>属性は、SVG画像のルート要素である<code>svg</code>要素に付与されている場合に、画像内のテキストコンテンツのデフォルト言語を識別します。SVGがXMLパーサーによって解釈されない場合は、 <code>lang</code>属性も指定する必要があります。</p>
+					
+					<p>The <code>xml:lang</code> and <code>lang</code> attribute can also be attached to individual components 						and text elements within the image to designate that they contain prose in a different language than the 						default.</p>
+				</section>
+				
+				<section id="desc-title">
+					<h4>タイトルと説明</h4>
+					
+					<p>支援技術のユーザーをサポートするために、出版物にとって重要なSVG画像には、常にタイトル（<code>title</code>）と説明（<code>desc</code>）を埋め込む必要があります。</p>
+					
+					<p>提供される説明は、画像に含まれる情報に見合ったものでなければなりません。単純な画像には<code>alt</code>のような説明を、複雑な画像にはより長い説明を使用します。</p>
+					
+					<p>If an SVG image is purely decorative, do not include a title or description. The SVG element should 						additional be identified as presentational using the ARIA <code>role</code> attribute.</p>
+					
+					<p>All significant graphical components within the SVG image should also contain their own title and/or 						description to improve the overall accessibility of the image.</p>
+				</section>
+				
+				<section id="desc-text">
+					<h4>テキスト要素</h4>
+					
+					<p>When including text content in images, use <code>text</code> elements so that the prose is available to 						assistive technologies. When distorting and changing the appearance of text, using <code>text</code> 						elements ensures the prose can be made available to anyone who cannot decipher the alterations.</p>
+					
+					<p>コンポーネントの<code>title</code>がSVGにテキストとして含まれている場合は、新しい<code>text</code>ノードを作成する代わりに、 <code>tref</code>要素を使用して文章を参照できます。</p>
+				</section>
+				
+				<section id="desc-linking">
+					<h4>リンク</h4>
+					
+					<p>SVG graphical components can be made linkable by wrapping them in <code>a</code> elements. Linked elements 						should always include a <code>title</code> element identifying the nature of the referenced 						resource.</p>
+					
+					<p>また、画像を拡大したり、どのコンポーネントがリンクされているかを下線や枠線などで確認できないユーザーのためには、特定のグラフィックコンポーネントがリンク可能で、他のコンポーネントがリンク不可能であることを明確に示す必要があります。</p>
+				</section>
+				
+				<section id="desc-aria">
+					<h4>ARIA</h4>
+					
+					<p><code>aria-*</code>属性はSVG要素につけることができます。役割（roles）、プロパティ（prooperties）、状態（states）を適切に設定し維持することで、すべてのユーザーが動的コンテンツ（カスタムコントロールとして使用されるSVG画像など）を操作できるようになります。</p>
+					
+					<p>同様に、テキストに相当するグラフィックコンポーネントは、コンポーネントの現在の状態を反映するように更新してください。</p>
+					
+					<p>SVG画像にスクリプトを記述する際には、デバイスに依存しないイベントを使用してください。すべてのユーザーが同じ方法で画像を操作するとは限りません。</p>
+					
+					<p>ARIAランドマークロールを使用することで、複雑な画像のナビゲーションを簡素化できます。</p>
+				</section>
+				
+				
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg">&lt;svg&gt;</a>
+</li>
+					<li>SVG — <a href="http://www.w3.org/TR/SVG2/struct.html#LangSpaceAttrs">xml:lang属性とxml:space属性</a>
+</li>
+					<li>SVG — <a href="https://www.w3.org/TR/SVG2/struct.html#DescriptionAndTitleElements">desc要素とtitle要素</a>
+</li>
+					<li>SVG — <a href="http://www.w3.org/TR/SVG2/text.html">テキスト</a>
+</li>
+					<li>SVG — <a href="http://www.w3.org/TR/SVG2/linking.html">リンク</a>
+</li>
+					<li>SVG — <a href="http://www.w3.org/TR/SVG2/styling.html">スタイル</a>
+</li>
+					<li>SVG —<a href="https://www.w3.org/TR/SVG2/access.html">付録D：アクセシビリティサポート</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
