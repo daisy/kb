@@ -33,8 +33,8 @@
 <code>caption</code>要素にタイトルを指定します。[[WCAG-1.3.1]]</li>
 					<li>複雑な表の構造を説明する概要を提供します。[[WCAG-1.3.1]]</li>
 					<li>概要とキャプションで同じテキストが繰り返されないようにします。[[WCAG-1.3.1]]</li>
-					<li>Identify the scope of header cells. [[WCAG-1.3.1]]</li>
-					<li>Provide abbreviations for long headers.</li>
+					<li>ヘッダーのセルの範囲を識別します。[[WCAG-1.3.1]]</li>
+					<li>長いヘッダーには略語を提供します。</li>
 				</ul>
 			</section>
 
@@ -147,7 +147,7 @@
 					<figcaption>
 						<div class="label">例 4 — 脚注付きの表</div>
 						
-						<p>Footnotes are included after the table, not in the <code>tfoot</code>. Both table and notes can be 							grouped within a <code>figure</code>.</p>
+						<p>脚注は、<code>tfoot</code>内ではなく、表の後に入ります。表と脚注は両方とも、<code>figure</code>内でグループ化できます。</p>
 					</figcaption>
 					
 					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure&gt;
@@ -173,9 +173,9 @@
 				<dl class="faq">
 					<dt id="faq-001">表の画像は使えますか？</dt>
 					<dd>
-						<p>Although table rendering is still problematic in ebooks, including images of tables instead of the 							actual data takes the content away from anyone who cannot see it.</p>
-						<p>Tables are a problem that still need solving in user agents, as most user agents aren't 							able to provide extended horizontal or vertical scrolling to facilitate rendering. As a result, 							large tables get rendered in the available space – leaving rows and columns to spill across 							page views – compromising the quality of the ebook for sighted users.</p>
-						<p>If you are going to include an image of a table, consider providing a link to a file containing 							the table markup. Users with text-to-speech playback available will be able to navigate the  							markup regardless of the rendering quality.</p>
+						<p>電子書籍では表のレンダリングが依然として問題となっていますが、実際のデータの代わりに表の画像を組み込むと、画像を見ることができない人からコンテンツを奪うことになります。</p>
+						<p>表は、ユーザーエージェントでまだ解決が必要な問題です。レンダリングを容易にするための拡張水平スクロールまたは垂直スクロール機能をほとんどのユーザーエージェントが使えないのです。その結果、大きな表は利用可能なスペース内でレンダリングされ、行と列がページビューをまたがって表示されてしまい、目の見えるユーザーにとっての電子書籍の品質が損なわれます。</p>
+						<p>表の画像を組み込む場合は、テーブルマークアップを含むファイルへのリンクの提供を検討してください。テキスト読み上げ再生が可能なユーザーであれば、レンダリング品質に関係なくマークアップをナビゲートできます。</p>
 						<p>一部のユーザーエージェントは、ブラウザーウィンドウにポップアップコンテンツをレンダリングします。これにより、レンダリングされる画像が小さすぎたり、ビューポートからはみ出したりして読めないということがなくなり、目の見えるユーザーの読みやすさも向上します。</p>
 						<p>利用可能な画面サイズに基づいて視覚的に表をレンダリングする別の方法については、<a href="http://css-tricks.com/responsive-data-tables/">レスポンシブテーブルに関する CSS-Tricks の記事</a>も参照してください。</p>
 					</dd>
@@ -185,7 +185,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>When tables are not structured accessibly, the data they contain can quickly become a meaningless sea of 					numbers, facts and figures to someone moving through them a cell at a time. Users who cannot see the 					table cannot use visual cheats like checking the alignment and scanning back to the top headers to 					orient themselves as they go. Equivalent information needs to be encoded into the table to facilitate 					comprehension.</p>
+				<p>表がアクセスしやすいように構造化されていない場合、セルを一つずつ移動する人にとっては、表に含まれるデータはすぐに意味のない数字やファクト、図の海と化します。表を見ることができないユーザーは、並びをチェックしたり、上部のヘッダーに戻って自分のいる位置を確認するなどの視覚的でチートな手段が利用できません。</p>
 				
 				<p>HTMLテーブル要素を使用して表形式のデータをマークアップすると、支援技術のユーザーが行と列でデータを移動できるようになります。また、読んでいるデータを理解するために必要なコンテキストも提供されます。</p>
 				
@@ -227,7 +227,7 @@
 					
 					<p>表は、<code>thead</code>（表ヘッダー）、<code>tbody</code>（表本体）、および<code>tfoot</code>（表フッター）要素を使用して、行セットの目的をより適切に表すように構造化できます。</p>
 					
-					<p>A table can only have one <code>thead</code> element, and it must be the first row-containing 						element of the table. Although adding a <code>thead</code> element to group the header rows  						is a good semantic markup practice, the element does not affect the accessibility of tables. 						It is primarily included for usability reasons. For example, the rows in a <code>thead</code> 						are often scripted to remain static while a table is scrolled. The <code>thead</code> is also 						used by browsers to repeat the headings when printing a table (i.e., when a table is split 						across print pages).</p>
+					<p>表には<code>thead</code>要素を一つだけ組み込め、その要素は表の最初の行を含む要素でなければなりません。ヘッダー行をグループ化するために<code>thead</code>要素を追加することは、セマンティックマークアップの優れた実践ですが、この要素は表のアクセシビリティには影響しません。この要素は主にユーザビリティ上の理由で存在しています。たとえば、表をスクロールしても<code>thead</code>内の行は静的なままになるようにスクリプト化されることがよくあります。また、ブラウザーは<code>thead</code>を使って表を印刷するときに見出しを繰り返すこともできます（つまり、表が複数の印刷ページに分割されている場合）。</p>
 					
 					<p>ヘッダーの後には、一つ以上の<code>tbody</code>要素が続きます。各<code>tbody</code>は、表の一つのセクションを表します。複数の<code>tbody</code>要素を使用すると、たとえば、各セクションに固有のヘッダーを設定できます。この方法により、このような表の読みやすさが向上するため、アクセシビリティが向上します。</p>
 					
@@ -237,7 +237,7 @@
 				<section id="abbr">
 					<h4>略語</h4>
 					
-					<p>When a table header is more than a few words long, having it repeated for every data cell can 						slow down users. To avoid these lengthy repetitions, it is possible to assign an shorter 						header using the <code>abbr</code> attribute.</p>
+					<p>表のヘッダーが数語以上の長さの場合、データセルごとにヘッダーが繰り返される（訳注：支援技術によってセルの移動の度に長いヘッダーも読み上げられる）と、ユーザーの操作が遅くなる可能性があります。このような長い繰り返しを避けるために、<code>abbr</code>属性を使用して短いヘッダーを割り当てることができます。</p>
 					
 					<pre class="prettyprint linenums"><code>&lt;th … abbr="Total insurance"&gt;
    Total insurance coverage
@@ -252,7 +252,7 @@
 					
 					<div class="note" role="note" aria-labelledby="abbr-note">
 						<p id="abbr-note" class="label">注記</p>
-						<p>Support for the <code>abbr</code> attribute is inconsistent. <a href="https://github.com/nvaccess/nvda/issues/3566">NVDA does not support</a> the 							attribute, but other assistive technologies like Jaws and Voiceover do.</p>
+						<p><code>abbr</code>属性のサポートは一貫していません。<a href="https://github.com/nvaccess/nvda/issues/3566">NVDAはこの属性をサポートしていません</a>が、JawsやVoiceOverなどの他の支援技術はサポートしています。</p>
 					</div>
 				</section>
 				
@@ -261,7 +261,7 @@
 					
 					<p>ユーザーが表の目的と内容の順序を理解できるようにするには、キャプションと概要を追加する必要があります。</p>
 					
-					<p>A caption is the equivalent of a title for a table. It can be provided in the dedicated 						<code>caption</code> element that tables can contain, or it can be expressed through other 						means, such as a figure caption. More information about captions and how to mark them up 						is provided in the <a href="tables-captions.html">Table Captions</a> page. 					 					</p>
+					<p>キャプションは、表のタイトルに相当します。表に組み込める専用の<code>caption</code>要素で提供することも、図表のキャプションなどの他の手段でも表現できます。キャプションとそのマークアップ方法の詳細については、<a href="tables-captions.html">「表のキャプション」</a>ページを参照してください。</p>
 <p>概要は、表の構造の説明を提供します。内容を見ることができないユーザーや、行間や列間で情報を追跡するのが難しいユーザーが、データのレイアウトを理解するのに役立ちます。概要の追加に関する詳細は、<a href="tables-summary.html">「表の概要」</a>ページに記載されています。</p>
 				</section>
 				
