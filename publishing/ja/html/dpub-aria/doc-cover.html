@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-cover</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-cover role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">An image that sets the mood or tone for the work and typically includes the title 					and author.</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — 表紙画像</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;img role="doc-cover" class="cover-img" src="cover.jpg" alt="…"/&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-cover</code>は、<a href="https://www.w3.org/TR/wai-aria/#img">imgロール</a>からセマンティクスを継承します。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-cover</code> is typically used on the <code>img</code> element, as it identifies an image. It is 					<strong>not appropriate</strong> to use it on container elements (e.g., 					<code>section</code> or <code>div</code>) to group all of the content of a cover 					page.</p>
+				
+				<p>出版物の表紙は通常、文書のランドマークには不要ですが、必要に応じてARIA <code>region</code>ロールを使用して追加できます。</p>
+<pre role="doc-example" id="ex-u001-src" class="prettyprint linenums small"><code>&lt;section role="region" aria-label="Cover"&gt;
+   &lt;img role="doc-cover" class="cover-img" src="cover.jpg" alt="…"/&gt;
+&lt;/section&gt;</code></pre>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-cover">DPUB-ARIA — <code>doc-cover</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
