@@ -18,7 +18,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 
-				<p>Use ARIA landmarks for significant content components that a user is likely to want quick access to 					and provide meaningful labels for each.</p>
+				<p>ユーザーがすぐにアクセスしたいと考えられる重要なコンテンツの構成要素には、それぞれ、ARIAランドマークを用いて意味のあるラベルを付けます。</p>
 			</section>
 
 			<section id="tech">
@@ -26,10 +26,10 @@
 
 				<ul>
 					<li>
-						<p>Use landmark roles to identify key content components [[WCAG-1.3.1]]</p>
+						<p>主要なコンテンツの構成要素を識別するためにランドマークロールを使用する。[[WCAG-1.3.1]]</p>
 					</li>
 					<li>
-						<p>Provide meaningful labels for each landmark [[WCAG-1.3.1]]</p>
+						<p>各ランドマークに対して意味のあるラベルを付ける。[[WCAG-1.3.1]]</p>
 					</li>
 				</ul>
 			</section>
@@ -40,7 +40,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例 1 — 明示的なラベルを持つランドマークロール</div>
-						<p>The <code>aria-labelledby</code> attribute is used to ensure that a label is correctly 							associated with its landmark role, the (the value of the attribute is the ID of 							the element containing the label, in this example the <code>h2</code> element).</p>
+						<p><code>aria-labelledby</code>属性は、ラベルがランドマークロールに正しく関連付けるのに使用します（属性の値は、ラベルを含む要素のIDです。この例では<code>h2</code>の要素です）。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-endnotes" aria-labelledby="note_hd"&gt;
     &lt;h2 id="note_hd"&gt;End Notes&lt;/h2&gt;
@@ -69,7 +69,7 @@
 				<figure id="ex-01b">
 					<figcaption>
 						<div class="label">例 3 — ラベルのないランドマークロール</div>
-						<p>If there is only one instance of a landmark role in a document, an explicit label is  							not required. Assistive technologies will only announce the generic type of landmark 							(e.g., that a <code>doc-index</code> is an "index"), but users will hear the heading 							after navigating to it.</p>
+						<p>ドキュメント内にランドマークロールのインスタンスが1つしかない場合、明示的なラベルは必要ありません。支援技術によって、ランドマークの一般的なタイプ（たとえば、<code>doc-index</code>なら「インデックス」）のみがアナウンスされますが、ユーザーがそこに移動すると見出しの内容が音声で提示されるでしょう。</p>
 					</figcaption>
 					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter"&gt;
     &lt;h2&gt;Chapter 1&lt;/h2&gt;
@@ -81,7 +81,7 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">例4 — ラベルが追加されたランドマーク</div>
-						<p>The following landmark does not have an explicit title, so a label is provided using the 								<code>aria-label</code> attribute.</p>
+						<p>次のランドマークに明示的なタイトルが存在しない場合には、<code>aria-label</code>属性を使用してラベルを設定します。</p>
 					</figcaption>
 					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="Chapter 21"&gt;
     &lt;p&gt;I awoke to find …&lt;/p&gt;
@@ -93,7 +93,7 @@
 				<figure id="ex-04">
 					<figcaption>
 						<div class="label">例 6 — 一意のラベルのないランドマーク</div>
-						<p>The following landmark does not have a unique label (i.e., there is more than one of the same 							landmark in the document with the same title). To differentiate the landmark, a sequential 							number is provided for AT using the <code>hidden</code> attribute. Because this element is 							hidden, it also needs to be referenced from the <code>aria-labelledby</code> attribute 							(i.e., hidden descendant content is ignored, so an explicit reference is needed to capture 							the number). Ideally, each landmark would be given a visible sequence number for the benefit 							of all users.</p>
+						<p>次のランドマークには一意のラベルがありません（つまり、同じタイトルの同じランドマークがドキュメント内に複数存在します）。ランドマークを区別するために、<code>hidden</code>属性を使用して支援技術用の連番を与えます。この要素は非表示であるため、<code>aria-labelledby</code>属性から参照する必要があります（つまり、非表示の子孫コンテンツは無視されるため、番号を取得するには明示的な参照が必要です）。すべてのユーザーの便宜を図るために、各ランドマークに目に見える連番を与えるのが理想的です。</p>
 					</figcaption>
 					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2 pp2-num"&gt;
     &lt;h4 id="pp2"&gt;Practice Problem &lt;span id="pp2-num" hidden=""&gt;2&lt;/span&gt;&lt;/h4&gt;
@@ -108,13 +108,13 @@
 
 				<p>ARIA landmarks are used with web sites to allow users to identify and quickly move between the 					different primary regions of a page: site headers and footers, search boxes, advertisements, and the 					main content area.</p>
 
-				<p>The landmarks found on a page are compiled by AT into a list of links. Users are expected to be able 					to quickly scroll through the landmarks in order to orient themselves to the page and access the 					specific section of content they are looking for.</p>
+				<p>ページ上で見つかったランドマークは、支援技術によってリンクのリストにまとめられます。ユーザーは、ランドマーク間をすばやく移動してページにおける位置を確認し、探しているコンテンツの特定のセクションにアクセスできることを期待します。</p>
 
-				<p>While publications are typically structured such that each document only contains the text of a 					single section or chapter, landmarks still play an important role in allowing users access to key 					components within one of these major regions (e.g., to quickly access notes, a glossary, learning 					objectives, practice problems, sidebars, or interactive widgets).</p>
+				<p>出版物は通常、各ドキュメントに1つのセクションまたは章のテキストのみを含むよう構成されていますが、ランドマークは、ユーザーがこれらの主要領域内の主要なコンポーネントにアクセスできるようにする上で重要な役割を果たします（たとえば、メモ、用語集、学習目標、練習問題、サイドバー、またはインタラクティブなウィジェットに素早くアクセスするなど）。</p>
 
 				<p>出版物のコンテンツのすべてのセクションがランドマークである必要はなく、そうあるべきでもありません。ランドマークは、ユーザーがすぐにアクセスする必要がある重要なセクションにのみ使用してください。たとえば、すべてのセクションとサブセクションのリストがあるよりも、用語集にアクセスできる方がユーザーにとってありがたいでしょう。</p>
 
-				<p>The <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA module</a> contains the following 					landmark roles for publications:</p>
+				<p><a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA モジュール</a>には、出版物の次のランドマーク ロールがあります。</p>
 
 				<ul class="multicol">
 					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgements</a>
@@ -164,7 +164,7 @@
 				</ul>
 				<br>
 
-				<p>In addition, the following roles in the core ARIA specification are landmarks:</p>
+				<p>加えて、コアARIA仕様の以下のロールもランドマークです。</p>
 
 				<ul class="multicol">
 					<li> 						<a href="https://www.w3.org/TR/wai-aria/#banner">banner</a>
@@ -195,9 +195,9 @@
 					<dd>
 						<p>いいえ。</p>
 						
-						<p>Landmarks should not be used as an alternative table of contents as they do no preserve the 							heading structure of the document. Try to limit the use of landmarks to the components within 							the page that a user would otherwise have to manually search for. Creating too many 							landmarks forces users to hunt through a long list.</p>
+						<p>ランドマークは文書内の見出しの階層構造を保持しないので、目次の代わりとしては使用しないでください。ランドマークの使用は、ユーザーが手動で検索しなければならないような、ページ内の構成要素に限定してください。ランドマークを作成しすぎると、ユーザーに長いリスト中から探すのを強いてしまいます。</p>
 
-						<p>If the user wants to move by section heading or peruse the table of contents, options are 							already available to do so. Only identify the major section(s) of content within a document, 							if necessary (i.e., the chapters or top-level sections, not every subsection).</p>
+						<p>ユーザーがセクションの見出しに移動したり、目次を閲覧したりしたい場合は、そのための仕組みがすでに用意されています。必要に応じて、ドキュメント内の主要なコンテンツ セクションのみを特定します（つまり、すべてのサブセクションではなく、章または最上位レベルのセクション）。</p>
 					</dd>
 					<dt id="faq-008">見出しのある<code>section</code>はすべてランドマークですか?</dt>
 					<dd>
@@ -217,11 +217,11 @@
 					<dd>
 						<p>いいえ。</p>
 						
-						<p><em>But</em>, the safest option is to always provide a label using one of the 							<code>aria-labelledby</code>, <code>aria-label</code> or <code>title</code> attributes.</p>
+						<p><em>ただし</em>、常に<code>aria-labelledby</code> 、<code>aria-label</code>、または<code>title</code>属性のいずれかを使用してラベルを提供するのが最も安全な方法です。</p>
 						
 						<p>Technically, you only have to use these attributes when more than one of the same landmark 							role is present on the page (e.g., two or more <code>doc-chapter</code> or 							<code>doc-bibliography</code>). In these cases, the lack of a unique label can make it 							more difficult for users to find the one they are looking for. For example, if there are 							two indexes, without unique labels a user would not be able to determine which is the 							topical index and which the index of names without manually checking each.</p>
 						
-						<p>In workflows that combine data from different sources, or chunk content differently depending 							on the out, it is best practice to make the labels explicit. Doing so will avoid unintended 							violations of WCAG requirements.</p>
+						<p>異なる素材を元にしたデータを組み合わせたり、出力に応じてコンテンツを異なる方法で固まりにするワークフローでは、明示的ラベルにするのがベストプラクティスです。このようにすることで、WCAG要件の意図しない違反を回避できます。</p>
 					</dd>
 					<dt id="faq-004">非表示のラベルには<code>title</code>と<code>aria-label</code>属性のどちらを使用すればよいですか?</dt>
 					<dd>
@@ -248,19 +248,11 @@
 
 						<p>その結果、次の例は見出しがあっても<strong>ランドマークではありません</strong>。</p>
 
-						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section&gt;
-    &lt;h2&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt;
-    …
-&lt;/section&gt;
-</code></pre>
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section&gt; &lt;h2&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt; … &lt;/section&gt;</code></pre>
 						<p>ただし、要素にラベルを割り当てると、その要素は<code>region</code>の役割を引き受け、ランドマークになります。</p>
 
 
-						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311"&gt;
-    &lt;h2 id="s311"&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt;
-    …
-&lt;/section&gt;
-</code></pre>
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311"&gt; &lt;h2 id="s311"&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt; … &lt;/section&gt;</code></pre>
 
 						<p>逆に、 <code>aside</code>要素には<code>complementary</code>的な役割が暗黙的に含まれており、ラベルが必要です。HTML 要素の暗黙的なロールの詳細については、 <a href="https://www.w3.org/TR/html-aria/">HTML ドキュメントの ARIA</a>を参照してください。</p>
 					</dd>
