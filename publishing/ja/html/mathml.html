@@ -33,7 +33,7 @@
 
 				<ul>
 					<li>
-						<p>Represent math equations using MathML markup. [[WCAG-1.3.1]]</p>
+						<p>MathMLのマークアップを使用して数式を表現します。[[WCAG-1.3.1]]</p>
 					</li>
 					<li>
 						<p>プレーンテキストの数式には<code>math</code>ロールを使用します。[[WCAG-1.3.1]]</p>
@@ -99,8 +99,7 @@
 					<figcaption>
 						<div class="label">例3 — インラインテキスト数式</div>
 					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>If &lt;span role="math"&gt;2 + x = 9&lt;/span&gt;,
-   what is the value of &lt;var&gt;x&lt;/var&gt;?</code></pre>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>If &lt;span role="math"&gt;2 + x = 9&lt;/span&gt;, what is the value of &lt;var&gt;x&lt;/var&gt;?</code></pre>
 					<p class="figlabel">デモ：</p>
 					<p><span role="math">2+x=9</span>の場合、<var>x</var>の値は何ですか？</p>
 				</figure>
@@ -175,7 +174,7 @@
 
 				<p>MathMLレンダリングのサポートがブラウザで広く普及したため、アクセシブルな数式を提供するための最良の選択肢は MathMLマークアップを使用することです。</p>
 				
-				<p>Although MathML should be preferred for math content, simple inline text equations are often not 					tagged (e.g., "<span role="math">x + y = z</span>"). Although such equations may appear simple, 					assistive technologies will often not read out all the symbols, making them difficult for users 					to understand. If MathML is not used for these types of equations, they should be wrapped inside 					an element with the role "<code>math</code>" (refer to <a href="#ex-03">example 3</a>). The use 					of this role allows assistive technologies to switch pronunciation modes.</p>
+				<p>数学コンテンツにはMathMLが推奨されますが、単純なインラインテキスト方程式はタグ付けされないことがよくあります（例："<span role="math">x+y=z</span>"）。このような方程式は単純に見えますが、支援技術では多くの場合にすべての記号を読み上げないため、ユーザーが理解するのは困難です。このようなタイプの方程式にMathMLを使用しない場合には、<code>math</code>のロールを持つ要素内にラップする必要があります（<a href="#ex-03">例3</a>を参照）。このロールを使用すると、支援技術は発音モードを切り替えることができます。</p>
 				
 				<div class="note" role="note" aria-labelledby="epub-note">
 					<p class="label" id="epub-note">注記</p>
