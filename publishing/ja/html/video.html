@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ビデオ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the accessible inclusion of video content, covering controls, tracks and transcripts.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>ビデオにラベルを付け、ユーザーによって再生を制御できるようにし、また、ビデオを見たり聞いたりできないユーザーや情報の処理に時間がかかるユーザーのために代替手段を設けます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>ビデオの内容を説明するラベルを付けます。[[WCAG-1.1.1]]</p>
+					</li>
+					<li>
+						<p>デフォルトで<code>video</code>要素のネイティブコントロールを有効にします。[[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>音声コンテンツにキャプション（字幕）を付けます。[[WCAG-1.2.2]]</p>
+					</li>
+					<li>
+						<p>音声のないビデオの場合は、トランスクリプトまたは代替音声を含めます。[[WCAG-1.2.1]]</p>
+					</li>
+					<li>
+						<p>ビデオに音声がある場合は、トランスクリプトや音声解説を組み込みます。[[WCAG-1.2.1]]、[[WCAG-1.2.3]]、[[WCAG-1.2.5]]</p>
+					</li>
+					<li>
+						<p>ビデオに発作のリスクが無いことを確認します。[[WCAG-2.3.1]] および [[WCAG-2.3.2]]</p>
+					</li>
+					<li>
+						<p>自動的に開始される音声をユーザーが無効にしたり、音量をオフにしたりできるようにします。[[WCAG-1.4.2]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 — ネイティブコントロールの有効化</div>
+						<p><code>controls</code>属性を設定すると、ネイティブHTMLコントロールがデフォルトで有効になります。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;video … controls="controls"&gt;
+   …
+&lt;/video&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 — ラベルの追加</div>
+						<p><code>aria-label</code>属性でビデオのタイトルを示します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;video … aria-label="The General"&gt;
+   …
+&lt;/video&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 — 時間指定トラックを入れる</div>
+						<p><code>track</code>で、ビデオのサブタイトルとキャプションのファイルを識別します。<code>kind</code>属性は、指定されたトラックの性質を指定します。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;video
+       src="video/big-hollywood-blockbuster.mp4"
+       controls="controls"
+       aria-label="Kaplowy - The movie"&gt;
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/&gt;
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/&gt;
+&lt;/video&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">例 — トランスクリプトの提供</div>
+						<p>トランスクリプトがビデオの後の<code>details</code>要素に含まれているため、ユーザーは要素を展開してテキストを読むかどうかを決定できます。</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General"
+      aria-details="#transcript"&gt;
+   …
+&lt;/video&gt;
+&lt;details id="transcript"&gt;
+	&lt;summary&gt;Transcript&lt;/summary&gt;
+	&lt;p&gt;Jospeh M Schenck presents Buster Keaton
+	   in 'The General' …&lt;/p&gt;
+	…
+&lt;/details&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">例 — フォールバック時のエラーメッセージを付ける</div>
+						<p>ユーザーエージェントは、<code>video</code>要素をサポートしていない場合にのみ、この要素内のコンテンツをレンダリングします。提供されたビデオ形式をサポートしていない場合、ユーザーエージェントは、このコンテンツを表示しません（このような場合、ユーザーエージェントは独自のエラーメッセージを表示します）。</p>
+					</figcaption>
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General"&gt;
+   …
+   &lt;div class="err"&gt;
+     &lt;p&gt;
+       Sorry, it appears your system 
+       does not support video playback.
+     &lt;/p&gt;
+   &lt;/div&gt;
+&lt;/video&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-07">
+					<figcaption>
+						<div class="label">例 ― さまざまなアクセシビリティ機能を備えたビデオ</div>
+						<p>この例では、以上の例の要素を組み合わせた、埋め込みビデオの完全な例を示します。英語の字幕とキャプション、フォールバック時のコンテンツ、Webホスト バージョンへのリンク、およびトランスクリプトが組み込まれています。</p>
+					</figcaption>
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;video
+      src="https://example.com/videos/the_general.mp4"
+      controls="controls"
+      aria-label="general"
+      aria-details="#transcript"&gt;
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/&gt;
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/&gt;
+   &lt;p&gt;Your reading system does not support the video
+      element. Please try the link to open the video in a
+      browser.&lt;/p&gt;
+&lt;/video&gt;
+&lt;p&gt;
+   &lt;a href="https://example.org/videos/the_general.mp4"&gt;
+      Watch video in browser
+   &lt;/a&gt;
+&lt;/p&gt;
+&lt;details id="transcript"&gt;
+   &lt;summary&gt;Transcript&lt;/summary&gt;
+   &lt;p&gt;&lt;/p&gt;
+   …
+&lt;/details&gt;
+</code></pre>
+				</figure>
+				
+				<figure id="ex-08">
+					<figcaption>
+						<div class="label">例 — 代替ビデオへのリンク</div>
+						<p>厳密にはアクセシビリティの問題ではありませんが、EPUB出版物がWeb上のビデオを参照する場合、ビデオへの別のリンクを提供することで、一部のユーザーが、リーディングシステムによってビデオにアクセスできない場合（リーディングシステムが外部リソースをブロックしている場合や、提供された形式を再生できない場合など）でもビデオにアクセスできるようになります。詳細については、<a href="../epub/remote-resources.html">リモートリソース</a>に関するナレッジベースのページを参照してください。</p>
+						<p>ただし、この手法はユーザーがインターネットにアクセスできない場合には役に立たないので、可能な限りEPUBにビデオを埋め込むことを推奨します。</p>
+						<p>以下の例は、簡潔のためアクセシビリティ機能をマークアップから省略しています。</p>
+					</figcaption>
+					<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;video src="https://example.org/videos/the_general.mp4" …&gt;
+   …
+&lt;/video&gt;
+&lt;p&gt;
+   &lt;a href="https://example.org/videos/the_general.mp4"&gt;
+      Watch video in browser
+   &lt;/a&gt;
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>ビデオクリップを組み込む場合は、元からあるユーザーエージェント コントロールをデフォルトで有効にします（つまり、<code>video</code>要素に<code>controls</code>属性を設定します）。この方法により、スクリプトが利用できない場合でもコントロールにアクセスできるようになります。独自のカスタムコントロールを定義する場合は、JavaScriptでネイティブコントロールを無効にして、スクリプトをサポートしていないユーザーエージェントでもコントロールを利用できるようにしてください。</p>
+				
+				<p>ビデオにラベルを付けると、ユーザーはビデオを視聴するかどうかを決める前に、ビデオの目的を理解できるようになります。たとえば、視覚的な読者向けにビデオのスナップショットを見せるために、コンテンツ製作者がポスター画像を指定できるとしても、全盲のユーザーには利用できません。これらのユーザーにとって、ラベルは、コンテンツをダウンロードせずに理解するための唯一の手段です。特に通信コストが高いモバイルデバイスのユーザーは、この情報があれば時間と費用の両方を節約できます。</p>
+				
+				<p>代替手段を提供するという点では、WCAGでは、さまざまなユーザーグループのニーズに対応するために、ビデオコンテンツに複数の選択肢を求めています。</p>
+				
+				<ul>
+					<li>全盲や弱視のユーザー向けのトランスクリプトや音声解説トラック。</li>
+					<li>ビデオを聞くことができないユーザーのためのキャプション。</li>
+				</ul>
+				
+				<p>WCAGでは、トランスクリプトを「代替メディア」と呼んでいます。トランスクリプトは話し言葉の単なる羅列ではいけないからです。この中には、ビデオ内のアクションやその他の重要なイベントの説明が含まれていなければなりません。</p>
+				
+				<p>レベルAからAAに進むと、要件も増加します。たとえば、レベルAAの音声付きビデオの場合、トランスクリプトだけでは不十分で、音声解説トラックが必要になります。</p>
+					
+				<p><code>video</code>要素は、フォールバック用の子コンテンツを許可していますが、このコンテンツはアクセシブルな代替手段として意図されたものではありません。ユーザーエージェントは、 <code>video</code>要素をサポートしていない場合にのみ、このコンテンツをユーザーに提供します（例：EPUB2ユーザーエージェント）。</p>
+				
+				<p>また、ユーザーが支援技術（スクリーン リーダーなど）によって生成された音声を聞くことができるようにすることも重要です。音声付きのビデオを自動的に再生すると、テキストを聞く妨げとなるため、クリップの再生時間が3秒以下でない限り、ユーザーは支援技術をミュートせずに、再生を無効にするか、音量をミュートできる必要があります（ただし、システムの音声コントロールでは、すべての音声の音量が同時に上げ下げされるため、この要件を満たすことができません）。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">&lt;video&gt;：ビデオ埋め込み要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-video-element"><code>video</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-track-element"><code>track</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

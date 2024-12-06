@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-chapter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-chapter role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">作品内のコンテンツの主要なテーマ別セクション。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — 見出し付きの章</div>
+						<p>ラベルは<code>aria-labelledby</code>属性で識別します。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby=c01-hd"&gt;
+   &lt;h2 id="c01-hd"&gt;Chapter 1&lt;/h2&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-chapter</code>は<a href="../landmarks.html">landmarkロール</a>です。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-chapter</code>通常、 <code>section</code>要素で使用します。</p>
+
+				<p><code>aria-labelledby</code> 、 <code>aria-label</code> 、または<code>title</code>属性のいずれかを使用して、ロールにラベルを指定しなければいけません。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-chapter">DPUB-ARIA — <code>doc-chapter</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

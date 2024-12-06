@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>表の概要（テーブルサマリー）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for describing the structure of tables.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-captions']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>レイアウトが複雑な表には、その構造を説明する概要を追加します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>複雑な表について構造を説明する概要を提供します。[[WCAG-1.3.1]]</li>
+					<li>概要とキャプションで同じ内容を繰り返さないでください。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 表のキャプションによる概要</div>
+						<p>これらの例では、概要が表の<code>caption</code>要素内で提供されています。最初の例では<code>p</code>タグが使用されており概要は常に表示されますが、もう一つの例では<code>details</code>要素を使用して概要を折りたたんでいます。</p>
+					</figcaption>
+					
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;caption&gt;
+      &lt;p class="title"&gt;Consolidated Statements of Operations&lt;p&gt;
+      &lt;p class="desc"&gt;
+         The table contains the complete list of
+         operational expenses for the last three years.
+         These expenses are categorized within the table to …
+      &lt;/p&gt;
+   &lt;/caption&gt;
+   …
+&lt;/table&gt;</code></pre>
+					
+					<pre id="ex-01b-src" class="prettyprint linenums"><code>&lt;table aria-details="tbl-desc"&gt;
+   &lt;caption&gt;
+      &lt;p class="title"&gt;Consolidated Statements of Operations&lt;/p&gt;
+      &lt;details id="tbl-desc"&gt;
+         &lt;summary&gt;Description&lt;/summary&gt;
+         &lt;p class="desc"&gt;
+            The table contains the complete list
+            of operational expenses for the last
+            three years. These expenses are
+            categorized within the table to …
+         &lt;/p&gt;
+      &lt;details&gt;
+   &lt;/caption&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — figuer内の概要</div>
+						<p>最初の例では、表の概要が図表の<code>figcaption</code>要素内で提供されています。</p>
+						<p>二番目の例では、表の概要に<code>details</code>要素が使用されています。 <code>details</code>要素はEPUBの<code>figure</code>内では十分にサポートされていないため、<code>figure</code>の後に配置され、<code>aria-details</code>属性を使用して図にリンクされています。</p>
+					</figcaption>
+					
+					<pre id="ex-02a-src" class="prettyprint linenums"><code>&lt;figure aria-details="tbl-desc"&gt;
+   &lt;figcaption&gt;
+      &lt;p class="title"&gt;Consolidated Statements of Operations&lt;/p&gt;
+      &lt;p class="desc"&gt;
+         The table contains the complete list of
+         operational expenses for the last three years.
+         These expenses are categorized within the table to …
+      &lt;/p&gt;
+   &lt;/figcaption&gt;
+
+   &lt;table aria-details="tbl-desc"&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;</code></pre>
+					
+					<pre id="ex-02b-src" class="prettyprint linenums"><code>&lt;figure aria-details="tbl-desc"&gt;
+   &lt;figcaption&gt;Consolidated Statements of Operations&lt;/figcaption&gt;
+
+   &lt;table aria-details="tbl-desc"&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;
+
+&lt;details id="tbl-desc"&gt;
+   &lt;summary&gt;Description&lt;/summary&gt;
+   &lt;p class="desc"&gt;
+      The table contains the complete list
+      of operational expenses for the last
+      three years. These expenses are
+      categorized within the table to …
+   &lt;/p&gt;
+&lt;details&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — ARIA属性に関連付けた非表示の概要</div>
+						<p>この例では、概要は視覚的に表示されません、このため、<code>aria-describedby</code>属性を使用して、非表示のテキストをテーブルにリンクしています。非表示のテキストは通常、支援技術では読み上げられませんが、ARIA属性を使用すると、ユーザーはこの概要が聞けるようになります。</p>
+					</figcaption>
+					
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;table aria-describedby="tbl-desc"&gt;
+   …
+&lt;/table&gt;
+
+&lt;p id="tbl-desc" hidden=""&gt;
+   The table contains the complete list of
+   operational expenses for the last three years.
+   These expenses are categorized within the table to …
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>複雑な情報や構造を持つ表の場合、表の読み方についてユーザー向けに説明文を入れることで、大幅に理解しやすくなります。これらの概要は、コンテンツを見ることができないユーザーだけでなく、さまざまなユーザーのニーズに役立ちます。</p>
+				
+				<p>表の概要は、ユーザーが表に辿りつく前に配置するのが理想的です。それができない場合は、<code>aria-details</code>や<code>aria-describedby</code>などのARIA属性を使用して、プログラムで概要を表にリンクできます。これらの属性により、概要が別の場所に配置されていたとしても、支援技術によって、ユーザーが表に辿り着いたときに概要が提供されます。</p>
+				
+				<p>概要を追加する方法は沢山あります。このページではいくつかの方法を紹介していますが、HTML仕様には<a href="https://html.spec.whatwg.org/multipage/tabular-data.html#sec-techniques-for-describing-tables">他の方法を詳しく説明したセクション</a>もあります。これらの方法はすべて有効なので、どの方法を使用するかは、出版者のワークフローのニーズに応じて決めてください。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#sec-techniques-for-describing-tables">テーブルを記述するためのテクニック</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

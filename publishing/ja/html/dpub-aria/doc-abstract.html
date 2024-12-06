@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-abstract</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-abstract role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+				<p class="desc">作品の主要な考え、概念、結論、または作品内のセクションや抜粋を短く要約したもの。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — 記事の要約と示された段落</div>
+					</figcaption>
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;article aria-labelledby="hd"&gt;
+   &lt;h2 id="hd"&gt;Deoxyribonucleic Acid Self-Replication&lt;/h2&gt;
+   &lt;p role="doc-abstract"&gt;The cause of self-replicating DNA…&lt;/p&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">例2 — 複数の段落を含む要約</div>
+					</figcaption>
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;div role="doc-abstract"&gt;
+   &lt;p&gt;This paper examines the effects of …&lt;/p&gt;
+   …
+&lt;/div&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-abstract</code>は、<a href="https://www.w3.org/TR/wai-aria/#section">sectionロール</a>からセマンティクスを継承します（つまり、関連コンテンツのコンテナを表しますが、ランドマークではありません）。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-abstract</code>は通常、 複数の段落で構成される場合に<code>div</code>要素で使用しますが、要約が一つの段落であれば、<code>p</code>タグでも使用できます。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-abstract">DPUB-ARIA — <code>doc-abstract</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

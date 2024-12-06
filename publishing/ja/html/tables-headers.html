@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>複雑なヘッダー（表見出し）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing accessible tables with complex headers.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-scope','html-table-layout']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			table {
+				width: 80%;
+			}
+			td {
+				text-align: center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>スコープだけでは識別できない複雑なヘッダーや、意味を成すために特定の方法で順序付ける必要がある複雑なヘッダーの場合は、<code>headers</code>属性を使用して、支援技術のユーザーが適切なコンテキストを利用できるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p><code>headers</code>属性を使用して、該当する表のセルのヘッダーを識別し、順序付けます。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption><span class="label">例1 — 行末のヘッダー</span></figcaption>
+					
+					<p>次の表は、最初の行に出発地が定義され、後続の各行の末尾に目的地が定義された距離チャートを示しています。</p>
+					
+					<p>この場合、ヘッダーは行の末尾にあるため、「<code>row</code>」のスコープを設定しても、すでに検出されたセルには適用されません。各セルに<code>headers</code>属性を適用しなければなりません。</p>
+					
+					<p>このような表は、見出しを行の先頭にして、追加のマークアップをしなくて済むように再構成した方が良いでしょう。</p>
+					
+					<table>
+						<tr>
+							<th id="van">Vancouver</th>
+							<th id="cal">Calgary</th>
+							<th id="sask">Saskatoon</th>
+							<th id="win">Winnipeg</th>
+							<th id="tor">Toronto</th>
+							<th id="mon">Montreal</th>
+							<th id="stj">St. John's</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td headers="van stj-dest">7323</td>
+							<td headers="cal stj-dest">6334</td>
+							<td headers="sask stj-dest">5838</td>
+							<td headers="win stj-dest">5010</td>
+							<td headers="tor stj-dest">3141</td>
+							<td headers="mon stj-dest">2602</td>
+							<td headers="stj stj-dest">0</td>
+							<th id="stj-dest">St. John's</th>
+						</tr>
+						<tr>
+							<td headers="van mon-dest">4271</td>
+							<td headers="cal mon-dest">3743</td>
+							<td headers="sask mon-dest">3232</td>
+							<td headers="win mon-dest">2408</td>
+							<td headers="tor mon-dest">539</td>
+							<td headers="mon mon-dest">0</td>
+							<td headers="stj mon-dest">2602</td>
+							<th id="mon-dest">Montreal</th>
+						</tr>
+					</table>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;th id="van"&gt;Vancouver&lt;/th&gt;
+      &lt;th id="cal"&gt;Calgary&lt;/th&gt;
+      &lt;th id="sask"&gt;Saskatoon&lt;/th&gt;
+      &lt;th id="win"&gt;Winnipeg&lt;/th&gt;
+      &lt;th id="tor"&gt;Toronto&lt;/th&gt;
+      &lt;th id="mon"&gt;Montreal&lt;/th&gt;
+      &lt;th id="stj"&gt;St. John's&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td headers="van stj-dest"&gt;7323&lt;/td&gt;
+      &lt;td headers="cal stj-dest"&gt;6334&lt;/td&gt;
+      &lt;td headers="sask stj-dest"&gt;5838&lt;/td&gt;
+      &lt;td headers="win stj-dest"&gt;5010&lt;/td&gt;
+      &lt;td headers="tor stj-dest"&gt;3141&lt;/td&gt;
+      &lt;td headers="mon stj-dest"&gt;2602&lt;/td&gt;
+      &lt;td headers="stj stj-dest"&gt;0&lt;/td&gt;
+      &lt;th id="stj-dest"&gt;St. John's&lt;/th&gt;
+   &lt;/tr&gt;
+   
+   &lt;tr&gt;
+      &lt;td headers="van mon-dest"&gt;4271&lt;/td&gt;
+      &lt;td headers="cal mon-dest"&gt;3743&lt;/td&gt;
+      &lt;td headers="sask mon-dest"&gt;3232&lt;/td&gt;
+      &lt;td headers="win mon-dest"&gt;2408&lt;/td&gt;
+      &lt;td headers="tor mon-dest"&gt;539&lt;/td&gt;
+      &lt;td headers="mon mon-dest"&gt;0&lt;/td&gt;
+      &lt;td headers="stj mon-dest"&gt;2602&lt;/td&gt;
+      &lt;th id="mon-dest"&gt;Montreal&lt;/th&gt;
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption><span class="label">例2 — セクション分けされた表</span></figcaption>
+					
+					<p>この例では、<a href="tables-scope.html#ex-01">見出し範囲ページの例1</a>を、<code>headers</code>属性を使用してマークアップし、正しい列、行、セクションヘッダーを関連付ける方法を示します。</p>
+					
+					<p><code>headers</code>属性を使用すると、見出しの順序を並べ替えて、別の順序で読み取ることができます (たとえば、スコープで進む場合のデフォルトの「1950 Gondor female」ではなく、「Gondor female 1950」など)。</p>
+					
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th id="y50">1950</th>
+								<th id="y75">1975</th>
+								<th id="y00">2000</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th colspan="4" id="gdr">Gondor</th>
+							</tr>
+							<tr>
+								<th id="gmale">Male</th>
+								<td headers="gdr gmale y50">1,001,542</td>
+								<td headers="gdr gmale y75">1,583,771</td>
+								<td headers="gdr gmale y00">2,221,945</td>
+							</tr>
+							<tr>
+								<th id="gfem">Female</th>
+								<td headers="gdr gfem y50">1,122,947</td>
+								<td headers="gdr gfem y75">1,782,371</td>
+								<td headers="gdr gfem y00">2,544,187</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<th colspan="4" scope="rowgroup">Mordor</th>
+							</tr>
+							<tr>
+								<td colspan="4" class="center">…</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th&gt;&lt;/th&gt;
+         &lt;th id="y50"&gt;1950&lt;/th&gt;
+         &lt;th id="y75"&gt;1975&lt;/th&gt;
+         &lt;th id="y00"&gt;2000&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;th colspan="4" id="gdr"&gt;Gondor&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th id="gmale"&gt;Male&lt;/th&gt;
+         &lt;td headers="gdr gmale y50"&gt;1,001,542&lt;/td&gt;
+         &lt;td headers="gdr gmale y75"&gt;1,583,771&lt;/td&gt;
+         &lt;td headers="gdr gmale y00"&gt;2,221,945&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;th id="gfem"&gt;Female&lt;/th&gt;
+         &lt;td headers="gdr gfem y50"&gt;1,122,947&lt;/td&gt;
+         &lt;td headers="gdr gfem y75"&gt;1,782,371&lt;/td&gt;
+         &lt;td headers="gdr gfem y00"&gt;2,544,187&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;th colspan="4" id="mdr"&gt;Mordor&lt;/th&gt;
+      &lt;/tr&gt;
+      …
+   &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<div class="caution" role="note" aria-labelledby="use-note">
+					<p id="use-note" class="label">注意</p>
+					
+					<p><code>headers</code>属性を使用して、製作者はセルに適用するヘッダーとその順序を正確に指定できますが、この属性が必要になるのは、多くの場合、表のレイアウトを簡素化するために再構築するのが望ましいというサインです。さらに、この属性により、変更が行われるたびにすべてのヘッダーを再同期しなければならず、テーブルマークアップの保守がより複雑になります。</p>
+					<p>したがって、この属性は控えめに使用する必要があります。</p>
+				</div>
+				
+				<p><code>headers</code>属性は、<code>id</code>属性値によってヘッダーテキストを含むセルを識別します。属性に含まれるidの順序によって、ヘッダーがユーザーにどのように通知されるかが決まるため、論理的な再生を確実に行うように注意する必要があります。</p>
+				
+				<p>別の順序の方が意味をなす場合、ヘッダーの順序はマークアップと正確に一致する必要はありません（<a href="ex-02">例2</a>を参照）。</p>
+				
+				<p><code>headers</code>の使用は、テーブルを再構成して簡単にすることが絶対にできない場合の最後の手段と見なしてください。この属性は支援技術で十分にサポートされていないため、ユーザーにとっては各セルの見出しがわかりにくく不完全になることがあります。</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">注記</p>
+					<p>HTMLでは、<code>td</code>要素をヘッダーに使用することはできなくなりました（つまり、 <code>td</code>要素は<code>headers</code>属性から参照できません）。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: テーブル要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element"><code>table</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

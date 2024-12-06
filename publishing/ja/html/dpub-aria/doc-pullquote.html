@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-pullquote</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-pullquote role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">トピックに注意を引いたり、重要なポイントを強調したりするために、現在のコンテンツから目立つように配置または強調表示された引用文。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — テキスト内で使用されるプルクオート</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p&gt;With a deafening crack, 
+   &lt;span role="doc-pullquote presentation" id="pq01"&gt;a
+   cornice broke free high above, unleashing a massive 
+   avalanche&lt;/span&gt;. … &lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">例2 — テキストから複製されたプルクオート</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;blockquote role="doc-pullquote presentation" aria-hidden="true"&gt;
+   there are few things as important as toast
+&lt;/blockquote&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-pullquote</code>は、<a href="https://www.w3.org/TR/wai-aria/#none">noneロール</a>からセマンティクスを継承します（つまり、プレゼンテーション用です）。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p>このロールは、通常、プルクオートが出版物のコンテンツ内でタグ付けされている場合に<code>span</code>要素で使用します（つまり、テキストは後でスクリプトによって抽出され、フォーマットされてプレゼンテーション用のプルクオートが作成されます）。</p>
+
+				<p><code>doc-pullquote</code>は、引用文が別の要素に複製された場合に、通常、 <code>blockquote</code>、<code>aside</code>、<code>div</code>要素で使用します。これらの場合に<code>aria-hidden</code>属性を追加すると、支援技術のユーザーに再度コンテンツが読み上げられるのを防ぐことができます。ARIAの将来のバージョンでは、プルクオートのような繰り返しコンテンツに新しいロールが導入され、例えば、デフォルトでは無視されるものの、引用文をざっと読みたいユーザーは引き続きそこにアクセスできるようなプルクオートの機能が追加される予定です。</p>
+
+				<p><strong>注：</strong>ARIA 1.1仕様では現在、<code>none</code>のサポートが普及するまで、<code>presentation</code>をバックアップロールとして追加することを推奨しています。<code>none</code>を継承している<code>doc-pullquote</code>にも、同じアドバイスが適用されます。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pullquote">DPUB-ARIA — <code>doc-pullquote</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>レイアウトに使用する表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing layout tables.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-scope','html-table-headers']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>コンテンツをグリッド状にレイアウトするには、テーブル要素ではなくCSSスタイルを使用します。</p>
+				
+				<div class="caution" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">注意</p>
+					<p>HTML では、レイアウト目的でテーブルを使用することは規格違反になりました。詳細については、<a href="#faq-001">よくある質問</a>を参照してください。</p>
+				</div>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>表形式以外のコンテンツには、CSSグリッド、フレックス、テーブル、および同様の代替レイアウトを使用します。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — レイアウトテーブル</div>
+						<p>この例では、レイアウトテーブルを使用してリストを並べて配置しています。続く例は、このタイプのマークアップを回避する方法を示しています。</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table role="presentation"&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;ul&gt;
+            …
+         &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;ul&gt;
+            …
+         &lt;/ul&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — 代替CSSグリッドレイアウト</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのグリッドスタイルに置き換えられています。<code>grid-template-column</code>プロパティは、使用可能なスペースの半分を二つの列のそれぞれに割り当てます。</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="grid"&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+&lt;/div&gt;
+
+CSS:
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 代替のCSSのflexによるレイアウト</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのflexによるスタイルに置き換えられています。</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="flex"&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+&lt;/div&gt;
+
+CSS:
+.flex {
+   display: flex;
+   justify-content: space-evenly;
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 - 代替のCSSのtableによるレイアウト</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのtableスタイルに置き換えられています。ロール<code>presentation</code>が追加されているのは、支援技術によってテーブルであることを通知しないようにするためです（支援技術はCSSをテーブルのマークアップとして認識する可能性があります）。</p>
+					</figcaption>
+					
+					<pre id="ex-04-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="table" role="presentation"&gt;
+   &lt;div class="row"&gt;
+      &lt;ul class="cell"&gt;
+         …
+      &lt;/ul&gt;
+      &lt;ul class="cell"&gt;
+         …
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+
+CSS:
+.table {
+   display: table;
+   width: 100vw;
+}
+.row {
+   display: table-row;
+}
+.cell {
+   display: table-cell;
+   width: 50vw;
+}</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">レイアウトテーブルの使用が違反になったのはいつですか？</dt>
+					<dd>
+						<p>元々、HTML5仕様には競合するものが２つありました。W3C版ではレイアウト用のテーブルを使用しないことを推奨しており、WHATWG版ではその使用を違反としていました。</p>
+						<p>W3C版のHTMLは現在廃止されており、EPUB3では参照されなくなったため、表形式のデータをレイアウトする場合を除いてテーブルを使用するのは無効となりました。</p>
+						<p>このように指針が分かれた結果、古い電子出版物にはレイアウト用のテーブルがあるかもしれません。これらのテーブルは、アクセシブルなレイアウトの要件に従う必要があります（つまり、セマンティックタグは使用しません）。</p>
+						<p>新しいコンテンツではレイアウト用のテーブルは使用できません。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>現在は、様々なCSSレイアウトモデルがサポートされているので、純粋に体裁を整える目的でテーブルを使用することは、もはや正当化されません。</p>
+				
+				<p>現在のHTML仕様では、レイアウト用のテーブル使用は明確に禁止されています。</p>
+				
+				<blockquote>
+					<p>テーブルをレイアウト補助として使用しないでください。歴史的に、一部のウェブ製作者は、ページレイアウトを制御する方法として HTMLのテーブルを誤用してきました。この使用法は、不適切です。</p>
+				</blockquote>
+				
+				<p>レイアウトにテーブルを使用することは、支援技術のユーザーにとって常に問題でした。テーブルマークアップの使用は視覚的な読者には透過的ですが、支援技術のユーザーにはテーブル読み取りモードを強いることになります。これらのユーザーがコンテンツを読むためにはセルと行を移動しなければならないことをコンテンツ製作者がほとんど考慮せず、論理的に読みやすいレイアウトを保証していないことがよくありました。支援技術のユーザーはしばしば、レイアウトを論理的にたどるには、列を下に読むか、行を横切って読むかを推測しなければなりませんでした。</p>
+				
+				<div class="note" role="note" aria-labelledby="validation-note">
+					<p id="validation-note" class="label">注記</p>
+					<p>epubcheckなどの検証ツールではレイアウト用のテーブルを検出できません。レイアウト用のテーブルが存在するかどうかは手動で検査しなければなりません。</p>
+				</div>
+				
+				<section id="compatibility">
+					<h4>古いコンテンツ</h4>
+					
+					<p>HTML要件の変更前に作成された電子出版物にはレイアウト用のテーブルが含まれている可能性があるため、このコンテンツは適切なアクセシビリティ ガイドラインに従うことが依然として重要です。</p>
+					
+					<p>レイアウト用のテーブルの場合、テーブルのマークアップにはデータテーブル要素や属性を付けないでください。これらには、<code>thead</code>、<code>th</code>、<code>caption</code>要素、および<code>headers</code>属性と<code>scope</code>属性（HTML4またはXHTML 1.1ドキュメントを作成する場合は<code>summary</code>属性も）が含まれます。</p>
+					
+					<p>レイアウト用のテーブルが、支援技術によって確実に無視されるように、 <code>presentation</code>のロール属性も宣言する必要があります。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: テーブル要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element"><code>table</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

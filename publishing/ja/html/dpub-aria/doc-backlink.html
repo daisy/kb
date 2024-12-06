@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-backlink</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-backlink role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['HTML', 'DPUB-ARIA'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">ユーザーがコンテンツ内の関連する場所に戻れるように設けられたリンクです（例：脚注からその参照箇所、あるいは用語集の定義から用語を使用している場所へのリンク）。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例 1 — 注の参照へのバックリンク</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p role="doc-endnote"&gt;
+   1. The first of three instances is the last to end up in …
+   &lt;a href="s01.html#fnref-01" role="doc-backlink"&gt;[note 1 reference]&lt;/a&gt;
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-baclink</code>は、<a href="https://www.w3.org/TR/wai-aria/#link">linkロール</a>からセマンティクスを継承しています。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-backlink</code>は通常、 <code>a</code>要素で使用します。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-backlink">DPUB-ARIA — 								<code>doc-backlink</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
