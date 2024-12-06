@@ -25,8 +25,10 @@
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>Identify quotes separated from the primary narrative using the <code>blockquote</code> element. [[WCAG-1.3.1]]</li>
-					<li>Identify quotes inline with the primary narrative using the <code>q</code> element. [[WCAG-1.3.1]]</li>
+					<li>
+<code>blockquote</code>要素を使用して、主文から分離した引用文を識別します。[[WCAG-1.3.1]]</li>
+					<li>
+<code>q</code>要素を使用して、主文内のインラインの引用文を識別します。[[WCAG-1.3.1]]</li>
 					<li>
 <code>cite</code>要素を使用して引用元を識別します。[[WCAG-1.3.1]]</li>
 				</ul>
@@ -72,7 +74,7 @@
 				<figure id="ex-03">
 					<figcaption>
 						<div class="label">例3 — グループ化された引用文と引用元</div>
-						<p>In this example, a <code>figure</code> tag is used to associate the quote with 							its caption, which is expressed in the <code>figcaption</code> tag.</p>
+						<p>この例では、<code>figure</code>タグを使用して、引用文とキャプションを関連付けます。キャプションは、<code>figcaption</code>タグで表現します。</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure&gt;
    &lt;blockquote&gt;
@@ -121,33 +123,33 @@
 				<dl>
 					<dt id="faq-001">引用元を<code>blockquote</code>タグ内に置くことはできますか？</dt>
 					<dd>
-						<p>The HTML specification makes this illegal:</p>
+						<p>HTML仕様では、エラーとなります。</p>
 						<blockquote>引用の属性がある場合は、<code>blockquote</code>要素の外側に配置する必要があります。</blockquote>
 						<p>引用元は引用文それ自体とは別です。<a>例3</a>のように、引用元と<code>blockquote</code>を関連付けるために<code>figure</code>タグを使用できますが、これは必ずしも必要ではありません。</p>
 					</dd>
 					
 					<dt id="faq-002">引用元がある場合、<code>figure</code>タグを使用する必要がありますか？</dt>
 					<dd>
-						<p>No. The choice whether to use the extra <code>figure</code> tag markup is at author discretion. 							It may be useful to group quotes and citations for internal workflow purposes, for example. 							The choice to use a <code>figure</code> does not significantly change the experience for 							assistive technology users.</p>
+						<p>いいえ。追加の<code>figure</code>タグ マークアップを使用するかどうかの選択は、コンテンツ製作者の裁量に委ねられます。たとえば、内部ワークフローの目的で引用文と引用元をグループ化すると便利な場合があります。 <code>figure</code>を使用する選択によって、支援技術ユーザーの体験は大幅に変わりません。</p>
 					</dd>
 					
 					<dt id="faq-003">一部のサイトで、<code>blockquote</code>に引用元のための<code>footer</code>を付けることができると記載されているのはなぜですか？</dt>
 					<dd>
 						<p>技術的には、<code>blockquote</code>に<code>footer</code>を含めることは有効ですが、<code>blockquote</code>内の<code>footer</code>要素の意味は不明瞭です。HTML仕様によれば、<code>footer</code>は、最も近いセクション要素または<code>body</code>要素に適用されるため、<code>blockquote</code>内の<code>footer</code>は、その要素を説明するものではありません。</p>
-						<p>More specifically to this question, though, there were two different maintainers of HTML for a 							while. One group made the practice of using a <code>footer</code> for the citation legal while 							the other did not. The version of HTML that made it legal is now defunct.</p>
+						<p>この質問について、もう少し詳細に説明すると、しばらくHTMLの保守管理グループが2つありました。一方のグループは引用元に<code>footer</code>を使用する慣行を有効としましたが、もう一方のグループではそうではありませんでした。今では、これを有効とした HTMLのバージョンは廃止されています。</p>
 					</dd>
 					
 					<dt id="faq-004">講演者名や著者名を引用できますか？</dt>
 					<dd>
-						<p>The HTML specification also says this illegal:</p>
+						<p>HTML仕様では、これもエラーであるとされています。</p>
 						<blockquote>cite要素は作品のタイトルを表します。… 人名は作品のタイトルではありません。… したがって、この要素は人名をマークアップするために使用してはなりません。</blockquote>
 					</dd>
 					
 					<dt id="faq-005">
 <code>cite</code>属性は何か効果がありますか?</dt>
 					<dd>
-						<p>Not for end users at this time, no. Reading systems will not make the URL in the attribute 							available to follow.</p>
-						<p>If you need the attribute other reasons (e.g., internal referencing of where a quote came from), 							or have a script to process the value, you can include it on both the <code>blockquote</code> 							and <code>q</code> tags.</p>
+						<p>現時点では、エンドユーザー向けには何もありません。リーディングシステムから属性内のURLは辿れません。</p>
+						<p>他の理由（引用元の内部参照など）で属性が必要な場合、あるいはスクリプトによる値の処理が必要な場合は、<code>blockquote</code>と<code>q</code>タグの両方に付けられます。</p>
 					</dd>
 				</dl>
 			</section>
