@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Meta properties and directives that prevent zooming or initiate delayed page refreshes impede access 						for users with low vision and who need additional time to consume the content.</p>
+				<p>ズーム（拡大縮小表示）を防止したり、ページの更新を遅らせたりするメタプロパティとディレクティブは、視力の弱いユーザーやコンテンツの閲覧時間をより多く必要とするユーザーのアクセスの妨げになります。</p>
 			</section>
 			
 			<section id="tech">
@@ -27,10 +27,10 @@
 				
 				<ul>
 					<li>
-						<p>Do not disable zooming with the <code>viewport/user-scalabe=no</code> property.</p>
+						<p><code>viewport/user-scalabe=no</code>のプロパティでズームを無効にしないでください。</p>
 					</li>
 					<li>
-						<p>Do not prevent zooming by setting the <code>viewport/maximum-scale</code> property to a value less than "2.0".</p>
+						<p><code>viewport/maximum-scale</code>プロパティを「2.0」未満の値に設定して（訳注：さらなる）ズームを妨げないでください。</p>
 					</li>
 					<li>
 						<p>「0」より大きい値を持つ<code>meta-refresh</code>プラグマディレクティブを使用しないでください。[[WCAG-3.2.5]]</p>
@@ -64,11 +64,11 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Disabling the ability to zoom a page prevents users from being able to enlarge the content 					to a size that is more comfortable for them to read at. Similarly, setting a maximum scale 					less than double the initial size limits minimums for readability required by WCAG.</p>
+				<p>ページのズーム機能を無効にすると、ユーザーはコンテンツを読みやすいサイズに拡大できなくなります。同様に、最大スケールを初期サイズの2倍未満に設定すると、WCAGで要求される最低限の読みやすさが達成できません。</p>
 				
 				<p>EPUBなどのパッケージ化された形式で出版物がページリダイレクトを利用することは通常はありません。Webでホストされる出版物の場合は、HTTPリダイレクトを使用して代替ページを表示することを検討してください。</p>
 				
-				<p>If it is necessary to refresh the content of a page, provide the user the option to initiate the 					refresh.</p>
+				<p>ページのコンテンツを更新する必要がある場合は、ユーザーに更新を開始する手段を提供してください。</p>
 			</section>
 			
 			<section id="refs">
