@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Separating secondary content from the primary allows users of assistive technologies to more easily 					follow the main narrative.</p>
+				<p>主要なコンテンツから補助的なコンテンツを分離することで、支援技術のユーザーはより容易に主要な文章を追いかけられるようになります。</p>
 			</section>
 			
 			<section id="tech">
@@ -41,9 +41,9 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例1 — 論理的な読み順が分かるセマンティックマークアップ</div>
-						<p>The narrative flow in the following textbook excerpt is obvious to sighted users who can distinguish the 							images and sidebar it flows around from visual cues.</p>
+						<p>次の教科書の抜粋例において、周囲に配置されている画像とサイドバーを区別できる目の見えるユーザーにとっては、視覚的な手がかりから文章の順番は明らかです。</p>
 						<img src="../../../graphics/publishing/reading-order/order.jpg" alt="Sample textbook page showing figures and asides surrounding the narrative">
-						<p>The logical reading order is established using <code>figure</code> tags to offset the images and an 							<code>aside</code> for the sidebar, as in the following markup.</p>
+						<p>次のマークアップ例のように、画像をオフセットする<code>figure</code>タグとサイドバーの<code>aside</code>を使用すると、論理的な読み順が成立します。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;div epub:type="pagebreak"&gt;43&lt;/div&gt;
 
@@ -218,26 +218,26 @@
 				<dl>
 					<dt id="faq-001">なぜ論理的な読み順が重要なのですか？</dt>
 					<dd>
-<p>Consider how someone reading using a text-to-speech engine interacts with your publication. They are 						navigating at the markup level, moving from structure to structure and hearing the prose rendered at 						each step. That's fine, but now picture having no information about the structure you've just reached. 						Are you going to the next paragraph, or is a footnote suddenly going to be read back? Did the last 						section end or did you just jump into a sidebar?</p>
-						<p>Without structure and semantics, there's no way to easily move from one structure to the next. Where 							does the sidebar marked as a <code>div</code> end and the next paragraph continue? These questions are left 							to the user to puzzle out, leaving them manually navigating the publication to fit together the 							elusive reading order from the generic markup. It's also why semantically meaningless markup ruins the 							reading experience, if not makes it downright impossible.</p>
+<p>テキスト読み上げ（TTS）エンジンを使って読んでいる人が、あなたの出版物をどのように扱うかを考えてください。このような方はマークアップレベルをナビゲートしながら、構造から構造へと移動し、各ステップでレンダリングされた文章を聞いています。それが問題ないのならば、では次に、先ほど辿った構造に関する情報が無い場合を想像してみてください。次の段落に移動できるでしょうか。それとも突然脚注部分が音声で提示されるでしょうか。最後のセクションは終わったでしょうか、それともサイドバーに移動してしまったでしょうか。</p>
+						<p>構造とセマンティクスがなければ、構造から次の構造に簡単に移動することはできません。<code>div</code>としてマークされたサイドバーはどこで終わり、次の段落はどこに続くのでしょうか。これらの疑問をユーザー自身が解決しなければならず、ユーザーは一般的なマークアップによる理解しにくい読み順を組み合わせるために、出版物を手動でナビゲートするはめになります。これは、セマンティック的に無意味なマークアップは、読書体験を台無しにし、全く不可能にしてしまう理由でもあります。</p>
 					</dd>
 					<dt id="faq-001">セマンティック マークアップはどのようにして読みやすさを向上させるのでしょうか？</dt>
-					<dd><p>Accessible user agents typically provide the option for users to select elements to ignore. 						Semantic markup eases this process of identifying and skipping non-essential content. A user may still 						choose to render secondary content as it occurs, but it becomes their choice again, and no longer a 						burden to navigate through or around as desired.</p></dd>
+					<dd><p>通常、アクセシブルなユーザーエージェントにはユーザーが読み飛ばす要素を選択する設定があります。セマンティック マークアップが行われていると、必須でないコンテンツが識別でき、読み飛ばしが容易になります。補助的なコンテンツがあった場合、ユーザーはレンダリングするかどうかを選択でき、必要に応じて負担なく移動したり回避できます。</p></dd>
 				</dl>
 			</section>
 			
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Publications typically have a primary narrative that users are expected to follow from beginning to end, and 					being able to navigate this dialogue uninterrupted is a key factor in making publications accessible.</p>
+				<p>出版物には通常、ユーザーが最初から最後まで辿ることが期待されている主文の流れがあります。この主文を中断することなくナビゲートできることは、出版物をアクセシブルにする上で重要な要素です。</p>
 				
-				<p>There is sometimes no distinction between the narrative and its representation in the markup. A novel, for 					example, might consist only of sections, headings and paragraphs which are all marked up in order and can be 					read in order. These cases tend not to be the norm, however, as most publications will have some degree of 					complexity to their layout.</p>
+				<p>時には、文章とマークアップでの表現の間に違いが出ないこともあります。たとえば、小説はセクション、見出し、段落のみで構成され、それらはすべて順番にマークアップされ、順番に読むことができます。ただし、ほとんどの出版物はレイアウトがある程度複雑であるため、このようなケースは一般的とは言えません。</p>
 				
-				<p>More often, publications will include at least some supplementary information, such as footnotes, endnotes, 					references, sidebars, tables, figures, charts, code samples, warnings, alerts and similar. As this information 					is interspersed within the content of the body, its markup must inevitably also be interspersed within a 					content document (e.g., a sidebar may be placed between two paragraphs within a section and the text visually 					floated around it). If this content is not clearly marked and identifiable as secondary information, users 					navigating at the markup level will have the primary narrative interrupted as the user agent attempts to 					play back the auxiliary content.</p>
+				<p>多くの場合、出版物には、脚注、文末脚注、参考文献、補足記事、表、図、グラフ、コードサンプル、警告、アラートなどの補足情報が少なくともいくつか含まれます。このような情報は本文のコンテンツ内に散在するため、そのマークアップも必然的にコンテンツ ドキュメント内に散在することになります（たとえば、サイドバーをセクション内の二つの段落の間に置き、その周囲にテキストを回し込む等）。このコンテンツが明確にマークアップされていないため補助的な情報として識別されない場合、ユーザーがマークアップレベルに応じてナビゲートする際には、ユーザーエージェントは補助的なコンテンツを再生してしまい、主文の流れが中断されてしまいます。</p>
 				
-				<p>This problem was particularly acute prior to HTML5, as generic <code>div</code> tags we used to group 					secondary material, which left no way to reliably distinguish its purpose. The result was that users 					manually had to try and determine where the content ended in order to continue reading.</p>
+				<p>この問題はHTML5以前は特に深刻でした。汎用の<code>div</code>タグを使用して補助的な素材をグループ化していたため、その目的を確実に区別する方法がありませんでした。その結果、ユーザーは読み続けるために、そのコンテンツの終了位置を手動で特定しなければなりませんでした。</p>
 				
-				<p>To be accessible to non-visual users, content must be marked up such that a logical path that excludes the 					secondary material and orders the primary can be followed: the logical reading order. Rich markup allows 					secondary materials to be automatically excluded from text-to-speech playback or refreshable braille rendering 					if the user doesn't want their reading experience interrupted.</p>
+				<p>視覚障害者にとってアクセシブルにするには、論理的な読み順で、主要な文章を辿れるように、コンテンツは補助的な素材を除外した論理的な道順でマークアップされている必要があります。ユーザーが読み上げを中断されたくない場合は、リッチマークアップを使用すれば、補助的な素材をテキスト読み上げ再生や点字ディスプレイのレンダリングから自動的に除外できます。</p>
 			</section>
 			
 			<section id="refs">
