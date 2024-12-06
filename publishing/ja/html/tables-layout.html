@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>レイアウトに使用する表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing layout tables.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-basics','html-table-scope','html-table-headers']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				
+				<p>Use CSS styling rather than table elements to lay out content in a grid.</p>
+				
+				<div class="caution" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Caution</p>
+					<p>Using tables for layout purposes is no longer valid in HTML. See the  						<a href="#faq-001">frequently asked questions</a> for more information.</p>
+				</div>
+			</section>
+			
+			<section id="tech">
+				<h3>Techniques</h3>
+				
+				<ul>
+					<li>Use CSS grid, flex, table, and similar alternative layouts for non-tabular content. [[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">Example 1 — Layout table</div>
+						<p>この例では、レイアウトテーブルを使用してリストを並べて配置しています。続く例は、このタイプのマークアップを回避する方法を示しています。</p>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table role="presentation"&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;ul&gt;
+            …
+         &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;ul&gt;
+            …
+         &lt;/ul&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">Example 2 — Alternative CSS grid layout</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのグリッドスタイルに置き換えられています。<code>grid-template-column</code>プロパティは、使用可能なスペースの半分を二つの列のそれぞれに割り当てます。</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="grid"&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+&lt;/div&gt;
+
+CSS:
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 代替のCSSのflexによるレイアウト</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのflexによるスタイルに置き換えられています。</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="flex"&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+   &lt;ul&gt;
+      …
+   &lt;/ul&gt;
+&lt;/div&gt;
+
+CSS:
+.flex {
+   display: flex;
+   justify-content: space-evenly;
+}
+</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 - 代替のCSSのtableによるレイアウト</div>
+						<p>この例では、<a href="#ex-01">例1</a>のレイアウト用のテーブルがCSSのtableスタイルに置き換えられています。ロール<code>presentation</code>が追加されているのは、支援技術によってテーブルであることを通知しないようにするためです（支援技術はCSSをテーブルのマークアップとして認識する可能性があります）。</p>
+					</figcaption>
+					
+					<pre id="ex-04-src" class="prettyprint linenums"><code>HTML:
+&lt;div class="table" role="presentation"&gt;
+   &lt;div class="row"&gt;
+      &lt;ul class="cell"&gt;
+         …
+      &lt;/ul&gt;
+      &lt;ul class="cell"&gt;
+         …
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+
+CSS:
+.table {
+   display: table;
+   width: 100vw;
+}
+.row {
+   display: table-row;
+}
+.cell {
+   display: table-cell;
+   width: 50vw;
+}</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">レイアウトテーブルの使用が違反になったのはいつですか？</dt>
+					<dd>
+						<p>元々、HTML5仕様には競合するものが２つありました。W3C版ではレイアウト用のテーブルを使用しないことを推奨しており、WHATWG版ではその使用を違反としていました。</p>
+						<p>W3C版のHTMLは現在廃止されており、EPUB3では参照されなくなったため、表形式のデータをレイアウトする場合を除いてテーブルを使用するのは無効となりました。</p>
+						<p>このように指針が分かれた結果、古い電子出版物にはレイアウト用のテーブルがあるかもしれません。これらのテーブルは、アクセシブルなレイアウトの要件に従う必要があります（つまり、セマンティックタグは使用しません）。</p>
+						<p>新しいコンテンツではレイアウト用のテーブルは使用できません。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>現在は、様々なCSSレイアウトモデルがサポートされているので、純粋に体裁を整える目的でテーブルを使用することは、もはや正当化されません。</p>
+				
+				<p>現在のHTML仕様では、レイアウト用のテーブル使用は明確に禁止されています。</p>
+				
+				<blockquote>
+					<p>Tables must not be used as layout aids. Historically, some web authors have misused tables in 						HTML as a way to control their page layout. This usage is non-conforming …</p>
+				</blockquote>
+				
+				<p>The use of tables for layouts has always been problematic for users of assistive technologies. While 					the use of table markup was transparent to visual readers, it forced AT users into table reading mode. 					Authors rarely considered that these users would be forced to navigate by cell and row to read 					their content, and often failed to ensure that their layouts made logical reading sense. AT users 					would often have to guess whether to read down a column or across rows to logically follow the 					layout.</p>
+				
+				<div class="note" role="note" aria-labelledby="validation-note">
+					<p id="validation-note" class="label">Note</p>
+					<p>epubcheckなどの検証ツールではレイアウト用のテーブルを検出できません。レイアウト用のテーブルが存在するかどうかは手動で検査しなければなりません。</p>
+				</div>
+				
+				<section id="compatibility">
+					<h4>Older Content</h4>
+					
+					<p>HTML要件の変更前に作成された電子出版物にはレイアウト用のテーブルが含まれている可能性があるため、このコンテンツは適切なアクセシビリティ ガイドラインに従うことが依然として重要です。</p>
+					
+					<p>レイアウト用のテーブルの場合、テーブルのマークアップにはデータテーブル要素や属性を付けないでください。これらには、<code>thead</code>、<code>th</code>、<code>caption</code>要素、および<code>headers</code>属性と<code>scope</code>属性（HTML4またはXHTML 1.1ドキュメントを作成する場合は<code>summary</code>属性も）が含まれます。</p>
+					
+					<p>レイアウト用のテーブルが、支援技術によって確実に無視されるように、 <code>presentation</code>のロール属性も宣言する必要があります。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: The Table 						element</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tabular-data.html#the-table-element">The 								<code>table</code> element</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
