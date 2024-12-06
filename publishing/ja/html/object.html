@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>オブジェクト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessibly including content using the HTML object element.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>埋め込まれたオブジェクトに代替テキストを提供することで、フォーマットのサポートに関係なくコンテンツをアクセシブルにできます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p><code>object</code>本体にオブジェクトのHTMLの代替表現（訳注：フォールバック）または説明を提供します。[[WCAG-1.1.1]]および[[WCAG-1.2.3]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 埋め込みスプレッドシートのフォールバック</div>
+						<p><code>object</code>タグ内には比較データが入った表が組み込まれています。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;object data="data/timesheet.xls"&gt;
+   &lt;table&gt;
+     &lt;thead&gt;
+       &lt;tr&gt;
+         &lt;th&gt;Employee&lt;/th&gt;
+         &lt;th&gt;ID&lt;/th&gt;
+         &lt;th&gt;Activity&lt;/th&gt;
+         &lt;th&gt;Station&lt;/th&gt;
+         &lt;th&gt;Completed&lt;/th&gt;
+         &lt;th&gt;Start&lt;/th&gt;
+         &lt;th&gt;End&lt;/th&gt;
+         &lt;th&gt;Total Hours&lt;/th&gt;
+       &lt;/tr&gt;
+     &lt;/thead&gt;
+     …
+   &lt;/table&gt;
+&lt;/object&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><code>object</code>要素を使用すると、HTMLドキュメントにマルチメディア コンテンツを埋め込めます。ただし、<a href="audio.html"><code>audio</code></a>や<a href="video.html"><code>video</code></a>要素によって提供されるアクセシブルな再生コントロールがないため、音声やビデオコンテンツに使用することは一般的に推奨されません。</p>
+				
+				<p><code>object</code>のボディに、トランスクリプト（文字起こし）などの代替メディアを含めないでください。音声またはビデオ形式が再生可能な場合、トランスクリプトが必要なユーザーがそれにアクセスできなくなります。</p>
+				
+				<p><code>object</code>要素はHTML以外のコンテンツを埋め込むために最もよく使用されるため、ネイティブフォーマットでコンテンツにアクセスできないユーザーのためにフォールバックを提供する必要があります。一般的には、<code>object</code>要素のボディ内に同等のHTMLを提供します。指定されたフォーマットがサポートされていない場合、このコンテンツがユーザーに表示されます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object">&lt;object&gt;</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-object-element">オブジェクト要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

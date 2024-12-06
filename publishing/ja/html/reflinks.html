@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>参照箇所へのリンク</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on bidirectional linking to figures, notes and similar content.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>注釈、図、表や、その他の種類の参照箇所への（訳注：逆方向の）リンクを組み込むと、便利な双方向の移動手段となり、読む場所を容易に変更できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p><a href="dpub-aria/doc-backlink.html"><code>doc-backlink</code>ロール</a>を使って、参照箇所と通常のテキストへのリンクを区別します。</p>
+					</li>
+					<li>
+						<p>リンクの目的が明確でない場合は、 <a href="https://www.w3.org/TR/wai-aria/#aria-label"><code>aria-label</code>属性</a>を使って追加のコンテキストを追加します。[[WCAG-2.4.4]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 脚注参照へのリンク</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;… was extra
+   crunchy.&lt;a id="fn01-ref" href="#fn01" role="doc-noteref"&gt;1&lt;/a&gt;
+&lt;/p&gt;
+…
+&lt;aside role="doc-footnote" id="fn01"&gt;
+   &lt;p&gt;&lt;a href="#fn01-ref" role="doc-backlink"&gt;[1]&lt;/a&gt; The first
+      known instance of human cannibalistic …&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 図表参照へのリンク</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p&gt;… as shown in &lt;a id="fig01-ref" href="#fig01"&gt;Figure 1.0&lt;/a&gt;&lt;/p&gt;
+…
+&lt;figure id="fig01"&gt; 
+   &lt;figcaption&gt;Figure 1.0 …&lt;/figcaption&gt;
+   &lt;img src="img01.jpg" alt="…"/&gt;
+   &lt;p&gt;
+      &lt;a href="#fig01-ref"&gt;&lt;img src="back-arrow.jpg"
+         alt="Text reference to figure"/&gt;&lt;/a&gt;
+   &lt;/p&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 追加のコンテキストを含む図表参照へのリンク</div>
+						<p>次の例は、図表番号についている参照先へのリンクを示しています。このリンク先はユーザーを混乱させる可能性があるため、 <code>aria-label</code>属性で追加のコンテキストが提供されています。このようなリンクがなぜ最適でないのかについては、<a href="#desc">説明</a>のセクションを参照してください。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;… as shown in &lt;a id="fig01-ref" href="#fig01"&gt;Figure 1.0&lt;/a&gt;&lt;/p&gt;
+…
+&lt;figure id="fig01"&gt;
+   &lt;figcaption&gt;
+      &lt;a href="#fig01-ref"
+         aria-label="Figure 1.0 text reference"&gt;Figure 1.0&lt;/a&gt;
+      …
+   &lt;/figcaption&gt;
+   &lt;img src="img01.jpg" alt="…"/&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — 複数の参照マークがある表</div>
+						<p>ユーザーがリンクの戻り先を判断できるように、静的ページマーカーへの参照を追加します。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="table01"&gt; 
+   &lt;figcaption&gt;
+      Table 1 … 
+      &lt;a href="tbl01-ref01" role="doc-backlink"
+         aria-label="Reference on page 235"&gt;[1]&lt;/a&gt;,
+      &lt;a href="tbl01-ref02" role="doc-backlink"
+         aria-label="Reference on page 303"&gt;[2]&lt;/a&gt;,
+      &lt;a href="tbl01-ref03" role="doc-backlink"
+         aria-label="Reference on page 318"&gt;[3]&lt;/a&gt;
+   &lt;/figcaption&gt;
+   &lt;table&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>本文から参照されているコンテンツへと、コンテンツから本文へとの双方向のリンクがあると、ユーザーの読書体験は大幅に向上します。一般的にはユーザーは、例えば脚注に行くときに参照をたどると考えられますが、章やセクション内の本文を全て読み終わってから、補助的な情報を読むことも考えられます。このような場合に本文内の該当するテキストの参照マークに戻るリンクがなければ、本文との関連性に関する理解が難しくなります。</p>
+				
+				<p>EPUB のリーディングシステムの多くには戻るボタンがなく、ユーザーがリンク先に移動したあとに元の場所に戻る唯一の方法が手動となるという点においても、双方向リンクは便利です。これは目の見える読者であっても厄介なことですが、支援技術のユーザーは、元の場所を見つけるまで、各段落の開始箇所を手動で聞いていかなければなりません。</p>
+				
+				<p>参照マークへのリンクを追加するときに最も重要なことは、リンクの目的とそのリンク先について、ユーザーを混乱させないようにすることです。</p>
+				
+				<p>たとえば、脚注の参照番号に「戻る」リンクを付けて、その脚注が参照された場所にユーザーを誘導するなど、一部のリンクパターンは一般的に知られていますが、このようなパターンをなじみのないコンテキストで再利用するときには注意が必要です。<a href="#ex-03">例 3 </a>は、このようなシナリオの一つを示しています。図表番号へのリンクは、脚注参照へのリンクほどには直感的なパターンではありません。リンクやその周囲のコンテキストで参照について何も言及されていないため、ユーザーはこれを図表に戻るリンクであると誤解するかもしれません。このような場合、リンクを提供する他の手段が使えない場合は（代替アプローチについては<a href="#ex-02">例 2</a>を参照）、 <code>aria-label</code>属性を使用して、不足しているコンテキストを追加しなければなりません。</p>
+				
+				<p>同様に、テキスト内に一つの注釈、図、表に対する参照が複数あるのに、戻るリンクが一つしか提供されていない場合も、ユーザーを混乱させます。二つ目または三つ目のリンクをたどった場合に、一つ目の参照に戻ると混乱します。一つ目の参照に戻るというコンテキストをリンクに追加することで、ユーザーが混乱するのを避けられます。</p>
+				
+				<p>参照マークへのリンクが複数用意されている場合でも、それをどのように意味あるラベルにするかは難しい問題です。テキスト内に<a href="../navigation/pagelist.html">静的な改ページマーカー</a>があれば、ユーザーが正しい戻り方を判断するのに、ページ番号で場所を参照するのも一つの方法です（<a href="ex-04">例 4</a>を参照）。しかし、この方法にも問題があります。現在のところ、ページ番号を読み上げる支援技術がないのです。ユーザーは、正しいリンクを見つけるまで、順番にそれぞれのリンクを試さなければならないかもしれません。</p>
+				
+				<div role="note" aria-labelledby="multiref-note" class="caution">
+					<p id="multiref-note" class="label">注意</p>
+					<p>クリックしたリンク先からそのリンク元に戻る機能があるリーディングシステムが普及するまで、EPUBでは同じ項目への複数のリンクを避けることをお勧めします。一つ目の参照マークのリンク先に対し、一つ目の参照マークに戻れるようにすれば、複数のリンク「イン」に対してリンク「アウト」が一つしかないという混乱が避けられます。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-backlink"><code>doc-backlink</code>ロール</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

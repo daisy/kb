@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>リスト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the proper application of HTML ordered, unordered and definition lists.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>ユーザーが簡単にナビゲートできるように、項目のリストを適切にタグ付けします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>順序を変更するとリストの意味が変わってしまうリストには、<code>ol</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>デフォルトの順序をリストの意味を変えずに変更できるリストには<code>ul</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>用語と定義のグループには<code>dl</code>要素を使用します。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p><code>aria-labelledby</code>属性を使用してリストヘッダーを識別します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 順序なしリスト</div>
+						<p>リストはアルファベット順に並べられていますが、エントリーの実際の順序は理解する上で重要ではありません。順序を逆にしたり、並べ替えたりしても意味は失われません。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ul&gt;
+   &lt;li&gt;Credit, consumer, 164&lt;/li&gt;
+   &lt;li&gt;Cross-functional contact, 10-11&lt;/li&gt;
+   &lt;li&gt;Culture
+     &lt;ul&gt;
+       &lt;li&gt;buyer behavior and, 85&lt;/li&gt;
+       &lt;li&gt;defined, 85, 98, 118&lt;/li&gt;
+       …
+     &lt;/ul&gt;
+   &lt;/li&gt;
+   …
+&lt;/ul&gt;</code></pre>
+					<p class="ack">抜粋：マーケティングの核となる概念 — ジョン・バーネット</p>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — ヘッダー付きリスト</div>
+						<p>ヘッダーは<code>aria-labelledby</code>属性を使用してリストに関連付けられています。エントリーの順序は重要なので、 <code>ol</code>要素を使用しています。</p>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div class="list-hd" id="race-hd"&gt;Race Result&lt;/div&gt;
+&lt;ol aria-labelledby="race-hd"&gt;
+   &lt;li&gt;Flash Gordon&lt;/li&gt;
+   &lt;li&gt;The Flash&lt;/li&gt;
+   …
+&lt;/ol&gt;</code></pre>
+				</figure>
+				
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — 定義リスト</div>
+						<p>用語は<code>dt</code>要素で識別され、その定義は<code>dd</code>で識別されます。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;dl&gt;
+   &lt;dt&gt;&lt;dfn&gt;Exchange function&lt;/dfn&gt;&lt;/dt&gt;
+   &lt;dd&gt;
+     Sales of the product to the various members 
+     of the channel of distribution.
+   &lt;/dd&gt;
+   &lt;dt&gt;&lt;dfn&gt;Physical distribution function&lt;/dfn&gt;&lt;/dt&gt;
+   &lt;dd&gt;
+     Moves the product through the exchange 
+     channel, along with title and ownership.
+   &lt;/dd&gt;
+   &lt;dt&gt;&lt;dfn&gt;Marketing channel&lt;/dfn&gt;&lt;/dt&gt;
+   &lt;dd&gt;
+     Sets of independent organizations involved
+     in the process of making a product or 
+     service available for use or consumption 
+     as well as providing a payment mechanism 
+     for the provider.
+   &lt;/dd&gt;
+   …
+&lt;/dl&gt;</code></pre>
+					<p class="ack">抜粋：マーケティングの核となる概念 — ジョン・バーネット</p>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">リスト項目に段落やdiv を使用できないのはなぜですか？</dt>
+					<dd>
+<p>段落やdivを使用すると、支援技術を使用してドキュメント内を移動するユーザーは、読み続けるためにすべての項目を１つずつ移動する必要があります。リストを適切に使用すると、ユーザーはリスト全体を簡単にスキップし、いつでもリスト内を移動してリストから抜けることができます。</p>
+						<p>また、段落を使用すると、インデントはCSSを使用してエミュレートされるため、通常は階層関係が失なわれてしまいます。</p>
+						<p>さらに、適切なリストを作成すると、ユーザーエージェントはリスト内の項目の合計数と、ユーザーがナビゲートする際の現在の位置をアナウンスできるため、必要に応じて再度場所を参照することが容易になります。</p>
+					</dd>
+					<dt id="faq-002">リストを作成するのに<code>br</code>タグを使用できないのはなぜですか？</dt>
+					<dd>
+<p>印刷優先のツールはしばしばこのようなリストを生成します（たいていは不適切な書式設定から）。リスト全体が１つの段落で表現され、各項目は強制改行（ <code>br</code>タグ）で区切られます。これにより、リストをすばやくスキップしたり、リストから抜け出したりできるという問題は解決されているように見えますが、リストを項目ごとにすばやくナビゲートできなくなります。ユーザーは、すべての<q>項目</q>を順番に聞かなければいけなくなります。</p>
+						<p>また、<code>br</code>タグを使用すると、後でテキストに戻る方法がないので、コンテンツをもう一度初めから聞かなければならず、特定の項目に戻るのが難しくなります。</p>
+					</dd>
+					<dt id="faq-003">箇条書きの行頭文字にカスタム画像を使用したいのですが、ルールは無視しても良いですか？</dt>
+					<dd><p>いいえ、前述のすべての理由に加えて、CSSでは<code>img</code>要素に頼ることなく、リスト項目にカスタム画像を定義できます。CSS の<code>list-style-image</code>プロパティを参照してください。</p></dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>リストはアクセシビリティ機能として見落とされがちですが、データポイントの長いリストをすばやく効果的に移動する機能は、読む上で重要な要件です。残念ながら、リストは適切なHTMLとしてレンダリングされないままになっています（たとえば、各項目に新しい段落を使用する、エントリを区切るために手動で改行を使用するなど）。</p>
+				
+				<p>目が見えるユーザーは、リストをざっと読み、興味のあるものかどうかを判断したり、項目を選択して読んだりできる利点にほとんど気づきません。ユーザーがリストの最後まで行き着くためにリスト内のすべての項目を１つずつ辿ったり、リスト全体を最初から最後まで聞いたりする必要がある場合、不適切なマークアップの問題はより顕著になります（問題の詳細な説明については<a href="#faq">FAQセクション</a>を参照してください）。リストに適切なタグを付けることはちょっとした対策ですが、ユーザーのフラストレーションを大幅に軽減できるでしょう。</p>
+				
+				<p>リストのナビゲーションを容易にするために、適切な順序付き（<code>ol</code>）または順序なし（<code>ul</code>）リスト要素を使用して、セット内の項目すべてにタグを付けます。ナビゲーションの妨げになるので、項目を別々の行に視覚的にレンダリングするために<code>br</code>タグを使用したり、リストの視覚的な表現のために同じようなスタイリングのトリックを使用したりしないでください。</p>
+				
+				<p>正しいリストタイプを使用することも重要です。これは、項目の順序が重要であるかどうかをユーザーに示す唯一の手がかりになる可能性があるためです。たとえば、アルファベット順のリストは必ずしも順序付きリストであるとは限りません。項目を並べ替えることは、特定の順序を割り当てることと同じではありません。リストの意味を変えずに項目を並べ替えることができる場合は、順序なしリストを定義したことになります（たとえば、索引や参考文献は並べ替えても意味が失われません）。</p>
+				
+				<p>定義リスト（<code>dl</code>）要素は、名前／値リスト用です。これらには、辞書、用語集、よくある質問などが含まれます。HTML5仕様で述べられているように、この要素はキャラクターの会話には使用しないでください。誰が話しているかを示すためだけに<code>dt</code>要素でキャラクター名を繰り返すと、このセマンティクスが崩れます。リストタイプに付属する自動フォーマットは、演劇などの特定の形式に適合する場合がありますが、各<code>dt</code>要素は一意の値を定義することを目的としています。</p>
+				
+				<p>リスト要素は、純粋なプレゼンテーション目的には使用しないでください（例：<code>dl</code>リストを使用して、インデントされた段落を持つ太字の見出しを作成するなど）。</p>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">&lt;ol&gt;: 順序付きリスト要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">&lt;ul&gt;: 順序なしリスト要素</a>
+</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl">&lt;dl&gt;: 定義リスト要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ol-element"><code>ol</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element"><code>ul</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"><code>dl</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

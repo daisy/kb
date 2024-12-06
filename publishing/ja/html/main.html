@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>メインコンテンツ</title>
@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p><code>main</code>要素は、ドキュメント内に、ユーザーが主要なコンテンツにたどりつくために読み飛ばす必要がある導入コンテンツが繰り返されている場合にのみ必要です。</p>
+				<p>ドキュメント内でユーザーが主要なコンテンツに行き着くためには読み飛ばす必要がある導入コンテンツが繰り返されている場合にのみ、<code>main</code>要素が必要になります。</p>
 			</section>
 			
 			<section id="tech">
@@ -27,7 +27,7 @@
 				
 				<ul>
 					<li>
-						<p>主要なコンテンツをカプセル化するために<code>main</code>要素を使用する[[WCAG-1.3.1]]</p>
+						<p>主要なコンテンツをカプセル化するために<code>main</code>要素を使用します。[[WCAG-1.3.1]]</p>
 					</li>
 				</ul>
 			</section>
@@ -37,7 +37,7 @@
 				<figure id="ex-01">
 					<figcaption>
 						<div class="label">例 1 — ページヘッダーの繰り返し</div>
-						<p>次の例は、固定レイアウトの出版物で繰り返し表示されるページヘッダーを読み飛ばすために<code>main</code>要素を使用する方法を示しています。</p>
+						<p>次の例は、固定レイアウトの出版物において、繰り返し表示されているページヘッダーを読み飛ばすために<code>main</code>要素を使う方法を示しています。</p>
 					</figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;body&gt;
    &lt;header&gt;
@@ -56,7 +56,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p><code>main</code>要素は、Web ページの主要コンテンツを識別するために使用されます。これは HTML5 で導入され、ページの上部に「コンテンツへスキップ」リンクを配置するという従来の方法に対する解決策を提供します。これにより、支援技術のユーザーは、周辺の繰り返しコンテンツ（サイトヘッダー、ナビゲーション、広告など）を読み飛ばすことができます。</p>
+				<p><code>main</code>要素は、Webページの主要コンテンツを識別するために使用します。これはHTML5で導入され、ページの上部に「コンテンツへスキップ」リンクを配置するという従来の方法に対する解決策を提供します。これにより、支援技術のユーザーは、周辺の繰り返しコンテンツ（サイトヘッダー、ナビゲーション、広告など）を読み飛ばせます。</p>
 				
 				<p><code>main</code>要素は支援技術によって<a href="landmarks.html">ランドマーク（目印）</a>として扱われるため、main要素が存在する場合、ユーザーはその要素に直接ジャンプできます。これは<a href="https://www.w3.org/TR/wai-aria/#main">ARIA の<code>main</code>ロール</a>に相当します。</p>
 				
@@ -64,7 +64,7 @@
 				
 				<p>主要な物語の前にあるという理由だけで、<code>main</code>要素を使用して重要なコンテンツを省略してしまわないように注意する必要があります。たとえば、教科書では、章の見出し、ミニ目次、学習オブジェクトなどのコンテンツが章の本文の前に出現することがありますが、これらはいずれも重複コンテンツではありません。これらは各章に固有のものです。 <code>main</code>要素の前に配置すると、ユーザーが見逃してしまう可能性があります。</p>
 				
-				<p>HTML <code>body</code>要素には、 <code>hidden</code>属性が指定されていない<code>main</code>要素は1 つだけしか含めることができないことに注意してください。また、 <code>article</code>や<code>aside</code>などのコンテンツに独自の<code>main</code>コンテンツセクションを含めることはできません。</p>
+				<p>HTMLの<code>body</code>要素には、<code>hidden</code>属性が指定されていない<code>main</code>要素は1つだけしか組み込めない点に注意してください。また、<code>article</code>や<code>aside</code>などのコンテンツに独自の<code>main</code>コンテンツセクションを設けることはできません。</p>
 				
 				<p>インスタンスが 1 つしかない場合は、 <code>main</code>要素にラベルを付ける必要はありませんが、インスタンスが複数ある場合は、 <code>aria-label</code>または<code>aria-labelledby</code>属性を使用してラベルを付けることもできます。</p>
 			</section>
@@ -75,8 +75,7 @@
 				<ul>
 					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> </li>
 					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element">main要素</a> </li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#main">main (role)</a>
-</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#main">main (role)</a> </li>
 				</ul>
 			</section>
 		</main>

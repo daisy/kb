@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>スタイルの分離</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for separating visual presentation from semantic markup.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style type="text/css">
+			@namespace epub 'http://www.idpf.org/2007/ops';
+			
+			aside[epub|type ~= 'sidebar'],
+			aside[epub\:type ~= 'sidebar']{
+				padding: 0.5em;
+				margin-left: 2em;
+				width: 25%;
+				max-width: 15em;
+				background-color: rgb(240, 240, 240);
+				border: solid 1px rgb(0, 0, 0);
+				float: right;
+			}
+			
+			aside[epub|type ~= 'sidebar'] h4,
+			aside[epub\:type ~= 'sidebar'] h4{
+				margin: 0em;
+				padding: 0em;
+			}
+			
+			aside[epub|type ~= 'warning'],
+			aside[epub\:type ~= 'warning']{
+				width: 80%;
+				background-color: rgb(255, 255, 255);
+				border: solid 2px rgb(200, 0, 0);
+				padding-top: 1em;
+			}
+			
+			aside[epub|type ~= 'warning'] h4,
+			aside[epub\:type ~= 'warning'] h4{
+				text-indent: 0.5em;
+				width: 4em;
+				margin: -1.5em 0em 0em 1em;
+				background-color: rgb(255, 255, 200);
+				border: solid 1px rgb(0, 0, 0);
+				color: rgb(0, 0, 0);
+			}</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>適切なセマンティック マークアップを使用すると、ユーザーが目が見えない場合や、すべての色の違いを区別できない場合でも、平等に利用できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>色を情報を伝達する主要な手段にしないでください。[[WCAG-1.4.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 例に枠線を追加する</div>
+						<p>例を強調表示するために、左側に太い灰色の枠線をCSSで付けています。このCSSセレクターは、<code>role</code>属性に値<code>doc-example</code>を含んだ<code>pre</code>要素に合致します。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code class="lang-css">pre[role~='doc-example'] {
+   border-left: solid 3px; rgb(180,180,180);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — モバイル レンダリング用のスタイルで上書きする</div>
+						<p>二番目にリンクされたスタイルシートは、最大画面幅が480ピクセル以下の（訳注：モバイルデバイスの）場合にのみ適用されるので、モバイルデバイス向けに最適化されたスタイルで、デフォルトのスタイルを上書きできます。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;html …&gt;
+   &lt;head&gt;
+     …
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3.css"
+         media="screen"/&gt;
+     
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3-mobile.css"
+         media="screen and (max-width:480px)"/&gt;
+     …
+   &lt;/head&gt;
+   …
+&lt;/html&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>多くの場合、製作者がコンテンツを作成する際に配慮する唯一の考慮事項はコンテンツの見た目でしょう。しかしこの考慮事項には、視覚的に読むわけではない（たとえば、点字ディスプレイや、テキスト読み上げ再生などで読む）ユーザーが多く存在するという観点が欠けています。マークアップからのスタイル分離は、単にCSSを別のファイルに分離するだけでなく、マークアップは全てのユーザーに意味を伝えるものであり、視覚的なレンダリングは一つの使い方にすぎない点を認識することにもなります。</p>
+				
+				<p>意味付けがしっかりされているマークアップにより、意味のあるスタイル設定が可能になり、 <a href="roles.html">ARIAの<code>role</code>属性</a>をCSSセレクターとともに使用して、目的に応じてスタイル設定を適用できます。レンダリング時の見た目だけでなく、データの表現方法にも重点が置かれるようになるので、セマンティックなスタイル設定の使用をお勧めします。</p>
+				
+				<p>製作者がコンテンツに付与したスタイル設定が、必ずしも視覚ユーザーにとって最適なものであるとは限りません。ユーザーは、自分のニーズに合わせて、異なる配色や、コントラストレベルの向上、配置、フォント、行の高さの変更をしたいかもしれません。</p>
+				
+				<p>このため、習慣として、スタイル情報をマークアップから明確に分離しておくのがよいでしょう。その際、<code>style</code>属性は、ユーザーがドキュメントをリフローしたり、スタイルを変更したりする機能を妨げる可能性があるため、使用しないでください。</p>
+				
+				<p>CSSのスタイル定義は、HTML5の<code>link</code>要素を介して、適用先のコンテンツ ドキュメントにリンクできます。複数のスタイルシートをドキュメントに添付して、さまざまなレンダリング媒体をターゲットにしたり、スタイルを機能別にすっきりとグループ化したりもできます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/dom.html#aria-role-attribute">ARIA <code>role</code>属性</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"><code>epub:type</code>属性</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

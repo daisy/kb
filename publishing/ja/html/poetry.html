@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>詩（Poetry）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Practices for formatting poetry and lyrics accessibly">
+		<script>
+			var page_info = {
+				'topic': ['HTML'],
+				'appliesTo': ['EPUB3','EPUB2','Audiobooks*']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			blockquote {
+				font-style: italic;
+			}
+			.pre {
+				white-space: pre;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>詩や歌詞の行を構造化して表現すると、通常の散文とのレイアウトの違いが見えないユーザーにとってのアクセシビリティが向上します。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>改行には<code>br</code>タグを使用します。[[WCAG-1.3.1]]</li>
+					<li>行の書式設定が追加で必要な場合は、<code>span</code>タグを使用します。</li>
+					<li>視覚的なレイアウトで意味を伝える詩には、説明を追加します。</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 複数の節（スタンザ）からなる基本的な詩</div>
+						<p>詩の行には特別な書式設定は必要ないので、行末を識別するには<code>br</code>タグのみが必要です。節を区切るには<code>p</code>タグを使用します。</p>
+					</figcaption>
+					
+					<blockquote>
+						<h4>The Tyger</h4>
+						
+						<p class="stanza">Tyger Tyger, burning bright,<br>  							In the forests of the night;<br> 							What immortal hand or eye,<br> 							Could frame thy fearful symmetry?</p>
+						
+						<p class="stanza">In what distant deeps or skies.<br> 							Burnt the fire of thine eyes?<br> 							On what wings dare he aspire?<br> 							What the hand, dare seize the fire?</p>
+						
+						<p>…</p>
+					</blockquote>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section&gt;
+   &lt;h2&gt;The Tyger&lt;/h2&gt;
+
+   &lt;p class="stanza"&gt;Tyger Tyger, burning bright,&lt;br/&gt; 
+      In the forests of the night;&lt;br/&gt;
+      What immortal hand or eye,&lt;br/&gt;
+      Could frame thy fearful symmetry?&lt;/p&gt;
+
+   &lt;p class="stanza"&gt;In what distant deeps or skies.&lt;br/&gt;
+      Burnt the fire of thine eyes?&lt;br/&gt;
+      On what wings dare he aspire?&lt;br/&gt;
+      What the hand, dare seize the fire?&lt;/p&gt;
+
+   &lt;p&gt;…&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — 空白を使用して行のインデントを維持する</div>
+						<p>次の詩では、行のインデントを維持するために<code>span</code>タグを使用しています。間隔を維持するために、CSSの<code>white-space</code>プロパティを<code>pre</code>に設定しています。</p>
+					</figcaption>
+					
+					<blockquote>
+						<p>i will wade out<br> 							<span class="pre">               till my thighs are steeped in burning flowers</span><br> 							I will take the sun in my mouth<br> 							and leap into the ripe air<br> 							<span class="pre">                           Alive</span><br> 							<span class="pre">                                 with closed eyes</span><br> 							to dash against darkness<br> 							<span class="pre">                       in the sleeping curves of my body</span><br> 							Shall enter fingers of smooth mastery<br> 							with chasteness of sea-girls<br> 							<span class="pre">                             Will i complete the mystery</span><br> 							<span class="pre">                             of my flesh</span><br> 							I will rise<br> 							<span class="pre">            After a thousand years</span><br> 							lipping<br> 							flowers<br> 							<span class="pre">        And set my teeth in the silver of the moon</span></p>
+					</blockquote>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p class="poem"&gt;i will wade out&lt;br/&gt;
+&lt;span class="preserve"&gt;               till my thighs are steeped in burning flowers&lt;/span&gt;&lt;br/&gt;
+I will take the sun in my mouth&lt;br/&gt;
+and leap into the ripe air&lt;br/&gt;
+&lt;span class="preserve"&gt;                           Alive&lt;/span&gt;&lt;br/&gt;
+&lt;span class="preserve"&gt;                                 with closed eyes&lt;/span&gt;&lt;br/&gt;
+to dash against darkness&lt;br/&gt;
+&lt;span class="preserve"&gt;                       in the sleeping curves of my body&lt;/span&gt;&lt;br/&gt;
+Shall enter fingers of smooth mastery&lt;br/&gt;
+with chasteness of sea-girls&lt;br/&gt;
+&lt;span class="preserve"&gt;                             Will i complete the mystery&lt;/span&gt;&lt;br/&gt;
+&lt;span class="preserve"&gt;                             of my flesh&lt;/span&gt;&lt;br/&gt;
+I will rise&lt;br/&gt;
+&lt;span class="preserve"&gt;            After a thousand years&lt;/span&gt;&lt;br/&gt;
+lipping&lt;br/&gt;
+flowers&lt;br/&gt;
+&lt;span class="preserve"&gt;        And set my teeth in the silver of the moon&lt;/span&gt;&lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — テキストインデントを使用してインデントを維持する</div>
+						<p><a href="#ex-02">例2</a>と同じ詩ですが、CSSインデント付きの<code>span</code>タグを使用しています。書式設定を機能させるには、 <code>span</code>タグのCSS <code>display</code>も<code>inline-block</code>に設定する必要があります。</p>
+					</figcaption>
+					
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p class="poem"&gt;i will wade out&lt;br/&gt;
+&lt;span style="text-indent: 6rem"&gt;till my thighs are steeped in burning flowers&lt;/span&gt;&lt;br/&gt;
+I will take the sun in my mouth&lt;br/&gt;
+and leap into the ripe air&lt;br/&gt;
+&lt;span style="text-indent: 11rem"&gt;Alive&lt;/span&gt;&lt;br/&gt;
+&lt;span style="text-indent: 13rem"&gt;with closed eyes&lt;/span&gt;&lt;br/&gt;
+to dash against darkness&lt;br/&gt;
+&lt;span style="text-indent: 10rem"&gt;in the sleeping curves of my body&lt;/span&gt;&lt;br/&gt;
+Shall enter fingers of smooth mastery&lt;br/&gt;
+with chasteness of sea-girls&lt;br/&gt;
+&lt;span style="text-indent: 11.5rem"&gt;Will i complete the mystery&lt;/span&gt;&lt;br/&gt;
+&lt;span style="text-indent: 11.5rem"&gt;of my flesh&lt;/span&gt;&lt;br/&gt;
+I will rise&lt;br/&gt;
+&lt;span style="text-indent: 5rem"&gt;After a thousand years&lt;/span&gt;&lt;br/&gt;
+lipping&lt;br/&gt;
+flowers&lt;br/&gt;
+&lt;span style="text-indent: 3.5rem"&gt;And set my teeth in the silver of the moon&lt;/span&gt;&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">詩に画像を使用できますか？</dt>
+					<dd>
+						<p>一部の詩のレイアウトは、HTMLやCSSで表現するには複雑すぎる場合があります。このような場合、原本を表現するために、画像を使用するほかないことがあります。</p>
+						<p>画像を使用する必要がある場合は、レイアウトを認識できないユーザーのために詩のテキストを提供する必要があります（<code>details</code>要素など）。また、読者が詩の意図を理解できるように、画像内でテキストがどのように配置されているかを説明する必要があります。</p>
+						<p>画像の使用は、レイアウトが困難な場合における最後の手段としてください。</p>
+					</dd>
+					
+					<dt id="faq-002">レイアウトに<code>pre</code>タグを使用できますか？</dt>
+					<dd>
+						<p>はい、しかし、<code>pre</code>タグは、個々の文字や単語の配置に依存する詩に使用してください。単純なインデントの場合は、CSSスタイルで<code>span</code>タグまたは<code>div</code>タグを使用する使用する方が良い場合が多いです。</p>
+					</dd>
+					
+					<dt id="faq-003">ARIAで詩を識別できますか？</dt>
+					<dd>
+						<p>いいえ。詩の行ベースの書式は標準的な散文とは視覚的に異なり、散文の連続的な流れとは読み方が異なりますが、HTMLには詩をマークアップするためのネイティブなセマンティック要素はありません。ARIAにも、詩とその内部構造を識別するロールがありません。</p>
+						
+						<p>詩集の場合、ユーザーは自分が読んでいる作品の種類を知っているので、これは通常問題にはなりませんが、特にフィクション作品の場合、著者はスタイルの変更があったことを示さずに、テキストの段落の間に詩や歌詞をランダムに散りばめることがあります。</p>
+						
+						<p>現時点では、支援技術のユーザーは、利用可能なマークアップに対するアプリケーションの動作（たとえば、<code>br</code>タグで行の読み取りを停止するなど）によって、文章スタイルの変化を直感的に理解するしかありません。</p>
+					</dd>
+					
+					<dt id="faq-004">
+<code>br</code>タグの周囲に空白は必要ですか？</dt>
+					<dd>
+						<p>はい、多くのリーディングシステムでは、<code>br</code>タグの箇所での、行ごとの読み取りはサポートしていません。次の例のように、各行のテキストが<code>br</code>タグで区切られた場合、</p>
+						
+						<pre class="prettyprint linenums">…lipping&lt;br/&gt;flowers&lt;br/&gt;…</pre>
+						
+						<p>これらのリーディングシステムは、テキスト読み上げ（TTS）再生が有効になっているときには単語をつなげて発音します。</p>
+						
+						<p>この問題を回避するには、<code>br</code>タグの前後に少なくとも 一つの空白文字を付けてください。<a>上記の例</a>のように、各<code>br</code>タグの後に改行を追加すると、この問題を回避できます。あるいは、<code>br</code>タグの前に空白文字を追加しても、この問題を回避できます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>HTMLには詩を表現するためのセマンティックな意味のあるマークアップは含まれていませんが、ネイティブ要素を使用して詩の行をマークアップすることは可能です。</p>
+				
+				<p>たとえば、<code>p</code>要素は一般的にテキストの段落に関連付けられますが、HTMLではタグの意味が詩にも拡張されます。</p>
+				
+				<blockquote>
+					<p>段落は通常、一連のフレーズの内容です…が、より一般的なテーマのグループ化にも使用できます。たとえば、住所も段落ですし…詩のスタンザも同様です。</p>
+				</blockquote>
+				
+				<p>各スタンザ内の行は、<code>br</code>タグを使用して識別されます。支援技術は、各<code>br</code>タグで読み取りを一時停止し、ユーザーが詩を行ごとに移動できるようにします（<a href="#ex-01">例1</a>を参照）。</p>
+				
+				<div class="note" role="note" aria-labelledby="bug-note">
+					<p id="bug-note" class="label">注記</p>
+					<p>MacOSのChromiumベースのリーディングシステムには、<code>blockquote</code>内で<code>br</code>タグが使用されている場合にVoiceOverが行を繰り返すという既知のバグがあります。これは詩や歌詞（例：題詞）が引用された場合に発生します。現在の状況の詳細については、<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1322784">バグレポート</a>を参照してください。</p>
+				</div>
+				
+				<p>このマークアップ パターンは基本的な詩には有効ですが、制限が多すぎる状況も数多くあります。詩では、意味を伝えるために視覚的なレイアウトが使用されることがよくあります。このような場合、テキストのインデントと配置を維持するためにCSSスタイルも必要になります（例<a href="#ex-02">2</a>と<a href="#ex-03">3</a>を参照）。</p>
+				
+				<p>視覚的な表現が使われた詩では、コンテンツを見ることができない人やレイアウト全体を見るのが難しい人のために、レイアウトの説明を提供することも重要です。これは、<a href="#faq-01">画像を使用しなければならない</a>ときだけでなく、レイアウトが意味を伝えるときはいつでも重要です。</p>
+			</section>
+		</main>
+	</body>
+</html>

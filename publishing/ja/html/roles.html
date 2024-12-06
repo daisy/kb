@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ARIA role 属性</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the enhancing digital publications with ARIA roles, states and properties.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>ARIA <code>role</code>属性を使用して、支援技術のユーザーにドキュメントの構造に関する詳細情報を提供します。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>
+						<p>ページ領域を識別します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — 章</div>
+					</figcaption>
+					<pre id="ex-01d-src" class="prettyprint linenums small"><code>&lt;section role="doc-chapter" aria-labelledby="hd03"&gt;
+   &lt;h2 id="hd03"&gt;1 - It begins&lt;/h2&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 脚注と参考文献</div>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;p&gt;lorum ipsum.&lt;a role="doc-noteref" href="#fn01"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;aside role="doc-footnote"&gt;
+   …
+&lt;/aside&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — 文末脚注</div>
+					</figcaption>
+
+					<pre id="ex-01g-src" class="prettyprint linenums small"><code>&lt;section role="doc-endnotes" aria-labelledby="hd-notes"&gt;
+   &lt;h1 id="hd-notes"&gt;Endnotes&lt;/h1&gt;
+   
+   &lt;section&gt;
+     &lt;h2&gt;Chapter 1&lt;/h2&gt;
+     &lt;ol&gt;
+      &lt;li role="doc-endnote"&gt;…&lt;/li&gt;
+      …
+     &lt;/ol&gt;
+   &lt;/section&gt;
+   …
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>コアHTMLマークアップの文法は、一般的な出版物の構造を識別するのに適していないという限界があります。たとえば、出版物には何百もの<code>aside</code>要素があるかもしれませんが、どれがサイドバーの注を表し、どれが警告やアラートを表しているかなどを確実に識別できません。</p>
+
+				<p>目の見えるユーザーにとっては、CSSスタイルシートによって視覚的なレンダリングが強化されて、この欠点が覆い隠されています（背景、枠線、および陰影は、役割を視覚的に伝えるために使用されています）。円滑なナビゲーションのためにその基礎となるマークアップを頼りとしている支援技術のユーザーにとっては、視覚的な表現の下では、主要な資料と補足的な資料が区別できないことが多く、Web ベースの技術ではアクセシビリティが限られていました。</p>
+
+				<p>出版物をよりアクセシブルにするためには、多くのユーザーが視覚に頼らない方法でコンテンツを使っているということを考慮する必要があります。そのため、<a href="order.html">論理的な読み取り順序</a>をマークアップレベルで定義しなければなりません。また、ARIA の<code>role</code>属性を使用して、汎用タグにさらに正確な意味を付与し、判別しやすくすることができます。</p>
+
+				<p>ARIA仕様では多くのロールが定義されていますが、そのほとんどはスクリプト化されたHTMLインターフェースをより使いやすくするためのものです（<a href="../script/aria.html">スクリプトセクションのARIA</a>を参照）。コア仕様には多数の<a href="https://www.w3.org/TR/wai-aria/#document_structure_roles">ドキュメント構造ロール</a>と<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">ランドマークロール</a>が含まれていますが、これらは主にWebページのレイアウトに重点を置いています。出版業界では、<a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA モジュール</a>で定義されたロールを使用するのが一般的です。</p>
+
+				<section>
+					<h4>EPUB 3</h4>
+
+					<p><a href="epub-type.html"><code>epub:type</code>属性</a>は、 EPUB 3のARIA<code>role</code>属性と同様の機能を提供することを目的としていましたが、アクセシビリティのサポートは実現しませんでした。この属性は、ポップアップ脚注などの特定のユーザーエージェントの動作をできるようにするには便利ですが、出版物のアクセシビリティを向上させることを期待して使用すべきではありません。</p>
+
+					<p><code>epub:type</code>からARIA<code>role</code>属性に切り替えるときに避けるべき悪い習慣の例については、<a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">「EPUBタイプからARIAロールへの製作ガイド （EPUB Type to ARIA Role Authoring Guide）」</a>を参照してください。</p>
+				</section>
+
+				<section>
+					<h4>EPUB 2</h4>
+
+					<p>XHTML 1.0は、ARIA 1.0より前にリリースされたため、EPUB2はARIA属性の使用をサポートしていません。この属性を含めると検証エラーが発生します。</p>
+				</section>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">すべてのセクションにランドマークロールを追加する必要がありますか？</dt>
+					<dd>
+						<p>いいえ、ランドマークは読者が出版物の主要なセクションに素早く移動できるように設計されているもので、目次の代わりとなるものではありません。</p>
+
+						<p><a href="dpub-aria/">DPUB-ARIA語彙</a>にセクションのロールが含まれていない場合、 <a href="https://www.w3.org/TR/wai-aria/#region"><code>region</code>ロール</a>を持つ新しいランドマークを定義する前に、ナビゲーションへの影響を考慮してください。ランドマークは目的地が列挙されている階層構造のないフラットなリストなので、リストに小見出しを詰め込みすぎても分かりにくくなるだけです。</p>
+					</dd>
+
+					<dt id="faq-002">タイトルのないセクションに<code>aria-label</code>または<code>title</code>を追加すると、ランドマークが作成されますか?</dt>
+					<dd>
+						<p>はい。そのため、この方法で作成されるランドマークによって、ランドマークリストの項目が増えすぎないように注意する必要があります。<code>section</code>要素にラベルがある場合、そのセクションは、 <a href="https://www.w3.org/TR/wai-aria/#region"><code>region</code>ロール</a>が適用されているかのように処理されて、ランドマークになります。</p>
+						<p>タイトルのないセクションが<code>doc-chapter</code>などの既存のランドマークロールに関連付けられていない場合は、ラベルを付ける前にナビゲーションへの影響を考慮してください。</p>
+					</dd>
+
+					<dt id="faq-003">すべてのロールにラベルを付ける必要はありますか？</dt>
+					<dd>
+						<p>いいえ、ラベルが必要かどうかは、ロールがアクセシブルな名前を必要とするかどうかによって決まります。アクセシブルな名前が必要かどうかを判断するには、 <a href="https://www.w3.org/TR/dpub-aria">DPUB-ARIA</a>または<a href="https://www.w3.org/TR/wai-aria/#role_definitions">ARIA</a>仕様のロール定義を参照してください。ロールのプロパティリストに「アクセシブルな名前が必要」というフィールドがない場合は、ロールのスーパークラス（継承元のクラス）を確認してください（値は継承されます）。</p>
+					</dd>
+
+					<dt id="faq-004">ランドマークには常にラベルを付けるべきですか？</dt>
+					<dd>
+						<p><code>aria-labelledby</code>属性（テキストに見出しがある場合）または<code>aria-label</code>属性（セクションに明示的な見出しがない場合）を使用してランドマークにラベルを付けるのが、ベストプラクティスです。</p>
+						<p>DPUB-ARIAランドマークにはラベルは必須ではありませんが、語彙のサポートもまだ広く普及していません。語彙が認識されない場合でも、ラベルを追加するとHTMLのデフォルトの処理ルールによってランドマークが作成されます（つまり、 <code>section</code>要素にラベルを追加することで、アクセシビリティツリーを作成するときに、ブラウザーはセクションを暗黙の<a href="https://www.w3.org/TR/wai-aria/#region"><code>region</code></a>として扱います）。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria/">デジタル出版 WAI-ARIA モジュール</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
