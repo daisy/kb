@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MathML（マスエムエル）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for the provision of accessible MathML content.">
+		<script>
+			var page_info = {
+				'category': ['HTML'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<div class="warning" role="note" aria-labelledby="use-warn">
+				<p class="label" id="use-warn">注意</p>
+				<p>すべてのリーディングシステムで機能するMathMLのソリューションは、現在のところ存在しません。このページで紹介されているテクニックは、新しい情報が利用可能になり次第、更新されます。</p>
+				<p>Refer to the <a href="https://daisy.github.io/transitiontoepub/best-practices/mathML/mathMLBestPractices.html">Best 					Practices for Authoring MathML in EPUB</a> guide for the latest information.</p>
+			</div>
+
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>ネイティブMathMLマークアップのレンダリングのサポートは増えていますが、サポートシナリオによっては、依然として回避策が必要な場合があります。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>
+						<p>Represent math equations using MathML markup. [[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>プレーンテキストの数式には<code>math</code>ロールを使用します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — ブロックレベルのMathML方程式</div>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+   &lt;mfrac&gt;
+      &lt;msqrt&gt;
+         &lt;mtext&gt;a&lt;/mtext&gt;
+      &lt;/msqrt&gt;
+      &lt;mi&gt;b&lt;/mi&gt;
+   &lt;/mfrac&gt;
+&lt;/math&gt;</code></pre>
+					<!-- <p class="figlabel">Demo:</p>
+					<math xmlns="http://www.w3.org/1998/Math/MathML">
+						<mfrac>
+							<msqrt>
+								<mtext>a</mtext>
+							</msqrt>
+							<mi>b</mi>
+						</mfrac>
+					</math> -->
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — インラインMathML方程式</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>In the Pythagorean equation,
+   &lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;mrow&gt;
+         &lt;msup&gt;
+            &lt;mi&gt;a&lt;/mi&gt;
+            &lt;mn&gt;2&lt;/mn&gt;
+         &lt;/msup&gt;
+         &lt;mo&gt;+&lt;/mo&gt;
+         &lt;msup&gt;
+            &lt;mi&gt;b&lt;/mi&gt;
+            &lt;mn&gt;2&lt;/mn&gt;
+         &lt;/msup&gt;
+         &lt;mo&gt;=&lt;/mo&gt;
+         &lt;msup&gt;
+            &lt;mi&gt;c&lt;/mi&gt;
+            &lt;mn&gt;2&lt;/mn&gt;
+         &lt;/msup&gt;
+      &lt;/mrow&gt;
+   &lt;/math&gt;,
+   the sum of the square of …</code></pre>
+					<!-- <p class="figlabel">Demo:</p>
+					<p>In the Pythagorean Theorem, <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></math>, the sum of the square &#8230;</p> -->
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — インラインテキスト数式</div>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>If &lt;span role="math"&gt;2 + x = 9&lt;/span&gt;,
+   what is the value of &lt;var&gt;x&lt;/var&gt;?</code></pre>
+					<p class="figlabel">デモ：</p>
+					<p><span role="math">2+x=9</span>の場合、<var>x</var>の値は何ですか？</p>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — 代替テキスト付きの画像</div>
+					</figcaption>
+					<p>画像が唯一の出力である場合でも、出版者がMathMLマークアップのソースを持っている場合は、それを画像と一緒に（おそらく非表示の）<code>div</code>に保存できます。出版者は、公開するコンテンツで使用する形式を選択できます（つまり、サポートの少ない代替形式を除外します）。また、スクリプトを使用してどちらをレンダリングするかを決定することで、両方の形式を公開することもできます（IE11などの古いユーザーエージェントを考慮する必要がある場合は、<code>hidden</code>属性に<a>CSSフォールバック</a>も必要になる可能性があることに注意してください）。</p>
+					<pre id="ex-04a-src" class="prettyprint linenums"><code>
+&lt;div class="mathml-eq"&gt;
+   &lt;img src="squarerootab.jpg" alt="Square root of the result of a divided by b"/&gt;
+   &lt;div hidden="hidden"&gt;
+      &lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+         &lt;mfrac&gt;
+            &lt;msqrt&gt;
+               &lt;mtext&gt;a&lt;/mtext&gt;
+            &lt;/msqrt&gt;
+            &lt;mi&gt;b&lt;/mi&gt;
+         &lt;/mfrac&gt;
+      &lt;/math&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+					<p>あるいは、処理やレンダリングへの影響を回避するためにMathMLマークアップをHTMLコメント（<code>&lt;!-- --&gt;</code>）内に隠すこともできます。ただし、後で再処理するときに問題が発生する可能性があります。</p>
+					<pre id="ex-04b-src" class="prettyprint linenums"><code>
+&lt;img src="squarerootab.jpg" alt="Square root of the result of a divided by b"/&gt;
+&lt;!-- &lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+         &lt;mfrac&gt;
+            &lt;msqrt&gt;
+               &lt;mtext&gt;a&lt;/mtext&gt;
+            &lt;/msqrt&gt;
+            &lt;mi&gt;b&lt;/mi&gt;
+         &lt;/mfrac&gt;
+      &lt;/math&gt; --&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">MathMLタグにプレフィックスを付ける必要はありますか？</dt>
+					<dd>
+						<p>いいえ、MathMLタグにプレフィックスを使用することはお勧めしません（例：<code>m:math</code>）。</p>
+
+						<p>支援技術とユーザーエージェントのすべての組み合わせが XMLを認識するわけではないため、MathMLマークアップをサポートしていても、プレフィックス付きマークアップはサポートされない可能性があります。</p>
+
+						<p>HTMLとXHTML構文間の互換性をするためにも、「プレフィックスなし」のタグの使用が推奨されます（XMLプレフィックスはHTMLではサポートされていません）。</p>
+					</dd>
+					
+					<dt id="faq-002">MathMLマークアップでARIA <code>math</code>ロールを使用する必要はありますか？</dt>
+					<dd>
+						<p>いいえ、MathMLマークアップでは<code>math</code>ロールを使用しないことを強くお勧めします。多くの場合、このロールを使用すると、ユーザーがMathMLマークアップにアクセスできなくなります。</p>
+						<p><code>math</code>ロールはテキストの数式に制限する必要があります（<a href="#ex-03">例3</a>を参照）。</p>
+					</dd>
+					
+					<dt id="faq-003">どのように説明文を入れればよいですか？</dt>
+					<dd>
+						<p>現在、サポートが不十分なため、説明文については推奨される方法がありません。</p>
+						<p><code>alttext</code>属性は説明用ではなく、MathMLがサポートされていない場合にMathMLの代わりに使用することを目的としています。この代替に対するリーディングシステムのサポートは不十分です。</p>
+						<p>MathML 4では、方程式の発音を改善するために<a href="https://www.w3.org/TR/mathml4/#mixing_intent"><code>intent</code>属性</a>が導入されていますが、まだドラフト段階です。</p>
+						<p><code>aria-label</code>属性と<code>aria-details</code>属性を使用して説明文を提供することは可能ですが、まだテストが必要です。</p>
+						<p>実証済みのテクニックが出てきた時点で、このガイドは改訂される予定です。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>HTMLでのネイティブMathMLサポートの利点は、マークアップに基づいて音声を提供できることですが、そのような音声を提供できるユーザーエージェントはまだ普及していません。ただし、MathMLは、それをサポートするユーザーエージェントにとっては、依然として最もアクセシブルなオプションを提供します。</p>
+
+				<p>MathMLレンダリングのサポートがブラウザで広く普及したため、アクセシブルな数式を提供するための最良の選択肢は MathMLマークアップを使用することです。</p>
+				
+				<p>Although MathML should be preferred for math content, simple inline text equations are often not 					tagged (e.g., "<span role="math">x + y = z</span>"). Although such equations may appear simple, 					assistive technologies will often not read out all the symbols, making them difficult for users 					to understand. If MathML is not used for these types of equations, they should be wrapped inside 					an element with the role "<code>math</code>" (refer to <a href="#ex-03">example 3</a>). The use 					of this role allows assistive technologies to switch pronunciation modes.</p>
+				
+				<div class="note" role="note" aria-labelledby="epub-note">
+					<p class="label" id="epub-note">注記</p>
+					<p>EPUBでのMathMLのサポートは、リーディングシステムの古さに大きく依存します。ブラウザーコアを積極的に更新するリーディングシステムは現在MathMLを処理できますが、出版者はしばらくの間、古いリーディングシステムでのコンテンツのレンダリングを考慮する必要があります。</p>
+					<p>それほど堅牢ではないものの、古いリーディングシステムで動作する可能性が高い解決策は、十分に説明的な代替テキスト付きの数式の画像と、より複雑な数式についての拡張説明を提供することです（<a href="#ex-04">例4</a>を参照）。</p>
+					<p>EPUBでのサポートに関する最新情報については、<a href="https://daisy.github.io/transitiontoepub/best-practices/mathML/mathMLBestPractices.html">『EPUBでMathMLを作成するためのベストプラクティス』</a>ガイドを参照してください。</p>
+				</div>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math">&lt;math&gt;</a>
+</li>
+					<li>MathML —<a href="http://www.w3.org/TR/MathML3/">数学用マークアップ言語（MathML）バージョン3.0</a>
+</li>
+					<li> 						<a href="http://www.gh-mathspeak.com/examples/grammar-rules/">MathSpeak Core Specification Grammar Rules（MathSpeakコア仕様文法規則）</a>
+</li>
+					<li>DAISY — <a href="https://daisy.github.io/transitiontoepub/best-practices/mathML/mathMLBestPractices.html">EPUBでMathMLを作成するためのベストプラクティス</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
