@@ -85,12 +85,12 @@
 
 				<p>出版物をよりアクセシブルにするためには、多くのユーザーが視覚に頼らない方法でコンテンツを使っているということを考慮する必要があります。そのため、<a href="order.html">論理的な読み取り順序</a>をマークアップレベルで定義しなければなりません。また、ARIA の<code>role</code>属性を使用して、汎用タグにさらに正確な意味を付与し、判別しやすくすることができます。</p>
 
-				<p>The ARIA specification defines many roles, but the majority are intended to aid in making scripted 					HTML interfaces more accessible (see <a href="../script/aria.html">ARIA in the scripting section</a> 					The core specification does contain a number of <a href="https://www.w3.org/TR/wai-aria/#document_structure_roles">document structure roles</a> and 						<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">landmark roles</a>, but these are 					focused primarily on the layout of web pages. It is more common in publishing to use the roles 					defined in the <a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA 					modules</a>.</p>
+				<p>ARIA仕様では多くのロールが定義されていますが、そのほとんどはスクリプト化されたHTMLインターフェースをより使いやすくするためのものです（<a href="../script/aria.html">スクリプトセクションのARIA</a>を参照）。コア仕様には多数の<a href="https://www.w3.org/TR/wai-aria/#document_structure_roles">ドキュメント構造ロール</a>と<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">ランドマークロール</a>が含まれていますが、これらは主にWebページのレイアウトに重点を置いています。出版業界では、<a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA モジュール</a>で定義されたロールを使用するのが一般的です。</p>
 
 				<section>
 					<h4>EPUB 3</h4>
 
-					<p>The <a href="epub-type.html"><code>epub:type</code> attribute</a> was intended to serve a similar 						function to the ARIA <code>role</code> attribute in EPUB 3, but accessibility support never 						materialized. The attribute is useful for enabling certain user agent behaviors, such as pop-up 						footnotes, but should not be used with expectations of enhancing the accessibility of 						publications.</p>
+					<p><a href="epub-type.html"><code>epub:type</code>属性</a>は、 EPUB 3のARIA<code>role</code>属性と同様の機能を提供することを目的としていましたが、アクセシビリティのサポートは実現しませんでした。この属性は、ポップアップ脚注などの特定のユーザーエージェントの動作をできるようにするには便利ですが、出版物のアクセシビリティを向上させることを期待して使用すべきではありません。</p>
 
 					<p><code>epub:type</code>からARIA<code>role</code>属性に切り替えるときに避けるべき悪い習慣の例については、<a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">「EPUBタイプからARIAロールへの製作ガイド （EPUB Type to ARIA Role Authoring Guide）」</a>を参照してください。</p>
 				</section>
@@ -98,7 +98,7 @@
 				<section>
 					<h4>EPUB 2</h4>
 
-					<p>As XHTML 1.0 was released before ARIA 1.0, EPUB 2 does not support the use of ARIA attributes. 						Inclusion of the attributes will result in validation errors.</p>
+					<p>XHTML 1.0は、ARIA 1.0より前にリリースされたため、EPUB2はARIA属性の使用をサポートしていません。この属性を含めると検証エラーが発生します。</p>
 				</section>
 			</section>
 
@@ -127,7 +127,7 @@
 					<dt id="faq-004">ランドマークには常にラベルを付けるべきですか？</dt>
 					<dd>
 						<p><code>aria-labelledby</code>属性（テキストに見出しがある場合）または<code>aria-label</code>属性（セクションに明示的な見出しがない場合）を使用してランドマークにラベルを付けるのが、ベストプラクティスです。</p>
-						<p>Although labels are not required for DPUB-ARIA landmarks, support for the vocabulary is also 							not yet widespread. Adding a label ensures that default processing rules for HTML will 							create a landmark even if the vocabulary is not recognized (i.e., adding a label to a 								<code>section</code> element indicates to browsers to treat the section as an implied <a href="https://www.w3.org/TR/wai-aria/#region"><code>region</code></a> when creating the 							accessibility tree).</p>
+						<p>DPUB-ARIAランドマークにはラベルは必須ではありませんが、語彙のサポートもまだ広く普及していません。語彙が認識されない場合でも、ラベルを追加するとHTMLのデフォルトの処理ルールによってランドマークが作成されます（つまり、 <code>section</code>要素にラベルを追加することで、アクセシビリティツリーを作成するときに、ブラウザーはセクションを暗黙の<a href="https://www.w3.org/TR/wai-aria/#region"><code>region</code></a>として扱います）。</p>
 					</dd>
 				</dl>
 			</section>
