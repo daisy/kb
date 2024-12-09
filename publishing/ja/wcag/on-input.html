@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>入力時</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.2.2 On Input">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.2.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>コントロール</li>
+								<li>入力</li>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ユーザインタフェース コンポーネントの設定を変更することが、コンテキストの変化を自動的に引き起こさない。ただし、利用者が使用する前にその挙動を知らせてある場合を除く。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/on-input.html">達成基準3.2.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-input">達成基準3.2.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G13">G13：コンテキストの変化を引き起こすフォームコントロールへの変更が行われる前に、何が起こるのかを説明する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G80">G80：コンテキストの変化を開始する送信ボタンを提供する</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H32">H32：送信ボタンを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H84">H84：アクションを実行するために、select 要素とともにボタンを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19">SCR19：select 要素の onchange イベントは、コンテキストの変化を引き起こすことのないように使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザーが値を入力したときに、コンテキストが変化する予期せぬアクション（たとえば、フォームの送信、新しいウィンドウの生成、別の要素へのフォーカスの変更、テキストの変更など）を引き起こさないことです。</p>
+				
+				<p>すべてのユーザーがコンテキストの変化を認識できるとは限らず、そのような変化を把握することが困難な場合もあります。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、ユーザーがデータを入力したり設定を変更したときに、コンテキストが変わるイベントを引き起こさないようにする必要があります。</p>
+				
+				<p>コンテキストの変更が必要な場合、コンテンツ製作者は、ユーザーが情報を入力する前にアクションを通知するようにする必要があります。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+			
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/controls.html">カスタムコントロール</a></li>
+					<li><a href="../script/controls.html">キーボード コントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
