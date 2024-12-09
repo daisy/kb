@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>オートコンプリート</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for setting autocomplete on form inputs.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>フォームフィールドにHTMLの<a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete"><code>autocomplete</code>属性</a>を設定すると、認知障害や身体障害を持つユーザーがこれらのフィールドを理解したり入力したりする作業を容易にできます。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>プリセット値のいずれかに一致するフォームフィールドに<code>autocomplete</code>属性を追加します。[[WCAG-1.3.5]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 電話番号のオートコンプリート</div>
+						<p>次の例では、電話番号を入力するための三つのフィールド（市外局番用一つと市内番号用一つずつ) を示しています。各フィールドの目的は、 <code>autocomplete</code>属性から識別できます。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;fieldset
+   &lt;label&gt;Telephone:&lt;/label&gt;
+   (&lt;input type="text" autocomplete="tel-area-code" id="area-code" aria-label="Area code"/&gt;)
+   &lt;input type="text" autocomplete="tel-local-prefix" id="local-prefix" aria-label="Local number prefix"/&gt; -
+   &lt;input type="text" autocomplete="tel-local-suffix" id="local-suffix" aria-label="Local number suffix"/&gt;
+&lt;/fieldset&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 生年月日のオートコンプリート</div>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;fieldset
+   &lt;label&gt;Birth Date:&lt;/label&gt;
+   &lt;select autocomplete="bday-year" id="birth-year" aria-label="Year"&gt;
+   	…
+   &lt;/select&gt;
+   &lt;select autocomplete="bday-month" id="birth-month" aria-label="Month"&gt;
+   	…
+   &lt;/select&gt;
+   &lt;select autocomplete="bday-day" id="birth-day" aria-label="Day"&gt;
+   	…
+   &lt;/select&gt;
+&lt;/fieldset&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">入力ラベルでは不十分なのはなぜですか?</dt>
+					<dd>
+						<p>同じ情報に対する入力ラベルはサイトや言語によって異なるため、機械処理では信頼できません。 <code>autocomplete</code>の制御キーワードにより、ユーザーエージェントと支援技術は言語やスペルの特殊性を解析することなく目的を判断できます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>リーディングシステムではウェブブラウザほど一般的ではありませんが、個人情報を保存しておくと、ユーザーが次回同じフィールドに遭遇したときにユーザーエージェントが自動的にその情報を入力できるようになります。出版物では、教育プログラムのコンテキストで、または出版社からの更新情報を受け取るためにサインアップする際に、この種の情報を求めることがあります。</p>
+				
+				<p>この機能を提供するには、ユーザーエージェントはユーザーが入力した情報と、その情報を再度使用することが適切であるかどうかを理解する必要があります。 <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete"><code>autocomplete</code>属性は</a>、この機械による理解の鍵となります。これにより、コンテンツ製作者はフォームフィールドに正確な機械可読セマンティクスを割り当てることができ、ユーザー エージェントはどのフィールドにどの情報が入力されるかを理解できます。</p>
+				
+				<p>属性のHTML定義には、使用できるセマンティクスのリストが含まれています。セマンティクスには、名前、住所、生年月日、電話番号などの情報が含まれます。WCAGドキュメントには、<a href="https://www.w3.org/TR/WCAG2/#input-purposes">値の要約リスト</a>も記載されています。</p>
+				
+				<p><code>autocomplete</code>属性を使用すると、個人情報の入力を求められるたびに同じ情報を何度も再入力する必要がなくなるため、認知障害や身体障害を持つユーザーにとってフォームの入力がしやすくなります。</p>
+				
+				<p>これらのセマンティクスを使用すると、ユーザーエージェントは他の方法でも理解を強化できます。たとえば、標準的な視覚的なヒント（電話や誕生日ケーキなどのアイコン）を追加して、各フィールドの目的をユーザーがさらに理解しやすいようにできます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute">フォームコントロールの自動入力: autocomplete 属性</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
