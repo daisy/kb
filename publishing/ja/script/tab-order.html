@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>タブ順序</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on preserving the logical tab order of controls.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>タブ順序がコンテンツ内の論理的な順序と一致し、また、すべてのフォームおよびスクリプトコントロールにアクセスできるようにします。</p>
+			</section>
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>タブ順序が論理的であるようにします。[[WCAG-2.4.3]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 二列フォーム</div>
+						<p>次の例は、配送先住所と請求先住所を並べて配置するためのテーブルレイアウトの一部を示しています。フォームフィールドから次のフォームフィールドへの論理的な順序を保証するために<code>tabindex</code>属性が使用されています。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span id="shipping"&gt;Shipping Address&lt;/span&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span id="billing"&gt;Billing Address&lt;/span&gt;
+         &lt;label&gt;
+            &lt;input type="checkbox" id="bill-sameas" tabindex="8"/&gt;
+            Use shipping address for billing
+         &lt;/label&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="str"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="ship-street"
+            aria-labelledby="shipping str" tabindex="1"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="bill-street"
+            aria-labelledby="billing str" tabindex="9"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="city"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="ship-city"
+            aria-labelledby="shipping city" tabindex="2"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="bill-city"
+            aria-labelledby="billing city" tabindex="10"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 - タブ順序にカスタムコントロールを追加する</div>
+						<p>次の例では、スクリプト化された画像ボタンをタブ順序に含めるために<code>tabindex</code>属性を<code>0</code>に設定しています。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;img src="controls/start.png"
+    id="start"
+    role="button"
+    tabindex="0"
+    alt="Start"/&gt;</code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — モーダルダイアログで負のタブ順序値を使用する</div>
+						<p>次の例では、スクリプトによってポップアップ ダイアログボックスが開かれるまで、ユーザーがタブキーでポップアップ ダイアログボックスに移動できないように、 <code>tabindex</code>属性を<code>-1</code>に設定しています。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;div role="dialog" aria-modal="true" aria-label="Results"
+     tabindex="-1" &gt;
+   …
+&lt;/div&gt;</code></pre>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+				<p>キーボードのタブボタンは、ハイパーリンク、スクリプトコントロール、フォームなどのインタラクティブな要素間を移動するためのショートカットを提供します。ユーザーがタブキーを押したときにこれらの要素がフォーカスを取得する順序は、タブ順序と呼ばれます。</p>
+				<p>デフォルトでは、ネイティブHTMLコントロール（例：<code>a</code> 、 <code>button</code> 、 <code>input</code>）は、マークアップに含まれている順序に従ってタブフォーカスを受け取ります。多くの場合、これで意味のあるタブ順序を提供できますが、複雑なレイアウトやカスタムコントロールのスクリプトがあると、順序の問題が発生する可能性があります。</p>
+				<p>たとえば、テーブルレイアウトは、フォームを二つの横並びの列としてレイアウトするために使用されることがあります（<a href="ex-01">例 1 </a>を参照）。この場合、一つのフィールドから次のフィールドにタブ移動すると、ユーザーは一つの列を上から下に移動してから次の列に移動するのではなく、二つの列間（つまり、各行の一つのセルから次のセル）に移動してしまいます。</p>
+				<p>同様に、スクリプトコントロールを作成した場合、ブラウザーと支援技術はタブキーを介して要素にアクセスすることができないので、それらをタブ順序に明示的に追加する必要があります。</p>
+				<p>このような問題を解決するため、 <code>tabindex</code>属性を使って、要素のデフォルトのタブ順序を変更したり、またはタブ順序に要素を追加したりできます。属性の値は、次のいずれかでなければなりません。</p>
+				<ul>
+					<li>
+<code>-1</code> — 値<code>-1</code>は、要素をタブ順序から除外するために使用されます。この値は、スクリプトによって要素がフォーカス可能になるような場合に最もよく使用されます。任意の負の数を使用できますが、効果は同じです（つまり、優先順位や順序は付与されません）。</li>
+					<li>
+<code>0</code> — 値<code>0</code>は、マークアップ内の位置に応じて要素をタブ順序に配置するために使用されます。この値を使うと、フォーカス可能なすべての要素に対して番号付きのシーケンスを作成しなくてすむので、スクリプトコントロールをタブ順序に追加するような場合に最もよく使用されます。</li>
+					<li>任意の<em>正の数値</em>— 正の数値が使用される場合、その数値はコントロールに移動する順序を示します。数値<code>1</code>はタブ順序の最初のコントロールを示し、数値<code>2</code>は二番目のコントロールを示します。以下同様です。順序のギャップは無視されます（つまり、間に値がない場合、フォーカスは<code>1</code>から<code>10</code>に移動します）。順序付けられたすべてのコントロールを移動した後、明示的な<code>tabindex</code>値を持たないコントロールに移動します。</li>
+				</ul>
+				<p>一般的に、フォーカス可能な要素がマークアップ内で正しい順序になっているようにして、正の<code>tabindex</code>値を使用しなくても良いようにするのが最善です。シーケンスの作成は簡単な作業のように見えるかもしれませんが、これを行うと予期しない結果が生じることがよくあります。たとえば、ファイルの末尾にあるフォームフィールドに対してタブ順序を作成する必要がある場合、フォームの前の<strong>すべての</strong>フォーカス可能な要素（すべてのハイパーリンクなど）に<code>tabindex</code>値が割り当てられていないと、ユーザーは最初にTabキーを押したときにフォームに移動されてしまいます。並べ替えられたフォーカス可能な要素の長いシーケンスを維持することも面倒です。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> HTML — <a href="https://html.spec.whatwg.org/multipage/interaction.html#attr-tabindex"><code>tabindex</code></a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
