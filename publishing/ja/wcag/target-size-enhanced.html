@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ターゲットのサイズ（高度）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.5 Target Size (Enhanced)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'details': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.5</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>インタラクティブなコンテンツ</li>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ポインタ入力のターゲットのサイズは、少なくとも44×44CSSピクセルである。ただし、次の場合は除く。</p>
+							
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span> 例外を見る</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>同等</dt>
+										<dd>
+											<p>ターゲットと同等のリンク又はコントロールが同じページに44×44CSSピクセル以上のサイズで存在する。</p>
+										</dd>
+										
+										<dt>インライン</dt>
+										<dd>
+											<p>ターゲットが文中、又はテキストブロック内に存在する。</p>
+										</dd>
+										
+										<dt>ユーザエージェントのコントロール</dt>
+										<dd>
+											<p>ターゲットのサイズがユーザエージェントによって決定され、かつコンテンツ制作者によって変更されていない。</p>
+										</dd>
+										
+										<dt>必要不可欠</dt>
+										<dd>
+											<p>そのターゲットを特定の方法で提示することが、伝達される情報において必要不可欠である。</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html">達成基準2.5.5の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced">達成基準2.5.5を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td>WCAGには現在、この達成基準に関して次の文書化されていない達成方法のみが含まれています。<ul>
+<li>タッチ ターゲットが少なくとも 44 x 44 CSS ピクセルであることを保証すること。</li>
+<li>倍率に関係なくターゲットのサイズを変更するメカニズムを提供すること。</li>
+</ul>
+</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ポインターデバイスを使用して小さなターゲットをアクティブ化する能力または器用さに困難のあるユーザーを支援することです。</p>
+				
+				<p><a href="target-size-minimum.html">2.5.8</a>との主な違いは、ターゲット領域の最小サイズが大きいことです。ターゲット領域の最小サイズを満たすためにターゲットをパディングする例外も適用されません。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>達成基準のテキストに記載されている場合を除き、コンテンツ製作者はすべてのターゲット領域（ボタンなど）の寸法を44ピクセル×44ピクセル以上にする必要があります。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/icons.html">アイコン</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
