@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>メディアオーバーレイ（Media Overlays）</title>
@@ -69,7 +69,7 @@
 			<section id="def">
 				<h3>概要</h3>
 				
-				<p>EPUB 3 では、<a href="https://www.w3.org/TR/epub/#sec-media-overlays">メディアオーバーレイ</a>と呼ばれるメディアの同期の実装が定義されています。この仕様では、テキストのレンダリングと音声の再生を同期するための<a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">SMIL</a>文法のプロファイルが定義されています。</p>
+				<p>EPUB 3 defines an implementation of synchronized media known as <a href="https://www.w3.org/TR/epub/#sec-media-overlays">Media Overlays</a>. This specification 					defines a profile of the <a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">SMIL</a> grammar 					for synchronizing text rendering with audio playback.</p>
 				
 				<p>メディアオーバーレイ ドキュメントは、次の要素を使用して構築されています。</p>
 				
@@ -83,48 +83,40 @@
 					<tbody>
 						<tr>
 							<td class="root"><a href="https://www.w3.org/TR/epub/#sec-smil-smil-elem">smil</a></td>
-							<td class="use">
-<code>smil</code>要素は、各メディアオーバーレイのルート要素であり、オプションの<code>head</code>と必須の<code>body</code>要素が含まれます。</td>
+							<td class="use"> <code>smil</code>要素は、各メディアオーバーレイのルート要素であり、オプションの<code>head</code>と必須の<code>body</code>要素が含まれます。</td>
 						</tr>
 						<tr>
 							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-head-elem">head</a></td>
-							<td class="use">
-<code>head</code>要素には、オプションの<code>metadata</code>要素にメタデータを含めることができますが、EPUB 3 仕様ではメタデータは必須ではありません。</td>
+							<td class="use">The <code>head</code> element may contain metadata in an optional 								<code>metadata</code> element, but none is required by the EPUB 3 specification.</td>
 						</tr>
 						<tr>
 							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">metadata</a></td>
-							<td class="use">
-<code>metadata</code>要素は、外部の名前空間からのメタデータをオーバーレイに含めることができる拡張要素です。</td>
+							<td class="use"> <code>metadata</code>要素は、外部の名前空間からのメタデータをオーバーレイに含めることができる拡張要素です。</td>
 						</tr>
 						<tr>
 							<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-body-elem">body</a></td>
-							<td class="use">
-<code>body</code>要素は、含まれる<code>seq</code>と<code>par</code>要素の順序によって再生を定義します。</td>
+							<td class="use"> <code>body</code>要素は、含まれる<code>seq</code>と<code>par</code>要素の順序によって再生を定義します。</td>
 						</tr>
 						<tr>
 							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">seq</a></td>
-							<td class="use">
-<code>seq</code>要素は、オーバーレイを構造化するために使用されます。ユーザーが読み飛ばし、または回避したいセクション、表、リストなどの複雑な構造を表すために使用されます。</td>
+							<td class="use"> <code>seq</code>要素は、オーバーレイを構造化するために使用されます。ユーザーが読み飛ばし、または回避したいセクション、表、リストなどの複雑な構造を表すために使用されます。</td>
 						</tr>
 						<tr>
 							<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-par-elem">par</a></td>
-							<td class="use">
-<code>par</code>要素は、子の<code>text</code>や<code>audio</code>要素内の同期ポイントを定義します。</td>
+							<td class="use"> <code>par</code>要素は、子の<code>text</code>や<code>audio</code>要素内の同期ポイントを定義します。</td>
 						</tr>
 						<tr>
 							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-text-elem">text</a></td>
-							<td class="use">
-<code>text</code>要素は、視覚的なレンダリングを同期するコンテンツ ドキュメントと要素を識別します。</td>
+							<td class="use">The <code>text</code> element identifies the content document and element to 								synchronize visual rendering to.</td>
 						</tr>
 						<tr>
 							<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-audio-elem">audio</a></td>
-							<td class="use">
-<code>audio</code>要素で、音声ファイルを指定します。オプションで再生の開始点と終了点を指定します。</td>
+							<td class="use"> <code>audio</code>要素で、音声ファイルを指定します。オプションで再生の開始点と終了点を指定します。</td>
 						</tr>
 					</tbody>
 				</table>
 				
-				<p>出版物を同期するには、出版物内の各コンテンツ ドキュメントに独自のオーバーレイが関連付けられている必要があります。オーバーレイは、オーバーレイを定義する<code>item</code>の ID を持つ<code>media-overlay</code>属性を使用して、パッケージ ドキュメント マニフェスト内のコンテンツ ドキュメントに関連付けられます。</p>
+				<p>In order to synchronize a publication, each content document in a publication must have its own overlay 					associated with it. Overlays are tied to content documents in the package document manifest using a 					<code>media-overlay</code> attribute with the ID of the <code>item</code> that defines the 					overlay.</p>
 				
 			</section>
 			
@@ -132,9 +124,11 @@
 				<h3>例</h3>
 				
 				<figure id="ex-01">
-					<figcaption>例 1 — 基本的なオーバーレイ ドキュメント</figcaption>
+					<figcaption>
+						<div class="label">Example 1 — A basic overlay document</div>
+					</figcaption>
 					
-					<p>次の例は、見出しと 2 つの段落のみで構成される章のオーバーレイ ドキュメントを示しています。</p>
+					<p>The following example shows an overlay document for a chapter that consists of only a heading and two 						paragraphs.</p>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
 	  xmlns:epub="http://www.idpf.org/2007/ops"
@@ -173,7 +167,9 @@
 				</figure>
 				
 				<figure id="ex-02">
-					<figcaption>例 2 — 章のドキュメントをオーバーレイにリンクする</figcaption>
+					<figcaption>
+						<div class="label">例 2 — 章のドキュメントをオーバーレイにリンクする</div>
+					</figcaption>
 					
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;item id="xchapter_001"
 	  href="chapter_001.xhtml"
@@ -189,7 +185,7 @@
 			<section id="samp" class="sample">
 				<h3>サンプル</h3>
 				
-				<p><a href="http://code.google.com/p/epub-samples/">EPUB サンプル プロジェクト</a>には、メディア オーバーレイを実装する次の出版物が含まれています。</p>
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following 					publications that implement Media Overlays:</p>
 				
 				<ul>
 					<li><a href="http://code.google.com/p/epub-samples/source/browse/#svn%2Ftrunk%2F30%2Fmoby-dick-mo%2FOPS">Moby Dick</a></li>
@@ -199,8 +195,8 @@
 			<section id="refs">
 				<h3>関連リンク</h3>
 				<ul>
-					<li><a href="https://www.w3.org/TR/epub/#sec-media-overlays">EPUB メディア オーバーレイ 3.0</a></li>
-					<li><a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">同期マルチメディア統合言語 (SMIL 3.0)</a></li>
+					<li><a href="https://www.w3.org/TR/epub/#sec-media-overlays">EPUB Media Overlays 3.0</a></li>
+					<li><a href="http://www.w3.org/TR/2008/REC-SMIL3-20081201/">Synchronized Multimedia Integration Language 						(SMIL 3.0)</a></li>
 				</ul>
 			</section>
 		</main>
