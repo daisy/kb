@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>小さな背景音、又は背景音なし</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.7 Low or No Background Audio">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.7</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>音声</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>収録済みの音声しか含まないコンテンツで、（1）前景に主として発話を含み、（2）音声CAPTCHA 又は音声ロゴではなく、かつ、（3）例えば、歌、ラップなどのように、主として音楽表現を意図した発声ではないものについては、次に示す事項のうち、少なくとも一つを満たしている。</p>
+							
+							<dl>
+								<dt>背景音なし</dt>
+								<dd>
+									<p>音声は背景音を含まない。</p>
+								</dd>
+								
+								<dt>消音</dt>
+								<dd>
+									<p>背景音を消すことができる。</p>
+								</dd>
+								
+								<dt>20 デシベル</dt>
+								<dd>
+									<p>背景音は、前景にある発話のコンテンツより少なくとも20デシベルは低い。ただし、継続時間が2秒以内で発生頻度が低い背景音は除く。</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html">達成基準1.4.7の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#low-or-no-background-audio">達成基準1.4.7を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G56">G56：非発話音が発話音声コンテンツより少なくとも 20 デシベル低くなるように、音声ファイルを編集する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、聴覚障害のあるユーザーが発話音声と背景音を区別できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、発話の音声（音楽表現は含まない）に背景雑音がないようにする、背景雑音を無効にできるようにする、または背景雑音が発話より少なくとも20デシベル低いようにする必要があります。</p>
+				
+				<p>この達成基準は音声クリップにのみ適用されることに注意してください。映像やインタラクティブなゲームなどの音声には適用されません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/audio.html">音声</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
