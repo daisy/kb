@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>WCAG 適合</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of WCAG issues related to EPUB fixed layout publications.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			aside.applies-to {
+				margin-top: -8.9rem !important;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="comp" aria-label="Evaluation">
+				<p>WCAG 2.0に準拠した固定レイアウトのEPUB出版物を作成することはできるかもしれませんが、2.1で追加されたリフロー要件により、最新バージョンの規格に準拠することははるかに困難です。</p>
+				<p>次の表は、固定レイアウトを使用することで達成できない一般的なレベルAおよびAAの達成基準の一部を示しています。</p>
+				<table>
+					<thead>
+						<tr>
+							<th>達成基準</th>
+							<th>WCAGバージョン</th>
+							<th>問題点</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#non-text-content">1.1.1 非テキストコンテンツ（A）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>コミックやマンガなどの画像ベースの固定レイアウトでは、代替テキストや説明では画像を通じて伝えられるストーリーのすべてを表現できないため、通常この要件を満たしません。ストーリーの別の連載が必要なことが多いです。</p>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://www.w3.org/TR/WCAG2/#info-and-relationships">1.3.1 情報及び関係性（A）</a></td>
+							<td class="center">2.0+</td>
+							<td>
+								<p><code>span</code>や<code>div</code>などの汎用要素は、よくページ内でテキストを静的にスタイル設定および配置するために使用され、ユーザーがコンテンツをナビゲートするための構造的な補助がほとんどありません（例：見出しや表はありません）。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#meaningful-sequence">1.3.2 意味のある順序（A）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>コンテンツ要素は視覚的に必要な場所に配置できるため、マークアップ内で論理的な順序が維持されるように常に注意が払われるわけではありません。支援技術がそのような作品を読み取ると、情報と会話が順序どおりにレンダリングされません。</p>
+								<p>コンテンツが２ページに渡ってレイアウトされている場合、論理的な順序により、視覚的に読み取る読者がページ間を行ったり来たりする必要があることがあります。このタイプの順序は、マークアップでは表現できません。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#orientation">1.3.4 表示の向き（AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>固定レイアウトのページは通常、特定の方向でレンダリングされるように設計されており、コンテンツ製作者は、リーディングシステムがその方向でのみコンテンツをレンダリングするように指定できます。</p>
+								<p>ただし、WCAG 2.0に準拠するには、コンテンツの向きが読みやすさに影響を与えてはなりません。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">1.4.3 コントラスト（最低限レベル） （AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>固定レイアウトで画像にテキストを重ねると、コントラストが不十分になり、読者がテキストを認識しにくくなる可能性があります。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 							<a href="https://www.w3.org/TR/WCAG2/#images-of-text">1.4.5 文字画像（AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>文字画像は、ユーザーがフォントを変更したり、固定レイアウトページのデザインを変更したりするのを防ぐためによく使用されます。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#reflow">1.4.10 リフロー（AA）</a>
+</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>固定レイアウトページではサイズが固定されているため、この達成基準の拡大要件を満たすためには、通常、ユーザーはコンテンツを読むために両方の軸をスクロールしなければならなくなります。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#text-spacing">1.4.12 テキストの間隔（AA）</a>
+</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>ユーザーが外観を変更できる場合でも、スペースを追加すると、テキストがコンテナ要素やページの境界を超えてしまうことがあります。この場合、はみ出したテキストは見えなくなることが多いです。</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</body>
+</html>
