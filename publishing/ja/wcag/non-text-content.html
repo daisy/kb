@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>非テキストコンテンツ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.1.1 Non-text Content">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'details': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.1.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>画像/グラフィックス/チャート</li>
+								<li>音声</li>
+								<li>映像</li>
+								<li>ユーザーコントロール（ボタン、スライダーなど）</li>
+								<li>Canvas</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							
+							<p>利用者に提示される全ての非テキストコンテンツには、同等の目的を果たす代替テキストが提供されている。ただし、次の場合は除く。</p>
+							
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span>例外を見る</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>コントロール及び入力</dt>
+										<dd>
+											<p>非テキストコンテンツが、コントロール又は利用者の入力を受け付けるものであるとき、その目的を説明する名前（name）を提供している（コントロール及び利用者の入力を受け付けるコンテンツに関するその他の要件は、4.1.2参照。）。</p>
+										</dd>
+										
+										<dt>時間依存メディア</dt>
+										<dd>
+											<p>非テキストコンテンツが、時間に依存したメディアであるとき、代替テキストは、少なくとも、その非テキストコンテンツを識別できる説明を提供している（メディアに関するその他の要件は、1.2参照。）。</p>
+										</dd>
+										
+										<dt>テスト</dt>
+										<dd>
+											<p>非テキストコンテンツが、テキストで提示されると無効になるテスト又は演習のとき、代替テキストは、少なくともその非テキストコンテンツを識別できる説明を提供している。</p>
+										</dd>
+										
+										<dt>感覚的</dt>
+										<dd>
+											<p>非テキストコンテンツが、特定の感覚的体験を創り出すことを主に意図しているとき、代替テキストは、少なくともその非テキストコンテンツを識別できる説明を提供している。</p>
+										</dd>
+										
+										<dt>CAPTCHA</dt>
+										<dd>
+											<p>非テキストコンテンツが、コンピュータではなく人間がコンテンツにアクセスしていることを確認する目的で用いられているとき、代替テキストは、その非テキストコンテンツの目的を特<br>定し、説明して、かつ、他の感覚による知覚に対応して出力するCAPTCHA の代替形式を提供することで、様々な障害に対応している。</p>
+										</dd>
+										
+										<dt>装飾、整形及び非表示</dt>
+										<dd>
+											<p>非テキストコンテンツが、純粋な装飾である場合、見た目の整形のためだけに用いられている場合、又は利用者に提供されるものではない場合、その非テキストコンテンツは、<br>支援技術によって無視されるように実装されている。</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">達成基準1.1.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#non-text-content">達成基準1.1.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA6">ARIA6：オブジェクトのラベルを提供するために aria-label を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA9">ARIA9：複数のテキストノードをつなげて一つのラベルにするために、aria-labelledby を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA10">ARIA10：非テキストコンテンツに対してテキストによる代替を提供するために aria-labelledby を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C9">C9：装飾目的の画像を付加するために、CSS を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G68">G68：ライブの音声のみのコンテンツ及びライブの映像のみのコンテンツの目的を説明するために、短いテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G73">G73：非テキストコンテンツのすぐ隣に別の場所へのリンクを置き、その別の場所で長い説明を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G74">G74：短い説明の中で長い説明のある場所を示して、非テキストコンテンツの近くにあるテキストで長い説明を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G82">G82：非テキストコンテンツの目的を特定するテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G92">G92：非テキストコンテンツに対して、それと同じ目的を果たし、かつ同じ情報を示す長い説明を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G94">G94：非テキストコンテンツに対して、それと同じ目的を果たし、かつ同じ情報を示す、短いテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G95">G95：非テキストコンテンツの簡単な説明を提供する、短いテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G100">G100：非テキストコンテンツの一般に認められた名前 (name) 又は説明的な名前となる短いテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G143">G143：CAPTCHA の目的を説明するために、テキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G144">G144：異なるモダリティを用いて同じ目的を果たす、もう一つの CAPTCHA がウェブページに含まれていることを確認する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G196">G196：画像のグループにある一つの画像に、そのグループのすべての画像を説明するテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H2">H2：同じリソースに対して隣接する画像とテキストリンクを結合する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H24">H24：イメージマップの area 要素にテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H30">H30：a 要素のリンクの目的を説明するリンクテキストを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H35">H35：applet 要素にテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H36">H36：送信ボタンとして用いる画像の alt 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H37">H37：img 要素の alt 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H44">H44：テキストラベルとフォームコントロールを関連付けるために、label 要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H45">H45：longdesc 属性を用いる</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H53">H53：object 要素のボディを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H65">H65：label 要素を使用できない場合に、フォームコントロールを特定するために、title 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H67">H67：支援技術が無視すべき画像に対して、img 要素の alt テキストを空にして、title 属性を付与しない</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H86">H86：ASCII アート、顔文字、及びリート語にテキストによる代替を提供する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、テキスト以外のコンテンツ（グラフィック、グラフ、音声、映像など）にアクセスできないユーザーが、そのコンテンツに含まれる情報にテキスト形式でアクセスできるようにすることです。</p>
+			</section>
+			
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この要件を満たす方法は、表現される情報の複雑さによって異なります。要件は一般的に次のように分類されます。</p>
+				
+				<ul>
+					<li>情報を一文以内で伝えられる画像コンテンツの場合、コンテンツ製作者は代替テキストのみを提供すればよいです（例えば、<code>alt</code>属性で）。</li>
+					<li>画像情報がより複雑な場合（たとえば、チャートやグラフなど）、コンテンツ製作者は簡単な代替テキストと拡張説明の両方を提供する必要があります。</li>
+					<li>音声と映像については、タイトルを示すラベル、または目的を簡単に説明するラベルを提供します（トランスクリプトやキャプションの必要性など、音声と映像の追加要件は達成基準1.2に説明があります）。</li>
+					<li>ユーザー コントロール（ボタンやスライダーなど）には、コントロールの機能を説明する代替のテキストが必要です。通常、代替のテキストはラベルです。</li>
+				</ul>
+				
+				<p>この達成基準は、読者が理解する必要のある、情報を伝える非テキストコンテンツにのみ適用されることに注意してください。純粋な審美的理由（たとえば、新しいセクションの冒頭を飾るため）で挿入された画像は、代替のテキストを必要としません。視覚的に情報を得る読者はこれらの画像から何も得られないので、視覚障害をもつ読者にこれらの画像を認識させる必要はありません。</p>
+				
+				<p>代替のテキストの提供がコンテンツの目的を無効にする場合は、この達成基準の例外となります。たとえば、コンテンツ製作者が質問の音声レンダリングを必要とするテストを含めたような場合です（例えば、スペルのテスト）。</p>
+			</section>
+			
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/images-desc.html">画像の説明</a></li>
+					<li><a href="../html/images-deco.html">装飾画像</a></li>
+					<li><a href="../html/audio.html">音声</a></li>
+					<li><a href="../html/video.html">ビデオ</a></li>
+					<li><a href="../html/hidden.html">非表示コンテンツ</a></li>
+					<li><a href="../script/controls.html">コントロールラベル</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
