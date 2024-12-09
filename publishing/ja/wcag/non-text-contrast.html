@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>非テキストのコントラスト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.11 Non-text Contrast">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.11</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>フォーム</li>
+								<li>グラフィック</li>
+								<li>アイコン</li>
+								<li>ユーザーコントロール</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>以下の視覚的提示には、隣接した色との間で少なくとも 3:1 のコントラスト比がある。</p>
+							
+							<dl>
+								<dt>ユーザインタフェース コンポーネント</dt>
+								<dd>
+									<p>ユーザインタフェース コンポーネント及び状態（state）を特定するのに必要な視覚的な情報。ただし、アクティブではないユーザインタフェース コンポーネントや、そのコンポーネントの見た目がユーザエージェントによって提示されていてコンテンツ制作者が変更していない場合は除く。</p>
+								</dd>
+								
+								<dt>グラフィカルオブジェクト</dt>
+								<dd>
+									<p>コンテンツを理解するのに必要なグラフィック部分。ただし、そのグラフィック特有の提示が、情報を伝えるうえで必要不可欠な場合は除く。</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">達成基準1.4.11の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#non-text-contrast">達成基準1.4.11を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G18">G18：テキスト（及び文字画像）とその背景の間に、少なくとも 4.5:1のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G145">G145：テキスト（及び文字画像）とその背景の間に、少なくとも 3:1 のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G174">G174：利用者が十分なコントラストのある提示に切り替えられるように、十分なコントラスト比のあるコントロールを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G195">G195：コンテンツ制作者が提供する視認性に優れたフォーカスインジケーターを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G207">G207：アイコンに対して 3:1 のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G209">G209：隣り合う色の境界に十分なコントラストを提供する</a></li>
+								<li>グラフィックにラベルや値を含める（文書化されていない）</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、弱視のユーザーが意味のあるグラフィックや画像、ユーザー インターフェイスを区別して理解できるように、十分なコントラストがあるように保証することです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この要件を満たすことは、<a href="contrast-minimum.html">1.4.3 コントラスト（最低限レベル）</a>を満たすのと基本的には同じです。ただし、テキストではなく、グラフィックとユーザー コントロールを対象している点が異なります。</p>
+				
+				<p>ユーザーがコンテンツを理解するために視認する必要のあるオブジェクト（たとえば、円グラフの各項目やグラフの棒や線など）が含まれている場合、それらのオブジェクトは背景とのコントラストが 3:1必要です。この要件は、必要な情報が別の形で利用できる場合には適用されないことに注意してください（たとえば、円グラフの各項目に目的と値が記載されている場合、各項目間のコントラストには適用されません)。</p>
+				
+				<p>この要件は、コンテンツを識別するためのアイコンにも適用されます。たとえば、教科書では、異なる種類の補足情報を区別するためにアイコンがよく使用されます。ただし、グラフィックと同様に、アイコンがテキスト ラベルを補足するものである場合は、この要件は適用されません（つまり、要件が適用されるのは、その情報が別の形式で入手できない場合に限られます）。</p>
+				
+				<p>The requirement also applies to user interface components such as buttons and controls.</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../css/contrast.html">コントラスト</a></li>
+					<li><a href="../html/icons.html">アイコン</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
