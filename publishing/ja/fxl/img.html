@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>画像</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of issues using images for fixed layout pages.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="desc">
+				<h3>概要</h3>
+				<p>固定レイアウトの出版物では多くの場合、画像が不可欠です。固定レイアウトの出版物は、漫画のように完全に画像で構成されている場合もあれば、児童書のように物語の背景として画像が使用される場合もあります。</p>
+				<p>したがって、背景が認識できなかったり、画像を処理するのが難しい可能性のあるユーザーが、画像で伝えられる情報を利用できるようにすることが、固定レイアウトを可能な限りアクセシブルにするための優先事項です。</p>
+				<p>画像に出版物の内容理解に必要な情報が含まれている場合に、代替テキストや拡張説明を提供するという、<a href="../html/images-desc.html">すべての画像の基本的な要件</a>は、固定レイアウトにも適用されます。たとえば、どのキャラクターが何を言っているかというコンテキストが、画像上の配置によってのみ伝わる場合、テキストデータが画像にオーバーレイされていれば読者は物語のセリフを追えるでしょう。</p>
+				<p>固定レイアウトの課題は、ページ上にユーザーがアクセスするための説明を配置できる追加の領域がないため、画像を説明してコンテキストを提供する方法を見つけなければならないことです。</p>
+			</section>
+			<section id="svg">
+				<h3>SVG</h3>
+				<p>SVGには、画像を説明するための二つの要素があります。</p>
+				<ul>
+					<li>
+<code>title</code> — HTMLの<code>alt</code>属性に相当します。SVG画像全体とその中の個々のコンポーネントに代替テキストを提供するために使用されます。</li>
+					<li>
+<code>desc</code> — SVG画像全体とその中の個々のコンポーネントの拡張説明を提供するために使用されます。</li>
+				</ul>
+				<p>出版物が<a href="svg.html">固定レイアウトのSVGページ</a>で作成されている場合、これらの二つの要素を使ってコンテンツを説明できます。SVGはまだ十分にサポートされていないため、支援技術のサポートを改善するためにARIA属性（ <code>role</code>および<code>aria-describedby</code> ）が追加されています。</p>
+				<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" …
+     &lt;strong&gt;role="group" aria-describedby="svgtitle svgdesc"&lt;/strong&gt;&gt;
+   &lt;title id="svgtitle"&gt;The Hydrologic Cycle&lt;/title&gt;
+   &lt;desc id="svgdesc"&gt;The continuous cycle by which water …&lt;/desc&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				<div class="note" role="note" aria-labelledby="svg-role">
+					<p id="svg-role" class="label">注記</p>
+					<p>この画像にはユーザーが操作できる追加のテキストコンテンツ（非表示）が含まれているため、<code>group</code>ロールが画像に付与されています。画像が完全にグラフィカルである場合は、代わりに<code>img</code>ロールを使用します。</p>
+				</div>
+				<p><code>title</code>と<code>desc</code>要素は、大きな画像のコンポーネントに注釈を付ける場合にも使用できます。</p>
+				<pre class="prettyprint linenums"><code>&lt;g fill="lightgray" stroke="gray" role="img" aria-describedby="gtitle"&gt;
+      &lt;title id="gtitle"&gt;Rain clouds&lt;/title&gt;
+      …
+&lt;/g&gt;</code></pre>
+				<p>これらの要素を使用してSVG画像に注釈を付けた場合の問題は、通常そのコンテンツが支援技術のユーザーに対してのみ利用可能になるという点です。</p>
+				<p>より高度なアプローチとしては、スクリプトやアニメーションを使用して説明を表示するためのリンクまたはボタンを追加することが考えられます（例：ポップアウトのように説明を開く）。ただし、EPUB 3.2まではアニメーションなどが完全に制限されていたため、このようなアプローチに対するEPUBリーディングシステムのサポートは制限される可能性があります。</p>
+			</section>
+			<section id="html">
+				<h3>HTML</h3>
+				<p>画像がHTML固定レイアウトページに埋め込まれている場合は、アクセシブルな説明を付与する方法がさらに増えます。SVG固定レイアウトの場合と同様に、説明を含めるための画面スペースが限られているという制限が主な考慮事項です。</p>
+				<p>そのため、説明は通常、さまざまなHTML、ARIA、CSSテクニックを使用して非表示にされます。説明は、隠したり、クリッピングしたり、不透明度を設定したり、画像の下に重ねたりすることができます。<a href="../html/hidden.html">非表示コンテンツに関するナレッジベースページ</a>では、これらの可能性についてさらに詳しく説明しています。</p>
+				<p>EPUBのXHTMLコンテンツドキュメントでのスクリプトのサポートは、一般的にSVGで利用できるものよりはるかに優れているため、より幅広いユーザーが説明を表示できる、より信頼性の高い手法があります。たとえば、画像をクリックまたはタップすると、その説明が表示できたりします。<a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol">Voyage of Life サンプルEPUB</a>には、この手法の実験的な例が含まれています。</p>
+				<p>リフロー型の出版物とは異なり、固定レイアウトでページの背景画像を設定するのにCSSの<code class="property">background-image</code>プロパティが使用できます。ただし、この方法では、すべてのユーザーがアクセスできる説明を提供するのが難しくなるため（つまり、多くの場合、非表示の支援技術に対する説明のみを提供することになります）、この方法は、できるだけ純粋にプレゼンテーション用の背景に限定することをお勧めします。</p>
+			</section>
+		</main>
+	</body>
+</html>
