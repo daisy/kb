@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>キーボード</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.1.1 Keyboard">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.1.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>カスタムコントロール</li>
+								<li>フォーム</li>
+								<li>入力</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>コンテンツの全ての機能は、個々のキーストロークに特定のタイミングを要することなく、キーボードインタフェースを通じて操作可能である。ただし、その根本的な機能が利用者の動作による始点から終点まで続く一連の軌跡に依存して実現されている場合は除く。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html">達成基準2.1.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard">達成基準2.1.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G90">G90：キーボードがトリガーとなるイベントハンドラを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G202">G202：全ての機能に対してキーボード制御を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H91">H91：HTML のフォームコントロール及びリンクを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2">SCR2：キーボード及びマウスのイベントハンドラを両方とも使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR20">SCR20：キーボードとその他のデバイス固有の機能を両方とも使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35">SCR35：アンカー及びボタンの onclick イベントを用いて、アクションをキーボード操作可能にする</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、必要な入力がキーボードで再現できない場合を除き、出版物にアクセスするためにキーボードを必要とするユーザーがコンテンツ内のすべての機能にアクセスできるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、すべてのコントロールとリンクがキーボード入力でアクセス可能であり、入力が時間ベースではないことを確認する必要があります（例：ユーザーが登録するにはキーを特定の回数または特定の時間内に押さなければならないなど）。</p>
+				
+				<p>この達成基準は、通常、コンテンツ製作者がスクリプトを通じて作成するカスタム コントロールとリンクに適用されます。これらの機能のためのネイティブのHTML 要素は一般的にアクセス可能であり、コンテンツ製作者は明確にラベル付けされていることを確認するだけで済みます。</p>
+				
+				<p>この達成基準は、キーボードでは通常この機能を再現できないため、アクションの完全なパスが重要な機能には適用されないことに注意してください。例としては、ユーザーがフリーハンドで絵を描くことができる組み込みプログラムが挙げられます。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">キーボード コントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

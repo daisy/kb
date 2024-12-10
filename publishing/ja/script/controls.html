@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>カスタムコントロール</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ARIA roles, states, and properties to create accessible custom controls.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo':[ 'EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			div#sc015-ex01-controls {
+				margin-left: 5em;
+				padding: 0.2em;
+				width: 7em;
+				text-align: center;
+				border: 1px solid rgb(0, 0, 0);
+				background-color: rgb(243, 243, 243)
+			}
+			
+			div#sc015-ex01-controls img {
+				display: inline;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>支援技術のユーザーにカスタムコントロールをアクセシブルにするには、ARIAのrole（役割）、state（状態）、property（プロパティ）を使用する必要があります。</p>
+			</section>
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>role（役割）、state（状態）、property（プロパティ）を使用してインタラクションを有効にします。[[WCAG-4.1.2]]</p>
+					</li>
+					<li>
+						<p>ARIAのrole（役割）、state（状態）、property（プロパティ）が指定された要素に対して有効であることを確認します。[[WCAG-4.1.1]]</p>
+					</li>
+					<li>
+						<p>すべての親/子の役割の要件が満たされていることを確認します。[[WCAG-4.1.1]]</p>
+					</li>
+					<li>
+						<p>コントロールがフォーカスされただけではイベントを起動しないでください。[[WCAG-3.2.1]]</p>
+					</li>
+					<li>
+						<p>予期しないイベントを起動するのは、ユーザーが値を入力したり設定を変更したりしたときにします。[[WCAG-3.2.1]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — カスタムボタンの識別</div>
+						<p><code>img</code>要素には<code>button</code>のrole（役割）があり、支援技術に対して画像ではなくボタンとして識別されます。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img src="controls/start.png"
+    id="start"
+    role="button"
+    tabindex="0"
+    alt="Start"/&gt;</code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — JavaScript を使用してstate（状態）を管理する</div>
+						<p>次の簡単な例は、カスタム コントロールを作成するときに注意しなければならない考慮事項の一部を示しています。コールバック関数の設定と設定解除、コントロールの有効化と無効化、ボタンの外観の変更などです。この画像をキーボードで動作させるには、ユーザーのキー押下を確認してから、アクションをオン/オフしなければなりません。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;img src="controls/play.png"
+    id="start"
+    alt="Start"
+    role="button"
+    aria-disabled="false"
+    tabindex="0"
+    onclick="controlPlayback('start')"/&gt;
+
+&lt;img src="controls/stop.png"
+    id="stop"
+    alt="Stop"
+    role="button"
+    aria-disabled="true"
+    tabindex="0"/&gt;
+
+&lt;script&gt;
+&lt;![CDATA[
+function controlPlayback(action) {
+
+  var isStart = (action == 'start') ? true : false;
+  
+  var start_image = isStart ? 
+           'controls/play-disabled.png' : 
+           'controls/play.png';
+  
+  var stop_image = isStart ? 
+           'controls/stop.png' : 
+           'controls/stop-disabled.png';
+  
+  var start = document.getElementById('start');
+    start.setAttribute('aria-disabled', 
+              !start.getAttribute('aria-disabled'));
+    start.setAttribute('disabled', 
+              !start.getAttribute('disabled'));
+    start.onclick = isStart ? 
+            null : 
+            function () { controlPlayback('start'); };
+    start.setAttribute('src', start_image);
+  
+  var stop = document.getElementById('stop');
+    stop.setAttribute('aria-disabled', 
+              !stop.getAttribute('aria-disabled'));
+    stop.setAttribute('disabled', 
+              !stop.getAttribute('disabled'));
+    stop.onclick = isStart ? 
+            function () { controlPlayback('stop'); } : 
+            null;
+    stop.setAttribute('src', stop_image);
+   
+   if (isStart) {
+    start.removeAttribute('onkeypress');
+    stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
+   }
+   
+   else {
+    stop.removeAttribute('onkeypress');
+    start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
+   }
+  
+  alert(isStart ? 'Playback started!' : 'Playback stopped!');
+}
+]]&gt;
+&lt;/script&gt;</code></pre>
+					<p>次のボタンは、このコードの動作を示しています。</p>
+					<div id="ex01-controls">
+						<img src="../../../graphics/publishing/aria/play.png" width="32" height="32" id="start" role="button" aria-disabled="false" tabindex="0" onclick="controlPlayback('start')" onkeypress="if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }" alt="開始">
+						<img src="../../../graphics/publishing/aria/stop-disabled.png" width="32" height="32" id="stop" role="button" aria-disabled="true" tabindex="0" alt="停止">
+					</div>
+					<script>
+						//<![CDATA[
+						function controlPlayback(action) {
+							
+							var isStart = (action == 'start') ? true: false;
+							
+							var start_image = isStart ? '../../../graphics/publishing/aria/play-disabled.png': '../../../graphics/publishing/aria/play.png';
+							var stop_image = isStart ? '../../../graphics/publishing/aria/stop.png': '../../../graphics/publishing/aria/stop-disabled.png';
+							
+							var start = document.getElementById('start');
+							start.setAttribute('aria-disabled', ! start.getAttribute('aria-disabled'));
+							start.setAttribute('disabled', ! start.getAttribute('disabled'));
+							start.onclick = isStart ? null: function () {
+								controlPlayback('start');
+							};
+							start.setAttribute('src', start_image);
+							
+							var stop = document.getElementById('stop');
+							stop.setAttribute('aria-disabled', ! stop.getAttribute('aria-disabled'));
+							stop.setAttribute('disabled', ! stop.getAttribute('disabled'));
+							stop.onclick = isStart ? function () {
+								controlPlayback('stop');
+							}: null;
+							stop.setAttribute('src', stop_image);
+							
+							/* enable/disable keypresses */
+							if (isStart) {
+								start.removeAttribute('onkeypress');
+								stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
+							} else {
+								stop.removeAttribute('onkeypress');
+								start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
+							}
+							
+							alert(isStart ? 'Playback started!': 'Playback stopped!');
+						}//]]></script>
+				</figure>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+				<p>HTMLには数多くのネイティブコントロール（例：<code>input</code> 、 <code>button</code> 、 <code>progress</code>）が用意されていますが、多くの場合、開発者はスタイル制限を回避したり特殊な機能を導入したりするために、同等のコントロールを独自に作成する必要があります。</p>
+				<p>ただし、カスタムコントロールを作成すると、機能を動作させるためのJavaScriptが、デフォルトでは支援技術に反映されず、深刻なアクセシビリティの問題が発生する可能性があります。たとえば、テキストや画像の範囲などの非インタラクティブ要素が動的に作成されると、支援技術はユーザーがそれらをアクティブ化できることを認識しません。また、アクションが発生しても、コンテンツの変更はアクセシビリティツリーに反映されません（つまり、新しいコンテンツは利用できません）。</p>
+				<p>こうしたスクリプトにおけるアクセシビリティの問題は、Webの開発初期に問題となっていましたが、ARIAのrole（役割）、state（状態）、property（プロパティ）の導入により、多くの問題が軽減されました。カスタムコントロールにこれらの属性を追加すると、支援技術の存在が認識され、コントロールの現在の状態に関する情報がユーザーに伝わるようになります。</p>
+				<p>次のリストでは、各属性タイプの目的について説明します。</p>
+				<dl class="value">
+					<dt id="roles">Role（役割）</dt>
+					<dd>
+						<p>ARIA <code>role</code>属性は、カスタムコントロールの機能を説明するために使用されます（たとえば、画像がボタンのように機能することを示すなど）。</p>
+						<p>カスタムコントロールには、その目的を支援技術に通知するためのrole（役割）が必要です。これにより、支援技術は、予想される使用方法に応じて要素をユーザーに提示できます。</p>
+						<p><a href="http://www.w3.org/TR/wai-aria/#role_definitions">現在サポートされているroleのリスト</a>については、ARIA仕様をご覧ください。</p>
+					</dd>
+					<dt id="states">State（状態）</dt>
+					<dd>
+						<p>state属性は、コントロールの現在の状態（現在チェックされているかどうか、非表示になっているかどうかなど）を識別します。</p>
+						<p>ユーザーがコントロールやコンテンツと対話するときに、State属性がスクリプトによって維持されなければなりません。そうしないと、ユーザーが機能を使用できなくなる可能性があります（たとえば、音量を下げることができない、重要なコンテンツを表示できないなど）。</p>
+						<p><a href="http://www.w3.org/TR/wai-aria/#global_states">現在サポートされているstateのリスト</a>については、ARIA仕様をご覧ください。</p>
+					</dd>
+					<dt id="properties">Property（プロパティ）</dt>
+					<dd>
+						<p>プロパティ属性は、コントロールが許可する最小値や最大値、グループ内での位置など、コントロールに関するメタ情報を識別します。</p>
+						<p>stateとは異なり、プロパティは通常、コンテンツが読み込まれるときに一回だけ設定されます。</p>
+						<p><a href="http://www.w3.org/TR/wai-aria/#global_states">現在サポートされているプロパティのリスト</a>については、ARIA仕様をご覧ください。</p>
+					</dd>
+				</dl>
+				
+				<p>もちろん、カスタムコントロールをアクセシブルにするには、正しいrole（役割）、state（状態）、property（プロパティ）が適用されていることを確認するだけでは不十分です。コンテンツ製作者は、コントロールがフォーカスや入力を受け取ったときなどに、コンテキスト内で予期しない変更がトリガーされないようにする必要があります。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>WAI-ARIA —<a href="http://www.w3.org/TR/wai-aria/#roles">Roleモデル</a>
+</li>
+					<li>WAI-ARIA —<a href="http://www.w3.org/TR/wai-aria/#states_and_properties">サポートされているstateとproperty</a>
+</li>
+					<li> 						<a href="http://www.w3.org/WAI/intro/aria">WAI-ARIA の概要</a>
+</li>
+					<li> 						<a href="http://www.w3.org/TR/wai-aria-practices/">WAI-ARIA オーサリング プラクティス — WAI-ARIA を使用してアクセシブルなウィジェットを構築するための一般的な手順</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

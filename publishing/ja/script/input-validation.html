@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>入力チェック</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for informing users of errors and preventing their submission.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>フォームデータを徹底的に検証して、ユーザーが送信内容を確認できるようにし、意図しないデータが送信されないようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>フィールドへの入力を簡素化するために、 <code>autocomplete</code>属性を使用します。[[WCAG-1.3.5]]</p>
+					</li>
+					<li>
+						<p>入力エラーを識別し、説明します。[[WCAG-3.3.1]]</p>
+					</li>
+					<li>
+						<p>入力エラーを修正する方法を提案します。[[WCAG-3.3.3]]</p>
+					</li>
+					<li>
+						<p>送信前にユーザーがデータを確認し修正できるようにします。[[WCAG-3.3.4]] および [[WCAG-3.3.6]]</p>
+					</li>
+					<li>
+						<p>ユーザーがデータの送信を取り消せるようにします。[[WCAG-3.3.4]] および [[WCAG-3.3.6]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>フォームへの入力は、必須フィールドをすべて入力したか確認することから、すべてのフィールドが正しく入力されているかどうか確認することまで、ユーザーにとっていくつかの課題があります。フィールドが未入力であったりエラーが発生したりした場合、障害を持つユーザーが問題を見つけたり、修正が必要な箇所を判断したりするのは困難なこともあります。</p>
+				
+				<section id="timing">
+					<h4>検証するタイミング</h4>
+					
+					<p>ユーザー入力がデジタル出版物でのみ使用される場合、データの検証はデータを要求しているページで行われます。</p>
+					
+					<p>サーバー側の検証が行われるのは、コンテンツ製作者が外部のWebアプリケーションにデータを送信しようとしたときだけです。ただし、このような場合、コンテンツ製作者はXmlHttpRequestなどのスクリプトAPIを使用して、ページを更新せずにエラーを報告する可能性が高くなります。通常、フォームは新しいウィンドウを生成せずにWebサーバーに直接送信することはできません。返されるページが出版物のリソースとして認識されないためです。</p>
+					
+					<p>したがって、このドキュメントでは、デジタル出版物内からエラーを検証および報告する方法のみを取り上げます。Webアプリケーションから返されるページでのエラーの処理の詳細については、<a href="https://www.w3.org/WAI/tutorials/forms/notifications/">ユーザー通知</a>に関するWebアクセシビリティチュートリアルを参照してください。</p>
+				</section>
+				
+				<section id="built-in">
+					<h4>組み込みチェック</h4>
+					
+					<p>入力を検証するための最良のオプションは、HTMLに組み込まれているメカニズムを使用することです。</p>
+					
+					<p>たとえば、 <code>required</code>属性は、ほとんどのフォーム入力要素で使用できます。これは、ユーザーが入力しなければならないフィールドを識別するためのプログラム的な手段です（目の見えるユーザーには、視覚的な手がかりも必要です）。</p>
+					
+					<figure id="ex-01">
+						<figcaption>
+							<p class="label">例 — 必須フィールドの識別</p>
+						</figcaption>
+						<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;select
+    name="birth-month"
+    required="required"&gt;
+   &lt;option value=""&gt;Month&lt;/option&gt;
+   …
+&lt;/select&gt;</code></pre>
+					</figure>
+					
+					<p><code>required</code>属性が設定されている場合、ユーザーは、フィールドが入力されるまで、対応したリーディングシステムでフォームを送信できません。送信しようとすると、リーディングシステムから、必須情報が不足していることが警告されます。</p>
+					
+					<p><code>pattern</code>属性を使用すると、コンテンツ製作者は入力を検証するための正規表現を指定できます。この属性は、入力が特定の形式に一致しなければならない場合に便利です。</p>
+					
+					<figure id="ex-03">
+						<figcaption>
+							<p class="label">例 — 括弧内のカンマで区切られた二つの数字のパターンマッチング</p>
+						</figcaption>
+						<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    pattern="([0-9]{1,4}, *[0-9]{1,4})"
+    … /&gt;</code></pre>
+					</figure>
+					
+					<p>コンテンツ製作者は、 <code>placeholder</code>属性を使用して、期待される値のヒントを提供することもできます。これは、特定のパターンが期待される場合に特に便利です。ただし、この値はユーザーがデータを入力し始めると消えるため、フィールドの適切なラベルや説明の代わりには使用しないでください。</p> 
+					
+					<figure id="ex-08">
+						<figcaption>
+							<p class="label">例 — 予想される入力のヒント</p>
+						</figcaption>
+						<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    placeholder="(#,#)"
+    pattern="([0-9]{1,4}, *[0-9]{1,4})"
+    aria-label="Starting coordinate"
+    … /&gt;</code></pre>
+					</figure>
+					
+					<p><a href="autocomplete.html"><code>autocomplete</code>属性</a>は、ユーザーが正しい情報を入力できるようにするためのもう一つの潜在的な簡易手段です。この属性を設定すると、ユーザーは保存されたフォームデータを自動的に挿入できます。</p>
+					
+					<figure id="ex-04">
+						<figcaption>
+							<p class="label">例 - オートコンプリートフィールドの識別</p>
+						</figcaption>
+						<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input
+    type="text"
+    autocomplete="given-name"
+    … /&gt;</code></pre>
+					</figure>
+					
+					<p>出版物におけるこの属性の欠点は、ほとんどのフォームがユーザー情報を収集しないこと、一般的にテスト用であること、さらにアプリケーションベースのリーディングシステムが以前に送信されたデータを再利用のために保存しないことです。この属性は、限られた情報に対してブラウザーで実行されるリーディングシステムでのみ機能する可能性があります。</p>
+					
+					<p>最小と最大の値や、入力する文字数の最小値と最大値を指定する属性、また、正規表現を使用してユーザーが入力したテキストを検証する属性もあります。</p>
+					
+					<figure id="ex-02">
+						<figcaption>
+							<p class="label">例 - 最小値と最大値の指定</p>
+						</figcaption>
+						<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;input
+    type="range"
+    min="1"
+    max="100"
+    … /&gt;</code></pre>
+					</figure>
+					
+					<p><code>input</code>要素の<code>type</code>属性は検証では見落とされがちですが、これによりコンテンツ製作者は入力するのが電話番号や電子メールアドレスなどの一般的なフィールドであることを識別できます。</p>
+					
+					<figure id="ex-09">
+						<figcaption>
+							<p class="label">例 — メール入力フィールド</p>
+						</figcaption>
+						<pre id="ex-09-src" class="prettyprint linenums"><code>&lt;input
+    type="email"
+    … /&gt;</code></pre>
+					</figure>
+					
+					<p>これらの特殊な入力タイプには、独自の組み込み検証がよくあります。たとえば、電子メールフィールドが指定されている場合、ユーザーエージェントはユーザーが有効な電子メールアドレスを入力したかどうかを確認します。これらの組み込みタイプを使用すると、一般的なテキスト入力フィールドに対して複雑で冗長なパターンチェックを記述する必要がなくなります。</p>
+				</section>
+				
+				<section id="locate">
+					<h4>入力エラーの特定</h4>
+					
+					<p>組み込み検証のメカニズムを使用すると、リーディングシステムはエラーがある場合にユーザーに通知できますが、すべてのデータ検証にこれらのメカニズムを使用することはできません。カスタムデータフィールドを検証する場合、エラーを見つけて修正するプロセスをユーザーにとって可能な限り簡単にする必要があります。</p>
+					
+					<p>手動検証の一般的なアプローチは、見えやすく明確にラベル付けされた、フォームの上部にあるボックスに、入力エラーのリストを書き込むことです。この手法は一般的には問題ありませんが、支援技術を使用するユーザーを支援するために、エラーを含む要素は、ARIA ロールの<code>alert</code>を使用してライブ領域としてマークする必要があります。これにより、要素に新しいテキストが書き込まれたときにそれをアナウンスできます。</p>
+					
+					<figure id="ex-05">
+						<figcaption>
+							<p class="label">例 — ライブ領域の作成</p>
+						</figcaption>
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;div
+    role="alert"
+    aria-labelledby="errors"&gt;
+    &lt;h6 id="errors"&gt;
+       Errors Processing Form
+    &lt;/h6&gt;
+    &lt;p&gt;The following items did not validate:&lt;/p&gt;
+    &lt;ul&gt;
+       …
+    &lt;/ul&gt;
+ &lt;/div&gt;</code></pre>
+					</figure>
+					
+					<p>JavaScriptアラートボックスをエラーをリストする唯一の手段として使用することは避けてください。ダイアログが閉じられると、通常、ユーザーはリストにアクセスできなくなります。認知障害や学習障害のあるユーザーにとって、修正が必要な複数のフィールドを覚えておくことは困難な場合があります。</p>
+					
+					<p>より良い方法は、アラートは、送信内容に修正が必要なエラーが含まれていることをユーザーに通知するためだけに制限し、ダイアログが閉じたときにページ上のリストにユーザーを誘導する方法です。</p>
+					
+					<p>エラーをリストするときに、無効なフィールドへのリンクを提供すると役立ちます。</p>
+					
+					<figure id="ex-06">
+						<figcaption>
+							<p class="label">例 — 無効なフィールドへのリンク</p>
+						</figcaption>
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;p&gt;The following items did not validate:&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li&gt;&lt;a href="#postcode"&gt;Invalid postal
+      code entered&lt;/a&gt;&lt;/li&gt;
+   …
+&lt;/ul&gt;</code></pre>
+					</figure>
+					
+					<p>デジタル出版物の場合は、ユーザー入力を入力時に検証する方がよい選択肢となる場合が多いです。これにより、エラーの動的なリストを追加および削除する必要がなくなります。</p>
+					
+					<p>もちろん、無効なフィールドは視覚的に識別され、目の見えるユーザーがデータを確認する際に見つけられるようにする必要がありますが、ARIAには無効なフィールドをプログラムでマークするための<code>aria-invalid</code>属性が含まれています。</p>
+					
+					<figure id="ex-11">
+						<figcaption>
+							<p class="label">例 — ARIAを使用してエラーを識別する</p>
+						</figcaption>
+						<pre id="ex-11-src" class="prettyprint linenums"><code>&lt;input
+    id="address"
+    name="address"
+    type="text"
+    required=""
+    aria-invalid="true"/&gt;
+</code></pre>
+					</figure>
+					
+					<p><code>aria-invalid</code>属性を設定すると、支援技術によってユーザーをエラーのあるフィールドに簡単に移動させることができるため、ユーザーはエラーのリストに依存したり、フォーム内のすべてのフィールドを手動で確認して何が失敗したかを調べたりする必要がなくなります。</p>
+					
+					<p>ユーザーがエラーを修正したら、必ず<code>aria-invalid</code>属性を更新または削除してください（<code>aria-invalid=""</code>を設定すると、フィールドが無効では<strong>ない</strong>ことを意味することに注意してください）。</p>
+				</section>
+				
+				<section id="describe">
+					<h4>エラーの説明</h4>
+					
+					<p>エラーの特定に加えて、フィールドが無効とマークされている理由の説明もユーザーには役立ちます。ARIA <code>aria-errormessage</code>を使用すると、コンテンツ製作者は問題の説明を無効なフィールドにリンクできます。</p>
+					
+					<figure id="ex-12">
+						<figcaption>
+							<p class="label">例 - ARIAを使用してエラーメッセージを識別する</p>
+						</figcaption>
+						<pre id="ex-12-src" class="prettyprint linenums"><code>&lt;div id="postcode" class="error"&gt;
+   &lt;label for="address"&gt;
+      Postal Code:
+   &lt;/label&gt;
+   &lt;input
+       id="address"
+       name="address"
+       type="text"
+       required=""
+       error-invalid="true"
+       aria-errormessage="post-err"/&gt;
+   &lt;span id="post-err"
+       aria-live="alert"&gt;
+      Postal code must be of the
+      form A1A 1A1.
+   &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+					</figure>
+					
+					<p><code>aria-errormessage</code>は、<code>aria-describedby</code>と機能が似ていますが、添付された説明が問題の説明であることをより明確に示します（<code>aria-errormessage</code>は、 <code>aria-invalid</code>のある要素でのみ使用できる点に注意してください）。</p>
+					
+					<p><code>aria-live</code>属性をエラーメッセージに設定して、エラーメッセージが追加されたときにユーザーに通知されるようにすることもできます（<a href="#ex-12">前の例</a>を参照）。ただ、個々のエラーフィールドがこのように識別される場合は、問題の全リストを追加するときにユーザーに警告することは推奨されません（ユーザーはすべてのエラーを二回聞くことになるため）。</p>
+					
+					<p>場合によっては、入力したデータが無効であることだけをユーザーに伝えることもできますが、データが無効である具体的な理由が特定できる場合は、エラーメッセージにできるだけ正確な内容を含めることをお勧めします。ユーザーに提供する情報が多いほど、エラーを修正しやすくなります。</p>
+				</section>
+				
+				<section id="confirm">
+					<h4>提出内容の確認</h4>
+					
+					<p>フォームデータがコンテンツ製作者の期待どおりに検証されることと、ユーザーが意図した情報を入力することは、別です。たとえば、ユーザーは情報を入力するときにタイプミスに気付かない場合や、気付かないうちにフィールドが誤って変更される場合があります（たとえば、矢印キーを押すと、選択ボックスやラジオボタンの選択が誤って変更される場合があります）。</p>
+					
+					<p>フォームデータを送信する前に確認するオプションをユーザーに提供することは、情報がユーザーの期待と一致していることを確認するのに役立ちます。特に、入力用のフォームデータを詳細に確認することは、すべてのユーザーにとって難しいことがあります。</p>
+					
+					<p>確認を提供することはテストデータのレベルAAの要件であるため、教育出版社は、デジタルに埋め込むテストやクイズにこの達成基準が適用される場合、ユーザーのためにデータを修正するか、元に戻して再送信できるようにする必要があります。これについては<a href="#revert">次のセクション</a>で説明します。</p>
+					
+					<p>ただし、デジタル出版物内でこの種の独立した検証を提供することは、多くの場合困難です。これは、フォームと同じページに情報を動的に書き込む必要があり、すべてのリーディングシステムがこれを適切にサポートしているわけではないためです。同様に、JavaScriptアラートを使用すると、非常に小さなデータセットでは機能するかもしれませんが、大量のデータを送信するとすぐに読みにくくなります。</p>
+					
+					<p>ユーザーがフォームをサーバーに直接送信できることがコンテンツ製作者にわかっている場合（つまり、リーディングシステムが JavaScript API経由でデータを送信するのではなく、新しいブラウザーウィンドウを開いてデータを送信する場合）、確認ページをサーバー側で提供できます。このオプションは通常、ユーザーがアクセスできるリーディングシステムが制限されている特定の場合にのみ使用できます。</p>
+					
+					<div class="note" role="note" aria-labelledby="review-note">
+						<p id="review-note" class="label">注記</p>
+						<p>デジタル出版物内にのみ残るデータは、外部ソースに送信されるデータよりもレビューの重要性が低いことがよくあります。これは、間違いによってユーザーに生じる潜在的な損害がそれほど大きくない傾向があるためです。たとえば、デジタル出版物内で採点された模擬試験をレビューすることは、学校のサーバーに送信されたコースの演習をレビューすることよりも重要性が低くなります。</p>
+					</div>
+				</section>
+				
+				<section id="revert">
+					<h4>提出を元に戻す</h4>
+					
+					<p>前のセクションで述べたように、元に戻したり修正したりするオプションを提供するよりも、送信前にユーザーがデータを確認できるようにする方がはるかに優れています。</p>
+					
+					<p>これはデジタル出版物の場合に特に当てはまります。フォーマットの制限により、データの取得と修正の手段が複雑になるからです。たとえば、デジタル出版物内で情報を保持するのは、ストレージオプションが限られているため簡単ではありません（つまり、出版物を閉じた場合、ユーザーは後でフォームの送信を取り消すために簡単に戻ることができません）。同様に、ネットワークの問題により、データが送信されても出版物が送信の確認を受信できず、ユーザーが元に戻せない場合があります。</p>
+					
+					<p>ユーザーが提出を取り消すことを許可する必要がある場合、コンテンツ製作者は情報収集のための他のオプションを真剣に検討する必要があります。たとえば、可能な場合は、フォームを埋め込むのではなく、出版物の外部にあるフォームにユーザーを誘導して情報を収集します。</p>
+					
+					<p>提出をデジタル出版物を通じて行わなければならない場合、提出の取り消しや修正は、現実的には、ユーザーの身元を確認できる外部Webサイトを通じてのみ行えます。たとえば、コースポータルでは、出版物自体を通じて取り消しや間違いの修正を行うのではなく、取り消しや間違いの修正を行うオプションを提供できます。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/input.html#common-input-element-attributes">一般的な<code>input</code>要素の属性</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/input.html#states-of-the-type-attribute"><code>type</code>属性のステート</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>動きによる起動</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.4 Motion Actuation">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'details': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.4</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>インタラクティブなコンテンツ</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>デバイスの動き又は利用者の動きで操作できる機能は、ユーザインタフェース コンポーネントでも操作でき、かつ偶発的な起動を防ぐために動きへの反応を無効化することができる。ただし、次の場合は除く。</p>
+							
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span> 例外を見る</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>サポートされたインタフェース</dt>
+										<dd>
+											<p>アクセシビリティ サポーテッドなインタフェースを通じて機能を操作するために動きが用いられる。</p>
+										</dd>
+										
+										<dt>必要不可欠</dt>
+										<dd>
+											<p>その機能にとって動きが必要不可欠であり、この達成基準に従うと動作を無効化してしまう。</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html">達成基準2.5.4の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#motion-actuation">達成基準2.5.4を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G213">G213：動きで作動させる入力のために、従来のコントロール及びアプリケーション設定を提供する</a></li>
+								<li>GXXX：ユーザが動きによる起動を無効にできるシステムレベルの機能をサポートする（文書化されていない）</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、すべてのユーザーがデバイスを物理的に操作できるわけではないため、より一般的なコントロールを使用するデバイスの動きに基づいてユーザーがアクションを実行できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>ユーザーがデバイスを傾けたり、振ったり、同様な物理的操作で機能するゲームやアクティビティが出版物に含まれている場合、ボタンやスライダーなどの従来のユーザーコントロールを使用して同じ機能を利用できるようにします。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースでは、現在、アクセシブルな入力モダリティの製作についての記事がありません。詳細については、<a href="#guidance">WCAGガイダンスドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

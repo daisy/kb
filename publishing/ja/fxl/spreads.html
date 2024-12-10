@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>見開きページ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Issues using multipage fixed layout spreads.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>一つの画像が２ページにわたって表示される場合は、最初のページに代替テキストと説明を入れて、２ページ目から説明を参照します。</p>
+			</section>
+			<section id="desc">
+				<h3>解説</h3>
+				<p>固定レイアウト、特に印刷物を複製するレイアウトでは、例えば地図のような、２ページにまたがる画像は一般的です。隣り合わせのページで<a href="overview.html#rendition-spread">合成された見開き（synthetic spreads）</a>を使用すると、コンテンツ製作者は両方の画像を同時にリーディングシステムの画面に配置できます。</p>
+				<p>この方法では、分割された画像を効果的に説明する方法が課題となります。<br>それぞれ半分ずつを別々に説明しますか。画像の半分だけでは意味をなさない場合はどうしますか。<br>どちらか片方だけを説明しますか。そうであれば、もう片方の半分はどうしますか。</p>
+				<p>一般的なWebテクニックでは、一つのページに関連する画像のグループがある場合、最初の画像のみを説明して、他の画像は装飾として扱うことで、ユーザーが重複した説明に遭遇しないようにします。</p>
+				<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;figure aria-details="map-desc"&gt;
+   &lt;figcaption&gt;…&lt;/figcaption&gt;
+   &lt;img src="map-pt1.jpeg" alt="World Map" /&gt;
+   &lt;img src="map-pt2.jpeg" alt="" /&gt;
+&lt;/figure&gt;</code></pre>
+				<p>ただし、この手法は出版物ではうまく機能しません。なぜなら、見開きページ内の関連する画像が別々のページにあるためです（つまり、一つの画像のみが説明されている場合、支援技術のユーザーには空のページのように見えます）。</p>
+				<p>この問題の解決策は、最初の画像に説明を提供し、代替テキストを使用してユーザーに画像が分割されていることを案内することです。</p>
+				<p>たとえば、見開きの最初の画像の代替テキストに、画像がいくつに分割されているかの合計数を入れます。</p>
+				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;body&gt;
+   &lt;img src="map-pt1.jpeg" alt="世界地図（2ページ中1ページ目）" aria-details="map-desc" /&gt;
+   …
+&lt;/body&gt;</code></pre>
+				<p>２ページ目には、それが見開きの２ページ目であることを示し、説明については最初のページを参照します。</p>
+				<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;body&gt;
+   &lt;img src="map-pt2.jpeg" alt="世界地図（２ページ中２ページ目）。説明は前のページを参照。" /&gt;
+   …
+&lt;/body&gt;</code></pre>
+				<p>この方法では、テキストを直線的にたどるユーザーにとっては、既に説明を見ているために多少の冗長性がありますが、特定のページにジャンプするなどして、最初に見開きの２ページ目を開いたユーザーがコンテキストを失わないように保障することができます。</p>
+				<div class="note" role="note" aria-labelledby="desc-note">
+					<p id="desc-note" class="label">注記</p>
+					<p>拡張説明を追加する方法の詳細については、固定レイアウト画像のナレッジベースページを参照してください。</p>
+				</div>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#spread"><code>rendition:spread</code>プロパティ</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#page-spread"><code>rendition:page-spread-*</code>プロパティ</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

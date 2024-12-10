@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>隠されないフォーカス（最低限）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.12 Focus Not Obscured (Minimum)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.2以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.11</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>コントロール</li>
+								<li>入力</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ユーザインタフェース コンポーネントがキーボードフォーカスを受け取るとき、コンテンツ制作者が作成したコンテンツによって、そのコンポーネントの全体が隠されるようなことがない。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">達成基準2.4.11の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced">達成基準2.4.11を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs"> WCAG 2.2 達成基準に対応する達成方法はまだ利用できません。</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、キーボード（および同様の入力デバイス）のユーザーが、ドキュメント内の他のコンテンツによって隠れているフォーカスされた要素を見つけられず混乱しないようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、フォーカス可能な要素がドキュメント内の他のコンテンツによって完全に隠れないようにする必要があります。この問題は、固定ヘッダーと固定フッター（つまり、ページの上部または下部に付いたままになるもの）によってコンテンツが隠れたり、非モーダル ダイアログ（つまり、読み続けるために閉じる必要のないポップアップ）によってテキストが重なったりする Web ページでよく発生します。</p>
+				
+				<p>この達成基準は、ユーザーがフォーカスされた要素の上にコンテンツを移動する場合には適用されません（例：ドラッグできるポップアップの場合。）この要件では、フォーカス可能な要素がそのようなコンテンツのデフォルトの位置で隠れないようにすることのみが要求されます。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジ ベースには現在、出版形式での固定ヘッダーとフッター、および非モーダル ダイアログのサポートが不十分なため、非表示のフォーカスされたコンテンツに関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>
