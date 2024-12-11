@@ -5,9 +5,21 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2024 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Thur, 19 Sept 2024 00:01:00 +0500</lastBuildDate>
-		<pubDate>Thur, 19 Sept 2024 12:00:00 +0500</pubDate>
+		<lastBuildDate>Wed, 11 Dec 2024 00:01:00 +0500</lastBuildDate>
+		<pubDate>Wed, 11 Dec 2024 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>MathML caution removed</title>
+			<link>https://kb.daisy.org/publishing/docs/html/mathml.html</link>
+			<description>
+				<![CDATA[
+				<p>The caution about using MathML has been removed as support for MathML rendering continues to
+					improve.</p>
+				]]>	
+			</description>
+			<pubDate>Wed, 11 Dec 2024 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>New pages for QR codes</title>
