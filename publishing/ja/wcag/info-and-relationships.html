@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>情報及び関係性</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.3.1 Info and Relationships">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.3.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>記事</li>
+								<li>アサイド</li>
+								<li>太字と斜体</li>
+								<li>図</li>
+								<li>フォーム</li>
+								<li>リスト</li>
+								<li>詩</li>
+								<li>セクション</li>
+								<li>表</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>何らかの形で提示されている情報、構造、及び関係性は、プログラムによる解釈が可能である、又はテキストで提供されている。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">達成基準1.3.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships">達成基準1.3.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA11">ARIA11：ページのリージョンを特定するために ARIA ランドマークを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA12">ARIA12：見出しを特定するために role=heading を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA13">ARIA13: Using aria-labelledby to name regions and landmarks</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA17">ARIA17：関連するフォームコントロールを特定するために、グルーピングロールを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA20">ARIA20：ページのリージョンを特定するために region ロールを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA24">ARIA24：アイコンフォントを意味的に識別するために role="img" を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G115">G115：構造をマークアップするために、セマンティックな要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G117">G117：テキストの提示のバリエーションによって伝えている情報を伝達するために、テキストを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G138">G138：色の手がかりを用いるときは必ず、セマンティックなマークアップを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G140">G140：異なる提示を可能にするために、情報と構造を表現から分離する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H39">H39：データテーブルのキャプションとデータテーブルを関連付けるために、caption 要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H42">H42: Using h1-h6 to identify headings</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H43">H43：データテーブルのデータセルを見出しセルと関連付けるために、id 属性及び headers 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H44">H44：テキストラベルとフォームコントロールを関連付けるために、label 要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H48">H48：リスト又はリンクのグループに、ol 要素、ul 要素、dl 要素を用いる</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H49">H49：強調又は特別なテキストをマークアップするために、セマンティックなマークアップを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H51">H51：表形式の情報を提示するために、テーブルのマークアップを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H63">H63：データテーブルで見出しセルとデータセルを関連付けるために、scope 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H65">H65：label 要素を使用できない場合に、フォームコントロールを特定するために、title 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H71">H71：fieldset 要素及び legend 要素を使用して、フォームコントロールのグループに関する説明を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H73">H73：データテーブルの概要を提供するために、table 要素の summary 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H85">H85：select 要素内の option 要素をグループ化するために、optgroup 要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H97">H97：nav 要素を使用して、関連したリンクをグループ化する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR21">SCR21：ページにコンテンツを追加するために、Document Object Model（DOM）の機能を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/text/T1">T1：段落に、標準的なテキストの書式の表現法を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/text/T2">T2：リストに、標準的なテキストの書式の表現法を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/text/T3">T3：見出しに、標準的なテキストの書式の表現法を使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>The purpose of this success criterion is to ensure that users who cannot see the structure conveyed 					through the presentation of the content have access to this information.</p>
+				
+				<p>構造を適切にタグ付けすることで、ユーザーが列や行ごとに表を移動したり、リスト項目をジャンプして情報を探したり、コンテンツの新しい段落やセクションに遭遇したときに音声で知らせたりするなど、支援技術が同等の読みやすさを提供できるようになります。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準は、出版物の視覚的な構成がコンテンツの多くの側面をカバーしているため、満たすのが最も難しい基準の１つです。</p>
+				
+				<p>The general principal is that content must not be styled to appear one way for visual readers while 					being structured in a less meaningful way that prevents assistive technologies from being able to 					understand the purpose.</p>
+				
+				<p>この要件の一般的な適用例は次のようなものがあります。</p>
+				
+				<ul>
+					<li>リストにはリストタグを使用しなければなりません（例：インデントされて見えるように段落をスタイル設定しないでください)。</li>
+					<li>表のヘッダーは通常のセルとは区別してタグ付けしなければならず、表のデータは行と列を識別できるようにタグ付けしなければなりません。</li>
+					<li>Sidebars, figures and other encapsulated secondary content is tagged so that it distinct from 						the primary narrative.</li>
+					<li>Bolding and emphasis used to identify changes in voice, keywords, etc. are tagged using the 						appropriate markup.</li>
+					<li>関連するフォーム フィールドはグループ化されます（例：ラジオ ボタン オプションのセット）。</li>
+				</ul>
+				
+				<p>しかし、出版物がこの要件を完全に満たしていることを確認するには、コンテンツの視覚的なレンダリングと基礎となるマークアップを徹底的に比較する必要があります。それぞれのケースで問うべきことは、スタイルが削除されたとしても、コンテンツ製作者の意図が機械に理解可能であるかということです。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/articles.html">記事</a></li>
+					<li><a href="../html/asides.html">アサイド</a></li>
+					<li><a href="../html/bibliographies.html">文献リスト</a></li>
+					<li><a href="../html/emphasis.html">太字と斜体</a></li>
+					<li><a href="../script/labels.html">ラベル</a></li>
+					<li><a href="../html/indexes.html">インデックス</a></li>
+					<li><a href="../html/figures.html">図表</a></li>
+					<li><a href="../html/lists.html">リスト</a></li>
+					<li><a href="../html/poetry.html">詩</a></li>
+					<li><a href="../html/quotes.html">引用文</a></li>
+					<li><a href="../html/sections.html">セクション</a></li>
+					<li><a href="../html/tables.html">表</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
