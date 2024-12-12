@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>フォーカスの可視化</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.7 Focus Visible">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.7</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>コントロール</li>
+								<li>入力</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>キーボード操作が可能なあらゆるユーザインターフェースには、フォーカスインジケータが見える操作モードがある。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html">達成基準2.4.7の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible">達成基準2.4.7を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C15">C15: Using CSS to change the presentation of a user interface component when it receives focus</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G149">G149: Using user interface components that are highlighted by the user agent when they receive focus</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G165">G165: Using the default focus indicator for the platform so that high visibility default focus indicators will carry over</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G195">G195: Using an author-supplied, highly visible focus indicator</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR31">SCR31：フォーカスのある要素の背景色又はボーダーを変更するために、スクリプトを使用する</a></li>
+								<li>見やすいフォーカスインジケータを提供するために、コントラスト比の変更を使用する（まだ文書化されていない）</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザー インターフェース内でどのコントロールを操作しているかを、キーボード ユーザーが認識できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>Authors need to ensure that there is a visual indicator for the control that currently has 					focus. This indicator often takes the form of a border or shading around the control.</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">キーボード コントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
