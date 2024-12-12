@@ -72,8 +72,8 @@
 							<ul>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA11">ARIA11：ページのリージョンを特定するために ARIA ランドマークを使用する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA12">ARIA12：見出しを特定するために role=heading を使用する</a></li>
-								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA13">ARIA13: Using aria-labelledby to name regions and landmarks</a></li>
-								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA13">ARIA13：リージョンとランドマークに名前を付けるために、aria-labelledby を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16">ARIA16：ユーザインタフェース コントロールの名前を提供するために、aria-labelledby を使用する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA17">ARIA17：関連するフォームコントロールを特定するために、グルーピングロールを使用する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA20">ARIA20：ページのリージョンを特定するために region ロールを使用する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA24">ARIA24：アイコンフォントを意味的に識別するために role="img" を使用する</a></li>
@@ -106,7 +106,7 @@
 			<section id="purpose">
 				<h3>目的</h3>
 				
-				<p>The purpose of this success criterion is to ensure that users who cannot see the structure conveyed 					through the presentation of the content have access to this information.</p>
+				<p>この達成基準の目的は、コンテンツの表現を通じ伝達される構造を見れないユーザーが、この情報にアクセスできるようにすることです。</p>
 				
 				<p>構造を適切にタグ付けすることで、ユーザーが列や行ごとに表を移動したり、リスト項目をジャンプして情報を探したり、コンテンツの新しい段落やセクションに遭遇したときに音声で知らせたりするなど、支援技術が同等の読みやすさを提供できるようになります。</p>
 			</section>
@@ -115,15 +115,15 @@
 				
 				<p>この達成基準は、出版物の視覚的な構成がコンテンツの多くの側面をカバーしているため、満たすのが最も難しい基準の１つです。</p>
 				
-				<p>The general principal is that content must not be styled to appear one way for visual readers while 					being structured in a less meaningful way that prevents assistive technologies from being able to 					understand the purpose.</p>
+				<p>一般的な原則は、コンテンツは視覚的に読む人にとって一方向に見えるようなスタイルにしてはならない一方で、支援技術を通じると目的が理解できないような意味のない方法で構造化してはならないということです。</p>
 				
 				<p>この要件の一般的な適用例は次のようなものがあります。</p>
 				
 				<ul>
 					<li>リストにはリストタグを使用しなければなりません（例：インデントされて見えるように段落をスタイル設定しないでください)。</li>
 					<li>表のヘッダーは通常のセルとは区別してタグ付けしなければならず、表のデータは行と列を識別できるようにタグ付けしなければなりません。</li>
-					<li>Sidebars, figures and other encapsulated secondary content is tagged so that it distinct from 						the primary narrative.</li>
-					<li>Bolding and emphasis used to identify changes in voice, keywords, etc. are tagged using the 						appropriate markup.</li>
+					<li>サイドバー、図、その他のカプセル化された二次コンテンツは、主要な文章とは区別されるようにタグ付けします。</li>
+					<li>太字と強調は、音声やキーワードなどの変更を識別するために使用されるよう、適切なマークアップを使用してタグ付けします。</li>
 					<li>関連するフォーム フィールドはグループ化されます（例：ラジオ ボタン オプションのセット）。</li>
 				</ul>
 				
