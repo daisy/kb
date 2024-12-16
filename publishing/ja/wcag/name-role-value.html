@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>名前（name）、役割（role）及び値（value）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 4.1.2 Name, Role, Value">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>4.1.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>カスタムコントロール</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>全てのユーザインタフェース コンポーネント（フォームを構成する要素、リンク、スクリプトが生成するコンポーネントなど）では、名前（name）及び役割（role）は、プログラムによる解釈が可能である。また、状態、プロパティ及び利用者が設定可能な値はプログラムによる設定が可能である。そして、支援技術を含むユーザエージェントが、これらの項目に対する変更通知を利用できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">達成基準4.1.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value">達成基準4.1.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA4">ARIA4：ユーザインタフェース コンポーネントの役割 (role) を明示するために、WAI-ARIA ロールを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA5">ARIA5：ユーザインタフェース コンポーネントの状態 (state) を明示するために、WAI-ARIA ステート及びプロパティ属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14">ARIA14：可視ラベルが使用できない場所で不可視ラベルを提供するために、aria-label を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16">ARIA16：ユーザインタフェース コントロールの名前 (name) を提供するために、aria-labelledby を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G10">G10：名前 (name) 及び役割 (role) を取得し、利用者が設定可能なプロパティを直接設定可能にし、変化を通知するためにユーザエージェントが動作する、プラットフォームのアクセシビリティ API 機能をサポートするウェブコンテンツ技術を用いて、コンポーネントを作成する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G108">G108：名前 (name) 及び役割 (role) を公開し、利用者が設定可能なプロパティを直接設定可能にして、変化の通知を提供するために、マークアップを用いる</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G135">G135：名前 (name) 及び変更の通知を公開するためのアクセシビリティ API 機能を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H44">H44：テキストラベルとフォームコントロールを関連付けるために、label 要素を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H64">H64：frame要素及びiframe要素のtitle属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H65">H65：label 要素を使用できない場合に、フォームコントロールを特定するために、title 属性を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H88">H88：仕様に準じて HTML を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H91">H91：HTML のフォームコントロール及びリンクを使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、支援技術がカスタム コントロールの状態（state）を識別して維持できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者がカスタム コントロールを作成する場合は、ユーザーが操作する時にコントロールの状態（state）を維持するために、適切なARIAロール（rolle）、状態（state）、およびプロパティ（property）を使用する必要があります。</p>
+				
+				<p>Rather than create their own controls, authors are advised to use the various types of controls that 					are defined in HTML. When used as defined, these controls are inherently accessible.</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/roles.html">ARIA <code>role</code> 属性</a></li>
+					<li><a href="../script/controls.html">カスタムコントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
