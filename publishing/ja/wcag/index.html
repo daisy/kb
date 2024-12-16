@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>WCAG解説</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for WCAG success criterions">
+		<script>
+			var page_info = {
+				'category': ['Conformance'],
+				'nav': false,
+				'isIndex': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			li {
+				padding: 1rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<nav role="doc-toc" aria-label="List of topics">
+				<p style="margin-left: 3rem;">各達成基準の詳細については、次の解説リストから選択してください。</p>
+				<ol class="none" role="list">
+					<li><a href="non-text-content.html">1.1.1 非テキストコンテンツ</a></li>
+					<li><a href="audio-only-and-video-only-prerecorded.html">1.2.1 音声だけ及び映像だけ（収録済み）</a></li>
+					<li><a href="captions-prerecorded.html">1.2.2 キャプション（収録済み）</a></li>
+					<li><a href="audio-description-or-media-alternative-prerecorded.html">1.2.3 音声解説又はメディアに対する代替コンテンツ（収録済み）</a></li>
+					<li><a href="captions-live.html">1.2.4 キャプション（ライブ）</a></li>
+					<li><a href="audio-description-prerecorded.html">1.2.5 音声解説（収録済み）</a></li>
+					<li><a href="sign-language-prerecorded.html">1.2.6 手話（収録済み）</a></li>
+					<li><a href="extended-audio-description-prerecorded.html">1.2.7 拡張音声解説（収録済み）</a></li>
+					<li><a href="media-alternative-prerecorded.html">1.2.8 メディアに対する代替コンテンツ（収録済み）</a></li>
+					<li><a href="audio-only-live.html">1.2.9 音声だけ（ライブ）</a></li>
+					<li><a href="info-and-relationships.html">1.3.1 情報及び関係性</a></li>
+					<li><a href="meaningful-sequence.html">1.3.2 意味のある順序</a></li>
+					<li><a href="sensory-characteristics.html">1.3.3 感覚的な特徴</a></li>
+					<li><a href="orientation.html">1.3.4 表示の向き</a></li>
+					<li><a href="identify-input-purpose.html">1.3.5 入力目的の特定</a></li>
+					<li><a href="identify-purpose.html">1.3.6 目的の特定</a></li>
+					<li><a href="use-of-color.html">1.4.1 色の使用</a></li>
+					<li><a href="audio-control.html">1.4.2 音声の制御</a></li>
+					<li><a href="contrast-minimum.html">1.4.3 コントラスト（最低限レベル）</a></li>
+					<li><a href="resize-text.html">1.4.4 テキストのサイズ変更</a></li>
+					<li><a href="images-of-text.html">1.4.5 文字画像</a></li>
+					<li><a href="contrast-enhanced.html">1.4.6 コントラスト（高度レベル）</a></li>
+					<li><a href="low-or-no-background-audio.html">1.4.7 小さな背景音、又は背景音なし</a></li>
+					<li> <a href="visual-presentation.html">1.4.8 視覚的提示</a>
+</li>
+					<li><a href="images-of-text-no-exception.html">1.4.9 文字画像（例外なし）</a></li>
+					<li><a href="reflow.html">1.4.10 リフロー</a></li>
+					<li><a href="non-text-contrast.html">1.4.11 非テキストのコントラスト</a></li>
+					<li><a href="text-spacing.html">1.4.12 テキストの間隔</a></li>
+					<li><a href="content-on-hover-or-focus.html">1.4.13 ホバー又はフォーカスで表示されるコンテンツ</a></li>
+					<li><a href="keyboard.html">2.1.1 キーボード</a></li>
+					<li><a href="no-keyboard-trap.html">2.1.2 キーボードトラップなし</a></li>
+					<li><a href="keyboard-no-exception.html">2.1.3 キーボード（例外なし）</a></li>
+					<li><a href="character-key-shortcuts.html">2.1.4 文字キーのショートカット</a></li>
+					<li><a href="timing-adjustable.html">2.2.1 タイミング調整可能</a></li>
+					<li><a href="pause-stop-hide.html">2.2.2 一時停止、停止及び非表示</a></li>
+					<li><a href="no-timing.html">2.2.3 タイミング非依存</a></li>
+					<li><a href="interruptions.html">2.2.4 割込み</a></li>
+					<li><a href="re-authenticating.html">2.2.5 再認証</a></li>
+					<li><a href="timeouts.html">2.2.6 タイムアウト</a></li>
+					<li><a href="three-flashes-or-below-threshold.html">2.3.1 3 回のせん（閃）光、又はしきい（閾）値以下</a></li>
+					<li><a href="three-flashes.html">2.3.2 3 回のせん（閃）光</a></li>
+					<li><a href="animation-from-interactions.html">2.3.3 インタラクションによるアニメーション</a></li>
+					<li><a href="bypass-blocks.html">2.4.1 ブロックスキップ</a></li>
+					<li><a href="page-titled.html">2.4.2 ページタイトル</a></li>
+					<li><a href="focus-order.html">2.4.3 フォーカス順序</a></li>
+					<li><a href="link-purpose-in-context.html">2.4.4 リンクの目的（コンテキスト内）</a></li>
+					<li><a href="multiple-ways.html">2.4.5 複数の手段</a></li>
+					<li><a href="headings-and-labels.html">2.4.6 見出し及びラベル</a></li>
+					<li><a href="focus-visible.html">2.4.7 フォーカスの可視化</a></li>
+					<li><a href="location.html">2.4.8 現在位置</a></li>
+					<li><a href="link-purpose-link-only.html">2.4.9 リンクの目的（リンクだけ）</a></li>
+					<li><a href="section-headings.html">2.4.10 セクション見出し</a></li>
+					<li><a href="focus-not-obscured-minimum.html">2.4.11 隠されないフォーカス（最低限）</a></li>
+					<li><a href="focus-not-obscured-enhanced.html">2.4.12 隠されないフォーカス（高度）</a></li>
+					<li><a href="focus-appearance.html">2.4.13 フォーカスの外観</a></li>
+					<li><a href="pointer-gestures.html">2.5.1 ポインタのジェスチャ</a></li>
+					<li><a href="pointer-cancellation.html">2.5.2 ポインタのキャンセル</a></li>
+					<li><a href="label-in-name.html">2.5.3 ラベルを含む名前（name）</a></li>
+					<li><a href="motion-actuation.html">2.5.4 動きによる起動</a></li>
+					<li><a href="target-size-enhanced.html">2.5.5 ターゲットのサイズ（高度）</a></li>
+					<li><a href="concurrent-input-mechanisms.html">2.5.6 入力メカニズムの共存</a></li>
+					<li><a href="dragging-movements.html">2.5.7 ドラッグ動作</a></li>
+					<li><a href="target-size-minimum.html">2.5.8 ターゲットのサイズ（最低限）</a></li>
+					<li><a href="language-of-page.html">3.1.1 ページの言語</a></li>
+					<li> 						<a href="language-of-parts.html">3.1.2 Language of Parts</a> 					</li>
+					<li><a href="unusual-words.html">3.1.3 一般的ではない用語</a></li>
+					<li><a href="abbreviations.html">3.1.4 略語</a></li>
+					<li><a href="reading-level.html">3.1.5 読解レベル</a></li>
+					<li> <a href="pronunciation.html">3.1.6 発音</a>
+</li>
+					<li><a href="on-focus.html">3.2.1 フォーカス時</a></li>
+					<li><a href="on-input.html">3.2.2 入力時</a></li>
+					<li> <a href="consistent-navigation.html">3.2.3 一貫したナビゲーション</a>
+</li>
+					<li><a href="consistent-identification.html">3.2.4 一貫した識別性</a></li>
+					<li><a href="change-on-request.html">3.2.5 要求による変化</a></li>
+					<li><a href="consistent-help.html">3.2.6 一貫したヘルプ</a></li>
+					<li><a href="error-identification.html">3.3.1 エラーの特定</a></li>
+					<li><a href="labels-or-instructions.html">3.3.2 ラベル又は説明</a></li>
+					<li><a href="error-suggestion.html">3.3.3 エラー修正の提案</a></li>
+					<li><a href="error-prevention-legal-financial-data.html">3.3.4 エラー回避（法的、金融及びデータ）</a></li>
+					<li><a href="help.html">3.3.5 ヘルプ</a></li>
+					<li><a href="error-prevention-all.html">3.3.6 エラー回避（全て）</a></li>
+					<li><a href="redundant-entry.html">3.3.7 冗長な入力項目</a></li>
+					<li><a href="accessible-authentication.html">3.3.8 アクセシブルな認証（最低限）</a></li>
+					<li><a href="accessible-authentication-no-exception.html">3.3.9 アクセシブルな認証（高度）</a></li>
+					<li><a href="parsing.html">4.1.1 構文解析</a></li>
+					<li><a href="name-role-value.html">4.1.2 名前（name）、役割（role）及び値（value）</a></li>
+					<li><a href="status-messages.html">4.1.3 ステータスメッセージ</a></li>
+				</ol>
+			</nav>
+		</main>
+	</body>
+</html>
