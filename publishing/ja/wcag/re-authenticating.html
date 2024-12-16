@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>再認証</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.2.5 Re-authenticating">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.2.5</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>認証済みのセッション</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>認証済みのセッションが切れた場合は、再認証後でもデータを失うことなく利用者が操作を継続できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/re-authenticating.html">達成基準2.2.5の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#re-authenticating">達成基準2.2.5を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G105">G105：利用者が再認証した後に利用できるようにデータを保存する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G181">G181：利用者のデータを、再認証したページで非表示データ又は暗号化されたデータとしてエンコーディングする</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、タスクを完了するために追加の時間を必要とするユーザーが、認証済のセッションの途中で（たとえば、 教育用アプリケーションから）作業を完了する前にログアウトされないようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>デジタル出版物が認証済のセッション（つまり、ログインしなければならないセッション）を実装することは一般的ではありませんが、コンテンツ製作者がそのようなセッションを実装する場合は、ユーザーが完了した作業や入力したデータを失うことなく再認証できるようにする必要があります。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/timers.html">タイマー</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
