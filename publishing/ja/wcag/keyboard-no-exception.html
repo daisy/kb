@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>キーボード（例外なし）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.1.3 Keyboard (No Exception)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.1.3</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>カスタムコントロール</li>
+								<li>フォーム</li>
+								<li>入力</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>コンテンツの全ての機能は、個々のキーストロークに特定のタイミングを要することなく、キーボードインタフェースを通じて操作可能である。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html">達成基準2.1.3の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard-no-exception">達成基準2.1.3を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G90">G90：キーボードがトリガーとなるイベントハンドラを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G202">G202：全ての機能に対してキーボード制御を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H91">H91：HTML のフォームコントロール及びリンクを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2">SCR2: Using redundant keyboard and mouse event handlers</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR20">SCR20：キーボードとその他のデバイス固有の機能を両方とも使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35">SCR35: Making actions keyboard accessible by using the onclick event of anchors and buttons</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、出版物にアクセスするためにキーボードを必要とするユーザーが、例外なくコンテンツ内のすべての機能にアクセスできるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準の要件は、<a href="keyboard.html">2.4.1 キーボード</a>と同じです。</p>
+				
+				<p>唯一の違いは、この達成基準ではいかなる例外も認めていないことです（つまり、キーボードで再現できない機能は認めていません）。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">キーボード コントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
