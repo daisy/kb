@@ -68,9 +68,9 @@
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G90">G90：キーボードがトリガーとなるイベントハンドラを提供する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G202">G202：全ての機能に対してキーボード制御を確保する</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H91">H91：HTML のフォームコントロール及びリンクを使用する</a></li>
-								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2">SCR2: Using redundant keyboard and mouse event handlers</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2">SCR2：キーボード及びマウスのイベントハンドラの両方で冗長性を持たせる</a></li>
 								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR20">SCR20：キーボードとその他のデバイス固有の機能を両方とも使用する</a></li>
-								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35">SCR35: Making actions keyboard accessible by using the onclick event of anchors and buttons</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35">SCR35：アンカー及びボタンのonclickイベントを用いて、アクションをキーボード操作可能にする（訳注：onclickはアンカー又はボタンのデフォルトのマウス、キーボード、支援技術からの操作にマッピングされる）</a></li>
 							</ul>
 						</td>
 					</tr>
@@ -84,11 +84,11 @@
 			<section id="meeting">
 				<h3>要件の満たし方</h3>
 				
-				<p>Authors need to ensure that all controls and links are accessible by keyboard input and that the 					input is not time-based (e.g., that users must press keys a certain number of times or for a 					specific length of time to register).</p>
+				<p>コンテンツ製作者は、すべてのコントロールとリンクがキーボード入力でアクセス可能であり、入力が時間による制約が無いのを確認する必要があります（例：ユーザーが登録するにはキーを特定の回数または特定の時間内に押さなければならないなど）。</p>
 				
-				<p>This success criterion typically applies to custom controls and links that authors create through 					scripting. Native HTML elements for these functions are generally accessible, with authors only 					needing to ensure that they are clearly labeled.</p>
+				<p>この達成基準は、通常、コンテンツ製作者がスクリプトを通じて作成するカスタム コントロールとリンクに適用されます。これらの機能のためのネイティブのHTML要素は一般的にアクセシブルなので、コンテンツ製作者は明確にラベル付けされているのを確認するだけで済みます。</p>
 				
-				<p>Note that this success criterion does not apply to functionality where the full path of action is 					important, as keyboards typically cannot replicate this functionality. An example would be an 					embedded program that allows users to freehand draw.</p>
+				<p>この達成基準は、（訳注：マウス等による）操作の一連のパスが重要な機能には、キーボードでは通常この機能を再現できないため適用されないことに注意してください。例としては、ユーザーがフリーハンドで絵を描く埋め込まれたプログラムが挙げられます。</p>
 			</section>
 			<section id="kb">
 				<h3>追加情報</h3>
