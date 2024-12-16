@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>部分的な言語指定</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.1.2 Language of Parts">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.1.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>テキスト</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>コンテンツの一節、又は語句それぞれの自然言語がどの言語であるか、プログラムによる解釈が可能である。ただし、固有名詞、技術用語、言語が不明な語句、及びすぐ前後にあるテキストの言語の一部になっている単語又は語句は除く。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html">達成基準3.1.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#language-of-parts">達成基準3.1.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H58">H58：自然言語の変更を指定するために、言語属性を使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、リーディングシステムと支援技術が言語の変更を検知してテキストのレンダリングを最適化できるようにすることです（例：テキスト読み上げの再生を最適化する）。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、EPUBパッケージドキュメントと、各HTMLおよびSVGコンテンツドキュメントの、両方の言語メタデータに、テキストの変更を反映する必要があります。<code>xml:lang</code>属性と<code>lang</code>属性のうち、フォーマットに応じて適切な方を使用して変更を示します。</p>
+				
+				<p>この要件では、既定言語と違うすべての単語の特定を要求するものではないことに注意してください。たとえば、その言語で一般的な名称、専門用語、外国語表現などは、この要件の対象外です。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/lang.html">言語</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

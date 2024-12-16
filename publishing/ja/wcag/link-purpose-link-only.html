@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>リンクの目的（リンクだけ）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.9 Link Purpose (Link Only)">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.9</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>それぞれのリンクの目的を、リンクのテキスト単独で特定できるメカニズムが利用できる。ただし、リンクの目的がほとんどの利用者にとって曖昧な場合は除く。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html">達成基準2.4.9の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-link-only">達成基準2.4.9を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8">ARIA8：リンクの目的を示すために aria-label を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C7">C7：リンクテキストの一部を非表示にするために、CSS を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G91">G91：リンクの目的を説明したリンクテキストを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G189">G189：ウェブページの先頭近くに、リンクテキストを変更するコントロールを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H24">H24：イメージマップの area 要素にテキストによる代替を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H30">H30：a 要素のリンクの目的を説明するリンクテキストを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR30">SCR30：リンクテキストを変更するために、スクリプトを使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、読者がリンクのテキストだけからリンク先を判断できるようにすることです（つまり、<a href="link-purpose-in-context.html">達成基準 2.4.4</a>で認められている前後のコンテキストを除外します）。</p>
+				
+				<p>たとえば、支援技術は通常、ドキュメント内のすべてのリンクのリストへのアクセスを提供します。リンクテキストのみでも、リンク先が何かを説明できていれば、このリストを最大限活用できます。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、link要素内のテキストがリンク先を説明していることを確認する必要があります。ほとんどの場合、内部リンクでは、リンク先の章またはリンク先で扱われているトピックに関する情報を提供し、外部リンクでは、サイト名またはページ名を提供するだけです。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/links.html">リンク</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

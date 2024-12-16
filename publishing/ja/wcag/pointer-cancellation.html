@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ポインタのキャンセル</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.2 Pointer Cancellation">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>インタラクティブなコンテンツ</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>シングルポインタを使って操作できる機能は、以下の要件の少なくとも一つを満たす。</p>
+							
+							<dl>
+								<dt>ダウンイベントがない</dt>
+								<dd>
+									<p>機能を実行する目的でポインタのダウンイベントを使用していない。</p>
+								</dd>
+								
+								<dt>中止又は元に戻すことができる</dt>
+								<dd>
+									<p>機能の完了にはアップイベントを使用し、かつ機能の完了前に中止する、又は機能の完了後に元に戻すためのメカニズムが利用できる。</p>
+								</dd>
+								
+								<dt>アップイベントで反転</dt>
+								<dd>
+									<p>アップイベントによって、先のダウンイベントのすべての結果が反転する。</p>
+								</dd>
+								
+								<dt>必要不可欠</dt>
+								<dd>
+									<p>ダウンイベントによって機能を完了させることが必要不可欠である。</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html">達成基準2.5.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation">達成基準2.5.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G210">G210：ドラッグ＆ドロップ操作をキャンセルできるようにする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G211">G211：アクセシブルな名前（accessible name）を視覚的なラベルと一致させる</a></li>
+								<li>タッチイベントは、コントロールからタッチが削除された場合にのみトリガーされます。（文書化されていません）</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザーが誤ってポインターによる入力をするのを防ぐことです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準を満たすために、コンテンツ製作者には三つの選択肢があります。一つ目は、マウスなどのポインターによって開始されるイベントは、コンテンツの機能に不可欠でない限り、ダウンクリックによって発生させないことです。</p>
+				
+				<p>二つ目は、アクションを中止または元に戻す機能を提供することです。たとえば、（訳注：マウスのボタンを）離す前にポインターを（訳注：表示されているUIの）ボタンから離すと、操作を無効化できるようにします。</p>
+				
+				<p>三つ目は、アップイベントを使用してダウンイベントのアクションをキャンセルすることです。例としては、マウスボタンを押している間ダイアログを開き、ボタンを離したときにのみダイアログを閉じるような場合です。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>アクセシブルな入力モダリティの作成に関する情報は、現在ナリッジベースにはありません。詳細については、 <a href="#guidance">WCAG ガイダンスドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

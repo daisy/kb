@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>色の使用</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.1 Use of Color">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>図</li>
+								<li>フォーム</li>
+								<li>リンク</li>
+								<li>表</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>色が、情報を伝える、動作を示す、反応を促す、又は視覚的な要素を判別するための唯一の視覚的手段になっていない。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">達成基準1.4.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color">達成基準1.4.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G14">G14：色の違いで伝えている情報をテキストでも入手可能にする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G111">G111：色とパターンを併用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G182">G182：文字色の違いが情報を伝えるために使用される場合に、利用可能な追加の視覚的な手がかりを確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G183">G183：色が単独でリンク又はコントロールを特定する場所で、周囲のテキストと一緒に 3:1 のコントラスト比を使用し、そのリンク又はコントロールのフォーカスに追加の視覚的な手がかりを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G205">G205：色のついたフォームコントロールのラベルに対して、テキストによる手がかりを含める</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、色を認識できない目の見えるユーザー（たとえば、色覚異常）が、色を使ったコンテンツを理解できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準を満たすには、コンテンツ製作者は、コンテンツ内の情報や指示を識別したり理解したりする方法が、色だけではないことを保証しなければなりません。</p>
+				
+				<p>よくある例として、ハイパーリンクを色の違いだけで周囲のテキストと区別するべきではありません。下線や太字などの別の視覚的な手がかりも必要です。</p>
+				
+				<p>同様に、円グラフは各項目の色だけで理解できるものであってはいけません（たとえば、テキスト記述や模様のある背景も必要になります）。</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">注記</p>
+					
+					<p>この達成基準は、色の使用を支援技術が理解できるようにするのには適用されません（たとえば、サイドバーを識別するため）。これらの要件は、<a href="non-text-content.html">非テキストコンテンツの達成基準</a>でカバーされています。</p>
+				</div>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../css/color.html">色</a></li>
+					<li><a href="../html/links.html">リンク</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

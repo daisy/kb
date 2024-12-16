@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ページの言語</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.1.1 Language of Page">
+		<script>
+			var page_info = {
+				'category': ['Conformance', 'WCAG'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.1.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>テキスト</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>それぞれのウェブページのデフォルトの自然言語がどの言語であるか、プログラムによる解釈が可能である。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html">達成基準3.1.1の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#language-of-page">達成基準3.1.1を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H57">H57：HTML 要素の言語属性を使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、リーディングシステムや支援技術がテキストコンテンツを最適にレンダリングできるように、コンテンツの言語を確実に利用できるようにすることです（例：テキスト読み上げの再生を最適化など）。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、主要言語が、EPUBパッケージ ドキュメントのメタデータ（<code>xml:lang</code>属性と<code>dc:language</code>要素を使用）と、テキスト コンテンツを含むHTMLおよびSVGドキュメント（必要に応じて<code>xml:lang</code>属性と<code>lang</code>属性を使用）の両方で指定されているのを確認する必要があります。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/lang.html">言語</a></li>
+					<li><a href="../epub/lang.html">出版言語</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
