@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>ハイライト（Highlighting）</title>
+		<title>ハイライト</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidance on accessible highlighting during playback of synchronized text and audio.">
 		<script>
@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>再生中のテキストのハイライトが、テキストの読み取りの邪魔にならないように気をつけます。</p>
+				<p>再生中のテキストのハイライトが、テキストの読み取りの邪魔にならないようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -27,7 +27,7 @@
 				
 				<ul>
 					<li>
-						<p>前景色と背景色の間に十分なコントラストを提供します。 <span class="wcag-level">[ <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG 1.4.3 - AA</a>および<a href="https://www.w3.org/TR/WCAG2/#contrast-enhanced">WCAG 1.4.6 - AAA</a> ]</span></p>
+						<p>前景色と背景色の間に十分なコントラストを設けます。 <span class="wcag-level">[ <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG 1.4.3 - AA</a>および<a href="https://www.w3.org/TR/WCAG2/#contrast-enhanced">WCAG 1.4.6 - AAA</a> ]</span></p>
 					</li>
 				</ul>
 			</section>
@@ -62,10 +62,10 @@
 				<h3>よくある質問</h3>
 				
 				<dl>
-					<dt id="faq-001">背景の陰影のみを適用できますか?</dt>
+					<dt id="faq-001">（訳注：ハイライトの代わりに）背景の陰影のみを用いることはできますか？</dt>
 					<dd>
-<p>いいえ、アクティブなテキストに任意の CSS プロパティを適用できますが、選択した内容が出版物のアクセシビリティに影響する可能性があることに注意してください。</p>
-						<p>また、メディアも考慮してください。フォント サイズを大きくすると、アクティブなテキストが目立ちやすくなるように思えるかもしれませんが、実際の結果では、EPUB のページ上でテキストが飛び回ってしまう可能性があります。たとえば、1 つの段落がフォーカスを失うと、そのテキストサイズは縮小され、次の段落は拡大されるため、レイアウトが「移動」します。また、ページが最初にレンダリングされたときに表示されていたテキストが、新しいハイライトが適用されるとビューポートから押し出される場合もあります。</p>
+<p>いいえ、アクティブなテキストに任意のCSSプロパティは適用できるものの、その内容が出版物のアクセシビリティに影響する可能性があるのに注意してください。</p>
+						<p>また、表現手段についても考慮してください。アクティブなテキストのフォント サイズを大きくすると、目立ちやすくなるように思えるかもしれませんが、実際は、EPUBのページ上でテキストが飛び回ってしまう可能性があります。たとえば、一つの段落がフォーカスを失うと、そのテキストサイズは縮小され、次の段落は拡大されるため、レイアウトが「移動」します。また、ページが最初にレンダリングされたときに表示されていたテキストが、新しいハイライトが適用されるとビューポートから押し出されてしまうかもしれません。</p>
 					</dd>
 				</dl>
 			</section>
@@ -73,7 +73,7 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>再生中にテキストが同期されている場合、どの部分がナレーションされているかがより明確になるようにスタイルを設定することもできます。</p>
+				<p>再生中にテキストが同期される場合に、どの部分がナレーションされているかをより明確にするスタイルの設定もできます。</p>
 				
 				<section id="epub3">
 					<h4>EPUB 3</h4>
