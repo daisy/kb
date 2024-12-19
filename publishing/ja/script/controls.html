@@ -35,7 +35,7 @@
 				<h3>テクニック</h3>
 				<ul>
 					<li>
-						<p>Enable interaction using roles, states and properties. [[WCAG-4.1.2]]</p>
+						<p>role（役割）、state（状態）、property（プロパティ）を使用してインタラクションを行えるようにします。[[WCAG-4.1.2]]</p>
 					</li>
 					<li>
 						<p>ARIAのrole（役割）、state（状態）、property（プロパティ）が指定された要素に対して有効であることを確認します。[[WCAG-4.1.1]]</p>
@@ -47,7 +47,7 @@
 						<p>コントロールがフォーカスされただけではイベントを起動しないでください。[[WCAG-3.2.1]]</p>
 					</li>
 					<li>
-						<p>Do trigger unexpected events when a user inputs values or changes settings. [[WCAG-3.2.1]]</p>
+						<p>予期しないイベント起動は、ユーザーが値を入力したり設定を変更した際に行います。[[WCAG-3.2.1]]</p>
 					</li>
 				</ul>
 			</section>
@@ -177,24 +177,24 @@ function controlPlayback(action) {
 			</section>
 			<section id="desc">
 				<h3>解説</h3>
-				<p>Although HTML provides a number of native controls (e.g., <code>input</code>, <code>button</code>, 						<code>progress</code>), developers often have to create their own equivalents to avoid the 					styling limitations or introduce specialized functionality.</p>
-				<p>The creation of custom controls can cause seriously accessibility issues, however, as the reliance 					on JavaScript to make the functionality work does not translate to assistive technologies by 					default. For one, when non-interactive elements like spans of text and images are made dynamic, 					assistive technologies will not be aware that the user can activate them. As well, as actions 					occur, the changes to the content are not reflected in the accssibility tree (i.e., the new content 					will not be available).</p>
-				<p>These scripting accessibility problems plagued early development on the web, but the introduction of 					ARIA roles, states and properties has helped mitigate many of the problems. Adding these attributes 					to custom controls makes assistive technologies of their presence and allows information about the 					current state of the control to flow through to users.</p>
+				<p>HTMLには数多くのネイティブコントロール（例：<code>input</code> 、 <code>button</code> 、 <code>progress</code>）が用意されていますが、開発者は、多くの場合に、スタイル制限の回避や特殊な機能の導入のために、同等のコントロールを独自に作成しなければなりません。</p>
+				<p>カスタムコントロールを作成すると、機能を動作させるためのJavaScriptがデフォルトでは支援技術に反映されないために、深刻なアクセシビリティの問題が発生しかねません。たとえば、テキストや画像の範囲などの非インタラクティブ要素が動的に作成されると、支援技術を通じると、それらをアクティブ化できることを認識できません。また、アクションが発生しても、コンテンツの変更はアクセシビリティツリーに反映されません（つまり、新しいコンテンツは利用できません）。</p>
+				<p>こうしたスクリプトにおけるアクセシビリティの問題は、Webの開発初期に問題となっていましたが、ARIAのrole（役割）、state（状態）、property（プロパティ）の導入により、多くの問題が軽減されました。カスタムコントロールにこれらの属性を追加すると、支援技術を通じてその存在が認識され、コントロールの現在の状態に関する情報がユーザーに伝わるようになります。</p>
 				<p>次のリストでは、各属性タイプの目的について説明します。</p>
 				<dl class="value">
-					<dt id="roles">Roles</dt>
+					<dt id="roles">役割（Role）</dt>
 					<dd>
 						<p>ARIA <code>role</code>属性は、カスタムコントロールの機能を説明するために使用されます（たとえば、画像がボタンのように機能することを示すなど）。</p>
 						<p>カスタムコントロールには、その目的を支援技術に通知するためのrole（役割）が必要です。これにより、支援技術は、予想される使用方法に応じて要素をユーザーに提示できます。</p>
 						<p><a href="http://www.w3.org/TR/wai-aria/#role_definitions">現在サポートされているroleのリスト</a>については、ARIA仕様をご覧ください。</p>
 					</dd>
-					<dt id="states">States</dt>
+					<dt id="states">状態（State）</dt>
 					<dd>
 						<p>state属性は、コントロールの現在の状態（現在チェックされているかどうか、非表示になっているかどうかなど）を識別します。</p>
 						<p>ユーザーがコントロールやコンテンツと対話するときに、State属性がスクリプトによって維持されなければなりません。そうしないと、ユーザーが機能を使用できなくなる可能性があります（たとえば、音量を下げることができない、重要なコンテンツを表示できないなど）。</p>
 						<p><a href="http://www.w3.org/TR/wai-aria/#global_states">現在サポートされているstateのリスト</a>については、ARIA仕様をご覧ください。</p>
 					</dd>
-					<dt id="properties">Properties</dt>
+					<dt id="properties">プロパティ（Property）</dt>
 					<dd>
 						<p>プロパティ属性は、コントロールが許可する最小値や最大値、グループ内での位置など、コントロールに関するメタ情報を識別します。</p>
 						<p>stateとは異なり、プロパティは通常、コンテンツが読み込まれるときに一回だけ設定されます。</p>
@@ -202,7 +202,7 @@ function controlPlayback(action) {
 					</dd>
 				</dl>
 				
-				<p>There is more to making custom controls accessible than just assuring that the correct roles, states 					and properties are applied, of course. Authors also need to make sure that they do not trigger  					unexpected changes in context, for example, when focus or input is received by the control.</p>
+				<p>もちろん、カスタムコントロールをアクセシブルにするには、正しい役割（role）、状態（state）、プロパティ（property）が適用されているのを確認するだけでは不十分です。コンテンツ製作者は、コントロールがフォーカスや入力を受け取ったときなどに、コンテキスト内で予期しない変更がトリガーされないようにする必要があります。</p>
 			</section>
 			<section id="refs">
 				<h3>関連リンク</h3>
