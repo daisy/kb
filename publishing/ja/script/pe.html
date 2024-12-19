@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>プログレッシブ エンハンスメント</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using progressive enhancement techniques to ensure scripted content is accessible when scripting is not available.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			@font-face{
+			    font-family: 'Bloody';
+			    src: url(/fonts/BLOODY.ttf) format('truetype');
+			    font-weight: normal;
+			    font-style: normal;
+			}
+			
+			
+			span#secret{
+				color: rgb(255, 0, 0);
+			}
+			
+			div#revealed{
+				width: 100%;
+				text-align: center;
+			}
+			
+			span.letter{
+				font-family: "Bloody";
+				font-size: 240%;
+				font-weight: bold;
+				color: rgb(255, 0, 0);
+				text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+				animation: bleedin 2s;
+				-moz-animation: bleedin 2s;
+				-webkit-animation: bleedin 2s;
+			}
+			
+			@keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}
+			
+			@-moz-keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}
+			
+			@-webkit-keyframes bleedin
+			{
+				from { font-weight: normal; font-size: 0%; background: rgb(255,0,0); text-shadow: rgb(0,0,0) 1px 1px 50px; }
+				to { font-weight: bold; font-size: 240%; background: rgb(255,255,255); text-shadow: rgb(0,0,0) 1px 1px 2px; }
+			}</style>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>プログレッシブ エンハンスメント技術を使用すると、スクリプトが利用できない場合でもコンテンツが利用できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>コンテンツの表示または挿入が、スクリプトに依存しないようにする。[[WCAG-1.3.1]]</li>
+					<li>リンクが、スクリプトに依存しないようにする。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">例1 — 強化されたリンク</span>
+						<p>次の例では、秘密コードはスクリプトが利用可能な場合にのみ、非表示になり、アクティブ化できるようになります。それ以外の場合は、テキストは段落の一部として表示されるため、スクリプトのサポートに関係なく、ユーザーはテキストを読むことができます。</p>
+					</figcaption>
+					<pre class="prettyprint linenums small"><code>&lt;p&gt;
+   The &lt;span id="code"&gt;secret code&lt;/span&gt; 
+   &lt;span id="secret"&gt;D E A D M A N&lt;/span&gt; had to be
+   spelled out to gain passage to the pirates' lair.
+&lt;/p&gt;
+
+&lt;div id="revealed" aria-live="assertive"/&gt;
+
+&lt;style type="text/css"&gt;
+
+   span#secret { color: rgb(255,0,0); }
+   
+   div#revealed { width: 100%; text-align: center; }
+   
+   span.letter { 
+     font-family: "Times New Roman";
+     font-size: 240%;
+     font-weight: bold;
+     color: rgb(255,0,0);
+     text-shadow: rgb(0,0,0) 1px 1px 2px;
+     animation: bleedin 2s;
+   }
+
+   @keyframes bleedin {
+     from {
+       font-weight: normal;
+       font-size: 0%;
+       background: rgb(255,0,0);
+       text-shadow: rgb(0,0,0) 1px 1px 50px;
+     }
+     to {
+       font-weight: bold;
+       font-size: 240%;
+       background: rgb(255,255,255);
+       text-shadow: rgb(0,0,0) 1px 1px 2px;
+     }
+   }
+
+&lt;/style&gt;
+
+&lt;script&gt;
+   &lt;![CDATA[
+   var code = document.getElementById('code');
+       code.style.color = 'rgb(0,0,200)';
+       code.onclick = function () { revealCode(); };
+       code.setAttribute('role', 'button');
+       code.setAttribute('tabindex', 0);
+   
+   var secret = document.getElementById('secret'); 
+       secret.style.visibility = 'hidden';
+       secret.style.display = 'none';
+       secret.setAttribute('aria-hidden', true);
+   
+   function revealCode() {
+     var revealed = document.getElementById('revealed');
+     if (revealed.childNodes.length == 0) {
+       var codeArray = 'DEADMAN'.split('');
+       var i = 0;
+       var revealLetters = setInterval(function(){
+         if (i &lt; codeArray.length) {
+            var letter = document.createElement('span');
+            letter.setAttribute('class', 'letter');
+            letter.appendChild(document.createTextNode(codeArray[i]));
+            revealed.appendChild(letter);
+            i++;
+         }
+         
+         else { 
+            clearInterval(revealLetters);
+         }
+       }, 300);
+     }
+   }
+   ]]&gt;
+&lt;/script&gt;</code></pre>
+					<p>このコードの動作例を次に示します。</p>
+					<p>海賊の隠れ家に行くには、<span id="code">秘密コード</span><span id="secret">「D E A D M A N」</span>のスペルを言わなければならなかった。</p>
+					<div id="revealed" aria-live="assertive"></div>
+					<script>
+						//<![CDATA[
+						var code = document.getElementById('code');
+						code.style.color = 'rgb(0,0,200)';
+						code.onclick = function () {
+							revealCode();
+						};
+						code.setAttribute('role', 'button');
+						code.setAttribute('tabindex', 0);
+						
+						var secret = document.getElementById('secret');
+						secret.setAttribute('hidden', 'hidden');
+						secret.setAttribute('aria-hidden', true);
+						
+						function revealCode() {
+							var revealed = document.getElementById('revealed');
+							if (revealed.childNodes.length == 0) {
+								var codeArray = 'DEADMAN'.split('');
+								var i = 0;
+								var revealLetters = setInterval(function () {
+									if (i < codeArray.length) {
+										var letter = document.createElement('span');
+										letter.setAttribute('class', 'letter');
+										letter.appendChild(document.createTextNode(codeArray[i]));
+										revealed.appendChild(letter);
+										i++;
+									} else {
+										clearInterval(revealLetters);
+									}
+								},
+								300);
+							}
+						}//]]>
+					</script>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>EPUB 3ではJavaScriptによるスクリプト化されたインタラクションのサポートが追加されましたが、出版物のアクセシビリティを確保するためにインタラクションの使用方法にいくつかの制約が課されています。スクリプトの基本原則はプログレッシブ エンハンスメントです。つまり、次のようになります。</p>
+				
+				<blockquote>
+					<p>spineレベルのスクリプトを含むトップレベルのコンテンツドキュメントは、スクリプトが無効になっているか利用できない場合でも、情報の損失やその他の重大な劣化なしにユーザーが利用できるようにします。</p>
+					<cite><a href="https://www.w3.org/TR/epub/#sec-scripted-spine">EPUB 3.3</a></cite>
+				</blockquote>
+				
+				<p>プログレッシブ エンハンスメントは、コンテンツをスクリプト化するべきでないという意味ではなく、スクリプト化が必須であってはならないという意味です。たとえば、スクリプト化が可能な場合、デフォルトのレンダリングからコンテンツを削除して拡張エクスペリエンスに置き換えることはまったく問題ありません。同様に、スクリプト化されたインタラクティブ機能でデフォルトのレンダリングを拡張することも許可されています。避けるべきことは、スクリプト化なしでは主要な文章の全体または一部が利用できないようなコンテンツのスクリプト化です。</p>
+				
+				<p>バリデーターだけではこの基準への準拠を検証することはできないため、コンテンツを作成する際には、重要な原則が遵守されているように注意しなければなりません。特に次の点に注意してください。</p>
+				
+				<ul>
+					<li>スクリプト化されたインタラクションを通じてでなければアクセスできない（表示できない）コンテンツは組み込まない。</li>
+					<li>デフォルトのレンダリングなしで、ユーザーの設定、場所、言語、またはその他の設定に基づいてコンテンツをスクリプト対応にすることはしない。</li>
+					<li>スクリプトを使わなければユーザーがコンテンツ内を移動できないようにはしない（例：自分で冒険を選ぶ本）。</li>
+				</ul>
+				
+				<p>スクリプトを追加するときは、必ず拡張する形で追加します。</p>
+				
+				<p>スクリプトによる拡張の一般的な例としては、コードスニペットに行番号を追加することが挙げられます。多くのコンテンツ製作者は、行番号をエミュレートするために<code>pre</code>タグ内で順序付きリストを使用することを好みますが、順序付きリストは支援技術を使用するユーザーにとっては気が散る可能性があり、CSS対応のユーザーエージェントを使用していないユーザーにとっては煩わしく見苦しいものになる可能性があります。</p>
+				
+				<p>マークアップをハードコーディングする代わりに、プログレッシブ エンハンスメント手法では、コードサンプルをレイアウトして既定のフォーマット済みビューの中に期待どおりにレンダリングします。次に、スクリプトを作成するか、ライブラリを用いて、順序付きリストのタグ付けを要素に動的に追加します（このサイトではこれを行っています）。このアプローチにより、最も基本的な読み取りシナリオで読みやすさの基準が確保され、より高度なユーザーエージェントを使用するユーザー向けに、より豊富なビジュアル表示を提供できます。</p>
+			</section>
+		</main>
+	</body>
+</html>

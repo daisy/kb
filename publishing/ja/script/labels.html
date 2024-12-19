@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ラベル</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on providing labels for inputs and controls.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo':[ 'EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				<p>すべての入力フォームとカスタムコントロールには、その目的を明確に説明するラベルを付けます。</p>
+			</section>
+			<section id="tech">
+				<h3>テクニック</h3>
+				<ul>
+					<li>
+						<p>入力フォームにラベルを付けます。[[WCAG-3.3.2]]</p>
+					</li>
+					<li>
+						<p>期待される値の説明を提供します。[[WCAG-3.3.2]]</p>
+					</li>
+					<li>
+						<p>個々のコントロールにラベルを付けます。[[WCAG-4.1.2]]</p>
+					</li>
+					<li>
+						<p>コントロールのグループにラベルを付けます。[[WCAG-4.1.2]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — <code>label</code>の関連付け</div>
+						<p><code>for</code>属性は、ラベルが記述する要素のIDを参照するために使用されます。 <code>for</code>属性を使用すると、ラベルは要素の前または後のどこにでも付けられます。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;tr&gt;
+   &lt;td&gt;
+      &lt;input type="text" id="name"/&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+      &lt;label for="name"&gt;Full name&lt;/label&gt;
+   &lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+				</figure>
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — <code>label</code>のラッピング</div>
+						<p><code>label</code>に、入力／コントロールとラベルの両方を組み込める場合には <code>for</code>属性は省略します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label&gt;
+   &lt;input type="text" id="name"/&gt;
+   Full name
+&lt;/label&gt;</code></pre>
+				</figure>
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — グループ化に<code>fieldset</code>を使用する</div>
+						<p><code>legend</code>要素で、コントロール／入力のセットのラベルを提供します。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Accessibility Features&lt;/legend&gt;
+   &lt;label&gt;
+      &lt;input type="checkbox" name="a11yFeature"
+         value="alternativeText"/&gt; Alternative text
+   &lt;/label&gt;
+   &lt;label&gt;
+      &lt;input type="checkbox" name="a11yFeature"
+         value="longDescription"/&gt; Extended descriptions
+   &lt;/label&gt;
+   …
+&lt;/fieldset&gt;</code></pre>
+				</figure>
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 4 — <code>aria-labelledby</code>を使用して名前を識別する</div>
+						<p><code>aria-labelledby</code>属性を、生年月日フィールドのセットの最初の<code>input</code>を参照するために使用します。これらの入力はラベルとして機能します。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Birth Date&lt;/legend&gt;
+   &lt;select id="y" aria-labelledby="yr"&gt;
+      &lt;input value="year" id="yr"&gt;Year&lt;/input&gt;
+      …
+   &lt;select&gt;
+   &lt;select id="m" aria-labelledby="mo"&gt;
+      &lt;input value="month" id="mo"&gt;Month&lt;/input&gt;
+      …
+   &lt;select&gt;
+   &lt;select id="d" aria-labelledby="day"&gt;
+      &lt;input value="day" id="day"&gt;Day&lt;/input&gt;
+      …
+   &lt;select&gt;
+&lt;/fieldset&gt;</code></pre>
+				</figure>
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">例 5 — マルチパートラベル</div>
+						<p><code>aria-labelledby</code>属性を、あいまいさを避けるために、アドレスタイプとフィールド名の両方を参照するために使用します。</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span id="shipping"&gt;Shipping Address&lt;/span&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span id="billing"&gt;Billing Address&lt;/span&gt;
+         &lt;label&gt;
+            &lt;input type="checkbox" id="bill-sameas" tabindex="8"/&gt;
+            Use shipping address for billing
+         &lt;/label&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="str"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="ship-street"
+            aria-labelledby="shipping str" tabindex="1"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="bill-street"
+            aria-labelledby="billing str" tabindex="9"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="city"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="ship-city"
+            aria-labelledby="shipping city" tabindex="2"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="bill-city"
+            aria-labelledby="billing city" tabindex="10"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+				<figure id="ex-06">
+					<figcaption>
+						<div class="label">例6 — 非表示のラベルを追加する</div>
+						<p>各部分に目に見えるラベルがないため、 <code>aria-label</code>属性を電話番号フィールドの各部分を識別するために使用します。</p>
+					</figcaption>
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Phone Number&lt;/legend&gt;
+   &lt;input type="text" id="country" aria-label="country code"/&gt;
+   &lt;input type="text" id="area" aria-label="area code"/&gt;
+   &lt;input type="text" id="local" aria-label="number"/&gt;
+&lt;/fieldset&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>入力フォームとカスタムスクリプトコントロールにアクセシブルな名前を付けることは、ユーザーがその目的を理解できるようにするために不可欠です。ラベルが提供されると、支援技術によって各コントロールの名前が処理され、ユーザーはそれぞれの目的をすぐに理解できるようになります。</p>
+				
+				<p>ただし、フォームのレイアウト方法により、ユーザーに入力フィールドの説明ラベルが表示される前にそのフィールドに到達してしまったり、フィールドよりかなり前にラベルが表示されてしまうことはよくあります。ラベルが提供されていない場合は、動的コンテンツを操作したりフォームに入力したりする操作がわかりにくくなることがあります。</p>
+				
+				<p>HTMLには、ラベルをコントロールに関連付けるための二つのネイティブ要素が用意されています。</p>
+				
+				<dl>
+					<dt>
+						<code>label</code>
+					</dt>
+					<dd>
+						<p><code>label</code>要素は、個々のコントロールのアクセシブルな名前を識別するために使用します。コントロールとそのラベルを囲むか（<a href="#ex-01">例 1</a>を参照）、コントロールのIDを参照する<code>for</code>属性を追加できます（<a href="#ex-02">例 1</a>を参照）。</p>
+					</dd>
+					<dt>
+						<code>fieldset</code>
+					</dt>
+					<dd>
+						<p><code>fieldset</code>要素は、関連するコントロールのセットをグループ化するために使用します。子の<code>legend</code>要素にはラベルを付与できます。（<a href="#ex-03">例 3 を</a>参照）。</p>
+					</dd>
+				</dl>
+				
+				<p>これらのネイティブメソッドには二つの短所があります。一つは、単一のラベルしか付けられないこと、もう一つは、ラベルがページの表示部分にある必要があり、テキストが<code>label</code>要素によってキャプチャされることです。より複雑なケースは、次のARIA属性で対応できます。</p>
+				
+				<dl>
+					<dt>
+						<code>aria-labelledby</code>
+					</dt>
+					<dd>
+						<p><code>aria-labelledby</code>属性は、複数の要素を参照するために使用します。コントロールに完全なコンテキストを与えるために複数の情報が必要な場合に便利です（<a href="#ex-05">例 5 を</a>参照）。また、 <code>label</code>要素を使用できない場合にラベルを識別するのにも使用できます（<a href="#ex-04">例 4 を</a>参照）。</p>
+					</dd>
+					<dt>
+						<code>aria-label</code>
+					</dt>
+					<dd>
+						<p><code>aria-label</code>属性は、他の方法でラベルを付けられない場合に使用します（<a href="#ex-06">例 6</a>を参照）。属性の値はコントロールのラベルです。</p>
+					</dd>
+				</dl>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/forms.html#the-label-element"><code>label</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element"><code>fieldset</code>要素</a>
+</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label（プロパティ）</a>
+</li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby（プロパティ）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
