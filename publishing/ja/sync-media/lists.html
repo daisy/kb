@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>リスト（Lists）</title>
+		<title>リスト</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Practices for identifying lists to improve synchronized text-audio playback.">
 		<script>
@@ -19,17 +19,15 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>メディア同期形式の書籍内のリスト構造を識別して、同期メディアの再生中のナビゲーションをより良いものにします。</p>
+				<p>メディア同期形式（訳注：SMIL）内でリスト構造を識別できるようにして、同期メディアの再生中のナビゲーションを改善します。</p>
 			</section>
 			
 			<section id="tech">
 				<h3>テクニック</h3>
 				
 				<ul>
-					<li>
-<code>seq</code>要素を使用してリストと項目を構造化します。[[WCAG-1.3.1]]</li>
-					<li>
-<code>epub:type</code>属性を使用して<code>seq</code>要素のタイプを識別します。[[WCAG-1.3.1]]</li>
+					<li>（訳注：SMILで） <code>seq</code>要素を使用して表、行、セルを構造化します。[[WCAG-1.3.1]]</li>
+					<li>（訳注：SMILで） <code>epub:type</code>属性を使用して<code>seq</code>要素のタイプを識別します。[[WCAG-1.3.1]]</li>
 				</ul>
 			</section>
 			
@@ -37,8 +35,11 @@
 				<h3>例</h3>
 				
 				<figure id="ex-01">
-					<figcaption>例１ — 順序付きリストと順序なしリストの比較</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums small">&lt;ul&gt;
+					<figcaption>
+						<div class="label">例１ — 順序付きリストと順序なしリストの比較</div>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;ul&gt;
 &lt;li&gt;…&lt;/li&gt;
 &lt;li&gt;
   &lt;p&gt;…&lt;/p&gt;
@@ -49,8 +50,8 @@
 	 &lt;li&gt;…&lt;/li&gt;
   &lt;/ol&gt;
 &lt;li&gt;
-&lt;/ul&gt;</pre>
-					<pre id="ex-01a-src" class="prettyprint linenums small">&lt;seq epub:type="list"&gt;
+&lt;/ul&gt;</code></pre>
+					<pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;seq epub:type="list"&gt;
 &lt;par epub:type="list-item"&gt;…&lt;/par&gt;
 &lt;seq epub:type="list-item"&gt;
   &lt;par&gt;…&lt;/par&gt;
@@ -61,11 +62,13 @@
 	 &lt;par epub:type="list-item"&gt;…&lt;/par&gt;
   &lt;/seq&gt;
 &lt;/seq&gt;
-&lt;/seq&gt;</pre>
+&lt;/seq&gt;</code></pre>
 				</figure>
 				
 				<figure id="ex-02">
-					<figcaption>例2 — 定義リストの比較</figcaption>
+					<figcaption>
+						<div class="label">例2 — 定義リストの比較</div>
+					</figcaption>
 					
 					<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;dl&gt;
 &lt;dt&gt;…&lt;/dt&gt;
@@ -98,9 +101,9 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>リストのナビゲーションを容易にするために、メディア オーバーレイ ドキュメントは、再生モードを中断することなくユーザーがリストを検出し、回避したり読み飛ばしたりできるようにマークアップする必要があります。</p>
+				<p>リストのナビゲーションを容易にするために、メディア オーバーレイ ドキュメントは、再生モードを中断することなくユーザーがリストを検出し、回避したり読み飛ばしたりできるようにマークアップされなければなりません。</p>
 				
-				<p>オーバーレイ内のリストの基本的なマークアップはリストの種類に関係なく同じですが、HTML5 には対応する必要がある２つの異なる種類のリストが含まれています。</p>
+				<p>オーバーレイ内（訳注:SMIL内）のリストの基本的なマークアップはリストの種類に関係なく同じですが、HTML5には対応が必要な二種類のリストがあります。</p>
 				
 				<section id="ol-ul">
 					<h4>順序付きリストと順序なしリスト</h4>
@@ -108,21 +111,20 @@
 					<p>HTML の<code>ol</code>および<code>ul</code>リスト要素はそれぞれ項目のセットを表し、次のように同様のマークアップをします。</p>
 					
 					<ul>
-						<li>1 つの<code>seq</code>要素でリスト内のすべての項目を囲みます。この<code>seq</code>には、プロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
-						<li>複雑なリスト項目（２つ以上の同期ポイントを含むもの）も、 <code>seq</code>要素を使用して識別する必要があります。これらの<code>seq</code>要素には、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性が必要です。リスト項目にサブリストや表などの複雑な構造が含まれている場合は、回避やスキップが可能になるように、それらの構造を適切にマークアップする必要があります。</li>
-						<li>単一の同期ポイントのみを含む単純なリスト項目は、プロパティ<code>list item</code>を指定する<code>epub:type</code>属性を持つ<code class="property">par</code>要素を使用して表すことができます。</li>
+						<li>一つの<code>seq</code>要素でリスト内のすべての項目を囲みます。この<code>seq</code>には、プロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
+						<li>複雑なリスト項目（二つ以上の同期ポイントを含むもの）も、 <code>seq</code>要素を使用して識別しなければなりません。これらの<code>seq</code>要素には、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性が必要です。リスト項目にサブリストや表などの複雑な構造が含まれている場合は、回避やスキップが行えるよう、それらの構造を適切にマークアップしなければなりません。</li>
+						<li>単一の同期ポイントのみを含む単純なリスト項目は、プロパティ<code>list item</code>を指定する<code>epub:type</code>属性を持つ<code class="property">par</code>要素を使用して表せます。</li>
 					</ul>
 				</section>
 				
 				<section id="dl">
 					<h4>定義リスト</h4>
 					
-					<p>HTML 定義リスト（ <code>dl</code>要素）は、1 つ以上の名前（ <code>dt</code>要素）を 1 つ以上の値（ <code>dd</code>要素）に関連付けます。オーバーレイ ドキュメントでこれらのリストを作成するときは、次のマークアップ ルールに従う必要があります。</p>
+					<p>HTML 定義リスト（ <code>dl</code>要素）は、一つ以上の名前（ <code>dt</code>要素）を一つ以上の値（ <code>dd</code>要素）に関連付けます。オーバーレイ ドキュメントでこれらのリストを作成するときは、次のマークアップルールに従う必要があります。</p>
 					
 					<ul>
-						<li>1 つの<code>seq</code>要素でリスト内のすべての用語と定義を囲む必要があります。この<code>seq</code>には、順序付きリストと順序なしリストと同じプロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
-						<li>
-<code>seq</code>要素は、関連する<code>dt</code>と<code>dd</code>ペアをすべて囲み、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性を含める必要があります。</li>
+						<li>一つの<code>seq</code>要素でリスト内のすべての用語と定義を囲む必要があります。この<code>seq</code>には、順序付きリストと順序なしリストと同じプロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
+						<li> <code>seq</code>要素は、関連する<code>dt</code>と<code>dd</code>ペアをすべて囲み、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性を付ける必要があります。</li>
 					</ul>
 				</section>
 			</section>
@@ -134,7 +136,7 @@
 </li>
 					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-smil-par-elem"><code>par</code>要素</a>
 </li>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-skippability">読み飛ばし（skippability）</a>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-skippability">読み飛ばし（Skippability）</a>
 </li>
 					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-escabaility">回避（Escapability）</a>
 </li>
