@@ -209,12 +209,12 @@
 					<cite><a href="https://www.w3.org/TR/epub/#sec-scripted-spine">EPUB 3.3</a></cite>
 				</blockquote>
 				
-				<p>Progressive enhancement does not mean that you cannot script content, but that scripting must not be 					required. It is perfectly valid, for example, to remove content from the default rendering and replace it 					with an enhanced experience when scripting is available. It is likewise permitted to augment the default 					rendering with scripted interactivity. What you must avoid doing is scripting content such that without 					the scripting the primary narrative is not available in whole or part.</p>
+				<p>プログレッシブ エンハンスメントは、コンテンツをスクリプト化するべきでないという意味ではなく、スクリプト化が必須であってはならないという意味です。たとえば、スクリプト化が可能な場合、デフォルトのレンダリングからコンテンツを削除して拡張エクスペリエンスに置き換えることはまったく問題ありません。同様に、スクリプト化されたインタラクティブ機能でデフォルトのレンダリングを拡張することも許可されています。避けるべきことは、スクリプト化なしでは主要な文章の全体または一部が利用できないようなコンテンツのスクリプト化です。</p>
 				
 				<p>バリデーターだけではこの基準への準拠を検証することはできないため、コンテンツを作成する際には、重要な原則が遵守されているように注意しなければなりません。特に次の点に注意してください。</p>
 				
 				<ul>
-					<li>do not include content that can only be accessed (made visible) through scripted interaction.</li>
+					<li>スクリプト化されたインタラクションを通じてでなければアクセスできない（表示できない）コンテンツは組み込まない。</li>
 					<li>デフォルトのレンダリングなしで、ユーザーの設定、場所、言語、またはその他の設定に基づいてコンテンツをスクリプト対応にすることはしない。</li>
 					<li>スクリプトを使わなければユーザーがコンテンツ内を移動できないようにはしない（例：自分で冒険を選ぶ本）。</li>
 				</ul>
@@ -223,7 +223,7 @@
 				
 				<p>スクリプトによる拡張の一般的な例としては、コードスニペットに行番号を追加することが挙げられます。多くのコンテンツ製作者は、行番号をエミュレートするために<code>pre</code>タグ内で順序付きリストを使用することを好みますが、順序付きリストは支援技術を使用するユーザーにとっては気が散る可能性があり、CSS対応のユーザーエージェントを使用していないユーザーにとっては煩わしく見苦しいものになる可能性があります。</p>
 				
-				<p>Instead of hard-coding the markup, a progressive enhancement technique would be to lay out your code 					samples so that they render as expected in the default preformatted view. You can then script, or grab a 					library, that can dynamically add the ordered list tagging to the element (which is what this site does). 					This approach ensures a baseline of readability in the most basic reading scenarios, while providing a 					richer visual view for those who have more advanced user agents.</p>
+				<p>マークアップをハードコーディングする代わりに、プログレッシブ エンハンスメント手法では、コードサンプルをレイアウトして既定のフォーマット済みビューの中に期待どおりにレンダリングします。次に、スクリプトを作成するか、ライブラリを用いて、順序付きリストのタグ付けを要素に動的に追加します（このサイトではこれを行っています）。このアプローチにより、最も基本的な読み取りシナリオで読みやすさの基準が確保され、より高度なユーザーエージェントを使用するユーザー向けに、より豊富なビジュアル表示を提供できます。</p>
 			</section>
 		</main>
 	</body>
