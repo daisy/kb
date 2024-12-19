@@ -16,7 +16,7 @@
 		<main>
 			<section id="summary">
 				<h3>要約</h3>
-				<p>Ensure all form inputs and custom controls have labels that clearly describe their purpose.</p>
+				<p>すべての入力フォームとカスタムコントロールには、その目的を明確に説明するラベルを付けます。</p>
 			</section>
 			<section id="tech">
 				<h3>テクニック</h3>
@@ -54,7 +54,7 @@
 				<figure id="ex-02">
 					<figcaption>
 						<div class="label">例 2 — <code>label</code>のラッピング</div>
-						<p>The <code>for</code> attribute is omitted when the <code>label</code> can contain both the input/control 							and the label.</p>
+						<p><code>label</code>に、入力／コントロールとラベルの両方を組み込める場合には <code>for</code>属性は省略します。</p>
 					</figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label&gt;
    &lt;input type="text" id="name"/&gt;
@@ -173,30 +173,30 @@
 						<code>label</code>
 					</dt>
 					<dd>
-						<p>The <code>label</code> element is used to identify the accessible name for an individual control. 							It can either be wrapped around the control and its label (see <a href="#ex-01">Example 1</a>) or a 								<code>for</code> attribute can be added that references the ID of the control (see <a href="#ex-02">Example 1</a>).</p>
+						<p><code>label</code>要素は、個々のコントロールのアクセシブルな名前を識別するために使用します。コントロールとそのラベルを囲むか（<a href="#ex-01">例 1</a>を参照）、コントロールのIDを参照する<code>for</code>属性を追加できます（<a href="#ex-02">例 1</a>を参照）。</p>
 					</dd>
 					<dt>
 						<code>fieldset</code>
 					</dt>
 					<dd>
-						<p>The <code>fieldset</code> element is used to group sets of related controls. A label can then be 							provided in a child <code>legend</code> element (see <a href="#ex-03">Example 3</a>).</p>
+						<p><code>fieldset</code>要素は、関連するコントロールのセットをグループ化するために使用します。子の<code>legend</code>要素にはラベルを付与できます。（<a href="#ex-03">例 3 を</a>参照）。</p>
 					</dd>
 				</dl>
 				
-				<p>There are two drawbacks to these native methods: one is that they only accept a single label and the 					other is that the labels must be a visible part of the page and the text can be capture by the 						<code>label</code> element. The following ARIA attributes help solve these more complex cases:</p>
+				<p>これらのネイティブメソッドには二つの短所があります。一つは、単一のラベルしか付けられないこと、もう一つは、ラベルがページの表示部分にある必要があり、テキストが<code>label</code>要素によってキャプチャされることです。より複雑なケースは、次のARIA属性で対応できます。</p>
 				
 				<dl>
 					<dt>
 						<code>aria-labelledby</code>
 					</dt>
 					<dd>
-						<p>The <code>aria-labelledby</code> attribute can be used to reference multiple elements. It is useful 							when more than one piece of information is necessary to give full context to a control (see <a href="#ex-05">Example 5</a>). It can also be used to identify the label when it is not possible 							to use a <code>label</code> element (see <a href="#ex-04">Example 4</a>).</p>
+						<p><code>aria-labelledby</code>属性は、複数の要素を参照するために使用します。コントロールに完全なコンテキストを与えるために複数の情報が必要な場合に便利です（<a href="#ex-05">例 5 を</a>参照）。また、 <code>label</code>要素を使用できない場合にラベルを識別するのにも使用できます（<a href="#ex-04">例 4 を</a>参照）。</p>
 					</dd>
 					<dt>
 						<code>aria-label</code>
 					</dt>
 					<dd>
-						<p>The <code>aria-label</code> attribute can be used when it is not possible to include a label by any 							other means (see <a href="#ex-06">Example 6</a>). The value of the attribute is the label for the 							control.</p>
+						<p><code>aria-label</code>属性は、他の方法でラベルを付けられない場合に使用します（<a href="#ex-06">例 6</a>を参照）。属性の値はコントロールのラベルです。</p>
 					</dd>
 				</dl>
 			</section>
