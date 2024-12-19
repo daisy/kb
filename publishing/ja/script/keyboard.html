@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>キーボード コントロール</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on ensuring that users can control all content by keyboard alone.">
+		<script>
+			var page_info = {
+				'category': 'Scripted Content and Forms',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>Summary</h3>
+				<p>Ensure that users can control all functionality via their keyboard.</p>
+			</section>
+			<section id="tech">
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<p>すべてのコントロールをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>すべてのリンクをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
+					</li>
+					<li>
+						<p>Avoid keyboard traps. [[WCAG-2.1.2]]</p>
+					</li>
+					<li>
+						<p>Avoid keyboard shortcuts that consist of only a single character. [[WCAG-2.1.4]]</p>
+					</li>
+					<li>
+						<p>アクティブなコントロールのフォーカスを見えるようにします。[[WCAG-2.4.7]]</p>
+					</li>
+					<li>
+						<p>コントロールにフォーカスが移動しただけではイベントを起動しないようにします。[[WCAG-3.2.1]]</p>
+					</li>
+					<li>
+						<p>予期できないイベントは、ユーザーによる値の入力や設定変更の時に起動します。[[WCAG-3.2.1]]</p>
+					</li>
+				</ul>
+			</section>
+			<section id="desc">
+				<h3>Explanation</h3>
+				
+				<p>多くのユーザーにとって、コンテンツを操作する主な、または唯一の方法は、キーボードまたはキーボードのような入力デバイス（音声認識ソフトウェア、仮想キーボードなど）を使用することです。これらのユーザーにとって、すべての機能がキーボードで操作できるのは必須事項です。</p>
+				
+				<p>The most common cause of keyboard interoperability issues is when authors add custom scripted 					controls and links to their pages. Using HTML-native elements such as buttons, sliders and 					hyperlinks generally avoids keyboard input pitfalls. In these cases, authors only need to ensure 					that the controls are created accessibly — for example, that they are clearly labeled and 					grouped according to their purpose.</p>
+				
+				<p>For custom controls, authors need to ensure that their creations meet all the same requirements 					as native controls. Some examples include:</p>
+				
+				<ul>
+					<li>that users are able to reach the control;</li>
+					<li>that the purpose of the control is clear; 					</li>
+<li>コントロールがキーボードで操作できること</li>
+					<li>that users do not get trapped in the control.</li>
+				</ul>
+				
+				<p>カスタムコントロールを作成する際は、ショートカットキーによる出版物の使用に与える影響についての考慮も重要です。目の見える読者にとっては、単一キーの印刷可能な文字（文字、数字、句読点）を操作のショートカットとして割り当てることは便利に思えるかもしれませんが、コマンドを入力しようとする読者の入力が妨害される可能性があります。その結果、ユーザーが必要な機能を完了できなかったり、コンテンツ内で希望しない動作がアクティブ化される可能性があります。コンテンツ製作者は常に、ユーザーが単一文字のショートカットを再設定またはオフにできるようにしなければなりません。</p>
+				
+				<p>また、要素にフォーカスが移動した際にコンテキストの変化を引き起こさない点も重要です（ユーザーがタブで要素に移動した時など）。新しいウィンドウを開く、フォームを送信する、コンテンツを変更するなどのコンテキストの変化は、何が起こったのかが見えない読者には混乱を引き起こします。</p>
+				
+				<p>同様に、フィールドに入力したり、コントロールの設定を変更した場合も、予期しないコンテキストの変化を発生させてはなりません。</p>
+				
+				<div class="note" role="note" aria-labelledby="kbd-note">
+					<p id="kbd-note" class="label">Note</p>
+					<p>The keyboard requirement for Level A conformance excludes functionality where the full path of 						movement is essential, not just the start and end points. A program that allows a user to drag 						an object and drop it, for example, is not excluded because the path to the destination does not 						matter. A drawing program, on the other hand, would be exempt because full path affects the 						drawn object.</p>
+				</div>
+			</section>
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">The 						<code>link</code> element</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/forms.html#forms">Forms</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
