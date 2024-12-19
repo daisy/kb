@@ -17,7 +17,7 @@
 	<body>
 		<main>
 			<section id="summary">
-				<h3>Summary</h3>
+				<h3>要約</h3>
 				
 				<p>メディア同期形式（訳注：SMIL）内でリスト構造を識別できるようにして、同期メディアの再生中のナビゲーションを改善します。</p>
 			</section>
@@ -99,7 +99,7 @@
 			</section>
 			
 			<section id="desc">
-				<h3>Explanation</h3>
+				<h3>解説</h3>
 				
 				<p>リストのナビゲーションを容易にするために、メディア オーバーレイ ドキュメントは、再生モードを中断することなくユーザーがリストを検出し、回避したり読み飛ばしたりできるようにマークアップされなければなりません。</p>
 				
@@ -111,7 +111,7 @@
 					<p>The HTML <code>ol</code> and <code>ul</code> list elements each represent sets of items, and are 						marked up similarly as follows:</p>
 					
 					<ul>
-						<li>A single <code>seq</code> element encloses all the items in the list. This <code>seq</code> 							must have an <code>epub:type</code> attribute specifying the property 							<code class="property">list</code>.</li>
+						<li>一つの<code>seq</code>要素でリスト内のすべての項目を囲みます。この<code>seq</code>には、プロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
 						<li>複雑なリスト項目（二つ以上の同期ポイントを含むもの）も、 <code>seq</code>要素を使用して識別しなければなりません。これらの<code>seq</code>要素には、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性が必要です。リスト項目にサブリストや表などの複雑な構造が含まれている場合は、回避やスキップが行えるよう、それらの構造を適切にマークアップしなければなりません。</li>
 						<li>単一の同期ポイントのみを含む単純なリスト項目は、プロパティ<code>list item</code>を指定する<code>epub:type</code>属性を持つ<code class="property">par</code>要素を使用して表せます。</li>
 					</ul>
@@ -120,10 +120,10 @@
 				<section id="dl">
 					<h4>Definition Lists</h4>
 					
-					<p>HTML definition lists (the <code>dl</code> element) associate one or more names (<code>dt</code>  						elements) with one or more values (<code>dd</code> elements). When constructing these lists in 						an overlay document, the following markup rules should be followed:</p>
+					<p>HTML 定義リスト（ <code>dl</code>要素）は、一つ以上の名前（ <code>dt</code>要素）を一つ以上の値（ <code>dd</code>要素）に関連付けます。オーバーレイ ドキュメントでこれらのリストを作成するときは、次のマークアップルールに従う必要があります。</p>
 					
 					<ul>
-						<li>A single <code>seq</code> element should enclose all the terms and definitions in the list. 							This <code>seq</code> must have an <code>epub:type</code> attribute specifying the property 							<code class="property">list</code>, idnetical to ordered and unordered lists.</li>
+						<li>一つの<code>seq</code>要素でリスト内のすべての用語と定義を囲む必要があります。この<code>seq</code>には、順序付きリストと順序なしリストと同じプロパティ<code>list</code>を指定する<code class="property">epub:type</code>属性が必要です。</li>
 						<li> <code>seq</code>要素は、関連する<code>dt</code>と<code>dd</code>ペアをすべて囲み、プロパティ<code>list-item</code>を指定する<code class="property">epub:type</code>属性を付ける必要があります。</li>
 					</ul>
 				</section>
