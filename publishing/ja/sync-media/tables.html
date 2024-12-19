@@ -35,7 +35,7 @@
 				<h3>例</h3>
 				
 				<figure id="ex-01">
-					<p>例 1 — XHTML 表 マークアップと、オーバーレイ 表 マークアップの比較</p>
+					<p>例 1 — XHTMLの表マークアップと、オーバーレイの表マークアップの比較</p>
 					<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;table&gt;
    &lt;tr&gt;
 	  &lt;td&gt;
@@ -76,7 +76,7 @@
 				<p>この構造は、対応する行とセルを表す<code>seq</code>要素のマークアップを使用して、オーバーレイ内で階層化できます。表マークアップをオーバーレイ マークアップに変換する一般的なプロセスは次のとおりです。</p>
 				
 				<ul>
-					<li>表全体を、<code class="property">epub:type</code>属性でプロパティ<code>table</code>を指定した、１つの<code>seq</code>要素で囲みます。</li>
+					<li>表全体を、<code class="property">epub:type</code>属性でプロパティ<code>table</code>を指定した、一つの<code>seq</code>要素で囲みます。</li>
 					<li>表の各行は、<code>epub:type</code>属性でプロパティ<code>table-row</code>を指定した<code class="property">seq</code>要素を使用して表します。</li>
 					<li>複雑な表セル（二つ以上の同期ポイントを含むセル）は、<code>epub:type</code>属性で、プロパティ<code>table-cell</code>を指定した<code class="property">seq</code>要素を使用して識別します。ネストされた表やリストなどの複雑な構造がセルに含まれている場合には、その構造を適切にマークアップして、そこからの回避や読み飛ばしを行えるようにする必要があります。</li>
 					<li>単一の同期ポイントのみを含む単純な表セルは、<code>epub:type</code>属性でプロパティ<code>table-cell</code>を指定した<code class="property">par</code>要素を使用して表します。</li>
