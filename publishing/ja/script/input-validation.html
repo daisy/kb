@@ -19,7 +19,7 @@
 			<section id="summary">
 				<h3>要約</h3>
 				
-				<p>Thoroughly validate form data and allow users to review their submissions to ensure they do not 					submit unintended data.</p>
+				<p>十分にフォームデータを検証し、ユーザーによって送信内容を確認できるようにし、意図しないデータが送信されないようにします。</p>
 			</section>
 			
 			<section id="tech">
@@ -47,16 +47,16 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p>Filling out forms presents several challenges for users, from ensuring they have specified all 					required fields to ensuring all fields have been filled in correctly. When fields are missed or 					errors occur, it is not always easy for users with disabilities to locate the problems or determine 					what needs to be fixed.</p>
+				<p>フォームへの入力については、必須フィールドをすべて入力したかの確認から、すべてのフィールドに正しく入力されているかの確認まで、ユーザーにとってはいくつもの課題があります。障害を持つユーザーは、フィールドの未入力やエラーが発生した場合に、問題を見つけたり、どこを修正すべきかを把握するのは簡単ではありません。</p>
 				
 				<section id="timing">
 					<h4>検証するタイミング</h4>
 					
-					<p>When user input is used solely by a digital publication, data validation occurs on the page that 						is requesting the data.</p>
+					<p>ユーザー入力がデジタル出版物内でのみ行われる場合、データの検証はデータを要求しているページ内で行われます。</p>
 					
-					<p>It is only when the author attempts to send data to an external web application that server-side 						validation may occur. But in these cases, the author will most likely use a scripting API like 						XmlHttpRequest and report errors without refreshing the page. Forms typically cannot be 						directly submitted to a web server without spawning a new window, as the return page will not 						be recognized as a resource of the publication.</p>
+					<p>サーバー側の検証が行われるのは、コンテンツ製作者が外部のWebアプリケーションにデータを送信するようにした場合です。ただし、このような場合にはコンテンツ製作者はXmlHttpRequestなどのスクリプトAPIを使用し、ページを更新せずにエラーを報告するようにするでしょう。通常、フォームは新しいウィンドウを生成せずにWebサーバーに直接送信することはできません。返されるページが出版物のリソースとして認識されないためです。</p>
 					
-					<p>This document consequently only reviews methods for validating and reporting errors from within 						a digital publication. For more information about handling errors in a page returned from 						a web application, see the Web Accessibility Tutorial on <a href="https://www.w3.org/WAI/tutorials/forms/notifications/">User Notifications</a>.</p>
+					<p>したがって、このドキュメントでは、デジタル出版物内からエラーを検証および報告する方法についてのみ扱います。Webアプリケーションから返されるページでのエラーの処理の詳細については、<a href="https://www.w3.org/WAI/tutorials/forms/notifications/">ユーザー通知</a>に関するWebアクセシビリティチュートリアルを参照してください。</p>
 				</section>
 				
 				<section id="built-in">
@@ -92,7 +92,7 @@
     … /&gt;</code></pre>
 					</figure>
 					
-					<p>Authors can also use the <code>placeholder</code> attribute to provide a hint to the expected 						value, which is especially useful when specific patterns are expected. Note, however, that this 						value disappears once the user begins to input their data, so it should not be used in place of 						a proper label or description for the field.</p> 
+					<p>コンテンツ製作者は、 <code>placeholder</code>属性を使用して、期待される値のヒントも提供できます。これは、特定のパターンが期待される場合に特に便利です。ただし、この値はユーザーがデータを入力し始めると消えてしまうため、フィールドの適切なラベルや説明の代わりとして使用しないでください。</p> 
 					
 					<figure id="ex-08">
 						<figcaption>
@@ -150,7 +150,7 @@
 				<section id="locate">
 					<h4>入力エラーの特定</h4>
 					
-					<p>Although using the built-in validation mechanisms allows reading systems to handle informing 						users when there are errors, it is not possible to use these mechanisms for all data 						validation. When validating custom data fields, it is necessary to make the process of finding 						and fixing the errors as easy as possible for users.</p>
+					<p>組み込み検証のメカニズムを使用すると、リーディングシステムはエラーがある場合にユーザーに通知できますが、すべてのデータ検証にこれらのメカニズムを使用することはできません。カスタムデータフィールドを検証する場合、ユーザーにとってエラーを見つけて修正するプロセスを可能な限り容易にする必要があります。</p>
 					
 					<p>手動検証の一般的なアプローチは、見えやすく明確にラベル付けされた、フォームの上部にあるボックスに、入力エラーのリストを書き込むことです。この手法は一般的には問題ありませんが、支援技術を使用するユーザーを支援するために、エラーを含む要素は、ARIA ロールの<code>alert</code>を使用してライブ領域としてマークする必要があります。これにより、要素に新しいテキストが書き込まれたときにそれをアナウンスできます。</p>
 					
@@ -171,7 +171,7 @@
  &lt;/div&gt;</code></pre>
 					</figure>
 					
-					<p>JavaScript alert boxes should be avoided as the sole means for listing errors, as once the 						dialog is closed the user typically loses access to the list. For users with cognitive and 						learning disabilities, remembering multiple fields that need to be corrected can be 						difficult.</p>
+					<p>エラーをリストする唯一の手段としてJavaScriptアラートボックスを使用するのは避けてください。ダイアログが閉じられると、通常、ユーザーはリストにアクセスできなくなります。認知障害や学習障害のあるユーザーにとって、修正が必要な複数のフィールドを覚えておくのが困難な場合があります。</p>
 					
 					<p>より良い方法は、アラートは、送信内容に修正が必要なエラーが含まれていることをユーザーに通知するためだけに制限し、ダイアログが閉じたときにページ上のリストにユーザーを誘導する方法です。</p>
 					
@@ -191,7 +191,7 @@
 					
 					<p>デジタル出版物の場合は、ユーザー入力を入力時に検証する方がよい選択肢となる場合が多いです。これにより、エラーの動的なリストを追加および削除する必要がなくなります。</p>
 					
-					<p>While invalid fields should, of course, be visually identified so that visual 						users can locate them as they review the data, ARIA includes the <code>aria-invalid</code> 						attribute for programmatically marking the invalid fields.</p>
+					<p>もちろん、無効なフィールドは視覚的に識別され、目の見えるユーザーがデータを確認する際に見つけられるようにする必要がありますが、ARIAには無効なフィールドをプログラムでマークするための<code>aria-invalid</code>属性があります。</p>
 					
 					<figure id="ex-11">
 						<figcaption>
@@ -206,9 +206,9 @@
 </code></pre>
 					</figure>
 					
-					<p>Setting the <code>aria-invalid</code> attribute allows assistive technologies to easily move 						users to the fields that are in error so they are not reliant on a list of errors or having to 						manually traverse every field in the form to find out what failed.</p>
+					<p><code>aria-invalid</code>属性を設定すると、ユーザーは支援技術によってエラーのあるフィールドに簡単に移動できるため、ユーザーはエラーのリストに依存したり、フォーム内のすべてのフィールドを手動で確認して何が失敗したかを調べる必要がなくなります。</p>
 					
-					<p>When users fix the errors, make sure to update or remove the <code>aria-invalid</code> 						attribute. (Be aware that setting <code>aria-invalid=""</code> means that the field is 						<strong>not</strong> invalid.)</p>
+					<p>ユーザーがエラーを修正したら、必ず<code>aria-invalid</code>属性を更新または削除してください（<code>aria-invalid=""</code>が設定されていると、フィールドが<strong>無効ではない</strong>ことを意味するので注意してください）。</p>
 				</section>
 				
 				<section id="describe">
@@ -241,7 +241,7 @@
 					
 					<p><code>aria-errormessage</code>は、<code>aria-describedby</code>と機能が似ていますが、添付された説明が問題の説明であることをより明確に示します（<code>aria-errormessage</code>は、 <code>aria-invalid</code>のある要素でのみ使用できる点に注意してください）。</p>
 					
-					<p>The <code>aria-live</code> attribute can also be set on the error message so that it gets 						announced to users when it is added (see the <a href="#ex-12">preceding example</a>). If 						individual error fields are identified this way, it is not recommended to also alert users when 						adding a full list of issues (i.e., it will cause users to hear all the errors twice).</p>
+					<p>エラーメッセージに<code>aria-live</code>属性を設定して、エラーメッセージが追加されたときにユーザーに通知するようにもできます（<a href="#ex-12">前の例</a>を参照）。個々のエラーフィールドがこのように識別される場合には、問題の全リストを追加するときにユーザーに警告するのは推奨しません（ユーザーはすべてのエラーを二回聞くことになるため）。</p>
 					
 					<p>場合によっては、入力したデータが無効であることだけをユーザーに伝えることもできますが、データが無効である具体的な理由が特定できる場合は、エラーメッセージにできるだけ正確な内容を含めることをお勧めします。ユーザーに提供する情報が多いほど、エラーを修正しやすくなります。</p>
 				</section>
@@ -257,7 +257,7 @@
 					
 					<p>ただし、デジタル出版物内でこの種の独立した検証を提供することは、多くの場合困難です。これは、フォームと同じページに情報を動的に書き込む必要があり、すべてのリーディングシステムがこれを適切にサポートしているわけではないためです。同様に、JavaScriptアラートを使用すると、非常に小さなデータセットでは機能するかもしれませんが、大量のデータを送信するとすぐに読みにくくなります。</p>
 					
-					<p>If the author knows users will be able to submit a form directly to their server (i.e., the 						reading system will open a new browser window to submit the data rather than send the data 						through a JavaScript API), a confirmation page could be provided on the server side. This 						option is generally only available in select cases where the reading systems that users have 						access to is limited.</p>
+					<p>ユーザーがフォームをサーバーに直接送信できることがコンテンツ製作者に判っている場合（つまり、リーディングシステムが JavaScript API経由でデータを送信するのではなく、新しいブラウザーウィンドウを開いてデータを送信する場合）、確認ページはサーバー側で提供できます。通常この方法は、ユーザーがアクセスできるリーディングシステムが制限されている特定の場合に限り利用できます。</p>
 					
 					<div class="note" role="note" aria-labelledby="review-note">
 						<p id="review-note" class="label">注記</p>
@@ -270,11 +270,11 @@
 					
 					<p>前のセクションで述べたように、元に戻したり修正したりするオプションを提供するよりも、送信前にユーザーがデータを確認できるようにする方がはるかに優れています。</p>
 					
-					<p>This is especially true with digital publications, as the means of retrieving and fixing data 						are complicated by the restrictions of the format. Persisting information within a digital 						publication is not easy, for example, as storage options are limited (i.e., users cannot easily 						come back later to undo a form submission if they close the publication). Similarly, network 						issues can lead to data being submitted but the publication not receiving confirmation of 						submission, preventing users from undoing.</p>
+					<p>これは特にデジタル出版物の場合に当てはまります。フォーマットの制限により、データの取得と修正の手段が複雑になるからです。たとえば、デジタル出版物内で情報を保持するのは、ストレージオプションが限られているため容易ではありません（つまり、出版物を閉じた場合、ユーザーは後でフォームの送信を取り消すために簡単に戻ることができません）。同様に、データが送信された後、ネットワークの問題により出版物側では送信の確認を受信できず、ユーザーが元に戻せない場合があります。</p>
 					
 					<p>ユーザーが提出を取り消すことを許可する必要がある場合、コンテンツ製作者は情報収集のための他のオプションを真剣に検討する必要があります。たとえば、可能な場合は、フォームを埋め込むのではなく、出版物の外部にあるフォームにユーザーを誘導して情報を収集します。</p>
 					
-					<p>Reverting and correcting submissions may only be realistically done through an external web site 						that can confirm the user's identity if submissions must occur through a digital publication. 						For example, a course portal could provide the option to revert or fix mistakes rather than 						trying to accomplish this through the publication itself.</p>
+					<p>提出をデジタル出版物を通じて行わなければならない場合、提出の取り消しや修正については、ユーザーの身元確認ができる外部Webサイトを通じてのみ行うのが現実的です。たとえば、コースポータルによって、出版物自体を通じて取り消しや間違いの修正を行うのではなく、取り消しや間違いの修正を行う方法を提供できます。</p>
 				</section>
 			</section>
 			
