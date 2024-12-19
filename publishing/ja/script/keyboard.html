@@ -16,11 +16,11 @@
 	<body>
 		<main>
 			<section id="summary">
-				<h3>Summary</h3>
-				<p>Ensure that users can control all functionality via their keyboard.</p>
+				<h3>要約</h3>
+				<p>ユーザーがキーボードですべての機能をコントロールできるようにします。</p>
 			</section>
 			<section id="tech">
-				<h3>Techniques</h3>
+				<h3>テクニック</h3>
 				<ul>
 					<li>
 						<p>すべてのコントロールをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
@@ -29,10 +29,10 @@
 						<p>すべてのリンクをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
 					</li>
 					<li>
-						<p>Avoid keyboard traps. [[WCAG-2.1.2]]</p>
+						<p>キーボードトラップがないようにします。[[WCAG-2.1.2]]</p>
 					</li>
 					<li>
-						<p>Avoid keyboard shortcuts that consist of only a single character. [[WCAG-2.1.4]]</p>
+						<p>一文字のみで構成されるキーボードショートカットは使用しないようにします。[[WCAG-2.1.4]]</p>
 					</li>
 					<li>
 						<p>アクティブなコントロールのフォーカスを見えるようにします。[[WCAG-2.4.7]]</p>
@@ -46,19 +46,19 @@
 				</ul>
 			</section>
 			<section id="desc">
-				<h3>Explanation</h3>
+				<h3>解説</h3>
 				
 				<p>多くのユーザーにとって、コンテンツを操作する主な、または唯一の方法は、キーボードまたはキーボードのような入力デバイス（音声認識ソフトウェア、仮想キーボードなど）を使用することです。これらのユーザーにとって、すべての機能がキーボードで操作できるのは必須事項です。</p>
 				
-				<p>The most common cause of keyboard interoperability issues is when authors add custom scripted 					controls and links to their pages. Using HTML-native elements such as buttons, sliders and 					hyperlinks generally avoids keyboard input pitfalls. In these cases, authors only need to ensure 					that the controls are created accessibly — for example, that they are clearly labeled and 					grouped according to their purpose.</p>
+				<p>キーボードの相互運用性の問題が発生する最も一般的な原因は、コンテンツ製作者がページにカスタムスクリプトコントロールとリンクを追加した場合です。ボタン、スライダー、ハイパーリンクなどのHTMLネイティブ要素を使用すると、通常、キーボード入力の落とし穴を回避できます。このような場合、コンテンツ製作者はコントロールをアクセシブルに作成するだけで済みます。たとえば、コントロールに明確なラベルを付け、目的に応じてグループ化します。</p>
 				
-				<p>For custom controls, authors need to ensure that their creations meet all the same requirements 					as native controls. Some examples include:</p>
+				<p>カスタムコントロールを使う場合、コンテンツ製作者は作成したコントロールがネイティブコントロールと同じ要件をすべて満たすようにしなければなりません。次に例を示します。</p>
 				
 				<ul>
-					<li>that users are able to reach the control;</li>
-					<li>that the purpose of the control is clear; 					</li>
+					<li>ユーザーがコントロールにアクセスできること</li>
+					<li>コントロールの目的が明確であること</li>
 <li>コントロールがキーボードで操作できること</li>
-					<li>that users do not get trapped in the control.</li>
+					<li>ユーザーがコントロールに閉じ込められないこと</li>
 				</ul>
 				
 				<p>カスタムコントロールを作成する際は、ショートカットキーによる出版物の使用に与える影響についての考慮も重要です。目の見える読者にとっては、単一キーの印刷可能な文字（文字、数字、句読点）を操作のショートカットとして割り当てることは便利に思えるかもしれませんが、コマンドを入力しようとする読者の入力が妨害される可能性があります。その結果、ユーザーが必要な機能を完了できなかったり、コンテンツ内で希望しない動作がアクティブ化される可能性があります。コンテンツ製作者は常に、ユーザーが単一文字のショートカットを再設定またはオフにできるようにしなければなりません。</p>
@@ -68,16 +68,16 @@
 				<p>同様に、フィールドに入力したり、コントロールの設定を変更した場合も、予期しないコンテキストの変化を発生させてはなりません。</p>
 				
 				<div class="note" role="note" aria-labelledby="kbd-note">
-					<p id="kbd-note" class="label">Note</p>
-					<p>The keyboard requirement for Level A conformance excludes functionality where the full path of 						movement is essential, not just the start and end points. A program that allows a user to drag 						an object and drop it, for example, is not excluded because the path to the destination does not 						matter. A drawing program, on the other hand, would be exempt because full path affects the 						drawn object.</p>
+					<p id="kbd-note" class="label">注記</p>
+					<p>レベルA適合のキーボード要件では、開始点と終了点だけでなく、移動の完全なパスが不可欠な機能は、除外されます。たとえば、ユーザーがオブジェクトをドラッグしてドロップできるプログラムは、移動先へのパスは重要ではないため除外されません。一方、描画プログラムは、完全なパスが描画されたオブジェクトに影響するため、除外されます。</p>
 				</div>
 			</section>
 			<section id="refs">
-				<h3>Related Links</h3>
+				<h3>関連リンク</h3>
 				<ul>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">The 						<code>link</code> element</a>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element"><code>link</code>要素</a>
 </li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/forms.html#forms">Forms</a>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/forms.html#forms">フォーム</a>
 </li>
 				</ul>
 			</section>
