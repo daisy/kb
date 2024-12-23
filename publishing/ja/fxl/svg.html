@@ -17,7 +17,7 @@
 			<section id="overview">
 				<h3>概要</h3>
 				<p>固定レイアウトの出版物は、SVGを使用してテキストと画像を組み合わせて作成できます。各画像には固定の高さと幅が割り当てられ、コンテンツはこのキャンバス領域内に配置されます。</p>
-				<p>The advantage of using SVG for fixed layouts over other image formats is that SVG allows text content 					to be embedded instead of written into the image data. This ensures that any text marked up this way 					is available to be read by assistive technologies. SVG also allows provides options for including 					alternative text and extended descriptions for images.</p>
+				<p>固定レイアウトにSVGを使用する利点は、SVGでは他の画像形式と違ってテキストコンテンツを画像データとして書き込むのではなく（訳注：テキスト情報のまま）埋め込める点です。このようにマークアップされたテキストは支援技術で読み取れます。SVGでは、画像の代替テキストや拡張説明を組み込む方法も提供されています。</p>
 				<p>弱視の読者にとっては、画像の拡大の際に、ピクセル画素化されて見にくくなることなく、画像の大きさの変更ができる（スケーラブル）というのも、SVG画像の利点です。</p>
 			</section>
 			<section id="epub">
@@ -25,7 +25,7 @@
 				<p>SVGは固定レイアウトコンテンツに最適ですが、WebブラウザーはSVGを出版物の一部としてレンダリングするように最適化されていません。たとえば、サイズや向きの制御は制限されます。</p>
 				<p>出版におけるこの問題を解決するために、EPUB 3では、リーディングシステムが各固定レイアウトページに適切な表示領域と特性を作成できるように支援するメタデータが導入されました。</p>
 				<p>EPUB出版物は、固定レイアウトのSVGページで完全に構成することも、リフロー型の出版物内にいくつかの固定レイアウトページを散在させることもできます。</p>
-				<p>It is also possible to mix fixed-layout SVG pages with fixed-layout <a href="html.html">XHTML 						pages</a>, or with <a href="img.html">images directly in the EPUB reading order</a>.</p>
+				<p>SVGの固定レイアウトページや、<a href="html.html">XHTMLの固定レイアウトページ</a>を混在させたり、また、<a href="img.html">画像を直接EPUBの読み取り順序に並べた固定レイアウト</a>を混在させたりもできます。</p>
 				<div class="note" role="note" aria-labelledby="create-note">
 					<p id="create-note" class="label">注記</p>
 					<p>固定レイアウトの出版物の、作成方法の詳細については、<a href="index.html#creation">固定レイアウトの概要ページ</a>をご覧ください。</p>
@@ -35,13 +35,15 @@
 				<h3>アクセシビリティ</h3>
 				<p>リフロー型の出版物をアクセシビリティ対応にするのと同じ手法が、アクセシビリティを最大限に高めた固定レイアウトのSVGページの作成にも使用できます。主な手法には次のようなものがあります。</p>
 				<ul>
-					<li>Ensuring the <a href="../html/order.html">logical reading order</a> — The order of text 						content within the SVG must match the order that the user would logically be expected to 						encounter it on the page.</li>
-					<li>Describing the image and any components — The SVG <code>title</code> and <code>desc</code> 						elements can be used to describe both the full page as well as any image components within the 						document.</li>
-					<li>Avoiding images of text — Text content can be included and styled in SVG; it does not have 						to be drawn.</li>
-					<li>Ensuring <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">text contrast</a> — It is 						important to ensure that the text components of the SVG are visually distinguishable from the 						background.</li>
+					<li>
+<a href="../html/order.html">論理的な読み順</a>の確保 — SVG内のテキストコンテンツの順序は、ユーザーのページ上での論理的な読み順序と一致していなければなりません。</li>
+					<li>画像とコンポーネントの説明 — SVGの<code>title</code>と<code>desc</code>要素を使用して、ページ全体とドキュメント内の画像コンポーネントの両方を説明します。</li>
+					<li>テキストを画像にしない — テキストコンテンツはSVGに組み込んでスタイル設定できます。画像にしてはいけません。</li>
+					<li>
+<a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">テキストのコントラスト</a>の確保 — SVGのテキストコンポーネントが背景と視覚的に区別できるのが重要です。</li>
 				</ul>
-				<p>If SVG is used solely as a wrapper for a non-scaling image formats (e.g., JPEG, GIF, PNG), the 					scaling benefit of the format is lost. SVG does not make these image formats scale any better. An 					HTML wrapper is often the better choice, as it provides more options for describing the images.</p>
-				<p>Despite the accessibility features SVG provide, it often will not be possible to create SVG pages 					that are fully accessible due to the image-based nature of SVG content. Restrictions that EPUB 3 					reading systems place on modifying the appearance of fixed layout publications will also impede 					their readability.</p>
+				<p>SVGをスケーラブルでない画像形式（JPEG、GIF、PNG など）のラッパーとしてのみ使用する場合、スケーラブルである利点は失われます。これらの画像形式がスケーラブルでない点はSVGでは改善されません。スケーラブルでない画像形式を使うならば、画像を記述する方法がより多く提供されているHTMLラッパーの方が適しているでしょう。</p>
+				<p>SVGが有するアクセシビリティ機能にもかかわらず、SVGコンテンツは画像ベースという制約により、完全にアクセシブルなSVGページは作成できないことがあります。EPUB3リーディングシステムでは固定レイアウト出版物の外観を変更する際に制限があるため、読みやすさも損なわれます。</p>
 			</section>
 		</main>
 	</body>
