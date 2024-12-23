@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>WCAG 適合</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of WCAG issues related to EPUB fixed layout publications.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			aside.applies-to {
+				margin-top: -8.9rem !important;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="comp" aria-label="Evaluation">
+				<p>Although it may be possible to create fixed-layout EPUB publications that conform to WCAG 2.0, 					conforming to the latest versions of the standard is much more difficult due to the reflow 					requirement that was added in 2.1.</p>
+				<p>The following table identifies some of the most common level A and AA success criteria that fail due 					to the use of fixed layouts.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>達成基準</th>
+							<th>WCAGバージョン</th>
+							<th>問題点</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#non-text-content">1.1.1 非テキストコンテンツ（A）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Image-based fixed layouts, such as comics and manga, typically fail this requirement 									as alternative text and descriptions cannot capture all of the story conveyed 									through the imagery. A separate serialization of the story is often required.</p>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://www.w3.org/TR/WCAG2/#info-and-relationships">1.3.1 情報及び関係性（A）</a></td>
+							<td class="center">2.0+</td>
+							<td>
+								<p><code>span</code>や<code>div</code>などの汎用要素は、よくページ内でテキストを静的にスタイル設定および配置するために使用され、ユーザーがコンテンツをナビゲートするための構造的な補助がほとんどありません（例：見出しや表はありません）。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#meaningful-sequence">1.3.2 意味のある順序（A）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>Because content elements can be visually placed wherever needed, care is not always 									taken to ensure that a logical sequence is maintained in the markup. When an 									assistive technology reads such a work, information and dialogue are rendered out of 									sequence.</p>
+								<p>In the case where content is laid out over two pages, the logical sequence may 									require a visual reader to move back and forth from page to page. This type of 									sequence cannot be represented in the markup.</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#orientation">1.3.4 表示の向き（AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>固定レイアウトのページは通常、特定の方向でレンダリングされるように設計されており、コンテンツ製作者は、リーディングシステムがその方向でのみコンテンツをレンダリングするように指定できます。</p>
+								<p>To meet WCAG 2.0, however, the orientation of the content must not affect its 									readability.</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">1.4.3 コントラスト（最低限レベル） （AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>固定レイアウトで画像にテキストを重ねると、コントラストが不十分になり、読者がテキストを認識しにくくなる可能性があります。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 							<a href="https://www.w3.org/TR/WCAG2/#images-of-text">1.4.5 文字画像（AA）</a>
+</td>
+							<td class="center">2.0+</td>
+							<td>
+								<p>文字画像は、ユーザーがフォントを変更したり、固定レイアウトページのデザインを変更したりするのを防ぐためによく使用されます。</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#reflow">1.4.10 リフロー（AA）</a>
+</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>Due to the fixed dimensions of a fixed-layout page, the zoom requirement of this 									success criterion typically results in the user having to scroll both axes to read 									the content.</p>
+							</td>
+						</tr>
+						<tr>
+							<td> 								<a href="https://www.w3.org/TR/WCAG2/#text-spacing">1.4.12 テキストの間隔（AA）</a>
+</td>
+							<td class="center">2.1+</td>
+							<td>
+								<p>Even if users are allowed to change the appearance, adding spacing can force text to 									exceed the boundaries of its container element and/or page. In this case, the 									overflow text is often hidden from sight.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</body>
+</html>
