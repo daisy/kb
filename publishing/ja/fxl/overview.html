@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>概要</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of accessibility issues related to EPUB fixed layout publications.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3'],
+				'addh4': true
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="layouts">
+				<h3>レイアウト</h3>
+				<p>固定レイアウトの出版物は、各ページのサイズ（高さと幅）が固定されている出版物です。これらのページのコンテンツはピクセル単位でレイアウトされ、要素にはレンダリングされる固定座標があります。</p>
+				<p>固定レイアウトは、一般的に画像を使用して作成されますが、CSSによる絶対位置指定を使用してHTMLでも作成できます。固定レイアウトは、コミック、マンガ、子供向けの絵本、料理本、教科書の作成によく使用されますが、ピクセル単位の正確なレイアウトを再現しようとするあらゆる書籍で使用されています。</p>
+				<p>EPUBでは、固定レイアウトを作成するための、主に二つのアプローチがサポートされています。</p>
+				<ol>
+					<li>
+<a href="html.html">HTMLベースのレイアウト</a>- HTMLページに高さと幅を設定し、コンテンツをその領域内に配置します。</li>
+					<li>
+<a href="svg.html">SVGベースのレイアウト</a>- コンテンツの作成に画像形式（SVG、JPEG、PNGなど）を使用します。</li>
+				</ol>
+				<p>場合によっては、これらのアプローチが混在します。たとえば、HTMLまたはSVGドキュメントを使用して画像形式を表示すると、代替テキストや拡張説明も提供できます。</p>
+				<div class="note" role="note" aria-labelledby="img-note">
+					<p id="img-note" class="label">注記</p>
+					<p>An alternative to HTML and SVG fixed layouts is to include images directly in the EPUB spine. As 						support for, and accessibility of, this approach is limited, this topic is only minimally 						covered on the <a href="img.html">images in spine page</a>.</p>
+				</div>
+			</section>
+			<section id="creation">
+				<h3>製作</h3>
+				<section id="creation-package-meta">
+					<h4>パッケージメタデータ</h4>
+					<p>主に固定レイアウトでできている出版物と、全体のうちの数ページのみが固定レイアウトである出版物との唯一の違いは、パッケージドキュメントのメタデータにあります。</p>
+					<p>出版物が完全に、または大部分が固定レイアウトページで構成されている場合、 <a href="https://www.w3.org/TR/epub/#layout"><code>rendition:layout</code>プロパティ</a>のグローバル宣言が一度だけ必要です。</p>
+					<pre id="ex-cr-01" class="prettyprint linenums"><code>&lt;metadata&gt;
+   &lt;meta property="rendition:layout"&gt;pre-paginated&lt;/meta&gt;
+   …
+&lt;/metadata&gt;</code></pre>
+					<p>リフロー型のドキュメントがある場合は、そのドキュメントのspine項目参照で<code>rendition:layout-reflowable</code>プロパティを使用して上書きできます。</p>
+					<pre id="ex-cr-02" class="prettyprint linenums"><code>&lt;spine&gt;
+   …
+   &lt;itemref ref="p211"/&gt;
+   &lt;itemref ref="index" property="rendition:layout-reflowable"/&gt;
+&lt;/spine&gt;</code></pre>
+					<p>固定レイアウトを使用するページが少数の場合は、前述のプロセスを単純に逆にします。リフロー型の出版物ではグローバルに<code>rendition:layout</code>プロパティを指定する必要はありませんが（EPUBではこれがデフォルトです）、次のように追加できます。</p>
+					<pre id="ex-cr-03" class="prettyprint linenums"><code>&lt;metadata&gt;
+   &lt;meta property="rendition:layout"&gt;reflowable&lt;/meta&gt;
+   …
+&lt;/metadata&gt;</code></pre>
+					<p>固定レイアウトページは、関連するspine項目参照の<code>rendition:layout-pre-paginated</code>値を使用してこの設定を上書きします。</p>
+					<pre id="ex-cr-04" class="prettyprint linenums"><code>&lt;spine&gt;
+   …
+   &lt;itemref ref="c01"/&gt;
+   &lt;itemref ref="plate-01" property="rendition:layout-pre-paginated"/&gt;
+   &lt;itemref ref="plate-02" property="rendition:layout-pre-paginated"/&gt;
+   &lt;itemref ref="c02"/&gt;
+   …
+&lt;/spine&gt;</code></pre>
+				</section>
+				<section id="creation-dimensions">
+					<h4>ページサイズ</h4>
+					<p>パッケージメタデータ宣言は、どのページを固定レイアウトとしてレンダリングするかをリーディングシステムに伝えるだけです。リーディングシステムがページを適切なサイズの領域にレンダリングできるように、ページのサイズは指定する必要があります。</p>
+					<p>固定レイアウトのXHTMLとSVGのページサイズは、それぞれのフォーマットのマークアップ機能に依存するので異なります。</p>
+					<p>HTMLレイアウトの場合、ページの高さと幅は、HTMLヘッダーの<code>viewport</code>宣言を使用してピクセル単位で指定します。</p>
+					<pre id="ex-dim-01" class="prettyprint linenums"><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+   &lt;head&gt;
+      &lt;title&gt;Page 1&lt;/title&gt;
+      &lt;meta name="viewport" content="height=1200,width=800"/&gt;
+      …
+   &lt;/head&gt;
+   …
+&lt;/html&gt;</code></pre>
+					<p>SVGレイアウトの場合、ページの高さと幅は<code>viewBox</code>属性を使用してピクセル単位で指定します。</p>
+					<pre id="ex-dim-02" class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200"&gt;
+   …
+&lt;/svg&gt;</code></pre>
+				</section>
+			</section>
+			<section id="display-meta">
+				<h3>表示メタデータ</h3>
+				<p>EPUB 3 provides the following metadata properties to control the layout and appearance of 					fixed-layout pages:</p>
+				<dl class="value">
+					<dt id="rendition-orientation">rendition:orientation</dt>
+					<dd>
+						<p><a href="https://www.w3.org/TR/epub/#orientation"><code>rendition:orientation</code>プロパティ</a>を使って、固定レイアウトページを表示するための画面の優先方向を、コンテンツ製作者が指定できます。</p>
+						<p>値は、 <code>portrait</code> 、 <code>landscape</code> 、または<code>auto</code>（優先なし）のいずれかになります。</p>
+						<p>このプロパティは、 <code>meta</code>タグを使用してすべてのページに対してグローバルに宣言できます。</p>
+						<pre id="ex-o01" class="prettyprint linenums"><code>&lt;meta property="rendition:orientation"&gt;landscape&lt;/meta&gt;</code></pre>
+						<p>Or can be set for specific pages in the spine using the <code>properties</code> 							attribute:</p>
+						<pre id="ex-o02" class="prettyprint linenums"><code>&lt;itemref idref="pg22" &lt;strong&gt;properties="rendition:orientation-portrait"&lt;/strong&gt;</code></pre>
+					</dd>
+					<dt id="rendition-spread">rendition:spread</dt>
+					<dd>
+						<p><a href="https://www.w3.org/TR/epub/#spread"><code>rendition:spread</code>プロパティ</a>を使って、固定レイアウトのページを<a href="spreads.html">合成された見開き</a>（つまり、隣り合う２ページにまたがったレイアウト）で表示する箇所を、コンテンツ製作者が指定できます。</p>
+						<p>値は<code>landscape</code>（デバイスが横向きに保持されている場合のみ）、 <code>both</code>（デバイスが横向きまたは縦向きのいずれかの場合）、 <code>auto</code>（優先なし）、 または<code>none</code>のいずれかになります。</p>
+						<p>このプロパティは、 <code>meta</code>タグを使用してすべてのページに対してグローバルに宣言できます。</p>
+						<pre id="ex-s01" class="prettyprint linenums"><code>&lt;meta property="rendition:spread"&gt;landscape&lt;/meta&gt;</code></pre>
+						<p>Or can be set for specific pages in the spine using the <code>properties</code> 							attribute:</p>
+						<pre id="ex-s02" class="prettyprint linenums"><code>&lt;itemref idref="pg124" &lt;strong&gt;properties="rendition:spread-both"&lt;/strong&gt;/&gt;</code></pre>
+					</dd>
+					<dt id="rendition-page-spread">rendition:page-spread-left, -right または -center</dt>
+					<dd>
+						<p><a href="https://www.w3.org/TR/epub/#page-spread"><code>rendition:page-spread-*</code>プロパティ</a>を使って、固定レイアウトページを２ページの見開きのどのスロットに表示するかを、コンテンツ製作者が指定できます。</p>
+						<p>-rightや-leftプロパティと異なり、 <code>page-spread-center</code>プロパティでは、見開きページの中央の単一のスロットにページを表示します。</p>
+						<p>page-spreadプロパティは、 <code>properties</code>属性を使用して、spine内の特定のページに対してのみ設定できます。</p>
+						<pre id="ex-pss01" class="prettyprint linenums"><code>&lt;itemref idref="pg2" &lt;strong&gt;properties="rendition:page-spread-left"&lt;/strong&gt;/&gt;
+&lt;itemref idref="pg3" &lt;strong&gt;properties="rendition:page-spread-right"&lt;/strong&gt;/&gt;</code></pre>
+					</dd>
+				</dl>
+			</section>
+			<section id="a11y">
+				<h3>アクセシビリティ</h3>
+				<p>固定レイアウトの出版物には、次のような、アクセシビリティに関するいくつかの課題があります。</p>
+				<ul>
+					<li>the incorrect ordering of HTML markup in order to visually display content, leading to a 						confusing reading experience when read by assistive technology (AT);</li>
+					<li>content spread across multiple pages, making for an incoherent reading order;</li>
+					<li>images of text being used without text alternatives, leaving no content to be read by AT;</li>
+					<li>text or image content that cannot be zoomed, or that requires scrolling when zoomed, making 						reading by persons with low vision difficult to impossible.</li>
+				</ul>
+				<p>達成できるアクセシビリティの程度は、使用されるレイアウトの種類とコンテンツの複雑さの組み合わせに大きく依存します。たとえば、複雑な教科書を作成するよりも、単純な児童書をアクセシビリティ対応にする方が簡単でしょう。多くの場合、固定レイアウトのコンテンツは、代替のシリアライズが提供された場合にのみアクセシビリティ対応になります。</p>
+				<div class="note" role="note" aria-labelledby="wcag-note">
+					<p id="wcag-note" class="label">注記</p>
+					<p>WCAG 2.1 introduces a new <a href="https://www.w3.org/TR/WCAG2/#reflow">reflowable success 							criterion</a> for level AA conformance, which will make it difficult for most fixed layout 						publications to conform to that standard.</p>
+				</div>
+				<p>ナレッジベースのこのセクションでは、固定レイアウトの出版物のアクセシビリティを向上させる手法について説明しますが、出版物を広くアクセシブルにする必要がある場合は、通常、リフロー型のコンテンツを作成することをお勧めします。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ol>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-fixed-layouts">固定レイアウト</a>
+</li>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#app-rendering-vocab">パッケージレンダリング語彙（package rendering vocabulary）</a>
+</li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>
