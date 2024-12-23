@@ -18,17 +18,17 @@
 				<h3>概要</h3>
 				<p>固定レイアウトの出版物では多くの場合、画像が不可欠です。固定レイアウトの出版物は、漫画のように完全に画像で構成されている場合もあれば、児童書のように物語の背景として画像が使用される場合もあります。</p>
 				<p>したがって、背景が認識できなかったり、画像を処理するのが難しい可能性のあるユーザーが、画像で伝えられる情報を利用できるようにすることが、固定レイアウトを可能な限りアクセシブルにするための優先事項です。</p>
-				<p>The <a href="../html/images-desc.html">basic requirements for all images</a>, to provide alt text and 					extended descriptions when they contain information necessary to understanding the publication, 					applies to fixed layouts. For example, while a reader may be able to follow the dialogue of a story 					when it is overlaid as text, only the placement on image might give context to what character is 					saying what.</p>
-				<p>The challenge with fixed layouts is finding ways to describe the image and provide context given that 					there is no extra area on the page users can access in which to place a description.</p>
+				<p>画像が出版物の内容理解に必要な情報を含んでいる場合は代替テキストや拡張説明を提供するという、<a href="../html/images-desc.html">すべての画像の基本的な要件</a>は、固定レイアウトにも適用されます。たとえば、どのキャラクターが何を言っているかというコンテキストが、画像上の配置によってのみ伝わる場合、テキストデータが画像にオーバーレイされていれば読者は物語のセリフを追えるでしょう。</p>
+				<p>ページ上にはユーザーがアクセスする説明を配置できる追加の領域が無いので、画像を説明し、コンテキストを提供する方法をひねり出さなければならないのが、固定レイアウトにおける課題です。</p>
 			</section>
 			<section id="svg">
 				<h3>SVG</h3>
 				<p>SVGには、画像を説明するための二つの要素があります。</p>
 				<ul>
 					<li>
-<code>title</code> — the equivalent of the HTML <code>alt</code> attribute; it is used to 						provide alternative text for an entire SVG image and individual components within it.</li>
+<code>title</code> — HTMLの<code>alt</code>属性に相当します。SVG画像全体とその中の個々のコンポーネントに代替テキストを提供するのに使用します。</li>
 					<li>
-<code>desc</code> — used to provide an extended description for the entire SVG image and 						individual components within it.</li>
+<code>desc</code> — SVG画像全体とその中の個々のコンポーネントの拡張説明を提供するのに使用します。</li>
 				</ul>
 				<p>出版物が<a href="svg.html">固定レイアウトのSVGページ</a>で作成されている場合、これらの二つの要素を使ってコンテンツを説明できます。SVGはまだ十分にサポートされていないため、支援技術のサポートを改善するためにARIA属性（ <code>role</code>および<code>aria-describedby</code> ）が追加されています。</p>
 				<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" …
@@ -47,14 +47,14 @@
       …
 &lt;/g&gt;</code></pre>
 				<p>これらの要素を使用してSVG画像に注釈を付けた場合の問題は、通常そのコンテンツが支援技術のユーザーに対してのみ利用可能になるという点です。</p>
-				<p>A more advanced approach would be to add a link or button to view the description using script or 					animations (e.g., open the description like a pop-out). EPUB reading system support for such 					approaches is likely to be limited, however, as animations, for example, were completely restricted 					until EPUB 3.2.</p>
+				<p>より高度なアプローチとしては、スクリプトやアニメーションを使用して説明を表示するリンクまたはボタンを設ける方法があります（例：ポップアウトのように説明を開く）。ただし、EPUB 3.2まではアニメーションなどが完全に制限されていたため、EPUBリーディングシステムのこのようなアプローチに対するサポートは制限されるかもしれません。</p>
 			</section>
 			<section id="html">
 				<h3>HTML</h3>
-				<p>When an image is embedded in an HTML fixed layout page, there are more options available for 					including accessible descriptions. As with SVG fixed layouts, the primary consideration is once 					again the limitation of having only limited screen space in which to include the description.</p>
-				<p>For this reason, descriptions are typically hidden from view using a variety of HTML, ARIA and CSS 					techniques. Descriptions can be hidden, clipped, made opaque, layered under an image, etc. The <a href="../html/hidden.html">knowledge base page on hidden content</a> delves into these 					possibilities in more detail.</p>
-				<p>Support for scripting in XHTML content documents in EPUB is generally much better than is available 					for SVG, so there are more reliable techniques that can be used to make the descriptions viewable by 					a wider range of users. Clicking or tapping on an image can be used to show its description, for 					example. The <a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol">Voyage of Life sample EPUB</a> contains an experimental example of this technique.</p>
-				<p>Unlike reflowable publications, the CSS <code class="property">background-image</code> property can 					be used with fixed layouts to set the background image for a page. It is best to limit this practice 					to backgrounds that are purely presentational as much as possible, however, as it complicates the 					ability to provide a description that any user will be able to reach (i.e., it often involves hiding 					the description only for assistive technologies).</p>
+				<p>画像がHTML固定レイアウトページに埋め込まれている場合には、アクセシブルな説明を付与する方法がもっと沢山あります。SVG固定レイアウトの場合と同様に、説明を組み込むための画面スペースが限られているという制限が主たる考慮事項です。</p>
+				<p>そのため、説明は通常、さまざまなHTML、ARIA、CSSテクニックを使用して非表示にします。説明は、隠したり、クリッピングしたり、不透明度を設定したり、画像の下に重ねたりできます。<a href="../html/hidden.html">非表示コンテンツに関するナレッジベースページ</a>では、これらの可能性についてさらに詳しく説明しています。</p>
+				<p>EPUBのXHTMLコンテンツドキュメントでのスクリプトのサポートは、一般的にSVGで利用できるものよりはるかに優れているので、より幅広いユーザーが説明を表示するのに利用できる信頼性が高い方法があります。たとえば、画像をクリックまたはタップするとその説明を表示できます。<a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol">Voyage of Life サンプルEPUB</a>には、この手法の実験的な例が含まれています。</p>
+				<p>リフロー型の出版物とは異なり、固定レイアウトでページの背景画像を設定するのにCSSの<code class="property">background-image</code>プロパティが使用できます。ただし、この方法では、すべてのユーザーに対してアクセスできる説明を提供するのが難しいため（つまり、多くの場合、非表示の支援技術に対する説明のみを提供することになります）、この方法は、できるだけ純粋にプレゼンテーション用の背景に限定することをお勧めします。</p>
 			</section>
 		</main>
 	</body>
