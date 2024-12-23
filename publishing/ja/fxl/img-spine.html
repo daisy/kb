@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Spine内の画像</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of issues using images in the EPUB spine for fixed layouts.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			pre {
+				font-size: 1.4rem;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="overview">
+				<h3>概要</h3>
+				<p>An unofficial way to create fixed-layout EPUB publications is to include images (excluding SVG) 					directly in the <a href="https://www.w3.org/TR/epub/#sec-spine-elem">package document spine</a>. This method of creating fixed layout pages is not commonly used, 					however, as images are not allowed in the spine without fallbacks, so in most cases it is simpler 					just to embed the image in either an <a href="html.html">XHTML</a> or <a href="svg.html">SVG</a> 					fixed layout page.</p>
+				<p>When using images in the spine, no fixed-layout metadata is set as it will cause validation errors 					(e.g., because the required dimensions can only be determined from XHTML and SVG). It may even cause 					reading systems not to render the publication.</p>
+				<p>A related problem is that by not being able to specify fixed-layout metadata, this method offers 					little control over the presentation of the pages. It also comes with severe <a href="#a11y">accessibility problems</a>.</p>
+			</section>
+			<section id="ceration">
+				<h3>製作</h3>
+				<p>spine内に画像を配置することは、spine内にXHTMLまたはSVGドキュメントを配置することと変わりません。manifest内で画像が宣言されている場所を参照するには、 <code>itemref</code>要素を使用します。</p>
+				<pre id="ex-01" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;manifest&gt;
+      &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg"/&gt;
+      …
+   &lt;/manifest&gt;
+   &lt;spine&gt;
+      &lt;itemref ref="pg01"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+				<p>ただし、前述の例を<a href="../validation/epubcheck.html">EPUBCheck</a>で検証すると、spineでJPEGがサポートされていないため、エラーが発生します。</p>
+				<p>出版物のエラーをなくすには、manifestエントリでXHTMLまたはSVGドキュメントへのフォールバックを指定しなければなりません。</p>
+				<pre id="ex-02" class="prettyprint linenums"><code>&lt;manifest&gt;
+   &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg" &lt;strong&gt;fallback="pg01-fb"&lt;/strong&gt;/&gt;
+   &lt;item id="pg01-fb" src="pg01.xhtml" media-type="application/xhtml+xml"/&gt;
+   …
+&lt;/manifest&gt;</code></pre>
+				<p>If a reading system does not support images in the spine, it can now render the fallback XHTML page 					instead.</p>
+			</section>
+			<section id="a11y">
+				<h3>アクセシビリティ</h3>
+				<p>spineの画像は、固定レイアウトを作成する方法としては最もアクセシブルでないものです。</p>
+				<p>画像の代替テキストや拡張説明は、フォールバックを通じて提供しない限り、提供できません。そのため、リーディングシステムが画像のレンダリングをサポートしている場合、ユーザーが代替テキストにアクセスする方法はありません（つまり、ユーザーには通常、フォールバックを表示するオプションは提供されず、リーディングシステムが自動的に何を表示するか選択します）。結果として、支援技術のユーザーが出版物を読むときに何も読み上げられません。</p>
+				<p>また、ユーザーが代替手段にアクセスできるという保証がなければ、代替手段がWCAGに準拠しているとしても、WCAGに準拠していると主張することは<strong>できません</strong>。</p>
+				<p>固定レイアウトページごとにバックアップを作成するコストを回避するために、出版物がリーディングシステムでサポートされていないことを伝える一つのフォールバックドキュメントを使用する場合があります。この方法は、基本的に、テキスト代替を提供しないのと同じくらい読者にとって役に立ちません。</p>
+				<p>Similarly, there may not be a one-to-one correlation between fixed layout pages and a text 					serialization of the content. In this case, it will not be possible for each page to have a fallback 					without confusing the reader somehow (e.g., if a series of pages fall back to the same text 					serialization, the reading system will keep rendering the text every time a page is turned).</p>
+				<p><a href="https://www.w3.org/TR/epub-multi-rend/">マルチレンディション</a>の使用は、代替シリアライズの必要性の解決を意図していましたが、仕様に対するサポートは事実上ありません。</p>
+				<p>For these reasons, <a href="html.html">XHTML</a> and <a href="svg.html">SVG</a> fixed layout pages 					should always be preferred.</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a>
+</li>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-manifest-fallbacks">manifest フォールバック</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
