@@ -29,7 +29,7 @@
 				<p>場合によっては、これらのアプローチが混在します。たとえば、HTMLまたはSVGドキュメントを使用して画像形式を表示すると、代替テキストや拡張説明も提供できます。</p>
 				<div class="note" role="note" aria-labelledby="img-note">
 					<p id="img-note" class="label">注記</p>
-					<p>An alternative to HTML and SVG fixed layouts is to include images directly in the EPUB spine. As 						support for, and accessibility of, this approach is limited, this topic is only minimally 						covered on the <a href="img.html">images in spine page</a>.</p>
+					<p>HTMLおよびSVG固定レイアウトの代替として、EPUBのspineに直接画像を組み込む方法があります。このアプローチのサポートとアクセシビリティは限定されているので、このトピックは<a href="img.html">「spine内の画像」ページ</a>で最小限の説明のみを行っています。</p>
 				</div>
 			</section>
 			<section id="creation">
@@ -84,7 +84,7 @@
 			</section>
 			<section id="display-meta">
 				<h3>表示メタデータ</h3>
-				<p>EPUB 3 provides the following metadata properties to control the layout and appearance of 					fixed-layout pages:</p>
+				<p>EPUB3には、固定レイアウトページのレイアウトと表示を制御するための、次のメタデータプロパティがあります。</p>
 				<dl class="value">
 					<dt id="rendition-orientation">rendition:orientation</dt>
 					<dd>
@@ -92,7 +92,7 @@
 						<p>値は、 <code>portrait</code> 、 <code>landscape</code> 、または<code>auto</code>（優先なし）のいずれかになります。</p>
 						<p>このプロパティは、 <code>meta</code>タグを使用してすべてのページに対してグローバルに宣言できます。</p>
 						<pre id="ex-o01" class="prettyprint linenums"><code>&lt;meta property="rendition:orientation"&gt;landscape&lt;/meta&gt;</code></pre>
-						<p>Or can be set for specific pages in the spine using the <code>properties</code> 							attribute:</p>
+						<p>または、<code>properties</code>属性を使用して、spineの特定のページに設定できます。</p>
 						<pre id="ex-o02" class="prettyprint linenums"><code>&lt;itemref idref="pg22" &lt;strong&gt;properties="rendition:orientation-portrait"&lt;/strong&gt;</code></pre>
 					</dd>
 					<dt id="rendition-spread">rendition:spread</dt>
@@ -101,7 +101,7 @@
 						<p>値は<code>landscape</code>（デバイスが横向きに保持されている場合のみ）、 <code>both</code>（デバイスが横向きまたは縦向きのいずれかの場合）、 <code>auto</code>（優先なし）、 または<code>none</code>のいずれかになります。</p>
 						<p>このプロパティは、 <code>meta</code>タグを使用してすべてのページに対してグローバルに宣言できます。</p>
 						<pre id="ex-s01" class="prettyprint linenums"><code>&lt;meta property="rendition:spread"&gt;landscape&lt;/meta&gt;</code></pre>
-						<p>Or can be set for specific pages in the spine using the <code>properties</code> 							attribute:</p>
+						<p>または、<code>properties</code>属性を使用して、spineの特定のページに設定できます。</p>
 						<pre id="ex-s02" class="prettyprint linenums"><code>&lt;itemref idref="pg124" &lt;strong&gt;properties="rendition:spread-both"&lt;/strong&gt;/&gt;</code></pre>
 					</dd>
 					<dt id="rendition-page-spread">rendition:page-spread-left, -right または -center</dt>
@@ -118,15 +118,15 @@
 				<h3>アクセシビリティ</h3>
 				<p>固定レイアウトの出版物には、次のような、アクセシビリティに関するいくつかの課題があります。</p>
 				<ul>
-					<li>the incorrect ordering of HTML markup in order to visually display content, leading to a 						confusing reading experience when read by assistive technology (AT);</li>
-					<li>content spread across multiple pages, making for an incoherent reading order;</li>
-					<li>images of text being used without text alternatives, leaving no content to be read by AT;</li>
-					<li>text or image content that cannot be zoomed, or that requires scrolling when zoomed, making 						reading by persons with low vision difficult to impossible.</li>
+					<li>コンテンツを視覚的に表示するために、HTMLマークアップの順序が読む順序と違っていると、支援技術 (AT)で読み取ると混乱を招きます。</li>
+					<li>コンテンツが複数のページに分散していると、読む順序が一貫しなくなります。</li>
+					<li>テキスト画像が代替テキストなしで使用されていると、支援技術で読み上げできません。</li>
+					<li>拡大できない、または拡大したときにスクロールしなければならないテキストや画像コンテンツは、弱視者にとって読むのが難しい、あるいは全く読めません。</li>
 				</ul>
 				<p>達成できるアクセシビリティの程度は、使用されるレイアウトの種類とコンテンツの複雑さの組み合わせに大きく依存します。たとえば、複雑な教科書を作成するよりも、単純な児童書をアクセシビリティ対応にする方が簡単でしょう。多くの場合、固定レイアウトのコンテンツは、代替のシリアライズが提供された場合にのみアクセシビリティ対応になります。</p>
 				<div class="note" role="note" aria-labelledby="wcag-note">
 					<p id="wcag-note" class="label">注記</p>
-					<p>WCAG 2.1 introduces a new <a href="https://www.w3.org/TR/WCAG2/#reflow">reflowable success 							criterion</a> for level AA conformance, which will make it difficult for most fixed layout 						publications to conform to that standard.</p>
+					<p>WCAG 2.1では、レベルAA適合のための新しい<a href="https://www.w3.org/TR/WCAG2/#reflow">リフロー型の達成基準</a>が導入されていますが、ほとんどの固定レイアウトの出版物ではその標準に準拠するのは困難です。</p>
 				</div>
 				<p>ナレッジベースのこのセクションでは、固定レイアウトの出版物のアクセシビリティを向上させる手法について説明しますが、出版物を広くアクセシブルにする必要がある場合は、通常、リフロー型のコンテンツを作成することをお勧めします。</p>
 			</section>
