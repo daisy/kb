@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>概要</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of the text-to-speech enhancements available in EPUB 3.">
+		<script>
+			var page_info = {
+				'category': 'Text-to-Speech',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def" aria-label="Explanation">
+				<p>The ability to synthetically voice a publication is an important accessibility feature that many 					users rely on, regardless of whether human narration is also provided (e.g., many users prefer the 					faster playback that TTS engines make possible).</p>
+
+				<p>While basic playback is possible so long as a reading system includes TTS technology, or access to a 					similarly-enabled assistive technology, any complexity in the vocabulary used typically leads to 					mispronunciations by synthetic speech engines without enhancement.</p>
+
+				<p>There are three technologies that enable content authors to enhance the quality of TTS playback:</p>
+
+				<dl>
+					<dt id="def-pls">
+						<a href="pls.html">PLS lexicons</a>
+					</dt>
+					<dd>
+						<p>発音辞書仕様（Pronunciation Lexicon Specification）で、国際的に使用できる発音をXML形式で定義できます。定義されたエントリーに一致する単語が文章内に見つかると、エンジンのデフォルトのレンダリングの代わりに定義された発音が使用されます。この辞書で、文脈によって意味が変化しない単語の発音を簡単に定義できます。</p>
+					</dd>
+
+					<dt id="def-ssml">
+						<a href="ssml.html">SSML markup</a>
+					</dt>
+					<dd>
+						<p>The Synthetic Speech Markup Language (SSML) allows pronunciations to be embedded directly in 							the markup. When SSML attributes are encountered on elements, the provided pronunciation is 							used in place of either the engine's default rendering or a PLS entry. SSML can be used to 							define all pronunciations, but is better used as a compliment to PLS lexicons (e.g., to 							disambiguate heteronyms and ambiguous number forms).</p>
+					</dd>
+
+					<dt id="def-speech">
+						<a href="speech.html">CSS Speech（音声）プロパティ</a>
+					</dt>
+					<dd>
+						<p>CSS speechモジュールには、音声再生を制御できるさまざまなプロパティが含まれています。単語や数字を一文字ずつ読み上げる制御から音声キューや一時停止の挿入まで、これらのプロパティを使用すると、従来の発音の強化を超えて、再生を制御できます。</p>
+					</dd>
+				</dl>
+
+				<p>Note, however, that none of these technologies is supported in reading systems. The W3C Web 					Accessibility Initiative (WAI) currently has a <a href="https://www.w3.org/WAI/pronunciation/">Pronunciation task force</a> looking into the issues of supporting improved speech support. 					These pages will be updated if new direction comes out of that work.</p>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>サンプル</h3>
+
+				<p>The <a href="http://code.google.com/p/epub-samples/">EPUB Samples Project</a> contains the following 					publications that implement enhanced TTS functionality:</p>
+
+				<ul>
+					<li> 						<a href="http://code.google.com/p/epub-samples/source/browse/#svn%2Ftrunk%2F30%2Fgeorgia-pls-ssml%2FEPUB">Georgia</a>
+</li>
+				</ul>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ol>
+					<li>EPUB 3 TTS Enhancements — <a href="https://www.w3.org/TR/epub-tts/#pls">Pronunciation 						lexicons</a>
+</li>
+					<li> 						<a href="http://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification (PLS) 							Version 1.0</a> 					</li>
+					<li>EPUB 3 TTS Enhancements — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML attributes</a>
+</li>
+					<li> 						<a href="http://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language (SSML) 							Version 1.1</a> 					</li>
+					<li>EPUB 3 TTS Enhancements — <a href="https://www.w3.org/TR/epub-tts/#css-speech">CSS speech</a>
+</li>
+					<li>
+<a href="https://www.w3.org/TR/css-speech-1/">CSS Speech Module</a> (working 						draft referenced by EPUB 3)</li>
+					<li>
+<a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">Computer-coding the IPA: a proposed 							extension of SAMPA</a> (X-SAMPA)</li>
+					<li> 						<a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">Reproduction of The International 							Phonetic Alphabet (Revised to 2005)</a> 					</li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>
