@@ -19,8 +19,8 @@
 	<body>
 		<main>
 			<section id="comp" aria-label="Evaluation">
-				<p>Although it may be possible to create fixed-layout EPUB publications that conform to WCAG 2.0, 					conforming to the latest versions of the standard is much more difficult due to the reflow 					requirement that was added in 2.1.</p>
-				<p>The following table identifies some of the most common level A and AA success criteria that fail due 					to the use of fixed layouts.</p>
+				<p>WCAG 2.0に準拠した固定レイアウトのEPUB出版物を作成することはできるかもしれませんが、2.1で追加されたリフロー要件により、最新バージョンの規格への準拠はさらに困難です。</p>
+				<p>次の表は、固定レイアウトを使用すると達成できないかもしれない一般的なレベルAおよびAAの達成基準の一部を示しています。</p>
 				<table>
 					<thead>
 						<tr>
@@ -35,7 +35,7 @@
 </td>
 							<td class="center">2.0+</td>
 							<td>
-								<p>Image-based fixed layouts, such as comics and manga, typically fail this requirement 									as alternative text and descriptions cannot capture all of the story conveyed 									through the imagery. A separate serialization of the story is often required.</p>
+								<p>コミックやマンガなどの画像ベースの固定レイアウトでは、代替テキストや説明では画像を通じて伝えられるストーリーのすべてを表現できないため、通常この要件を満たしません。多くの場合、別のシリアライズされた表現が必要です。</p>
 							</td>
 						</tr>
 						<tr>
@@ -50,8 +50,8 @@
 </td>
 							<td class="center">2.0+</td>
 							<td>
-								<p>Because content elements can be visually placed wherever needed, care is not always 									taken to ensure that a logical sequence is maintained in the markup. When an 									assistive technology reads such a work, information and dialogue are rendered out of 									sequence.</p>
-								<p>In the case where content is laid out over two pages, the logical sequence may 									require a visual reader to move back and forth from page to page. This type of 									sequence cannot be represented in the markup.</p>
+								<p>コンテンツ要素は視覚的に必要な場所に配置できるため、マークアップ内で論理的な順序が維持されるように常に注意が払われるわけではありません。支援技術を通じてそのような図書を読み取ると、情報や会話が順序どおりにレンダリングされません。</p>
+								<p>コンテンツが２ページに渡ってレイアウトされている場合に、視覚的に読み取る読者が論理的な読み順ではページ間を行ったり来たりする必要があることがあります。このようなタイプの順序は、マークアップでは表現できません。</p>
 							</td>
 						</tr>
 						<tr>
@@ -60,7 +60,7 @@
 							<td class="center">2.0+</td>
 							<td>
 								<p>固定レイアウトのページは通常、特定の方向でレンダリングされるように設計されており、コンテンツ製作者は、リーディングシステムがその方向でのみコンテンツをレンダリングするように指定できます。</p>
-								<p>To meet WCAG 2.0, however, the orientation of the content must not affect its 									readability.</p>
+								<p>しかし、WCAG 2.0に準拠するには、コンテンツの向きは読みやすさに影響を与えてはなりません。</p>
 							</td>
 						</tr>
 						<tr>
@@ -84,7 +84,7 @@
 </td>
 							<td class="center">2.1+</td>
 							<td>
-								<p>Due to the fixed dimensions of a fixed-layout page, the zoom requirement of this 									success criterion typically results in the user having to scroll both axes to read 									the content.</p>
+								<p>固定レイアウトページではサイズが固定されているので、この達成基準の拡大要件を満たすには、通常、ユーザーはコンテンツを読むために両方の軸（訳注：水平方向、垂直方向）をスクロールしなければならなくなります。</p>
 							</td>
 						</tr>
 						<tr>
@@ -92,7 +92,7 @@
 </td>
 							<td class="center">2.1+</td>
 							<td>
-								<p>Even if users are allowed to change the appearance, adding spacing can force text to 									exceed the boundaries of its container element and/or page. In this case, the 									overflow text is often hidden from sight.</p>
+								<p>ユーザーが外観を変更できる場合でも、（訳注：文字間、行間などの）スペースを追加すると、テキストがコンテナ要素やページの境界を超えてしまいます。この場合、はみ出したテキストはしばしば見切れてしまいます。</p>
 							</td>
 						</tr>
 					</tbody>
