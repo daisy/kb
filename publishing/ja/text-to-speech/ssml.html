@@ -18,13 +18,13 @@
 		<main>
 			<div class="warning" aria-labelledby="note-hd">
 				<p id="note-hd" class="label">注記</p>
-				<p>There is no support for the EPUB SSML attributes in reading systems at this time.</p>
+				<p>現時点では、リーディングシステムではEPUB SSML属性はサポートされていません。</p>
 			</div>
 			
 			<section id="summary">
 				<h3>要約</h3>
 
-				<p>The EPUB SSML attributes offer the promise of improved voicing of text.</p>
+				<p>EPUB SSML属性により、テキストの音声読み上げを改善できます。</p>
 			</section>
 
 			<section id="ex">
@@ -32,7 +32,7 @@
 
 				<figure id="ex-01">
 					<figcaption>
-						<p class="label">Example 1 — Declaring the SSML namespace and phonetic alphabet on the 							document root</p>
+						<p class="label">例1 — ドキュメントルートでSSML名前空間と発音記号を表記</p>
 					</figcaption>
 
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;html …
@@ -76,7 +76,7 @@
    The guitarist was playing a bass that was shaped
    like a &lt;span ssml:ph="b&amp;s"&gt;bass&lt;/span&gt;.
 &lt;/p&gt;</code></pre>
-					<p>A <a href="pls.html">PLS lexicon</a> would including the following entry to define the default 						pronunciation:</p>
+					<p><a href="pls.html">PLS辞書</a>には、デフォルトの発音を定義する次のエントリが含まれます。</p>
 					<pre class="prettyprint linenums"><code>&lt;lexeme&gt;
    &lt;grapheme&gt;bass&lt;/grapheme&gt;
    &lt;phoneme&gt;beIs&lt;/phoneme&gt;
@@ -112,33 +112,33 @@
 <code>ssml:ph</code>属性で、テキストコンテンツを持つ要素、または音声発音を関連付けることができる要素（たとえば、添付された属性から発音が派生する空の要素）の発音を定義します。</li>
 				</ul>
 
-				<p>(Support for the full SSML specification is not available in EPUB 3.)</p>
+				<p>（完全なSSML仕様のサポートはEPUB 3では利用できません。）</p>
 
 				<p><a href="pls.html">PLS辞書</a>とは異なり、SSMLはマークアップレベルで発音を細かく制御できます。SSMLを使用すると、同綴異音語の発音をデフォルトから変更したり、複雑な単語や数字の発音を正しく指定したりできます。</p>
 
-				<p>To use the SSML attributes, you must first declare the SSML namespace. The declaration is typically 					made once per document on the root <code>html</code> element. (See <a href="#ex01">Example 					1</a>.)</p>
+				<p>SSML属性を使用するには、まずSSML名前空間を宣言する必要があります。宣言は通常、ルート<code>html</code>要素のドキュメントごとに一回行います（<a href="#ex01">例1</a>を参照）。</p>
 
-				<p>A default alphabet is also typically defined once on the root <code>html</code> element, as it is 					rare to need to switch phonetic alphabets within any single document. Adding the 						<code>ssml:alphabet</code> attribute to the root ensures that all instance of the 						<code>ssml:ph</code> attribute have an in-scope alphabet defined. It is an error to define a 					pronunciation in an <code>ssml:ph</code> attribute without an in-scope alphabet, and will result in 					rendering errors. (See <a href="#ex01">Example 1</a>.)</p>
+				<p>デフォルトの発音記号は通常はルート<code>html</code>要素に一回定義します。これは、単一のドキュメント内で発音記号を切り替える必要はほとんどないためです。ルートに<code>ssml:alphabet</code>属性を追加すると、<code>ssml:ph</code>属性のすべてのインスタンスにスコープ内発音記号が定義されます。スコープ内発音記号なしで<code>ssml:ph</code>属性に発音を定義するとエラーになり、レンダリングエラーが発生します（<a href="#ex01">例１</a>を参照）。</p>
 
 				<p><code>ssml:ph</code>属性が検出されると、その値が要素のコンテンツの代わりにテキスト読み上げ（TTS）エンジンに渡され、最下位レベルのオーバーライドが提供されます。SSML属性の発音はPLS辞書エントリーよりも優先されるため、同綴異音語や規則の例外が適切に処理されます。</p>
 
 				<p><code>ssml:ph</code>属性の値は、その属性が付けられた要素の子孫要素も含めてすべてのコンテンツを置き換えることに注意してください。段落内の一つの単語の発音を定義するために、この属性を<code>p</code>タグに付加しないでください。段落全体の代わりにその一つの単語だけが読み上げられてしまいます。発音の指定が必要な単語にマークアップが存在しない場合は、<code>span</code>要素の使用をお勧めします。</p>
 
-				<p>The SSML attributes are not valid on SVG or MathML content, but are valid on any XHTML content that 					can be embedded in those grammars.</p>
+				<p>SSML属性はSVGまたはMathMLコンテンツでは有効ではありませんが、それらの文法に埋め込むことができるすべてのXHTMLコンテンツでは有効です。</p>
 			</section>
 
 			<section id="faq">
 				<h3>よくある質問</h3>
 
 				<dl>
-					<dt id="faq-001">Should I use IPA or X-SAMPA or something else to write my pronunciations?</dt>
+					<dt id="faq-001">発音を記述するにはIPAやX-SAMPAなどを使用すべきでしょうか？</dt>
 					<dd>
-						<p>Although IPA is arguably the most widely recognized phonetic alphabet, that does not mean 							that it has full support even in existing synthetic speech engines. Some engines support 							only their own alphabets, for example. IPA is also less developer-friendly than X-SAMPA 							because it uses Unicode characters that require modifying most keyboard layouts to input, 							whereas X-SAMPA is ASCII-based. Internal workflows should be a determining factor at this 							time. The ultimate answer will depend on what engines are employed in reading systems.</p>
+						<p>IPAはおそらく最も広く認識されている発音記号ですが、既存の合成音声エンジンでも完全にサポートされているわけではありません。たとえば、一部のエンジンは独自の発音記号のみをサポートしています。また、X-SAMPAはASCIIベースですが、IPAはUnicode文字を使用するため、入力するにはほとんどのキーボード レイアウトを変更する必要があり、X-SAMPAよりも開発者にとって使いにくいです。現時点では、内部ワークフローが決定要因となるはずです。最終的な答えは、リーディングシステムでどのエンジンが使用されているかによって異なります。</p>
 						
-						<p>Note that it is possible to translate one alphabet representation to the other, so work in 							either alphabet shouldn't ever be <q>lost</q> if there does turn out to be a clear winner 							and loser.</p>
+						<p>一つの発音記号を他の発音記号に変換することは可能であるため、勝者と敗者が明確に分かれた場合でも、どちらの発音記号での作業も<q>失われる</q>ことはありません。</p>
 					</dd>
 					
-					<dt id="faq-002">Should I use PLS lexicons or SSML?</dt>
+					<dt id="faq-002">PLS辞書とSSMLのどちらを使用すればよいでしょうか？</dt>
 					<dd>
 						<p>EPUB 3にこれらの技術が盛り込まれたのは、どちらかを選択しなければならないということではなく、これらの技術が互いに補完し合うようにするためです。PLS辞書を使用すると、単語を一度定義すれば、その単語が文章中に現れるたびにTTSエンジンがその単語を置き換えます。一方、<a href="ssml.html">SSML</a>は、辞書では不可能なきめ細かい制御ができますが、その代償として、置き換える必要がある用語の各インスタンスにタグを付ける必要があります。</p>
 						
@@ -150,12 +150,14 @@
 			<section id="refs">
 				<h3>関連リンク</h3>
 				<ul>
-					<li>EPUB 3 TTS Enhancements — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML 							attributes</a>
+					<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML属性</a>
 </li>
-					<li> 						<a href="http://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language (SSML) 							Version 1.1</a> 					</li>
+					<li> 						<a href="http://www.w3.org/TR/speech-synthesis11/">音声合成マークアップ言語（Speech Synthesis Markup Language (SSML)）							バージョン 1.1</a>
+</li>
 					<li>
-<a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">Computer-coding the IPA: a proposed 							extension of SAMPA</a> (X-SAMPA)</li>
-					<li> 						<a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">Reproduction of The International 							Phonetic Alphabet (Revised to 2005)</a> 					</li>
+<a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">IPA のコンピューターコーディング：SAMPAの拡張案</a>（X-SAMPA）</li>
+					<li> 						<a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">国際音声記号（International Phonetic Alphabet）（2005年改訂版）の複製</a>
+</li>
 				</ul>
 			</section>
 		</main>
