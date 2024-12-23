@@ -18,7 +18,7 @@
 		<main>
 			<div class="warning" aria-labelledby="note-hd">
 				<p id="note-hd" class="label">注意</p>
-				<p>There is no support for CSS Speech properties in reading systems at this time.</p>
+				<p>現時点では、CSS Speechプロパティはリーディングシステムでサポートされていません。</p>
 			</div>
 
 			<section id="summary">
@@ -177,13 +177,13 @@
 			<section id="desc">
 				<h3>解説</h3>
 
-				<p>The CSS Speech module provides additional text-to-speech (TTS) enhancement functionality. Unlike <a href="pls.html">PLS lexicons</a> and <a href="ssml.html">SSML markup</a>, the Speech module 					properties are not focused on defining the correct pronunciation of words.</p>
+				<p>CSS Speechモジュールにより、テキスト読み上げ (TTS) の拡張機能を追加できます。<a href="pls.html">PLS辞書</a>や<a href="ssml.html">SSMLマークアップ</a>とは異なり、Speechモジュールのプロパティが重点をおいているのは単語の正しい発音の定義ではありません。</p>
 
 				<p>CSS SpeechモジュールでTTS再生を強化するために使われる主要なプロパティは、 <code>speak-as</code>です。このプロパティで、TTSエンジンが文字列内を一文字ずつ読み上げるようにできます。各文字の読み上げは<code class="value">spell-out</code>に設定し、数字は<code>digit</code>に設定します（<a href="#ex-01">例１</a>および<a href="#ex-02">例２</a>を参照）。また、このプロパティを使って、TTSエンジンによる信頼性の低い頭字語の読み上げをオーバーライドできます。</p>
 
 				<p><code>speak-as</code>プロパティでは、補完的な値である<code>literal-punctuation</code>と<code>no-punctuation</code>も使用できます。TTSエンジンが句読点を音声化するかどうかを制御できます。</p>
 
-				<p>The module also includes the <code>speak</code> property, which provides the ability to control TTS 					rendering of content, regardless of whether the containing element is visible or not. Setting the 						<code>none</code> value disables rendering on an element, and setting the <code>normal</code> 					value enables.</p>
+				<p>このモジュールには、<code>speak</code>プロパティも含まれており、要素が表示されているかどうかに関係なく、コンテンツのTTSレンダリングを制御できます。none値を設定すると要素のレンダリングが無効になり、 <code>normal</code>値を設定すると有効になります。</p>
 
 				<p>次のプロパティは、TTS読み上げにおける非韻律的な側面に重点を置いています。</p>
 
@@ -194,7 +194,7 @@
 						<dd>
 							<p><code class="property">pause</code>プロパティは、適用先の要素の前後に付け加える一時停止の長さを制御します。一時停止は通常、段落間や新しいセクションの開始時など、主要な構造間の遷移を識別するために使用されます。また、TTSエンジンは句読点があると、ナレーションの流れの中で一時停止をします。</p>
 
-							<p>The value of the <code class="property">pause</code> property is a time value indicating 								the pause length. If only a single value is specified:</p>
+							<p><code class="property">pause</code>プロパティの値は、一時停止の長さを示す時間値です。単一の値のみが指定されている場合：</p>
 
 							<pre class="prettyprint"><code class="lang-css">pause: 50ms</code></pre>
 
@@ -247,7 +247,7 @@
 							<code class="property">voice-family</code>
 						</dt>
 						<dd>
-							<p>The <code class="property">voice-family</code> property provides control over the gender 								and type of voice used for TTS playback, allowing content producers to create more 								realistic TTS playback (e.g., alternating gender to match the character).</p>
+							<p><code class="property">voice-family</code>プロパティは、TTS再生に使用される音声の性別と種類を制御し、コンテンツ製作者がよりリアルなTTS再生（登場人物に合わせて性別を切り替えるなど）を作成できるようにします。</p>
 
 							<p>Although it's possible to name the voice to use:</p>
 
@@ -261,7 +261,7 @@
    voice-family: old male 1;
 }</code></pre>
 
-							<p>The age value may be <code class="value">child</code>, <code class="value">young</code> 								or <code class="value">old</code>; the gender <code class="value">male</code>, <code class="value">female</code> or <code class="value">neutral</code>; and, when 								specified, the integer indicates the ordinal position of the voice to use (i.e., when 								more than one matching voice is available).</p>
+							<p>年齢の値は、<code class="value">child</code>、<code class="value">young</code>、<code class="value">old</code>のいずれかで、性別は<code class="value">male</code>、 <code class="value">female</code>、<code class="value">neutral</code>。また、整数で音声の順序位置が指定できます。（一致する音声が複数ある場合）。</p>
 						</dd>
 					</dl>
 			</section>
@@ -283,7 +283,7 @@
 					<dt id="faq-003">なぜ句読点の発音を制御する必要があるのですか?</dt>
 					<dd>
 						<p>Although most engines will voice significant pause points, such as colons, they will 							typically not render each punctuation point in a document as it would ruin the reading 							experience. There are times when it is critical to ensure that the user is able to hear all 							the punctuation in a sentence or phrase, such as in grammar textbooks, programming guides 							and the like. (See <a href="#ex03">Example 3</a>.)</p>
-						<p>Accessible technologies also enable the pronunciation of all punctuation by default in 							elements such as <code>pre</code> and <code>code</code>. Although the benefit of reading all 							punctuation in computer code should be obvious, it is not always the case that preformatted 							text needs to such detailed rendering. Applying <code class="value">no-punctuation</code> to 							a <code>pre</code> block of text ensures that it will be read without punctuation being 							announced.</p>
+						<p>アクセシブルな技術では、<code>pre</code>や<code>code</code>などの要素内は、デフォルトですべての句読点も読み上げます。コンピューターコードではすべての句読点を読み上げるのが良いですが、フォーマット済みのテキストでは詳細なレンダリングは必要ありません。<code class="value">pre</code>のテキストブロックに<code>no-punctuation</code>を適用すると、句読点を読み上げないようにできます。</p>
 					</dd>
 				</dl>
 			</section>
