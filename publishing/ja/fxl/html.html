@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HTMLレイアウト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of HTML-based EPUB fixed layout publications.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="overview">
+				<h3>概要</h3>
+				<p>固定レイアウトの出版物は、HTMLドキュメントを使ってテキストと画像を組み合わせて作成できます。各ドキュメントには、コンテンツが配置されるキャンバスである固定の高さと幅が割り当てられます。CSS を使用して、この表示領域内でコンテンツ要素を絶対的に配置したり、寸法に合う画像をページに埋め込んだりします。</p>
+				<p>固定レイアウトにHTMLを使用する利点は、各ページのテキストコンテンツが支援技術で利用できる点です。画像の場合は、HTMLにもともとあるアクセシビリティ技術である代替テキストや拡張説明が利用できます。</p>
+			</section>
+			<section id="epub">
+				<h3>EPUB</h3>
+				<p>Web上で固定レイアウトを作成することは可能ですが、ブラウザでは自然にサポートされません。ブラウザはデザインどおりにページをレンダリングしますが、レンダリングをサポートするための最適化は行いません。</p>
+				<p>出版におけるこの問題を解決するために、EPUB3では、リーディングシステムが各固定レイアウトページに適切な表示領域と特性を作成できるように支援するメタデータが導入されました。</p>
+				<p>EPUB publications can consist entirely of fixed layout XHTML pages or there may only be a few fixed 					layout pages interspersed in a reflowable publication (e.g., a map might be included as a fixed 					layout in an otherwise reflowable publication).</p>
+				<p>It is also possible to mix <a href="svg.html">fixed-layout SVG pages</a> with fixed-layout XHTML 					pages, or with <a href="img.html">images directly in the EPUB reading order</a>.</p>
+				<div class="note" role="note" aria-labelledby="create-note">
+					<p id="create-note" class="label">注記</p>
+					<p>固定レイアウトの出版物の作成方法の詳細については、<a href="index.html#creation">固定レイアウトの概要ページ</a>を参照してください。</p>
+				</div>
+			</section>
+			<section id="a11y">
+				<h3>アクセシビリティ</h3>
+				<p>The same practices that make reflowable publications accessible are used to create fixed layout HTML 					pages with the greatest accessibility. Some key practices include:</p>
+				<ul>
+					<li>
+<a href="../html/order.html">論理的な読み順</a>の確保 — コンテンツの順序は、ユーザーがページ上で論理的に読む順序と一致しなければなりません。画面上の位置を調整するには、CSSを使用します。</li>
+					<li>コンテンツを複数のページに分割しない — <a href="spreads.html">ページスプレッド</a>をアクセシビリティ対応にする方法はいくつかありますが、サイドバーなどの補足情報が複数のページに分割されると、論理的な読み順を維持するのが難しくなります。</li>
+					<li>構造マークアップの使用 — コンテンツが意味のある形でマークアップされ、支援技術でナビゲートできるようにします。たとえば、<a href="../html/tables.html">見出し</a>や<a href="../html/tables.html">表</a>はマークアップを使用します。スタイル設定でそのように見えるようにはしないでください。</li>
+					<li>意味のある<a href="../html/images-desc.html">画像</a>をすべて説明する — 出版物を理解するために必要な情報を含むすべての画像は、代替テキストや拡張説明を使用して説明しなければなりません。背景画像は多くの場合、キャラクターのやり取りのコンテキストを提供するため、シーン設定がないと会話が意味をなさない場合があります。</li>
+					<li>テキストの画像を使わない — 背景画像の上にテキストを重ねると、支援技術がアクセスしやすくなります。</li>
+					<li>
+<a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">テキストのコントラスト</a>の確保 — 固定レイアウトでは画像の上にテキストを重ねることが多いため、テキストが背景から視覚的に区別できるようにすることが重要です。</li>
+				</ul>
+				<p>Even when following these practices, a key problem that limits the accessibility of fixed layouts is 					that reading systems often lock out users from changing the appearance of the documents to preserve 					the author's layout (e.g., disabling the ability to increase font size or changing text color). As 					a result, even the best efforts to make a fixed-layout publication accessible may still leave it 					unreadable to some users.</p>
+			</section>
+		</main>
+	</body>
+</html>
