@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>概要</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of the text-to-speech enhancements available in EPUB 3.">
+		<script>
+			var page_info = {
+				'category': 'Text-to-Speech',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def" aria-label="Explanation">
+				<p>出版物を合成音声で読み上げる機能は、人間によるナレーションも提供されるかどうかに関係なく、多くのユーザーが頼りにする重要なアクセシビリティ機能です（たとえば、多くのユーザーは、TTSエンジンによる高速再生を好みます）。</p>
+
+				<p>リーディングシステムに音声読み上げ（TTS）機能が含まれているか、または支援技術による音声読み上げが可能であれば、基本的な再生は可能ですが、使用されている語彙が複雑だと、通常、強化されていない合成音声エンジンでは発音を間違ってしまう場合があります。</p>
+
+				<p>コンテンツ製作者によってTTS再生の質を向上できる三つの技術があります。</p>
+
+				<dl>
+					<dt id="def-pls">
+						<a href="pls.html">PLS辞書（lexicons）</a>
+					</dt>
+					<dd>
+						<p>発音辞書仕様（Pronunciation Lexicon Specification）で、国際的に使用できる発音をXML形式で定義できます。定義されたエントリーに一致する単語が文章内に見つかると、エンジンのデフォルトのレンダリングの代わりに定義された発音が使用されます。この辞書で、文脈によって意味が変化しない単語の発音を簡単に定義できます。</p>
+					</dd>
+
+					<dt id="def-ssml">
+						<a href="ssml.html">SSMLマークアップ</a>
+					</dt>
+					<dd>
+						<p>合成音声マークアップ言語（Synthetic Speech Markup Language / SSML）を使用して、発音をマークアップに直接埋め込めます。要素にSSML属性が検出されると、エンジンのデフォルトのレンダリングやPLSエントリーの代わりに提供された発音が使用されます。SSMLですべての発音を定義することもできますが、PLS辞書の補足として使用する方が適しています（異音語や曖昧な数値形式を明確にするなど）。</p>
+					</dd>
+
+					<dt id="def-speech">
+						<a href="speech.html">CSS Speech（音声）プロパティ</a>
+					</dt>
+					<dd>
+						<p>CSS speechモジュールには、音声再生を制御できるさまざまなプロパティが含まれています。単語や数字を一文字ずつ読み上げる制御から音声キューや一時停止の挿入まで、これらのプロパティを使用すると、従来の発音の強化を超えて、再生を制御できます。</p>
+					</dd>
+				</dl>
+
+				<p>ただし、これらの技術はいずれもリーディングシステムではサポートされていません。W3C Web Accessibility Initiative（WAI）には現在、<a href="https://www.w3.org/WAI/pronunciation/">発音タスク フォース（Pronounciation task force）</a>があり、これらの技術のサポートについての問題を検討しています。発音タスクフォースの作業から新しい方向性が出てくれば、このページは更新されます。</p>
+			</section>
+
+			<section id="samp" class="sample">
+				<h3>サンプル</h3>
+
+				<p>拡張TTS機能を実装した出版物が<a href="http://code.google.com/p/epub-samples/">EPUBサンプル プロジェクト</a>にあります：</p>
+
+				<ul>
+					<li> 						<a href="http://code.google.com/p/epub-samples/source/browse/#svn%2Ftrunk%2F30%2Fgeorgia-pls-ssml%2FEPUB">Georgia</a>
+</li>
+				</ul>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ol>
+					<li>EPUB 3 TTS拡張機能 —<a href="https://www.w3.org/TR/epub-tts/#pls">発音辞書（Pronunciation lexicons）</a>
+</li>
+					<li> 						<a href="http://www.w3.org/TR/pronunciation-lexicon/">発音辞書仕様（Pronunciation Lexicon Specification）（PLS）バージョン1.0</a>
+</li>
+					<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML属性</a>
+</li>
+					<li><a href="http://www.w3.org/TR/speech-synthesis11/">音声合成マークアップ言語（SSML）バージョン1.1</a></li>
+					<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#css-speech">CSS speech</a>
+</li>
+					<li>
+<a href="https://www.w3.org/TR/css-speech-1/">CSS Speech モジュール</a>（ EPUB 3で参照される作業草案）</li>
+					<li>
+<a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">IPAのコンピュータコーディング：SAMPAの拡張案</a>（X-SAMPA）</li>
+					<li><a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">国際音声記号（IPA）のリプロダクション（2005年改訂版）</a></li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>

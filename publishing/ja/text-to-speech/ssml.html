@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>SSML</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of using the EPUB 3 SSML attributes to improve text-to-speech rendering.">
+		<script>
+			var page_info = {
+				'category': 'Text-to-Speech',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<div class="warning" aria-labelledby="note-hd">
+				<p id="note-hd" class="label">注記</p>
+				<p>現時点では、リーディングシステムではEPUB SSML属性はサポートされていません。</p>
+			</div>
+			
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>EPUB SSML属性により、テキストの音声読み上げを改善できます。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例1 — ドキュメントルートでSSML名前空間と発音記号を表記</p>
+					</figcaption>
+
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;html …
+   xmlns:ssml="http://www.w3.org/2001/10/synthesis"
+   ssml:alphabet="x-sampa"&gt;
+   …
+&lt;/html&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例2 — 単語レベルでの発音記号と発音を表記</p>
+						<p>単一の文字は、文脈に応じて頭文字、方向、またはその他の短縮形になる可能性があるため、辞書で定義するのは適切ではありません。</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p&gt;
+   … farther &lt;span 
+   ssml:alphabet="ipa" ssml:ph="nɔrθ"&gt;N.&lt;/span&gt;
+   another elevation begins …
+&lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例3 — 同綴異音語の異なる発音の定義</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;
+   The guitarist was playing a
+   &lt;span ssml:ph="beIs"&gt;bass&lt;/span&gt; that was shaped
+   like a &lt;span ssml:ph="b&amp;s"&gt;bass&lt;/span&gt;.
+&lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<p class="label">例4 — デフォルトのアルファベットがすでに設定されている場合に発音を定義する</p>
+					</figcaption>
+
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;p&gt;
+   The guitarist was playing a bass that was shaped
+   like a &lt;span ssml:ph="b&amp;s"&gt;bass&lt;/span&gt;.
+&lt;/p&gt;</code></pre>
+					<p><a href="pls.html">PLS辞書</a>には、デフォルトの発音を定義する次のエントリが含まれます。</p>
+					<pre class="prettyprint linenums"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;bass&lt;/grapheme&gt;
+   &lt;phoneme&gt;beIs&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<p class="label">例5 — 文脈に応じて異なる発音を定義する</p>
+					</figcaption>
+
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;p&gt;
+   You'll be an
+   &lt;span ssml:ph="Ekstr@ lArdZ"&gt;XL&lt;/span&gt;
+   by the end of Super Bowl 
+   &lt;span ssml:ph="'fOrti"&gt;XL&lt;/span&gt;
+   at the rate you're eating.
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>SSML（<a href="http://www.w3.org/TR/speech-synthesis11/">音声合成マークアップ言語</a>）を使うと、コンテンツ製作者は、出版物のデフォルトの合成音声レンダリングを、マークアップレベルでさらに正確にすることができます。SSMLを十分に使用することで、TTSの読み上げで作品を聞く人は、レンダリングエンジンの推測に基づくものではなく、コンテンツ製作者が意図したとおりの文章を聞くことができます。</p>
+
+				<p>SSMLの<code>phoneme</code>要素は、マークアップレベルで発音を定義するためのペアの属性としてEPUB 3に実装されています。</p>
+
+				<ul>
+					<li>
+<code>ssml:alphabet</code>属性で、デフォルトの発音記号を設定します。</li>
+					<li>
+<code>ssml:ph</code>属性で、テキストコンテンツを持つ要素、または音声発音を関連付けることができる要素（たとえば、添付された属性から発音が派生する空の要素）の発音を定義します。</li>
+				</ul>
+
+				<p>（完全なSSML仕様のサポートはEPUB 3では利用できません。）</p>
+
+				<p><a href="pls.html">PLS辞書</a>とは異なり、SSMLはマークアップレベルで発音を細かく制御できます。SSMLを使用すると、同綴異音語の発音をデフォルトから変更したり、複雑な単語や数字の発音を正しく指定したりできます。</p>
+
+				<p>SSML属性を使用するには、まずSSML名前空間を宣言する必要があります。宣言は通常、ルート<code>html</code>要素のドキュメントごとに一回行います（<a href="#ex01">例1</a>を参照）。</p>
+
+				<p>デフォルトの発音記号は通常はルート<code>html</code>要素に一回定義します。これは、単一のドキュメント内で発音記号を切り替える必要はほとんどないためです。ルートに<code>ssml:alphabet</code>属性を追加すると、<code>ssml:ph</code>属性のすべてのインスタンスにスコープ内発音記号が定義されます。スコープ内発音記号なしで<code>ssml:ph</code>属性に発音を定義するとエラーになり、レンダリングエラーが発生します（<a href="#ex01">例１</a>を参照）。</p>
+
+				<p><code>ssml:ph</code>属性が検出されると、その値が要素のコンテンツの代わりにテキスト読み上げ（TTS）エンジンに渡され、最下位レベルのオーバーライドが提供されます。SSML属性の発音はPLS辞書エントリーよりも優先されるため、同綴異音語や規則の例外が適切に処理されます。</p>
+
+				<p><code>ssml:ph</code>属性の値は、その属性が付けられた要素の子孫要素も含めてすべてのコンテンツを置き換えることに注意してください。段落内の一つの単語の発音を定義するために、この属性を<code>p</code>タグに付加しないでください。段落全体の代わりにその一つの単語だけが読み上げられてしまいます。発音の指定が必要な単語にマークアップが存在しない場合は、<code>span</code>要素の使用をお勧めします。</p>
+
+				<p>SSML属性はSVGまたはMathMLコンテンツでは有効ではありませんが、それらの文法に埋め込むことができるすべてのXHTMLコンテンツでは有効です。</p>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">発音を記述するにはIPAやX-SAMPAなどを使用すべきでしょうか？</dt>
+					<dd>
+						<p>IPAはおそらく最も広く認識されている発音記号ですが、既存の合成音声エンジンでも完全にサポートされているわけではありません。たとえば、一部のエンジンは独自の発音記号のみをサポートしています。また、X-SAMPAはASCIIベースですが、IPAはUnicode文字を使用するため、入力するにはほとんどのキーボード レイアウトを変更する必要があり、X-SAMPAよりも開発者にとって使いにくいです。現時点では、内部ワークフローが決定要因となるはずです。最終的な答えは、リーディングシステムでどのエンジンが使用されているかによって異なります。</p>
+						
+						<p>一つの発音記号を他の発音記号に変換することは可能であるため、勝者と敗者が明確に分かれた場合でも、どちらの発音記号での作業も<q>失われる</q>ことはありません。</p>
+					</dd>
+					
+					<dt id="faq-002">PLS辞書とSSMLのどちらを使用すればよいでしょうか？</dt>
+					<dd>
+						<p>EPUB 3にこれらの技術が盛り込まれたのは、どちらかを選択しなければならないということではなく、これらの技術が互いに補完し合うようにするためです。PLS辞書を使用すると、単語を一度定義すれば、その単語が文章中に現れるたびにTTSエンジンがその単語を置き換えます。一方、<a href="ssml.html">SSML</a>は、辞書では不可能なきめ細かい制御ができますが、その代償として、置き換える必要がある用語の各インスタンスにタグを付ける必要があります。</p>
+						
+						<p>SSMLのみを使用することは可能ですが、製作時間の面でコストがかかり、処理する必要がある一意の用語の数と出現頻度によっては、、コンテンツ ファイルのサイズが過度に大きくなる可能性があります。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML属性</a>
+</li>
+					<li> 						<a href="http://www.w3.org/TR/speech-synthesis11/">音声合成マークアップ言語（Speech Synthesis Markup Language (SSML)）							バージョン 1.1</a>
+</li>
+					<li>
+<a href="http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">IPA のコンピューターコーディング：SAMPAの拡張案</a>（X-SAMPA）</li>
+					<li> 						<a href="http://www.langsci.ucl.ac.uk/ipa/ipachart.html">国際音声記号（International Phonetic Alphabet）（2005年改訂版）の複製</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

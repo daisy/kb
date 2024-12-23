@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Speech（音声）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of CSS Speech properties for improving text-to-speech rendering.">
+		<script>
+			var page_info = {
+				'category': 'Text-to-Speech',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<div class="warning" aria-labelledby="note-hd">
+				<p id="note-hd" class="label">注意</p>
+				<p>現時点では、CSS Speechプロパティはリーディングシステムでサポートされていません。</p>
+			</div>
+
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>CSS Speechプロパティにより、音声によるレンダリングを改善できます。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例1 — 文字を一文字ずつ読み上げる</p>
+					</figcaption>
+
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;abbr class="spell"&gt;IBM&lt;/abbr&gt;
+&lt;span class="spell"&gt;IOU&lt;/span&gt;
+
+/* css */
+
+.spell {
+   speak-as: spell-out
+}</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例2 — 数字を一文字ずつ読み上げる</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;span class="digits"&gt;911&lt;/span&gt;
+&lt;span class="digits"&gt;416 555-0123&lt;/span&gt;
+&lt;span class="digits"&gt;90210&lt;/span&gt;
+
+/* css */
+
+.digits {
+   speak-as: digits
+}</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例3 — 句読点を読み上げる</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p&gt;
+   Example one is correctly punctuated as follows:
+   &lt;span class="punctuate answer"&gt;The Franks, 
+   a warlike people of Germany, gave their 
+   name to France.&lt;/span&gt;
+&lt;/p&gt;
+
+/* css */
+
+.punctuate {
+   speak-as: literal-punctuation
+}</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<p class="label">例4 — 句読点を無視する</p>
+					</figcaption>
+
+					<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;p&gt;The telegram from Dr. King to President Kennedy
+   read as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+   &lt;pre class="silent"&gt;
+   HOWEVER I AM CONVINCED THAT UNLESS SOME STEPS ARE TAKEN BY
+   THE FEDERAL GOVERMENT TO RESTORE A SENSE OF CONFIDENCE IN
+   THE PROTECTION OF LIFE, LIMB AND PROPERTY MY PLEAS SHALL FALL
+   ON DEAF EARS AND WE SHALL SEE THE WORST RACIAL HOLOCAUST THIS
+   NATION HAS EVER SEEN AFTER TODAYS TRAGEDY, INVESTIGATION WILL
+   NOT SUFFICE.
+   &lt;/pre&gt;
+   &lt;cite&gt;&lt;a 
+	  href="http://www.jfklibrary.org/Asset-Viewer/-crU2bLgN0CcGkys8dkuHg.aspx"
+	  &gt;September 15, 1963 Telegram&lt;/a&gt;&lt;/cite&gt;
+&lt;/blockquote&gt;
+
+/* css */
+
+.silent {
+   speak-as: no-punctuation
+}</code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<p class="label">例5 — 見出しに一時停止、合図（キュー）、休符を追加する</p>
+					</figcaption>
+
+					<pre id="ex-05-src" class="prettyprint linenums"><code class="lang-css">h1 {
+   pause: 50ms 25ms;
+   cue: url('audio/ping.mp3') none;
+   rest: 10ms 0ms
+}</code></pre>
+				</figure>
+
+				<figure id="ex-06">
+					<figcaption>
+						<p class="label">例6 — 声の性別を切り替える</p>
+					</figcaption>
+
+					<pre id="ex-06-src" class="prettyprint linenums"><code class="lang-css">.male {
+   voice-family: male
+}
+
+.female {
+   voice-family: female
+}
+
+/* html */
+
+&lt;p class="female"&gt;
+   Alice: But I don't want to go among mad people.
+&lt;/p&gt;
+
+&lt;p class="male"&gt;
+   The Cat: Oh, you can't help that.
+   We're all mad here. I'm mad. You're mad.
+&lt;/p&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-07">
+					<figcaption>
+						<p class="label">例7 — 同性の異なる声を使う</p>
+					</figcaption>
+
+					<pre id="ex-07-src" class="prettyprint linenums"><code class="lang-css">.huck {
+   voice-family: child male 1
+}
+
+.tom {
+   voice-family: child male 2
+}
+
+/* html */
+
+&lt;p class="tom"&gt;
+   "Well—I—I—well, that ought to settle it, of course; 
+   but I can't somehow seem to understand it no way.  
+   Looky here, warn't you ever murdered AT ALL?"
+&lt;/p&gt;
+
+&lt;p class="huck"&gt;
+   "No. I warn't ever murdered at all—I played it on 
+   them. You come in here and feel of me if you don't 
+   believe me."
+&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>CSS Speechモジュールにより、テキスト読み上げ (TTS) の拡張機能を追加できます。<a href="pls.html">PLS辞書</a>や<a href="ssml.html">SSMLマークアップ</a>とは異なり、Speechモジュールのプロパティが重点をおいているのは単語の正しい発音の定義ではありません。</p>
+
+				<p>CSS SpeechモジュールでTTS再生を強化するために使われる主要なプロパティは、 <code>speak-as</code>です。このプロパティで、TTSエンジンが文字列内を一文字ずつ読み上げるようにできます。各文字の読み上げは<code class="value">spell-out</code>に設定し、数字は<code>digit</code>に設定します（<a href="#ex-01">例１</a>および<a href="#ex-02">例２</a>を参照）。また、このプロパティを使って、TTSエンジンによる信頼性の低い頭字語の読み上げをオーバーライドできます。</p>
+
+				<p><code>speak-as</code>プロパティでは、補完的な値である<code>literal-punctuation</code>と<code>no-punctuation</code>も使用できます。TTSエンジンが句読点を音声化するかどうかを制御できます。</p>
+
+				<p>このモジュールには、<code>speak</code>プロパティも含まれており、要素が表示されているかどうかに関係なく、コンテンツのTTSレンダリングを制御できます。none値を設定すると要素のレンダリングが無効になり、 <code>normal</code>値を設定すると有効になります。</p>
+
+				<p>次のプロパティは、TTS読み上げにおける非韻律的な側面に重点を置いています。</p>
+
+					<dl>
+						<dt>
+							<code class="property">pause</code>
+						</dt>
+						<dd>
+							<p><code class="property">pause</code>プロパティは、適用先の要素の前後に付け加える一時停止の長さを制御します。一時停止は通常、段落間や新しいセクションの開始時など、主要な構造間の遷移を識別するために使用されます。また、TTSエンジンは句読点があると、ナレーションの流れの中で一時停止をします。</p>
+
+							<p><code class="property">pause</code>プロパティの値は、一時停止の長さを示す時間値です。単一の値のみが指定されている場合：</p>
+
+							<pre class="prettyprint"><code class="lang-css">pause: 50ms</code></pre>
+
+							<p>この時間は、関連付けられている要素の前と後の両方に適用されます。</p>
+
+							<p>時間値を２つ指定すると、前後の一時停止時間を個別に制御できます。</p>
+
+							<pre class="prettyprint"><code class="lang-css">pause: 50ms 0ms</code></pre>
+
+							<p>指定された長さの一時停止は、音声<code class="property">cue</code>と<code class="property">rest</code>の関連する要素の開始前と、<code class="property">rest</code>と<code class="property">cue</code>の要素の終了後に入ります。</p>
+						</dd>
+						
+						<dt>
+							<code class="property">cue</code>
+						</dt>
+						<dd>
+							<p><code class="property">cue</code>プロパティは、音声によって要素を識別するために使用できます。たとえば、新しい見出しのある個所は、一時停止だけでは分かりにくいですが、キューを使って音声を鳴らすことで分かりやすくできます。</p>
+
+							<p>cueプロパティでは、値が１つだけ指定されている場合、関連付けられているオーディオクリップが見出しの前と後の両方でレンダリングされるので注意してください。</p>
+
+							<pre class="prettyprint"><code class="lang-css">cue: url('audio/ping.mp3');</code></pre>
+
+							<p>通常のユーザーが期待するように開始を知らせるキューのみにするには、関連付けられた要素がレンダリングされた後のキューを無効にするために<code class="value">null</code>値を使用します。</p>
+
+							<pre class="prettyprint"><code class="lang-css">cue: url('audio/ping.mp3') null;</code></pre>
+
+							<p>音声キューは、関連する要素の開始時に<code class="property">pause</code>と<code class="property">rest</code>の間に入り、要素の終了時に<code class="property">rest</code>と<code class="property">cue</code>の間に入ります。</p>
+						</dd>
+							
+						<dt>
+							<code class="property">rest</code>
+						</dt>
+						<dd>
+							<p><code class="property">rest</code>プロパティは、音声キューと関連要素のレンダリングの間とその前後に発生する一時停止を制御します。</p>
+
+							<p><code class="property">rest</code>プロパティの値は、一時停止の長さを示す時間値です。単一の値のみが指定されている場合:</p>
+
+							<pre class="prettyprint"><code class="lang-css">rest: 25ms</code></pre>
+
+							<p>一時停止の時間は、関連付けられている要素の前と後の両方に適用されます。</p>
+
+							<p>時間値を２つ指定すると、前後の一時停止時間を個別に制御できます。</p>
+
+							<pre class="prettyprint"><code class="lang-css">rest: 25ms 0ms</code></pre>
+
+							<p>指定された休止時間は、関連する要素の開始時に<code class="property">pause</code>と<code class="property">cue</code>の後に入り、要素の終了時に<code class="property">cue</code>と<code class="property">pause</code>の前に入ります。</p>
+						</dd>
+						
+						<dt>
+							<code class="property">voice-family</code>
+						</dt>
+						<dd>
+							<p><code class="property">voice-family</code>プロパティは、TTS再生に使用される音声の性別と種類を制御し、コンテンツ製作者がよりリアルなTTS再生（登場人物に合わせて性別を切り替えるなど）を作成できるようにします。</p>
+
+							<p>使用する音声の名前も指定できます。</p>
+
+							<pre class="prettyprint"><code class="lang-css">voice-family: 'Dave';</code></pre>
+
+							<p>実際には、EPUBはさまざまなデバイスで再生できるため、すべてのデバイスで利用可能な音声の名前を知っている場合にのみ活用できます。</p>
+
+							<p>代わりに、パターン「年齢？、性別、整数？」を使用して音声をリクエストする方が適切です（？のフィールドはオプションです）。</p>
+
+							<pre class="prettyprint"><code class="lang-css">.king-lear {
+   voice-family: old male 1;
+}</code></pre>
+
+							<p>年齢の値は、<code class="value">child</code>、<code class="value">young</code>、<code class="value">old</code>のいずれかで、性別は<code class="value">male</code>、 <code class="value">female</code>、<code class="value">neutral</code>。また、整数で音声の順序位置が指定できます。（一致する音声が複数ある場合）。</p>
+						</dd>
+					</dl>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">プロパティに<code>-epub-</code>プレフィックスを使用する必要はありますか?</dt>
+					<dd>
+						<p>いいえ。はじめは、仕様が安定する前にプロパティが導入されたため、プレフィックスを使用する必要がありました。現在は、プレフィックスのないバージョンも使用できます。</p>
+					</dd>
+
+					<dt id="faq-002">TTSエンジンに頭字語を一文字ずつ読み上げずに発音するように強制できますか?</dt>
+					<dd>
+						<p>Speechモジュールには、大文字の用語を単語として発音するようにTTSエンジンに伝える方法はありません。EPUBのような頭字語の場合は、辞書を使用するか、SSML発音属性を使って、TTSエンジンが一文字ずつ読み上げないようにする必要があります。</p>
+					</dd>
+
+					<dt id="faq-003">なぜ句読点の発音を制御する必要があるのですか?</dt>
+					<dd>
+						<p>ほとんどのTTSエンジンはコロンなどの重要な停止位置は音声で読み上げますが、通常は読みやすさを損なうため、文書内の全ての句読点を読み上げることはありません。しかし、文法の教科書やプログラミングガイドなどのように、ユーザーが文中のすべての句読点の聞き取りが必須な場合もあります（<a href="#ex03">例3</a>を参照）。</p>
+						<p>アクセシブルな技術では、<code>pre</code>や<code>code</code>などの要素内は、デフォルトですべての句読点も読み上げます。コンピューターコードではすべての句読点を読み上げるのが良いですが、フォーマット済みのテキストでは詳細なレンダリングは必要ありません。<code class="value">pre</code>のテキストブロックに<code>no-punctuation</code>を適用すると、句読点を読み上げないようにできます。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 TTS 拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#css-speech">CSS Speech</a>
+</li>
+					<li>CSS —<a href="https://www.w3.org/TR/css-speech-1/">Speechモジュール</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Spine内の画像</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of issues using images in the EPUB spine for fixed layouts.">
+		<script>
+			var page_info = {
+				'category': 'Fixed Layouts',
+				'appliesTo': ['EPUB3']
+			};</script>
+		<script src="/js/init.js"></script>
+		<style>
+			pre {
+				font-size: 1.4rem;
+			}</style>
+	</head>
+	<body>
+		<main>
+			<section id="overview">
+				<h3>概要</h3>
+				<p>固定レイアウトのEPUB出版物を作成する非公式な方法として、<a href="https://www.w3.org/TR/epub/#sec-spine-elem">パッケージドキュメントのspine</a>に画像（SVGを除く）を直接組み込む方法があります。ただし、フォールバックなしではspineに画像を組み込めないため、一般的にはこの方法で固定レイアウトページを作成することはありません。ほとんどの場合、<a href="html.html">XHTML</a>または<a href="svg.html">SVGの</a>固定レイアウトページに画像を埋め込む方がシンプルです。</p>
+				<p>spineに画像を使用すると、固定レイアウトのメタデータは設定されず、バリデーションエラーが発生します（例えば、必要とされる寸法はXHTMLとSVGでのみ規定できます）。リーディングシステムが出版物をレンダリングしない原因となる場合もあるでしょう。</p>
+				<p>関連する問題として、この方法では固定レイアウトのメタデータを指定できないため、ページの表示をほとんど制御できません。また、<a href="#a11y">アクセシビリティの問題</a>も深刻です。</p>
+			</section>
+			<section id="ceration">
+				<h3>製作</h3>
+				<p>spine内に画像を配置することは、spine内にXHTMLまたはSVGドキュメントを配置することと変わりません。manifest内で画像が宣言されている場所を参照するには、 <code>itemref</code>要素を使用します。</p>
+				<pre id="ex-01" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;manifest&gt;
+      &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg"/&gt;
+      …
+   &lt;/manifest&gt;
+   &lt;spine&gt;
+      &lt;itemref ref="pg01"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+				<p>ただし、前述の例を<a href="../validation/epubcheck.html">EPUBCheck</a>で検証すると、spineでJPEGがサポートされていないため、エラーが発生します。</p>
+				<p>出版物のエラーをなくすには、manifestエントリでXHTMLまたはSVGドキュメントへのフォールバックを指定しなければなりません。</p>
+				<pre id="ex-02" class="prettyprint linenums"><code>&lt;manifest&gt;
+   &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg" &lt;strong&gt;fallback="pg01-fb"&lt;/strong&gt;/&gt;
+   &lt;item id="pg01-fb" src="pg01.xhtml" media-type="application/xhtml+xml"/&gt;
+   …
+&lt;/manifest&gt;</code></pre>
+				<p>リーディングシステムがspineの画像をサポートしていない場合には、これで代わりにフォールバックのXHTMLページをレンダリングできるようになります。</p>
+			</section>
+			<section id="a11y">
+				<h3>アクセシビリティ</h3>
+				<p>spineの画像は、固定レイアウトを作成する方法としては最もアクセシブルでないものです。</p>
+				<p>画像の代替テキストや拡張説明は、フォールバックを通じて提供しない限り、提供できません。そのため、リーディングシステムが画像のレンダリングをサポートしている場合、ユーザーが代替テキストにアクセスする方法はありません（つまり、ユーザーには通常、フォールバックを表示するオプションは提供されず、リーディングシステムが自動的に何を表示するか選択します）。結果として、支援技術のユーザーが出版物を読むときに何も読み上げられません。</p>
+				<p>また、ユーザーが代替手段にアクセスできるという保証がなければ、代替手段がWCAGに準拠しているとしても、WCAGに準拠していると主張することは<strong>できません</strong>。</p>
+				<p>固定レイアウトページごとにバックアップを作成するコストを回避するために、出版物がリーディングシステムでサポートされていないことを伝える一つのフォールバックドキュメントを使用する場合があります。この方法は、基本的に、テキスト代替を提供しないのと同じくらい読者にとって役に立ちません。</p>
+				<p>同様に、固定レイアウトページとコンテンツのテキストシリアライズの間に一対一の相関関係がない場合があります。この場合、読者を混乱させることなく各ページにフォールバックを設定することはできません (たとえば、一連のページが同じテキストシリアライズにフォールバックする場合、リーディングシステムはページをめくるたびに同じテキストをレンダリングし続けてしまいます)。</p>
+				<p><a href="https://www.w3.org/TR/epub-multi-rend/">マルチレンディション</a>の使用は、代替シリアライズの必要性の解決を意図していましたが、仕様に対するサポートは事実上ありません。</p>
+				<p>以上の理由により、常に<a href="html.html">XHTML</a>あるいは<a href="svg.html">SVG</a>による固定レイアウトページを推奨します。</p>
+			</section>
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a>
+</li>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-manifest-fallbacks">manifest フォールバック</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
