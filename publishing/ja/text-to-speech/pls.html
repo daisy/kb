@@ -32,7 +32,7 @@
 
 				<figure id="ex-01">
 					<figcaption>
-						<p class="label">Example 1 — A minimal lexicon file</p>
+						<p class="label">例1 — 最小の辞書ファイル</p>
 					</figcaption>
 
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;lexicon
@@ -136,7 +136,7 @@
 
 				<p>PLS lexicons provide control over the text-to-speech (TTS) playback rendering on conforming reading 					systems. A lexicon file is like a dictionary or look-up guide, allowing the pronunciations defined 					in it to be used in place of the default rendering when matching words are encountered. Defining 					words in a lexicon ensures that users hear your work played back as expected, not based on the 					heuristics applied by the TTS engine on their reading system.</p>
 
-				<p>Each PLS lexicon is an XML file with a root <code>lexicon</code> element. Lexicons are comprised of 					one or more <code>lexeme</code> entries, each of which defines the word(s) to match in 						<code>grapheme</code> element(s) and the replacement pronunciation to use in a 						<code>phoneme</code> element. (See <a href="#ex-01">Example 1</a>.)</p>
+				<p>各PLS辞書は、ルート<code>lexicon</code>要素を持つXMLファイルです。辞書は１つ以上の<code>lexeme</code>エントリーで構成されます。各エントリーは、 <code>grapheme</code>要素で単語を定義し、 <code>phoneme</code>要素で発音を定義します。（<a href="#ex-01">例1</a>を参照してください。）</p>
 
 				<p><code>alias</code>要素は、ある単語を別の単語に置き換えるためにも使用できます（<a href="#ex-05">例5</a>を参照）。</p>
 
@@ -144,9 +144,9 @@
 
 				<p>出版物にとって重要で、TTSエンジンが誤って発音する可能性のある複雑な単語については、PLSエントリーを作成する必要があります。リストには、固有名詞、名詞、技術用語、科学用語、法律用語、複雑な合成語や、その他の語が含まれます。同綴異音異義語のデフォルトのレンダリングはPLS辞書で定義し、定義した読みと違うものはSSMLタグで定義します。</p>
 
-				<p>Note that PLS lexicons are not activated simply by being included in the EPUB container. You must 					reference the applicable lexicon(s) from each content document in order for them to be applied to 					the content. The <code>hreflang</code> attribute should also always be set to the language of the 					referenced PLS file. (See <a href="#ex06">Example 6</a>.)</p>
+				<p>PLS辞書は、EPUBコンテナーに含めるだけでは有効になりません。各コンテンツドキュメントから該当する辞書を参照してコンテンツに適用します。また、 参照先のPLSファイルの言語に<code>hreflang</code>属性を設定する必要があります（<a href="#ex06">例6</a>を参照）。</p>
 
-				<p>Multiple lexicons can be attached to a content document to handle embedded foreign languages. (See <a href="#ex-07">Example 7</a>.)</p>
+				<p>埋め込まれた外国語を処理するために、コンテンツ ドキュメントに複数の辞書を添付できます。（<a href="#ex-07">例7</a>を参照）。</p>
 
 				<p>単一のPLS辞書ファイル内でのローカリゼーションは不可能ですが、地域ごとに異なった読み上げを行うために複数の辞書を添付できます。（詳細については、以下の<a href="#faq4">よくある質問</a>を参照してください。）</p>
 			</section>
