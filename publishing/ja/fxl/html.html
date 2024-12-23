@@ -23,8 +23,8 @@
 				<h3>EPUB</h3>
 				<p>Web上で固定レイアウトを作成することは可能ですが、ブラウザでは自然にサポートされません。ブラウザはデザインどおりにページをレンダリングしますが、レンダリングをサポートするための最適化は行いません。</p>
 				<p>出版におけるこの問題を解決するために、EPUB3では、リーディングシステムが各固定レイアウトページに適切な表示領域と特性を作成できるように支援するメタデータが導入されました。</p>
-				<p>EPUB publications can consist entirely of fixed layout XHTML pages or there may only be a few fixed 					layout pages interspersed in a reflowable publication (e.g., a map might be included as a fixed 					layout in an otherwise reflowable publication).</p>
-				<p>It is also possible to mix <a href="svg.html">fixed-layout SVG pages</a> with fixed-layout XHTML 					pages, or with <a href="img.html">images directly in the EPUB reading order</a>.</p>
+				<p>EPUB出版物は、固定レイアウトのXHTMLページで完全に構成される場合も、リフロー型の出版物内にいくつかの固定レイアウトページが散在しているだけの場合もあります（たとえば、地図は、リフロー型の出版物に固定レイアウトを用いて組み込まれる場合があります）。</p>
+				<p><a href="svg.html">SVGの固定レイアウトページ</a>とXHTMLの固定レイアウトページ、あるいは、<a href="img.html">画像を直接EPUBの読み取り順序で並べて</a>混在できます。</p>
 				<div class="note" role="note" aria-labelledby="create-note">
 					<p id="create-note" class="label">注記</p>
 					<p>固定レイアウトの出版物の作成方法の詳細については、<a href="index.html#creation">固定レイアウトの概要ページ</a>を参照してください。</p>
@@ -32,7 +32,7 @@
 			</section>
 			<section id="a11y">
 				<h3>アクセシビリティ</h3>
-				<p>The same practices that make reflowable publications accessible are used to create fixed layout HTML 					pages with the greatest accessibility. Some key practices include:</p>
+				<p>リフロー型の出版物のアクセシビリティ対応をするのと同じ手法を、アクセシビリティを最大限に高めた固定レイアウトのHTMLページの作成にも利用できます。主な手法としては以下のものがあります。</p>
 				<ul>
 					<li>
 <a href="../html/order.html">論理的な読み順</a>の確保 — コンテンツの順序は、ユーザーがページ上で論理的に読む順序と一致しなければなりません。画面上の位置を調整するには、CSSを使用します。</li>
@@ -43,7 +43,7 @@
 					<li>
 <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">テキストのコントラスト</a>の確保 — 固定レイアウトでは画像の上にテキストを重ねることが多いため、テキストが背景から視覚的に区別できるようにすることが重要です。</li>
 				</ul>
-				<p>Even when following these practices, a key problem that limits the accessibility of fixed layouts is 					that reading systems often lock out users from changing the appearance of the documents to preserve 					the author's layout (e.g., disabling the ability to increase font size or changing text color). As 					a result, even the best efforts to make a fixed-layout publication accessible may still leave it 					unreadable to some users.</p>
+				<p>上記のような手法に従ったとしても、リーディングシステムではしばしばコンテンツ製作者によるレイアウトが維持されるため、ユーザーによる文書の見た目の変更ができず（たとえば、フォントサイズを大きくしたり、テキストの色を変更したりする機能が無効になるなど）、固定レイアウトによってアクセシビリティが制限される問題が生じます。その結果、固定レイアウトの出版物をアクセシビリティ対応にするために最大限の努力を払っても、一部のユーザーには読めないままになる可能性があります。</p>
 			</section>
 		</main>
 	</body>
