@@ -17,7 +17,7 @@
 			<section id="intro">
 				<h3>紹介</h3>
 				
-				<p>The DAISY knowledge base uses a very simply structured HTML page that allows authors to focus on 					writing new pages. All the formatting and additional content, like the menu bars, is inserted 					dynamically by script.</p>
+				<p>DAISYナレッジベースはとてもシンプルで構造化されたHTMLページを使用しており、貢献者は新しいページを書くのに集中できます。書式設定やメニューバーなどの追加コンテンツは、スクリプトによって自動的に挿入されます。</p>
 				
 				<p>このページでは、新しいページを作成し、それを登録申請するプロセスについて説明します。</p>
 			</section>
@@ -29,7 +29,7 @@
 				
 				<p>リポジトリへの書き込みアクセス権を持つ信頼できる貢献者は、作業するための新しいブランチを作成できます。貢献が完了したら、新しい<a href="https://github.com/daisy/kb/pulls">プル リクエスト</a>を開いてブランチをマージするだけです。</p>
 				
-				<p>For all other contributors, you will first need to create a <a href="https://github.com/join">GitHub account</a>. You then have to <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork 						a copy the knowledge base repository</a> and then <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone 							it to your desktop</a> to work on. 					When you finish your contribution, you have to go to your forked repository in GitHub and <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">open 						a pull request</a> to have your changes added to the DAISY repository.</p>
+				<p>その他のすべての貢献者は、まず<a href="https://github.com/join">GitHubアカウント</a>を作成する必要があります。次に、<a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">ナレッジベースリポジトリのコピーをフォークし</a>、 <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">それをデスクトップにクローンして</a>作業する必要があります。貢献となる作業が完了したら、GitHubでフォークしたリポジトリに移動し、変更をDAISYリポジトリに追加するための<a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">プルリクエスト</a>の操作を行ってください。</p>
 			</section>
 			
 			<section id="template">
@@ -78,11 +78,11 @@
 				<section id="page-description">
 					<h4>ページの説明</h4>
 					
-					<p>The only meta tag that requires completion is the page description:</p>
+					<p>唯一、メタタグの中で記入が必須なのがページ説明です。</p>
 					
 					<pre id="desc-ex-01" class="prettyprint linenums">&lt;meta name="description" content=""&gt;</pre>
 					
-					<p>Please provide a brief description of the purpose of the page in the <code>content</code> 						attribute. This tag is used for search engine optimization.</p>
+					<p><code>content</code>属性にこのページの目的について簡単な説明を入力してください。このタグは検索エンジンの最適化に使用されます。</p>
 				</section>
 				
 				<section id="pg-info">
@@ -97,17 +97,17 @@ var page_info = {
 };
 &lt;/script&gt;</pre>
 					
-					<p>The <code>category</code> field <strong>must</strong> be the uppercase name of the directory where 						you are creating the page. For example, if you are adding a new page to the <code>html</code> directory, you 						would set the field to:</p>
+					<p><code>category</code>フィールドは、ページを作成するディレクトリを大文字で指定<strong>しなければなりません</strong>。たとえば、html ディレクトリに新しいページを追加する場合は、フィールドを次のように設定します。</p>
 					
 					<pre id="info-ex-02" class="prettyprint linenums">'category': 'HTML',</pre>
 					
-					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values. 						For example, pages in the <code>html/dpub-aria</code> directory include an array 						like this:</p>
+					<p>新たなページのために新たなサブディレクトリを作成するならば、その値を配列の形で指定します。例えば、<code>html/dpub-aria</code>のディレクトリにページを設けるならば、次のように指定します。</p>
 					
 					<pre id="info-ex-03" class="prettyprint linenums">'category': ['html', 'dpub-aria'],</pre>
 					
 					<p>配列の順序はディレクトリの順序と一致する必要があります (つまり、親が兄弟より前)。ページが動的に生成される場合、このフィールドはヘッダーにパンくずリストを提供します (他の用途もあります)。</p>
 					
-					<p>The <code>appliesTo</code> field is an array of values that identify which publishing 						technologies the page applies to. There are currently only three values that can be used with 						this field:</p>
+					<p><code>appliesTo</code>フィールドは、このページに適用される出版技術を識別する値の配列です。現在、このフィールドで使用できる値は三つだけです。</p>
 					
 					<ul>
 						<li>EPUB3</li>
@@ -127,32 +127,32 @@ var page_info = {
 			<section id="pg-content">
 				<h3>ページコンテンツ</h3>
 				
-				<p>After configuring the page metadata, the final step is to write the actual content of the page.</p>
+				<p>ページのメタデータを構成した後、最後のステップとしてページの実際のコンテンツを記述します。</p>
 				
-				<p>Knowledge Base pages are structured to get information to users as quickly as possible. As most users 					will not stop to read extensive descriptions, pages begin with a brief summary of the purpose of the 					page. The relevant techniques are listed next, followed by a set of examples of the techniques in 					action. Lengthier descriptions of the issues and links to related resources are included at the end 					of the page.</p>
+				<p>ナレッジベースページは、ユーザーにできるだけ早く情報を提供できるように構成しています。ほとんどのユーザーは詳細な説明をじっくりと読むことはないので、ページはページの目的に関する簡単な概要から始めます。次に、関連する技術を列挙し、その後に技術の実際の例を続けます。ページの最後には、問題のより詳しい説明と関連リソースへのリンクを記載します。</p>
 				
-				<p>This section provides guidance on how to complete each these sections.</p>
+				<p>このセクションでは、各セクションを記載する方法について説明します。</p>
 				
 				<p>投稿されたページは、サイトの他の部分との一貫性を保つために、デフォルトのテンプレートに従う必要があることに注意してください。問題の説明がこの構造に合わない場合もありますが、逸脱する前に事前に確認してください。あまりにも異常な投稿は書き直されるか、拒否されるかもしれません。</p>
 				
 				<section id="summary">
 					<h4>要約</h4>
 					
-					<p>The summary section should provide a brief recap of the key takeaway of the page. What is the key 						problem to be aware of, for example, or what technique must be followed. The summary should 						not be more than a sentence or two as it is meant to convey the key point as concisely as 						possible for users.</p>
+					<p>要約のセクションでは、ページの重要なポイントを簡単にまとめる必要があります。たとえば、注意すべき重要な問題は何なのか、どのような技術に従う必要があるのかなどです。概要は、ユーザーにできるだけ簡潔に重要なポイントを伝えることを目的としているため、一文または二文以内に収める必要があります。</p>
 					
 					<p>以下に説明する「解説」のセクションでは、問題と解決策について詳しく説明します。</p>
 				</section>
 				
 				<section id="techniques">
-					<h4>Techniques</h4>
+					<h4>技術</h4>
 					
-					<p>The techniques section is where you list the common measures to take to fix or avoid the issue 						covered by the page.</p>
+					<p>技術セクションでは、ページで取り上げられている問題を解決または回避するための一般的な対策を列挙します。</p>
 					
-					<p>Each list item should explain a practice in simple language and include a link to the relevant 						WCAG Success Criteria, when applicable, in brackets at the end.</p>
+					<p>各リスト項目では、簡単な言葉で実践方法を説明し、該当する場合は、末尾の括弧内に関連する WCAG達成基準へのリンクを記載します。</p>
 					
-					<p>If there are specific WCAG techniques that users can follow, include these in a sub-list.</p>
+					<p>ユーザーが従うことができる特定のWCAGの技術がある場合は、それらをサブリストに加えます。</p>
 					
-					<p>For example, a technique explaining to include alternative text could be structured like 						this:</p>
+					<p>たとえば、代替テキストの付加について説明する技術は、次のように構成します。</p>
 					
 					<pre id="tech-ex-01" class="prettyprint linenums">&lt;li&gt;
    &lt;p&gt;Provide alternative text in the &lt;code&gt;alt&lt;/code&gt; attribute
@@ -195,9 +195,9 @@ var page_info = {
 				<section id="faqs">
 					<h4>よくある質問</h4>
 					
-					<p>The Frequently Asked Questions (FAQ) section is where you can address specific problems that are 						commonly encountered in a question-and-answer format. This approach is often easier for users to 						follow than reading an extended explanation. It also allows very specific problems to be 						addressed without overloading the more general explanation of the issue.</p>
+					<p>よくある質問（FAQ）のセクションでは、よく発生する特定の問題を質疑応答形式で取り上げます。このアプローチは、長い説明を読むよりもユーザーにとってずっと理解しやすいでしょう。また、問題の一般的な説明に負担をかけずに、とても限定的な問題にも対処できます。</p>
 					
-					<p>The FAQ is structured using an HTML definition list (the <code>dl</code> element). Use a 							<code>dt</code> element for each question and a <code>dd</code> element for each answer.</p>
+					<p>FAQは、HTML定義リスト（<code>dl</code>要素）を使用して構造化します。質問ごとに<code>dt</code>要素を使用し、回答ごとに<code>dd</code>要素を使用します。</p>
 				</section>
 				
 				<section id="explanation">
@@ -227,7 +227,7 @@ var page_info = {
 			<section id="update-idx">
 				<h3>インデックスの更新</h3>
 				
-				<p>When adding a new page, both the topical and site indexes also need to be updated to include a link 					to the page.</p>
+				<p>新しいページを追加するときは、トピックインデックスとサイトインデックスの両方を更新して、ページへのリンクを加えてください。</p>
 				
 				<p>The topical index is located in the same folder as your page in the <code>index.html</code> file. 					This file includes a list of pages, typically in alphabetical order (although sometimes an overview 					or introductory page is listed first). Add a new entry in the list for your page.</p>
 				
