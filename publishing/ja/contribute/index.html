@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ナレッジベースへの貢献</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="How to contribute content to the DAISY Accessible Publishing Knowledge Base">
+		<script>
+			var page_info = {
+				'category': 'Contribute',
+				'addh4': true
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="intro">
+				<h3>紹介</h3>
+				
+				<p>DAISYナレッジベースはとてもシンプルで構造化されたHTMLページを使用しており、貢献者は新しいページを書くのに集中できます。書式設定やメニューバーなどの追加コンテンツは、スクリプトによって自動的に挿入されます。</p>
+				
+				<p>このページでは、新しいページを作成し、それを登録申請するプロセスについて説明します。</p>
+			</section>
+			
+			<section id="clone">
+				<h3>作成する場所</h3>
+				
+				<p>新しいページを作成する方法は<a href="https://github.com/daisy/kb">、GitHubのナレッジベースリポジトリ</a>へのアクセス権によって異なります。</p>
+				
+				<p>リポジトリへの書き込みアクセス権を持つ信頼できる貢献者は、作業するための新しいブランチを作成できます。貢献が完了したら、新しい<a href="https://github.com/daisy/kb/pulls">プル リクエスト</a>を開いてブランチをマージするだけです。</p>
+				
+				<p>その他のすべての貢献者は、まず<a href="https://github.com/join">GitHubアカウント</a>を作成する必要があります。次に、<a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">ナレッジベースリポジトリのコピーをフォークし</a>、 <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">それをデスクトップにクローンして</a>作業する必要があります。貢献となる作業が完了したら、GitHubでフォークしたリポジトリに移動し、変更をDAISYリポジトリに追加するための<a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">プルリクエスト</a>の操作を行ってください。</p>
+			</section>
+			
+			<section id="template">
+				<h3>ページテンプレート</h3>
+				
+				<p>ナレッジベースの新しいページを開始する最もクリーンな方法は、このリポジトリのテンプレートディレクトリにある<a href="https://github.com/daisy/kb/tree/main/template/publishing/docs">空のテンプレートファイル</a>を使用することです。このファイルには、ページの作成に必要な最小限のマークアップが含まれています。</p>
+				
+				<p>ページの作成を開始するには、このテンプレートファイルを、説明するトピックに最も適したディレクトリ （たとえば、HTMLマークアップ手法を説明するページは /publishing/docs/html に配置します）にコピーし、短くて意味のある新しいファイル名を付けます</p>
+				
+				<p>ファイル名にスペースを使用しないでください。複数の用語を結合するにはハイフンを使用します。</p>
+			</section>
+			
+			<section id="page-meta">
+				<h3>ページメタデータ</h3>
+				
+				<p>テンプレートファイルをコピーして名前を変更した後、HTML編集プログラムで開きます。新しいページの記述を開始する前に、ドキュメントヘッダーに必要なメタデータを設定してください。</p>
+				
+				<section id="page-encoding">
+					<h4>ページエンコーディング</h4>
+					
+					<p>HTMLの<code>head</code>要素内の最初のタグで、ページの文字エンコーディングを宣言します。</p>
+					
+					<pre id="enc-ex-01" class="prettyprint linenums">&lt;meta charset="utf-8"&gt;</pre>
+					
+					<p>このタグを変更したり削除したりしないでください。</p>
+				</section>
+				
+				<section id="page-title">
+					<h4>ページタイトル</h4>
+					
+					<p>最初に設定する必要がある項目はページタイトルです。 <code>&lt;title&gt;...&lt;/title&gt;</code>タグの間に新しいタイトルを入力します。</p>
+					
+					<p>ページ本文にページタイトルを挿入<strong>しないでください</strong>。 <code>title</code>タグに入力したタイトルは、レンダリングされたページに自動的に挿入されます。</p>
+				</section>
+				
+				<section id="page-viewport">
+					<h4>ビューポートメタデータ</h4>
+					
+					<p>ナレッジベースがモバイルデバイス上で正しく拡大縮小されるようにするには、ページタイトルの後にビューポート宣言を続けます。</p>
+					
+					<pre id="viewport-ex-01" class="prettyprint linenums">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</pre>
+					
+					<p>ページのエンコーディングと同様に、このタグを変更したり削除したりしないでください。</p>
+				</section>
+				
+				<section id="page-description">
+					<h4>ページの説明</h4>
+					
+					<p>唯一、メタタグの中で記入が必須なのがページ説明です。</p>
+					
+					<pre id="desc-ex-01" class="prettyprint linenums">&lt;meta name="description" content=""&gt;</pre>
+					
+					<p><code>content</code>属性にこのページの目的について簡単な説明を入力してください。このタグは検索エンジンの最適化に使用されます。</p>
+				</section>
+				
+				<section id="pg-info">
+					<h4>ページ情報</h4>
+					
+					<p>次のステップは、ページのコンテキスト情報を設定することです。ページヘッダーで次のスクリプトタグを捜します。</p>
+					
+					<pre id="info-ex-01" class="prettyprint linenums">&lt;script&gt;
+var page_info = {
+   'category': '...',
+   'appliesTo': ['EPUB3']
+};
+&lt;/script&gt;</pre>
+					
+					<p><code>category</code>フィールドは、ページを作成するディレクトリを大文字で指定<strong>しなければなりません</strong>。たとえば、html ディレクトリに新しいページを追加する場合は、フィールドを次のように設定します。</p>
+					
+					<pre id="info-ex-02" class="prettyprint linenums">'category': 'HTML',</pre>
+					
+					<p>新たなページのために新たなサブディレクトリを作成するならば、その値を配列の形で指定します。例えば、<code>html/dpub-aria</code>のディレクトリにページを設けるならば、次のように指定します。</p>
+					
+					<pre id="info-ex-03" class="prettyprint linenums">'category': ['html', 'dpub-aria'],</pre>
+					
+					<p>配列の順序はディレクトリの順序と一致する必要があります (つまり、親が兄弟より前)。ページが動的に生成される場合、このフィールドはヘッダーにパンくずリストを提供します (他の用途もあります)。</p>
+					
+					<p><code>appliesTo</code>フィールドは、このページに適用される出版技術を識別する値の配列です。現在、このフィールドで使用できる値は三つだけです。</p>
+					
+					<ul>
+						<li>EPUB3</li>
+						<li>EPUB2</li>
+						<li>Audiobooks</li>
+					</ul>
+					
+					<p>EPUB2と3の両方で有効な手法の場合、フィールドは次のようになります。</p>
+					
+					<pre id="info-ex-04" class="prettyprint linenums">'appliesTo': ['EPUB3', 'EPUB2'],</pre>
+					
+					<p>技術は関連性順にリストしてください (例: EPUB3は標準の最新バージョンであるため、EPUB2の前にリストします)。</p>
+					
+					<p>追加のテクノロジーが必要な場合は、追加を<a href="https://github.com/daisy/kb/issues">リクエストして</a>ください。</p>
+				</section>
+			</section>
+			<section id="pg-content">
+				<h3>ページコンテンツ</h3>
+				
+				<p>ページのメタデータを構成した後、最後のステップとしてページの実際のコンテンツを記述します。</p>
+				
+				<p>ナレッジベースページは、ユーザーにできるだけ早く情報を提供できるように構成しています。ほとんどのユーザーは詳細な説明をじっくりと読むことはないので、ページはページの目的に関する簡単な概要から始めます。次に、関連する技術を列挙し、その後に技術の実際の例を続けます。ページの最後には、問題のより詳しい説明と関連リソースへのリンクを記載します。</p>
+				
+				<p>このセクションでは、各セクションを記載する方法について説明します。</p>
+				
+				<p>投稿されたページは、サイトの他の部分との一貫性を保つために、デフォルトのテンプレートに従う必要があることに注意してください。問題の説明がこの構造に合わない場合もありますが、逸脱する前に事前に確認してください。あまりにも異常な投稿は書き直されるか、拒否されるかもしれません。</p>
+				
+				<section id="summary">
+					<h4>要約</h4>
+					
+					<p>要約のセクションでは、ページの重要なポイントを簡単にまとめる必要があります。たとえば、注意すべき重要な問題は何なのか、どのような技術に従う必要があるのかなどです。概要は、ユーザーにできるだけ簡潔に重要なポイントを伝えることを目的としているため、一文または二文以内に収める必要があります。</p>
+					
+					<p>以下に説明する「解説」のセクションでは、問題と解決策について詳しく説明します。</p>
+				</section>
+				
+				<section id="techniques">
+					<h4>技術</h4>
+					
+					<p>技術セクションでは、ページで取り上げられている問題を解決または回避するための一般的な対策を列挙します。</p>
+					
+					<p>各リスト項目では、簡単な言葉で実践方法を説明し、該当する場合は、末尾の括弧内に関連する WCAG達成基準へのリンクを記載します。</p>
+					
+					<p>ユーザーが従うことができる特定のWCAGの技術がある場合は、それらをサブリストに加えます。</p>
+					
+					<p>たとえば、代替テキストの付加について説明する技術は、次のように構成します。</p>
+					
+					<pre id="tech-ex-01" class="prettyprint linenums">&lt;li&gt;
+   &lt;p&gt;Provide alternative text in the &lt;code&gt;alt&lt;/code&gt; attribute
+      if the image is not described in the surrounding text.
+      &lt;span class="wcag-level"&gt;[&lt;a
+         href="https://www.w3.org/TR/WCAG2/#non-text-content"&gt;WCAG
+           1.1.1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+   &lt;ul&gt;
+      &lt;li&gt;&lt;a
+              href="https://www.w3.org/WAI/WCAG22/Techniques/html/H37"&gt;Using
+              alt attributes on img elements&lt;/a&gt;&lt;/li&gt;
+      …
+   &lt;/ul&gt;
+&lt;/li&gt;</pre>
+				</section>
+				
+				<section id="examples">
+					<h4>例</h4>
+					
+					<p>各ページでは、マークアップまたは機能を実際に実装する方法の例を少なくとも一つユーザーに提供する必要があります。</p>
+					
+					<p>例は、HTML<code>figure</code>タグを使用して構造化されています。</p>
+					
+					<p>最初の子要素は、 <code>figcaption</code>でなければなりません。この要素はさらに、タイトルと説明に分割されます。タイトルは、 <code>class</code>属性値が<code>label</code>である<code>div</code>要素内に配置されます。説明は、タイトルの後の一つ以上の段落に記述されます。</p>
+					
+					<p>次の例は、サンプルキャプションの典型的な構造を示しています。</p>
+					
+					<pre id="ex-ex-01" class="prettyprint linenums">&lt;figcaption&gt;
+   &lt;div class="label"&gt;Example 1 — Complex Images&lt;/div&gt;
+   &lt;p&gt;This example uses the details element to …&lt;/p&gt;
+&lt;/figcaption&gt;</pre>
+					
+					<p>この例のマークアップは、 <code>pre</code>要素と<code>code</code>要素のペアの内側に記述されます。</p>
+					
+					<pre id="ex-ex-02" class="prettyprint linenums">&lt;pre id="ex-01-src" class="prettyprint linenums"&gt;&lt;code&gt;…&lt;/code&gt;&lt;/pre&gt;</pre>
+					
+					<p><code>id</code>属性と<code>class</code>属性が必須であることに注意してください。これらは、生成された例に構文のハイライトと行番号を追加するために使用されます。</p>
+				</section>
+				
+				<section id="faqs">
+					<h4>よくある質問</h4>
+					
+					<p>よくある質問（FAQ）のセクションでは、よく発生する特定の問題を質疑応答形式で取り上げます。このアプローチは、長い説明を読むよりもユーザーにとってずっと理解しやすいでしょう。また、問題の一般的な説明に負担をかけずに、とても限定的な問題にも対処できます。</p>
+					
+					<p>FAQは、HTML定義リスト（<code>dl</code>要素）を使用して構造化します。質問ごとに<code>dt</code>要素を使用し、回答ごとに<code>dd</code>要素を使用します。</p>
+				</section>
+				
+				<section id="explanation">
+					<h4>解説</h4>
+					
+					<p>解説のセクションでは、ユーザーが知っておく必要のある実践と問題について詳しく説明します。</p>
+					
+					<p>解説については、できるだけ詳細に、できるだけ簡単な言葉で説明する以外に、特別な要件はありません。ナレッジベースの読者は、必ずしも技術の専門家ではありません。</p>
+					
+					<p>情報を整理するのに役立つ場合は、説明をサブセクションに分割できます。</p>
+				</section>
+				
+				<section id="links">
+					<h4>関連リンク</h4>
+					
+					<p>関連リンクのセクションには、関連する標準へのリンクが含まれており、ユーザーは詳細情報をすばやく検索できます。</p>
+					
+					<p>たとえば、EPUB 構造、HTML 要素、または ARIA 属性がページから参照されている場合は、参照が本文にリンクされている場合でも、このセクションでそれらの定義へのリンクを提供します。</p>
+				</section>
+				
+				<section id="other">
+					<h4>その他のセクション</h4>
+					
+					<p>追加のセクションが必要な場合は、解説の後、最後の関連リンクセクションの前に追加する必要があります。</p>
+				</section>
+			</section>
+			<section id="update-idx">
+				<h3>インデックスの更新</h3>
+				
+				<p>新しいページを追加するときは、トピックインデックスとサイトインデックスの両方を更新して、ページへのリンクを加えてください。</p>
+				
+				<p>トピックインデックスは、 <code>index.html</code>ファイル内のページと同じフォルダーにあります。このファイルには、通常アルファベット順のページリストが含まれています（ただし、概要または紹介ページが最初にリストされる場合もあります）。リストにページの新しいエントリを追加します。</p>
+				
+				<p>サイトインデックスは<code>/docs</code>ディレクトリにあります。これはすべてのトピックインデックスの集合体なので、作成したエントリをドキュメントにコピーできます。ページはこのインデックスと同じディレクトリにないため、必要な変更はリンクにファイルへのパスを追加するだけです。</p>
+			</section>
+			<section id="view">
+				<h3>ページの表示</h3>
+				
+				<p>ファイルシステムからダブルクリックしてブラウザーで新しいページを開くと、スタイルが設定されていない元のHTMLのみが表示されます。</p>
+				
+				<p>サイトに表示されるページを表示する方法は、二つあります。</p>
+				
+				<ol>
+					<li>
+						<p>一つ目は、コンピュータ上で実行されているローカルWebサーバー（IISやApacheなど）からページを読み込むことです。ファイルを表示するには、リポジトリのルートがサーバーのルートWebサイトであることを確認するだけです。その後、任意のブラウザーでページを読み込むと、動的にレンダリングされたバージョンが表示されます。コンテンツフォルダーのURLは通常、 <code>http://localhost/publishing/docs/</code>です。</p>
+					</li>
+					<li>
+						<p>二番目の方法は、ページをGitHubにコミットしてオンラインで表示することです。ここでも、二つのアプローチがあります。</p>
+						<ol>
+							<li>
+								<p>ナレッジベースをローカルアカウントにクローンした場合は、GitHubページをオンにしてコンテンツを表示できます。GitHubでは、<a href="https://guides.github.com/features/pages/">ページをオンにする方法</a>を説明しています。この場合、コンテンツフォルダーのURLは次のようになります: <code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
+							</li>
+							<li>
+								<p>ページは、statically.io などのサードパーティ コンテンツ サーバーを通じて表示できます。GitHub では、まずページがある場所 (例: https://www.github.com/youraccountname/kb/publishing/docs/html/mynewpage.html) に移動します。次に、その URL をコピーして<a href="https://statically.io/convert/">変換ツール</a>に貼り付けるて、ページをライブで表示できる新しいリンクを入手します。</p>
+							</li>
+						</ol>
+					</li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>
