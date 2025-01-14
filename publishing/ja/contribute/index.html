@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ナレッジベースへの貢献</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="How to contribute content to the DAISY Accessible Publishing Knowledge Base">
+		<script>
+			var page_info = {
+				'category': 'Contribute',
+				'addh4': true
+			};</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="intro">
+				<h3>紹介</h3>
+				
+				<p>The DAISY knowledge base uses a very simply structured HTML page that allows authors to focus on 					writing new pages. All the formatting and additional content, like the menu bars, is inserted 					dynamically by script.</p>
+				
+				<p>このページでは、新しいページを作成し、それを登録申請するプロセスについて説明します。</p>
+			</section>
+			
+			<section id="clone">
+				<h3>作成する場所</h3>
+				
+				<p>How you create a new page depends on what access you have to the <a href="https://github.com/daisy/kb">knowledge base repository in GitHub</a>.</p>
+				
+				<p>リポジトリへの書き込みアクセス権を持つ信頼できる貢献者は、作業するための新しいブランチを作成できます。貢献が完了したら、新しい<a href="https://github.com/daisy/kb/pulls">プル リクエスト</a>を開いてブランチをマージするだけです。</p>
+				
+				<p>For all other contributors, you will first need to create a <a href="https://github.com/join">GitHub account</a>. You then have to <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork 						a copy the knowledge base repository</a> and then <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone 							it to your desktop</a> to work on. 					When you finish your contribution, you have to go to your forked repository in GitHub and <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">open 						a pull request</a> to have your changes added to the DAISY repository.</p>
+			</section>
+			
+			<section id="template">
+				<h3>ページテンプレート</h3>
+				
+				<p>The cleanest way to begin a new page for the knowledge base is with the <a href="https://github.com/daisy/kb/tree/main/template/publishing/docs">blank template file</a> 					located in the templates directory of this repository. This file contains the minimum markup 					necessary to write a page.</p>
+				
+				<p>To begin creating a page, copy this template file to the most appropriate directory for the topic it 					will describe (e.g., a page describing an HTML markup technique would go in /publishing/docs/html) 					and give it a new short but meaningful file name.</p>
+				
+				<p>ファイル名にスペースを使用しないでください。複数の用語を結合するにはハイフンを使用します。</p>
+			</section>
+			
+			<section id="page-meta">
+				<h3>ページメタデータ</h3>
+				
+				<p>テンプレートファイルをコピーして名前を変更した後、HTML編集プログラムで開きます。新しいページの記述を開始する前に、ドキュメントヘッダーに必要なメタデータを設定してください。</p>
+				
+				<section id="page-encoding">
+					<h4>ページエンコーディング</h4>
+					
+					<p>HTMLの<code>head</code>要素内の最初のタグで、ページの文字エンコーディングを宣言します。</p>
+					
+					<pre id="enc-ex-01" class="prettyprint linenums">&lt;meta charset="utf-8"&gt;</pre>
+					
+					<p>このタグを変更したり削除したりしないでください。</p>
+				</section>
+				
+				<section id="page-title">
+					<h4>ページタイトル</h4>
+					
+					<p>最初に設定する必要がある項目はページタイトルです。 <code>&lt;title&gt;...&lt;/title&gt;</code>タグの間に新しいタイトルを入力します。</p>
+					
+					<p>ページ本文にページタイトルを挿入<strong>しないでください</strong>。 <code>title</code>タグに入力したタイトルは、レンダリングされたページに自動的に挿入されます。</p>
+				</section>
+				
+				<section id="page-viewport">
+					<h4>ビューポートメタデータ</h4>
+					
+					<p>To ensure the knowledge base scales correctly on mobile devices, a viewport declaration 						follows the page title:</p>
+					
+					<pre id="viewport-ex-01" class="prettyprint linenums">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</pre>
+					
+					<p>ページのエンコーディングと同様に、このタグを変更したり削除したりしないでください。</p>
+				</section>
+				
+				<section id="page-description">
+					<h4>ページの説明</h4>
+					
+					<p>The only meta tag that requires completion is the page description:</p>
+					
+					<pre id="desc-ex-01" class="prettyprint linenums">&lt;meta name="description" content=""&gt;</pre>
+					
+					<p>Please provide a brief description of the purpose of the page in the <code>content</code> 						attribute. This tag is used for search engine optimization.</p>
+				</section>
+				
+				<section id="pg-info">
+					<h4>ページ情報</h4>
+					
+					<p>次のステップは、ページのコンテキスト情報を設定することです。ページヘッダーで次のスクリプトタグを捜します。</p>
+					
+					<pre id="info-ex-01" class="prettyprint linenums">&lt;script&gt;
+var page_info = {
+   'category': '...',
+   'appliesTo': ['EPUB3']
+};
+&lt;/script&gt;</pre>
+					
+					<p>The <code>category</code> field <strong>must</strong> be the uppercase name of the directory where 						you are creating the page. For example, if you are adding a new page to the <code>html</code> directory, you 						would set the field to:</p>
+					
+					<pre id="info-ex-02" class="prettyprint linenums">'category': 'HTML',</pre>
+					
+					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values. 						For example, pages in the <code>html/dpub-aria</code> directory include an array 						like this:</p>
+					
+					<pre id="info-ex-03" class="prettyprint linenums">'category': ['html', 'dpub-aria'],</pre>
+					
+					<p>配列の順序はディレクトリの順序と一致する必要があります (つまり、親が兄弟より前)。ページが動的に生成される場合、このフィールドはヘッダーにパンくずリストを提供します (他の用途もあります)。</p>
+					
+					<p>The <code>appliesTo</code> field is an array of values that identify which publishing 						technologies the page applies to. There are currently only three values that can be used with 						this field:</p>
+					
+					<ul>
+						<li>EPUB3</li>
+						<li>EPUB2</li>
+						<li>Audiobooks</li>
+					</ul>
+					
+					<p>EPUB2と3の両方で有効な手法の場合、フィールドは次のようになります。</p>
+					
+					<pre id="info-ex-04" class="prettyprint linenums">'appliesTo': ['EPUB3', 'EPUB2'],</pre>
+					
+					<p>技術は関連性順にリストしてください (例: EPUB3は標準の最新バージョンであるため、EPUB2の前にリストします)。</p>
+					
+					<p>追加のテクノロジーが必要な場合は、追加を<a href="https://github.com/daisy/kb/issues">リクエストして</a>ください。</p>
+				</section>
+			</section>
+			<section id="pg-content">
+				<h3>ページコンテンツ</h3>
+				
+				<p>After configuring the page metadata, the final step is to write the actual content of the page.</p>
+				
+				<p>Knowledge Base pages are structured to get information to users as quickly as possible. As most users 					will not stop to read extensive descriptions, pages begin with a brief summary of the purpose of the 					page. The relevant techniques are listed next, followed by a set of examples of the techniques in 					action. Lengthier descriptions of the issues and links to related resources are included at the end 					of the page.</p>
+				
+				<p>This section provides guidance on how to complete each these sections.</p>
+				
+				<p>投稿されたページは、サイトの他の部分との一貫性を保つために、デフォルトのテンプレートに従う必要があることに注意してください。問題の説明がこの構造に合わない場合もありますが、逸脱する前に事前に確認してください。あまりにも異常な投稿は書き直されるか、拒否されるかもしれません。</p>
+				
+				<section id="summary">
+					<h4>要約</h4>
+					
+					<p>The summary section should provide a brief recap of the key takeaway of the page. What is the key 						problem to be aware of, for example, or what technique must be followed. The summary should 						not be more than a sentence or two as it is meant to convey the key point as concisely as 						possible for users.</p>
+					
+					<p>以下に説明する「解説」のセクションでは、問題と解決策について詳しく説明します。</p>
+				</section>
+				
+				<section id="techniques">
+					<h4>Techniques</h4>
+					
+					<p>The techniques section is where you list the common measures to take to fix or avoid the issue 						covered by the page.</p>
+					
+					<p>Each list item should explain a practice in simple language and include a link to the relevant 						WCAG Success Criteria, when applicable, in brackets at the end.</p>
+					
+					<p>If there are specific WCAG techniques that users can follow, include these in a sub-list.</p>
+					
+					<p>For example, a technique explaining to include alternative text could be structured like 						this:</p>
+					
+					<pre id="tech-ex-01" class="prettyprint linenums">&lt;li&gt;
+   &lt;p&gt;Provide alternative text in the &lt;code&gt;alt&lt;/code&gt; attribute
+      if the image is not described in the surrounding text.
+      &lt;span class="wcag-level"&gt;[&lt;a
+         href="https://www.w3.org/TR/WCAG2/#non-text-content"&gt;WCAG
+           1.1.1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+   &lt;ul&gt;
+      &lt;li&gt;&lt;a
+              href="https://www.w3.org/WAI/WCAG22/Techniques/html/H37"&gt;Using
+              alt attributes on img elements&lt;/a&gt;&lt;/li&gt;
+      …
+   &lt;/ul&gt;
+&lt;/li&gt;</pre>
+				</section>
+				
+				<section id="examples">
+					<h4>例</h4>
+					
+					<p>Each page should provide users at least one example of how to implement the markup or feature 						in practice.</p>
+					
+					<p>Examples are structured using HTML <code>figure</code> tags.</p>
+					
+					<p>The first child element must be a <code>figcaption</code>. This element is further broken down 						into a title and description. The title goes in the <code>div</code> element with the 						<code>class</code> attribute value <code>label</code>. The description is written in one or 						more paragraphs after the title.</p>
+					
+					<p>次の例は、サンプルキャプションの典型的な構造を示しています。</p>
+					
+					<pre id="ex-ex-01" class="prettyprint linenums">&lt;figcaption&gt;
+   &lt;div class="label"&gt;Example 1 — Complex Images&lt;/div&gt;
+   &lt;p&gt;This example uses the details element to …&lt;/p&gt;
+&lt;/figcaption&gt;</pre>
+					
+					<p>この例のマークアップは、 <code>pre</code>要素と<code>code</code>要素のペアの内側に記述されます。</p>
+					
+					<pre id="ex-ex-02" class="prettyprint linenums">&lt;pre id="ex-01-src" class="prettyprint linenums"&gt;&lt;code&gt;…&lt;/code&gt;&lt;/pre&gt;</pre>
+					
+					<p><code>id</code>属性と<code>class</code>属性が必須であることに注意してください。これらは、生成された例に構文のハイライトと行番号を追加するために使用されます。</p>
+				</section>
+				
+				<section id="faqs">
+					<h4>よくある質問</h4>
+					
+					<p>The Frequently Asked Questions (FAQ) section is where you can address specific problems that are 						commonly encountered in a question-and-answer format. This approach is often easier for users to 						follow than reading an extended explanation. It also allows very specific problems to be 						addressed without overloading the more general explanation of the issue.</p>
+					
+					<p>The FAQ is structured using an HTML definition list (the <code>dl</code> element). Use a 							<code>dt</code> element for each question and a <code>dd</code> element for each answer.</p>
+				</section>
+				
+				<section id="explanation">
+					<h4>解説</h4>
+					
+					<p>解説のセクションでは、ユーザーが知っておく必要のある実践と問題について詳しく説明します。</p>
+					
+					<p>There are no specific requirements for the explanation beyond being as thorough as possible and 						using as simple language as possible. Readers of the knowledge base are not necessarily 						technology experts.</p>
+					
+					<p>情報を整理するのに役立つ場合は、説明をサブセクションに分割できます。</p>
+				</section>
+				
+				<section id="links">
+					<h4>関連リンク</h4>
+					
+					<p>関連リンクのセクションには、関連する標準へのリンクが含まれており、ユーザーは詳細情報をすばやく検索できます。</p>
+					
+					<p>たとえば、EPUB 構造、HTML 要素、または ARIA 属性がページから参照されている場合は、参照が本文にリンクされている場合でも、このセクションでそれらの定義へのリンクを提供します。</p>
+				</section>
+				
+				<section id="other">
+					<h4>その他のセクション</h4>
+					
+					<p>If additional sections are needed, they should be added after the explanation and before the 						final related links section.</p>
+				</section>
+			</section>
+			<section id="update-idx">
+				<h3>インデックスの更新</h3>
+				
+				<p>When adding a new page, both the topical and site indexes also need to be updated to include a link 					to the page.</p>
+				
+				<p>The topical index is located in the same folder as your page in the <code>index.html</code> file. 					This file includes a list of pages, typically in alphabetical order (although sometimes an overview 					or introductory page is listed first). Add a new entry in the list for your page.</p>
+				
+				<p>サイトインデックスは<code>/docs</code>ディレクトリにあります。これはすべてのトピックインデックスの集合体なので、作成したエントリをドキュメントにコピーできます。ページはこのインデックスと同じディレクトリにないため、必要な変更はリンクにファイルへのパスを追加するだけです。</p>
+			</section>
+			<section id="view">
+				<h3>ページの表示</h3>
+				
+				<p>ファイルシステムからダブルクリックしてブラウザーで新しいページを開くと、スタイルが設定されていない元のHTMLのみが表示されます。</p>
+				
+				<p>サイトに表示されるページを表示する方法は、二つあります。</p>
+				
+				<ol>
+					<li>
+						<p>The first is to load the page from a local web server (e.g., IIS or Apache) running on your 							computer. To view your file, you only need to ensure that the root of the repository is the 							root web site on the server. You can then load the page in any browser to see the 							dynamically rendered version. The URL for the content folders is typically 								<code>http://localhost/publishing/docs/</code></p>
+					</li>
+					<li>
+						<p>The second way is to commit the page to GitHub and view it online. Here, again, there are two 							approaches:</p>
+						<ol>
+							<li>
+								<p>If you have cloned the knowledge base to your local account, you can turn on GitHub 									pages to view the content. GitHub provides instructions on <a href="https://guides.github.com/features/pages/">how to turn on pages</a>. In 									this case, the URL for the content folders would be along these lines: 										<code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
+							</li>
+							<li>
+								<p>ページは、statically.io などのサードパーティ コンテンツ サーバーを通じて表示できます。GitHub では、まずページがある場所 (例: https://www.github.com/youraccountname/kb/publishing/docs/html/mynewpage.html) に移動します。次に、その URL をコピーして<a href="https://statically.io/convert/">変換ツール</a>に貼り付けるて、ページをライブで表示できる新しいリンクを入手します。</p>
+							</li>
+						</ol>
+					</li>
+				</ol>
+			</section>
+		</main>
+	</body>
+</html>
