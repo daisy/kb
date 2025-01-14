@@ -25,7 +25,7 @@
 			<section id="clone">
 				<h3>作成する場所</h3>
 				
-				<p>How you create a new page depends on what access you have to the <a href="https://github.com/daisy/kb">knowledge base repository in GitHub</a>.</p>
+				<p>新しいページを作成する方法は<a href="https://github.com/daisy/kb">、GitHubのナレッジベースリポジトリ</a>へのアクセス権によって異なります。</p>
 				
 				<p>リポジトリへの書き込みアクセス権を持つ信頼できる貢献者は、作業するための新しいブランチを作成できます。貢献が完了したら、新しい<a href="https://github.com/daisy/kb/pulls">プル リクエスト</a>を開いてブランチをマージするだけです。</p>
 				
@@ -35,9 +35,9 @@
 			<section id="template">
 				<h3>ページテンプレート</h3>
 				
-				<p>The cleanest way to begin a new page for the knowledge base is with the <a href="https://github.com/daisy/kb/tree/main/template/publishing/docs">blank template file</a> 					located in the templates directory of this repository. This file contains the minimum markup 					necessary to write a page.</p>
+				<p>ナレッジベースの新しいページを開始する最もクリーンな方法は、このリポジトリのテンプレートディレクトリにある<a href="https://github.com/daisy/kb/tree/main/template/publishing/docs">空のテンプレートファイル</a>を使用することです。このファイルには、ページの作成に必要な最小限のマークアップが含まれています。</p>
 				
-				<p>To begin creating a page, copy this template file to the most appropriate directory for the topic it 					will describe (e.g., a page describing an HTML markup technique would go in /publishing/docs/html) 					and give it a new short but meaningful file name.</p>
+				<p>ページの作成を開始するには、このテンプレートファイルを、説明するトピックに最も適したディレクトリ （たとえば、HTMLマークアップ手法を説明するページは /publishing/docs/html に配置します）にコピーし、短くて意味のある新しいファイル名を付けます</p>
 				
 				<p>ファイル名にスペースを使用しないでください。複数の用語を結合するにはハイフンを使用します。</p>
 			</section>
@@ -68,7 +68,7 @@
 				<section id="page-viewport">
 					<h4>ビューポートメタデータ</h4>
 					
-					<p>To ensure the knowledge base scales correctly on mobile devices, a viewport declaration 						follows the page title:</p>
+					<p>ナレッジベースがモバイルデバイス上で正しく拡大縮小されるようにするには、ページタイトルの後にビューポート宣言を続けます。</p>
 					
 					<pre id="viewport-ex-01" class="prettyprint linenums">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</pre>
 					
@@ -172,11 +172,11 @@ var page_info = {
 				<section id="examples">
 					<h4>例</h4>
 					
-					<p>Each page should provide users at least one example of how to implement the markup or feature 						in practice.</p>
+					<p>各ページでは、マークアップまたは機能を実際に実装する方法の例を少なくとも一つユーザーに提供する必要があります。</p>
 					
-					<p>Examples are structured using HTML <code>figure</code> tags.</p>
+					<p>例は、HTML<code>figure</code>タグを使用して構造化されています。</p>
 					
-					<p>The first child element must be a <code>figcaption</code>. This element is further broken down 						into a title and description. The title goes in the <code>div</code> element with the 						<code>class</code> attribute value <code>label</code>. The description is written in one or 						more paragraphs after the title.</p>
+					<p>最初の子要素は、 <code>figcaption</code>でなければなりません。この要素はさらに、タイトルと説明に分割されます。タイトルは、 <code>class</code>属性値が<code>label</code>である<code>div</code>要素内に配置されます。説明は、タイトルの後の一つ以上の段落に記述されます。</p>
 					
 					<p>次の例は、サンプルキャプションの典型的な構造を示しています。</p>
 					
@@ -205,7 +205,7 @@ var page_info = {
 					
 					<p>解説のセクションでは、ユーザーが知っておく必要のある実践と問題について詳しく説明します。</p>
 					
-					<p>There are no specific requirements for the explanation beyond being as thorough as possible and 						using as simple language as possible. Readers of the knowledge base are not necessarily 						technology experts.</p>
+					<p>解説については、できるだけ詳細に、できるだけ簡単な言葉で説明する以外に、特別な要件はありません。ナレッジベースの読者は、必ずしも技術の専門家ではありません。</p>
 					
 					<p>情報を整理するのに役立つ場合は、説明をサブセクションに分割できます。</p>
 				</section>
@@ -221,7 +221,7 @@ var page_info = {
 				<section id="other">
 					<h4>その他のセクション</h4>
 					
-					<p>If additional sections are needed, they should be added after the explanation and before the 						final related links section.</p>
+					<p>追加のセクションが必要な場合は、解説の後、最後の関連リンクセクションの前に追加する必要があります。</p>
 				</section>
 			</section>
 			<section id="update-idx">
@@ -229,7 +229,7 @@ var page_info = {
 				
 				<p>新しいページを追加するときは、トピックインデックスとサイトインデックスの両方を更新して、ページへのリンクを加えてください。</p>
 				
-				<p>The topical index is located in the same folder as your page in the <code>index.html</code> file. 					This file includes a list of pages, typically in alphabetical order (although sometimes an overview 					or introductory page is listed first). Add a new entry in the list for your page.</p>
+				<p>トピックインデックスは、 <code>index.html</code>ファイル内のページと同じフォルダーにあります。このファイルには、通常アルファベット順のページリストが含まれています（ただし、概要または紹介ページが最初にリストされる場合もあります）。リストにページの新しいエントリを追加します。</p>
 				
 				<p>サイトインデックスは<code>/docs</code>ディレクトリにあります。これはすべてのトピックインデックスの集合体なので、作成したエントリをドキュメントにコピーできます。ページはこのインデックスと同じディレクトリにないため、必要な変更はリンクにファイルへのパスを追加するだけです。</p>
 			</section>
@@ -242,13 +242,13 @@ var page_info = {
 				
 				<ol>
 					<li>
-						<p>The first is to load the page from a local web server (e.g., IIS or Apache) running on your 							computer. To view your file, you only need to ensure that the root of the repository is the 							root web site on the server. You can then load the page in any browser to see the 							dynamically rendered version. The URL for the content folders is typically 								<code>http://localhost/publishing/docs/</code></p>
+						<p>一つ目は、コンピュータ上で実行されているローカルWebサーバー（IISやApacheなど）からページを読み込むことです。ファイルを表示するには、リポジトリのルートがサーバーのルートWebサイトであることを確認するだけです。その後、任意のブラウザーでページを読み込むと、動的にレンダリングされたバージョンが表示されます。コンテンツフォルダーのURLは通常、 <code>http://localhost/publishing/docs/</code>です。</p>
 					</li>
 					<li>
-						<p>The second way is to commit the page to GitHub and view it online. Here, again, there are two 							approaches:</p>
+						<p>二番目の方法は、ページをGitHubにコミットしてオンラインで表示することです。ここでも、二つのアプローチがあります。</p>
 						<ol>
 							<li>
-								<p>If you have cloned the knowledge base to your local account, you can turn on GitHub 									pages to view the content. GitHub provides instructions on <a href="https://guides.github.com/features/pages/">how to turn on pages</a>. In 									this case, the URL for the content folders would be along these lines: 										<code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
+								<p>ナレッジベースをローカルアカウントにクローンした場合は、GitHubページをオンにしてコンテンツを表示できます。GitHubでは、<a href="https://guides.github.com/features/pages/">ページをオンにする方法</a>を説明しています。この場合、コンテンツフォルダーのURLは次のようになります: <code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
 							</li>
 							<li>
 								<p>ページは、statically.io などのサードパーティ コンテンツ サーバーを通じて表示できます。GitHub では、まずページがある場所 (例: https://www.github.com/youraccountname/kb/publishing/docs/html/mynewpage.html) に移動します。次に、その URL をコピーして<a href="https://statically.io/convert/">変換ツール</a>に貼り付けるて、ページをライブで表示できる新しいリンクを入手します。</p>
