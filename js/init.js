@@ -279,6 +279,12 @@ KB.prototype.generateHeader = function () {
 	
 	var search_box = document.createElement('div');
 		search_box.setAttribute('class', 'gcse-searchbox-only');
+		search_box.setAttribute('data-lr', 'lang_'  + this.lang);
+		search_box.setAttribute('data-gl', 'lang_'  + this.lang);
+		
+		if (this.lang !== 'en') {
+			search_box.setAttribute('data-resultsUrl', '/publishing/' + this.lang + '/search/');
+		}
 	
 	search.appendChild(search_box);
 	header.appendChild(search);
