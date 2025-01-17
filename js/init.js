@@ -1312,7 +1312,7 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 			
 			if (topic.topics[j].hasOwnProperty('href-override')) {
 				// for linking to topics in a separate directory
-				a.setAttribute('href', '/publishing/docs/' + topic.topics[j]['href-override']);
+				a.setAttribute('href', this.kb_root + topic.topics[j]['href-override']);
 			}
 			
 			else {
@@ -1353,7 +1353,7 @@ function wcagLink(match, p1) {
 		return '<span class="wcag-level">[WCAG ' + p1 + ']</span>';
 	}
 	else {
-		return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
+		return '<span class="wcag-level">[<a href="/publishing/' + (lang == 'en' ? 'docs/' : lang + '/') + 'wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
 	}
 }
 
