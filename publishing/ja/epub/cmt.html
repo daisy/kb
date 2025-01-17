@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>コア メディア タイプ</title>
+		<title>コアメディアタイプ</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Describes EPUB's concept of core media types that must be supported and how to provide fallbacks for other formats.">
 		<script>
@@ -22,7 +22,7 @@
 	<body>
 		<main>
 			<section id="expl" aria-label="Explanation">
-				<p>リーディングシステムは、ファイルをレンダリングする前に、メディア タイプを使用してファイルに含まれるコンテンツの種類を判断します。次の表に、最も一般的なファイル形式とそれに対応するメディア タイプ値の一部を示します。</p>
+				<p>リーディングシステムは、ファイルをレンダリングする前に、メディアタイプを使用してファイルに含まれるコンテンツの種類を判断します。次の表に、最も一般的なファイル形式とそれに対応するメディアタイプ値の一部を示します。</p>
 				
 				<table>
 					<thead>
@@ -74,7 +74,7 @@
 				
 				<p>EPUB形式は、出版に適した、広くサポートされているファイル形式をできるだけ多く取り入れようとしていますが、コアセットに含まれていない形式が必要になる場合もあります。たとえば、リーディングシステムが、新しい高度な画像形式を最初にサポートする場合があります。</p>
 				
-				<p>リーディングシステムが広くサポートしていない形式を出版社が利用できるように、また、出版物の読みやすさを損なわないようにするには、EPUBに独自のフォールバック方法とHTMLで元々使用できる方法の両方を組み込みます。コンテンツ製作者はコア メディア タイプへのフォールバックを提供すれば、EPUB出版物に任意のファイル形式を追加できます。</p>
+				<p>リーディングシステムが広くサポートしていない形式を出版社が利用できるように、また、出版物の読みやすさを損なわないようにするには、EPUBに独自のフォールバック方法とHTMLで元々使用できる方法の両方を組み込みます。コンテンツ製作者はコアメディアタイプへのフォールバックを提供すれば、EPUB出版物に任意のファイル形式を追加できます。</p>
 				
 				<p>次のサブセクションでは、EPUBが提供するフォールバックメカニズムについて説明します。</p>
 				
@@ -109,7 +109,7 @@
 &lt;/object&gt;</code></pre>
 					</figure>
 					
-					<p>画像のフォールバックを埋め込むことは以前は困難でしたが、 <code>srcset</code>属性と<code>picture</code>要素の追加により状況は大幅に改善されました（フォールバックの欠如が EPUB で<a href="#fallbacks-epub">マニフェストフォールバック</a>が作成された主な理由でした）。</p>
+					<p>画像のフォールバックを埋め込むことは以前は困難でしたが、 <code>srcset</code>属性と<code>picture</code>要素の追加により状況は大幅に改善されました（フォールバックの欠如がEPUBで<a href="#fallbacks-epub">マニフェストフォールバック</a>が作成された主な理由でした）。</p>
 					
 					<figure>
 						<figcaption>
@@ -178,7 +178,7 @@
 &lt;/spine&gt;</code></pre>
 						</figure>
 						
-						<p>この場合、リーディングシステムが SVG をサポートしていないと、サポートできるメディアタイプが見つかるまで<code>fallback</code>属性参照に従い続けます。上記のケースではフォールバックは 1 つだけですが、サポートされているメディア タイプに到達するまで、複数の項目をフォールバックし続けます。フォールバックチェーンの唯一の要件は、コアメディアタイプを含める必要があることです。</p>
+						<p>この場合、リーディングシステムがSVGをサポートしていないと、サポートできるメディアタイプが見つかるまで<code>fallback</code>属性参照に従い続けます。上記のケースではフォールバックは1つだけですが、サポートされているメディアタイプに到達するまで、複数の項目をフォールバックし続けます。フォールバックチェーンの唯一の要件は、コアメディアタイプを含める必要があることです。</p>
 						
 						<p>manifestでフォールバックを使用するもう一つの方法は、HTML <code>img</code>要素のフォールバック画像を用意するものです。最近<code>srcset</code>属性が追加され、新しい<code>picture</code>要素が作成されるまでは、HTMLでは<code>img</code>要素を使用して埋め込まれた画像のフォールバックを提供することができませんでした。回避策として、リーディングシステムは、<code>img</code>要素のソースをmanifestで指定されたフォールバックに変更することが期待されています。</p>
 						
@@ -217,7 +217,7 @@
 							
 							<dt><dfn>バインディング</dfn></dt>
 							<dd>
-								<p>EPUB 3では、外部メディア タイプ用のスクリプト フォールバックを提供するために<a href="http://idpf.org/epub/301/spec/epub-publications.html#sec-bindings-elem">バインディング</a>の方法が作られました。リーディングシステムが<code>object</code>タグ内のメディア タイプをサポートしていない場合、コンテンツ製作者はパッケージ ドキュメント内のリソースを、 <code>object</code>で指定された引数が渡されるフォールバック スクリプト ドキュメントに「バインド」できます。</p>
+								<p>EPUB 3では、外部メディア タイプ用のスクリプト フォールバックを提供するために<a href="http://idpf.org/epub/301/spec/epub-publications.html#sec-bindings-elem">バインディング</a>の方法が作られました。リーディングシステムが<code>object</code>タグ内のメディアタイプをサポートしていない場合、コンテンツ製作者はパッケージドキュメント内のリソースを、 <code>object</code>で指定された引数が渡されるフォールバック スクリプト ドキュメントに「バインド」できます。</p>
 								
 								<p>バインディングの手法については、機能が実務的には必要とされず、リーディングシステムでのサポートもまったくないため、<a href="https://www.w3.org/TR/epub/#sec-bindings-elem">最新バージョンのEPUB3では非推奨</a>になりました。したがって、使用は避けるべきです。</p>
 							</dd>
@@ -251,8 +251,7 @@
 					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-picture-element"><code>picture</code>要素</a> </li>
 					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-video-element"><code>video</code>要素</a> </li>
 					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-core-media-types">サポートされているメディアタイプ</a> </li>
-					<li>EPUB 2 — <a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">MIMEメディアタイプ</a>
-</li>
+					<li>EPUB 2 — <a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">MIMEメディアタイプ</a> </li>
 				</ul>
 			</section>
 		</main>
