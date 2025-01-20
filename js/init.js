@@ -408,7 +408,9 @@ KB.prototype.generatePageTitle = function () {
 				div.appendChild(document.createTextNode(' - '));
 			}
 			
-			div.appendChild(document.createTextNode(page_info.category[x]));
+			var category = findCategory(topic_list, page_info.category[x]);
+			
+			div.appendChild(document.createTextNode(category.title));
 		}
 	}
 	
@@ -760,7 +762,7 @@ KB.prototype.generateCategoryList = function () {
 	
 		cat_list += '<li id="' + categories[i].id + '-link"';
 		
-		var isActiveCategory = (page_info.category.includes(categories[i].name) || page_info.category.includes(categories[i].cat)) ? true : false;
+		var isActiveCategory = page_info.category.includes(categories[i].id) ? true : false;
 		
 		// highlight if the active category
 		
@@ -790,7 +792,9 @@ KB.prototype.generateCategoryList = function () {
 				
 				index_url += 'index.html'
 				
-				cat_list += '<li><a href="' + index_url + '">' + page_info.category[x] + '</a></li>';
+				var category = findCategory(topic_list, page_info.category[x]);
+				
+				cat_list += '<li><a href="' + index_url + '">' + category.title + '</a></li>';
 			}
 			
 			cat_list += '</ol>';

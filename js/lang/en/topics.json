@@ -914,5 +914,20 @@
 				"subtitle": "Review of EPUB's attribute implementation of the Synthetic Speech Markup Language."
 			}
 		]
+	},
+	{
+		"title": "DPUB-ARIA",
+		"id": "dpub-aria",
+		"showInRootIndex": false
+	},
+	{
+		"title": "accessibilityFeature",
+		"id": "accessibilityfeature",
+		"showInRootIndex": false
+	},
+	{
+		"title": "WCAG",
+		"id": "wcag",
+		"showInRootIndex": false
 	}
 ]

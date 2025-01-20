@@ -244,7 +244,7 @@ div#body {
 	flex-direction: column;
 }
 
-div#body.two-col {
+div#body.two-col > * {
 	margin-left: 8rem;
 }
 
