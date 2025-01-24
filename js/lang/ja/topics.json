@@ -636,7 +636,7 @@
           {
             "id": "html-dpub",
             "href-override": "html/dpub-aria/index.html",
-            "title": "電子書籍ロール",
+            "title": "デジタル出版ロール",
             "subtitle": "ARIA<code>role</code>属性で使用するDPUB-ARIAモジュールの紹介。このページは、モジュール内の各ロールの詳細な説明にもリンクしている"
           }
         ]
