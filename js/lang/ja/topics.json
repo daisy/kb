@@ -907,18 +907,18 @@
     ]
   },
   {
-    "title": "Validation",
-    "id": "epub-validation",
-    "showInRootIndex": false
-  },
-  {
     "title": "DPUB-ARIA",
     "id": "dpub-aria",
     "showInRootIndex": false
   },
-  {
-    "title": "Schema.org",
-    "id": "schema.org",
-    "showInRootIndex": false
-  }
+	{
+		"title": "accessibilityFeature",
+		"id": "accessibilityfeature",
+		"showInRootIndex": false
+	},
+	{
+		"title": "WCAG",
+		"id": "wcag",
+		"showInRootIndex": false
+	}
 ]
