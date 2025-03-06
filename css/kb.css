@@ -7,14 +7,6 @@
 	font-style: normal;
 }
 
-
-@font-face{
-	font-family: 'Raleway';
-	src: url(../fonts/Raleway-Regular.ttf) format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
 html {
 	font-size: 62.5%;
 }
@@ -48,7 +40,8 @@ h1 {
 }
 
 h2 {
-	font-family: Raleway;
+	font-family: Roboto,'Open Sans Light',Helvetica,Arial,sans-serif;
+	font-weight: normal;
 	font-size: 180%;
 	padding: 0.5em 0.7em 0 0.7em;
 	margin: 0 0 6rem 1.5rem;
@@ -857,7 +850,7 @@ body#glossary nav#toc ol {
 }
 
 .glossary dt {
-	font-family: 'Raleway',Helvetica,Arial,sans-serif;
+	font-family: Helvetica,Arial,sans-serif;
 	font-size: 1.8rem;
 	color: rgb(0,0,180);
 	margin-top: 3rem;
