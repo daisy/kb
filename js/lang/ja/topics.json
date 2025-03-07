@@ -14,8 +14,8 @@
       {
         "id": "conf-s508",
         "href": "s508.html",
-        "title": "リハビリテーション法508条（米国）",
-        "subtitle": "出版物に対する米国リハビリテーション法508条の要件の解説"
+        "title": "リハビリテーション法第508条（米国）",
+        "subtitle": "出版物に対する米国リハビリテーション法第508条の要件の解説"
       },
       {
         "id": "conf-wcag",
@@ -163,8 +163,8 @@
           {
             "id": "nav-pagebreaks",
             "href": "pagebreaks.html",
-            "title": "改ページのマーカー",
-            "subtitle": "改ページのマーカーを追加する方法の説明"
+            "title": "ページ区切りマーカー",
+            "subtitle": "ページ区切りマーカーを追加する方法の説明"
           },
           {
             "id": "nav-pagelist",
@@ -195,7 +195,7 @@
           {
             "id": "meta-evaluation",
             "href": "evaluation.html",
-            "title": "評価",
+            "title": "評価メタデータ",
             "subtitle": "EPUB アクセシビリティ規格で要求される適合性と評価のメタデータ"
           },
           {
@@ -402,7 +402,7 @@
           {
             "id": "html-quote",
             "href": "quotes.html",
-            "title": "引用",
+            "title": "引用文",
             "subtitle": "<code>blockquote</code>要素と <code>q</code>要素"
           },
           {
@@ -475,7 +475,7 @@
           {
             "id": "html-image-text",
             "href": "images-text.html",
-            "title": "テキストの画像",
+            "title": "文字画像",
             "subtitle": "画像にテキストが含まれている場合のベストプラクティス"
           },
           {
@@ -518,8 +518,8 @@
           {
             "id": "html-table-layout",
             "href": "tables-layout.html",
-            "title": "表のレイアウト",
-            "subtitle": "表のレイアウトを避けられない場合のベストプラクティス"
+            "title": "レイアウトに使用する表",
+            "subtitle": "レイアウトに使用する表を避けられない場合のベストプラクティス"
           },
           {
             "id": "html-table-captions",
@@ -574,7 +574,7 @@
           {
             "id": "html-notes",
             "href": "notes.html",
-            "title": "脚注と文末脚注",
+            "title": "注釈",
             "subtitle": "注釈や参考文献のアクセシブルな識別、構造化、リンク"
           },
           {
@@ -649,7 +649,7 @@
           {
             "id": "epub-type",
             "href": "epub-type.html",
-            "title": "EPUB <code>type</code>属性",
+            "title": "<code>epub:type</code>属性",
             "subtitle": "属性が、支援技術に影響を与えずにリーディングシステムでの読書体験をどのように向上できるかの概要"
           }
         ]
@@ -695,8 +695,8 @@
       {
         "id": "css-text-spacing",
         "href": "text-spacing.html",
-        "title": "文字間隔",
-        "subtitle": "文字間隔が変更されたときにアクセシビリティの問題を回避するためのテクニック"
+        "title": "テキストの間隔",
+        "subtitle": "テキストの間隔が変更されたときにアクセシビリティの問題を回避するためのテクニック"
       }
     ]
   },
@@ -782,13 +782,13 @@
           {
             "id": "fxl-img-spine",
             "href": "img-spine.html",
-            "title": "Spineの画像",
-            "subtitle": "EPUBのspineに画像を直接配置する場合のアクセシビリティの問題の概要"
+            "title": "Spine内の画像",
+            "subtitle": "EPUBのspine内に画像を直接配置する場合のアクセシビリティの問題の概要"
           },
           {
             "id": "fxl-svg",
             "href": "svg.html",
-            "title": "SVGレイアウト",
+            "title": "SVG",
             "subtitle": "SVGでアクセシブルな固定レイアウトを作成する方法の概要"
           },
           {
@@ -889,13 +889,13 @@
       {
         "id": "tts-speech",
         "href": "speech.html",
-        "title": "CSS3 Speech",
+        "title": "CSS Speech",
         "subtitle": "TTSによる再生を制御するスタイルシートの音声モジュールプロパティの説明"
       },
       {
         "id": "tts-pls",
         "href": "pls.html",
-        "title": "PLS辞書",
+        "title": "発音辞書",
         "subtitle": "発音辞書を使用して用語の辞書を作成する方法の説明"
       },
       {
@@ -911,14 +911,14 @@
     "id": "dpub-aria",
     "showInRootIndex": false
   },
-	{
-		"title": "accessibilityFeature",
-		"id": "accessibilityfeature",
-		"showInRootIndex": false
-	},
-	{
-		"title": "WCAG",
-		"id": "wcag",
-		"showInRootIndex": false
-	}
+  {
+    "title": "accessibilityFeature",
+    "id": "accessibilityfeature",
+    "showInRootIndex": false
+  },
+  {
+    "title": "WCAG",
+    "id": "wcag",
+    "showInRootIndex": false
+  }
 ]
