@@ -692,7 +692,7 @@ KB.prototype.generateCategoryList = function () {
 	var categories = [
 		{
 			name: msg.category.conf,
-			id: 'conf',
+			id: 'conformance',
 			href: 'conformance'
 		},
 		{
@@ -717,7 +717,7 @@ KB.prototype.generateCategoryList = function () {
 		},
 		{
 			name: msg.category.meta,
-			id: 'meta',
+			id: 'metadata',
 			href: 'metadata'
 		},
 		{
@@ -728,14 +728,12 @@ KB.prototype.generateCategoryList = function () {
 		{
 			name: msg.category.script,
 			id: 'script',
-			href: 'script',
-			cat: 'Scripted Content and Forms'
+			href: 'script'
 		},
 		{
 			name: msg.category.sync,
-			id: 'sync',
-			href: 'sync-media',
-			cat: 'Synchronized Multimedia'
+			id: 'sync-media',
+			href: 'sync-media'
 		},
 		{
 			name: msg.category.tts,
