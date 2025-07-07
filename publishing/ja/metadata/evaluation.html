@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidance on reporting the outcome of an accessibility evaluation in an EPUB publication's package document metadata.">
 		<script>
 			var page_info = {
-				'category': 'Metadata',
+				'category': 'metadata',
 				'appliesTo': ['EPUB3','EPUB2'],
 				'addh4': true
 			};
@@ -41,7 +41,7 @@
 		<main>
 			<section id="summary">
 				<h3>要約</h3>
-				<p>アクセシビリティ評価メタデータを含めることで、適合性の発見を可能にし、評価者とその資格情報の識別を提供します。</p>
+				<p>アクセシビリティ評価のメタデータを組み込むことで、適合性を開示し、評価者とその資格情報を識別します。</p>
 			</section>
 			<section id="ex">
 				<h3>例</h3>
@@ -86,7 +86,7 @@
 				<dl>
 					<dt id="faq-001">EPUB パッケージ ドキュメントで<code>a11y:</code>プレフィックスを宣言する必要がありますか?</dt>
 					<dd>
-						<p>技術的には必要ありませんが、常にプレフィックスを宣言することがベストプラクティスです。EPUB には「<a href="https://www.w3.org/TR/epub-33/#sec-reserved-prefixes">予約済み</a>」という概念があり、これは宣言しなくても使用できるプレフィックスです。ただし、実際には、epubcheck 検証ツールの古いバージョンは、新しい追加に対応しておらず、新しい定義済みのプリフィックスをエラーとしてフラグ付けします。プレフィックスを宣言すると、検証の問題がなくなることが保証されます。</p>
+						<p>技術的には必要ありませんが、常にプレフィックスを宣言することがベストプラクティスです。EPUB には「<a href="https://www.w3.org/TR/epub-33/#sec-reserved-prefixes">予約済みプレフィックス</a>」という概念があり、これは宣言しなくても使用できるプレフィックスです。ただし、実際には、epubcheck 検証ツールの古いバージョンは、新たに追加されたプレフィックスには対応しておらず、新しい定義済みのプリフィックスをエラーとしてフラグ付けします。プレフィックスを宣言すると、検証の問題がなくなることが保証されます。</p>
 						<p><code>a11y:</code>プリフィックスは次のように宣言されます。</p>
 						<pre id="ex-faq01-src" class="prettyprint linenums"><code>&lt;package … prefix="a11y: http://www.idpf.org/epub/vocab/package/a11y/#"&gt;</code></pre>
 					</dd>
@@ -235,11 +235,11 @@
 					
 					<blockquote>
 						<p>
-							<em>EPUB 出版物のアクセシビリティのテストと認証を担当する当事者を識別します。</em>
+							<em>EPUB 出版物のアクセシビリティの検証と認証についての当事者を識別します。</em>
 						</p>
 					</blockquote>
 					
-					<p><code>a11y:certifiedBy</code>プロパティは、アクセシビリティ適合性について誰がレビューしたかを示すために出版物に含まれています。EPUB アクセシビリティ規格では、出版物がアクセシビリティ要件を満たしていない場合でも、発行者がこのプロパティを設定することが義務付けられています。</p>
+					<p><code>a11y:certifiedBy</code>プロパティは、アクセシビリティ適合性について誰がレビューしたかを示すために出版物に含まれています。EPUB アクセシビリティ規格では、出版物がアクセシビリティ要件を満たしていない場合でも、発行者によるこのプロパティの設定が求められています。</p>
 					
 					<dl>
 						<dt>EPUB 3 での使用法:</dt>
@@ -258,13 +258,13 @@
 					
 					<blockquote>
 						<p>
-							<em>コンテンツがアクセシブルであることを証明するために、 <code>certifiedBy</code>プロパティで識別される当事者の権限を確立する資格情報またはバッジを識別します。</em>
+							<em>コンテンツがアクセシブルであることを認証した<code>certifiedBy</code>プロパティで示される当事者の権限を示す資格情報またはバッジを識別します。</em>
 						</p>
 					</blockquote>
 					
 					<p><code>a11y:certifierCredential</code>プロパティは、認証者が所有する資格情報、具体的にはアクセシビリティ評価を実行するための資格情報を識別します。</p>
 					
-					<p>プロパティは、保持されている資格情報の名前を含むテキスト フィールド、または資格情報の説明へのリンクにすることができます。</p>
+					<p>プロパティは、保持されている資格情報の名前を含むテキストフィールド、もしくは資格情報の説明へのリンクにできます。</p>
 					
 					<dl>
 						<dt>EPUB 3 での使用法:</dt>
@@ -291,7 +291,7 @@
 						</p>
 					</blockquote>
 					
-					<p>出版物のアクセシビリティ適合レポートが公開されている場合、出版社は<code>a11y:certifierReport</code>プロパティを使用してレポートへのリンクを提供できます。ベンダーとリーディングシステムは、タイトルに関する詳細情報を確認するためにこのレポートにアクセスするオプションをユーザーに提供できます。</p>
+					<p>出版物のアクセシビリティ適合レポートが公開されているならば、出版社は<code>a11y:certifierReport</code>プロパティを使用してレポートへのリンクを提供できます。ベンダーとリーディングシステムは、利用者に対してタイトルに関する詳細な情報を確認するためにこのレポートにアクセスする機能を提供できます。</p>
 					
 					<dl>
 						<dt>EPUB 3で の使用法:</dt>
@@ -312,10 +312,8 @@
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">EPUB アクセシビリティ — 適合レポート</a>
-</li>
-					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB アクセシビリティ語彙</a>
-</li>
+					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">EPUB アクセシビリティ — 適合レポート</a> </li>
+					<li> 						<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB アクセシビリティ語彙</a> </li>
 				</ul>
 			</section>
 		</main>

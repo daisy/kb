@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>イメージマップ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing accessible image maps.">
+		<script>
+			var page_info = {
+				'category': 'html',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-images-desc','html-image-text','html-image-deco']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>イメージマップの領域にラベルを付け、マップを見ることができないユーザーや領域を簡単にアクティブ化できないユーザーが、マップにアクセスできるようにします。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>各<code>area</code>要素に説明を含む代替テキストを付けてください。[[WCAG-1.1.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — クライアントサイドマップ</div>
+						<p>マップの各<code>area</code>要素に、代替テキストによる説明が付与されています。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="north-america.png"
+    usemap="#na-map"/&gt;
+  &lt;map id="na-map"&gt;
+    &lt;area shape="poly" coords="…" href="ca-info.xhtml" alt="Canada"/&gt;
+    &lt;area shape="poly" coords="…" href="us-info.xhtml" alt="US"/&gt;
+    &lt;area shape="poly" coords="…" href="mx-info.xhtml" alt="Mexico"/&gt;
+  &lt;/map&gt;
+</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — サーバーサイドマップ</div>
+						<p>サーバーサイドマップの後ろにリンクが提供されるため、マップを表示できないユーザーでも情報にアクセスできます。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure&gt;&lt;a href="…"&gt;&lt;img
+    src="north-america.png"
+    ismap="ismap"/&gt;&lt;/a&gt;
+    &lt;p&gt;Regions: &lt;a href="ca-info.xhtml"&gt;Canada&lt;/a&gt; | 
+       &lt;a href="us-info.xhtml"&gt;US&lt;/a&gt; | 
+       &lt;a href="mx-info.xhtml"&gt;Mexico&lt;/a&gt;&lt;/p&gt;
+    &lt;/figure&gt;
+</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>イメージマップは、ユーザーがクリック、タッチ、またはその他の方法で、画像のどこをアクティブ化するかによって、固有の操作が実行されるコンテキスト依存の画像です。イメージマップは、二次元画像を動的にして、インフォグラフィック上のポイントに関する詳細情報を提供するのによく使用されます。</p>
+				
+				<p class="bridgehead">クライアントサイド 対 サーバーサイド</p>
+				
+				<p>マップを作成するには二つの方法があります。ローカルで<code>usemap</code>属性を使い、クリック可能な領域を定義する<code>map</code>要素を参照する方法と、リモートで画像を<code>a</code>タグで囲み、<code>img</code>タグに<code>ismap</code>属性を設定する方法です。</p>
+				
+				<p>サーバーサイド マップは、本質的にアクセシビリティが低いものになります。ユーザーが画像を見て領域を判別する必要があり、また、ユーザーが画像の正確な場所をクリックする必要があるためです。</p>
+				
+				<p>クライアントサイド マップでは、関連付けられた<code>map</code>要素を使用してクリック可能な領域を定義します。各領域は<code>area</code>要素内で指定され、各<code>area</code>にはその目的を示す<code>alt</code>属性が付与されている必要があります。これにより、視覚に障害のあるユーザーが機能を簡単に見つけることができます。支援技術により、ユーザーはこれらの領域を繰り返し利用できるため、サーバーサイド マップよりもはるかに使いやすいオプションとなり、煩わしいフォールバックも必要ありません。</p>
+				
+				<p>実際のところ、サーバーサイド マップは追加機能を提供しないため、その使用は推奨されません。使用する必要がある場合は、マップを操作できないユーザーが機能に平等にアクセスできるように、クリック可能な各領域に対応するリンクのセットを提供する必要があります。</p>
+				
+				<p>ただし、よりよい代替手段が利用できる場合は（たとえば、テキストの画像をリンク可能にできる場合）、どちらの種類のマップも使用しないでください。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map">&lt;map&gt;</a>
+</li>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/image-maps.html#image-maps">イメージマップ</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-map-element"><code>map</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element"><code>area</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-ismap"><code>ismap</code>属性</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

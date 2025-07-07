@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>画面の向き（Orientation）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on not constraining fixed layout pages to a specific orientation.">
+		<script>
+			var page_info = {
+				'category': 'fxl',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>固定レイアウトページのレンダリングを単一の画面の向きに制限しないでください。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+<code>rendition:orientation</code>プロパティを<code>auto</code>に設定します[[WCAG-1.3.4]]</li>
+				</ul>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">
+<code>rendition:orientation</code>プロパティは設定しなければなりませんか?</dt>
+					<dd>
+						<p>いいえ。デフォルトの設定では、コンテンツの表示方向は単一の方向に制限されません。パッケージドキュメントでプロパティを明示的に<code>auto</code>に設定できますが、デフォルトの設定と変わりません。</p>
+					</dd>
+				</dl>
+			</section>
+						
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>EPUB3では、コンテンツ製作者は<a href="https://www.w3.org/TR/epub/#orientation"><code>rendition:orientation</code>プロパティ</a>を使用して、固定レイアウトページを単一の画面方向（縦または横）に固定できます。しかし、単一の方向を強制すると、デバイスを回転できないユーザーはコンテンツを読めなくなる問題が生じます。</p>
+				
+				<p>たとえば、身体障害や運動障害のあるユーザーは、デバイスの向きを常に変更できるとは限りません。ユーザーがデバイスを取り付けているマウントを調整できない場合や、サポートなしでは調整できない場合もあります。</p>
+				
+				<p>デフォルトでは、EPUB3固定レイアウトページは方向の制約を受けません。ロックは、コンテンツ製作者が<code>rendition:orientation</code>プロパティの値を<code>portrait</code>または<code>landscape</code>に明示的に設定した場合にのみ発生します。したがって、このWCAGレベルAA違反の簡単な解決策は、このプロパティをグローバルにも特定のページにも設定しないことです。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#orientation">画面の向き（Orientation）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>構文解析</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 4.1.1 Parsing">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<div class="note" role="note" aria-labelledby="support-note">
+				<p id="support-note" class="label">注記</p>
+				
+				<p>現在、すべてのHTMLおよびXMLベースのコンテンツは、この達成基準に合格していると見なされます。評価する必要はもうなくなりました。</p>
+			</div>
+			
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>4.1.1</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、重大なマークアップエラーによって、ユーザーエージェントと支援技術がドキュメントを異なる方法で解釈することがないようにすることでした。XMLには厳格な構文解析モデルがあり、エラーのあるページが誰にもレンダリングされないことがよくあるため、この基準は主にHTMLコンテンツを対象としていました。（つまり、エラーは一般的なユーザビリティの問題であり、アクセシビリティの問題ではありません）。</p>
+				
+				<p>HTML標準は現在、誤ってタグ付けされたコンテンツを修正するためのアルゴリズムが定義されているため、この達成基準はもはや本来のケースには当てはまりません。</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note2">
+					<p id="support-note2" class="label">注記</p>
+					
+					<p>達成委基準4.1.1への変更は、まだ、W3Cの公開プロセスを経なければなりません。まだ公式なものではありません。XHTMLはEPUBにとってはるかに重要であり、WCAGの他の部分ではカバーされていない達成基準をすでに取り込んでいるため、ナレッジベースとSMARTチェッカーは、この変更が実施されると想定しています。</p>
+				</div>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>すべてのHTMLおよびXMLベースのコンテンツはこの達成基準を満たしています。評価手順は必要ありません。</p>
+				
+				<p>しかし、すべてのデジタル出版物のマークアップのエラーと警告を検証することを強くお勧めします。この手順でも、他の達成基準に関連するアクセシビリティの問題をとらえることができるかもしれません。たとえば、重複したIDは、カスタム コントロールのARIA属性の使用を妨げたり、ユーザーがリンクされた説明にアクセスできなかったり、コンテンツリンクにスキップできなかったといった、アクセシビリティの問題の原因となることがあります。</p>
+				
+				<p>次の表は、デジタル出版物のアクセシビリティに影響する構文解析エラーの概要と、それらのエラーがどの達成基準に基づいて報告されるべきかを示しています。</p>
+				
+				<table>
+					<thead>
+						<tr>
+							<th>問題点</th>
+							<th>達成基準に基づく報告</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>要素に複数の<code>role</code>属性があり、値が競合している</td>
+							<td><a href="info-and-relationships.html">1.3.1</a></td>
+						</tr>
+						<tr>
+							<td>IDの重複によってコントロールのラベルの間違いが生じている</td>
+							<td>
+<a href="name-role-value.html">4.1.2</a>, <a href="info-and-relationships.html">1.3.1</a>
+</td>
+						</tr>
+						<tr>
+							<td>IDの重複によって誤ったテーブルヘッダーが参照されている</td>
+							<td><a href="info-and-relationships.html">1.3.1</a></td>
+						</tr>
+						<tr>
+							<td>IDの重複によってコンテンツをスキップするリンクが壊れている</td>
+							<td><a href="bypass-blocks.html">2.4.1</a></td>
+						</tr>
+						<tr>
+							<td>リスト要素に含まれていないリスト項目</td>
+							<td><a href="info-and-relationships.html">1.3.1</a></td>
+						</tr>
+						<tr>
+							<td>リンク内やボタン内のリンクなど、インタラクティブ要素内に不正なネストがある</td>
+							<td>
+<a href="info-and-relationships.html">1.3.1</a>, <a href="keyboard.html">2.1.1</a>, <a href="name-role-value.html">4.1.2</a>
+</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../epub/validation/epubcheck.html">EPUBcheck</a></li>
+					<li><a href="../epub/validation/overview.html">検証手順</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

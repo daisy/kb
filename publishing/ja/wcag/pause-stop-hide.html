@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>一時停止、停止及び非表示</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.2.2 Pause, Stop, Hide">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.2.2</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>動的コンテンツ</li>
+								<li>画像</li>
+								<li>インタラクティブなコンテンツ</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>動きのある、点滅している、スクロールする、又は自動更新する情報は、次の全ての事項を満たしている。</p>
+							
+							<dl>
+								<dt>動き、点滅又はスクロール</dt>
+								<dd>
+									<p>動きのある、点滅している、又はスクロールしている情報が、（１）自動的に開始し、（２）5秒よりも長く継続し、かつ、（３）その他のコンテンツと並行して提示される場合、利用者がそれらを一時停止、停止、又は非表示にすることのできるメカニズムがある。ただし、その動き、点滅、又はスクロールが必要不可欠な動作の一部である場合は除く。</p>
+								</dd>
+								
+								<dt>自動更新</dt>
+								<dd>
+									<p>自動更新する情報が、（１）自動的に開始し、かつ、（２）その他のコンテンツと並行して提示される場合、利用者がそれを一時停止、停止、若しくは非表示にする、又はその更新頻度を調整することのできるメカニズムがある。ただし、その自動更新が必要不可欠な動作の一部である場合は除く。</p>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html">達成基準2.2.2の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pause-stop-hide">達成基準2.2.2を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G4">G4：コンテンツを一時停止させて、一時停止させたところから再開できるようにする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G11">G11：5 秒未満で点滅するコンテンツを制作する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G152">G152：（5秒以内の）数回のループ後に点滅を停止するように、アニメーション GIF を設定する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G186">G186：動きのあるコンテンツ、点滅するコンテンツ、又は自動更新するコンテンツを停止させるコントロールを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G187">G187：ユーザエージェントによって点滅するコンテンツを停止できるウェブコンテンツ技術を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G191">G191：点滅するコンテンツのないページを再読み込みするリンク、ボタン、又はその他のメカニズムを提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR22">SCR22：点滅を制御し、5秒以内に停止させるために、スクリプトを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR33">SCR33：コンテンツをスクロールし、かつそれを一時停止するメカニズムを提供するためにスクリプトを使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザーがデジタル出版物を読んでいるときに、コンテンツによって害をうけないようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>デジタル出版物ではそれほど一般的ではありませんが、コンテンツ製作者は、自動的に開始され、閃光、点滅、スクロール、または自動更新されるコンテンツを、ユーザーが停止、一時停止、または非表示にできるようにする必要があります。</p>
+				
+				<p>デジタル出版物におけるこのようなコンテンツの例としては、新しいドキュメントが読み込まれたときに自動的に開始されるビデオやアニメーション、またはサイドバーの種類を識別するために使用されるアニメーショングラフィックなどが挙げられます。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>出版フォーマットでの実装が一般的に少ないため、ユーザーにとって害になるコンテンツの一時停止に関する詳細は、現在ナリッジベースにはありません。詳細については、 <a href="#guidance">WCAG ガイダンスドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

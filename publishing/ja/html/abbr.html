@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidelines for the use of abbreviations.">
 		<script>
 			var page_info = {
-				'category': ['HTML'],
+				'category': 'html',
 				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
 			};
 		</script>
@@ -42,12 +42,12 @@
 				<h3>例</h3>
 				
 				<figure id="ex-01">
-					<figcaption><span class="label">例1 — 最初に使用したあとに頭字語を提供する</span></figcaption>
+					<figcaption><span class="label">例1 — 最初の使用の直後に頭字語を記載する</span></figcaption>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;The North American Free Trade Agreement (NAFTA) … &lt;/p&gt;</code></pre>
 				</figure>
 				
 				<figure id="ex-02">
-					<figcaption><span class="label">例2 — <code>abbr</code>要素を使用して略していない語を含める</span></figcaption>
+					<figcaption><span class="label">例2 — <code>abbr</code>要素を使用して、略していない語を（訳注：title属性に）記述する</span></figcaption>
 					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p&gt;
    &lt;abbr
      title="The United States Mexico Canada Agreement"
@@ -80,23 +80,22 @@
 				
 				<p>略語や頭字語を使用すると、スペースを節約でき、記憶に役に立ちますが、最初は用語に馴染みのない読者にとっては困難を伴います。これは、意味を理解したり覚えたりすることが困難な認知障害や学習障害のある人にとっては特に問題となります。</p>
 				
-				<p>著者が略語や頭字語をよりわかりやすくするために使用できるさまざまなテクニックがあります。ほとんどの執筆ガイドの一般的なルールは、用語の正式名称バージョンを、括弧で略語を紹介する前に常に提供することです (例: 「World Wide Web Consortium (W3C)」)。</p>
+				<p>コンテンツ製作者が略語や頭字語をよりアクセシブルにするために利用できる様々な技術があります。括弧書きで略語を記載するよりも前に、常に用語の正式名称を記載するのが、ほとんどの執筆ガイドにおける一般的なルールです（例: 「World Wide Web Consortium (W3C)」）。</p>
 				
-				<p>この手法は、略語や頭字語が作品のごく一部でのみ使用されている場合に最も効果的です。ただし、用語が一度だけ紹介され、その後出版物全体で繰り返されると、読者はその定義を見つけるのが難しくなります。</p>
+				<p>この手法は、略語や頭字語が作品のごく一部でのみ使用されている場合に最も効果的です。ただし、（訳注：略語や頭字語の）用語が一度だけ説明され、その後に出版物全体で繰り返し使われると、読者はその定義を見つけるのが難しくなります。</p>
 				
-				<p>この問題を回避するには、HTML <code>abbr</code>要素を使用して、 <code>title</code>属性で略していない語を指定することにより、略していない語を再提供することができます (<a href="#ex-02">例 2</a>を参照)。このマークアップは、すべての略語のインスタンスにタグ付けする控えめな方法です。</p>
+				<p>HTMLの<code>abbr</code>要素を使用して、<code>title</code>属性を用いて略していない語を記述することで、略していない語を再度提供し、この問題を回避できます(<a href="#ex-02">例 2</a>を参照)。このマークアップは、すべての略語のインスタンスにタグ付けを行う目立たない方法です。</p>
 				
-				<p><code>abbr</code>要素を使用する欠点は、略していない語が支援技術のユーザーのみに利用可能になる可能性があることです。<code>title</code>属性を使用すると、マウスを略語の上に置くとツールヒントが表示されますが、読者はポインティング デバイスを備えた読み取りシステムを使用していないかもしれません。</p>
+				<p><code>abbr</code>要素の利用における欠点は、略していない語が支援技術のユーザーしか利用できないかもしれない点です。<code>title</code>属性を使用すると、マウスを略語の上に置くとツールティップが表示されますが、読者はポインティング デバイスを備えた読み取りシステムを使用していないかもしれません。</p>
 				
-				<p>もう 1 つのオプションは、略語を用語集のエントリにリンクすることです (<a href="#ex-03">例 4</a>を参照)。このオプションを使用すると、すべてのユーザーが略していない語にアクセスできますが、用語集の用語へのリンクでドキュメントが過負荷にならないように注意する必要があります。ドキュメント内で用語へのリンクが繰り返し使用されるほど、支援技術のユーザーが一連の用語を確認する際の妨げになります。リンクを使用する場合は、セクションの最初の用語のみにリンクすることをお勧めします。</p>
+				<p>別の対策として、略語を用語集のエントリへのリンクにする方法があります(<a href="#ex-03">例 4</a>を参照)。この方法を使用すると、すべてのユーザーが略していない語にアクセスできますが、用語集の用語へのリンクでドキュメントが過負荷にならないように注意してください。ドキュメント内で用語へのリンク使用されればされるほど、支援技術のユーザーが用語を繰り返し確認することになり、邪魔になってしまいます。リンクを使用する場合は、セクションで初出の用語に限ってリンクを設ける方法をお勧めします。</p>
 			</section>
 			
 			<section id="refs">
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element"><code>abbr</code>要素</a>
-</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element"><code>abbr</code>要素</a> </li>
 				</ul>
 			</section>
 		</main>

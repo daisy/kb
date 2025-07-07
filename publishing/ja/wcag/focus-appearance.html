@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>フォーカスの外観</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.11 Focus Appearance">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+		<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.2以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.13</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>ボタン</li>
+								<li>コントロール</li>
+								<li>入力</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>キーボードのフォーカス インジケーターが表示されている場合は、次のいずれかまたは両方が当てはまる。</p>
+							
+							<ol>
+								<li>
+									<p>フォーカス インジケーター全体が、次の全てを満たす。</p>
+									<ul>
+										<li>フォーカスされているユーザーインターフェースコンポーネントまたはサブコンポーネントを囲む。かつ、</li>
+										<li>フォーカスされている状態とフォーカスされていない状態との間で、同一ピクセルに少なくとも 3:1 のコントラスト比がある。かつ、</li>
+										<li>隣接する非フォーカスインジケーター色とのコントラスト比が少なくとも 3:1 であること。</li>
+									</ul>
+								</li>
+								<li>
+									<p>フォーカス インジケーターの領域は、次の全てを満たす。</p>
+									<ul>
+										<li>フォーカスされていないコンポーネントまたはサブコンポーネントの 1 CSS ピクセル幅の周囲の領域と少なくとも同じ大きさであるか、またはフォーカスされていないコンポーネントまたはサブコンポーネントの最小境界ボックスの最短辺に沿った 4 CSS ピクセル幅の線と少なくとも同じ大きさである。かつ、</li>
+										<li>フォーカスされている状態とフォーカスされていない状態との間で、同一ピクセルに少なくとも 3:1 のコントラスト比がある。かつ、</li>
+										<li>隣接する非フォーカスインジケーター色に対して少なくとも 3:1 のコントラスト比であるか、2 CSS ピクセルより薄くないこと。</li>
+									</ul>
+								</li>
+							</ol>
+							
+							<p>例外：</p>
+							
+							<ul>
+								<li>フォーカスインジケータがユーザエージェントによって決定され、かつコンテンツ製作者が調整できない場合。又は、</li>
+								<li>コンテンツ製作者がフォーカスインジケータ及びそのインジケータの背景色を変更していない場合。</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">達成基準 2.4.13の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance">達成基準 2.4.13を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">WCAG 2.2の達成基準に対応する達成方法はまだ利用できません。</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、キーボード フォーカス インジケーターがアクティブなユーザー インターフェイス コンポーネントをしっかりと囲み、ユーザーが明確に識別できるようにすることです。</p>
+				
+				<p>この達成基準は、フォーカス インジケーターが必要であることを要求している<a href="focus-visible.html">2.4.7</a>に似ていますが、フォーカス インジケーター自体の要件を設定しています。</p>
+			</section>
+			
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>カスタム キーボード フォーカス インジケーターは、要素がフォーカスを受けたとき（つまり、タブで移動したとき）に、コンテンツ製作者が要素のスタイルを変更すると作成されます。スタイルは通常、CSS <code>focus</code>セレクターに関連付けられます。</p>
+				
+				<p>この達成基準を満たす最も直接的な方法は、インジケーターがアクティブなユーザー インターフェイス コンポーネントを完全に囲んで、インジケーターが描画されるピクセルとその両側のピクセルとこコントラス比が 3:1 になるようにすることです。さらに、インジケーターは実線でなければなりません（例：破線や点線ではありません。）</p>
+				
+				<p>コンポーネントを実線のアウトラインで完全に囲むことができない場合は、コンテンツ製作者は、インジケータが二番目の要件で表現されている長さと太さの要件を満たす必要があります。この要件をさまざまな種類のインジケータに適用する方法の詳細については、<a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">understanding document</a>を参照してください。</p>
+				
+				<p>この達成基準は、ユーザーエージェントによって実装されたフォーカスインジケーターには適用されないことに注意してください。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/keyboard.html">キーボード コントロール</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

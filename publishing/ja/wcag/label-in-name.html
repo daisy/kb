@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ラベルを含む名前（name）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.3 Label in Name">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.3</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>インタラクティブなコンテンツ</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ユーザインタフェース コンポーネントがテキスト又は文字画像を含むラベルを持つ場合、視覚的に提示されたテキストが名前（name）に含まれている。</p>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html">達成基準2.5.3の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name">達成基準2.5.3を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G208">G208：アクセシブルな名前（accessible name）の一部として可視ラベルのテキストを含める</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G211">G211：アクセシブルな名前（accessible name）を視覚的なラベルと一致させる</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、ユーザーが項目にアクセスする方法に応じて異なる名前で表示されないように、ユーザーが見るコントロールのテキスト ラベルを、支援技術によって読み上げられるテキストと同じにすることです（例：音声認識ソフトウェアを使用してコントロールにフォーカスしようとするときに問題が発生するのを回避するため）。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コントロールまたはコンポーネントに可視テキスト ラベルがある場合、コンテンツ製作者は支援技術に対して異なるラベルを提供してはいけません（例：<code>aria-label</code>または<code>aria-labelledby</code>属性を使用）。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>アクセシブルな入力モダリティの作成に関する情報は、現在ナリッジベースにはありません。詳細については、<a href="#guidance">WCAGガイダンスドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

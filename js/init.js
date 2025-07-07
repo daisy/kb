@@ -14,9 +14,9 @@ const lang = document.documentElement.lang ? document.documentElement.lang.toLow
 var msg, topic_list, sc_map;
 
 /* hack to eliminate the flash of unstyled content */
+document.documentElement.style.display = 'none';
 
-createCSSSelector('.hidden', 'display: none');
-document.documentElement.classList.add('hidden');
+
 
 
 /* 
@@ -279,6 +279,12 @@ KB.prototype.generateHeader = function () {
 	
 	var search_box = document.createElement('div');
 		search_box.setAttribute('class', 'gcse-searchbox-only');
+		search_box.setAttribute('data-lr', 'lang_'  + this.lang);
+		search_box.setAttribute('data-gl', 'lang_'  + this.lang);
+		
+		if (this.lang !== 'en') {
+			search_box.setAttribute('data-resultsUrl', '/publishing/' + this.lang + '/search/');
+		}
 	
 	search.appendChild(search_box);
 	header.appendChild(search);
@@ -402,7 +408,9 @@ KB.prototype.generatePageTitle = function () {
 				div.appendChild(document.createTextNode(' - '));
 			}
 			
-			div.appendChild(document.createTextNode(page_info.category[x]));
+			var category = findCategory(topic_list, page_info.category[x]);
+			
+			div.appendChild(document.createTextNode(category.title));
 		}
 	}
 	
@@ -684,7 +692,7 @@ KB.prototype.generateCategoryList = function () {
 	var categories = [
 		{
 			name: msg.category.conf,
-			id: 'conf',
+			id: 'conformance',
 			href: 'conformance'
 		},
 		{
@@ -709,7 +717,7 @@ KB.prototype.generateCategoryList = function () {
 		},
 		{
 			name: msg.category.meta,
-			id: 'meta',
+			id: 'metadata',
 			href: 'metadata'
 		},
 		{
@@ -720,14 +728,12 @@ KB.prototype.generateCategoryList = function () {
 		{
 			name: msg.category.script,
 			id: 'script',
-			href: 'script',
-			cat: 'Scripted Content and Forms'
+			href: 'script'
 		},
 		{
 			name: msg.category.sync,
-			id: 'sync',
-			href: 'sync-media',
-			cat: 'Synchronized Multimedia'
+			id: 'sync-media',
+			href: 'sync-media'
 		},
 		{
 			name: msg.category.tts,
@@ -754,7 +760,7 @@ KB.prototype.generateCategoryList = function () {
 	
 		cat_list += '<li id="' + categories[i].id + '-link"';
 		
-		var isActiveCategory = (page_info.category.includes(categories[i].name) || page_info.category.includes(categories[i].cat)) ? true : false;
+		var isActiveCategory = page_info.category.includes(categories[i].id) ? true : false;
 		
 		// highlight if the active category
 		
@@ -784,7 +790,9 @@ KB.prototype.generateCategoryList = function () {
 				
 				index_url += 'index.html'
 				
-				cat_list += '<li><a href="' + index_url + '">' + page_info.category[x] + '</a></li>';
+				var category = findCategory(topic_list, page_info.category[x]);
+				
+				cat_list += '<li><a href="' + index_url + '">' + category.title + '</a></li>';
 			}
 			
 			cat_list += '</ol>';
@@ -1306,7 +1314,7 @@ KB.prototype.createLinkList = function(topic, isRoot) {
 			
 			if (topic.topics[j].hasOwnProperty('href-override')) {
 				// for linking to topics in a separate directory
-				a.setAttribute('href', '/publishing/docs/' + topic.topics[j]['href-override']);
+				a.setAttribute('href', this.kb_root + topic.topics[j]['href-override']);
 			}
 			
 			else {
@@ -1347,7 +1355,7 @@ function wcagLink(match, p1) {
 		return '<span class="wcag-level">[WCAG ' + p1 + ']</span>';
 	}
 	else {
-		return '<span class="wcag-level">[<a href="/publishing/docs/wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
+		return '<span class="wcag-level">[<a href="/publishing/' + (lang == 'en' ? 'docs/' : lang + '/') + 'wcag/' + sc_map[p1].id + '.html">WCAG ' + p1 + ' - ' + sc_map[p1].level + '</a>]</span>';
 	}
 }
 
@@ -1467,7 +1475,7 @@ const loadPage = async () => {
 	
 	kb.writeTemplate();
 	
-	document.documentElement.classList.remove('hidden');
+	document.documentElement.style.display = 'block';
 	
 	// ensure target location gets scrolled into view
 	var hash = window.location.hash;
@@ -1525,74 +1533,5 @@ const loadPage = async () => {
 		script.setAttribute('src', '/js/google-clean.js');
 	
 	document.body.insertAdjacentElement('beforeEnd', script);
-}
 
-
-/* adds initial hidden class */
-
-function createCSSSelector (selector, style) {
-	
-	if (!document.styleSheets) return;
-	
-	if (document.getElementsByTagName('head').length == 0) return;
-	
-	var styleSheet,mediaType;
-	
-	if (document.styleSheets.length > 0) {
-		for (var i = 0, l = document.styleSheets.length; i < l; i++) {
-		if (document.styleSheets[i].disabled) 
-		continue;
-		var media = document.styleSheets[i].media;
-		mediaType = typeof media;
-		
-		if (mediaType === 'string') {
-			if (media === '' || (media.indexOf('screen') !== -1)) {
-				styleSheet = document.styleSheets[i];
-			}
-		}
-		else if (mediaType=='object') {
-			if (media.mediaText === '' || (media.mediaText.indexOf('screen') !== -1)) {
-				styleSheet = document.styleSheets[i];
-			}
-		}
-		
-		if (typeof styleSheet !== 'undefined') 
-			break;
-		}
-	}
-	
-	if (typeof styleSheet === 'undefined') {
-		var styleSheetElement = document.createElement('style');
-		styleSheetElement.type = 'text/css';
-		document.getElementsByTagName('head')[0].appendChild(styleSheetElement);
-		
-		for (i = 0; i < document.styleSheets.length; i++) {
-			if (document.styleSheets[i].disabled) {
-				continue;
-			}
-			styleSheet = document.styleSheets[i];
-		}
-		
-		mediaType = typeof styleSheet.media;
-	}
-	
-	if (mediaType === 'string') {
-		for (var i = 0, l = styleSheet.rules.length; i < l; i++) {
-			if(styleSheet.rules[i].selectorText && styleSheet.rules[i].selectorText.toLowerCase()==selector.toLowerCase()) {
-				styleSheet.rules[i].style.cssText = style;
-				return;
-			}
-		}
-		styleSheet.addRule(selector,style);
-	}
-	else if (mediaType === 'object') {
-		var styleSheetLength = (styleSheet.cssRules) ? styleSheet.cssRules.length : 0;
-		for (var i = 0; i < styleSheetLength; i++) {
-			if (styleSheet.cssRules[i].selectorText && styleSheet.cssRules[i].selectorText.toLowerCase() == selector.toLowerCase()) {
-				styleSheet.cssRules[i].style.cssText = style;
-				return;
-			}
-		}
-		styleSheet.insertRule(selector + '{' + style + '}', styleSheetLength);
-	}
 }

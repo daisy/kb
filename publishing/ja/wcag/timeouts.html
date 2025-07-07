@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>タイムアウト</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.2.6 Timeouts">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.2.6</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>フォーム</li>
+								<li>インタラクティブなコンテンツ</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>データの損失を引き起こす恐れのある利用者の無操作の残り時間が警告される。ただし、利用者が20時間以上何もしなくてもデータが保持される場合は、この限りではない。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html">達成基準2.2.6の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#timeouts">達成基準2.2.6を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td>WCAG には現在、この達成基準に関して次の文書化されていない達成方法のみが含まれています。<ul>
+<li>少なくとも 20時間の非アクティブ後にセッションタイムアウトが発生するように設定します。</li>
+<li>ユーザーデータを20時間以上保存します。</li>
+<li>プロセスの開始時に、ユーザーの非アクティブ時間の警告を表示します。</li>
+</ul>
+</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、たとえば、認知障害のある読者が、コンテンツを読んで理解し、操作するのに、通常よりも多くの時間を必要とする可能性があるため、タイムアウトが発生する（つまり、データが失われる）前に、どれだけの時間があるかを、ユーザーが認識できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>タイムアウトは通常、セキュリティ対策としてWebに組み込まれているため（つまり、ユーザーが終了時にログアウトし忘れた場合にセッションを終了するため)、デジタル出版物でタイムアウトを使用することは一般的ではありません。</p>
+				
+				<p>コンテンツ製作者はタイムアウトを設ける場合（たとえば、埋め込まれたゲームまたはアプリケーション内）、ユーザーがコンテンツを操作する前に、タイムアウトが発生するまでの時間をユーザーに認識させる必要があります。タイムアウトまでの時間の長さは、たとえばゲームの説明に記載できます。</p>
+				
+				<p>しかし、一般的には、セキュリティ上の特別な懸念がない限り、タイムアウトを避けるのが最善です。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/timers.html">タイマー</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

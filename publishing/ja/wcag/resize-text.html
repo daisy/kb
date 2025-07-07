@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>テキストのサイズ変更</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.4 Resize text">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.4</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>テキスト</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>キャプション及び文字画像を除き、テキストは、コンテンツ又は機能を損なうことなく、支援技術なしで200%までサイズ変更できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">達成基準1.4.4の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#resize-text">達成基準1.4.4を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C12">C12：フォントサイズにパーセントを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C13">C13：名前付きフォントサイズを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C14">C14：フォントサイズに em 単位を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C28">C28：em 単位を用いて、テキストコンテナのサイズを指定する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G142">G142：ズーム機能をサポートする一般に入手可能なユーザエージェントのあるウェブコンテンツ技術を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G146">G146：リキッドレイアウトを使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G178">G178：利用者がウェブページ上のすべてのテキストを 200％まで徐々に変更できるコントロールをウェブページ上で提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G179">G179：文字サイズを変更し、かつテキストコンテナの幅を変更しないときに、コンテンツ又は機能が損なわれないようにする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR34">SCR34：テキストサイズに応じて拡大縮小するように、サイズ及びポジションを定める</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、さまざまな程度の視覚障害を持つユーザーがニーズに合わせてテキストを拡大できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>リフロー型のEPUB出版物の製作者は、フォントやコンテナ要素をピクセルなどの絶対的な単位で定義しないようにする必要があります。emsやパーセントなどの柔軟な単位を使用することで、ユーザーがフォント サイズを変更してもテキストを読みやすいままにできます （たとえば、近くの要素と重なったり、境界要素によって切り取られたりしません）。</p>
+				
+				<p>リーディングシステムでユーザーがコンテンツを拡大できるため、固定レイアウトのEPUBでは、通常この達成基準は問題になりません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../css/text-resize.html">文字サイズの変更</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

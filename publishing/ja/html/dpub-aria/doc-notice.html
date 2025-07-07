@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-notice</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-notice role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['html', 'dpub-aria'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">アクションやイベントから生じる可能性のある結果をユーザーに通知します。例としては、警告、注意、危険などがあります。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — 見出し付きの通知</div>
+						<p>ラベルは<code>aria-labelledby</code>属性で識別します。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;div role="doc-notice" class="danger" aria-labelledby="alert01"&gt;
+   &lt;img id="alert01" src="warn.jpg" alt="Warning"/&gt;
+   &lt;p&gt;Serious bodily injury may result …&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">例2 — 見出しのない通知</div>
+						<p>ラベルは<code>aria-label</code>属性で提供します。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;div role="doc-notice" class="warning" aria-label="warning"&gt;
+   &lt;p&gt;Exercise caution when mixing …&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-notice</code>は、<a href="https://www.w3.org/TR/wai-aria/#note">noteロール</a>からセマンティクスを継承します。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-notice</code>は通常、 <code>div</code>要素で使用します。このロールは、色が重要度の主な指標として使用される場合に特に便利です（たとえば、警告には黄色の枠線が、危険には赤色の枠線が、明示的なラベルの代わりに使用される場合があります）。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-notice">DPUB-ARIA — <code>doc-notice</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

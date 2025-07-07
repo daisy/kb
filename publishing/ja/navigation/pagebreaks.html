@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ページ区切りマーカー（Page Break Markers）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for including page break markers in digital publications.">
+		<script>
+			var page_info = {
+				'category': 'nav',
+				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2'],
+				'related': ['nav-pagenav','nav-pagelist','nav-pagesrc']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>ページ区切りマーカーの追加によって、デジタル出版物のユーザーは（紙媒体の）静的ページに対応する位置を見つけられるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>テキスト内のページ区切り位置を識別します。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — ページ区切りマーカー (インライン)</div>
+						<p>空の<code>span</code>要素を用いてブロック要素内におけるページ区切りを示します。<code>role</code>属性に<code>doc-pagebreak</code>値を用いてページ区切りを示します。<code>aria-label</code>属性で音声で提示する値を指定します。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;
+   …
+   &lt;span
+       role="doc-pagebreak"
+       id="pg24"
+       aria-label="24"/&gt;
+   …
+&lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — ページ区切りマーカー (ブロック)</div>
+						
+						<p>インライン要素が許可されていない場所では、<code>div</code>要素でページ区切りを示します。この例では、ページ番号はコンテンツ内に表示されます。</p>
+						
+						<p>（現在、番号が表示されている場合でも<code>aria-label</code>が必要なことに注意してください。DPUB-ARIAモジュールの将来のバージョンでは、ラベルが指定されていない場合でも要素のコンテンツからページ番号を自動的に取得するように修正される予定です。）</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" aria-label="page 24" id="pg24"&gt;24&lt;/div&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-pb-001">電子書籍の内容の順序が印刷版の順序と正確に一致しない場合はどうなりますか？</dt>
+					<dd>
+<p>デジタルへの変換時に、前後の資料が入れ替わったり省略されたりすることがあります。このようなコンテンツの順序変更は予想外とはいえず、電子書籍が印刷物とまったく同じ形式にならない点や、印刷物のすべてのコンテンツが含まれないかもしれないという点をユーザーは受け入れるでしょう。</p>
+						<p>デジタル版の順序が印刷版のソースと異なる場合、ページ区切りマーカーを連続番号になるようにつけなおさないでください。ページ区切りマーカーの目的は、ユーザーが印刷版と同じ場所を見つけやすくすることです。</p>
+						<p>一部のコンテンツがデジタル版で異なる順序になっている場合、またはデジタル版に含まれていない場合は、出版物の<a href="../metadata/schema-org.html#accessibilitySummary">アクセシビリティサマリー</a>にその旨を記載するのがベストプラクティスです。</p>
+					</dd>
+					
+					<dt id="faq-pb-002">ページ番号はページの終了位置を示していますか、それともページの開始位置を示していますか？</dt>
+					<dd>
+<p>ページ番号は常にページの開始位置を示します。</p>
+					</dd>
+					
+					<dt id="faq-pb-003">ページ区切りマーカーの配置は印刷位置に従う必要がありますか？</dt>
+					<dd>
+<p>いいえ、印刷版においてページ番号がページの上部に印刷されているか下部に印刷されているかには関係なく、ページ区切りマーカーは常にページコンテンツの先頭に配置します。ユーザーが特定のページにジャンプする場合、該当ページのコンテンツ末尾ではなく先頭にジャンプしたいはずです。</p>
+					</dd>
+					
+					<dt id="faq-pb-004">ページ番号をコンテンツとして含めるべきでしょうか、それとも空の要素として含めるべきでしょうか？</dt>
+					<dd>
+<p>それぞれの方法には長所と短所があります。</p>
+						<p>ページ番号を<code>span</code>または<code>div</code>内のテキスト コンテンツとして含めると、目の見えるユーザーと支援技術を使用するユーザーの両方がページにアクセスしやすくなります。この方法は、以前のDAISY標準で採用されていました。ただし、潜在的な欠点があり、主流のユーザーエージェントが不要なコンテンツをオフにする機能を提供しないため、ユーザーはページ番号の見たり聞いたりを強いられてしまいます。</p>
+						<p>ページ番号を空要素として使うのは、従来の主流アプローチであり、以前はアンカータグがこの機能を果たしていました。ただし、<code>aria-label</code>属性を空要素に使用すると、読んでいるときにページ番号にアクセスできない場合があります。</p>
+						<p>ユーザーエージェントがページ番号の表示切り替えをサポートしていなくても、JavaScriptを使ってこの機能を提供できます。各ドキュメントに番号を表示/非表示にするスクリプトを組み込めます。</p>
+					</dd>
+					
+					<dt id="faq-pb-005">ページ番号には<code>aria-label</code>と<code>title</code>属性のどちらを使用すればよいでしょうか？</dt>
+					<dd>
+						<p>ページ番号がテキストコンテンツとして含まれていない場合は<code>aria-label</code>の使用が推奨されますが、両方の属性を使用することもできます。 <a>アクセシブルな名前の計算アルゴリズム</a>において、<code>aria-label</code>は、<code>title</code>よりも優先されます。</p>
+					</dd>
+					
+					<dt id="faq-pb-006">リストの途中でページ区切りが発生した場合、ページ番号はどこに配置すればよいですか？</dt>
+					<dd>
+<p>リストがページをまたいで分割され、1 つの項目がページの下部で終了し、新しい項目が次のページの先頭で始まることはよくあります。このような場合、リストにリスト項目以外のものを含めることはできないため、2 つのリスト項目の間にページ番号をつけることはできません。</p>
+						<p>明らかな解決策は、ページを終了する項目の最後の要素としてページ番号を挿入することです。</p>
+						<pre><code>&lt;li&gt;…. &lt;span role="doc-pagebreak" aria-label="24"/&gt;&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+</code></pre>
+						<p>または、ページを開始するリスト項目の最初の要素として配置することです。</p>
+						<pre><code>&lt;li&gt;…&lt;/li&gt;
+&lt;li&gt;&lt;span role="doc-pagebreak" aria-label="24"/&gt; … &lt;/li&gt;
+</code></pre>
+						<p>ただし、ページ区切りのためだけに新しいリスト項目は作成しないでください。ページ区切りは多くの場合、表示されないコンテンツであるため、空のリスト項目があるとすべてのユーザーを混乱させ、リストの意味を変えてしまう可能性があります。</p>
+					</dd>
+					
+					<dt id="faq-pb-007">単語がページをまたいでハイフンで区切られている場合、どこにページ区切りを入れればよいでしょうか？</dt>
+					<dd><p>ページ区切りを単語の後に置きます。印刷用のハイフンをそのまま使用したり、単語の途中に番号を挿入したりしないでください。</p></dd>
+					
+					<dt id="faq-pb-009">見出し内にページ区切りを入れることはできますか？</dt>
+					<dd>
+						<p>いいえ、見出し内にページ区切りを入れないでください。これを行うと、ページ番号がセクションのアクセス可能な名前の一部になります（つまり、見出しのテキストコンテンツの一部として扱われてしまいます）。</p>
+						<p>ページ区切り番号を見出しタグの前に置きます。ページ区切り用に空の要素を使用している場合（つまり、<a>例１</a>のように値が<code>title</code>属性にある場合）、ページ区切りを見出しの前に移動しても、レイアウトに余分なスペースは追加されません。</p>
+					</dd>
+					
+					<dt id="faq-pb-008">ページ番号に<code>a</code>タグを使用できますか？</dt>
+					<dd>
+<p><code>a</code>要素には、HTML5で定義されている２つの特定の用途があります。href属性が存在する場合はリンク用、 <code>href</code>属性が存在しない場合はプレースホルダー リンク用です（たとえば、別のコンテキストでアクティブになるか、ユーザーによる何らかの操作の後にアクティブになる可能性のあるリンク）。ページ区切りはリンクではなく、リンクとしてアクティブになることを意図していないため、ページ区切りマーカーとして使用することはお勧めしません。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>電子出版物が印刷文書と同じワークフローで作成される場合、ページ区切り位置を保持する必要があります。ページ区切り位置を保持し、<a href="./pagelist.html">ページリスト</a>を提供すると、支援技術やリーディングシステムはユーザーが現在いるページを提示でき、ユーザーはページ単位で前後に移動できるようになります。</p>
+				
+				<p>ページ区切り位置は、 <code>role</code>属性の値を<code>doc-pagebreak</code>に設定した<code>span</code>タグと<code>div</code>タグを使用してマークアップに追加できます。</p>
+				
+				<pre id="expl-pb-01-src" class="prettyprint linenums"><code>&lt;div role="doc-pagebreak" id="pg2"&gt;2&lt;/div&gt;</code></pre>
+				
+				<p>ページ番号を視覚的に表示しないようにするには、 <code>aria-label</code>属性を使用して番号を識別します。</p>
+				
+				<pre id="expl-pb-02-src" class="prettyprint linenums"><code>&lt;span role="doc-pagebreak" id="pg5" aria-label="5"/&gt;</code></pre>
+				
+				<p>ページ区切りの<code>id</code>属性を使用すると、ページリストからこの位置にリンクできます。</p>
+				
+				<p>ページ区切りは、従来、アクセシビリティの目的（つまり、電子版を使用する必要があるユーザーが印刷版を使用するユーザーと同じ箇所に移動できるようにするため）で保持されてきましたが、一般的なユーザーにも補助使用されるようになってきています。デジタルのみの出版物（つまり、静的なページ番号が付けられたソースがない出版物）はしばしば、ユーザーが位置移動しやすくするために、ページ区切りマーカーが組み込まれます。</p>
+				
+				<div class="note" role="note" aria-labelledby="epub2-pb-note">
+					<p id="epub2-pb-note" class="label">注記</p>
+					
+					<p>EPUB 2では、XHTML 1.1がARIA <code>role</code>も<code>epub:type</code>属性もサポートしていないため、コンテンツ内のページ区切り位置を識別するセマンティクスは組み込めません。</p>
+				</div>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a>
+</li>
+					<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-pagebreak">doc-pagebreak プロパティ</a>
+</li>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub-ssv/#pagebreak">pagebreak プロパティ</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

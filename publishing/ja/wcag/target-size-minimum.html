@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ターゲットのサイズ（最低限）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.5.8 Target Size (Minimum)">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'details': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.2以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.5.8</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>インタラクティブなコンテンツ</li>
+								<li>リンク</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ポインタ入力のターゲットのサイズは、少なくとも24×24　CSSピクセルである。ただし、次の場合は除く。</p>
+							
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span> 例外を見る</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>間隔：</dt>
+										<dd>
+											<p>ターゲットの間隔は、隣接する全てのターゲットに対して少なくとも24 CSSピクセルである。</p>
+										</dd>
+										
+										<dt>インライン：</dt>
+										<dd>
+											<p>ターゲットがセンテンスやブロックのテキストの中に存在する。</p>
+										</dd>
+										
+										<dt>必要不可欠：</dt>
+										<dd>
+											<p>伝達される情報について、ターゲットを特定の方法で提示するのが必要不可欠である。</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">達成基準2.5.8の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum">達成基準2.5.8を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">WCAG 2.2の達成基準に対応する達成方法はまだ利用できません。</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、小さなターゲットをアクティブ化する能力または器用さに困難のあるユーザーを支援することです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、ユーザーがアクティブ化できるターゲット領域のあるすべての項目を確認し、それらのサイズが24ピクセルx24ピクセル以上であるようにする必要があります。</p>
+				
+				<p>出版社は、ターゲットが表示されるコンテキストに注意する必要があります。たとえば、テキストの段落内のリンクはこの要件の適用外ですが、リンクのリストには適用されます。出版社は、リンクの幅にも注意する必要があります。たとえば、目次に章番号のみが記載されている場合、ターゲット領域を24ピクセルにするためにパディングが必要になる場合があります（たとえば、フォントによっては、「1」のリンクの幅が1ピクセルしかない場合があります）。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/images-icons.html">アイコン</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

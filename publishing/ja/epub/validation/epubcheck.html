@@ -7,10 +7,9 @@
 		<meta name="description" content="Overview of using the EPUBCheck validator to verify conformance.">
 		<script>
 			var page_info = {
-				'category':[ 'EPUB', 'Validation'],
+				'category': ['epub','epub-validation'],
 				'appliesTo':[ 'EPUB3', 'EPUB2']
-			};
-		</script>
+			};</script>
 		<script src="/js/init.js"></script>
 	</head>
 	<body>
@@ -45,19 +44,19 @@
 <code>-jar path\to\epubcheck.jar</code> — 最初の引数は、EPUBCheckプログラムを含む Java jar ファイル ( <code>epubcheck.jar</code> ) への参照です。このファイルを参照するために使用される正確なパスは、EPUBCheckがインストールされている場所と、EPUBCheckが実行されるディレクトリによって異なります。</li>
 					
 					<li>
-<code>publication.epub</code> — 2番目の引数は、チェックするパッケージ化されたEPUB出版物の名前です。EPUBCheckが実行されるディレクトリと同じディレクトリにない場合は、ファイルへのフルパスを指定する必要があります。</li>
+<code>publication.epub</code> — 2番目の引数は、チェック対象のパッケージ化されたEPUB出版物の名前です。EPUBCheckが実行されるディレクトリと同じディレクトリにない場合は、ファイルへのフルパスを指定してください。</li>
 				</ol>
 				
-				<p>以下は、コマンドラインからEPUBCheckを呼び出して<code>accessible_epub_3.epub</code>ファイルを検証する方法の例です。</p>
+				<p>以下は、コマンドラインからEPUBCheckを呼び出し<code>accessible_epub_3.epub</code>のファイルを検証する例です。</p>
 				
-				<pre class="console">&gt; java -jar epubcheck.jar -mode exp -s accessible_epub_3</pre>
+				<pre class="console">&gt; java -jar c:\epubcheck\epubcheck.jar c:\epubs\accessible_epub_3.epub</pre>
 				
 				<div class="note" role="note" aria-labelledby="ec-note-02">
-					<p id="ec-note-02" class="label">情報（Info）</p>
-					<p>読みやすさを考慮して、このページの残りの例では、 <code>epubcheck.jar</code>ファイルとチェック対象の出版物への完全なパスは省略されています。</p>
+					<p id="ec-note-02" class="label">注記</p>
+					<p>このページの残りの例では、 <code>epubcheck.jar</code>ファイルとチェック対象の出版物への完全なパスは、読みやすさを考慮し省略しています。</p>
 				</div>
 				
-				<p>EPUBCheckで問題が検出されない場合は、次のような一連のメッセージが表示されます。</p>
+				<p>EPUBCheckで全く問題が検出されない場合には、次のような一連のメッセージが表示されます。</p>
 				
 				<pre class="console">Validating using EPUB version 3.2 rules.
 No errors or warnings detected.
@@ -65,13 +64,13 @@ Messages: 0 fatals / 0 errors / 0 warnings / 0 infos
 
 EPUBCheck completed</pre>
 				
-				<p>最初の行は、検証するEPUBのバージョンを指定します。前の例の場合、プログラムはEPUB 3.2の要件に照らしてチェックしています。</p>
+				<p>最初の行には、検証するEPUBのバージョン番号が表示されます。前の例の場合、プログラムはEPUB 3.2の要件に照らしてチェックしています。</p>
 				
-				<p>次の2行は問題が見つからなかったことを示していますが、問題がある場合はここに報告されます。</p>
+				<p>次の2行は問題が見つからなかったことを示していますが、問題がある場合にはここに報告内容が表示されます。</p>
 				
-				<p>最後のステートメントは、プログラムが正常に終了したことを確認するだけです。</p>
+				<p>最後のステートメントは、プログラムの正常終了を示しています。</p>
 				
-				<p>出版物のアクセシビリティのチェックに進む前に、クリーンな検証結果を得ることが望ましいです。ただし、実際には、EPUBCheckでは、最初に修正が必要な警告やエラーが見つかることがよくあります。</p>
+				<p>出版物のアクセシビリティのチェックに進む前に、検証結果をクリーンな状態にしておくと良いでしょう。実際に、EPUBCheckではしばしば最初に修正が必要な警告やエラーが見つかります。</p>
 				
 				<p>以下はマークアップエラーを含むレポートの例です。</p>
 				
@@ -84,15 +83,15 @@ Messages: 0 fatals / 1 error / 0 warnings / 0 infos
 
 EPUBCheck completed</pre>
 				
-				<p>EPUBCheckのエラーメッセージは、エラーを含むファイル ( <code>accessible_epub_3.epub/EPUB/ch01.xhtml</code> ) と、エラーが発生した行番号 ( <code>98</code> ) および文字オフセット ( <code>5</code> ) の両方を示します。また、問題を説明する簡単なメッセージも提供します。この場合、次のファイルのスクリーンショットに示すように、 <code>p</code>タグが許可されていない場所で使用されています。</p>
+				<p>EPUBCheckのエラーメッセージには、エラーを含むファイル (<code>accessible_epub_3.epub/EPUB/ch01.xhtml</code>) と、エラーが発生した行番号 (<code>98</code>) 、および文字のオフセット位置 (<code>5</code>) が提示されます。また、問題を説明する簡単なメッセージも表示します。この場合、次のファイルのスクリーンショットに示すように、 <code>p</code>タグが許可されていない場所で使用されています。</p>
 				
-				<img src="../../../../graphics/publishing/epubcheck/epubcheck-markup-error.png" width="450" alt="pタグが、body終了タグの後に含まれる">
+				<img src="../../graphics/epubcheck/epubcheck-markup-error.png" width="450" alt="pタグが、body終了タグの後に含まれる">
 				
-				<p>残念ながら、すべてのメッセージがこのように簡単に理解できるわけではなく、EPUBCheckが有用な行番号や文字オフセットを提供しない場合もあります (たとえば、問題が特定の場所に追跡できない場合、 <code>(-1,-1)</code>が報告されることがよくあります)。その結果、エラーを修正するには、多くの場合、ある程度の調査作業が必要になります。</p>
+				<p>残念ながら、すべてのメッセージがこのように簡単に理解できるわけではありません。EPUBCheckが有用な行番号や文字オフセット位置を提示できない場合もあります (たとえば、問題の箇所を特定できない場合には、しばしば<code>(-1,-1)</code>が報告されます)。このため、エラーを修正するにはある程度の調査作業が必要になります。</p>
 				
-				<p>EPUBCheckが出力するメッセージ数は、報告される数値が誤解を招くことが多いですが、実行間で問題が解決されているかどうかを追跡するのに便利です。</p>
+				<p>報告される数値が誤解を招くこともありますが、EPUBCheckが出力するメッセージ数は、実行間で問題が解決されたかを確認するのに便利です。</p>
 				
-				<p>たとえば、1つのマークアップエラーが他の多くのエラーの原因となる可能性があるため、1 つの問題を修正すると、他の多くの問題またはすべて解消される可能性があります。すでに解決されている問題を探すのに時間を費やさないように、バグを修正するときは、頻繁に出版物を再検証することをお勧めします。</p>
+				<p>たとえば、1つのマークアップエラーは他の多くのエラーの原因となっている可能性があります。1つの問題を修正すると、他の多くの問題やすべての問題が解消されるかもしれません。すでに解決されている問題を探すのに時間を費やさないように、バグを修正するときは、頻繁に出版物を再検証する方法がお勧めです。</p>
 				
 				<p>また、EPUBCheckが提起するすべての問題を修正しなければならないわけではありません。これについては、次のメッセージの深刻度に関するセクションで説明します。</p>
 			</section>
@@ -100,7 +99,7 @@ EPUBCheck completed</pre>
 			<section id="messages">
 				<h3>メッセージの深刻度</h3>
 				
-				<p>EPUBCheckは5つの異なるカテゴリのメッセージを報告します。4つはデフォルトで出力され、1つのタイプ（<a href="#arg-usage">使用方法（usage）メッセージ）</a>は引数でオンにする必要があります。これらのカテゴリは、報告されている問題の深刻度を反映しており、最も深刻度が高いのは致命的（fatal）、最も低いのは情報（info）です。</p>
+				<p>EPUBCheckは5つの異なるカテゴリのメッセージを報告します。4つはデフォルトで出力され、1つのタイプ<a href="#arg-usage">使用方法（usage）メッセージ）</a>は引数で有効に指定する必要があります。これらのカテゴリは、報告されている問題の深刻度を反映しており、最も深刻度が高いのは致命的（fatal）、最も低いのは情報（info）です。</p>
 				
 				<p>EPUBCheckによって報告される各問題は、次のいずれかのラベルで始まります。</p>
 				
@@ -113,14 +112,14 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 				
 				<pre class="console">Messages: 2 fatals / 4 error / 18 warnings / 1 infos / 147 usages</pre>
 				
-				<p>各カテゴリーの意味は以下のリストで説明されています。</p>
+				<p>各カテゴリーの意味は以下の通りです。</p>
 				
 				<dl class="value">
 					<dt>致命的（Fatal）</dt>
 					<dd>
-						<p>致命的なエラーは、最も深刻な問題に対して発行されます。致命的なエラーとは、リーディングシステムが出版物を開けなくなるエラー（パッケージの問題など）、またはコンテンツが読み取れなくなるエラー（コンテンツ内の致命的ななXMLエラーなど）です。</p>
+						<p>致命的なエラーは、最も深刻な問題に対して発生します。致命的なエラーとは、リーディングシステムが出版物を開けなくなるエラー（パッケージの問題等）、またはコンテンツが読み取れなくなるエラー（コンテンツ内の致命的ななXMLエラー等）です。</p>
 						
-						<p>出版物の使いやすさを確保するには、致命的なエラーを修正する必要があります。</p>
+						<p>出版物を利用できるようにするには、致命的なエラーを修正しなければなりません。</p>
 					</dd>
 					
 					<dt>エラー（Error）</dt>
@@ -132,7 +131,7 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 					
 					<dt>警告（Warning）</dt>
 					<dd>
-						<p>警告はエラーの1つ下のレベルです。警告は、EPUB規格の推奨される方法からの逸脱を識別します。警告のある出版物は規格に準拠しないわけではなく、意図しないレンダリングの問題もない可能性がありますが、推奨される方法に従わないと相互運用性の問題が発生する可能性があります。</p>
+						<p>警告はエラーの1つ下のレベルです。警告は、EPUB規格の推奨される方法からの逸脱を識別します。警告のある出版物は規格に準拠しないわけではなく、また意図しないレンダリングの問題も起きないかもしれませんが、推奨される方法に従わないと相互運用性の問題が生じるかもしれません。</p>
 						
 						<p>警告を修正することは必須ではありませんが、一般的には推奨される方法に従うことをお勧めします。多くのベンダーは警告のある出版物を受け入れません。</p>
 					</dd>
@@ -141,25 +140,25 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 					<dd>
 						<p>情報メッセージは、EPUBCheckによってデフォルトで出力される最も低レベルのメッセージです。これらのメッセージは通常、EPUBCheck自体の問題に関する警告を提供します（たとえば、ファイルを解読してチェックできない可能性がある、または潜在的な問題が検討中であるなど）。これらは一般的ではありません。</p>
 						
-						<p>情報メッセージは必ずしも何らかのアクションを必要とするわけではありませんが、EPUBCheckにどのような問題があったかを確認するために確認することが重要です。</p>
+						<p>情報メッセージに必ずしも何らかの対応が必要となるわけではありませんが、EPUBCheckにどのような問題があったかの確認は重要です。</p>
 					</dd>
 					
 					<dt>使用方法（Usage）</dt>
 					<dd>
-						<p>使用方法メッセージはベストプラクティスに似ています。推奨される使用方法を示しますが、必ずしもガイドラインに従う必要はありません。出版物によっては、EPUBCheckが大量の使用方法メッセージを発行することがあるため、デフォルトではオフになっています。</p>
+						<p>使用方法メッセージはベストプラクティスに似ています。推奨される使用方法を示しますが、必ずしもガイドラインに従う必要はありません。出版物によっては、EPUBCheckによって大量の使用方法メッセージを提示されることがあるため、デフォルトでは出力が無効化されています。</p>
 						
-						<p>使用方法メッセージのリストを取得するには、EPUBCheckを起動するときに使用方法フラグ ( <code>-u</code> ) を設定する必要があります。</p>
+						<p>使用方法メッセージのリストを出力するには、EPUBCheckを起動するときに使用方法出力フラグ ( <code>-u</code> ) を設定する必要があります。</p>
 						
-						<p>すべての使用方法メッセージを修正する必要はありませんが、強調されているベストプラクティスに従うことを検討する必要があります。</p>
+						<p>すべての使用方法メッセージを修正する必要はありませんが、強調されているベストプラクティスに従うことを検討してください。</p>
 					</dd>
 				</dl>
 				
 				<div role="note" class="note" id="wcag-req" aria-labelledby="wcag-note">
 					<p id="wcag-note" class="label">WCAG解析要件</p>
 					
-					<p>一般的に、EPUB出版物のエラーを修正することがベストプラクティスですが、WCAGは厳密な準拠を強制しません。すべてのエラーがコンテンツのアクセシブルな読み取りに重大な影響を与えるわけではありません。</p>
+					<p>一般的に、EPUB出版物のエラーを修正するのがベストプラクティスですが、WCAGは厳密な準拠を強制しません。（すべてのエラーがコンテンツのアクセシブルな読書に重大な影響を与えるわけではありません。）</p>
 					
-					<p>WCAGでは、エラーや警告がアクセシビリティの問題を引き起こすものである場合にのみ、準拠しないコンテンツを修正することが求められます。次に例を示します。</p>
+					<p>WCAGでは、エラーや警告がアクセシビリティの問題を引き起こす場合に限り、準拠しないコンテンツの修正が求められます。次に例を示します。</p>
 					
 					<ul>
 						<li>ARIA属性参照が使えなくなる重複ID（例: カスタム コントロールまたは説明リンク内）</li>
@@ -167,7 +166,7 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 						<li>要素に複数の<code>role</code>属性が指定されている。</li>
 					</ul>
 					
-					<p>過去には、<a href="https://www.w3.org/TR/WCAG2/#parsing">達成基準 4.1.1</a>は、支援技術による文書処理能力に影響を与える可能性のあるHTML解析エラー（整形エラーなど）の包括的な基準として使用されていました。最新のHTML解析では、これらの整形エラーの処理方法が標準化されているため、4.1.1 は常に適合性評価に合格します。上記のような出版物のアクセシビリティに影響を与える解析エラーは、他の達成基準でカバーされており、より適切な達成基準に基づいて報告する必要があります。</p>
+					<p>過去には、<a href="https://www.w3.org/TR/WCAG2/#parsing">達成基準 4.1.1</a>は、支援技術による文書処理能力に影響を与える可能性のあるHTML解析エラー（整形エラーなど）の包括的な基準として使用されていました。最新のHTML解析では、これらの整形エラーの処理方法が標準化されているため、4.1.1 は常に適合性評価に合格します。上記のような出版物のアクセシビリティに影響を与える解析エラーは、他の達成基準でカバーされており、より適切な達成基準に基づいて報告されるべきです。</p>
 					
 					<p>詳細については、<a href="../../wcag/parsing.html">達成基準 4.1.1 の説明</a>を参照してください。</p>
 				</div> 
@@ -176,14 +175,14 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 			<section id="arg">
 				<h3>引数</h3>
 				
-				<p>引数は、EPUBCheckの実行時に指定できる追加オプションです。引数は通常、EPUBCheck jar ファイルを呼び出した後、検証する出版物またはファイルを指定する前に含められます。</p>
+				<p>引数は、EPUBCheckの実行時に指定できる追加オプションです。引数は通常、EPUBCheck jarファイルを呼び出した後、検証する出版物またはファイルを指定する前に設定します。</p>
 				
-				<p>次の例は、 <code>-u</code>引数を使用して、EPUBCheckの出力に使用方法（usage）メッセージを含めるように要求する方法を示しています。</p>
+				<p>次の例は、 <code>-u</code>引数を使用して、EPUBCheckの出力に使用方法（usage）メッセージを含めるように設定する方法を示しています。</p>
 				
 				<pre class="console">&gt; java -jar epubcheck.jar -u accessible_epub_3.epub</pre>
 				
-				<p>EPUBCheckの引数の多くには、詳細形式と簡潔形式の両方があります。詳細形式では名前の前に2つのダッシュが付きますが、簡潔形式では1つのダッシュの後に文字が続きます。EPUBCheckに使用方法のメッセージを出力させるには、最後の例のように簡潔な<code>-u</code>引数を使用するか、詳細<code>--usage</code>引数を使用します。</p>
-<p>EPUBCheckには、さまざまな方法や目的で実行できるようにする多くの引数が含まれていますが、このセクションでは、最も有用な引数の一部のみを説明します。</p>
+				<p>EPUBCheckの引数の多くには、詳細形式と簡潔形式の両方があります。詳細形式では名前の前に2つのダッシュが付きますが、簡潔形式では1つのダッシュの後に文字が続きます。EPUBCheckに使用方法のメッセージを出力させるには、先の例のように簡潔形式の-u引数を使用するか、詳細形式の--usage引数を指定します。</p>
+<p>EPUBCheckには、さまざまな方法や目的で実行できる多くの引数がありますが、このセクションでは、一部の最も有用な引数について説明します。</p>
 				
 				<div class="note" role="note" aria-labelledby="arg-note">
 					<p id="arg-note" class="label">注記</p>
@@ -197,84 +196,84 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 						
 						<pre class="console">&gt; java -jar epubcheck.jar -v 2.0 ...</pre>
 						
-						<p>EPUBCheckはパッケージドキュメントから正しいバージョンを自動的に判別するため、完全な出版物を検証するときにこの引数を指定する必要はありません。通常、この引数は<a href="#mode">モード引数</a>と組み合わせて、出版物内の個々のファイルを検証するのに使います。</p>
+						<p>EPUBCheckはパッケージドキュメントから正しいバージョンを自動的に判別するため、パッケージ化された出版物を検証するときにこの引数を指定する必要はありません。通常、この引数は<a href="#mode">モード引数</a>と組み合わせて、出版物内の個々のファイルを検証するのに使います。</p>
 						
-						<p>バージョン引数には詳細な形式は<strong>ありません</strong>。 <code>--version</code>の使用は、インストールされている EPUBCheckのバージョンを検出するために予約されています。</p>
+						<p>バージョン引数には詳細な形式はありません。 --versionの引数は、インストールされている EPUBCheckのバージョンを表示するために使用されています。</p>
 					</dd>
 					
 					<dt id="arg-mode">モード ( <code>--mode</code>または<code>-m</code> )</dt>
 					<dd>
-						<p>EPUBCheckは、パッケージ化されたEPUBファイル以外でも実行できます。これらの場合、モード引数は、プログラムが実行する正しいタイプの検証をガイドするために使用されます。</p>
+						<p>EPUBCheckは、パッケージ化されたEPUBファイル以外についても実行できます。このような場合には、モード引数を用いて目的のファイル形式で検証されるように指定します。</p>
 						
-						<p>モード引数は通常、EPUB2パッケージドキュメントを検証するために次の例のように、<a href="#version">バージョン引数</a>とペアになります。</p>
+						<p>モード引数は通常、EPUB2パッケージドキュメントを検証するために次の例のように、<a href="#version">バージョン引数</a>とペアで使用されます。</p>
 						
 						<pre class="console">&gt; java -jar epubcheck.jar -mode opf -v 2.0 package.xml</pre>
 						
-						<p>さまざまなモード値については、次のリストで説明します。</p>
+						<p>さまざまなモードの値については、以下の通りです。</p>
 						
 						<dl>
 							<dt id="mode-opf">opf</dt>
 							<dd>
-								<p><code>opf</code>値は、EPUB 2 または 3 パッケージ ドキュメントが検証されることを示します。</p>
+								<p><code>opf</code>値は、EPUB 2 または 3 パッケージ ドキュメントについての検証を指定します。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode opf -v 3.0 package.xml</pre>
 							</dd>
 							
 							<dt id="mode-xhtml">xhtml</dt>
 							<dd>
-								<p><code>xhtml</code>値は、EPUB 2 または 3 XHTML コンテンツ ドキュメントが検証されることを示します。</p>
+								<p><code>xhtml</code>値は、EPUB 2または3のXHTML コンテンツ ドキュメントについての検証を指定します。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode xhtml -v 3.0 chapter01.xhtml</pre>
 							</dd>
 							
 							<dt id="mode-svg">svg</dt>
 							<dd>
-								<p><code>svg</code>値は、EPUB 2 または 3 SVG コンテンツ ドキュメントが検証されることを示します。</p>
+								<p><code>svg</code>値は、EPUB 2 または 3 SVG コンテンツ ドキュメントについての検証を指定します。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode svg -v 2.0 heart.svg</pre>
 							</dd>
 							
 							<dt id="mode-nav">nav</dt>
 							<dd>
-								<p><code>nav</code>値は、EPUB 3 ナビゲーション ドキュメントが検証されることを示します。</p>
+								<p><code>nav</code>値は、EPUB 3ナビゲーション ドキュメントについての検証を指定します。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode nav nav.xhtml</pre>
 								
-								<p>EPUBCheckは個々の EPUB 2 NCX ドキュメントを検証<strong>しません</strong>。</p>
+								<p>EPUBCheckは個別のEPUB 2 NCXドキュメントの検証は<strong>行いません</strong>。</p>
 							</dd>
 							
 							<dt id="mode-mo">mo</dt>
 							<dd>
-								<p><code>mo</code>値は、EPUB 3 メディア オーバーレイが検証されることを示します。EPUB 2 には同等の機能はありません。</p>
+								<p><code>mo</code>値は、EPUB 3 メディア オーバーレイについての検証を指定します。EPUB 2については同等の機能はありません。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode mo chapter01.smil</pre>
 							</dd>
 							
 							<dt id="mode-exp">exp</dt>
 							<dd>
-								<p><code>exp</code>値は、パッケージ化されていない EPUB 2 または 3 の出版物が検証されることを示すために使用されます (つまり、コンテンツは独自のディレクトリに「展開」されます)。このモードでは、ファイル名の代わりに、解凍されたファイルを含むディレクトリが使用されます。</p>
+								<p><code>exp</code>値は、パッケージ化されていないEPUB 2または3の出版物についての検証を指定します。つまり、コンテンツは独自のディレクトリに「展開」されているものとします。このモードではファイル名の代わりに、解凍されたファイルを含むディレクトリを指定します。</p>
 								
 								<pre class="console">&gt; java -jar epubcheck.jar -mode exp accessible_epub_3</pre>
 								
-								<p>EPUBCheck はパッケージ ドキュメントからバージョンを自動的に判別するため、拡張 EPUB 検証ではバージョン引数を指定する必要はあり<strong>ません</strong>。</p>
+								<p>EPUBCheck はパッケージ ドキュメントからバージョンを自動的に判別するため、展開されたEPUBについての検証ではバージョン引数を指定する必要は<strong>ありません</strong>。</p>
 							</dd>
 						</dl>
 					</dd>
 					
 					<dt id="arg-usage">使用方法メッセージ ( <code>--usage</code>または<code>-u</code> )</dt>
 					<dd>
-						<p><code>メッセージの深刻度</code>に関するセクションで説明したように、使用方法（usage）メッセージはデフォルトではオンになっていません。有効にするには、使用方法（usage）引数を指定する必要があります。</p>
+						<p><code>メッセージの深刻度</code>に関するセクションで説明したように、使用方法メッセージはデフォルトでは有効化されていません。有効にするには、使用方法メッセージの引数を指定しなければなりません。</p>
 						
 						<pre class="console">&gt; java -jar epubcheck.jar -u accessible_epub_3.epub</pre>
 					</dd>
 					
 					<dt id="arg-save">保存 ( <code>--save</code>または<code>-s</code> )</dt>
 					<dd>
-						<p>save 引数は、展開されたディレクトリからパッケージ化された EPUB ファイルを作成するための便利なオプションを提供し、手動で EPUB を圧縮する際に発生する可能性のある問題を回避します。これは、<a href="#mode-exp">展開モード引数</a>が指定されている場合にのみ機能します。</p>
+						<p>保存引数は、展開されたディレクトリよりパッケージ化したEPUBファイルを作成できる便利なオプションで、手動でEPUBを圧縮する際に発生する可能性のある問題が回避できます。これは、<a href="#mode-exp">展開のモード引数</a>が指定されている場合にのみ機能します。</p>
 						
 						<pre class="console">&gt; java -jar epubcheck.jar -mode exp -s accessible_epub_3</pre>
 						
-						<p>EPUBCheck が致命的なエラーやエラーメッセージなしで完了すると、圧縮された EPUB ファイルのコピーが、出版物のフォルダーと同じディレクトリに保存されます（たとえば、フォルダー<code>c:\epubs\accessible_epub_3</code>で実行した場合、保存されたファイルは<code>c:\epubs\accessible_epub_3.epub</code>に保存されます）。</p>
+						<p>EPUBCheckが致命的なエラーやエラーメッセージなしで完了すると、圧縮されたEPUBファイルが、出版物のフォルダーと同じディレクトリに生成されます（たとえば、フォルダー<code>c:\epubs\accessible_epub_3</code>で実行した場合、保存されたファイルは<code>c:\epubs\accessible_epub_3.epub</code>に生成されます）。</p>
 					</dd>
 				</dl>
 			</section>
@@ -282,9 +281,9 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 			<section id="output">
 				<h3>出力のリダイレクト</h3>
 				
-				<p>EPUBCheck からの出力をコマンドライン ウィンドウで読み取るのは、特に処理するメッセージが大量にある場合は難しい場合があります。幸い、すべてのコマンドライン インターフェイスには、プログラムからの出力をキャプチャしてファイルにリダイレクトできる機能があります。テキスト エディターで EPUBCheck メッセージを読み取るのははるかに簡単です。行の折り返しをオフにでき、テキストのスクロールや検索がより簡単になります。</p>
+				<p>メッセージが大量にあると、EPUBCheckの出力をコマンドライン ウィンドウで読み取るのは大変です。幸い、すべてのコマンドライン インターフェイスには、プログラムの出力をキャプチャしてファイルに保存（リダイレクト）する機能があります。テキスト エディターでEPUBCheckのメッセージを読み込む方が遥かにシンプルで、行の折り返しをオフにしたり、テキストのスクロールや検索がより簡単に行えます。</p>
 				
-				<p>EPUBCheck の出力をリダイレクトするには、コマンドの最後に大なり記号 ( <code>&gt;</code> ) を使用し、その後に出力をリダイレクトするファイルを指定します。</p>
+				<p>EPUBCheckの出力を保存するには、コマンドの最後に大なり記号(<code>&gt;</code>)を使用し、その後に出力の保存先ファイルを指定します。</p>
 				
 				<p>次のコマンドは、出力をファイル<code>output.txt</code>にリダイレクトします。</p>
 				
@@ -292,7 +291,7 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 				
 				<p>書き込み可能なディレクトリに出力する以外 (たとえば、オペレーティング システムでは特別なシステム ディレクトリへのファイルの書き込みは許可されません)、出力ファイルの名前やパスに制限はありません。</p>
 				
-				<p>この方法でEPUBCheckを実行するたびに、以前のファイルが新しい結果で上書きされるため、毎回新しいファイル名を指定する必要はありません。多くのテキストエディターでは、EPUBCheckが終了すると新しい出力が自動的に再ロードされるため、プロセスがさらに簡素化されます。</p>
+				<p>この方法でEPUBCheckを実行するたびに、以前のファイルが新しい結果で上書きされるため、毎回新しいファイル名を指定する必要はありません。多くのテキストエディターでは、EPUBCheckが終了すると新しい出力が自動的に再ロードされるため、作業がさらに容易になります。</p>
 			</section>
 			
 			<section id="limitations">
@@ -303,32 +302,31 @@ ERROR(RSC-005): 30/accessible_epub_3.epub/EPUB/ch01.xhtml(91,19): Error while pa
 				<ul>
 					<li>一部の技術、特にCSSについては限定的な検証しか提供されないため、表示に問題が生じる可能性があります。</li>
 					
-					<li>スクリプトが出版物の構造や使いやすさに悪影響を及ぼすかどうかを検証することはできません。</li>
+					<li>スクリプトが出版物の構造や使いやすさに悪影響を及ぼすかどうかは検証できません。</li>
 					
-					<li>アクセシビリティ関連のチェックの多くは含まれていません。ARIA role、states、propertyの正しい使用など、チェックに使用されるコードの複雑さにより、完全ではない可能性があります。</li>
+					<li>アクセシビリティ関連のチェックの多くは含まれていません。ARIAのrole、states、propertyの正しい使用など、チェックに使用されるコードの複雑さにより、完全ではない可能性があります。</li>
 				</ul>
 				
 				<p>そのため、リーディングシステムでEPUBのユーザービリティを手動でチェックすることが常に推奨されます。</p>
 				
-				<p>さらに重要なのは、出版物のアクセシビリティを確保するには、 <a href="ace.html">Ace</a>ツールと<a href="smart.html">SMART</a>ツールも実行する必要があることです。アクセシビリティのテストの詳細については、ナレッジベースのそれぞれのページを参照してください。</p>
+				<p>さらに重要なのは、出版物のアクセシビリティを確保するには、 <a href="ace.html">Ace</a>ツールと<a href="smart.html">SMART</a>ツールも実行する必要がある点です。アクセシビリティのテストの詳細については、ナレッジベースのそれぞれのページを参照してください。</p>
 			</section>
 			
 			<section id="alt">
 				<h3>その他の方法</h3>
 				
-				<p>EPUBCheckをコマンドラインから実行するのが面倒な場合は、より簡単なオプションがあります。次に、よく使用されるその他の方法をいくつか紹介します。</p>
+				<p>EPUBCheckをコマンドラインから実行するのが面倒な場合には、より簡単な方法があります。以下に、よく利用されているいくつかの代わりの方法を紹介します。</p>
 				
 				<ul>
-					<li> <a href="http://validator.idpf.org/">EPUB Validator</a> — DAISYコンソーシアムが管理する無料のオンライン検証ツール。アップロードされたファイルはEPUBCheckで検証され、その結果が新しいWebページに返されます。（商業出版には使用できません。）</li>
-					
 					<li> <a href="https://ebookflightdeck.com/">FlightDeck</a> — ベンダー固有のコンテンツルールにも重点を置いた、Webベースの商用検証ツールです。EPUBCheckエラーの解決方法に関する役立つ追加情報も含まれています。</li>
 					
 					<li> <a href="https://www.oxygenxml.com/xml_editor.html">Oxygen Editor</a> — パッケージ化されたEPUB出版物をチェックするためのEPUBCheckの組み込みバージョンを含む商用ファイルエディター。このプログラムは、パッケージドキュメントやコンテナーファイルなどの EPUB固有のファイルに対して、リアルタイム検証とコード補完も提供します。</li>
 					
-					<li> <a href="https://www.pagina.gmbh/produkte/epub-checker/">Pagina EPUB-Checker</a> — EPUBCheckを実行するための無料のグラフィカルインターフェイス。ドイツ語、フランス語、スペイン語、日本語を含む多数の異なる言語にローカライズ可能です。</li>
+					<li>
+<a href="https://pagina.gmbh/startseite/leistungen/publishing-softwareloesungen/epub-checker/">Pagina EPUB-Checker</a> — EPUBCheckを実行するための無料のグラフィカルインターフェイス。ドイツ語、フランス語、スペイン語、日本語を含む多数の異なる言語で利用できます。</li>
 				</ul>
 				
-				<p>追加の代替手段のリストは、 <a href="https://github.com/w3c/epubcheck/wiki/GUI">EPUBCheck wiki</a>で確認できます。</p>
+				<p>追加の代替手段については、 <a href="https://github.com/w3c/epubcheck/wiki/GUI">EPUBCheck wiki</a>で確認できます。</p>
 			</section>
 			
 			<section id="ref">

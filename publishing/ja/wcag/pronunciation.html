@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>発音</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 3.1.6 Pronunciation">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.1.6</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>テキスト</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>文脈において、発音が分からないと単語の意味が不明瞭になる場合、その単語の明確な発音を特定するメカニズムが利用できる。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/pronunciation.html">達成基準3.1.6の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pronunciation">達成基準3.1.6を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G62">G62：用語集を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G120">G120：単語の直後に発音（読み）を提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G121">G121：発音（読み）にリンクする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G163">G163：オフにすることが可能な標準的な発音区別符号を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H62">H62：ruby要素を使用する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、テキストを見られない人が理解できるように、支援技術によって単語が適切に発音されるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>この達成基準に対処する最も効果的な方法は、SSMLや発音辞書などのTTS再生を改善する技術です。残念ながら、現在これらの技術に対するサポートはほとんどありません。</p>
+				
+				<p>コンテンツ製作者は発音をインラインで提供したり、用語集に含めたりすることも検討できますが、これらは限られたシナリオでのみ機能します。</p>
+				
+				<p><code>ruby</code>要素は、CJK言語のインライン発音のオプションを提供します。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../html/glossaries.html">用語集</a></li>
+					<li><a href="../text-to-speech/overview.html">テキスト読み上げ（Text-to-Speech）概要</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

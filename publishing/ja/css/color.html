@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>色</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Describes best practices when using color to differentiate content.">
+		<script>
+			var page_info = {
+				'category': 'css',
+				'appliesTo': ['Audiobooks*','Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>テキストが判読できるように十分なコントラストを確保します。また、すべてのユーザーが複数の色が見え、色の違いを認識できるとは限らないので、色に依存した情報を伝達は避けましょう。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>情報を識別するために色に頼らない代替手段も提供します。[[WCAG-1.4.1]]</p>
+					</li>
+					<li>
+						<p>CSSはセマンティックマークアップと共に使用します。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — リンクに下線を使用する</div>
+						<p>デフォルトの下線が完全に削除されないように、すべてのリンクに点線の下線を追加します。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   padding-bottom: 2px;
+   border-bottom: 1px dotted rgb(0,0,238);
+}</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — サイドバーにラベルを使用する</div>
+						<p>次のサイドバーは、緑色の枠で囲まれた一連の歴史的出来事の一部です。<code>aria-label</code>属性で、不足しているコンテキストを追加します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside
+       aria-label="historical event series"
+       class="historical"&gt;
+   &lt;h4&gt;Battle of Waterloo&lt;/h4&gt;
+   …
+&lt;/aside&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — 図表のキャプションへのデータ組み込み</div>
+						<p>円グラフとして表現されているデータをキャプションにも記載します。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;figcaption&gt;
+      &lt;p&gt;Figure 1 — Political Affiliations&lt;/p&gt;
+      &lt;p&gt;Of 2000 people surveyed, 33% identified themselves as Conservatives,
+         25% as Liberal, 10% as Rhino, 2% as Green and 30% declared no affiliation.&lt;/p&gt;
+   &lt;/figcaption&gt;
+   &lt;img src="poll.jpg" alt="January 2018 political poll results"/&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>色の使用は、目の見えるユーザーに情報を伝えるためによく使われるセマンティック手法ですが、情報を伝える唯一の手段として使用すべきではありません。枠線の色や網掛けを使用する場合は、常にセマンティックマークアップを基にして、視覚に頼らない再生方法を使うユーザーに平等なアクセスを提供する必要があります。</p>
+
+				<p>より一般的には、コンテンツからスタイルを常に明確に分離してください。スタイルを分離することで、ユーザーは独自のスタイルシートを適用したり、ユーザーエージェントに組み込まれている色、明るさ、コントラストのコントロールを使用して、自身のニーズに合わせて表示を調整できるようになります。</p>
+				
+				<p>しかし、色は意味を伝える際に生じる問題以外にも問題があります。赤い背景に緑の文字（またはその逆）は、一部の人にとっては判読できず、一般的にもハレーションを引き起こします。また、多くのユーザーは赤と黒の区別がつきません。明るい白い背景に黒の文字は、目の疲れや頭痛の原因になることがあります。</p>
+				
+				<p>同様に、ある色合いを別の色合いの上に重ねると読みにくくなります。また、明るい色または暗い色を２つ重ねると読みにくくなります（明度）。</p>
+				
+				<p>ユーザーは、設定変更ができるユーザーエージェントを使ってこれらの問題の一部を改善できるかもしれませんが、最初からこれらの問題を回避することをお勧めします。</p>
+			</section>
+		</main>
+	</body>
+</html>

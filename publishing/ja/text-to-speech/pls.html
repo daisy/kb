@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PLS発音辞書（Pronunciation Lexicons）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Overview of pronunciation lexicons for improving text-to-speech rendering.">
+		<script>
+			var page_info = {
+				'category': 'tts',
+				'appliesTo': ['EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<div class="caution" aria-labelledby="note-hd">
+				<p id="note-hd" class="label">注意</p>
+				<p>現時点では、PLS辞書はリーディングシステムでサポートされていません。</p>
+			</div>
+
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>発音辞書で、テキストの音声読み上げを改善できます。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<p class="label">例1 — 最小の辞書ファイル</p>
+					</figcaption>
+
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;lexicon
+  version="1.0"
+  alphabet="x-sampa"
+  xml:lang="en"
+  xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"&gt;
+   &lt;lexeme&gt;
+	  &lt;grapheme&gt;acetaminophen&lt;/grapheme&gt;
+	  &lt;phoneme&gt;@"sit@'mIn@f@n&lt;/phoneme&gt;
+   &lt;/lexeme&gt;
+&lt;/lexicon&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<p class="label">例2 — 地域による綴りの違いへの対応</p>
+					</figcaption>
+
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;defence&lt;/grapheme&gt;
+   &lt;grapheme&gt;defense&lt;/grapheme&gt;
+   &lt;phoneme&gt;dI'fEns&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<p class="label">例3 — 代替の綴りへの対応</p>
+					</figcaption>
+
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;vitæ&lt;/grapheme&gt;
+   &lt;grapheme&gt;vitae&lt;/grapheme&gt;
+   &lt;phoneme&gt;vitaI&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<p class="label">例4 — 複数の発音表記の組み込み</p>
+					</figcaption>
+
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;defence&lt;/grapheme&gt;
+   &lt;grapheme&gt;defense&lt;/grapheme&gt;
+   &lt;phoneme&gt;dI'fEns&lt;/phoneme&gt;
+   &lt;phoneme alphabet="ipa"&gt;dɪˈfɛns&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-05">
+					<figcaption>
+						<p class="label">例5 — ある用語の別の用語への置き換え</p>
+					</figcaption>
+
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;50-50&lt;/grapheme&gt;
+   &lt;phoneme&gt;fifty fifty&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-06">
+					<figcaption>
+						<p class="label">例6 — マニフェストにPLS辞書を追加する</p>
+					</figcaption>
+
+					<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;item
+	  id="pls"
+	  href="#EPUB/lexicon.pls"
+	  media-type="application/pls+xml"/&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-07">
+					<figcaption>
+						<p class="label">例7 — PLS辞書とコンテンツ文書とのリンク</p>
+					</figcaption>
+
+					<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;html … xml:lang="en"&gt;
+   &lt;head&gt;
+	  …
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en.pls"
+		 type="application/pls+xml"
+		 hreflang="en" /&gt;
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/fr.pls"
+		 type="application/pls+xml"
+		 hreflang="fr" /&gt;
+	  …
+   &lt;/head&gt;
+   …
+&lt;/html&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>PLS辞書は、対応するリーディングシステムでのテキスト読み上げ (TTS) 再生レンダリングを制御できます。辞書ファイル（lexicon file）は辞書や検索ガイドのようなもので、一致する単語が見つかると、デフォルトのレンダリングの代わりに定義されている発音が使用されます。辞書で単語を定義すると、リーディングシステムのTTSエンジンによる推測に基づいたな読み上げではなく、意図した読み上げをユーザーに提供できます。</p>
+
+				<p>各PLS辞書は、ルート<code>lexicon</code>要素を持つXMLファイルです。辞書は１つ以上の<code>lexeme</code>エントリーで構成されます。各エントリーは、 <code>grapheme</code>要素で単語を定義し、 <code>phoneme</code>要素で発音を定義します。（<a href="#ex-01">例1</a>を参照してください。）</p>
+
+				<p><code>alias</code>要素は、ある単語を別の単語に置き換えるためにも使用できます（<a href="#ex-05">例5</a>を参照）。</p>
+
+				<p>辞書の言語と使用する発音記号は、両方ともルート<code>lexicon</code>要素で定義します。</p>
+
+				<p>出版物にとって重要で、TTSエンジンが誤って発音する可能性のある複雑な単語については、PLSエントリーを作成する必要があります。リストには、固有名詞、名詞、技術用語、科学用語、法律用語、複雑な合成語や、その他の語が含まれます。同綴異音異義語のデフォルトのレンダリングはPLS辞書で定義し、定義した読みと違うものはSSMLタグで定義します。</p>
+
+				<p>PLS辞書は、EPUBコンテナーに含めるだけでは有効になりません。各コンテンツドキュメントから該当する辞書を参照してコンテンツに適用します。また、 参照先のPLSファイルの言語に<code>hreflang</code>属性を設定する必要があります（<a href="#ex06">例6</a>を参照）。</p>
+
+				<p>埋め込まれた外国語を処理するために、コンテンツ ドキュメントに複数の辞書を添付できます。（<a href="#ex-07">例7</a>を参照）。</p>
+
+				<p>単一のPLS辞書ファイル内でのローカリゼーションは不可能ですが、地域ごとに異なった読み上げを行うために複数の辞書を添付できます。（詳細については、以下の<a href="#faq4">よくある質問</a>を参照してください。）</p>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">発音を記述するには IPA、 X-SAMPA、またはそれ以外のどの発音記号を使用すべきでしょうか?</dt>
+					<dd>
+						<p>IPAはおそらく最も広く認識されている発音記号ですが、既存の合成音声エンジンでも完全にサポートされているわけではありません。たとえば、一部のエンジンは独自の発音記号のみをサポートしています。X-SAMPAはASCIIベースですが、IPAはUnicode文字を使用するため、入力するにはほとんどのキーボード レイアウトを変更する必要があり、X-SAMPAよりも開発者にとって使いにくいです。現時点では、内部ワークフローが決定要因となるはずです。最終的な答えは、リーディングシステムでどのエンジンが使用されているかによって異なります。</p>
+
+						<p>ある発音記号を他の発音記号に変換することはできるので、勝者と敗者が明確に分かれた場合でも、どちらのアルファベットでの作業も<q>失われる</q>ことはありません。</p>
+					</dd>
+
+					<dt id="faq-002">辞書では大文字と小文字が区別されますか?</dt>
+					<dd>
+						<p>大文字と小文字を区別した発音を定義できる必要があることは明らかですが、PLS 辞書がどのように処理されるかは明らかではありません。仕様自体には、グラフィムの大文字と小文字の区別については何も記載されておらず、<a href="https://www.w3.org/TR/pronunciation-lexicon/#AppC">参考となる付録</a>で定義されている大文字と小文字を区別する処理の要件のみが記載されています。PLS 辞書をサポートするリーディングシステムが登場するまでは、回答は推測の域を出ませんが、大文字と小文字の区別は重要な役割を果たしているため、区別があると想定されます。</p>
+
+						<p>出版物では、特定の用語が小文字とタイトルケース（訳者注：単語の先頭のみ大文字）の両方で表示され、同じ発音であることがあります。この場合、両方に<code>grapheme</code>要素を追加します。</p>
+
+						<pre class="prettyprint"><code>&lt;lexeme&gt;
+   &lt;grapheme&gt;acetaminophen&lt;/grapheme&gt;
+   &lt;grapheme&gt;Acetaminophen&lt;/grapheme&gt;
+   &lt;phoneme&gt;@"sit@'mIn@f@n&lt;/phoneme&gt;
+&lt;/lexeme&gt;</code></pre>
+
+						<p>大文字と小文字の競合が発生した場合は、一般的ではない方の発音をSSMLで定義します。たとえば、アラバマ州モービル（Mobile）における加齢に伴う健康問題を調査する文書では、mobile と<q>Mobile</q>の両方の綴りが人間の移動性（モバイル）を指している可能性があります。Mobileの<q>発音</q>を<q>ˈmoʊbaɪl</q>と定義すると、都市名が誤って発音されます（逆の場合も同様です）。</p>
+					</dd>
+
+					<dt id="faq-003">言語を混ぜることに危険はありますか?</dt>
+					<dd>
+						<p>はい、レンダリングエンジンが指定された言語の音声化をサポートしていない場合、ユーザーにエラーが提示されたり、テキストが読み飛ばされたりするかもしれません。このような状況でのエラー処理は保証されません。言語固有の辞書は通常読み込まれません。</p>
+					</dd>
+
+					<dt id="faq-004">ローカリゼーションを追加できますか?</dt>
+					<dd>
+						<p>単一のPLSファイル内ではできません。phoneme要素に<code>xml:lang</code>属性は付与できません。語幹言語コード<code>phoneme</code>を指定するコンテンツドキュメントに複数のローカライズされた辞書を添付して、ユーザーのローカライズ設定で適用する辞書を選択できます（たとえば、コンテンツドキュメントで<code>en</code>を指定し、辞書で<code>en-US</code>と<code>en-GB</code>を指定できます）。</p>
+
+						<p>ローカリゼーションの指定によりユーザーを排除しないようにしてください。リーディングシステムにローカリゼーションを処理できる音声が組み込まれていない場合には、辞書は読み込まれません。</p>
+
+						<p>すべてのリーディングシステム向けに、地域に関係ない言語の処理ができる一つの辞書を定義するのが良いでしょう。たとえば、出版物が米国英語で書かれている場合は、標準の発音辞書にデフォルトの<code>en</code>コードを使用し、対象地域のみにロケールを指定するのが良いでしょう。</p>
+
+						<pre class="prettyprint"><code>&lt;html … xml:lang="en"&gt;
+   &lt;head&gt;
+	  …
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en.pls"
+		 type="application/pls+xml"
+		 hreflang="en" /&gt;
+	  &lt;link
+		 rel="pronunciation"
+		 href="#lex/en-GB.pls"
+		 type="application/pls+xml"
+		 hreflang="en-GB" /&gt;
+	  …
+   &lt;/head&gt;
+   …
+&lt;/html&gt;</code></pre>
+						<p>こうすることで、英語のリーディングシステムを持つユーザーは、少なくとも正しい米国の発音が聞けます。</p>
+					</dd>
+
+					<dt id="faq-005">PLS辞書とSSMLのどちらを使用すればよいでしょうか?</dt>
+					<dd>
+						<p>EPUB 3に両技術が盛り込まれたのは、どちらかを選択しなければならないのではなく、これらの技術で互いを補完するためです。PLS辞書を使用すると、単語を一度定義すれば、その単語が文章中に現れるたびにTTSエンジンがその単語を置き換えます。一方、 <a href="ssml.html">SSML</a>は、辞書では不可能なきめ細かい制御ができますが、その代わり、置き換える必要がある用語の各インスタンスにタグを付ける必要があります。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+				<ul>
+					<li>EPUB 3 TTS 拡張機能 —<a href="https://www.w3.org/TR/epub-tts/#pls">発音辞書（Pronunciation lexicons）</a> </li>
+					<li> 						<a href="https://www.w3.org/TR/pronunciation-lexicon/">発音辞書仕様（Pronunciation Lexicon Specification） (PLS) 							バージョン 1.0</a> </li>
+					<li> <a href="shttp://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">IPA のコンピュータコーディング: SAMPA の拡張案</a>(X-SAMPA)</li>
+					<li> 						<a href="https://www.internationalphoneticassociation.org/IPAcharts/IPA_chart_orig/pdfs/IPA_Kiel_2020_full.pdf">国際音声記号（IPA）（2020年改訂版）</a> </li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

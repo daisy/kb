@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title> リフロー</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.10 Reflow">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.1以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.10</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>固定レイアウト</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>コンテンツは、情報又は機能を損なうことなく、かつ、以下において2次元スクロールを必要とせずに提示できる。</p>
+							
+							<ul>
+								<li>320 CSSピクセルに相当する幅の縦スクロールのコンテンツ。</li>
+								<li>256 CSSピクセルに相当する高さの横スクロールのコンテンツ。</li>
+							</ul>
+							
+							<p>利用や意味の理解に2次元のレイアウトを必要とする一部のコンテンツを除く。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">達成基準1.4.10の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#reflow">達成基準1.4.10を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C31">C31：コンテンツをリフローするために CSS Flexbox を使用する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C32">C32：メディアクエリとグリッド CSS を使用して列をリフローする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C33">C33：長い URL 及びテキスト文字列をリフローできるようにする</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C38">C38：CSS width、max-width、及び flexbox を用いたラベルと入力欄の配置</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G206">G206：利用者が横スクロールをしなくてもテキストの行を読めるようにするような、レイアウトを切り替えるオプションをコンテンツの中で提供する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR34">SCR34：テキストサイズに応じて拡大縮小するように、サイズ及びポジションを定める</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、弱視の読者がコンテンツを400%まで拡大しても、 二次元でスクロールすることなく出版物を読めるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、出版物が拡大されたときに、コンテンツが利用可能な領域に合わせてリフローするように製作する必要があります（たとえば、コンテンツがページの端ではみ出さないようにします）。ユーザーが、テキストの行を読むためにスクロールする必要がないようにするべきです（たとえば、横書きのテキストを読むために左右にスクロールしたり、縦書きのテキストを読むために上下にスクロールすること）。</p>
+				
+				<p>リフロー型のEPUBの場合、通常はコンテンツを固定領域に押し込むテクニックだけを必要とします。例としては、コンテナ要素が使用可能なスペースに合わせてサイズ変更されないようにピクセルなどの絶対的な単位を使用したり、画面スペースの縮小に合わせて調整できない表のデザインなどの静的レイアウトを使用したりすることが挙げられます。</p>
+				
+				<p>固定レイアウトがこの要件を満たすことは、コンテンツの種類によっては非常に複雑です。表示が理解に不可欠な画像ベースのコンテンツ（たとえば、コミックや漫画）はこの要件の対象外ですが、その他の固定レイアウトは対象外ではありません。しかし、EPUBのリーディングシステムは、拡大してもページを再レンダリングせず、拡大率を上げるだけなので、コンテンツ製作者が何をしてもこれらの出版物をアクセシブルにすることはできません（つまり、スクロールは避けられません）。</p>
+				
+				<p>この達成基準は、画面解像度が1082x1024ピクセルのデスクトップコンピューターにのみ適用されることに注意してください。モバイルデバイスでは画面解像度に関わらず、コンテンツを400% まで拡大できるようにする必要はありません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../css/reflow.html">リフロー</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

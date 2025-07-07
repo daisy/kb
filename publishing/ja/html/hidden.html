@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidelines for the accessible hiding of content.">
 		<script>
 			var page_info = {
-				'category': ['HTML'],
+				'category': 'html',
 				'appliesTo':[ 'EPUB3', 'EPUB2'],
 				'addh4': true
 			};</script>
@@ -102,19 +102,18 @@
 	<body>
 		<main>
 			<section aria-label="Introduction">
-				<p>このページでは、電子出版物のコンテンツを非表示にしたり最小化したりするために使用されるさまざまなテクニックのアクセシビリティと影響について説明します。</p>
+				<p>このページでは、アクセシビリティと、電子出版物のコンテンツを非表示にしたり最小化するのに使用する様々なテクニックの影響について説明します。</p>
 				
-				<p>ただし、コンテンツが出版物の理解の中心ではない限り、支援技術のユーザーのみを対象とした非表示コンテンツを含めることは一般的に避けることをお勧めします。代替テキストへの標準的なハイパーリンクや、コンテンツを最小化する宣言的なアプローチ（例：<a href="#details"><code>details</code>要素</a>）は、非表示コンテンツよりも幅広く使用できます。このコンテンツの恩恵を受けるすべての人が支援技術を使用しているわけではありません。</p>
+				<p>ただし、コンテンツが出版物の理解の中心ではない限り、支援技術のユーザーのみを対象とした非表示コンテンツを組み込むのは一般的に避けることをお勧めします。代替テキストへの標準的なハイパーリンクや、コンテンツを最小化する宣言的なアプローチ（例：<a href="#details"><code>details</code>要素</a>）は、非表示コンテンツよりも幅広く使用できます。このコンテンツの恩恵を受けるすべての人が支援技術を使用しているわけではありません。</p>
 				
-				<p>コンテンツを選択的に表示する必要がある場合は、<a href="../script/pe.html">プログレッシブ エンハンスメント</a>手法に従っていることを確認してください。</p>
+				<p>コンテンツを選択的に表示する必要がある場合には、<a href="../script/pe.html">プログレッシブ エンハンスメント</a>手法に従っていることを確認してください。</p>
 			</section>
 			
 			<section id="html">
 				<h3>HTMLテクニック</h3>
 				
 				<section id="hidden">
-					<h4>
-<code>hidden</code>属性</h4>
+					<h4> <code>hidden</code>属性</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -128,7 +127,7 @@
 						</ul>
 					</aside>
 						
-					<p>HTML5 では、宣言的にコンテンツを非表示にする（つまり、CSS などの他のテクノロジーに依存せずにコンテンツを非表示にする）方法として<a href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute">、 <code>hidden</code>属性</a>が導入されました。要素にこの属性が設定されると、そのコンテンツはどのプレゼンテーションでもレンダリングされないため、支援技術によって読み取られません。</p>
+					<p>HTML5 では、宣言的にコンテンツを非表示にする（つまり、CSS などの他のテクノロジーに依存せずにコンテンツを非表示にする）方法として<a href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute">、 <code>hidden</code>属性</a>が導入されました。要素にこの属性が設定されると、そのコンテンツはどんなプレゼンテーションでもレンダリングされないので、支援技術によっても読み上げられません。</p>
 					
 					<figure id="ex-hidden-01">
 						<figcaption>
@@ -143,22 +142,21 @@
 						<p>This is <span hidden="">not the</span> content.</p>
 					</figure>
 					
-					<p>属性の値は、前の例のように空の文字列か、値「 <code>hidden</code> 」（<code>hidden="hidden"</code>）のいずれかである必要があります。「ブール」属性と呼ばれますが、その値を「true」または「false」に設定することはできません。コンテンツを再び表示するには、要素から<code>hidden</code>属性を削除する必要があります。</p>
+					<p>属性値は、前の例のように空の文字列、あるいは、値「 <code>hidden</code> 」（<code>hidden="hidden"</code>）のいずれかである必要があります。「ブール」属性と呼ばれていますが、その値を「true」または「false」には設定できません。コンテンツを再び表示するには、要素から<code>hidden</code>属性を削除します。</p>
 					
 					<p><code>hidden</code>属性は、その内容が表示されることがない場合に、要素に直接記載するのに最適です。（コンテンツが表示と非表示の間で切り替えられる場合は、属性を動的に設定する<a href="#script">スクリプト セクション</a>を参照してください。）</p>
 					
 					<p><code>hidden</code>属性は、コンテンツを表示しない<a href="#aria">ARIA 属性</a>（例：<a href="#aria-label-labelledby"><code>aria-labelledby</code></a>および<a href="#aria-describedby"><code>aria-describedby</code></a>）で最もよく使用されます。これらの属性により、特定のコンテキストで支援技術がテキストを利用できるようになります。</p>
 					
-					<p>この属性を設定すると、<a href="#display">CSS の<code>display</code>プロパティを</a><code>none</code>に設定するのと同じ効果が得られます。ただし、すべてのユーザー エージェントが CSS スタイルをサポートしているわけではないため、この属性は最新のユーザー エージェントの CSS オプションよりも信頼性が高くなります。</p>
+					<p>この属性を設定すると、<a href="#display">CSS の<code>display</code>プロパティを</a><code>none</code>に設定するのと同じ効果が得られます。ただし、すべてのユーザー エージェントがCSSスタイルをサポートしているわけではないため、この属性は最新のユーザー エージェントのCSS用いる方法よりも信頼性が高くなります。</p>
 					
-					<p id="hidden-fallback">新しい HTML5 要素と属性をサポートしていない古いユーザー エージェントの場合は、hidden 属性の CSS フォールバックも含める必要があります。次のようなセレクターを使用すると、属性を持つすべての要素が CSS によって非表示になります。</p>
+					<p id="hidden-fallback">新しいHTML5要素と属性をサポートしていない古いユーザー エージェントの場合は、hidden属性のCSSフォールバックを付ける必要があります。次のようなセレクターを使用すると、hidden属性を持つすべての要素がCSSによって非表示になります。</p>
 					
 					<pre><code>*[hidden] { display: none; }</code></pre>
 				</section>
 				
 				<section id="details">
-					<h4>
-<code>details</code>要素</h4>
+					<h4> <code>details</code>要素</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -172,7 +170,7 @@
 						</ul>
 					</aside>
 					
-					<p><a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>要素は、</a>コンテンツを非表示にする要件を完全には満たしていません。 <code>summary</code>タグで指定されたラベルのみにコンテンツを折りたたむ機能を提供します。この要素の利点の 1 つは、コンテンツを展開したり折りたたんだりするのに、EPUB リーディングシステムではしばしば欠けているスクリプト サポートを必要としないことです。</p>
+					<p><a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>要素は、</a>コンテンツを非表示にする要件を完全には満たしていません。 <code>summary</code>タグで指定されたラベルに対してコンテンツを折りたたむ機能を提供します。コンテンツを展開したり折りたたんだりするのに、EPUBリーディングシステムではしばしば欠けているスクリプト サポートを必要としないのが、この要素の利点の1つです。</p>
 					
 					<figure id="ex-details-01">
 						<figcaption>
@@ -189,13 +187,11 @@
 						<p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/1/">デモ</a></p>
 					</figure>
 					
-					<p>コンテンツが折りたたまれた状態で始まる必要はありません。 <code>open</code>属性を追加すると、コンテンツは最初は展開されます（この属性も<a href="#hidden"><code>hidden</code>属性</a>と同様にブール値であるため、その値は空の文字列または値<code>open</code>のいずれかになります）。<figure id="ex-details-02"><figcaption><p class="label">例 — 展開された<code>details</code>要素</p></figcaption><p class="figlabel">マークアップ：</p>
-<pre id="ex-details-02-src" class="prettyprint linenums"> &lt;details open=""&gt;
+					<p>コンテンツが折りたたまれた状態で始まる必要はありません。 <code>open</code>属性を追加すると、コンテンツは最初は展開されます（この属性も<a href="#hidden"><code>hidden</code>属性</a>と同様にブール値であるため、その値は空の文字列または値<code>open</code>のいずれかになります）。<figure id="ex-details-02"><figcaption><p class="label">例 — 展開された<code>details</code>要素</p></figcaption><p class="figlabel">マークアップ：</p> <pre id="ex-details-02-src" class="prettyprint linenums"> &lt;details open=""&gt;
 &lt;summary&gt;Description&lt;/summary&gt;
 &lt;p&gt;The first of the three gas giants is …&lt;/p&gt;
-&lt;/details&gt;</pre>
-<p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/2/">デモ</a></p></figure></p>
-<p>ただし、現在の制限として、要素が展開または折りたたまれたときに、リーディングシステムがページを再ページ化すると必ずしもうまくいかないことがあります。展開すると、要素の下のコンテンツが現在のページの下部から押し出され、目の見える読者が利用できなくなる可能性があります。また、この属性は古いブラウザーでは十分にサポートされておらず、Internet Explorer のバージョンではまったくサポートされていないため、機能させるにはポリフィルが必要です。</p>
+&lt;/details&gt;</pre> <p class="figlabel"><a href="https://jsfiddle.net/6ma4e3fn/2/">デモ</a></p></figure></p>
+<p>ただし現状では、要素を展開あるいは折りたんだ時に、リーディングシステムによってページが再表示される際にうまくいかないことがあります。展開すると、要素の下のコンテンツが現在のページの下部から押し出され、目の見える読者が利用できなくなる可能性があります。また、この属性は古いブラウザーでは十分にサポートされておらず、Internet Explorerの全バージョンではサポートされていないため、機能させるにはポリフィル（訳注：ブラウザの機能が欠けている部分を自前のプログラムで補うこと）が必要です。</p>
 					
 					<p><code>details</code>要素は通常、説明を要素に関連付けるために<a href="#aria-details"><code>aria-details</code>属性</a>と組み合わせて使用​​されます。</p>
 				</section>
@@ -204,19 +200,18 @@
 			<section id="css">
 				<h3>CSSテクニック</h3>
 				
-				<p>CSS はコンテンツを視覚的に非表示にするさまざまなアプローチを提供しますが、それを使用する際の主な問題は次のとおりです。</p>
+				<p>CSS はコンテンツを視覚的に非表示にするさまざまなアプローチを提供しますが、それを使用する際の主な問題には次のようなものがあります。</p>
 				
 				<ol>
-					<li>CSS は常にサポートされているわけではなく、ユーザーによって無効にされることがよくあります。</li>
+					<li>CSS は常にサポートされているわけではなく、しばしばユーザーによって無効化されることもあります。</li>
 					<li>新しいプロパティのサポートは開発に長い時間がかかることが多く、古いユーザー エージェントではサポートされないものも多くあります。</li>
-					<li>EPUB リーディングシステムは独自のスタイルを提供することが多いため、コンテンツ制作者のスタイルは無視されたり上書きされたりすることがあります。</li>
+					<li>EPUBリーディングシステムは独自のスタイルを提供することが多いので、コンテンツ制作者のスタイルは無視されたり上書きされるかもしれません。</li>
 				</ol>
 				
-				<p>その結果、スタイル設定されたコンテンツが、ユーザーが使用しているユーザー エージェントによっては、ユーザーに対して非表示になるという保証がありません。一般的に、 <a href="#html">HTML テクニック</a>の方が信頼性が高いです。</p>
+				<p>結果的に、スタイル設定されたコンテンツは、ユーザーが使用しているユーザー エージェントにかかわらず、ユーザーに対して非表示になる保証がありません。一般的に、<a href="#html">HTML テクニック</a>の方が（訳注：非表示に関して）信頼性が高くなります。</p>
 				
 				<section id="display">
-					<h4>
-<code>display</code>を<code>none</code>に設定する</h4>
+					<h4> <code>display</code>を<code>none</code>に設定する</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -234,7 +229,7 @@
 					
 					<figure id="ex-display-01">
 						<figcaption>
-							<p class="label">例 — 表示なし</p>
+							<p class="label">例 — 表示しない効果</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ:</p>
@@ -249,7 +244,7 @@ not&lt;/span&gt;.&lt;/p&gt;</code></pre>
 						<p>This is the visible text<span class="display-none"> and 							this is not</span>.</p>
 					</figure>
 					
-					<p><a href="#hidden"><code>hidden</code>属性</a>と同様に、 <code>display</code>プロパティを使用して非表示にされたコンテンツには、非表示コンテンツを受け入れる<a href="#aria">ARIA 属性</a>によってアクセスできます。ただし、このアプローチには、支援技術を使用しないユーザーにとって有用な情報が非表示になるという同じ欠陥もあります。</p>
+					<p><a href="#hidden"><code>hidden</code>属性</a>と同様に、<code>display</code>プロパティを使用して非表示にされたコンテンツは、非表示コンテンツを受け入れる<a href="#aria">ARIA 属性</a>によってアクセスできます。ただし、このアプローチには、支援技術を使用しないユーザーにとっても有用である情報が非表示になってしまう、同様の欠陥があります。</p>
 				</section>
 				
 				<section id="clip">
@@ -267,16 +262,16 @@ not&lt;/span&gt;.&lt;/p&gt;</code></pre>
 						</ul>
 					</aside>
 					
-					<p>クリッピングは、視覚ユーザーが追加コンテンツの存在に気付かないように、コンテンツを 1 ピクセルに縮小する手法です。</p>
+					<p>クリッピングは、視覚によるユーザーが追加コンテンツの存在に気付かないように、コンテンツを1ピクセルに縮小する手法です。</p>
 					
-					<p>コンテンツを完全に非表示にするのではなくクリッピングする利点は、支援技術は、非表示にするように設定またはスタイル設定されたコンテンツは無視するのに対して、クリッピングされたコンテンツは読み上げるという点です。</p>
+					<p>コンテンツを完全に非表示にせずクリッピングする利点は、支援技術はクリッピングされたコンテンツは読み上げ、一方、非表示に設定またはスタイル設定されたコンテンツは無視するという部分です。</p>
 					
-					<p><a href="https://drafts.fxtf.org/css-masking-1/#the-clip-path"><code>clip-path</code>プロパティは、</a>この効果を実現するために使用される主要なプロパティですが、次の例に示すように、他のいくつかのプロパティも必要です（一部はフォールバックとして）。</p>
+					<p><a href="https://www.w3.org/TR/css-masking-1/#ClipPathElement"><code>clip-path</code>プロパティは、</a>この効果を実現するために使用される主要なプロパティですが、次の例に示すように、他のいくつかのプロパティも必要です（一部はフォールバックとして）。</p>
 					
 					<figure id="ex-clip-01">
 						<figcaption>
-							<p class="label">例 — クリッピング</p>
-							<p>「and this is not」というテキストを含む<code>span</code> コンテンツはレンダリングされるときには表示されませんが、支援技術によってテキストは読まれます。</p>
+							<p class="label">例 — クリッピングの効果</p>
+							<p>「and this is not」というテキストを含む<code>span</code> コンテンツはレンダリングされるときには見えませんが、支援技術によってテキストは読み上げられます。</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ:</p>
@@ -299,15 +294,14 @@ width: 1px;
 					
 					<div class="note" role="note" aria-labelledby="clip-note">
 						<p id="clip-note" class="label">注記</p>
-						<p><a href="https://drafts.fxtf.org/css-masking-1/#clip-property"><code>clip</code>プロパティは</a>非推奨になりました。これは、古いブラウザ用のフォールバックとして含まれています。</p>
+						<p><a href="https://www.w3.org/TR/css-masking-1/#the-clip-path"><code>clip</code>プロパティは</a>非推奨になりました。これは、古いブラウザ用のフォールバックとして含まれています。</p>
 					</div>
 					
 					<p>この手法は Web ブラウザーではうまく機能しますが、EPUBリーディングシステムでのサポートは一貫していません。新しい<code>clip-path</code>プロパティのサポートは広く普及しておらず、絶対位置指定を必要とする古い<code>clip</code>プロパティもサポートされていません。</p>
 				</section>
 				
 				<section id="zero-height-width">
-					<h4>
-<code>height</code>（高さ）と<code>width</code>（幅）をゼロに設定する</h4>
+					<h4> <code>height</code>（高さ）と<code>width</code>（幅）をゼロに設定する</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -321,11 +315,11 @@ width: 1px;
 						</ul>
 					</aside>
 					
-					<p>要素の<a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property"><code>height</code></a>と<a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property"><code>width</code></a>プロパティを<code>0</code>に設定することは、<a href="#clipping">クリッピング手法</a>に似ていますが、通常、支援技術では、サイズ指定のない要素のコンテンツは読み取れません。</p>
+					<p>要素の<a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property"><code>height</code></a>と<a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property"><code>width</code></a>プロパティを<code>0</code>に設定することは、<a href="#clipping">クリッピング手法</a>に似ていますが、通常、支援技術ではサイズ指定のない要素のコンテンツは読み上げられません。</p>
 					
 					<figure id="ex-hw0-01">
 						<figcaption>
-							<p class="label">例 — 高さと幅がゼロの場合</p>
+							<p class="label">例 — 高さと幅がゼロの場合の効果</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ：</p>
@@ -346,8 +340,7 @@ is not&lt;/span&gt;.&lt;/p&gt;</code></pre>
 				</section>
 				
 				<section id="opacity">
-					<h4>
-<code>opacity</code>（不透明）の透明化</h4>
+					<h4> <code>opacity</code>（不透明）の透明化</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -361,7 +354,7 @@ is not&lt;/span&gt;.&lt;/p&gt;</code></pre>
 						</ul>
 					</aside>
 					
-					<p>要素の<a href="https://www.w3.org/TR/css-color-3/#transparency"><code>opacity</code></a>プロパティを<code>0</code>に設定すると、ユーザーに対しては完全に透明になりますが、支援技術はテキストを読み取ります。</p>
+					<p>要素の<a href="https://www.w3.org/TR/css-color-3/#transparency"><code>opacity</code></a>プロパティを<code>0</code>に設定すると、ユーザーに対しては完全に透明になりますが、支援技術はテキストを読み上げます。</p>
 					
 					<figure id="ex-opacity-01">
 						<figcaption>
@@ -385,7 +378,7 @@ opaque.&lt;/p&gt;
 						<p>So there is space between.</p>
 					</figure>
 					
-					<p><code>opacity</code>の使用に関する主な問題は、EPUB リーディングシステムでのサポートと、不透明なテキストがある場所にスペースが残ってしまうことです。</p>
+					<p><code>opacity</code>の使用に関する主な問題は、EPUBリーディングシステムでのサポートと、不透明なテキストがある場所にスペースが残ってしまう点です。</p>
 					
 					<div class="note" role="note" aria-labelledby="op-note">
 						<p id="op-note" class="label">注記</p>
@@ -408,14 +401,14 @@ opaque.&lt;/p&gt;
 						</ul>
 					</aside>
 					
-					<p><a href="https://www.w3.org/TR/css-transforms-1/#transform-property"><code>transform</code>プロパティ</a>には、コンテンツを非表示にする 2 つのオプションがあります。1 つは要素をゼロに縮小（スケーリング）する方法で、もう 1 つは要素を画面外に移動（トランスレート）する方法です。どちらの場合でも、支援技術はテキストを読み取ります。</p>
+					<p><a href="https://www.w3.org/TR/css-transforms-1/#transform-property"><code>transform</code>プロパティ</a>には、コンテンツを非表示にする2つのオプションがあります。1つは要素をゼロに縮小（スケーリング）する方法で、もう1つは要素を画面外に移動する方法です。どちらの場合でも、支援技術はテキストを読み上げます。</p>
 					
 					<p><code>scale</code>変形を使用すると、参照されている要素は、スペースを占有しなくなるまで縮小されます。これは、<a href="#zero-height-width">高さと幅を 0 に設定する</a>のと効果は似ていますが、縮小時に要素が占有するスペース全体が消えないという点が異なります。</p>
 					
 					<figure id="ex-transform-01">
 						<figcaption>
-							<p class="label">例 — スケーリング</p>
-							<p>次の例では、2 番目の段落は 0 に縮小されていますが、それが占めるスペースは残ります。デモのボタンをクリックして、スケーリングを切り替えます。</p>
+							<p class="label">例 — スケーリングの効果</p>
+							<p>次の例では、2番目の段落は0に縮小されていますが、それが占めるスペースは残ります。デモのボタンをクリックして、スケーリングを切り替えてください。</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ：</p>
@@ -434,12 +427,12 @@ transform: scale(0);
 						<p><input type="button" value="Toggle Scaling" onclick="toggleCSS('scale-test','scale')"></p>
 					</figure>
 					
-					<p><code>translate</code>変形を使用すると、要素が占めるスペース全体が消えないことを除けば、<a href="#abs-pos">画面外のコンテンツの絶対配置</a>と効果は似ています。値は、移動ベクトルの<code>x</code>座標と<code>y</code>座標です。</p>
+					<p><code>translate</code>変形を使用すると、要素が占めるスペース全体が消えないことを除けば、<a href="#abs-pos">絶対配置指定による画面外コンテンツ</a>と効果は似ています。値は、移動ベクトルの<code>x</code>座標と<code>y</code>座標です。</p>
 					
 					<figure id="ex-transform-02">
 						<figcaption>
 							<p class="label">例 — トランスレート</p>
-							<p>次の例では、2 番目の段落が、x 座標に<code>-9999px</code> 、y 座標に<code>0</code>を使用して画面外に移動されています。ただし、要素が占めるスペースはそのまま残ります。効果を切り替えるには、デモのボタンをクリックします。</p>
+							<p>次の例では、2 番目の段落は、x座標に<code>-9999px</code>、y座標に<code>0</code>の画面外に移動されています。ただし、要素が占めるスペースはそのまま残ります。効果を切り替えるには、デモのボタンをクリックしてください。</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ：</p>
@@ -463,8 +456,7 @@ off screen.&lt;/p&gt;
 				</section>
 				
 				<section id="visibility">
-					<h4>
-<code>visibility</code>（可視性）を<code>hidden</code>（非表示）に設定する</h4>
+					<h4> <code>visibility</code>（可視性）を<code>hidden</code>（非表示）に設定する</h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -518,7 +510,7 @@ not&lt;/span&gt; but now with space.&lt;/p&gt;</code></pre>
 						</ul>
 					</aside>
 					
-					<p><a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position"><code>position</code>プロパティ</a>を使用してコンテンツを画面外に絶対配置することは、視覚的には非表示にして、支援技術には読み込ませるというもう 1 つの一般的な Web 手法です。変更されるのはコンテンツの視覚的な位置だけなので、支援技術は引き続きテキストを読みます。</p>
+					<p><a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position"><code>position</code>プロパティ</a>を使用してコンテンツを画面外に絶対配置することは、視覚的には非表示にして、支援技術には読み込ませるというもう1つの一般的なWeb手法です。変更されるのはコンテンツの視覚的な位置だけなので、支援技術は引き続きテキストを読み上げます。</p>
 					
 					<figure id="ex-abs-pos-01">
 						<figcaption>
@@ -546,8 +538,7 @@ off screen.&lt;/p&gt;
 				</section>
 				
 				<section id="indent">
-					<h4>負の<code>text-indent</code>
-</h4>
+					<h4>負の<code>text-indent</code> </h4>
 					
 					<aside class="summary">
 						<h5>要約</h5>
@@ -561,11 +552,11 @@ off screen.&lt;/p&gt;
 						</ul>
 					</aside>
 					
-					<p><a href="https://www.w3.org/TR/CSS22/text.html#indentation-prop"><code>text-indent</code>プロパティは、</a>大きな負の数を指定してコンテンツを画面の表示領域から押し出すために使用されることがあります。大きな数を使用すると、テキストが 1 行にレンダリングされ、画面の表示領域に届かなくなります。コンテンツは視覚的には表示されませんが、支援技術によって読み取られます。</p>
+					<p><a href="https://www.w3.org/TR/CSS22/text.html#indentation-prop"><code>text-indent</code>プロパティに</a>大きな負の数を指定して、コンテンツを画面の表示領域から押し出すために使用することがあります。大きな数を使用すると、テキストが1行にレンダリングされ、画面の表示領域に届かなくなります。コンテンツは視覚的には表示されませんが、支援技術によって読み上げられます。</p>
 					
 					<figure id="ex-indent-01">
 						<figcaption>
-							<p class="label">例 — 負のインデント</p>
+							<p class="label">例 — 負のインデントによる効果</p>
 							
 							<p>次の例では、2 番目の段落の負のインデントにより、2 番目の段落が画面外にレンダリングされ、もはやそこに存在しないように見えます。デモのボタンをクリックして、インデントを切り替えます。</p>
 						</figcaption>
@@ -619,17 +610,17 @@ off screen.&lt;/p&gt;
 					<ul>
 						<li>多くの場合、リーディングシステムでは、すべての出版物が同じ外観と雰囲気を持つように、独自の前景色と背景色が適用されます。その結果、テキストが実際に非表示になるという保証はありません。</li>
 						<li>同様に、リーディングシステムでは、前景テキストと背景テキストの色の設定を変更するオプションがユーザーに提供されることがよくあります。</li>
-						<li>多くの場合、リーディングシステムでは、前景色と背景色をリセットする複数の読書モード（夜間読書など）が提供されており、これによりデフォルトでテキストが非表示になっていても表示されるようになります。</li>
+						<li>多くの場合、リーディングシステムでは、前景色と背景色をリセットする複数の読書モード（夜間読書など）が提供されており、これによりデフォルトでテキストが非表示であっても、表示されてしまいます。</li>
 					</ul>
 					
 					<p>どのユーザー エージェントでもよくある問題は、この非表示方法ではテキストが隠れるだけであるということです。<a href="#visibility">可視性を変更</a>した場合と同様に、テキストが占める領域は引き続き表示されます。</p>
 					
-					<p>色を変更してもテキストが実際に削除されるわけではないため、支援技術ではこの方法で隠されたテキストを読み取ります。</p>
+					<p>色を変更してもテキストが実際に削除されるわけではないため、支援技術ではこの方法で隠されたテキストを読み上げます。</p>
 					
 					<figure id="ex-color-01">
 						<figcaption>
-							<p class="label">例 — 背景とテキストを一致させた効果</p>
-							<p>次の例では、テキストを隠すために、 <a href="https://www.w3.org/TR/CSS22/colors.html#colors"><code>color</code></a>と<a href="https://www.w3.org/TR/CSS22/colors.html#background-properties"><code>background-color</code></a>プロパティの両方が白に設定されています。</p>
+							<p class="label">例 — 背景色とテキストの色を一致させる効果</p>
+							<p>次の例では、テキストを隠すために、<a href="https://www.w3.org/TR/CSS22/colors.html#colors"><code>color</code></a>と<a href="https://www.w3.org/TR/CSS22/colors.html#background-properties"><code>background-color</code></a>プロパティの両方を白に設定しています。</p>
 						</figcaption>
 						
 						<p class="figlabel">マークアップ：</p>
@@ -656,44 +647,42 @@ be hidden.&lt;/p&gt;
 			<section id="aria">
 				<h3>ARIA テクニック</h3>
 				
-				<p>ARIA はコンテンツの表示には影響しませんが、支援技術からコンテンツを非表示にしたり、非表示のコンテンツを支援技術がアクセスできるようにしたりするために使用できる属性が多数含まれています。</p>
+				<p>ARIAはコンテンツの表示には影響しませんが、支援技術からコンテンツを非表示にしたり、非表示のコンテンツを支援技術からアクセスできるようにするのに使用できる属性を多数有しています。</p>
 				
 				<section id="aria-describedby">
-					<h4>
-<code>aria-describedby</code>属性</h4>
+					<h4> <code>aria-describedby</code>属性</h4>
 					
 					<p><code>aria-describedby</code>属性は、参照される要素が非表示である必要はありませんが、非表示の説明を要素に関連付けるためによく使用されます。属性の値は、説明を含む要素の ID です。</p>
 					
 					<figure id="ex-aria-describedby-01">
 						<figcaption>
 							<p class="label">例 — 説明と画像を関連付ける</p>
-							<p>属性の値はフラグメント識別子<strong>ではない</strong>ことに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号 ( <code>#</code> ) が含まれていません）。</p>
+							<p>属性の値はフラグメント識別子<strong>ではない</strong>のに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号(<code>#</code>)は含まれません）。</p>
 						</figcaption>
 						<pre id="ex-aria-describedby-01-src" class="prettyprint linenums"><code>&lt;img … aria-describedby="img-desc"/&gt;
 &lt;p id="img-desc" hidden="hidden"&gt;The infographic shows …&lt;/p&gt;</code></pre>
 					</figure>
 					
-					<p>説明が複数の要素に分割されている場合、 <code>aria-describedby</code>属性は複数の要素を参照することがあります。</p>
+					<p>説明が複数の要素に分割されている場合には、<code>aria-describedby</code>属性は複数の要素を参照します。</p>
 					
 					<p><code>aria-describedby</code>使用して、非表示かどうかに関係なく、任意のコンテンツを参照する場合の問題は、そのコンテンツが単純なテキスト文字列になることです（つまり、説明内を効果的に移動する方法がありません）。その結果、支援技術のユーザーは、先に進む前にそのテキスト文字列全体を聞かなければならず、イライラすることがあります。</p>
 					
-					<p>非表示のコンテンツを含む<code>aria-describedby</code>を使用すると、アクセスの恩恵を受ける可能性のあるユーザーが多数いる場合でも、支援技術のユーザーによる説明へのアクセスが制限されます。</p>
+					<p>非表示のコンテンツを参照する<code>aria-describedby</code>を使用すると、他にアクセスの恩恵を受ける可能性のあるユーザーが多数いる場合でも、支援技術のユーザーによる説明へのアクセスに限定されてしまいます。</p>
 				</section>
 				
 				<section id="aria-details">
-					<h4>
-<code>aria-details</code>属性</h4>
+					<h4> <code>aria-details</code>属性</h4>
 					
 					<p><code>aria-details</code>属性は、どちらも要素のコンテンツに関する追加情報を識別するという点で<a href="#aria-describedby"><code>aria-describedby</code>属性</a>に似ていますが、いくつかの重要な違いがあります。</p>
 					
 					<ol>
-						<li>非表示コンテンツを参照することを目的としたものではありません。</li>
-						<li>参照されるコンテンツは単純なテキスト文字列になるのではなく、ユーザーは参照されるコンテンツの構造をナビゲートできます。</li>
+						<li>非表示コンテンツの参照を目的としたものではありません。</li>
+						<li>参照されるコンテンツは単純なテキスト文字列に縮約されず、ユーザーは参照先のコンテンツ構造をナビゲートできます。</li>
 					</ol>
 					
 					<p><code>aria-details</code>属性の値は、説明を含む要素の ID です。この属性は<strong>1 つの</strong>要素のみを参照できます。</p>
 					
-					<p>この属性は、折りたたみ可能な<a href="#details"><code>details</code>要素</a>を参照するためによく使用されます。この使用法により、この属性は、すべてのユーザーに対してできるだけ目立たない方法で説明を提供するための最適なオプションの 1 つになります。</p>
+					<p>この属性は、折りたためる<a href="#details"><code>details</code>要素</a>を参照するのによく使用されます。この使用法は、すべてのユーザーに対してできるだけ目立たない方法で説明を提供する最適な方法の1つです。</p>
 					
 					<div class="note" role="note" aria-labelledby="aria-details-note">
 						<p id="aria-details-note" class="label">注記</p>
@@ -703,7 +692,7 @@ be hidden.&lt;/p&gt;
 					<figure id="ex-aria-details-01">
 						<figcaption>
 							<p class="label">例 — 画像の説明を追加する</p>
-							<p>属性の値はフラグメント識別子<strong>ではない</strong>ことに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号 ( <code>#</code> ) が含まれていません）。</p>
+							<p>属性の値はフラグメント識別子<strong>ではない</strong>のに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号 ( <code>#</code> ) は含まれません）。</p>
 						</figcaption>
 						<pre id="ex-aria-details-01-src" class="prettyprint linenums"><code>&lt;img src="dollars.jpg" alt="…"
  aria-details="dollar-desc"/&gt;
@@ -716,8 +705,7 @@ be hidden.&lt;/p&gt;
 				</section>
 				
 				<section id="aria-hidden">
-					<h4>
-<code>aria-hidden</code>属性</h4>
+					<h4> <code>aria-hidden</code>属性</h4>
 					
 					<p>その名前にもかかわらず、 <code>aria-hidden</code>属性はコンテンツの視覚的なレンダリングを制御しません。設定されている場合、指定されたコンテンツは支援技術によってレンダリングされない（つまり、アクセシビリティ ツリーに含まれない）ことを示します。</p>
 					
@@ -738,12 +726,11 @@ be hidden.&lt;/p&gt;
 				</section>
 				
 				<section id="aria-label-labelledby">
-					<h4>
-<code>aria-label</code>と<code>aria-labelledby</code>属性</h4>
+					<h4> <code>aria-label</code>と<code>aria-labelledby</code>属性</h4>
 					
-					<p><code>aria-label</code>属性と<code>aria-labelledby</code>属性はどちらも、要素にアクセシブルな名前を提供できるようにします。</p>
+					<p><code>aria-label</code>属性と<code>aria-labelledby</code>属性はどちらも、要素にアクセシブルな名前を提供します。</p>
 					
-					<p><code>aria-label</code>非表示の名前を指定できます。</p>
+					<p><code>aria-label</code>によって非表示の名前を指定できます。</p>
 					
 					<figure id="ex-aria-label-01">
 						<figcaption>
@@ -752,14 +739,14 @@ be hidden.&lt;/p&gt;
 						<pre id="ex-aria-label-01-src" class="prettyprint linenums"><code>&lt;section aria-label="Explanation"&gt;</code></pre>
 					</figure>
 					
-					<p>この属性は、新しいセクションを示すために空白のみが使用されている電子出版で役立ちます（例：見出しのない前付セクション、索引または参考文献のエントリのグループ）。明示的な見出しがないと、支援技術で<code>section</code>をナビゲートできないため、これらのセクションに名前を付けることが重要です。</p>
+					<p>この属性は、新しいセクションを示すのに空白のみが使用されている電子出版で役立ちます（例：見出しのない前付セクション、索引または参考文献のエントリのグループ）。明示的な見出しがないと、支援技術では<code>section</code>をナビゲートできないため、このようなセクションに対する名前付けが重要です。</p>
 					
-					<p><code>aria-labelledby</code>属性は同様の目的を果たしますが、名前を（非表示にできる）別の要素に含めることができます。 <code>aria-labelledby</code>属性の値は、名前を含む要素の ID です。</p>
+					<p><code>aria-labelledby</code>属性は同様の目的を果たしますが、名前を（非表示にできる）別の要素に組み込めます。 <code>aria-labelledby</code>属性の値は、名前を含む要素のIDです。</p>
 					
 					<figure id="ex-aria-labelledby-01">
 						<figcaption>
 							<p class="label">例 — 表示名を指定する</p>
-							<p>属性の値はフラグメント識別子<strong>ではない</strong>ことに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号 ( <code>#</code> ) が含まれていません）。</p>
+							<p>属性の値はフラグメント識別子<strong>ではない</strong>のに注意してください（つまり、ハイパーリンクのように、先頭にハッシュ記号 ( <code>#</code> ) は含まれません）。</p>
 						</figcaption>
 						<pre id="ex-aria-labelledby-01-src" class="prettyprint linenums"><code>&lt;div role="note" aria-labelledby="note-hd"&gt;
 &lt;p id="note-hd" class="hd"&gt;Warning!&lt;/p&gt;
@@ -769,7 +756,7 @@ be hidden.&lt;/p&gt;
 					
 					<p>ラベルが複数の要素に分割されている場合、 <code>aria-labelledby</code>属性は複数の要素を参照する場合があります。</p>
 					
-					<p>コンテンツのセクションに明示的な見出しがある場合には、 <code>aria-labelledby</code>属性を必ずしも使用する必要はありません。</p>
+					<p>コンテンツのセクションに明示的な見出しがある場合には、必ずしも<code>aria-labelledby</code>属性を使用する必要はありません。</p>
 					
 					<figure id="aria-labelledby-02">
 						<figcaption>
@@ -781,13 +768,12 @@ be hidden.&lt;/p&gt;
 &lt;/section&gt;</code></pre>
 					</figure>
 					
-					<p>支援技術は、最初の見出し要素をセクションに関連付けます。ただし、古いブラウザや支援技術では、見出しを明示的に関連付けると、役立ちます。</p>
+					<p>支援技術では最初の見出し要素をセクションに関連付けます。ただし、古いブラウザや古い支援技術向けに見出しを明示的に関連付けると役立ちます。</p>
 				</section>
 				
 				<section id="presentation">
 					
-					<h4>
-<code>presentation</code>ロール</h4>
+					<h4> <code>presentation</code>ロール</h4>
 					
 					<p>よくある誤解として、要素に<code>presentation</code>ロールを追加すると、支援技術からコンテンツを隠すことができる、というものがあります。<strong>これは間違いです。</strong></p>
 					
@@ -814,7 +800,7 @@ be hidden.&lt;/p&gt;
 			<section id="script">
 				<h3>スクリプトテクニック</h3>
 				
-				<p>JavaScript にはコンテンツを非表示にする独自の新しい機能はありませんが、開発者はこのページで説明したすべてのテクニックを使用してドキュメントを操作し、コンテンツを非表示にすることができます。たとえば、開発者は<code>hidden</code>属性を動的に追加および削除したり、要素に CSS クラスを割り当てたりすることができます。そしてもちろん、ARIA はスクリプトによって変更できるように設計されています。</p>
+				<p>JavaScriptにはコンテンツを非表示にする独自の新しい機能はありませんが、開発者はこのページで説明したすべてのテクニックを使用してドキュメントを操作し、コンテンツを非表示にできます。たとえば、開発者は<code>hidden</code>属性を動的に追加および削除したり、要素にCSSクラスを割り当てたりできます。そしてもちろん、ARIAはスクリプトによって変更できるように設計されています。</p>
 				
 				<figure id="ex-script-01">
 					<figcaption>
@@ -827,17 +813,17 @@ be hidden.&lt;/p&gt;
    document.getElementById('hideyho').classList.add('hide');</code></pre>
 				</figure>
 				
-				<p>もともとのテクニックを直接使用する場合と比べて JavaScript が優れている点は、コンテンツを非表示にするときに<a href="../script/pe.html">段階的な拡張</a>が可能であることです。ユーザーの好みに応じて、コンテンツのオン／オフを切り替える必要がある場合があります。</p>
+				<p>もともとのテクニックを直接使用する場合と比べてJavaScriptが優れている点は、コンテンツを非表示にするときに<a href="../script/pe.html">段階的な拡張</a>が可能であることです。ユーザー設定に応じて、コンテンツのオン／オフを切り替えなければならない場合があります。</p>
 				
-				<p>たとえば、プログラミングに関する本には複数の言語による例題が掲載され、ユーザーは自身が最も使いやすい言語のみを選択して有効にすることができます。HTML または CSS のテクニックを使用して 1 つの言語をデフォルトで非表示にすると、スクリプトのサポートがないと、それらの例題がユーザーにまったく表示されなくなる可能性があります（つまり、選択を切り替えるスクリプトが機能しない場合）。代わりに、ページの読み込み時に JavaScript を使用すると、スクリプトが利用できない場合にユーザーに対して何も非表示になりません。情報を失うことなく、スクリプトは適切に終了します。</p>
+				<p>たとえば、プログラミングに関する本には複数の言語による例題が掲載され、ユーザーは自身が最も使いやすい言語のみを選択して有効にできます。HTMLまたはCSSのテクニックを使用して1つの言語をデフォルトで非表示にすると、スクリプトのサポートがないと、それらの例題はユーザーにまったく表示されなくなる可能性があります（つまり、選択を切り替えるスクリプトが機能しない場合）。代わりに、ページの読み込み時にJavaScriptを使用すると、スクリプトが利用できない場合であってもユーザーに対して何も非表示にはなりません。情報を失うことなく、スクリプトは適切に終了します。</p>
 				
 				<p>同様に、教科書の問題の答えがスクリプトを使用してのみ明らかにされる場合、どのユーザーもその答えにアクセスできません。</p>
 				
 				<figure id="ex-script-02">
 					<figcaption>
-						<p class="label">例 — プログレッシブエンハンスメント</p>
+						<p class="label">例 — プログレッシブ エンハンスメント</p>
 						<p>次の例では、スクリプトをサポートしていないリーディングシステムで、<code>details</code>要素を使用して回答を非表示にします。スクリプトがサポートされている場合、 <code>details</code>要素は非表示になり、代わりにラジオ ボタンのセットが有効になり、回答が正しいかどうかに関するメッセージが動的に生成されます。</p>
-						<p>デモの後には、質問をリセットしたり、動的バージョンと静的バージョンを切り替えたりするためのボタンがあります。</p>
+						<p>デモの後には、質問をリセットしたり、動的バージョンと静的バージョンを切り替えるためのボタンがあります。</p>
 					</figcaption>
 					
 					<p class="figlabel">マークアップ：</p>
@@ -898,48 +884,27 @@ function revealResult(correct) {
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">&lt;details&gt;: 詳細折りたたみ要素</a>
-</li>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">hidden</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute"><code>hidden</code>属性</a>
-</li>
-<li>HTML — <a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>要素</a>
-</li>
-<li>WCAG 2.1 — <a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C7">CSS を使用してリンクテキストの一部を非表示にする</a>
-</li>
-					<li>CSS —<a href="https://drafts.fxtf.org/css-masking-1/#the-clip-path">クリッピングシェイプ: clip-path プロパティ</a>
-</li>
-<li>CSS —<a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">コンテンツの高さ: 'height' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">コンテンツの幅: 'width' プロパティ</a>
-</li>
-					<li>CSS — <a href="https://www.w3.org/TR/CSS22/visuren.html#display-prop"> 'display' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility">可視性: 'visibility' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/CSS22/text.html#indentation-prop">インデント: 'text-indent' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">配置スキームの選択: 'position' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/css-color-3/#transparency">透明度: 'opacity' プロパティ</a>
-</li>
-					<li>CSS — <a href="https://www.w3.org/TR/css-transforms-1/#transform-property"> 'transform' プロパティ</a>
-</li>
-					<li>CSS —<a href="https://www.w3.org/TR/CSS22/colors.html#colors">前景色: 'color' プロパティ</a>
-</li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-hidden">aria-hidden（状態）</a>
-</li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-describedby">aria-describedby（プロパティ）</a>
-</li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-details">aria-details（プロパティ）</a>
-</li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label（プロパティ）</a>
-</li>
-					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby（プロパティ）</a>
-</li>
-					<li>ARIA —<a href="https://www.w3.org/TR/wai-aria/#presentation">presentation（ロール）</a>
-</li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">&lt;details&gt;: 詳細折りたたみ要素</a> </li>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">hidden</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-hidden-attribute"><code>hidden</code>属性</a> </li>
+<li>HTML — <a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"><code>details</code>要素</a> </li>
+<li>WCAG 2.1 — <a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C7">CSS を使用してリンクテキストの一部を非表示にする</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/css-masking-1/#the-clip-path">クリッピングシェイプ: clip-path プロパティ</a> </li>
+<li>CSS —<a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">コンテンツの高さ: 'height' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">コンテンツの幅: 'width' プロパティ</a> </li>
+					<li>CSS — <a href="https://www.w3.org/TR/CSS22/visuren.html#display-prop"> 'display' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility">可視性: 'visibility' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/text.html#indentation-prop">インデント: 'text-indent' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">配置スキームの選択: 'position' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/css-color-3/#transparency">透明度: 'opacity' プロパティ</a> </li>
+					<li>CSS — <a href="https://www.w3.org/TR/css-transforms-1/#transform-property"> 'transform' プロパティ</a> </li>
+					<li>CSS —<a href="https://www.w3.org/TR/CSS22/colors.html#colors">前景色: 'color' プロパティ</a> </li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-hidden">aria-hidden（状態）</a> </li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-describedby">aria-describedby（プロパティ）</a> </li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-details">aria-details（プロパティ）</a> </li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label（プロパティ）</a> </li>
+					<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby（プロパティ）</a> </li>
+					<li>ARIA —<a href="https://www.w3.org/TR/wai-aria/#presentation">presentation（ロール）</a> </li>
 				</ul>
 			</section>
 		</main>

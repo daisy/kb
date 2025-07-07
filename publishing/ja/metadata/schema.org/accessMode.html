@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidelines for using the schema.org accessMode property">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'Schema.org'],
+				'category': ['metadata', 'meta-schema'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
 				'addh4': true
 			};
@@ -44,7 +44,7 @@
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
-						<div class="label">Example 3 — Audiobooks</div>
+						<div class="label">Example 3 — オーディオブック</div>
 					</figcaption>
 					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["textual", "visual"]</code></pre>
 				</figure>
@@ -71,7 +71,7 @@
 
 				<p>アクセスモードの値は、コンテンツのデフォルトの性質を識別します。たとえば、画像とビデオは視覚的なコンテンツです。ビデオクリップには通常音声も含まれているため、オーディオクリップと同様に聴覚モードがあります。テキストコンテンツはテキストです</p>
 
-				<p>代替版は、コンテンツが消費される主な方法ではないため、このプロパティを使用して識別されません。拡張説明などの代替版が主なコンテンツに対して提供される場合、それら<a href="#accessModeSufficient">は十分なアクセス モード</a>を決定するために使用されます。</p>
+				<p>代替版は、コンテンツが消費される主な方法ではないため、このプロパティを使用して識別されません。拡張説明などの代替版が主なコンテンツに対して提供される場合、それらは<a href="#accessModeSufficient">十分なアクセス モード</a>を決定するために使用されます。</p>
 				
 				<div class="note" role="note" aria-labelledby="format-note">
 					<p class="label" id="format-note">注記</p>
@@ -93,15 +93,15 @@
 				
 					<p><code>tactile</code>値は、出版物に触覚コンテンツ （点字形式のテキストや触覚画像またはオブジェクトなど） が含まれていることを示すために使用されます。</p>
 
-					<p> この値は通常、アクセシブルな再出版以外では適用されません。</p>
+					<p>この値は通常、アクセシブルな再出版以外には適用しません。</p>
 
-					<p>この値は、テキスト コンテンツを触覚的（たとえば、更新可能な点字ディスプレイ）に変換することを示すために使用<strong>されるものではありません</strong>。</p>
+					<p>この値は、テキストコンテンツの触覚的なもの（たとえば、更新可能な点字ディスプレイ）への変換を示すために使用するものでは<strong>ありません</strong>。</p>
 				</section>
 
 				<section id="textual">
 					<h4>textual</h4>
 				
-					<p><code>textual</code>値は、出版物にテキストコンテンツが含まれていることを示すために使用されます。</p>
+					<p><code>textual</code>値は、出版物にテキストのコンテンツが含まれていることを示すのに使用します。</p>
 
 					<p>ほとんどの出版物には少なくとも何らかのテキストコンテンツが含まれているため、この値はデジタル出版物で最も一般的に使用されます。</p>
 
@@ -121,12 +121,9 @@
 				<h3>関連リンク</h3>
 
 				<ul>
-					<li>Schema.org — <a href="https://schema.org/accessMode">accessMode</a>
-</li>
-					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode">accessMode</a>
-</li>
-					<li>IMS Global — <a href="http://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a>
-</li>
+					<li>Schema.org — <a href="https://schema.org/accessMode">accessMode</a> </li>
+					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode">accessMode</a> </li>
+					<li>IMS Global — <a href="https://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a> </li>
 				</ul>
 			</section>
 		</main>

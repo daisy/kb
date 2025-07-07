@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title> コントラスト（高度レベル）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 1.4.6 Contrast (Enhanced)">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'details': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>1.4.6</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>AAA</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>テキスト</li>
+								<li>文字画像</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>テキスト及び文字画像の視覚的提示には、少なくとも 7:1 のコントラスト比がある。ただし、次の場合は除く。</p>
+							
+							<div class="details desc">
+								<button type="button" aria-controls="desc01" aria-expanded="false" class="summary"><span class="status">▶</span> 例外を見る</button>
+								<div class="details-body" id="desc01">
+									<dl>
+										<dt>大きな文字</dt>
+										<dd>
+											<p>サイズの大きなテキスト及びサイズの大きな文字画像には、少なくとも 4.5:1 のコントラスト比がある。</p>
+										</dd>
+										
+										<dt>付随的</dt>
+										<dd>
+											<p>テキスト又は文字画像において、次の場合はコントラストの要件はない。アクティブではないユーザインタフェース コンポーネントの一部である、純粋な装飾である、誰も視覚的に確認できない、又は重要な他の視覚的なコンテンツを含む写真の一部分である。</p>
+										</dd>
+										
+										<dt>ロゴタイプ</dt>
+										<dd>
+											<p>ロゴ又はブランド名の一部である文字には、最低限のコントラストの要件はない。</p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html">達成基準 1.4.6の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#contrast-enhanced">達成基準 1.4.6を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17">G17：テキスト（及び文字画像）とその背景の間に、少なくとも 7:1 のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G18">G18：テキスト（及び文字画像）とその背景の間に、少なくとも 4.5:1のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G145">G145：テキスト（及び文字画像）とその背景の間に、少なくとも 3:1 のコントラスト比を確保する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G148">G148：背景色及び文字色を指定せず、その初期設定を変更するウェブコンテンツ技術の機能を使用しない</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G174">G174：利用者が十分なコントラストのある提示に切り替えられるように、十分なコントラスト比のあるコントロールを提供する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、中程度のロービジョン（約 20/80）ユーザーが背景からテキストを識別できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>コンテンツ製作者は、テキスト（文字画像を含む）と背景のコントラスト比が少なくとも 7:1 あることを確認しなければなりません。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../css/contrast.html">コントラスト</a></li>
+					<li><a href="../html/images-text.html">文字画像</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

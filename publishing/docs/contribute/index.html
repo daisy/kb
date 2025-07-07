@@ -7,7 +7,6 @@
 		<meta name="description" content="How to contribute content to the DAISY Accessible Publishing Knowledge Base">
 		<script>
 			var page_info = {
-				'category': 'Contribute',
 				'addh4': true
 			};</script>
 		<script src="/js/init.js"></script>
@@ -36,13 +35,13 @@
 						href="https://github.com/daisy/kb/pulls">pull request</a> to have the branch merged.</p>
 				
 				<p>For all other contributors, you will first need to create a <a
-					href="https://github.com/join">GitHub account</a>. You then have to <a
-						href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork
+					href="https://github.com/signup">GitHub account</a>. You then have to <a
+						href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">fork
 						a copy the knowledge base repository</a> and then <a
-							href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone
+							href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">clone
 							it to your desktop</a> to work on.
 					When you finish your contribution, you have to go to your forked repository in GitHub and <a
-						href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">open
+						href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">open
 						a pull request</a> to have your changes added to the DAISY repository.</p>
 			</section>
 			
@@ -123,14 +122,14 @@ var page_info = {
 };
 &lt;/script></pre>
 					
-					<p>The <code>topic</code> field <strong>must</strong> be the uppercase name of the directory where
-						you are creating the page. For example, if you are adding a new page to the html directory, you
+					<p>The <code>category</code> field <strong>must</strong> be the uppercase name of the directory where
+						you are creating the page. For example, if you are adding a new page to the <code>html</code> directory, you
 						would set the field to:</p>
 					
 					<pre id="info-ex-02" class="prettyprint linenums">'category': 'HTML',</pre>
 					
-					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values
-						for the topic. For example, pages in the <code>html/dpub-aria</code> directory include an array
+					<p>If you are creating a new subdirectory for your page(s), you will need to make an array of values.
+						For example, pages in the <code>html/dpub-aria</code> directory include an array
 						like this:</p>
 					
 					<pre id="info-ex-03" class="prettyprint linenums">'category': ['html', 'dpub-aria'],</pre>
@@ -328,7 +327,7 @@ var page_info = {
 							<li>
 								<p>If you have cloned the knowledge base to your local account, you can turn on GitHub
 									pages to view the content. GitHub provides instructions on <a
-										href="https://guides.github.com/features/pages/">how to turn on pages</a>. In
+										href="https://docs.github.com/en/pages/quickstart">how to turn on pages</a>. In
 									this case, the URL for the content folders would be along these lines:
 										<code>https://youraccountname.github.io/kb/publishing/docs/</code></p>
 							</li>

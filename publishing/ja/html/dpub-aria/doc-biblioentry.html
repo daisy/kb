@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-biblioentry（廃止）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-biblioentry role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['html', 'dpub-aria'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">作品の最後または作品の中のセクションに出現する、注を集めたものの一つで、参照されているテキストの一節に追加のコンテキストを提供します。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例 1 — ネイティブHTML要素を使用した参考文献リスト</div>
+						<p>この例では、<code>ol</code>リスト要素を使用してリストを表現しています。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="bib-hd"&gt;
+   &lt;h2 id="bib-hd"&gt;Select Bibliography&lt;/h2&gt;
+   &lt;ol&gt;
+      &lt;li&gt;Doe, John. Anonymous People through History. …&lt;/li&gt;
+      …
+   &lt;/ol&gt;
+&lt;/section&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">例 2 — ARIAロールを使用した参考文献リスト</div>
+						<p>この例では、ARIAの<code>list</code>および<code>listitem</code>ロールを使用してリストを定義します。</p>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;section role="doc-bibliography" aria-labelledby="bib-hd"&gt;
+   &lt;h2 id="bib-hd"&gt;Select Bibliography&lt;/h2&gt;
+   &lt;div role="list"&gt;
+      &lt;div role="listitem"&gt;
+         Doe, John. Anonymous People through History. …
+      &lt;/div&gt;
+      …
+   &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-biblioentry</code>は、<a href="https://www.w3.org/TR/wai-aria/#listitem">listitemロール</a>からセマンティクスを継承しています。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-biblioentry</code>ロールの明示的な使用は<strong>非推奨</strong>です。このロールはARIAの継承モデルの変更と互換性がなく（つまり、<code>list</code>に組み込めるのは<code>listitem</code>ロールのみ）、将来のバージョンで変更する必要があります。</p>
+				
+				<p><code>doc-bibliography</code>ロールを持つセクション内のリストにあるリスト項目の子は、自動的に bibliograpahy 項目であるとみなされるようになりました。</p>
+
+				<p>参考文献で各項目を表すのにリストを使用しない場合は、代わりにコア<code>list</code>および<code>listitem</code>ロールを使用する必要があります。（<a href="#ex-002">例2</a>を参照）。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-biblioentry">DPUB-ARIA — 								<code>doc-biblioentry</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA ロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

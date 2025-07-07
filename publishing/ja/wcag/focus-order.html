@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>フォーカス順序</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Explainer for success criterion 2.4.3 Focus Order">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.0以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>2.4.3</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>音声</li>
+								<li>コントロール</li>
+								<li>入力</li>
+								<li>インタラクティブなコンテンツ</li>
+								<li>リンク</li>
+								<li>表</li>
+								<li>映像</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>ウェブページが順を追ってナビゲートできて、そのナビゲーション順が意味又は操作に影響を及ぼす場合、フォーカス可能なコンポーネントは、意味及び操作性を損なわない順序でフォーカスを受け取る。</p>
+						</td>
+					</tr>
+					<tr>
+						<th>ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">達成基準2.4.3の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order">達成基準2.4.3</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C27">C27：DOM の順序を視覚的順序と一致させる</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G59">G59：コンテンツ内のシーケンスと関連性に応じた順序でインタラクティブ要素を配置する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H4">H4：リンク、フォームコントロール、及びオブジェクトを通して、論理的なタブ順序を作成する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR26">SCR26：動的なコンテンツを、Document Object Model の、そのトリガーとなる要素の直後に挿入する</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR27">SCR27：Document Object Model を用いて、ページ上にある複数のセクションを並び替える</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR37">SCR37：デバイス非依存な方法でカスタムダイアログを作成する</a></li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、読者がドキュメントをタブで移動する際に、コンテンツの順序が、そのコンテンツの目的や意味と矛盾しないようにすること（つまり、読者の混乱を防ぐこと）です。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>ネイティブHTMLコントロールをユーザーがタブ移動できるように、コンテンツ製作者は要素の順序を論理的に理にかなった順番にする必要があります。たとえば、練習問題が列に配置されている場合、タブ操作で列間を行ったり来たりできる必要はありません（つまり、設問には順番に到達する必要があります）。</p>
+				
+				<p>カスタム コントロールとウィジェットの場合、コンテンツ製作者はタブ移動の順序を全てのコントロールの順にしてください。例えば、HTML <code>tabindex</code>属性を誤って使用すると、読者が予期しない場所にジャンプしてしまいます。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>ナレッジベースの次のページでは、出版物コンテンツにおいてこの達成基準を満たす方法が、より詳しく記載されています。</p>
+				
+				<ul>
+					<li><a href="../script/tab-order.html">タブ順序</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

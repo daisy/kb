@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidelines for using inline frames accessibly.">
 		<script>
 			var page_info = {
-				'category': ['HTML'],
+				'category': 'html',
 				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
 			};
 		</script>
@@ -30,7 +30,7 @@
 					<li>Ensure that the frame has a meaningful label (<code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code>). [[WCAG-2.4.1]] and [[WCAG-4.1.2]]</li>
 					<li>Identify frames not intended for users in their label.</li>
 					<li>Use relative units to size the <code>iframe</code>.</li>
-					<li>Set scrolling to <code>auto</code>.</li>
+					<li>Ensure users can scroll the <code>iframe</code>.</li>
 				</ul>
 			</section>
 			
@@ -39,7 +39,7 @@
 				<figure id="ex-01">
 					<figcaption><span class="label">Example 1 &#8212; A basic <code>iframe</code></span></figcaption>
 					<p>The <code>iframe</code> identifies that it contains a quiz in its <code>title</code> attribute.
-						It includes fallback content to reach the file for reading systems that don't support frames.</p>
+						It includes fallback content to reach the file for reading systems that do not support frames.</p>
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;iframe
       href="quiz01.xhtml"
       title="Quiz 1"
@@ -77,8 +77,11 @@
 						embedded content (in a <code>title</code> attribute on the <code>iframe</code> element).</li>
 					<li>When setting the height and width of the <code>iframe</code>, a relative unit such as percentage or
 						ems should be used to facilitate resizing.</li>
-					<li>Scrolling should be set to <code>auto</code> so that if the user resizes the content in the frame
-						it can still be accessed if it becomes bigger than the available space.</li>
+					<li>Scrolling should not be disabled so that users can access content even if they resize it such that
+						it no longer fits within the visible space of the <code>iframe</code>. For example, do not set the
+						CSS <a 
+							href="https://drafts.csswg.org/css-overflow/#overflow-properties">overflow properties</a> on
+						the <code>iframe</code> to <code>clip</code> or <code>hidden</code>.</li>
 					<li>The <code>iframe</code> element should provide embedded fallback content for user agents that do
 						not support inline frames (e.g., a direct link to the content file).</li>
 					<li>If the frame does not contain content for the user, indicate as much in the <code>title</code>, set
@@ -94,7 +97,7 @@
 					<li>MDN &#8212; <a
 						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">&lt;iframe>: The Inline Frame
 						element</a></li>
-					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/semantics-embedded-content.html#the-iframe-element">The
+					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">The
 								<code>iframe</code> element</a></li>
 				</ul>
 			</section>

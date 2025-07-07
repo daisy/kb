@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>CSSプロパティリファレンス</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using CSS properties accessibly.">
+		<script>
+			var page_info = {
+				'category': 'css',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			table,
+			th,
+			td{
+				border: none;
+			}
+			table{
+				width: 95%;
+				border-bottom: 1px solid rgb(0, 0, 0);
+			}
+			
+			tr{
+				border-top: 1px solid rgb(0, 100, 0);
+			}
+			
+			tr:hover{
+				background-color: rgb(255, 255, 200);
+			}
+			
+			th{
+				color: rgb(0, 0, 0);
+				background-color: rgb(236, 236, 236);
+			}
+			
+			td{
+				vertical-align: top;
+				padding: 0.4em;
+			}
+			
+			td.property{
+				font-size: 90%;
+				font-weight: bold;
+				color: rgb(150, 150, 150);
+				width: 12em;
+				padding: 0.5em;
+				border-right: 1px dashed rgb(0, 0, 200);
+			}
+			
+			td.property ul{
+				margin: 0em;
+				padding: 0em;
+			}
+			
+			td ul{
+				margin: 0em;
+				padding: 0em 0em 0em 1.3em;
+			}
+			
+			ul.nobull{
+				list-style-type: none;
+			}
+			
+			td.issues{
+				padding-left: 1em;
+			}
+			
+			td li{
+				padding-bottom: 0.5em;
+			}</style>
+	</head>
+
+	<body>
+		<main>
+			<section id="usage">
+				<p>このページに記載されているCSSプロパティは、コンテンツを視覚的にレンダリングするEPUB3ユーザーエージェントによってサポートされることが期待されますが、必須ではありません。ここに記載されていないプロパティも引き続き使用できます（例えば、進化するCSS3モジュールから）が、コンテンツ製作者は、このようなプロパティを使用する場合には、レンダリングとアクセシビリティへの影響を慎重に評価する必要があります。</p>
+			</section>
+
+			<section>
+				<h3>CSS 2.1</h3>
+
+				<table>
+					<thead>
+						<tr>
+							<th>プロパティ</th>
+							<th>考慮事項</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="property" id="background"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background">background</a>
+</td>
+							<td class="issues">
+								<p><code class="property">background</code>プロパティは、一つ以上のプロパティを定義するための省略形です。潜在的な問題については、個々の<code>background-*</code>プロパティを参照してください。</p>
+								<p>現時点では、固定レイアウト以外では、EPUB3では背景プロパティはほとんどサポートされていないことに注意してください。</p>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="background-attachment"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background-attachment">background-attachment</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+
+						<tr>
+							<td class="property" id="background-color"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background-color">background-color</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>テキストの色と十分なコントラストを確保してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="background-image"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background-image">background-image</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>コンテンツの色（テキストとグラフィック）との十分なコントラストを確保してください。</li>
+									<li>画像内のグラデーションや色の混合率が高いと、重ねられたテキストが読みにくくなることがあります。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="background-position"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background-position">background-position</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+
+						<tr>
+							<td class="property" id="background-repeat"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-background-repeat">background-repeat</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border">border</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-top">border-top</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-right">border-right</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom">border-bottom</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-left">border-left</a></li>
+								</ul>
+							</td>
+							<td class="issues">これらの<code class="property">border</code>プロパティは、一つ以上のプロパティを定義するための省略形です。問題については、各<code>border-*</code>プロパティを参照してください。</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border-collapse"> 								<a href="https://www.w3.org/TR/CSS22/tables.html#propdef-border-collapse">border-collapse</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border-color">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-color">border-color</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-top-color">border-top-color</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-right-color">border-right-color</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-color">border-bottom-color</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-left-color">border-left-color</a></li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>要素の枠線の色は、そのコンテンツの性質に関する情報を伝える唯一の手段であってはなりません。<a href="color.html">色情報ページ</a>を参照してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border-spacing"> 								<a href="https://www.w3.org/TR/CSS22/tables.html#propdef-border-spacing">border-spacing</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border-style">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-style">border-style</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-top-style">border-top-style</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-right-style">border-right-style</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-style">border-bottom-style</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-left-style">border-left-style</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="border-width">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-width">border-width</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-top-width">border-top-width</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-right-width">border-right-width</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-width">border-bottom-width</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-border-left-width">border-left-width</a></li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>色を使って意味を伝える場合は、枠線を視覚的なユーザーが色を識別できる太さにしてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="top-bot-right-left">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-bottom">bottom</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-left">left</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-right">right</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-top">top</a></li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>EPUBにおける絶対位置と固定位置に対しての、ユーザーエージェントのサポートは保証されていません。</li>
+									<li>コンテンツは、視力の弱いユーザーや拡大ソフトウェアを使用しているユーザーにとって見つけにくいような配置にしないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="caption-side"> 								<a href="https://www.w3.org/TR/CSS22/tables.html#propdef-caption-side">caption-side</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="clear"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-clear">clear</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="clip"> 								<a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-clip">clip</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>Web上で支援技術のユーザーのみを対象としたコンテンツを非表示にするためにコンテンツを１ピクセルにクリッピングすることがあります。しかし、EPUBリーディングシステムでは、この手法のサポートには一貫性がありません。一部のリーディングシステムでは、非表示のコンテンツが表示されることを想定してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="color"> 								<a href="https://www.w3.org/TR/CSS22/colors.html#propdef-color">color</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>テキストやグラフィックコンテンツに色を付ける際の考慮事項については、<a href="color.html">色情報ページ</a>を参照してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="content"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-content">content</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>
+<a href="#before-after"><code>:before</code>および<code>:after</code>疑似要素（pseudo-elements）</a>を参照してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="counter">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/generate.html#propdef-counter-increment">counter-increment</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/generate.html#propdef-counter-reset">counter-reset</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="cursor"> 								<a href="https://www.w3.org/TR/CSS22/ui.html#propdef-cursor">cursor</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>クリックできる要素が区別できなくなるようなカーソルの変更はしないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="direction"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-direction">direction</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>EPUB3では<code class="property">direction</code>プロパティはサポートされていません。方向を表現するには<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" &gt;bdi&lt;/a&gt;</code>要素や<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" &gt;bdo&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code>属性などのHTML5マークアップを使用してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="display"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-display">display</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>
+<code class="property">display</code>プロパティの値を<code class="value">none</code>に設定すると、要素は視覚的にも支援技術に対してもレンダリングされなくなります。これは、支援技術によってレンダリングされるべきコンテンツを視覚表示から隠すためのメカニズムではありません。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="empty-cells"> 								<a href="https://www.w3.org/TR/CSS22/tables.html#propdef-empty-cells">empty-cells</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>HTM5の表では、枠線がレンダリングされるため、 <code class="property">empty-cells</code>プロパティを設定する必要はありません（ダッシュや改行なしスペースなどのプレースホルダーテキストを挿入しないでください）。</li>
+									<li>EPUB2ユーザーエージェントとの前方互換性を保つために、空のセルの周囲に表の枠線が描画されるように、プロパティを<code class="value">show</code>の値に設定する必要があります。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="float"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-float">float</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>視力の弱いユーザーや拡大ソフトウェアを使用しているユーザーが発見しにくいような方法で要素をフロート表示しないようにしてください。</li>
+									<li>フロートされたコンテンツの周囲に十分な余白を確保し、周りのコンテンツと明確に区別できるようにします。</li>
+									<li>主要コンテンツを右にフロートする場合、フロートのためにマークアップで配置しないようにしてください（つまり、非視覚的な再生コンテキストで意味をなすように、論理的な読み取りポイントで再生できるようにします）。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font">font</a>
+</td>
+							<td class="issues"> <code class="property">font</code>プロパティは、一つ以上のプロパティを定義するための省略形です。問題については、各font-*プロパティを参照してください。</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font-family"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font-family">font-family</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>大文字の「I」、小文字の「L」、数字の「1」を同一（またはほぼ同一）の文字として表すサンセリフフォント（例えばArial）など、文字の区別が十分に行えないフォントの使用は避けてください。</li>
+									<li>ユーザーが判読しにくい筆記体や装飾の多いフォントは避けてください。</li>
+									<li>出版物で使用するフォントの数を制限し、一貫したフォントファミリーを使用するようにしてください（例：見出しに一種類のフォント、本文に一種類のフォント）</li>
+									<li>文字間のカーニングが十分なフォントを優先します。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font-size"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font-size">font-size</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>スケーリングを容易にするために、パーセンテージやemなどの相対的なサイズを使用します。</li>
+									<li>デフォルトのフォントサイズが文章の読みやすさに影響しないようにします（例：<code class="value">x-small</code>、<code class="value">xx-small</code>および同等のフォントサイズを指定しないでください）。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font-style"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font-style">font-style</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>CSSを使用して斜体にするのは装飾目的の場合のみにしてください（<code>i</code>要素と同様）。単語を強調したい場合は<code>em</code>タグを使用してください。</li>
+									<li>イタリック体は読みにくい場合があるので、装飾的なイタリック体は多用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font-variant"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font-variant">font-variant</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="font-weight"> 								<a href="https://www.w3.org/TR/CSS22/fonts.html#propdef-font-weight">font-weight</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>CSSを使用して太字にするのは装飾目的に限定してください。単語を強調する場合は<code>strong</code>タグを使用し、キーワードには<code>b</code>を使用してください。</li>
+									<li>太字はローマン体よりも読みにくい場合があるので、装飾的な太字の多用は避けてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="height"> 								<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-height">height</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>支援技術では通常、要素の高さや幅が0に設定されているコンテンツは無視されますが、だからといって非視覚的な再生のみを目的としたコンテンツを、非表示にするためにこのプロパティを使用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="letter-spacing"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-letter-spacing">letter-spacing</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>
+<code class="property">letter-spacing</code>プロパティを使用すると、文字間のカーニングを増やし、密に構成されたフォントを読みやすくできます。</li>
+									<li>一文字ずつ綴りを読み上げる意図がない単語の文字間に空白は追加しないでください。文字間のスペースが必要な場合は、このプロパティを使用して視覚的にスペースを広げます。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="line-height"> 								<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height">line-height</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>行の高さを変更するときは注意してください。行の高さを少し広げると全体的な読みやすさが向上しますが、行間のスペースが広すぎると逆に読みにくくなる可能性があります（例：段落を区別しにくくなる）。</li>
+									<li>コンテンツを圧縮するために行の高さを狭めないようにしてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="list-style"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-list-style">list-style</a>
+</td>
+							<td class="issues"> <code class="property">list-style</code>プロパティは、一つ以上のプロパティを定義するための省略形です。詳細については、各list-style-*プロパティを参照してください。</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="list-style-image"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-image">list-style-image</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>リストの意味を伝えるための画像使用は避けてください。画像が項目の理解に重要ならば、リストにセマンティックに関する記載を追加し意味が伝わるようにしてください。リストが図や補足の場合は、適切なコンテナ要素を使用してキャプションを加えてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="list-style-positin"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-position">list-style-position</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="list-style-type"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-type">list-style-type</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>
+<code class="property">list-style-type</code>プロパティを使用してリストの性質を変更しないでください（例：順序なしリストに順序があるように見せるためにプロパティを使用しない）。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="margin">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-margin">margin</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-margin-top">margin-top</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-margin-right">margin-right</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-margin-bottom">margin-bottom</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-margin-left">margin-left</a></li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>余白を変更してコンテンツを画面外に移動することは、Webでは一般的ですが、EPUBユーザーエージェントでは動作が保証されていません。この方法は、ユーザーの好みの読み方向とコンテンツの配置によっては問題を引き起こすことも知られています。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="max-min-wh">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height">max-height</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width">max-width</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height">min-height</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width">min-width</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="orphans-widows">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/page.html#propdef-orphans">orphans</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/page.html#propdef-widows">widows</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="outline">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/ui.html#propdef-outline">outline</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/ui.html#propdef-outline-color">outline-color</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/ui.html#propdef-outline-style">outline-style</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/ui.html#propdef-outline-width">outline-width</a></li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>アウトラインは枠線を囲み、同様の機能を果たします。それぞれの問題は同じです。詳細については、それぞれの枠線のプロパティを参照してください。</li>
+									<li>枠線とアウトラインの両方を使用する場合は、両方が視覚的に情報を伝えるのであれば、それらの間に十分なコントラストが維持されるようにしてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="overflow"> 								<a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-overflow">overflow</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>拡大したときなどに、コンテンツが表示されない可能性があるため、<code class="value">hidden</code>値は使用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="padding">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-padding">padding</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-padding-top">padding-top</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-padding-right">padding-right</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-padding-bottom">padding-bottom</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/box.html#propdef-padding-left">padding-left</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="page-break">
+								<ul class="nobull">
+									<li><a href="https://www.w3.org/TR/CSS22/page.html#propdef-page-break-after">page-break-after</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/page.html#propdef-page-break-before">page-break-before</a></li>
+									<li><a href="https://www.w3.org/TR/CSS22/page.html#propdef-page-break-inside">page-break-inside</a></li>
+								</ul>
+							</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="position"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-position">position</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>絶対配置を、マークアップでレイアウトされているのと違う順序でコンテンツを再配置する目的では使用しないでください。</li>
+									<li>視力の弱いユーザーや拡大ソフトウェアを使用しているユーザーが発見しにくくなるので、絶対位置に要素を配置しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="quotes"> 								<a href="https://www.w3.org/TR/CSS22/generate.html#propdef-quotes">quotes</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="table-layout"> 								<a href="https://www.w3.org/TR/CSS22/tables.html#propdef-table-layout">table-layout</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="text-align"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-text-align">text-align</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>単語間の間隔が不均等になると、一部の人にとっては読みにくくなるので、テキストは両端揃えにしないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="text-decoration"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-text-decoration">text-decoration</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>意味的に削除されたテキストであることを示すには<code>del</code>要素を使用します。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="text-indent"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-text-indent">text-indent</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>インデントに大きな負の値を使用して、支援技術用のテキストを隠すことがありますが、余白の負の値と同様に、この手法はEPUBユーザーエージェントではあてにできず、ユーザーの好みのテキスト方向によっては問題が発生する可能性があります。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="text-transform"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-text-transform">text-transform</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>単語が区別しにくくなったり、読みにくくなる可能性があるため、大文字を装飾的に多用しないようにしてください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="unicode-bidi"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-unicode-bidi">unicode-bidi</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>EPUB 3では、<code class="property">unicode-bidi</code>プロパティはサポートされていません。テキストの記述方向を表現するには、<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element" &gt;bdi&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element" &gt;bdo&lt;/a&gt;</code>要素、<code>&lt;a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute"&gt;dir&lt;/a&gt;</code>属性などのHTML5マークアップを使用する必要があります。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="vertical-align"> 								<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-vertical-align">vertical-align</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="visibility"> 								<a href="https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility">visibility</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>非表示のコンテンツは支援技術では利用できないので、読み上げ用のコンテンツを視覚的なレンダリングから隠す目的ではこのプロパティを使用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="white-space"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-white-space">white-space</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+
+						<tr>
+							<td class="property" id="width"> 								<a href="https://www.w3.org/TR/CSS22/visudet.html#propdef-width">width</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>支援技術では通常、要素の幅や高さが0に設定されているコンテンツは無視されます。非視覚的な再生のみを目的としたコンテンツを、非表示にするためにこのプロパティを使用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="word-spacing"> 								<a href="https://www.w3.org/TR/CSS22/text.html#propdef-word-spacing">word-spacing</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>単語間隔を広げると、密に構成されたフォントの読みやすさが向上します。</li>
+									<li>単語間のスペースを増やすには、複数のノン ブレイキング スペースを追加するより、このプロパティを使用してください。</li>
+								</ul>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="property" id="z-index"> 								<a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-z-index">z-index</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+						<tr id="aural">
+							<td class="property">
+								<ul class="nobull">
+									<li>azimuth</li>
+									<li>cue</li>
+									<li>cue-after</li>
+									<li>cue-before</li>
+									<li>elevation</li>
+									<li>pause</li>
+									<li>pause-after</li>
+									<li>pause-before</li>
+									<li>pitch</li>
+									<li>pitch-range</li>
+									<li>play-during</li>
+									<li>richness</li>
+									<li>speak</li>
+									<li>speak-header</li>
+									<li>speak-numeral</li>
+									<li>speak-punctuation</li>
+									<li>speech-rate</li>
+									<li>stress</li>
+									<li>voice-family</li>
+									<li>volume</li>
+								</ul>
+							</td>
+							<td class="issues">
+								<ul>
+									<li>
+<a href="https://www.w3.org/TR/CSS22/aural.html">CSS 2.1 聴覚スタイルシートの参考付録</a>のプロパティは使用しないでください。</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="css21classes">
+				<h3>CSS 2.1 疑似クラス（Pseudo-Classes）</h3>
+
+				<table>
+					<thead>
+						<tr>
+							<th>疑似クラス</th>
+							<th>考慮事項</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="property" id="active"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:active</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="first-child"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#first-child">:first-child</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="focus"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:focus</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="hover"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes">:hover</a>
+</td>
+							<td class="issues">
+<code>:hover</code>疑似セレクターはデバイスに依存し、多くのユーザーが有効化できないかもしれないので、使用しないでください。</td>
+						</tr>
+						<tr>
+							<td class="property" id="lang"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#lang">:lang</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="link"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#link-pseudo-classes">:link</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+						<tr>
+							<td class="property" id="visited"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#link-pseudo-classes">:visited</a>
+</td>
+							<td class="issues"> </td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="css21elements">
+				<h3>CSS 2.1 疑似要素（Pseudo-Elements）</h3>
+
+				<table>
+					<thead>
+						<tr>
+							<th>擬似要素</th>
+							<th>考慮事項</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="property" id="before-after"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#before-and-after">:before</a><br>and<br> 								<a href="https://www.w3.org/TR/CSS22/selector.html#before-and-after">:after</a>
+</td>
+							<td class="issues">
+								<ul>
+									<li>支援技術は通常、IE 11およびEdgeブラウザを除き、 <code>:before</code>と<code>:after</code>の疑似要素を使用して挿入されたテキストを読み上げます。</li>
+									<li>期待される動作は、挿入されたテキストが読み上げられることなので、装飾目的では疑似要素を使用しないでください。</li>
+									<li>CSSのサポートがないユーザーは、挿入されたテキストにアクセスできません。</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="property" id="first-letter"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#first-letter">:first-letter</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+						<tr>
+							<td class="property" id="first-line"> 								<a href="https://www.w3.org/TR/CSS22/selector.html#first-line-pseudo">:first-line</a>
+</td>
+							<td class="issues"></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</body>
+</html>

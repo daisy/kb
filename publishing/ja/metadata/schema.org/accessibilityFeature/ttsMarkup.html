@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ttsMarkup</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's ttsMarkup value">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-schema', 'accessibilityfeature'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="def">
+				<h3>定義</h3>
+				
+				<p class="desc">テキスト読み上げの再生品質を向上させるために、１つ以上の[SSML]、[Pronunciation-Lexicon]、[CSS3-Speech]プロパティが使用されていることを示します。</p>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">例 1 — EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature"&gt;
+   ttsMarkup
+&lt;/meta&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">例 2 — EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+      content="ttsMarkup"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">例 3 — オーディオブック</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["ttsMarkup"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p><a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#ttsMarkup"><code>ttsMarkup</code>値</a>は、テキスト読み上げ(TTS)による再生を改善するために出版物のテキストに音声マークアップが追加され、拡張されていることを示します。</p>
+				
+				<p>合成音声エンジンは、しばしば複雑な単語や異音語（綴りは同じだが発音が異なる単語）の表現に苦労します。結果として、テキストを見られないユーザーは、何が読み上げられたのかを理解するのがとても困難になることがあります。</p>
+				
+				<p><a href="../../../text-to-speech/ssml.html">SSML マークアップ言語</a>を使用すると、たとえば、単語の発音情報を出版物のマークアップに含めてレンダリングを改善できます。同様に、PLS 発音辞書を使用すると、HTML コンテンツに発音辞書を添付できます。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+				
+				<ul>
+					<li>Schema.org — <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a>
+</li>
+					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#ttsMarkup">ttsMarkup</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

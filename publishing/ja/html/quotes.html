@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>引用文（Quotes）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for accessible inline and block quoting in digital publications.">
+		<script>
+			var page_info = {
+				'category': 'html',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>引用されたテキストとそのソースを識別することで、支援技術のユーザーは別のソースから引用された文章を区別できるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+<code>blockquote</code>要素を使用して、主文から分離した引用文を識別します。[[WCAG-1.3.1]]</li>
+					<li>
+<code>q</code>要素を使用して、主文内のインラインの引用文を識別します。[[WCAG-1.3.1]]</li>
+					<li>
+<code>cite</code>要素を使用して引用元を識別します。[[WCAG-1.3.1]]</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — シンプルな<code>blockquote</code>
+</div>
+						<p>この例では、引用文の後に引用元が続きません。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;She could just make out the
+    spell ingredients on the faded
+    parchment:&lt;/p&gt;
+&lt;blockquote&gt;
+   &lt;ul&gt;
+      &lt;li&gt;1 eye of newt&lt;/li&gt;
+      &lt;li&gt;4 toe of frog&lt;/li&gt;
+      …
+   &lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Checking the spell pantry …&lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — 構造化されていない引用文と引用元</div>
+						<p>この例では、引用元が引用文の後に別の段落で続きます。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;blockquote&gt;
+   Towards thee I roll, thou all-destroying
+   but unconquering whale; to the last I
+   grapple with thee; from hell's heart I
+   stab at thee; for hate's sake I spit
+   my last breath at thee.
+&lt;/blockquote&gt;
+&lt;p&gt;Ahab, &lt;cite&gt;Moby Dick&lt;/cite&gt;&lt;/p&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — グループ化された引用文と引用元</div>
+						<p>この例では、<code>figure</code>タグを使用して、引用文とキャプションを関連付けます。キャプションは、<code>figcaption</code>タグで表現します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;blockquote&gt;
+      &lt;p&gt;This last bill was really frightful,
+          being a higher number than had been
+          known to have been buried in one week
+          since the preceding visitation of
+          1656.&lt;/p&gt;
+   &lt;/blockquote&gt;
+   &lt;figcaption&gt;
+      Daniel Defoe,
+      &lt;cite&gt;A Journal of the Plague Year&lt;/cite&gt;,
+      London, 1722.
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例4 — ソースへのリンクがある<code>blockquote</code>
+</div>
+						<p>この例では、引用文の公式ソースへのリンクが<code>cite</code>属性で提供されています。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;blockquote
+    cite="https://www.ontario.ca/laws/statute/90f31#BK80"&gt;
+   &lt;p&gt;49.5 (1) The authority to collect personal 
+      information under section 49.4 is subject 
+      to the following restrictions:&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-05">
+					<figcaption>
+						<div class="label">例5 — 基本的なインライン引用文</div>
+						<p>この例では、引用文がテキストから分離されていないため、インライン<code>q</code>要素が使用されています。</p>
+					</figcaption>
+					<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;p&gt;As Caesar is famed to have said:
+   &lt;q&gt;Veni, Vidi, Vici&lt;/q&gt; —
+   I came, I saw, I conquered. … &lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">引用元を<code>blockquote</code>タグ内に置くことはできますか？</dt>
+					<dd>
+						<p>HTML仕様では、エラーとなります。</p>
+						<blockquote>引用の属性がある場合は、<code>blockquote</code>要素の外側に配置する必要があります。</blockquote>
+						<p>引用元は引用文それ自体とは別です。<a>例3</a>のように、引用元と<code>blockquote</code>を関連付けるために<code>figure</code>タグを使用できますが、これは必ずしも必要ではありません。</p>
+					</dd>
+					
+					<dt id="faq-002">引用元がある場合、<code>figure</code>タグを使用する必要がありますか？</dt>
+					<dd>
+						<p>いいえ。追加の<code>figure</code>タグ マークアップを使用するかどうかの選択は、コンテンツ製作者の裁量に委ねられます。たとえば、内部ワークフローの目的で引用文と引用元をグループ化すると便利な場合があります。 <code>figure</code>を使用する選択によって、支援技術ユーザーの体験は大幅に変わりません。</p>
+					</dd>
+					
+					<dt id="faq-003">一部のサイトで、<code>blockquote</code>に引用元のための<code>footer</code>を付けることができると記載されているのはなぜですか？</dt>
+					<dd>
+						<p>技術的には、<code>blockquote</code>に<code>footer</code>を含めることは有効ですが、<code>blockquote</code>内の<code>footer</code>要素の意味は不明瞭です。HTML仕様によれば、<code>footer</code>は、最も近いセクション要素または<code>body</code>要素に適用されるため、<code>blockquote</code>内の<code>footer</code>は、その要素を説明するものではありません。</p>
+						<p>この質問について、もう少し詳細に説明すると、しばらくHTMLの保守管理グループが2つありました。一方のグループは引用元に<code>footer</code>を使用する慣行を有効としましたが、もう一方のグループではそうではありませんでした。今では、これを有効とした HTMLのバージョンは廃止されています。</p>
+					</dd>
+					
+					<dt id="faq-004">講演者名や著者名を引用できますか？</dt>
+					<dd>
+						<p>HTML仕様では、これもエラーであるとされています。</p>
+						<blockquote>cite要素は作品のタイトルを表します。… 人名は作品のタイトルではありません。… したがって、この要素は人名をマークアップするために使用してはなりません。</blockquote>
+					</dd>
+					
+					<dt id="faq-005">
+<code>cite</code>属性は何か効果がありますか?</dt>
+					<dd>
+						<p>現時点では、エンドユーザー向けには何もありません。リーディングシステムから属性内のURLは辿れません。</p>
+						<p>他の理由（引用元の内部参照など）で属性が必要な場合、あるいはスクリプトによる値の処理が必要な場合は、<code>blockquote</code>と<code>q</code>タグの両方に付けられます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>HTMLには引用文を識別するための二つのタグがあります。</p>
+				
+				<dl>
+					<dt><code>blockquote</code></dt>
+					<dd>
+						<p><code>blockquote</code>要素は、主要な文章からオフセットされた引用文のためのものです。視覚的にレンダリングされると、引用文は周囲の段落よりも左側に大きくインデントされて区別されます。引用文字は、要素内のコンテンツには追加されません。</p>
+					</dd>
+					
+					<dt><code>q</code></dt>
+					<dd>
+						<p><code>q</code>要素は、別の段落のテキスト内に組み込まれた引用文を識別するためのものです。視覚的にレンダリングされると、引用文字が自動的に追加されます。テキストの言語と、引用文が別の引用にネストされているかどうかに基づいて、使用される文字が変わります。</p>
+					</dd>
+				</dl>
+				
+				<p><code>blockquote</code>と<code>q</code>タグを使用して別のソースから引用されたテキストを識別すると、支援技術のユーザーはこの重要な情報にアクセスできます。正しいセマンティック要素が使用されていない場合、ユーザーは引用文が読み上げられていることに気付かないかもしれません。たとえば、フィクション作品では、テキスト内で引用文が続くことを明確に示さずに、架空の引用文が散りばめられていることがあります。</p>
+				
+				<p>引用文タグ、具体的にはインライン<code>q</code>タグは、通常の登場人物の会話をタグ付けするためには使用されません。これらのタグは、実在のものも架空のものも含め、他のソースからテキストを引用することを目的としています。</p>
+				
+				<p>他のソースを引用する際の主な混乱点は、引用文テキストのタグ付けではなく、引用元の表現方法です。コンテンツ製作者の中には、引用元をblockquote内に含めたい人もいますが、HTML仕様によると、これは無効です。また、特定のソースがない場合（たとえば、フレーズが一般にその人に帰属する格言である場合）、引用文が掲載されている作品ではなく、引用文の著作者を引用したい人もいます。これもHTML仕様では無効であるとされています。</p>
+				
+				<p>HTML仕様のルールの問題は、このルールを検証者が強制できないことです。手動で違反を見つけない限り、これらの慣行に従わない出版物にフラグを付けることはできません。これらの違反が支援技術のユーザーに影響を及ぼすかどうかも議論の余地があり、しばらくの間、W3CのHTML5仕様（現在は廃止）では、より柔軟な適用が認められていました。</p>
+				
+				<p>いずれにしても、承認されたマークアップの慣例に従うことが常に最善です。ルールは現時点ではほとんど影響がありませんが、引用文と引用元、および作品と著作者を分離することは、将来的にメリットをもたらす可能性があります。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-blockquote-element"><code>blockquote</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-q-element"><code>q</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

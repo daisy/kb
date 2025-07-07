@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's closedCaptions value">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'Schema.org', 'accessibilityFeature'],
+				'category': ['metadata', 'meta-schema', 'accessibilityfeature'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
@@ -19,7 +19,7 @@
 			<section id="def">
 				<h3>定義</h3>
 				
-				<p class="desc">音声およびビデオ コンテンツで同期されたクローズド キャプションが利用できることを示します。</p>
+				<p class="desc">音声もしくはビデオ コンテンツで同期されたクローズド キャプションが利用できることを示します。</p>
 			</section>
 			
 			<section id="ex">
@@ -53,9 +53,9 @@
 			<section id="desc">
 				<h3>解説</h3>
 				
-				<p><a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#closedCaptions"><code>closedCaptions</code>値</a>は、出版物に聴覚コンテンツのクローズド キャプションが含まれていることを示すために使用されます。</p>
+				<p><a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#closedCaptions"><code>closedCaptions</code>値</a>は、出版物に聴覚コンテンツに対するクローズド キャプションが含まれていることを示すのに使用します。</p>
 				
-				<p>クローズド キャプションはビデオ ストリームとは別に定義され、ユーザーはオン/オフを切り替えたり、表示を制御したりできます。対照的に、<a href="openCaptions.html">オープン キャプション</a>は、ビデオ ストリームに直接焼き付けられ、変更できない形式で常に表示されます。</p>
+				<p>クローズド キャプションはビデオ ストリームとは別に定義され、ユーザーはオン/オフを切り替えるなど表示を制御できます。一方、<a href="openCaptions.html">オープン キャプション</a>は、ビデオ ストリームに直接埋め込まれ、常に表示され、表示を制御できません。</p>
 				
 				<figure id="ex-caption">
 					<figcaption>
@@ -69,22 +69,20 @@
 				
 				<div class="note" role="note" aria-labelledby="cap-note">
 					<p id="cap-note" class="label">注記</p>
-					<p>HTML の<code>audio</code>要素はキャプションの表示領域を提供しないため、キャプションのレンダリングには使用できません。</p>
+					<p>HTMLの<code>audio</code>要素はキャプションの表示領域を提供しないため、キャプションのレンダリングには使用できません。</p>
 				</div>
 				
-				<p>クローズド キャプションは、話されている会話の文字起こしを提供するほか、発生している関連する音 (例：音楽の再生、電話の呼び出し音など) も説明します。クローズド キャプションは、音声がミュートされている場合や音声が完全に聞こえない場合に役立ちます。</p>
+				<p>クローズド キャプションでは、話されている会話の文字起こし内容が提供され、発生している関連する音 (例：音楽の再生、電話の呼び出し音など) も解説されます。クローズド キャプションは、音声がミュートされている場合や音声が完全に聞こえない場合に役立ちます。</p>
 				
-				<p>クローズド キャプションは、厳密には会話の文字起こしである字幕とは異なります (通常は、話されている言語以外の言語でも利用できます)。アクションを説明しないという点で、<a href="#audioDescription">音声の解説</a>とは異なります。</p>
+				<p>厳密には、クローズド キャプションは厳密な会話の文字起こしである字幕とは異なります (通常は、話されている言語以外の言語でも利用できます)。アクションを説明しないという点で、<a href="#audioDescription">音声の解説</a>とは異なります。</p>
 			</section>
 			
 			<section id="refs">
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li>Schema.org —<a href="https://schema.org/accessibilityFeature">アクセシビリティ機能</a>
-</li>
-					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#closedCaptions">closedCaptions</a>
-</li>
+					<li>Schema.org —<a href="https://schema.org/accessibilityFeature">アクセシビリティ機能</a> </li>
+					<li>Schema.org アクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#closedCaptions">closedCaptions</a> </li>
 				</ul>
 			</section>
 		</main>

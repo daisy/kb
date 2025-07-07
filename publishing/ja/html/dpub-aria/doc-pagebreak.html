@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>doc-pagebreak</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The doc-pagebreak role from the WAI-ARIA Digital Publishing module.">
+		<script>
+			var page_info = {
+				'category': ['html', 'dpub-aria'],
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main id="roles">
+			<section>
+				<h3>解説</h3>
+
+				<p class="desc">静的にページ付けされたコンテンツの二つの連続したページ間で、ページ区切りが挿入される位置を示す区切り記号。</p>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-001">
+					<figcaption>
+						<div class="label">例1 — <code>hr</code>要素を使用したページ区切り</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;hr id="pg004" role="doc-pagebreak" aria-label="4"&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-002">
+					<figcaption>
+						<div class="label">例2 — 明示的なページ番号によるページ区切り</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;div id="pg032" role="doc-pagebreak"&gt;32&lt;/div&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-003">
+					<figcaption>
+						<div class="label">例3 — 段落内の文中でのページ区切り</div>
+					</figcaption>
+
+					<pre role="doc-example" id="ex-003-src" class="prettyprint linenums small"><code>&lt;p&gt; … the &lt;span id="pg159" role="doc-pagebreak" aria-label="159"/&gt;
+   interregnum period was characterized by …&lt;/p&gt;</code></pre>
+				</figure>
+			</section>
+
+			<section id="aria">
+				<h3>ARIAとの関係</h3>
+
+				<p><code>doc-pagebreak</code>は、<a href="https://www.w3.org/TR/wai-aria/#separator">separatorロール</a>からセマンティクスを継承します。</p>
+			</section>
+
+			<section id="usage">
+				<h3>使用方法</h3>
+
+				<p><code>doc-pagebreak</code>は、通常、<code>hr</code>、<code>div</code>、および<code>span</code>要素で使用されます。ページ番号は、<code>aria-label</code>属性または要素のテキストコンテンツのいずれかで明確に表現する必要があります。要素のIDでは「page」や「pg」などの接頭辞を使用するのが一般的ですが、ラベルにはそのような接頭辞を付けないでください（つまり、ソースにも接頭辞が付けられていない限り、ラベルには数字のみを付ける必要があります）。</p>
+				
+				<p>role属性に認められる値についての簡易リストは、<a href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">EPUBタイプによるARIAロール製作ガイド（EPUB Type to ARIA Role Authoring Guide）</a>の<a href="https://www.w3.org/TR/epub-aria-authoring/">対応表</a>をご覧ください。正式なリストは、<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>を参照してください。</p>
+			</section>
+			<section id="ref">
+				<h3>関連リンク</h3>
+				<ul>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagebreak">DPUB-ARIA — <code>doc-pagebreak</code></a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIAロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLのARIAについて（ARIA in HTML）</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

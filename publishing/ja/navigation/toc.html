@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>目次（Table of Contents）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance for providing a table of contents in an EPUB publication.">
+		<script>
+			var page_info = {
+				'category': 'nav',
+				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>目次を提供することで、読者は出版物のコンテンツをより簡単に理解し、ナビゲートできるようになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p>目次を組み込みます。[[WCAG-2.4.5]]</p>
+					</li>
+					<li>
+						<p>目次に出版物内の各文書へのリンクが少なくとも1つあることを確認します。[[WCAG-2.4.5]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 基本的な目次</div>
+						<p>目次は、コンテンツへのリンクを順序付けたリストです。</p>
+						<p><code>epub:type</code>属性は EPUB 以外では使用されないことに注意してください。同様に、ナビゲーション ドキュメントがspineに含まれていなければ、<code>role</code>属性はEPUBでは不要です。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+	&lt;a href="s01.xhtml"&gt;A simple link&lt;/a&gt;
+  &lt;/li&gt;
+  …
+&lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — ネストされたエントリ</div>
+						<p>順序付きリストは、出版物の階層を再現するためにネストされています。 <br>リンクされていない見出しには<code>span</code>を使用します。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  …
+  &lt;li&gt;
+	&lt;a href="s03.xhtml"&gt;A linked heading&lt;/a&gt;
+	&lt;ol&gt;
+	  &lt;li&gt;&lt;a href="s03-01.xhtml"&gt;Subsection&lt;/a&gt;
+	  …
+	&lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+	&lt;span class="navhd"&gt;An unlinked heading&lt;/span&gt;
+	&lt;ol&gt;
+	  &lt;li&gt;
+		&lt;a href="s04-01.xhtml"&gt;Subsection&lt;/a&gt;
+	  &lt;/li&gt;
+	  …
+	&lt;/ol&gt;
+  &lt;/li&gt;
+  …
+&lt;/nav&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例 3 — 非表示のブランチを含む目次 (EPUB 3 のみ)</div>
+						<p>次の例では、目次の枝が視覚的なレンダリングでは非表示になっています。このような枝は通常、誰もアクセスできませんが、EPUB 3では、<code>hidden</code>属性に特別な処理があり、リーディングシステムが目次をレンダリングする再にはこの枝を表示します。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  …
+  &lt;li&gt;
+	&lt;a href="s05.xhtml"&gt;A linked heading&lt;/a&gt;
+	&lt;ol hidden="hidden"&gt;
+	  &lt;li&gt;
+		&lt;a href="s05-01.xhtml"&gt;Hidden subsection&lt;/a&gt;
+	  &lt;/li&gt;
+	  …
+	&lt;/ol&gt;
+  &lt;/li&gt;
+  …
+&lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq">
+				<h3>よくある質問</h3>
+				
+				<dl>
+					<dt id="faq-001">EPUB 3でNCXファイルが許可されているのはなぜですか？また、NCXファイルを組み込む必要はありますか？</dt>
+					<dd>
+<p>NCXファイルは、前方互換性の目的でのみ許可されます。EPUB 2ユーザー エージェントはEPUB 3出版物を開くことができますが、新しいナビゲーション ドキュメント形式は使用できません。</p>
+						<p>本がEPUB 2コンテンツとして適切にレンダリングされない場合、あるいは相互互換性を考慮していないならば、NCXファイルは無視できます。</p>
+						<p>NCXがなくても、EPUB 2ユーザー エージェントで出版物が開く場合があります。Adobe Digital Editions などの一部のユーザー エージェントでは、目次によるナビゲーションは利用できませんが、出版物は開きます。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>目次は、ユーザーが出版物のコンテンツ内を移動する際に使用する主要な方法の1つであり、出版物の主要セクションに簡単にアクセスできます。これにより、コンテンツ内の素早い移動やランダムな内容確認が容易になります。</p>
+				
+				<p>目次は通常、<code>nav</code>要素内の順序付きリスト ( <code>ol</code> ) を使用して構築されますが、これらの技術要件について以下に示します。</p>
+				
+				<section>
+					<h4>EPUB 3</h4>
+					
+					<p>EPUB 3では、出版物は<a href="https://www.w3.org/TR/epub/#sec-nav">EPUBナビゲーション ドキュメント</a>( <code>toc nav</code> ) 内で目次を組み込まなければなりません。</p>
+					
+					<p>各リスト項目には、ドキュメントのセクションへの単一のリンク ( <code>a</code> )、または、リンクまたは見出し ( <code>span</code> ) とそれに続くサブセクションのリストが含まれていなければなりません。</p>
+					
+					<p>埋め込まれた画像、数学コンテンツ、または固有のテキストのないその他のコンテンツが原因でリンクの発音が曖昧または不完全な場合は、代替の発音を含む<code>title</code>属性を付与しなければなりません。</p>
+					
+					<p>コンテンツ製作者が出版物のspineに目次を組み込むならば、<code>hidden</code>属性を使用して視覚的なレンダリングから特定の枝を隠せます。EPUBユーザー エージェントがspineの外側でユーザーに目次を表示する際には、この属性を無視することが求められます (つまり、非表示のリンクはユーザー エージェントが生成した目次では使用可能になります)。</p>
+				</section>
+				
+				<section>
+					<h4>EPUB 2</h4>
+					
+					<p>EPUB 2では、目次を提供するために<a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">DAISY NCX ファイル</a>を使用します。目次のエントリは、<code>navPoint</code>要素を使用して構築します。これらの要素をネストして、ナビゲーション位置を階層化したリストを作成できます。</p>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-nav-toc"><code>toc nav</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a>
+</li>
+					<li>EPUB 2 —<a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">宣言型グローバルナビゲーション — NCX</a>
+</li>
+					<li>Z39.86-2005 —<a href="https://daisy.org/activities/standards/daisy/daisy-3/z39-86-2005-r2012-specifications-for-the-digital-talking-book/#NCX">ナビゲーション コントロール ファイル (NCX)</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

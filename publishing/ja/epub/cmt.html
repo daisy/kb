@@ -2,12 +2,12 @@
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
-		<title>コア メディア タイプ</title>
+		<title>コアメディアタイプ</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Describes EPUB's concept of core media types that must be supported and how to provide fallbacks for other formats.">
 		<script>
 			var page_info = {
-				'category': 'EPUB',
+				'category': 'epub',
 				'appliesTo': ['EPUB3','EPUB2'],
 				'addh4': true
 			};
@@ -22,7 +22,7 @@
 	<body>
 		<main>
 			<section id="expl" aria-label="Explanation">
-				<p>リーディングシステムは、ファイルをレンダリングする前に、メディア タイプを使用してファイルに含まれるコンテンツの種類を判断します。次の表に、最も一般的なファイル形式とそれに対応するメディア タイプ値の一部を示します。</p>
+				<p>リーディングシステムは、ファイルをレンダリングする前に、メディアタイプを使用してファイルに含まれるコンテンツの種類を判断します。次の表に、最も一般的なファイル形式とそれに対応するメディアタイプ値の一部を示します。</p>
 				
 				<table>
 					<thead>
@@ -55,53 +55,53 @@
 					</tbody>
 				</table>
 					
-				<p>EPUB 仕様では<dfn>、コア メディア タイプと</dfn>呼ばれる一連のファイル形式が定義されています。これは、作成者が、EPUB コンテンツ ドキュメントに、フォールバックを必要とせずに含めることができるファイル形式です。</p>
+				<p>EPUB仕様では<dfn>、コアメディアタイプと</dfn>呼ばれる一連のファイル形式が定義されています。これは、コンテンツ製作者が、EPUBコンテンツドキュメントに、フォールバックを必要とせずに含めることができるファイル形式です。</p>
 				
-				<p>リーディングシステムは、必要なレンダリングをサポートしている限り、これらの形式をサポートする必要があります（たとえば、テキストのみを読み上げるリーディングシステムは CSS または画像形式をサポートする必要はありませんが、視覚的な表示を備えたリーディングシステムはサポートする必要があります）。</p>
+				<p>リーディングシステムが特定のレンダリングをサポートするなら、そのレンダリングに必要とされる形式をサポートする必要があります（たとえば、テキストのみを読み上げるリーディングシステムはCSSまたは画像形式をサポートする必要はありませんが、視覚的な表示を備えたリーディングシステムはサポートする必要があります）。</p>
 				
-				<p>EPUB 出版物でコア メディア タイプのみを使用すると、どのリーディングシステムを使ってもその出版物を読めるように保障できます。</p>
+				<p>どのリーディングシステムでもその出版物を読めるようにするには、EPUB出版物でコアメディアタイプのみを使用してください。</p>
 				
-				<p>EPUB の各バージョンでは、サポートされているメディア タイプの完全なリストが提供されます。</p>
+				<p>EPUBの各バージョンでは、サポートされているメディアタイプの完全なリストが提供されます。</p>
 				
 				<ul>
 					<li><a href="https://www.w3.org/TR/epub/#sec-cmt-supported">EPUB 3 コアメディアタイプ</a></li>
-					<li><a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">EPUB 2 コアメディアタイプ</a></li>
+					<li><a href="https://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">EPUB 2 コアメディアタイプ</a></li>
 				</ul>
 			</section>
 			
 			<section id="fallbacks">
 				<h3>フォールバック</h3>
 				
-				<p>EPUB 形式は、出版に適した、広くサポートされているファイル形式をできるだけ多く取り入れようとしていますが、コア セットに含まれていない形式が必要になる場合もあります。たとえば、リーディングシステムが、新しい高度な画像形式を最初にサポートする場合があります。</p>
+				<p>EPUB形式は、出版に適した、広くサポートされているファイル形式をできるだけ多く取り入れようとしていますが、コアセットに含まれていない形式が必要になる場合もあります。たとえば、リーディングシステムが、新しい高度な画像形式を最初にサポートする場合があります。</p>
 				
-				<p>EPUBは、出版物の読みやすさを損なうことなく、リーディングシステムが広くサポートしていない形式を出版社が利用できるようにするために、独自のフォールバック方法とHTMLで元々使用できる方法の両方を活用します。著者がコア メディア タイプへのフォールバックを提供する限り、EPUB 出版物に任意のファイル形式を追加できます。</p>
+				<p>リーディングシステムが広くサポートしていない形式を出版社が利用できるように、また、出版物の読みやすさを損なわないようにするには、EPUBに独自のフォールバック方法とHTMLで元々使用できる方法の両方を組み込みます。コンテンツ製作者はコアメディアタイプへのフォールバックを提供すれば、EPUB出版物に任意のファイル形式を追加できます。</p>
 				
-				<p>次のサブセクションでは、EPUB が提供するフォールバック メカニズムについて説明します。</p>
+				<p>次のサブセクションでは、EPUBが提供するフォールバックメカニズムについて説明します。</p>
 				
 				<section id="fallbacks-html">
-					<h4>HTML フォールバック</h4>
+					<h4>HTMLフォールバック</h4>
 					
-					<p>作成者がページにコンテンツを埋め込むことができるほとんどの HTML 要素は、プライマリ ソースが利用できない場合やリーディングシステムがそれをレンダリングできない場合に備えて、フォールバック コンテンツを含める手段を提供します。</p>
+					<p>コンテンツ製作者がページに埋め込んだプライマリソースが利用できない場合やリーディングシステムがそれをレンダリングできない場合に備えて、ほとんどのHTML要素にはフォールバック コンテンツを含める手段が提供されています。</p>
 					
-					<p>たとえば、 <code>audio</code>要素と<code>video</code>要素では、作成者は複数の<code>source</code>要素を使用して、複数の形式でメディアを提供できます。</p>
+					<p>たとえば、 <code>audio</code>要素と<code>video</code>要素では、コンテンツ製作者は複数の<code>source</code>要素を使用して、複数の形式でメディアを提供できます。</p>
 					
 					<figure>
 						<figcaption>
-							<p class="label">WebM および MP4 ビデオ オプションを備えたビデオ要素</p>
+							<p class="label">WebMおよびMP4ビデオオプションを備えたビデオ要素</p>
 						</figcaption>
 						<pre class="linenums prettyprint"><code>&lt;video controls="controls"&gt;
    &lt;source src="rain.webm" type="video/webm"/&gt;
    &lt;source src="rain.mp4" type="video/mp4"/&gt;
    &lt;p&gt;このリーディングシステムは、ビデオをサポートしていません。&lt;/p&gt;
 &lt;/video&gt;</code></pre>
-						<p class="small"><code>p</code>タグに埋め込まれたメッセージは、ビデオ要素をサポートしていない古いユーザー エージェント（EPUB 2 リーディングシステムなど）でのみ表示されることに注意してください。形式のみがサポートされていない場合は、メッセージは表示されません。</p>
+						<p class="small"><code>p</code>タグに埋め込まれたメッセージは、ビデオ要素をサポートしていない古いユーザーエージェント（EPUB2リーディングシステムなど）でのみ表示されることに注意してください。ビデオのフォーマットがサポートされている場合、このメッセージは表示されません。</p>
 					</figure>
 					
-					<p><code>audio</code>要素や<code>video</code>要素とは異なり、 <code>object</code>要素のネストされたコンテンツはフォールバックを表します。リーディングシステムは、ファイルのメディア タイプをサポートしていない場合、このコンテンツをレンダリングします。</p>
+					<p><code>audio</code>要素や<code>video</code>要素とは異なり、 <code>object</code>要素のネストされたコンテンツはフォールバックを表します。リーディングシステムは、ファイルのメディアタイプをサポートしていない場合、このコンテンツをレンダリングします。</p>
 					
 					<figure>
 						<figcaption>
-							<p class="label">HTML フォールバック付きのエンベッド PDF フォーム</p>
+							<p class="label">HTMLフォールバック付きの埋め込みPDFフォーム</p>
 						</figcaption>
 						<pre class="linenums prettyprint"><code>&lt;object src="t1000.pdf" type="application/pdf"&gt;
    &lt;h3&gt;Tax Form T-1000&lt;/h3&gt;
@@ -109,23 +109,23 @@
 &lt;/object&gt;</code></pre>
 					</figure>
 					
-					<p>画像のフォールバックを埋め込むことは以前は困難でしたが、 <code>srcset</code>属性と<code>picture</code>要素の追加により状況は大幅に改善されました（フォールバックの欠如が EPUB で<a href="#fallbacks-epub">マニフェスト フォールバック</a>が作成された主な理由でした）。</p>
+					<p>画像のフォールバックを埋め込むことは以前は困難でしたが、 <code>srcset</code>属性と<code>picture</code>要素の追加により状況は大幅に改善されました（フォールバックの欠如がEPUBで<a href="#fallbacks-epub">マニフェストフォールバック</a>が作成された主な理由でした）。</p>
 					
 					<figure>
 						<figcaption>
-							<p class="label">WebP と JPEG 画像のオプションがある画像要素</p>
+							<p class="label">WebPとJPEG画像のオプションがある画像要素</p>
 						</figcaption>
 						<pre class="linenums prettyprint"><code>&lt;picture&gt;
    &lt;source srcset="rainbow.webp" type="image/webp"/&gt;
    &lt;img src="rainbow.jpg" type="image/jpeg"/&gt;
 &lt;/picture&gt;</code></pre>
-						<p class="small">EPUB では、 リーディングシステムが<code>source</code>要素のオプションをサポートしていない場合でも画像をレンダリングできるように、 <code>img</code>タグは常にコア メディア タイプを参照する必要があります。</p>
+						<p class="small">EPUBでは、 リーディングシステムが<code>source</code>要素のオプションをサポートしていない場合でも画像をレンダリングできるように、 <code>img</code>タグは常にコアメディアタイプを参照する必要があります。</p>
 					</figure>
 					
 					<figure>
 						<figcaption>
 							<p class="label">複数のソースを持つ画像要素</p>
-							<p>この例では、 <code>srcset</code>属性に画像の 3 つの代替サイズが提供されています。</p>
+							<p>この例では、 <code>srcset</code>属性に画像の三つの代替サイズが提供されています。</p>
 						</figcaption>
 						<pre class="linenums prettyprint"><code>&lt;img src="rainbow.png"
      srcset="rainbow-1x.png 1x, rainbow-2x.png 2x, rainbow-3x.png 3x"
@@ -136,34 +136,31 @@
 					<section id="fallbacks-html-exempt">
 						<h5>免除要素</h5>
 						
-						<p>EPUB 3 では、次の要素もフォールバック要件から免除されます。</p>
+						<p>EPUB3では、次の要素もフォールバック要件から免除されます。</p>
 						
 						<ul>
-							<li>
-<code>rel</code>属性値<code>pronunciation</code>がある場合の<code>link</code> （発音辞書ファイルを許可するため）。</li>
-							<li>
-<code>track</code> （キャプション、字幕、および同様の音声/ビデオ トラック形式を含めることができます）</li>
-							<li>
-<code>video</code>（EPUB では、すべてのリーディングシステムがサポートする必要がある単一のビデオ形式は定義されていません）。</li>
+							<li> <code>rel</code>属性値<code>pronunciation</code>がある場合の<code>link</code> （発音辞書ファイルを許可するため）。</li>
+							<li> <code>track</code> （キャプション、字幕、および同様の音声/ビデオ トラック形式を含めることができます）</li>
+							<li> <code>video</code>（EPUBでは、すべてのリーディングシステムがサポートする必要がある単一のビデオ形式は定義されていません）。</li>
 						</ul>
 						
-						<p>このような場合、作成者は任意の形式を指定できますが、リーディングシステムがその形式のレンダリングをサポートするという保証はありません。</p>
+						<p>このような場合、コンテンツ製作者はいずれの形式も指定できますが、リーディングシステムがこれらの形式のレンダリングをサポートする保証はありません。</p>
 					</section>
 				</section>
 				
 				<section id="fallbacks-epub">
-					<h4>EPUB 固有のフォールバック</h4>
+					<h4>EPUB固有のフォールバック</h4>
 					
 					<section id="fallbacks-epub-manifest">
 						<h5>manifestフォールバック</h5>
 						
-						<p>manifestフォールバックは、EPUB パッケージ ドキュメントでどのように実装されているかによって名前が付けられます。 <code>manifest</code>要素には、出版物で使用されるすべてのリソースがリストされ、その中の各<code>item</code>要素では、 <code>fallback</code>属性を使用して別の<code>item</code>をフォールバックとして指定できます。</p>
+						<p>manifestフォールバックは、EPUBパッケージドキュメントでどのように実装されているかによって名前が付けられます。 <code>manifest</code>要素には、出版物で使用されるすべてのリソースがリストされ、その中の各<code>item</code>要素では、 <code>fallback</code>属性を使用して別の<code>item</code>をフォールバックとして指定できます。</p>
 						
-						<p>manifestフォールバックが使用される場所は 2 つあります。1 つ目は、未知のメディア タイプをspineに含めることです（つまり、出版物の読み取り順でドキュメント化する）。ただし、この方法は主に EPUB 2 で XHTML フォールバックを使用してspineに SVG 画像を許可するために使用されていたため、ほとんど使用されなくなりました。</p>
+						<p>manifestフォールバックを使用する方法は二つあります。一つ目は、未知のメディア タイプをspine（出版物を読み順でドキュメント化するリスト）に含める方法です。ただし、この方法は主にEPUB2でXHTMLフォールバックを使用してspineにSVG画像を許可するために使用されていたため、ほとんど使用されなくなりました。</p>
 						
 						<figure>
 							<figcaption>
-								<p class="label">spineのSVG（EPUB 2）</p>
+								<p class="label">spineのSVG（EPUB2）</p>
 							</figcaption>
 							<pre class="prettyprint linenums"><code>&lt;manifest&gt;
    &lt;item id="c01"
@@ -181,16 +178,16 @@
 &lt;/spine&gt;</code></pre>
 						</figure>
 						
-						<p>この場合、リーディングシステムが SVG をサポートしていない場合は、サポートできるメディア タイプが見つかるまで<code>fallback</code>属性参照に従います。上記のケースではフォールバックは 1 つだけですが、サポートされているメディア タイプに到達するまで、複数の項目をフォールバックし続けることができます。フォールバック チェーンの唯一の要件は、コア メディア タイプを含める必要があることです。</p>
+						<p>この場合、リーディングシステムがSVGをサポートしていないと、サポートできるメディアタイプが見つかるまで<code>fallback</code>属性参照に従い続けます。上記のケースではフォールバックは1つだけですが、サポートされているメディアタイプに到達するまで、複数の項目をフォールバックし続けます。フォールバックチェーンの唯一の要件は、コアメディアタイプを含める必要があることです。</p>
 						
-						<p>manifestフォールバックが使用されるもう 1 つの場所は、HTML <code>img</code>要素のフォールバック画像を提供する場所です。最近<code>srcset</code>属性が追加され、新しい<code>picture</code>要素が作成されるまでは、HTML では<code>img</code>要素を使用して埋め込まれた画像のフォールバックを提供することができませんでした。回避策として、リーディングシステムは、 <code>img</code>要素のソースをmanifestで指定されたフォールバックに変更することが期待されます。</p>
+						<p>manifestでフォールバックを使用するもう一つの方法は、HTML <code>img</code>要素のフォールバック画像を用意するものです。最近<code>srcset</code>属性が追加され、新しい<code>picture</code>要素が作成されるまでは、HTMLでは<code>img</code>要素を使用して埋め込まれた画像のフォールバックを提供することができませんでした。回避策として、リーディングシステムは、<code>img</code>要素のソースをmanifestで指定されたフォールバックに変更することが期待されています。</p>
 						
 						<figure>
 							<figcaption>
 								<p class="label">manifest内の画像フォールバック</p>
 							</figcaption>
 							<p class="figlabel">HTML</p>
-							<pre class="prettyprint linenums"><code>&lt;img src="rainbow.webp" alt="Rainbow over wheat fields"/&gt;</code></pre>
+							<pre class="prettyprint linenums"><code>&lt;img src="rainbow.webp" alt="麦畑にかかる虹"/&gt;</code></pre>
 							<p class="figlabel">パッケージドキュメント</p>
 							<pre class="prettyprint linenums"><code>&lt;manifest&gt;
    &lt;item id="img01"
@@ -204,25 +201,25 @@
 &lt;/manifest&gt;</code></pre>
 						</figure>
 						
-						<p>EPUB 2 で他に選択肢がない場合を除いて、画像のmanifest フォールバックは避けるのが最善です。manifest フォールバックは十分にサポートされていません。</p>
+						<p>EPUB2で他に選択肢がない場合を除いて、画像のmanifestフォールバックは避けるのが最善です。manifestフォールバックは十分にサポートされていません。</p>
 					</section>
 					<section id="fallbacks-epub-deprecated">
-						<h5>非推奨のフォールバック手法</h5>
+						<h5>廃止されたフォールバック手法</h5>
 						
-						<p>EPUB には、使用が推奨されなくなった 2 つのフォールバック手法があります。</p>
+						<p>EPUBには、使用が推奨されなくなった2つのフォールバック手法があります。</p>
 						
 						<dl>
 							<dt><dfn>コンテンツの切り替え</dfn></dt>
 							<dd>
-								<p>EPUB の<a href="https://idpf.org/epub/301/spec/epub-contentdocs-20140626.html#sec-xhtml-epub-switch">コンテンツ切り替えメカニズム</a>により、作成者は XHTML コンテンツ ドキュメント内に MathML などのマークアップ言語を埋め込むことができました。このメカニズムはプログラミング言語の switch ケースをモデルにしており、 <code>case</code>要素に外部マークアップが含まれています。リーディングシステムがこれらのマークアップ言語をサポートしていない場合、 <code>default</code>要素にフォールバックとして使用する HTML が含まれています。</p>
-								<p>コンテンツ切り替えは、XHTML コンテンツ ドキュメント内で MathML または SVG が許可されなかった EPUB 2 用に開発されました。EPUB 3 では一時的に許可されていましたが、サポート不足のため最終的に廃止されました。</p>
+								<p>EPUBの<a href="https://idpf.org/epub/301/spec/epub-contentdocs-20140626.html#sec-xhtml-epub-switch">コンテンツ切り替えメカニズム</a>により、コンテンツ製作者はXHTMLコンテンツ ドキュメント内にMathMLなどのマークアップ言語を埋め込むことができました。このメカニズムはプログラミング言語のswitch文case文をモデルにしており、<code>case</code>要素に外部マークアップが含まれています。リーディングシステムがこれらのマークアップ言語をサポートしていない場合、 <code>default</code>要素にフォールバックとして使用するHTMが含まれています。</p>
+								<p>コンテンツ切り替えは、XHTMLコンテンツ ドキュメント内でMathMLまたはSVGが許可されなかった EPUB2用に開発されました。EPUB3では一時的に許可されていましたが、サポート不足のため最終的に廃止されました。</p>
 							</dd>
 							
 							<dt><dfn>バインディング</dfn></dt>
 							<dd>
-								<p>EPUB 3 では、外部メディア タイプ用のスクリプト フォールバックを提供するために<a href="http://idpf.org/epub/301/spec/epub-publications.html#sec-bindings-elem">バインディング</a>が作成されました。リーディングシステムが<code>object</code>タグ内のメディア タイプをサポートしていない場合、作成者はパッケージ ドキュメント内のリソースを、 <code>object</code>で指定された引数が渡されるフォールバック スクリプト ドキュメントに「バインド」できます。</p>
+								<p>EPUB 3では、外部メディア タイプ用のスクリプト フォールバックを提供するために<a href="https://idpf.org/epub/301/spec/epub-publications.html#sec-bindings-elem">バインディング</a>の方法が作られました。リーディングシステムが<code>object</code>タグ内のメディアタイプをサポートしていない場合、コンテンツ製作者はパッケージドキュメント内のリソースを、 <code>object</code>で指定された引数が渡されるフォールバック スクリプト ドキュメントに「バインド」できます。</p>
 								
-								<p>バインディングの手法は、機能の実際的な必要性がなく、リーディングシステムでのサポートがまったくないため、<a href="https://www.w3.org/TR/epub/#sec-bindings-elem">最新バージョンの EPUB 3 では非推奨</a>になっています。したがって、使用は避ける必要があります。</p>
+								<p>バインディングの手法については、機能が実務的には必要とされず、リーディングシステムでのサポートもまったくないため、<a href="https://www.w3.org/TR/epub/#sec-bindings-elem">最新バージョンのEPUB3では非推奨</a>になりました。したがって、使用は避けるべきです。</p>
 							</dd>
 						</dl>
 					</section>
@@ -232,7 +229,7 @@
 			<section id="location">
 				<h3>リソースの場所</h3>
 				
-				<p>EPUB では、次の種類のコンテンツを ZIP コンテナ内に保存するのではなく、Web 上でホストできます。</p>
+				<p>EPUBでは、次の種類のコンテンツをZIPコンテナ内に保存するのではなく、Web上でホストできます。</p>
 				
 				<ul>
 					<li>音声ファイル</li>
@@ -248,20 +245,13 @@
 				<h3>関連リンク</h3>
 				
 				<ul>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-audio-element"><code>audio</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-img-element"><code>img</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-object-element"><code>object</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-picture-element"><code>picture</code>要素</a>
-</li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-video-element"><code>video</code>要素</a>
-</li>
-					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-core-media-types">サポートされているメディアタイプ</a>
-</li>
-					<li>EPUB 2 — <a href="http://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">MIME メディア タイプ</a>
-</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-audio-element"><code>audio</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-img-element"><code>img</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-object-element"><code>object</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-picture-element"><code>picture</code>要素</a> </li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/media.html#the-video-element"><code>video</code>要素</a> </li>
+					<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-core-media-types">サポートされているメディアタイプ</a> </li>
+					<li>EPUB 2 — <a href="https://idpf.org/epub/20/spec/OPS_2.0.1_draft.htm#Section1.3.7">MIMEメディアタイプ</a> </li>
 				</ul>
 			</section>
 		</main>

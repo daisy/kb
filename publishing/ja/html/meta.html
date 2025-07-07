@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>メタ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using meta properties and directives accessibly.">
+		<script>
+			var page_info = {
+				'category': 'html',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>ズーム（拡大縮小表示）を防止したり、ページの更新を遅らせたりするメタプロパティとディレクティブは、視力の弱いユーザーやコンテンツの閲覧時間をより多く必要とするユーザーのアクセスの妨げになります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>
+						<p><code>viewport/user-scalabe=no</code>のプロパティでズームを無効にしないでください。</p>
+					</li>
+					<li>
+						<p><code>viewport/maximum-scale</code>プロパティを「2.0」未満の値に設定して（訳注：さらなる）ズームを妨げないでください。</p>
+					</li>
+					<li>
+						<p>「0」より大きい値を持つ<code>meta-refresh</code>プラグマディレクティブを使用しないでください。[[WCAG-3.2.5]]</p>
+					</li>
+				</ul>
+			</section>
+			
+			<section id="ex">
+				<h3>例</h3>
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — メタビューポート</div>
+						<p>次の<code>viewport</code>タグは、ページをデバイスサイズ（ <code>initial-scale=1.0</code>）に合わせて拡大縮小しますが、ユーザーはページを初期サイズの5倍まで拡大縮小できます（<code>maximum-scale=5.0</code>）。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta
+      name="viewport"
+      content="initial-scale=1.0;maximum-scale=5.0"/&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例2 — メタリフレッシュ</div>
+						<p>次の<code>meta</code>タグは、ユーザーエージェントを直ちに<code>new-page.html</code>にリダイレクトします。</p>
+					</figcaption>
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;meta
+      http-equiv="refresh"
+      content="0;url=new-page.html"/&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>ページのズーム機能を無効にすると、ユーザーはコンテンツを読みやすいサイズに拡大できなくなります。同様に、最大スケールを初期サイズの2倍未満に設定すると、WCAGで要求される最低限の読みやすさが達成できません。</p>
+				
+				<p>EPUBなどのパッケージ化された形式で出版物がページリダイレクトを利用することは通常はありません。Webでホストされる出版物の場合は、HTTPリダイレクトを使用して代替ページを表示することを検討してください。</p>
+				
+				<p>ページのコンテンツを更新する必要がある場合は、ユーザーに更新を開始する手段を提供してください。</p>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta">&lt;meta&gt;: ドキュメントレベルのメタデータ要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element"><code>meta</code>要素</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

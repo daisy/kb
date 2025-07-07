@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>表（テーブル）の基本</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for producing accessible HTML tables.">
+		<script>
+			var page_info = {
+				'category': 'html',
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'related': ['html-table-scope','html-table-headers','html-table-layout'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+				
+				<p>データテーブルに適切なタグ付けと説明を付けることで、データを見られないユーザーや、データを理解するのに追加のサポートが必要なユーザーが、ナビゲーションしやすく、理解しやすくなります。</p>
+			</section>
+			
+			<section id="tech">
+				<h3>テクニック</h3>
+				
+				<ul>
+					<li>すべての表形式データをテーブルタグを使用してマークアップします。[[WCAG-1.3.1]]</li>
+					<li>
+<code>caption</code>要素にタイトルを指定します。[[WCAG-1.3.1]]</li>
+					<li>複雑な表の構造を説明する概要を提供します。[[WCAG-1.3.1]]</li>
+					<li>概要とキャプションで同じテキストが繰り返されないようにします。[[WCAG-1.3.1]]</li>
+					<li>ヘッダーのセルの範囲を識別します。[[WCAG-1.3.1]]</li>
+					<li>長いヘッダーには略語を提供します。</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例1 — ヘッダー行がひとつだけの表</div>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;th&gt;Player&lt;/th&gt;
+      &lt;th&gt;Team&lt;/th&gt;
+      &lt;th&gt;Position&lt;/th&gt;
+      &lt;th&gt;Average&lt;/th&gt;
+      …
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;Babe Ruth&lt;/td&gt;
+      &lt;td&gt;New York Yankees&lt;/td&gt;
+      &lt;td&gt;Outfielder&lt;/td&gt;
+      &lt;td&gt;.342&lt;/td&gt;
+      …
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+
+				<figure id="ex-02">
+					<figcaption>
+						<div class="label">例 2 — 行ヘッダーが複数ある表</div>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Population (millions)&lt;/th&gt;
+      &lt;th&gt;Land Area (km2)&lt;/th&gt;
+      &lt;th&gt;Population Density (per km2)&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;th&gt;Alberta&lt;/th&gt;
+      &lt;td&gt;4.25&lt;/td&gt;
+      &lt;td&gt;640,330&lt;/td&gt;
+      &lt;td&gt;6.7&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;th&gt;British Columbia&lt;/th&gt;
+      &lt;td&gt;5.00&lt;/td&gt;
+      &lt;td&gt;922,503&lt;/td&gt;
+      &lt;td&gt;5.4&lt;/td&gt;
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例3 — キャプションと説明付きの表</div>
+						
+						<p>最初の例では説明文を<code>caption</code>要素内に直接配置し、二番目の例ではキャプション内に<code>details</code>要素を使用し、三番目の例では説明文を表と組み合わせるために<code>figure</code>タグを使用しています（キャプションは<code>figcaption</code>要素内に配置されます）。</p>
+					</figcaption>
+					
+					<pre id="ex-03a-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;caption&gt;
+      Table 1 — Population trends over the last
+      century. The table is divided into ten-year increments
+      with each decade group of columns providing data for …
+   &lt;/caption&gt;
+   …
+&lt;/table&gt;</code></pre>
+					
+					<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;caption&gt;
+      &lt;p&gt;Table 1 — Population trends over the last century&lt;/p&gt;
+      
+      &lt;details&gt;
+         &lt;summary&gt;Description&lt;/summary&gt;
+         &lt;p&gt;
+            The table is divided into ten-year increments
+            with each decade group of columns providing data for
+            …
+         &lt;/p&gt;
+      &lt;/details&gt;
+   &lt;/caption&gt;
+   …
+&lt;/table&gt;</code></pre>
+					
+					<pre id="ex-03c-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;figcaption&gt;Table 1 — Population trends over the last century&lt;/figcaption&gt;
+   
+   &lt;details&gt;
+      &lt;summary&gt;Description&lt;/summary&gt;
+      &lt;p&gt;
+         The table is divided into ten-year increments
+         with each decade group of columns providing data for
+         …
+      &lt;/p&gt;
+   &lt;/details&gt;
+   
+   &lt;table&gt;
+      …
+   &lt;/table&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+				
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 4 — 脚注付きの表</div>
+						
+						<p>脚注は、<code>tfoot</code>内ではなく、表の後に入ります。表と脚注は両方とも、<code>figure</code>内でグループ化できます。</p>
+					</figcaption>
+					
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure&gt;
+   &lt;figcaption&gt;Table 1 — Rate of population decline&lt;/figcaption&gt;
+   &lt;table&gt;
+     &lt;tr&gt;
+       &lt;th&gt;Population&lt;/th&gt;
+       &lt;th&gt;Birth Rate&lt;a epub:type="noteref" role="doc-noteref"
+          href="#tblnote01"&gt;*&lt;/a&gt;&lt;/th&gt;
+     &lt;/tr&gt;
+     …
+   &lt;/table&gt;
+   &lt;aside epub:type="footnote" role="doc-footnote" id="tblnote01"&gt;
+     &lt;p&gt;* Data not available for all years&lt;/p&gt;
+   &lt;/aside&gt;
+&lt;/figure&gt;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="faq" class="faq">
+				<h3>よくある質問</h3>
+				
+				<dl class="faq">
+					<dt id="faq-001">表の画像は使えますか？</dt>
+					<dd>
+						<p>電子書籍では表のレンダリングが依然として問題となっていますが、実際のデータの代わりに表の画像を組み込むと、画像を見ることができない人からコンテンツを奪うことになります。</p>
+						<p>表は、ユーザーエージェントでまだ解決が必要な問題です。レンダリングを容易にするための拡張水平スクロールまたは垂直スクロール機能をほとんどのユーザーエージェントが使えないのです。その結果、大きな表は利用可能なスペース内でレンダリングされ、行と列がページビューをまたがって表示されてしまい、目の見えるユーザーにとっての電子書籍の品質が損なわれます。</p>
+						<p>表の画像を組み込む場合は、テーブルマークアップを含むファイルへのリンクの提供を検討してください。テキスト読み上げ再生が可能なユーザーであれば、レンダリング品質に関係なくマークアップをナビゲートできます。</p>
+						<p>一部のユーザーエージェントは、ブラウザーウィンドウにポップアップコンテンツをレンダリングします。これにより、レンダリングされる画像が小さすぎたり、ビューポートからはみ出したりして読めないということがなくなり、目の見えるユーザーの読みやすさも向上します。</p>
+						<p>利用可能な画面サイズに基づいて視覚的に表をレンダリングする別の方法については、<a href="https://css-tricks.com/responsive-data-tables/">レスポンシブテーブルに関する CSS-Tricks の記事</a>も参照してください。</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="desc">
+				<h3>解説</h3>
+				
+				<p>表がアクセスしやすいように構造化されていない場合、セルを一つずつ移動する人にとっては、表に含まれるデータはすぐに意味のない数字やファクト、図の海と化します。表を見ることができないユーザーは、並びをチェックしたり、上部のヘッダーに戻って自分のいる位置を確認するなどの視覚的でチートな手段が利用できません。</p>
+				
+				<p>HTMLテーブル要素を使用して表形式のデータをマークアップすると、支援技術のユーザーが行と列でデータを移動できるようになります。また、読んでいるデータを理解するために必要なコンテキストも提供されます。</p>
+				
+				<div class="note" role="note" aria-labelledby="scope-layout">
+					<p id="scope-layout" class="label">注記</p>
+					<p>レイアウト目的で表を使用することは、HTML仕様では規格違反になっています。詳細については、<a href="tables-layout.html">レイアウト表</a>のページを参照してください。</p>
+				</div>
+				
+				<p>次のサブセクションでは、あらゆる表をアクセシブルにするために不可欠な基本的な方法について説明します。より複雑な問題については、ナレッジベースで個別に説明されています（関連トピックメニューを参照）。</p>
+				
+				<section id="headers">
+					<h4>ヘッダー</h4>
+					
+					<p>テーブルナビゲーションの主な支援の一つは、ヘッダーを適切に使用することです。正しく識別されてリンクされたヘッダーは、ユーザーがデータポイントをナビゲートするときに役立つコンテキストを提供します。</p>
+					
+					<p>列または行ヘッダーは<code>th</code>要素を使用して識別されます。データセルは<code>td</code>要素を使用して識別されます。</p>
+					
+					<p>よくある悪い例は、<code>td</code>要素をヘッダーのようにスタイル設定することです（例：テキストを太字にして背景に陰影を追加するなど）。 <code>th</code>を使用しない限り、支援技術はセルをヘッダーとして認識せず、ユーザーがデータ内を移動するときにヘッダーとして読み上げられません。</p>
+					
+					<p>最も単純な種類の表には、各列または各行に一つのヘッダーが含まれます（例1および2を参照）。このような表内のデータが自己記述的である場合や、表がそれほど大きくない場合は、ヘッダーをさらに識別する必要はありません。ユーザーはデータを理解できます。</p>
+					
+					<p>複数の見出しや多数のデータ行があるなど、複雑な表の場合は、見出しの「範囲」を識別する必要があります。<code>scope</code>属性を追加すると、ヘッダーが現在の列または行に適用されるかどうかが支援技術に伝えられます。この属性を使用して、複数の列または行にヘッダーを適用することもできます。</p>
+					
+					<div class="note" role="note" aria-labelledby="scope-note">
+						<p id="scope-note" class="label">注記</p>
+						<p><code>scope</code>属性の詳細については、 <a href="tables-scope.html">「ヘッダースコープ」</a>ページを参照してください。</p>
+					</div>
+					
+					<p>場合によっては、表に複雑なヘッダーがあり、単純なスコープ宣言では不十分なことがあります。たとえば、セルのヘッダーが同じ列または行にない場合などです。このような場合、<code>headers</code>属性を使用すると、ヘッダーを構成する個々のセルを識別できます。この属性には、適用されるヘッダーセルのIDへの一つ以上の参照のリストが含まれます。</p>
+					
+					<div class="note" role="note" aria-labelledby="headers-note">
+						<p id="headers-note" class="label">注記</p>
+						<p><code>headers</code>属性の詳細については、<a href="tables-headers.html">「複雑なヘッダー」</a>ページを参照してください。</p>
+					</div>
+				</section>
+				
+				<section id="struct">
+					<h4>表構造</h4>
+					
+					<p>表は、<code>thead</code>（表ヘッダー）、<code>tbody</code>（表本体）、および<code>tfoot</code>（表フッター）要素を使用して、行セットの目的をより適切に表すように構造化できます。</p>
+					
+					<p>表には<code>thead</code>要素を一つだけ組み込め、その要素は表の最初の行を含む要素でなければなりません。ヘッダー行をグループ化するために<code>thead</code>要素を追加することは、セマンティックマークアップの優れた実践ですが、この要素は表のアクセシビリティには影響しません。この要素は主にユーザビリティ上の理由で存在しています。たとえば、表をスクロールしても<code>thead</code>内の行は静的なままになるようにスクリプト化されることがよくあります。また、ブラウザーは<code>thead</code>を使って表を印刷するときに見出しを繰り返すこともできます（つまり、表が複数の印刷ページに分割されている場合）。</p>
+					
+					<p>ヘッダーの後には、一つ以上の<code>tbody</code>要素が続きます。各<code>tbody</code>は、表の一つのセクションを表します。複数の<code>tbody</code>要素を使用すると、たとえば、各セクションに固有のヘッダーを設定できます。この方法により、このような表の読みやすさが向上するため、アクセシビリティが向上します。</p>
+					
+					<p>最後に、表の最後には<code>tfoot</code>要素を一つだけ配置できます。<code>tfoot</code>要素は列の概要を表す場所です。<code>tfoot</code>を使用するとユーザーは各行を移動しなくてもこの情報を見つけることができます。なおこれは、脚注などの無関係なコンテンツを配置する場所ではありません（<a href="#ex-04">例 4</a>を参照）。</p>
+				</section>
+				
+				<section id="abbr">
+					<h4>略語</h4>
+					
+					<p>表のヘッダーが数語以上の長さの場合、データセルごとにヘッダーが繰り返される（訳注：支援技術によってセルの移動の度に長いヘッダーも読み上げられる）と、ユーザーの操作が遅くなる可能性があります。このような長い繰り返しを避けるために、<code>abbr</code>属性を使用して短いヘッダーを割り当てることができます。</p>
+					
+					<pre class="prettyprint linenums"><code>&lt;th … abbr="Total insurance"&gt;
+   Total insurance coverage
+   cost on per annum basis
+&lt;/th&gt;
+&lt;th … abbr="Total interest"&gt;
+   Total interest payments
+   for the covered period
+&lt;/th&gt;</code></pre>
+					
+					<p>短縮タイトルは、その下のセルをアナウンスするときに、ヘッダー全文の代わりに使用されます。</p>
+					
+					<div class="note" role="note" aria-labelledby="abbr-note">
+						<p id="abbr-note" class="label">注記</p>
+						<p><code>abbr</code>属性のサポートは一貫していません。<a href="https://github.com/nvaccess/nvda/issues/3566">NVDAはこの属性をサポートしていません</a>が、JawsやVoiceOverなどの他の支援技術はサポートしています。</p>
+					</div>
+				</section>
+				
+				<section id="cap-sum">
+					<h4>キャプションと概要</h4>
+					
+					<p>ユーザーが表の目的と内容の順序を理解できるようにするには、キャプションと概要を追加する必要があります。</p>
+					
+					<p>キャプションは、表のタイトルに相当します。表に組み込める専用の<code>caption</code>要素で提供することも、図表のキャプションなどの他の手段でも表現できます。キャプションとそのマークアップ方法の詳細については、<a href="tables-captions.html">「表のキャプション」</a>ページを参照してください。</p>
+<p>概要は、表の構造の説明を提供します。内容を見ることができないユーザーや、行間や列間で情報を追跡するのが難しいユーザーが、データのレイアウトを理解するのに役立ちます。概要の追加に関する詳細は、<a href="tables-summary.html">「表の概要」</a>ページに記載されています。</p>
+				</section>
+				
+				<section id="styling">
+					<h4>スタイリング</h4>
+					
+					<p>表の構造を確保することは支援技術のユーザーにとって非常に重要ですが、表をアクセシビリティ対応にするために考慮すべきことはマークアップだけではありません。表のスタイル設定は、視力の弱いユーザーや色覚異常のユーザー、またディスレクシアなどの認知障害を持つユーザーにとっての表の読みやすさにも影響します。</p>
+					
+					<p>表をスタイル設定する際に考慮すべき重要な事項は次のとおりです。</p>
+					
+					<ul>
+						<li>ヘッダーセルは視覚的に区別するために網掛けされることが多いため、前景テキストとの十分なコントラストを確保することが重要です。</li>
+						<li>データセルの外観をヘッダーと同じにしないでください。データセルの目的についてユーザーが混乱する可能性があります。</li>
+						<li>ユーザーがデータを追跡できるように、セル内のデータの配置を一定にします（例：すべての数値データを右揃えにする）。</li>
+						<li>知覚障害のあるユーザーが視覚的に見ている場所を追跡しやすくするために、行の色を交互に変更したり、行を強調表示したりすることを検討してください。</li>
+					</ul>
+				</section>
+			</section>
+			
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table&gt;: 表要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element"><code>table</code>要素</a>
+</li>
+					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/tables.html#table-descriptions-techniques">表を説明するためのテクニック</a>
+</li>
+					<li>WCAG — <a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H51">表マークアップを使用して表形式の情報を表示する</a>
+</li>
+					<li>WCAG — <a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H39">キャプション要素を使用してデータ表キャプションをデータ表に関連付ける</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

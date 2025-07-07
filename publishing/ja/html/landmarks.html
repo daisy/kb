@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>ARIA ランドマーク</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Use of ARIA landmarks in HTML documents.">
+		<script>
+			var page_info = {
+				'category': 'html',
+				'appliesTo': ['Audiobooks*','EPUB3']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="summary">
+				<h3>要約</h3>
+
+				<p>ユーザーがすぐにアクセスしたいと考えられる重要なコンテンツの構成要素には、それぞれ、ARIAランドマークを用いて意味のあるラベルを付けます。</p>
+			</section>
+
+			<section id="tech">
+				<h3>テクニック</h3>
+
+				<ul>
+					<li>
+						<p>主要なコンテンツの構成要素を識別するためにランドマークロールを使用する。[[WCAG-1.3.1]]</p>
+					</li>
+					<li>
+						<p>各ランドマークに対して意味のあるラベルを付ける。[[WCAG-1.3.1]]</p>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ex">
+				<h3>例</h3>
+
+				<figure id="ex-01">
+					<figcaption>
+						<div class="label">例 1 — 明示的なラベルを持つランドマークロール</div>
+						<p><code>aria-labelledby</code>属性は、ラベルがランドマークロールに正しく関連付けるのに使用します（属性の値は、ラベルを含む要素のIDです。この例では<code>h2</code>の要素です）。</p>
+					</figcaption>
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-endnotes" aria-labelledby="note_hd"&gt;
+    &lt;h2 id="note_hd"&gt;巻末注&lt;/h2&gt;
+    …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+				
+				<figure id="ex-01a">
+					<figcaption>
+						<div class="label">例 2 — あいまいなラベルを持つランドマークロール</div>
+						<p>ランドマークセクションのコンテンツが見出しの前にある場合は、見出しがラベルとして正しく識別されるように、常に<code>aria-labelledby</code>を使用する必要があります。</p>
+					</figcaption>
+					<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-labelledby="c23_hd"&gt;
+	&lt;img src="img/comic/panel23.jpg" alt="章見出しの前のひとコマ漫画"/&gt;
+	&lt;details&gt;
+		&lt;summary&gt;詳細&lt;/summary&gt;
+		&lt;p&gt;…&lt;/p&gt;
+	&lt;/details&gt;
+    &lt;h2 id="c23_hd"&gt;第23章&lt;/h2&gt;
+    …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+				
+				<figure id="ex-01b">
+					<figcaption>
+						<div class="label">例 3 — ラベルのないランドマークロール</div>
+						<p>ドキュメント内にランドマークロールのインスタンスが1つしかない場合、明示的なラベルは必要ありません。支援技術によって、ランドマークの一般的なタイプ（たとえば、<code>doc-index</code>なら「インデックス」）のみがアナウンスされますが、ユーザーがそこに移動すると見出しの内容が音声で提示されるでしょう。</p>
+					</figcaption>
+					<pre id="ex-00-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter"&gt;
+    &lt;h2&gt;第1章&lt;/h2&gt;
+    …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+				
+				<figure id="ex-03">
+					<figcaption>
+						<div class="label">例4 — ラベルが追加されたランドマーク</div>
+						<p>次のランドマークに明示的なタイトルが存在しない場合には、<code>aria-label</code>属性を使用してラベルを設定します。</p>
+					</figcaption>
+					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="第21章"&gt;
+    &lt;p&gt;目が覚めると …&lt;/p&gt;
+    …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+
+				<figure id="ex-04">
+					<figcaption>
+						<div class="label">例 6 — 一意のラベルのないランドマーク</div>
+						<p>次のランドマークには一意のラベルがありません（つまり、同じタイトルの同じランドマークがドキュメント内に複数存在します）。ランドマークを区別するために、<code>hidden</code>属性を使用して支援技術用の連番を与えます。この要素は非表示であるため、<code>aria-labelledby</code>属性から参照する必要があります（つまり、非表示の子孫コンテンツは無視されるため、番号を取得するには明示的な参照が必要です）。すべてのユーザーの便宜を図るために、各ランドマークに目に見える連番を与えるのが理想的です。</p>
+					</figcaption>
+					<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;aside aria-labelledby="pp2 pp2-num"&gt;
+    &lt;h4 id="pp2"&gt;練習問題（Practice Problem）&lt;span id="pp2-num" hidden=""&gt;2&lt;/span&gt;&lt;/h4&gt;
+    …
+&lt;/section&gt;
+</code></pre>
+				</figure>
+			</section>
+
+			<section id="desc">
+				<h3>解説</h3>
+
+				<p>ARIA ランドマークは、Web サイトで使用され、ユーザーがページのさまざまな主要領域（サイトのヘッダーとフッター、検索ボックス、広告、メインコンテンツ領域）を識別し、すばやく移動できるようにします。</p>
+
+				<p>ページ上で見つかったランドマークは、支援技術によってリンクのリストにまとめられます。ユーザーは、ランドマーク間をすばやく移動してページにおける位置を確認し、探しているコンテンツの特定のセクションにアクセスできることを期待します。</p>
+
+				<p>出版物は通常、各ドキュメントに1つのセクションまたは章のテキストのみを含むよう構成されていますが、ランドマークは、ユーザーがこれらの主要領域内の主要なコンポーネントにアクセスできるようにする上で重要な役割を果たします（たとえば、メモ、用語集、学習目標、練習問題、サイドバー、またはインタラクティブなウィジェットに素早くアクセスするなど）。</p>
+
+				<p>出版物のコンテンツのすべてのセクションがランドマークである必要はなく、そうあるべきでもありません。ランドマークは、ユーザーがすぐにアクセスする必要がある重要なセクションにのみ使用してください。たとえば、すべてのセクションとサブセクションのリストがあるよりも、用語集にアクセスできる方がユーザーにとってありがたいでしょう。</p>
+
+				<p><a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA モジュール</a>には、出版物の次のランドマーク ロールがあります。</p>
+
+				<ul class="multicol">
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgements</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-afterword">doc-afterword</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-appendix">doc-appendix</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-bibliography">doc-bibliography</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-chapter">doc-chapter</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-conclusion">doc-conclusion</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-credits">doc-credits</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnotes">doc-endnotes</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-epilogue">doc-epilogue</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-errata">doc-errata</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-foreword">doc-foreword</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-glossary">doc-glossary</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">doc-introduction</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-part">doc-part</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-preface">doc-preface</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-prologue">doc-prologue</a>
+</li>
+				</ul>
+				<br>
+
+				<p>次のナビゲーションロールもランドマークです。</p>
+
+				<ul class="multicol">
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-index">doc-index</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-pagelist">doc-pagelist</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-toc">doc-toc</a>
+</li>
+				</ul>
+				<br>
+
+				<p>加えて、コアARIA仕様の以下のロールもランドマークです。</p>
+
+				<ul class="multicol">
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#banner">banner</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#complementary">complementary</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#contentinfo">contentinfo</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#form">form</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#main">main</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#navigation">navigation</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#region">region</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/wai-aria/#search">search</a>
+</li>
+				</ul>
+				<br>
+			</section>
+
+			<section id="faq">
+				<h3>よくある質問</h3>
+
+				<dl>
+					<dt id="faq-001">すべての章／セクションがランドマークである必要がありますか?</dt>
+					<dd>
+						<p>いいえ。</p>
+						
+						<p>ランドマークは文書内の見出しの階層構造を保持しないので、目次の代わりとしては使用しないでください。ランドマークの使用は、ユーザーが手動で検索しなければならないような、ページ内の構成要素に限定してください。ランドマークを作成しすぎると、ユーザーに長いリスト中から探すのを強いてしまいます。</p>
+
+						<p>ユーザーがセクションの見出しに移動したり、目次を閲覧したりしたい場合は、そのための仕組みがすでに用意されています。必要に応じて、ドキュメント内の主要なコンテンツ セクションのみを特定します（つまり、すべてのサブセクションではなく、章または最上位レベルのセクション）。</p>
+					</dd>
+					<dt id="faq-008">見出しのある<code>section</code>はすべてランドマークですか?</dt>
+					<dd>
+						<p>いいえ。</p>
+						
+						<p><code>section</code>タグは、次のいずれかまたは両方が当てはまる場合にのみランドマークとなります。</p>
+						
+						<ul>
+							<li>ランドマークの役割を指定する<code>role</code>属性が付与されている。</li>
+							<li>
+<code>aria-label</code> 、 <code>aria-labelledby</code> 、または<code>title</code>属性が付与されている。</li>
+						</ul>
+						
+						<p>それ以外の場合、 <code>section</code>には特定のセマンティクスは関連付けられていません（つまり、本質的には<code>div</code>に似ています）。</p>
+					</dd>
+					<dt id="faq-009">すべてのランドマークにラベルが必要ですか?</dt>
+					<dd>
+						<p>いいえ。</p>
+						
+						<p><em>ただし</em>、常に<code>aria-labelledby</code> 、<code>aria-label</code>、または<code>title</code>属性のいずれかを使用してラベルを提供するのが最も安全な方法です。</p>
+						
+						<p>技術的には、これらの属性を使用する必要があるのは、ページに同じランドマークロールが複数存在する場合（例：<code>doc-chapter</code>または<code>doc-bibliography</code>が 2 つ以上）のみです。このような場合、一意のラベルがないと、ユーザーが探しているものを見つけるのが難しくなる可能性があります。たとえば、インデックスが 2 つある場合、一意のラベルがないと、ユーザーは手動でそれぞれを確認しない限り、どちらがトピックインデックスでどちらが名前のインデックスであるかを判断できません。</p>
+						
+						<p>異なる素材を元にしたデータを組み合わせたり、出力に応じてコンテンツを異なる方法で固まりにするワークフローでは、明示的ラベルにするのがベストプラクティスです。このようにすることで、WCAG要件の意図しない違反を回避できます。</p>
+					</dd>
+					<dt id="faq-004">非表示のラベルには<code>title</code>と<code>aria-label</code>属性のどちらを使用すればよいですか?</dt>
+					<dd>
+						<p>テキストにラベルがない場合は、常に<code>aria-label</code>属性の方が優先されてきました。要素とコントロールのアクセシブルな名前が優先され、<code>title</code>はこれまであまりサポートされてきませんでした。</p>
+					</dd>
+					<dt id="faq-002">ランドマークの名前はなぜ一意であるべきなのでしょうか?</dt>
+					<dd>
+						<p>ドキュメント内に同じランドマークロールが複数ある場合、それぞれに一意の名前を付けることで、どのコンポーネントにアクセスしているのか混乱しないようにできます。各コンポーネントのタイトルで目的が明確になるのが理想的ですが、同じ名前がそれぞれに再利用される場合（複数の「練習問題」サイドバーなど）、一意の識別子を使用すると使いやすさが向上します。識別子は、コンポーネントが属するサブセクションや、印刷物の追加部分でコンポーネントが見つかるページなど、役立つものにする必要があります。</p>
+					</dd>
+					<dt id="faq-003">ARIA ランドマークと EPUB のランドマーク／ガイドの違いは何ですか?</dt>
+					<dd>
+						<p>ARIA ランドマークは個々の Web ページ用にコンパイルされるため、ドキュメント間で保持されることはありません。EPUB 出版物は多数のドキュメントで構成されているため、リーディングシステムには出版物全体にわたって重要なコンテンツを効率的に見つける方法が必要です。EPUB の<a href="https://www.w3.org/TR/epub/#sec-nav-landmarks">ランドマーク（EPUB 3）</a>と<a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">ガイド</a>（EPUB 2）は、ランドマークが多数のドキュメントに分散するというこの問題を解決するために設計されました。</p>
+						<p>相互運用性を最大限に高めるには、両方のタイプのランドマークを提供することをお勧めします。</p>
+					</dd>
+					<dt id="faq-005">
+<code>landmark</code>ロールを使用できないのはなぜですか?</dt>
+					<dd>
+						<p><code>landmark</code>ロールは、WAI-ARIA 仕様で<a href="https://www.w3.org/TR/wai-aria/#abstract_roles">抽象ロール</a>と呼ばれているものです。直接実装されることを意図したものではなく、使用可能なロールが継承するトップレベルの定義として使用されます。</p>
+						<p>特定の役割を持たないランドマークの場合は、意味のあるラベルとともに<code>region</code>ロールを使用できます。</p>
+					</dd>
+					<dt id="faq-006">なぜ<code>aside</code>にはラベルが必要なのに<code>section</code>には必要ないのでしょうか?</dt>
+					<dd>
+						<p>最初の意図と異なり、 <code>section</code>要素は<code>div</code>と同じように使用されてきました（つまり、純粋にスタイルのために）。そのため、支援技術のユーザーに不利益をもたらす誤用を避けるため、この要素にはデフォルトのロールがありません。</p>
+
+						<p>その結果、次の例は見出しがあっても<strong>ランドマークではありません</strong>。</p>
+
+						<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;section&gt; &lt;h2&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt; … &lt;/section&gt;</code></pre>
+						<p>ただし、要素にラベルを割り当てると、その要素は<code>region</code>の役割を引き受け、ランドマークになります。</p>
+
+
+						<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;section aria-labelledby="s311"&gt; &lt;h2 id="s311"&gt;Section 3.1.1 — Elephants on Parade&lt;/h2&gt; … &lt;/section&gt;</code></pre>
+
+						<p>逆に、 <code>aside</code>要素には<code>complementary</code>的な役割が暗黙的に含まれており、ラベルが必要です。HTML 要素の暗黙的なロールの詳細については、 <a href="https://www.w3.org/TR/html-aria/">HTML ドキュメントの ARIA</a>を参照してください。</p>
+					</dd>
+					<dt id="faq-007">要素 X でランドマークを使用できないのはなぜですか?</dt>
+					<dd>
+						<p>一部の HTML 要素は、必要なセマンティクスが上書きされるのを防ぐために、受け入れるロールが制限されています。</p>
+
+						<p>特に、 <code>body</code>要素には、他のロールによって上書きできない特別なロール<code>document</code>があります。</p>
+
+						<p>どの要素にどのロールが使用できるかの詳細は、<a href="https://www.w3.org/TR/html-aria/">HTMLドキュメントのARIA</a>で提供されます。</p>
+					</dd>
+				</dl>
+			</section>
+
+			<section id="refs">
+				<h3>関連リンク</h3>
+
+				<ul>
+					<li>WAI-ARIA —<a href="https://www.w3.org/TR/wai-aria/#landmark_roles">ランドマークロール</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/dpub-aria-1.0/">電子出版 WAI-ARIA モジュール 1.0</a>
+</li>
+					<li> 						<a href="https://www.w3.org/TR/html-aria/">HTMLにおけるARIA</a>
+</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

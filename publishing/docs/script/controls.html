@@ -7,7 +7,7 @@
 		<meta name="description" content="Guidance on using ARIA roles, states, and properties to create accessible custom controls.">
 		<script>
 			var page_info = {
-				'category': 'Scripted Content and Forms',
+				'category': 'script',
 				'appliesTo':[ 'EPUB3']
 			};</script>
 		<script src="/js/init.js"></script>
@@ -139,10 +139,10 @@ function controlPlayback(action) {
 &lt;/script></code></pre>
 					<p>The following buttons show this code in action:</p>
 					<div id="ex01-controls">
-						<img src="../../../graphics/publishing/aria/play.png" width="32" height="32" id="start" alt="Start"
+						<img src="../graphics/aria/play.png" width="32" height="32" id="start" alt="Start"
 							role="button" aria-disabled="false" tabindex="0" onclick="controlPlayback('start')"
 							onkeypress="if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }" />
-						<img src="../../../graphics/publishing/aria/stop-disabled.png" width="32" height="32" id="stop"
+						<img src="../graphics/aria/stop-disabled.png" width="32" height="32" id="stop"
 							alt="Stop" role="button" aria-disabled="true" tabindex="0" />
 					</div>
 					<script>
@@ -208,7 +208,7 @@ function controlPlayback(action) {
 							purpose. This allows the assistive technology to present the element to users according to
 							its expected use.</p>
 						<p>Refer to the ARIA specification for the <a
-							href="http://www.w3.org/TR/wai-aria/#role_definitions">current list of supported
+							href="https://www.w3.org/TR/wai-aria/#role_definitions">current list of supported
 							roles</a>.</p>
 					</dd>
 					<dt id="states">States</dt>
@@ -219,7 +219,7 @@ function controlPlayback(action) {
 							control/content, otherwise the user may get locked out of functionality (e.g., unable to
 							reduce the volume, unable to make important content visible, etc.).</p>
 						<p>Refer to the ARIA specification for the <a
-							href="http://www.w3.org/TR/wai-aria/#global_states">current list of supported
+							href="https://www.w3.org/TR/wai-aria/#global_states">current list of supported
 							states</a>.</p>
 					</dd>
 					<dt id="properties">Properties</dt>
@@ -228,7 +228,7 @@ function controlPlayback(action) {
 							maximum value it allows or its place within a group.</p>
 						<p>Unlike states, properties are typically only set once when the content loads.</p>
 						<p>Refer to the ARIA specification for the <a
-							href="http://www.w3.org/TR/wai-aria/#global_states">current list of supported
+							href="https://www.w3.org/TR/wai-aria/#global_states">current list of supported
 							properties</a>.</p>
 					</dd>
 				</dl>
@@ -240,14 +240,14 @@ function controlPlayback(action) {
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
-					<li>WAI-ARIA &#8212; <a href="http://www.w3.org/TR/wai-aria/#roles">The Roles Model</a></li>
-					<li>WAI-ARIA &#8212; <a href="http://www.w3.org/TR/wai-aria/#states_and_properties">Supported
+					<li>WAI-ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#roles">The Roles Model</a></li>
+					<li>WAI-ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#states_and_properties">Supported
 						States and Properties</a></li>
 					<li>
-						<a href="http://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a>
+						<a href="https://www.w3.org/WAI/standards-guidelines/aria/">WAI-ARIA Overview</a>
 					</li>
 					<li>
-						<a href="http://www.w3.org/TR/wai-aria-practices/">WAI-ARIA Authoring Practices &#8212; General
+						<a href="https://www.w3.org/TR/wai-aria-practices/">WAI-ARIA Authoring Practices &#8212; General
 							Steps for Building an Accessible Widget with WAI-ARIA</a>
 					</li>
 				</ul>
