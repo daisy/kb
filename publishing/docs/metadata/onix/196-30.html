@@ -2,12 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>196 - 30: ARIA roles provided</title>
+		<title>Code List 196 - 30: ARIA roles provided</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidance on using ONIX code list 196 value 30: ARIA roles provided.">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'ONIX Accessibility'],
+				'category': ['metadata', 'meta-onix'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
@@ -16,12 +16,22 @@
 	<body>
 		<main>
 			<section id="def">
-				<h3>Definition</h3>
+				<h3>Explanation</h3>
 				
-				<p class="desc">Accessible Rich Internet Applications (ARIA) roles (including associated states and
-					properties) are used to organize and improve the structural or landmark navigation of the
-					publication (eg to identify key sections of the content and the purpose of hyperlinks). Only for
-					use in ONIX 3.0 or later</p>
+				<p>Code 30 is used to indicate that <a href="../../script/aria.html">ARIA roles</a> are use to organize 
+					the structure and identify landmarks for navigation.</p>
+				
+				<p>This code is not used to identify that ARIA roles, states, and properties are used to make dynamic
+					content accessible (see <a href="196-31.html">code 31</a>).</p>
+				
+				<p>For digital publications, <a href="../../html/dpub-aria/">DPUB-ARIA</a> defines publishing-specific
+					structures and landmarks.</p>
+				
+				<p>Note that ARIA roles should only be used where the enhance the meaning or functionality of existing
+					markup. It is better to use native HTML elements than use ARIA roles to give generic elements
+					the meaning of more appropriate elements.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -29,7 +39,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; ARIA role markup included</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -39,16 +49,10 @@
 				</figure>
 			</section>
 			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-			</section>
-			
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
-					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
-							196: E-publication Accessibility Details</a></li>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/30">List 196: Code 30</a></li>
 				</ul>
 			</section>
 		</main>

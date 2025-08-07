@@ -2,12 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>196 - 00: Accessibility summary</title>
+		<title>Code List 196 - 00: Accessibility summary</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidance on using ONIX code list 196 value 00: Accessibility summary.">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'ONIX Accessibility'],
+				'category': ['metadata', 'meta-onix'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
@@ -17,15 +17,30 @@
 	<body>
 		<main>
 			<section id="def">
-				<h3>Definition</h3>
+				<h3>Explanation</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> contains a short explanatory summary of the 
-					accessibility of the product, or the URL of a web page comprising such a summary, consistent 
-					with the more specific conformance, feature and certification details provided. The summary 
-					should note both the accessibility features provided and any potential deficiencies. The summary 
-					does not remove the requirement for full structured accessibility data, but should be considered a
-					fall-back option if more structured detail cannot be provided or used. Further detailed information
-					may be provided in an external file using codes 94–96. Only for use in ONIX 3.0 or later</p>
+				<p>Code 00 is used to provide a summary of the accessibility of a digital publication.</p>
+				
+				<p>The summary provided in this field corresponds to the accessibility summary as defined in the 
+					<a href="https://idpf.org/epub/a11y/#confreq-schema-accessibilitySummary">EPUB Accessibility
+						1.0</a> specification. That is, it duplicates information such as the conformance statement
+					and accessibility features of the publication.</p>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Note</p>
+					
+					<p>For publications that conform to <a 
+							href="https://www.w3.org/TR/epub-a11y-11/#confreq-schema-accessibilitySummary">EPUB Accessibility
+							1.1</a> or above &#8212; where the summary is not supposed to reproduce information expressed in
+						the other accessibility metadata &#8212; use  <a href="92.html">Code 92</a> instead.</p>
+				</div>
+				
+				<p>The value of this field is the same as would be expressed in the Schema.org 
+					<a href="https://schema.org/accessibilitySummary.html">accessibilitySummary property</a>.</p>
+				
+				<p>The field is often limited to 500 characters.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -47,39 +62,12 @@
 				</figure>
 			</section>
 			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>Code 00 is used to provide a summary of the accessibility.</p>
-				
-				<p>The summary provided in this field corresponds to the accessibility summary as defined in the 
-					<a href="https://idpf.org/epub/a11y/#confreq-schema-accessibilitySummary">EPUB Accessibility
-						1.0</a> specification. That is, it duplicates information such as the conformance statement
-					and accessibility features of the publication.</p>
-				
-				
-				<div class="note" role="note" aria-labelledby="support-note">
-					<p id="support-note" class="label">Note</p>
-					
-					<p>For publications that conform to <a 
-						href="https://www.w3.org/TR/epub-a11y-11/#confreq-schema-accessibilitySummary">EPUB Accessibility
-						1.1</a> or above &#8212; where the summary is not supposed to reproduce information expressed in
-						the other accessibility metadata &#8212; use  <a href="92.html">Code 92</a> instead.</p>
-				</div>
-				
-				<p>The value of this field is the same as would be expressed in the Schema.org 
-					<a href="https://schema.org/accessibilitySummary.html">accessibilitySummary property</a>.</p>
-				
-				<p>The field is often limited to only 500 characters.</p>
-			</section>
-			
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
 					<li>EPUB Accessibility 1.0 &#8212; <a href="https://idpf.org/epub/a11y/#sec-disc-package">Discovery
 						metadata</a></li>
-					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
-							196: E-publication Accessibility Details</a></li>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/00">List 196: Code 00</a></li>
 					<li>Schema.org &#8212; <a href="https://schema.org/accessibilitySummary.html"><code>accessibilitySummary</code></a></li>
 				</ul>
 			</section>

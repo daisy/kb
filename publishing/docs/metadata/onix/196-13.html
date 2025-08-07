@@ -2,12 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>196 - 13: Single logical reading order</title>
+		<title>Code List 196 - 13: Single logical reading order</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidance on using ONIX code list 196 value 13: Single logical reading order.">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'ONIX Accessibility'],
+				'category': ['metadata', 'meta-onix'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
@@ -16,14 +16,18 @@
 	<body>
 		<main>
 			<section id="def">
-				<h3>Definition</h3>
+				<h3>Explanation</h3>
 				
-				<p class="desc">All or substantially all textual matter is arranged in a single logical reading order 
-					(including text that is visually presented as separate from the main text flow, eg in boxouts, 
-					captions, tables, footnotes, endnotes, citations, etc). Non-textual content is also linked from 
-					within this logical reading order. (Purely decorative non-text content can be ignored). All or 
-					substantially all audio content should also have a single logical 'reading order', which is the 
-					order the content should be presented to the listener</p>
+				<p>Code 13 is used to indicate that the <a href="../../html/order.html">logical reading order</a> of 
+					a publication is preserved.</p>
+				
+				<p>In EPUB, the logical reading order is expressed both through the <code>spine</code> element, the'
+					ordering of content documents, and through the markup of each content document. For audio
+					books, the logical reading order is defined by the playlist of tracks.</p>
+				
+				<p>The logical reading order of the publication must be clearly delineated in
+					the markup. Footnotes, tables, images, sidebars and all similar secondary content must be marked
+					up so that it can be navigated easily.</p>
 			</section>
 			
 			<section id="ex">
@@ -31,7 +35,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Publication with a logical reading order</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -41,20 +45,10 @@
 				</figure>
 			</section>
 			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>The required <code>spine</code> element in the EPUB package document does not satisfy this
-					requirement alone. The logical reading order of the publication must be clearly delineated in
-					the markup. Footnotes, tables, images, sidebars and all similar secondary content must be marked
-					up so that it can be skipped over.</p>
-			</section>
-			
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
-					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
-							196: E-publication Accessibility Details</a></li>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/13">List 196: Code 13</a></li>
 				</ul>
 			</section>
 		</main>

@@ -2,12 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>196 - 26: Use of high contrast between text and background color</title>
+		<title>Code List 196 - 26: Use of high contrast between text and background color</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Guidance on using ONIX code list 196 value 26: Use of high contrast between text and background color.">
 		<script>
 			var page_info = {
-				'category': ['Metadata', 'ONIX Accessibility'],
+				'category': ['metadata', 'meta-onix'],
 				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
 			};
 		</script>
@@ -16,10 +16,19 @@
 	<body>
 		<main>
 			<section id="def">
-				<h3>Definition</h3>
+				<h3>Explanation</h3>
 				
-				<p class="desc">Body text is presented with a contrast ratio of at least 4.5:1 (or 3:1 for 
-					large/heading text). Only for use in ONIX 3.0 or later</p>
+				<p>Code 26 is used to indicate that there is a contrast ratio of at least 4.5:1 between text and its 
+					background. The contrast ration must be at least 3:1 for large/heading text.</p>
+				
+				<p>This code corresponds to <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG Success Criterion
+						1.4.3 Contrast (Minimum)</a>. Publications should pass the requirements of that success criterion
+					in order to declare this code.</p>
+				
+				<p>Although the code's definition does not mention images of text as falling under its scope, the
+					contrast requirement should also be assumed for images.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -27,7 +36,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Mimimum text contrast</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -37,18 +46,10 @@
 				</figure>
 			</section>
 			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>Corresponds to <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">WCAG Success Criterion
-					1.4.3 Contrast (Minimum)</a>.</p>
-			</section>
-			
 			<section id="refs">
 				<h3>Related Links</h3>
 				<ul>
-					<li>ONIX &#8212; <a href="http://www.editeur.org/ONIX/book/codelists/current.html#codelist196">List
-							196: E-publication Accessibility Details</a></li>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/26">List 196: Code 26</a></li>
 				</ul>
 			</section>
 		</main>

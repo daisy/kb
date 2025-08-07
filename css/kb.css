@@ -348,6 +348,19 @@ div#categories {
 	border-left: 0.1rem dotted black;
 }
 
+/* onix headings */
+
+.onix-num, .onix-def {
+	display: block;
+}
+
+.onix-num {
+	font-size: 80%;
+}
+
+.onix-def {
+	font-size: 95%;
+}
 
 /* sponsorship box */
 

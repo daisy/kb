@@ -1533,5 +1533,12 @@ const loadPage = async () => {
 		script.setAttribute('src', '/js/google-clean.js');
 	
 	document.body.insertAdjacentElement('beforeEnd', script);
-
+	
+	// split the long onix headings
+	if (page_info.hasOwnProperty('category') && page_info.category.includes('meta-onix') && !window.location.pathname.match('index.html')) {
+		var pg_title_elem = document.querySelector('div#page-title h2');
+		var pg_title = pg_title_elem.innerText;
+		
+		pg_title_elem.innerHTML = '<span class="onix-num">' + pg_title.substring(0, pg_title.indexOf(':') + 1) + '</span><span class="onix-def">' + pg_title.substring(pg_title.indexOf(':') + 1) + '</span>';
+	}
 }
