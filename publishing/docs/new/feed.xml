@@ -5,9 +5,23 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2025 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Tue, 8 Jul 2025 00:01:00 +0500</lastBuildDate>
-		<pubDate>Tue, 8 Jul 2025 12:00:00 +0500</pubDate>
+		<lastBuildDate>Fri, 08 Aug 2025 00:01:00 +0500</lastBuildDate>
+		<pubDate>Fri, 08 Aug 2025 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>ONIX metadata section expanded</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/onix/index.html</link>
+			<description>
+				<![CDATA[
+				<p>The ONIX metadata page has been replaced by new pages that individually cover each
+					of the codes in that list. The update also adds coverage of all the new codes added
+					in recent updates. Future updates will add coverage of codes outside of list 196 that
+					are used to express accessibility information.</p>
+				]]>	
+			</description>
+			<pubDate>Fri, 08 Dec 2025 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>Prioritizing links to image descriptions</title>

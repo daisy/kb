@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 15: Full alternative textual descriptions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 15: Full alternative textual descriptions.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 15 is used to indicate that all non-text content that cannot be explained through
+					alternative text alone (see <a href="196-14.html">code 14</a>) include extended
+					descriptions.</p>
+				
+				<p>For images, this means that all complex images include extended descriptions.</p>
+				
+				<p>For audio content, meeting this requirement can be achieved through the provision of
+					transcripts or captions.</p>
+				
+				<p>For video-only content, a description of what is occurring in the video would suffice.</p>
+				
+				<p>It is not required to provide extended descriptions for content that conveys no meaningful
+					information, such as decorative images.</p>
+				
+				<p>Refer to the <a href="../html/images-desc.html">Image Descriptions</a>, <a 
+						href="../html/audio.html">Audio</a>, and <a href="../html/video.html">Video</a> sections
+					of this site for more information on meeting this requirement.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Extended descriptions for complex images
+							and transcripts for all audio content</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>15&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/15">List 196: Code 15</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

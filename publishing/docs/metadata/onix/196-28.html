@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 28: Full alternative audio descriptions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 28: Full alternative audio descriptions.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 28 is used to indicate that <q>all or substantially all non-text content has full alternative
+					descriptions as pre-recorded audio.</q></p>
+				
+				<p>This code applies if extended descriptions, transcripts, etc. also offer an option to be listened
+					to as pre-recorded audio.</p>
+				
+				<p>For video-only content, audio descriptions must be provided.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Audio recordings of image descriptions provided</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>28&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/28">List 196: Code 28</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -200,12 +200,6 @@
 						"href": "evaluation.html",
 						"title": "Evaluation",
 						"subtitle": "Covers the conformance and evaluation metadata required by the EPUB Accessibility specification."
-					},
-					{
-						"id": "meta-onix",
-						"href": "onix.html",
-						"title": "ONIX",
-						"subtitle": "Covers the ONIX metadata standard's code list 196 accessibility properties."
 					}
 				]
 			},
@@ -261,6 +255,333 @@
 						"href": "schema.org/accessModeSufficient.html",
 						"title": "Sufficient Access Modes",
 						"subtitle": "Identifying sufficient means of reading that provide access to the information using <code>accessModeSufficient</code> property."
+					}
+				]
+			},
+			{
+				"id": "meta-onix",
+				"title": "ONIX Accessibility",
+				"path": "metadata",
+				"topics": [
+					{
+						"id": "196-00",
+						"href": "onix/196-00.html",
+						"title": "00: Accessibility summary"
+					},
+					{
+						"id": "196-01",
+						"href": "onix/196-01.html",
+						"title": "01: LIA Compliance Scheme"
+					},
+					{
+						"id": "196-02",
+						"href": "onix/196-02.html",
+						"title": "02: EPUB Accessibility Specification 1.0 A"
+					},
+					{
+						"id": "196-03",
+						"href": "onix/196-03.html",
+						"title": "03: EPUB Accessibility Specification 1.0 AA"
+					},
+					{
+						"id": "196-04",
+						"href": "onix/196-04.html",
+						"title": "04: Epub Accessibility Specification 1.1"
+					},
+					{
+						"id": "196-05",
+						"href": "onix/196-05.html",
+						"title": "05: PDF/UA-1"
+					},
+					{
+						"id": "196-06",
+						"href": "onix/196-06.html",
+						"title": "06: PDF/UA-2"
+					},
+					{
+						"id": "196-08",
+						"href": "onix/196-08.html",
+						"title": "08: Unknown accessibility"
+					},
+					{
+						"id": "196-09",
+						"href": "onix/196-09.html",
+						"title": "09: Inaccessible, or known limited accessibility"
+					},
+					{
+						"id": "196-10",
+						"href": "onix/196-10.html",
+						"title": "10: No reading system accessibility options actively disabled (except)"
+					},
+					{
+						"id": "196-11",
+						"href": "onix/196-11.html",
+						"title": "11: Table of contents navigation"
+					},
+					{
+						"id": "196-12",
+						"href": "onix/196-12.html",
+						"title": "12: Index navigation"
+					},
+					{
+						"id": "196-13",
+						"href": "onix/196-13.html",
+						"title": "13: Single logical reading order"
+					},
+					{
+						"id": "196-14",
+						"href": "onix/196-14.html",
+						"title": "14: Short alternative textual descriptions"
+					},
+					{
+						"id": "196-15",
+						"href": "onix/196-15.html",
+						"title": "15: Full alternative textual descriptions"
+					},
+					{
+						"id": "196-16",
+						"href": "onix/196-16.html",
+						"title": "16: Visualised data also available as non-graphical data"
+					},
+					{
+						"id": "196-17",
+						"href": "onix/196-17.html",
+						"title": "17: Accessible math content as MathML"
+					},
+					{
+						"id": "196-18",
+						"href": "onix/196-18.html",
+						"title": "18: Accessible chemistry content as ChemML"
+					},
+					{
+						"id": "196-19",
+						"href": "onix/196-19.html",
+						"title": "19: Print-equivalent page numbering"
+					},
+					{
+						"id": "196-20",
+						"href": "onix/196-20.html",
+						"title": "20: Synchronised pre-recorded audio"
+					},
+					{
+						"id": "196-21",
+						"href": "onix/196-21.html",
+						"title": "21: Text-to-speech hinting provided"
+					},
+					{
+						"id": "196-22",
+						"href": "onix/196-22.html",
+						"title": "22: Language tagging provided"
+					},
+					{
+						"id": "196-24",
+						"href": "onix/196-24.html",
+						"title": "24: Dyslexia readability"
+					},
+					{
+						"id": "196-25",
+						"href": "onix/196-25.html",
+						"title": "25: Use of color is not sole means of conveying information"
+					},
+					{
+						"id": "196-26",
+						"href": "onix/196-26.html",
+						"title": "26: Use of high contrast between text and background color"
+					},
+					{
+						"id": "196-27",
+						"href": "onix/196-27.html",
+						"title": "27: Use of high contrast between foreground and background audio"
+					},
+					{
+						"id": "196-28",
+						"href": "onix/196-28.html",
+						"title": "28: Full alternative audio descriptions"
+					},
+					{
+						"id": "196-29",
+						"href": "onix/196-29.html",
+						"title": "29: Next / Previous structural navigation"
+					},
+					{
+						"id": "196-30",
+						"href": "onix/196-30.html",
+						"title": "30: ARIA roles provided"
+					},
+					{
+						"id": "196-31",
+						"href": "onix/196-31.html",
+						"title": "31: Accessible controls provided"
+					},
+					{
+						"id": "196-32",
+						"href": "onix/196-32.html",
+						"title": "32: Landmark navigation"
+					},
+					{
+						"id": "196-34",
+						"href": "onix/196-34.html",
+						"title": "34: Accessible chemistry content (as MathML)"
+					},
+					{
+						"id": "196-35",
+						"href": "onix/196-35.html",
+						"title": "35: Accessible math content (as LaTeX)"
+					},
+					{
+						"id": "196-36",
+						"href": "onix/196-36.html",
+						"title": "36: All textual content can be modified"
+					},
+					{
+						"id": "196-37",
+						"href": "onix/196-37.html",
+						"title": "37: Use of ultra-high contrast between text foreground and background"
+					},
+					{
+						"id": "196-38",
+						"href": "onix/196-38.html",
+						"title": "38: Unusual words or abbreviations explained"
+					},
+					{
+						"id": "196-39",
+						"href": "onix/196-39.html",
+						"title": "39: Supplementary material to an audiobook is accessible"
+					},
+					{
+						"id": "196-40",
+						"href": "onix/196-40.html",
+						"title": "40: Link purposes clear"
+					},
+					{
+						"id": "196-41",
+						"href": "onix/196-41.html",
+						"title": "41: Page list navigation"
+					},
+					{
+						"id": "196-51",
+						"href": "onix/196-51.html",
+						"title": "51: All non-decorative content supports reading via pre-recorded audio"
+					},
+					{
+						"id": "196-52",
+						"href": "onix/196-52.html",
+						"title": "52: All non-decorative content supports reading without sight"
+					},
+					{
+						"id": "196-53",
+						"href": "onix/196-53.html",
+						"title": "53: Described math content"
+					},
+					{
+						"id": "196-54",
+						"href": "onix/196-54.html",
+						"title": "54: Accessible chemistry content (as LaTeX)"
+					},
+					{
+						"id": "196-75",
+						"href": "onix/196-75.html",
+						"title": "75: EAA exception 1 – Micro-enterprises"
+					},
+					{
+						"id": "196-76",
+						"href": "onix/196-76.html",
+						"title": "76: EAA exception 2 – Disproportionate burden"
+					},
+					{
+						"id": "196-77",
+						"href": "onix/196-77.html",
+						"title": "77: EAA exception 3 – Fundamental modification"
+					},
+					{
+						"id": "196-80",
+						"href": "onix/196-80.html",
+						"title": "80: WCAG v2.0"
+					},
+					{
+						"id": "196-81",
+						"href": "onix/196-81.html",
+						"title": "81: WCAG v2.1"
+					},
+					{
+						"id": "196-82",
+						"href": "onix/196-82.html",
+						"title": "82: WCAG v2.2"
+					},
+					{
+						"id": "196-84",
+						"href": "onix/196-84.html",
+						"title": "84: WCAG level A"
+					},
+					{
+						"id": "196-85",
+						"href": "onix/196-85.html",
+						"title": "85: WCAG level AA"
+					},
+					{
+						"id": "196-86",
+						"href": "onix/196-86.html",
+						"title": "86: WCAG level AAA"
+					},
+					{
+						"id": "196-88",
+						"href": "onix/196-88.html",
+						"title": "88: Certifier credentialled by (name)"
+					},
+					{
+						"id": "196-89",
+						"href": "onix/196-89.html",
+						"title": "89: Certifier credentialled by (URL)"
+					},
+					{
+						"id": "196-90",
+						"href": "onix/196-90.html",
+						"title": "90: Compliance certification by (name)"
+					},
+					{
+						"id": "196-91",
+						"href": "onix/196-91.html",
+						"title": "91: Latest accessibility assessment date"
+					},
+					{
+						"id": "196-92",
+						"href": "onix/196-92.html",
+						"title": "92: Accessibility addendum"
+					},
+					{
+						"id": "196-93",
+						"href": "onix/196-93.html",
+						"title": "93: Compliance certification by (URL)"
+					},
+					{
+						"id": "196-94",
+						"href": "onix/196-94.html",
+						"title": "94: Compliance web page for detailed accessibility information"
+					},
+					{
+						"id": "196-95",
+						"href": "onix/196-95.html",
+						"title": "95: Trusted intermediary's web page for detailed accessibility information"
+					},
+					{
+						"id": "196-96",
+						"href": "onix/196-96.html",
+						"title": "96: Publisher's web page for detailed accessibility information"
+					},
+					{
+						"id": "196-97",
+						"href": "onix/196-97.html",
+						"title": "97: Compatibility tested"
+					},
+					{
+						"id": "196-98",
+						"href": "onix/196-98.html",
+						"title": "98: Trusted Intermediary contact"
+					},
+					{
+						"id": "196-99",
+						"href": "onix/196-99.html",
+						"title": "99: Publisher contact for further accessibility information"
 					}
 				]
 			}
