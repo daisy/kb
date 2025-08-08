@@ -18,12 +18,17 @@
 			<section id="def">
 				<h3>Usage</h3>
 				
-				<p>Code 99 allows you to include a email address that users can use to contact the publisher
+				<p>Code 99 is used to include a email address that users can use to contact the publisher
 					for more information about the accessibility of the publication or to report issues with
 					the publication.</p>
 				
 				<p>The email address should not be one for general inquiries but should be one that is specifically
 					for asking accessibility questions.</p>
+				
+				<p>The email address is provided in a <code>&lt;ProductFormFeatureDescription></code> element.</p>
+				
+				<p>If the publisher uses a trusted intermediary to answer accessibility questions, the email for
+					that organization is listed under <a href="196-98.html">code 98</a>.</p>
 			</section>
 			
 			<section id="ex">
@@ -31,7 +36,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Publisher email</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>

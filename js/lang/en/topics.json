@@ -454,6 +454,11 @@
 						"title": "40: Link purposes clear"
 					},
 					{
+						"id": "196-41",
+						"href": "onix/196-41.html",
+						"title": "41: Page list navigation"
+					},
+					{
 						"id": "196-51",
 						"href": "onix/196-51.html",
 						"title": "51: All non-decorative content supports reading via pre-recorded audio"
@@ -462,6 +467,16 @@
 						"id": "196-52",
 						"href": "onix/196-52.html",
 						"title": "52: All non-decorative content supports reading without sight"
+					},
+					{
+						"id": "196-53",
+						"href": "onix/196-53.html",
+						"title": "53: Described math content"
+					},
+					{
+						"id": "196-54",
+						"href": "onix/196-54.html",
+						"title": "54: Accessible chemistry content (as LaTeX)"
 					},
 					{
 						"id": "196-75",
@@ -507,6 +522,16 @@
 						"id": "196-86",
 						"href": "onix/196-86.html",
 						"title": "86: WCAG level AAA"
+					},
+					{
+						"id": "196-88",
+						"href": "onix/196-88.html",
+						"title": "88: Certifier credentialled by (name)"
+					},
+					{
+						"id": "196-89",
+						"href": "onix/196-89.html",
+						"title": "89: Certifier credentialled by (URL)"
 					},
 					{
 						"id": "196-90",

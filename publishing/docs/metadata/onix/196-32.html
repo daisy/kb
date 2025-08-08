@@ -18,8 +18,13 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">E-publication includes basic landmark navigation (usually less detailed than TOC-based
-					navigation). Only for use in ONIX 3.0 or later</p>
+				<p>Code 32 is used to indicate that a publication includes landmark navigation.</p>
+				
+				<p>Landmark navigation is not the same as the landmarks compiled from ARIA roles. EPUB 3,
+					for example, allows <a href="../../navigation/landmarks.html">landmark navigation</a>
+					through a specialized navigation element in the EPUB navigation document.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -27,7 +32,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Landmark navigation provided</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -35,11 +40,6 @@
    &lt;ProductFormFeatureValue>32&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

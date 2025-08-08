@@ -18,9 +18,17 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> carries the e-mail address for a contact at a
-					'trusted intermediary', to whom detailed questions about accessibility for this product may be
-					directed</p>
+				<p>Code 98 is used to include a email address that users can use to contact a trusted intermediary
+					for more information about the accessibility of the publication or to report issues with
+					the publication.</p>
+				
+				<p>The email address should not be one for general inquiries but should be one that is specifically
+					for asking accessibility questions.</p>
+				
+				<p>The email address is provided in a <code>&lt;ProductFormFeatureDescription></code> element.</p>
+				
+				<p>If the publisher does not use a trusted intermediary to answer accessibility questions, the
+					publisher's is listed under <a href="196-99.html">code 99</a>.</p>
 			</section>
 			
 			<section id="ex">
@@ -28,7 +36,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Trusted intermediary email</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -39,11 +47,6 @@
    &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

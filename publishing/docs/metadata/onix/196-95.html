@@ -18,11 +18,13 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> carries the URL of a web page giving further
-					detailed description of the accessibility features, compatibility, testing etc relevant to this
-					product. The web page should be provided by a trusted intermediary or third party nominated by the
-					publisher. Note the web page can include information about specific national requirements or
-					voluntary conformance reports</p>
+				<p>Code 95 is used to provide a URL to a web page containing additional information about the
+					accessibility of the publication.</p>
+				
+				<p>The URL is provided in a <code>&lt;ProductFormFeatureDescription></code> element.</p>
+				
+				<p>For this code, the web page must be maintained by a trusted intermediary or third party.
+					Use <a href="196-96.html">code 96</a> for a web page maintained by the publisher.</p>
 			</section>
 			
 			<section id="ex">
@@ -30,7 +32,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Trusted intermediary report</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -41,11 +43,6 @@
    &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

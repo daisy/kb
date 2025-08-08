@@ -18,10 +18,17 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">E-publication does not restrict the ability of users to modify and reflow the display
-					of any textual content to the full extent allowed by the reading system (eg to change the text size
-					or typeface, line height and word spacing, colors). Only for use in ONIX 3.0 or later. Compare with
-					code 10 which applies to a broader range of content types</p>
+				<p>Code 36 is used to indicate that the styling of the publication does not interfere with users'
+					ability to control the appearance of the text.</p>
+				
+				<p>This code typically means that the author has not used inline styles and CSS <code>important</code>
+					keywords that will prevent reading systems from restyling the text to the user's preference.
+					Changes to the text also must not result in loss of information (e.g., by preventing scrolling
+					to access text that could overflow its content box when increased in size).</p>
+				
+				<p>This code overlaps with <a href="196-10.html">code 10</a> but only applies to text.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -29,7 +36,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; User configurable text</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -37,11 +44,6 @@
    &lt;ProductFormFeatureValue>36&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

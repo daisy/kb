@@ -18,15 +18,13 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">Sometimes termed 'screen reader-friendly', and fully supports multiple forms of
-					non-visual reading. All contents of the digital publication necessary to use and understanding,
-					including text, images (via their alternative descriptions), audio and video material (via their
-					transcripts, descriptions, captions or subtitles) are fully accessible via suitable reading
-					devices, for example text-to-speech screen readers or tactile reading devices ('Braille displays'),
-					and nothing in the digital publication prevents or blocks the use of alternative reading modes. The
-					entire publication can be navigated and 'read' using only text rendered via sound or touch, and
-					does not require visual perception. NB this implies that all &lt;ProductContent> types listed can
-					be accessed without sight. Only for use in ONIX 3.0 or later</p>
+				<p>Code 52 is used to indicate that the publication can be read entirely by text, including by
+					speech synthesis of the text or rendering on refreshable braille devices.</p>
+				
+				<p>Code 52 is equivalent to stating that a publication has a <a 
+						href="../schema.org/accessModeSufficient.html">sufficient access mode</a> of textual.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -34,7 +32,7 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Readable textually</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
@@ -42,11 +40,6 @@
    &lt;ProductFormFeatureValue>52&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

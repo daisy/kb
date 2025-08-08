@@ -18,11 +18,14 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">Conforms with the requirements of WCAG level A. &lt;ProductFormFeatureDescription> may
-					carry a URL linking to a compliance report or certification provided by an independent third-party
-					certifier. In the absence of a URL, conformance with the requirements of the Specification is
-					self-certified by the publisher. Should be used in combination with code 04. Only for use in ONIX
-					3.0 or later</p>
+				<p>Code 84 is used to indicate that an EPUB publication that conforms to the EPUB Accessibility
+					standard (version 1.1 or higher) conforms at Level A of the specified version of WCAG 2.</p>
+				
+				<p>This code must be paired with <a href="196-04.html">code 04</a> as well as one of the
+					WCAG version indicators (code <a href="196-80.html">80</a>, <a href="196-81.html">81</a>,
+					or <a href="196-82.html">82</a>).</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
 			</section>
 			
 			<section id="ex">
@@ -30,19 +33,24 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Conformance to EPUB Accessibility 1.1 at WCAG 2.2 Level A</span>
 					</figcaption>
 					
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+					<pre id="ex-01-src" class="prettyprint linenums">&lt;!-- EPUB Accessibility 1.1 --&gt;
+<code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>04&lt;/ProductFormFeatureValue>
+&lt;!-- WCAG 2.2 --&gt;
+&lt;/ProductFormFeature>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>82&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;!-- Level A --&gt;
+&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
    &lt;ProductFormFeatureValue>84&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

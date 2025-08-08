@@ -18,9 +18,15 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">&lt;ProductFormFeatureDescription> carries the name of the organization responsible for
-					compliance testing and certification of the product. See code 93 for the URL of the organization,
-					which should also be provided. Only for use in ONIX 3.0 or later</p>
+				<p>Code 90 is used to indicate that the publication was evaluated and certified by a third party 
+					organization.</p>
+				
+				<p>Add the name of the organization to a <code>&lt;ProductFormFeatureDescription></code> element.</p>
+				
+				<p>When setting the code, the URL of the organization should also be set using <a
+						href="196-93.html">code 93</a>.</p>
+				
+				<p>Only for use in ONIX 3.0 or later</p>
 			</section>
 			
 			<section id="ex">
@@ -28,22 +34,24 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; Third party evaluated</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
    &lt;ProductFormFeatureValue>90&lt;/ProductFormFeatureValue>
    &lt;ProductFormFeatureDescription>
-   
+      Dewey, Checkum, and Howe
+   &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature>
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>93&lt;/ProductFormFeatureValue>
+   &lt;ProductFormFeatureDescription>
+      https://example.com/dewey-checkum-howe
    &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
 			</section>
 			
 			<section id="refs">

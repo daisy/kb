@@ -18,7 +18,14 @@
 			<section id="def">
 				<h3>Explanation</h3>
 				
-				<p class="desc">Only for use in ONIX 3.0 or later</p>
+				<p>Code 89 is used to provide the URL of a credential held by the certifier.</p>
+				
+				<p>The name of the credential is added in a <code>&lt;ProductFormFeatureDescription></code>
+					element.</p>
+				
+				<p>Use <a href="196-89.html">code 88</a> if the credential is expressed as a text name.</p>
+				
+				<p>Only for use in ONIX 3.0 or later</p>
 			</section>
 			
 			<section id="ex">
@@ -26,12 +33,15 @@
 				
 				<figure id="ex-01">
 					<figcaption>
-						<span class="label">Example 1 &#8212; ONIX markup</span>
+						<span class="label">Example 1 &#8212; URL credential</span>
 					</figcaption>
 					
 					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
    &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
    &lt;ProductFormFeatureValue>89&lt;/ProductFormFeatureValue>
+   &lt;ProductFormFeatureDescription>
+   	https://example.com/galactically-accessible
+   &lt;/ProductFormFeatureDescription>
 &lt;/ProductFormFeature></code></pre>
 				</figure>
 			</section>
