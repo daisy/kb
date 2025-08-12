@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 14: Short alternative textual descriptions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 14: Short alternative textual descriptions.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 14 is used to indicate that all non-decorative images provide short alternative text
+					equivalents. It is not required to include extended descriptions for complex images to
+					set this code (see <a href="196-15.html">code 15</a>).</p>
+				
+				<p>Alternative text descriptions are also required for any audio and video content.</p>
+				
+				<p>It is not required to provide extended descriptions for content that conveys no meaningful
+					information, such as decorative images.</p>
+				
+				<p>Refer to the <a href="../html/images-desc.html">Image Descriptions</a>, <a 
+						href="../html/audio.html">Audio</a>, and <a href="../html/video.html">Video</a> sections
+					of this site for more information on meeting this requirement.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Alternative text for images</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>14&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/14">List 196: Code 14</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

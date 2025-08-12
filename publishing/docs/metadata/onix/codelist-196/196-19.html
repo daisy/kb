@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 19: Print-equivalent page numbering</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 19: Print-equivalent page numbering.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 19 is used to indicate that the publication contains static page breaks markers.</p>
+				
+				<p>It is not required that there be a pre-paginated source for the page breaks, such as a source
+					print book. Static page breaks may be included for digital-only publications.</p>
+				
+				<p>If there is a statically paginated source for the page breaks, it should be listed in a
+					<code>&lt;RelatedProduct></code> element with the code 13.</p>
+				
+				<p>Refer to the <a href="../html/pagenum.html">Page Numbering</a> section of the knowledge base
+					for more information.</p>
+				
+				<p>See also <a href="196-41.html">code 41</a> when including a page list.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Print page numbers with source information</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>19&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&#8230;
+&lt;RelatedProduct>
+  &lt;ProductRelationCode>13&lt;/ProductRelationCode>
+  &lt;ProductIdentifier>
+   &lt;ProductIDType>15&lt;/ProductIDType>
+   &lt;IDValue>9780123456789&lt;/IDValue>
+ &lt;/ProductIdentifier>
+ &lt;ProductForm>BB&lt;/ProductForm>
+&lt;/RelatedProduct></code></pre>
+				</figure>
+				
+				<figure id="ex-02">
+					<figcaption>
+						<span class="label">Example 2 &#8212; Page breaks with no source</span>
+					</figcaption>
+					
+					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>19&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/19">List 196: Code 19</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

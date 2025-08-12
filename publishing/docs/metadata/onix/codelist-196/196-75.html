@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 75: EAA exception 1 – Micro-enterprises</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 75: EAA exception 1 – Micro-enterprises.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 75 is used to indicate that a publication is exempt from the accessibility requirements
+					of the European Accessibility Act (EAA) under the microenterprises exception.</p>
+				
+				<p>According to legislation at the time of publishing, a microenterprise is defined as one that 
+					<q>employs fewer than 10 persons and which has an annual turnover not exceeding EUR 2 million
+						or an annual balance sheet total not exceeding EUR 2 million.</q></p>
+				
+				<p>Justification of the exemption can be included in an <code>&lt;ProductFormFeatureDescription></code>
+					element.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; EAA microenterprise exemption claim</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>75&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/75">List 196: Code 75</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

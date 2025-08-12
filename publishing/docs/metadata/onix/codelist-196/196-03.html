@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 03: EPUB Accessibility Specification 1.0 AA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 03: EPUB Accessibility Specification 1.0 AA.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<div class="note" role="note" aria-labelledby="support-note">
+					<p id="support-note" class="label">Note</p>
+					
+					<p>Conforming to the EPUB Accessibility 1.0 specification is no longer recommended.</p>
+					
+					<p>Publishers should be following the <a href="https://www.w3.org/TR/epub-a11y/">latest version of the
+							standard</a>. Refer to <a href="196-04.html">code 04</a> for more information.</p>
+				</div>
+				
+				<p>Code 03 indicates that the publication conforms to the EPUB Accessibility 1.0 specification
+					and meets WCAG 2.0 Level AA requirements.</p>
+				
+				<p>The value is the same as declaring the following <a 
+						href="https://idpf.org/epub/a11y/#wcag-aa">conformance identifier</a> in the EPUB package
+					document metadata:</p>
+				
+				<pre id="ex-desc-01" class="prettyprint linenums small"><code>&lt;link
+   rel="dcterms:conformsTo"
+   href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/></code></pre>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; EPUB Accessibility 1.0 conformant at WCAG 2.0 Level AA</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>03&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>EPUB &#8212; <a href="https://idpf.org/epub/a11y/">EPUB Accessibility 1.0</a></li>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/03">List 196: Code 03</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Code List 196 - 27: Use of high contrast between foreground and background audio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX code list 196 value 27: Use of high contrast between foreground and background audio.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 27 is used to indicate that foreground audio content is presented with no background noise,
+					low background noise (at least 20dB below the level of the foreground), or background noise can
+					be switched off.</p>
+				
+				<p>This value appears to correspond to <a
+						href="https://www.w3.org/TR/WCAG2/#low-or-no-background-audio">WCAG Success Criterion
+						1.4.7 Low or No Background Audio</a> but it is not similarly restricted to audio that is
+					primarily speech. For the purposes of setting this value, it is advised to follow the requirements
+					of success criterion 1.4.7.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Audio with sufficient contrast</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>27&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/27">List 196: Code 27</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
