@@ -103,14 +103,15 @@
 				<dl>
 					<dt id="faq-001">What code goes in <code>ProductFormFeatureType</code> when using codelist 196?</dt>
 					<dd>
-						<p>Code 12 from <a href="https://ns.editeur.org/onix/en/79">codelist 79</a> is used to
-							identify hazards.</p>
+						<p>Code 09 from <a href="https://ns.editeur.org/onix/en/79">codelist 79</a> is used to
+							identify the accessibility information is about a digital publication.</p>
 						
-						<p>For example, the following markup is used to declare that there are no hazards:</p>
+						<p>For example, the following markup is used to declare that a publication conforms
+							includes alternative text for images:</p>
 						
 						<pre id="ex-01" class="prettyprint linenums"><code>&lt;ProductFormFeature>
-   &lt;ProductFormFeatureType>12&lt;/ProductFormFeatureType>
-   &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>14&lt;/ProductFormFeatureValue>
 &lt;/ProductFormFeature></code></pre>
 					</dd>
 				</dl>
