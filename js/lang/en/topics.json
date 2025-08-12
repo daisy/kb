@@ -272,13 +272,13 @@
 					{
 						"id": "onix-codelist-196",
 						"href": "onix/codelist-196/",
-						"title": "Code List 196",
+						"title": "Codelist 196",
 						"subtitle": "Expressing accessibility metadata using list 196"
 					},
 					{
 						"id": "onix-codelist-143",
 						"href": "onix/codelist-143/",
-						"title": "Code List 143",
+						"title": "Codelist 143",
 						"subtitle": "Expressing accessibility hazard risks using list 143"
 					}
 				]
@@ -950,17 +950,17 @@
 		"showInRootIndex": false
 	},
 	{
-		"title": "ONIX Code Lists",
+		"title": "ONIX Codelists",
 		"id": "onix-lists",
 		"showInRootIndex": false,
 		"categories": [
 			{
-				"title": "Code List 196",
+				"title": "Codelist 196",
 				"id": "onix-codelist-196",
 				"showInRootIndex": false
 			},
 			{
-				"title": "Code List 143",
+				"title": "Codelist 143",
 				"id": "onix-codelist-143",
 				"showInRootIndex": false
 			}
