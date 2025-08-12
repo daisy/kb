@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Codelist 196 - 99: Publisher contact for further accessibility information</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX codelist 196 value 99: Publisher contact for further accessibility information.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Usage</h3>
+				
+				<p>Code 99 is used to include a email address that users can use to contact the publisher
+					for more information about the accessibility of the publication or to report issues with
+					the publication.</p>
+				
+				<p>The email address should not be one for general inquiries but should be one that is specifically
+					for asking accessibility questions.</p>
+				
+				<p>The email address is provided in a <code>&lt;ProductFormFeatureDescription></code> element.</p>
+				
+				<p>If the publisher uses a trusted intermediary to answer accessibility questions, the email for
+					that organization is listed under <a href="196-98.html">code 98</a>.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Publisher email</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>99&lt;/ProductFormFeatureValue>
+   &lt;ProductFormFeatureDescription>
+      accessibility-officer@example.com
+   &lt;/ProductFormFeatureDescription>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/99">List 196: Code 99</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

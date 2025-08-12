@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Codelist 196 - 86: WCAG level AAA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX codelist 196 value 86: WCAG level AAA.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 86 is used to indicate that an EPUB publication that conforms to the EPUB Accessibility
+					standard (version 1.1 or higher) conforms at Level AAA of the specified version of WCAG 2.</p>
+				
+				<p>This code must be paired with <a href="196-04.html">code 04</a> as well as one of the
+					WCAG version indicators (code <a href="196-80.html">80</a>, <a href="196-81.html">81</a>,
+					or <a href="196-82.html">82</a>).</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Conformance to EPUB Accessibility 1.1 at WCAG 2.2 Level AAA</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums">&lt;!-- EPUB Accessibility 1.1 --&gt;
+<code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>04&lt;/ProductFormFeatureValue>
+&lt;!-- WCAG 2.2 --&gt;
+&lt;/ProductFormFeature>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>82&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature>
+&lt;!-- Level AAA --&gt;
+&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>86&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/86">List 196: Code 86</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

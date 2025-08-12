@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ONIX Codelist 143</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on adding accessibility metadata to an ONIX record.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			dt {
+				font-weight: bold;
+				font-size: 95%;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="desc">
+				<h3>Codes</h3>
+				
+				<ul>
+					<li><a href="143-00.html">00: No known hazards or warnings</a></li>
+					<li><a href="143-13.html">13: Flashing hazard</a></li>
+					<li><a href="143-14.html">14: No flashing hazard warning necessary</a></li>
+					<li><a href="143-15.html">15: Sound hazard</a></li>
+					<li><a href="143-16.html">16: No sound hazard warning necessary</a></li>
+					<li><a href="143-17.html">17: Motion simulation hazard</a></li>
+					<li><a href="143-18.html">18: No motion simulation hazard warning necessary</a></li>
+					<li><a href="143-24.html">24: Flashing risk unknown</a></li>
+					<li><a href="143-25.html">25: Sound risk unknown</a></li>
+					<li><a href="143-26.html">26: Motion simulation risk unknown</a></li>
+				</ul>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">What code goes in <code>ProductFormFeatureType</code> when using codelist 143?</dt>
+					<dd>
+						<p>Code 12 from <a href="https://ns.editeur.org/onix/en/79">codelist 79</a> is used to
+							identify hazards.</p>
+						
+						<p>For example, the following markup is used to declare that there are no hazards:</p>
+						
+						<pre id="ex-01" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>12&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>00&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+					</dd>
+					
+					<dt id="faq-002">What hazards do I need to consider?</dt>
+					<dd>
+						<p>Hazards for publications fall into three categories:</p>
+						
+						<ul>
+							<li>flashing - content that flashes more than 3 times per second</li>
+							<li>sound - sound hazards are currently not well defined</li>
+							<li>motion simulation - any movement in dynamic content (first person perspectives), 
+								styling (CSS animated scrolling), etc. that simulates motion</li>
+						</ul>
+						
+						<p>One of each of the following codes should be set for each hazard:</p>
+						
+						<ul>
+							<li>For flashing: code <a href="143-13.html">13</a>, <a href="143-14.html">14</a>,
+								or <a href="143-24.html">24</a></li>
+							<li>For sound: code <a href="143-15.html">15</a>, <a href="143-16.html">16</a>,
+								or <a href="143-25.html">25</a></li>
+							<li>For motion: code <a href="143-17.html">17</a>, <a href="143-18.html">18</a>,
+								or <a href="143-26.html">26</a></li>
+						</ul>
+						
+						<p>If there are no hazards, <a href="143-00.html">code 00</a> can be specified instead
+							of individual statements about each type of content.</p>
+						
+						<p>Note that codelist 143 applies to more than just digital publications so it includes
+							other types of hazards (e.g., choking hazards). These hazards do not have to be 
+							reported.</p>
+					</dd>
+					
+					<dt id="faq-003">Can I skip hazards if the publication does not contain applicable content?</dt>
+					<dd>
+						<p>No, the hazard status should always be stated even if the type of content is not
+							present. Readers may not be aware that a book has no audio content, for example,
+							so stating that there are no sound hazards assures them there are no risks.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/143">List
+							143: US CPSIA or other international hazard warning type</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

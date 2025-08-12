@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Codelist 196 - 11: Table of contents navigation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX codelist 196 value 11: Table of contents navigation.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Despite the name only mentioning the table of contents, code 11 is defined as requiring <q>direct
+					(eg hyperlinked) access to all levels of text organization above individual paragraphs (ie to 
+					all chapters, sections and subsections that exist within the text), and to all tables, figures, 
+					illustrations etc (non-textual items such as illustrations, tables, audio or video content may 
+					be directly accessible from the Table of contents, or from a similar List of illustrations, 
+					List of tables, etc)</q></p>
+				
+				<p>The requirement in EPUB to include a navigation document, for example, does not, in and of itself,
+					satisfy this requirement. A <code>toc nav</code> with links to the complete structure of the publication is
+					required. See the <a href="../../../navigation/toc.html">Table of Contents section</a> for more
+					information.</p>
+				
+				<p>See also the <a href="../navigation/content-list.html">Content Lists</a> for expressing lists of
+					tables, illustrations, and the like.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Extended navigation features provided</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>11&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/11">List 196: Code 11</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Codelist 196 - 13: Single logical reading order</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX codelist 196 value 13: Single logical reading order.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-196'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 13 is used to indicate that the <a href="../../../html/order.html">logical reading order</a> of 
+					a publication is preserved.</p>
+				
+				<p>In EPUB, the logical reading order is expressed both through the <code>spine</code> element, the'
+					ordering of content documents, and through the markup of each content document. For audio
+					books, the logical reading order is defined by the playlist of tracks.</p>
+				
+				<p>The logical reading order of the publication must be clearly delineated in
+					the markup. Footnotes, tables, images, sidebars and all similar secondary content must be marked
+					up so that it can be navigated easily.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Logical reading order</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;ProductFormFeature>
+   &lt;ProductFormFeatureType>09&lt;/ProductFormFeatureType>
+   &lt;ProductFormFeatureValue>13&lt;/ProductFormFeatureValue>
+&lt;/ProductFormFeature></code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/196/13">List 196: Code 13</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
