@@ -271,13 +271,13 @@
 					},
 					{
 						"id": "onix-codelist-196",
-						"href": "onix/codelist-196.html",
+						"href": "onix/codelist-196/",
 						"title": "Code List 196",
 						"subtitle": "Expressing accessibility metadata using list 196"
 					},
 					{
 						"id": "onix-codelist-143",
-						"href": "onix/codelist-143.html",
+						"href": "onix/codelist-143/",
 						"title": "Code List 143",
 						"subtitle": "Expressing accessibility hazard risks using list 143"
 					}
