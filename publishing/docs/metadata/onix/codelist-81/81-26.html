@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Codelist 81 - 26: Video recording of a reading</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on using ONIX codelist 81 value 26: Video recording of a reading.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix', 'onix-codelist-81'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+
+	</head>
+	<body>
+		<main>
+			<section id="def">
+				<h3>Explanation</h3>
+				
+				<p>Code 26 is used to indicate that a publication contains a video recording of a reading, either of
+					itself or of another work.</p>
+				
+				<p>The code is set in a <code>&lt;ProductContentType></code> element as video clips of readings
+					are typically only supplemental content.</p>
+				
+				<p>Only for use in ONIX 3.0 or later.</p>
+			</section>
+			
+			<section id="map">
+				<h3>Schema.org mapping</h3>
+				
+				<p>Code 26 is the equivalent of setting an <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#auditory">auditory access mode</a> 
+					using schema.org metadata.</p>
+				
+				<p>If the visual content of the video is important to understanding the recording, then a 
+					<a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#visual">visual access mode</a> would 
+					also apply.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+				
+				<figure id="ex-01">
+					<figcaption>
+						<span class="label">Example 1 &#8212; Book of poetry with readings of the poems</span>
+					</figcaption>
+					
+					<pre id="ex-01-src" class="prettyprint linenums"><code>&#8230;
+&lt;PrimaryContentType>10&lt;/PrimaryContentType>
+&lt;ProductContentType>26&lt;/ProductContentType>
+&#8230;</code></pre>
+				</figure>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/81/26">List 81: Code 26</a></li>
+					<li>Schema.org &#8212; <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#visual"><code>accessMode</code> <code>visual</code></a></li>
+					<li>Schema.org &#8212; <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#auditory"><code>accessMode</code> <code>auditory</code></a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

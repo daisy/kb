@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ONIX Codelist 81</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidance on adding information about the content type to ONIX records using codelist 81.">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-onix'],
+				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+		<style>
+			dt {
+				font-weight: bold;
+				font-size: 95%;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section id="desc">
+				<h3>Codes</h3>
+				
+				<div class="note" role="note" aria-labelledby="coverage-note">
+					<p id="coverage-note" class="label">Note</p>
+					<p>Only the codes most relevant to ebooks and audiobooks are covered by the knowledge
+						base. Refer to <a href="https://ns.editeur.org/onix/en/81">codelist 81</a> for 
+						additional codes.</p>
+				</div>
+				
+				<p>For text content:</p>
+				<ul>
+					<li><a href="81-10.html">10: Text</a></li>
+					<li><a href="81-16.html">16: Additional text not part of main content</a></li>
+					<li><a href="81-17.html">17: Promotional text for other book product</a></li>
+					<li><a href="81-45.html">45: Text within images</a></li>
+				</ul>
+				
+				<p>For auditory content:</p>
+				<ul>
+					<li><a href="81-01.html">01: Audiobook</a></li>
+					<li><a href="81-02.html">02: Performance – spoken word</a></li>
+					<li><a href="81-03.html">03: Music recording</a></li>
+					<li><a href="81-13.html">13: Other speech content</a></li>
+					<li><a href="81-21.html">21: Partial performance – spoken word</a></li>
+					<li><a href="81-22.html">22: Additional audio content not part of main content</a></li>
+					<li><a href="81-23.html">23: Promotional audio for other book product</a></li>
+				</ul>
+				
+				<p>For visual content:</p>
+				<ul>
+					<li><a href="81-06.html">06: Video</a></li>
+					<li><a href="81-07.html">07: Still images / graphics</a></li>
+					<li><a href="81-12.html">12: Maps and/or other cartographic content</a></li>
+					<li><a href="81-18.html">18: Photographs</a></li>
+					<li><a href="81-20.html">20: Additional images / graphics not part of main work</a></li>
+					<li><a href="81-24.html">24: Animated / interactive illustrations</a></li>
+					<li><a href="81-25.html">25: Narrative animation</a></li>
+					<li><a href="81-26.html">26: Video recording of a reading</a></li>
+					<li><a href="81-27.html">27: Performance – visual</a></li>
+					<li><a href="81-27.html">28: Other video</a></li>
+					<li><a href="81-27.html">29: Partial performance – video</a></li>
+					<li><a href="81-30.html">30: Additional video content not part of main work</a></li>
+					<li><a href="81-44.html">44: Sequential art</a></li>
+					<li><a href="81-46.html">46: Decorative images or graphics</a></li>
+					<li><a href="81-50.html">50: Video content without audio</a></li>
+				</ul>
+				
+				<p>For visual content indicators:</p>
+				<ul>
+					<li><a href="81-11.html">11: Musical notation</a></li>
+					<li><a href="81-19.html">19: Figures, diagrams, charts, graphs</a></li>
+					<li><a href="81-47.html">47: Chemical content</a></li>
+					<li><a href="81-48.html">48: Mathematical content</a></li>
+					<li><a href="81-49.html">49: Images of text</a></li>
+				</ul>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt id="faq-001">Should I use <code>PrimaryContentType</code> or <code>ProductContentType</code>?</dt>
+					<dd>
+						<p>The <code>PrimaryContentType</code> element is used to indicate the primary form of the
+							content. For most digital publications, this will be text, but some fixed layout content,
+							for example, will be primarily visual. Similarly an audiobook will specify one of the audio
+							type codes.</p>
+						
+						<p>The <code>ProductContentType</code> element is used to indicate the nature of any other content.
+							A primarly text book with images, for example, would specify either the types of image content
+							or, if the images do not convey information needed to understand the text, that they are
+							decorative.</p>
+						
+						<p>The following markup would be used for a publication that is primarily text but also includes
+							photographs:</p>
+						
+						<pre id="ex-01" class="prettyprint linenums"><code>&lt;PrimaryContentType>10&lt;/PrimaryContentType>
+&lt;ProductContentType>18&lt;/ProductContentType></code></pre>
+					</dd>
+					
+					<dt id="faq-002">Can I have more than one <code>PrimaryContentType</code>?</dt>
+					<dd>
+						<p>No, ONIX records only allow one primary content type. If a publication mixes content types,
+							pick the most essential for reading the content as the primary and list the others as 
+							product content types.</p>
+					</dd>
+				</dl>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+				<ul>
+					<li>ONIX &#8212; <a href="https://ns.editeur.org/onix/en/81">List 81: 
+							E-publication Accessibility Details</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
