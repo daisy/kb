@@ -5,9 +5,34 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2025 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Mon, 25 Aug 2025 00:01:00 +0500</lastBuildDate>
-		<pubDate>Mon, 25 Aug 2025 12:00:00 +0500</pubDate>
+		<lastBuildDate>Tue, 26 Aug 2025 00:01:00 +0500</lastBuildDate>
+		<pubDate>Tue, 26 Aug 2025 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>Accessibility feature updates</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature.html</link>
+			<description>
+				<![CDATA[
+				<p>New pages are now available describing how to use the recently added <code>latex-chemistry</code>
+					and <code>MathML-chemistry</code> pages.</p>
+				<p>The guidance on using the <code>annotations</code> value has been removed as the value
+					has been deprecated.</p>
+				]]>	
+			</description>
+			<pubDate>Tue, 26 Aug 2025 12:00:00 +0500</pubDate>
+		</item>
+		
+		<item>
+			<title>Added ONIX mappings for accessibility features</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature.html</link>
+			<description>
+				<![CDATA[
+				<p>The accessibilityFeature value pages now include mappings to their ONIX counterparts.</p>
+				]]>	
+			</description>
+			<pubDate>Tue, 26 Aug 2025 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>Added coverage of ONIX codelist 81</title>
