@@ -779,6 +779,8 @@ KB.prototype.generateCategoryList = function () {
 			// skip the top-level category
 			for (var x = 1; x < page_info['category'].length; x++) {
 			
+				var category = findCategory(topic_list, page_info.category[x]);
+				
 				var index_url = '';
 				
 				// if more than one category, need to add ../ to reach the right page
@@ -788,9 +790,13 @@ KB.prototype.generateCategoryList = function () {
 					}
 				}
 				
-				index_url += 'index.html'
+				if (category.hasOwnProperty('indexPage')) {
+					index_url += category.indexPage;
+				}
 				
-				var category = findCategory(topic_list, page_info.category[x]);
+				else {
+					index_url += 'index.html'
+				}
 				
 				cat_list += '<li><a href="' + index_url + '">' + category.title + '</a></li>';
 			}

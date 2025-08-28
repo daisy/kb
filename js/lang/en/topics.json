@@ -946,14 +946,28 @@
 		"showInRootIndex": false
 	},
 	{
-		"title": "accessibilityFeature",
-		"id": "accessibilityfeature",
-		"showInRootIndex": false
-	},
-	{
 		"title": "WCAG",
 		"id": "wcag",
 		"showInRootIndex": false
+	},
+	{
+		"title": "Schema.org Metadata",
+		"id": "schema.org",
+		"showInRootIndex": false,
+		"categories": [
+			{
+				"title": "accessibilityFeature",
+				"id": "accessibilityfeature",
+				"indexPage": "../accessibilityFeature.html",
+				"showInRootIndex": false
+			},
+			{
+				"title": "accessibilityHazard",
+				"id": "accessibilityhazard",
+				"indexPage": "../accessibilityHazard.html",
+				"showInRootIndex": false
+			}
+		]
 	},
 	{
 		"title": "ONIX Codelists",
