@@ -34,7 +34,8 @@
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
 					<pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard">flashing&lt;/meta>
-&lt;meta property="schema:accessibilityHazard">motionSimulation&lt;/meta></code></pre>
+&lt;meta property="schema:accessibilityHazard">noMotionSimulationHazard&lt;/meta>
+&lt;meta property="schema:accessibilityHazard">unknownSoundHazard&lt;/meta></code></pre>
 				</figure>
 
 				<figure id="ex-epub2">
@@ -42,14 +43,19 @@
 						<div class="label">Example 2 &#8212; EPUB 2</div>
 					</figcaption>
 					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityHazard" content="flashing"/>
-&lt;meta name="schema:accessibilityHazard" content="motionSimulation"/></code></pre>
+&lt;meta name="schema:accessibilityHazard" content="noMotionSimulationHazard"/>
+&lt;meta name="schema:accessibilityHazard" content="unknownSoundHazard"/></code></pre>
 				</figure>
 				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
 					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityHazard": ["flashing", "motionSimulation"]</code></pre>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityHazard": [
+   "flashing",
+   "noMotionSimulationHazard",
+   "unknownSoundHazard"
+]</code></pre>
 				</figure>
 				
 				<figure id="ex-rdfa">
@@ -77,108 +83,70 @@ individuals.&lt;/p></code></pre>
 				<h3>Values</h3>
 
 				<p>The following values are used to identify potential hazards (or the lack thereof) so that users with
-					such sensitivities know what to expect in advance:</p>
+					such sensitivities know what to expect in advance. For more information, refer to the definition
+					page for each.</p>
 				
-				<div class="note" role="note" aria-labelledby="format-note">
-					<p class="label" id="format-note">Note</p>
-					<p>Unless the metadata format used supports lists (e.g., JSON-LD), use a separate property
-						declaration for each feature. Do not merge the values into a single property using spaces,
-						commas, or other delimiters.</p>
-				</div>
+				<section id="hazards">
+					<h4>Hazards</h4>
+					
+					<ul>
+						<li><a href="accessibilityHazard/flashing.html">flashing</a></li>
+						<li><a href="accessibilityHazard/motionSimulation.html">motionSimulation</a></li>
+						<li><a href="accessibilityHazard/sound.html">sound</a></li>
+					</ul>
+				</section>
 				
-					<section id="flashing">
-						<h4>flashing</h4>
+				<section id="no-hazards">
+					<h4>No Hazards</h4>
 					
-						<p>The <code>flashing</code> values is used to indicate that there is content in the publication
-							that flashes more than three times a second or that the flashing is below the <a
-								href="https://www.w3.org/TR/WCAG2/#dfn-general-flash-and-red-flash-thresholds">general flash and red flash
-								thresholds.</a></p>
-
-						<p>These flashing hazards can cause headaches and seizures for users who are photosensitive. In
-							addition to setting this value, the publication should include warnings wherever such
-							content is located.</p>
-
-						<p>Although videos are often recognized as a source of flashing hazards (e.g., strobe effects),
-							there are many types of content that can present a flashing risk (e.g., animated graphics,
-							and scripted games and images).</p>
-					</section>
-
-					<section id="noFlashingHazard">
-						<h4>noFlashingHazard</h4>
+					<ul>
+						<li><a href="accessibilityHazard/none.html">none</a></li>
+						<li><a href="accessibilityHazard/noFlashingHazard.html">noFlashingHazard</a></li>
+						<li><a href="accessibilityHazard/noMotionSimulationHazard.html">noMotionSimulationHazard</a></li>
+						<li><a href="accessibilityHazard/noSoundHazard.html">noSoundHazard</a></li>
+					</ul>
+				</section>
+				
+				<section id="unknown-hazards">
+					<h4>Unknown Hazards</h4>
 					
-						<p>The <code>noFlashingHazard</code> value is the opposite of <a href="#flashing"
-									><code>flashing</code></a> &#8212; it is used to indicate that the the publisher has
-							checked the publication for flashing hazards and is sure that none exist.</p>
-
-						<p>The value is <strong>not</strong> an indication that a lack of flashing is a hazard.</p>
-					</section>
-
-					<section id="none">
-						<h4>none</h4>
+					<ul>
+						<li><a href="accessibilityHazard/unknown.html">unknown</a></li>
+						<li><a href="accessibilityHazard/unknownFlashingHazard.html">unknownFlashingHazard</a></li>
+						<li><a href="accessibilityHazard/unknownMotionSimulationHazard.html">unknownMotionSimulationHazard</a></li>
+						<li><a href="accessibilityHazard/unknownSoundHazard.html">unknownSoundHazard</a></li>
+					</ul>
+				</section>
+			</section>
+			
+			<section id="faq">
+				<h3>Frequently Asked Questions</h3>
+				
+				<dl>
+					<dt>Do I need to specify the status of every type of hazard?</dt>
+					<dd>
+						<p>Yes, if you do not specify the status (present, not present, or unknown), then users
+							cannot be sure if you have checked the publication. They will likely be informed that
+							no information about the hazards is available.</p>
+						
+						<p>Just because you know a publication does not present any hazards does not mean
+							users will assume the same.</p>
+					</dd>
 					
-						<p>The <code>none</code> value is used when the publisher is sure that the content presents no
-							known hazards for users.</p>
-
-						<p>This value is typically only used with there is no dynamic or multimedia content (i.e., the
-							publication consists only of text and/or static images).</p>
-					</section>
-
-					<section id="motionSimulation">
-						<h4>motionSimulation</h4>
-					
-						<p>The <code>motionSimulation</code> value is used to indicate that there is content that
-							simulates motion.</p>
-
-						<p>Motion simulation can cause headaches and nausea in some users. In addition to setting this
-							value, the publication should include warnings wherever such content is located.</p>
-
-						<p>Motion simulation can occur in a variety of media: videos or games with a first-person
-							perspective, 3D experiences and animations, etc.</p>
-					</section>
-
-					<section  id="noMotionSimulationHazard">
-						<h4>noMotionSimulationHazard</h4>
-					
-						<p>The <code>noMotionSimulationHazard</code> value is the opposite of <a
-								href="#motionSimulation"><code>motionSimulation</code></a> &#8212; it is used to
-							indicate that the the publisher has checked the publication for motion simulation hazards
-							and is sure that none exist.</p>
-
-						<p>The value is <strong>not</strong> an indication that a lack of motion simulation is a
-							hazard.</p>
-					</section>
-
-					<section id="sound">
-						<h4>sound</h4>
-					
-						<p>The <code>sound</code> value is used to indicate that a publication contains auditory content
-							that can cause seizures in some users. The causes of such seizures are diverse, from ringing
-							and buzzing sounds, to sudden loud noises, and even certain words or music.</p>
-
-						<p>Out of an abundance of caution, this property should be set if a publication contains any
-							auditory content, and users should always have the decision whether or not to play the
-							content (i.e., auditory content should not autoplay).</p>
-					</section>
-
-					<section id="noSoundHazard">
-						<h4>noSoundHazard</h4>
-					
-						<p>The <code>noSoundHazard</code> value is the opposite of <a href="#sound"
-								><code>sound</code></a> &#8212; it is used to indicate that the the publisher has
-							checked the publication for sound hazards and is sure that none exist.</p>
-
-						<p>The value is <strong>not</strong> an indication that a lack of sound is a hazard.</p>
-					</section>
-
-					<section id="unknown">
-						<h4>unknown</h4>
-					
-						<p>The <code>unknown</code> value is used to indicate that a publisher has not yet checked their
-							publication for hazards or is unsure whether some content might present a hazard.</p>
-
-						<p>This value should only be used as a temporary placeholder if a publication must be released
-							before an accessibility review can be completed.</p>
-					</section>
+					<dt>Is it better to use <code>none</code> or <code>unknown</code> than specify that
+							each type of hazard is not present or is not known?</dt>
+					<dd>
+						<p>There is no technical difference between the two, so both options are fine.</p>
+						
+						<p>Publishers might choose to avoid the <a 
+								href="accessibilityHazard/none.html"><code>none</code></a> value, however,
+							since it is not possible to anticipate if new hazards could be added in the future.</p>
+						
+						<p>Conversely, it is simpler to temporarily set the <a 
+								href="accessibilityHazard/unknown.html"><code>unknown</code></a> while waiting
+							on an accessibility evaluation than record each possible hazard as unknown.</p>
+					</dd>
+				</dl>
 			</section>
 
 			<section id="refs">
