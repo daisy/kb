@@ -21,8 +21,7 @@
 				<h3>Explanation</h3>
 				
 				<p>The <code>colorDependent</code> value is used to indicate that color is the sole means of
-					conveying some visual information. This value is typically paired with either a <a 
-						href="textual.html"><code>textual</code></a> or <a 
+					conveying some visual information. This value is always paired with a <a 
 							href="visual.html"><code>visual</code></a> acces mode as it is a modifier.</p>
 				
 				<p>A common example of the need to perceive color occurs with graphs and charts. If the bars in
@@ -33,17 +32,22 @@
 					are color coded to age or difficulty level, or when hyperlinks are colored to indicate
 					their purpose (e.g., to open external web sites).</p>
 				
-				<p>The <code>colorDependence</code> value is not set if a secondary means of differentiating the
-					information is available. If, for example, graphs and charts include distinct patterns in their
-					data representations, such as lines going in different directions, then a user can use those
-					patterns to differentiate the data. Similarly, hyperlinks can use different types of underline
+				<p>The application of this label only applies to the visual reading experience and the label
+					is not set if a secondary means of differentiating the information is available. If,
+					for example, graphs and charts include distinct patterns in their data representations,
+					such as lines going in different directions, then a user can use those patterns to 
+					differentiate the data. Similarly, hyperlinks can use different types of underline
 					to gives a visual cue to their existence and purpose.</p>
 				
 				<p>Note, however, that any secondary means of differentiating the information must also be visual
 					before this label can be omitted. Affordances provided for non-visual readers, such as through
 					hidden ARIA attributes, are not generally accessible to visual readers so do not improve the
-					accessibility for them. This value is meant to help individuals with, for example, color 
-					blindness and cognitive disabilities determine if the content will be accessible to them.</p>
+					accessibility for them.</p>
+				
+				<p>This value is meant to help individuals with, for example, color blindness and cognitive
+					disabilities determine if the content will be accessible to them. Whether affordances are
+					provided that non-visual readers to access visual presentations is declared through the
+					<a href="../accessModeSufficient.html">sufficient access modes</a>.</p>
 				
 				<p>The <code>colorDependent</code> access mode is common in publications produced using the EPUB format,
 					but is less common for audiobooks. It is only potentially relevant when an audiobook also contains
