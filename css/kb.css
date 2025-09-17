@@ -1083,6 +1083,23 @@ p.backtotop {
 
 /* zoom and mobile fixes */
 
+@media screen and (max-width: 1000px) {
+	header {
+		height: 10.6rem;
+		background-color: rgb(255,255,255);
+	}
+	search {
+		float: none;
+		margin-top: 0;
+		margin-left: 10rem;
+		min-width: 10rem;
+	}
+	div#nav-col,
+	div#categories {
+		top: 11.2rem;
+	}
+}
+
 @media screen and (max-width: 800px) {
 	nav.mini-toc {
 		margin-left: 0;
@@ -1166,6 +1183,7 @@ p.backtotop {
 	search {
 		float: none;
 		margin-top: 0;
+		margin-left: 0;
 		min-width: 10rem;
 	}
 	
