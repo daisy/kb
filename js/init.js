@@ -969,6 +969,45 @@ KB.prototype.generateFooter = function () {
 	
 	spec.appendChild(speclist);
 	linklists.appendChild(spec);
+	
+	// add languages
+	
+	var lang = document.createElement('div');
+		lang.setAttribute('class','footer-list');
+	
+	var langhd = document.createElement('div');
+		langhd.appendChild(document.createTextNode(msg.footer.lang));
+	lang.appendChild(langhd);
+	
+	var langlist = document.createElement('select');
+	
+	var en = document.createElement('option');
+		en.textContent = msg.footer.en;
+		en.value = 'en';
+		
+		if (this.lang === 'en') {
+			en.setAttribute('selected', 'true');
+		}
+	
+	langlist.appendChild(en);
+	
+	var ja = document.createElement('option');
+		ja.textContent = msg.footer.ja;
+		ja.value = 'ja';
+		
+		if (this.lang === 'ja') {
+			ja.setAttribute('selected', 'true');
+		}
+	
+	langlist.appendChild(ja);
+	
+	langlist.setAttribute('onchange', 'switchLanguage(this)');
+	
+	lang.appendChild(langlist);
+	linklists.appendChild(lang);
+	
+	// add link lists to the footer
+	
 	footer.appendChild(linklists);
 	
 	// add daisy links
@@ -1372,6 +1411,18 @@ KB.prototype.formatSearchPage = function () {
 	document.getElementsByTagName('main')[0].setAttribute('class', 'search');
 }
 
+
+/* 
+ * 
+ * Change the page language
+ * 
+ */
+
+function switchLanguage(elem) {
+	var old_lang = lang === 'en' ? 'docs' : lang;
+	var new_lang = elem.value === 'en' ? 'docs' : elem.value;
+	document.location.href = document.location.href.replace('/'+old_lang+'/', '/'+new_lang+'/');
+}
 
 
 /* 

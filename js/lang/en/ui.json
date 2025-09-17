@@ -47,7 +47,10 @@
 		"terms": "Terms of Use",
 		"top": "Back to Top \u2191",
 		"topics": "All Topics",
-		"whatnew": "What's New"
+		"whatnew": "What's New",
+		"lang": "Language",
+		"en": "English",
+		"ja": "Japanese"
 	},
 	
 	"shortForm": {

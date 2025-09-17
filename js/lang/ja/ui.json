@@ -43,7 +43,10 @@
     "terms": "利用規約",
     "top": "トップに戻る↑",
     "topics": "すべてのトピック",
-    "whatnew": "新着情報"
+	"whatnew": "新着情報",
+	"lang": "言語",
+	"en": "英語",
+	"ja": "日本語"
   },
   "shortForm": {
     "Frequently Asked Questions": "よくある質問"

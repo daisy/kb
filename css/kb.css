@@ -264,6 +264,11 @@ main section {
 	scroll-margin-top: 8rem;
 }
 
+footer select {
+	margin-top: 2rem;
+	min-width: 14rem;
+}
+
 /* skip to main link */
 
 a#skip-main {

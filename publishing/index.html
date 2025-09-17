@@ -10,12 +10,10 @@
 				document.location.href = 'docs/';
 			}
 			
-			/* add other language options
-			 *
-			 * else if (lang == 'fr') {
-			 *   document.location.href = lang + '/';
-			 * }
-			*/
+			/* all other supported languages are in language code directories */
+			else if (lang == 'ja') {
+				document.location.href = lang + '/';
+			}
 			
 			else {
 				document.location.href = 'docs/';
@@ -33,6 +31,7 @@
 		<main>
 			<ul>
 				<li><a href="docs/index.html">English</a></li>
+				<li><a href="ja/index.html">Japanese</a></li>
 				<li><a>Francais</a></li>
 			</ul>
 		</main>
