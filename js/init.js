@@ -39,6 +39,11 @@ function KB() {
 	
 	this.page_hd = document.getElementsByTagName('head')[0];
 	this.lang = lang;
+	
+	if (this.kb_id === '404.html') {
+		this.lang = document.location.href.match('/ja/') ? 'ja' : 'en';
+	}
+
 
 	this.kb_root = '/' + this.kb_id + '/' + (this.lang == 'en' ? 'docs/' : this.lang + '/');
 	
