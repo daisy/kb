@@ -40,7 +40,7 @@ function KB() {
 	this.page_hd = document.getElementsByTagName('head')[0];
 	this.lang = lang;
 	
-	if (this.kb_id === '404.html') {
+	if (page_info.hasOwnProperty('404') && page_info['404']) {
 		this.lang = document.location.href.match('/ja/') ? 'ja' : 'en';
 	}
 
