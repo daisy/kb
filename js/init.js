@@ -9,7 +9,7 @@
  * 
  */
 
-const lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
+var lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
 
 var msg, topic_list, sc_map;
 
