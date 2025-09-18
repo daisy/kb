@@ -41,7 +41,10 @@ function KB() {
 	this.lang = lang;
 	
 	if (page_info.hasOwnProperty('404') && page_info['404']) {
-		this.lang = document.location.href.match('/ja/') ? 'ja' : 'en';
+		if (document.location.href.match('/ja/')) {
+			lang = 'ja';
+			this.lang = 'ja';
+		}
 	}
 
 
