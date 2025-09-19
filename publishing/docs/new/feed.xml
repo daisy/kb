@@ -5,9 +5,25 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2025 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Thu, 28 Aug 2025 00:01:00 +0500</lastBuildDate>
-		<pubDate>Thu, 28 Aug 2025 12:00:00 +0500</pubDate>
+		<lastBuildDate>Mon, 22 Sep 2025 00:01:00 +0500</lastBuildDate>
+		<pubDate>Mon, 22 Sep 2025 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>Access mode and sufficient access mode updates</title>
+			<link>https://kb.daisy.org/publishing/docs/metadata/schema.org/accessMode.html</link>
+			<description>
+				<![CDATA[
+				<p>The accessibility mode and sufficient accessibility mode values are now covered in their own pages, 
+					providing updated information, examples, and mappings to their ONIX equivalents.</p>
+				<p>The coverage of access modes has also been updated to the include visual content indicators -
+					<code>chartOnVisual</code>, <code>chemOnVisual</code>, <code>colorDependent</code>,
+					<code>diagramOnVisual</code>, <code>mathOnVisual</code>, <code>musicOnVisual</code>, and
+					<code>textOnVisual</code>.</p>
+				]]>	
+			</description>
+			<pubDate>Thu, 28 Aug 2025 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>Accessibility feature updates</title>
