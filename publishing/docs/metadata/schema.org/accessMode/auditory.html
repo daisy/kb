@@ -26,6 +26,19 @@
 				<p>The <code>auditory</code> value does not have to be set if the audio does not include
 					information necessary to understand the content (e.g., background noises in an interactive
 					game or mood music).</p>
+				
+				<p>Auditory content added using EPUB 3's media overlays feature is not considered an auditory
+					access mode unless the auditory content is the only way to read the entire publication.</p>
+				
+				<p>For example, a mainstream publisher will typically add a media overlay to the full text of a
+					novel. In this case, the work would only have a <a href="textual.html">textual access mode</a>.
+					An accessible content republisher, on the other hand, might publish the same work with only
+					the chapter headings as text and all the content of the book synchronized to those headings
+					as audio (to allow users who are blind to move through the audio by heading). In this case,
+					the work would only have an auditory access mode.</p>
+				
+				<p>Note that it is not possible for EPUB 2 publications to have an auditory access mode as the format
+					does not support embedding audio or have an equivalent to EPUB 3's media overlays.</p>
 			</section>
 			
 			<section id="ex">
@@ -38,13 +51,6 @@
 					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">auditory&lt;/meta></code></pre>
 				</figure>
 
-				<figure id="ex-epub2">
-					<figcaption>
-						<div class="label">Example 2 &#8212; EPUB 2</div>
-					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="auditory"/></code></pre>
-				</figure>
-				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>

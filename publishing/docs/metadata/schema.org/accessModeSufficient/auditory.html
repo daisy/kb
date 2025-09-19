@@ -19,7 +19,24 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p></p>
+				<p>The <code>auditory</code> sufficient access mode value is used to indicate that a publication can be
+					read, in whole or in part, if a user is able to perceive sound.</p>
+				
+				<p>A single auditory sufficient access mode is, by design, most commonly associated with
+					audiobooks, but it is also possible for formats like EPUB 3 that provide text and audio
+					synchronization for an entire work to have a solitary auditory sufficient access mode.
+					This is because sufficient access modes take into account any accessibility affordances
+					provided by the publisher.</p>
+				
+				<p>Note, however, that unlike an <a href="../accessMode/auditory.html">auditory access mode</a>,
+					an auditory sufficient access mode is always specified when media overlays are used in an EPUB 3
+					file to include the full audio of the publication.</p>
+				
+				<p>The <code>auditory</code> value is more commonly found in combination with <code>textual</code>
+					for works that include auditory clips, whether standalone or when the audio is part of a video.</p>
+				
+				<p>Note that it is not possible for EPUB 2 publications to have an auditory access mode as the format
+					does not support embedding audio or have an equivalent to EPUB 3's media overlays.</p>
 			</section>
 
 			<section id="ex">
@@ -29,18 +46,10 @@
 					<figcaption>
 						<div class="label">Example 1 &#8212; EPUB 3</div>
 					</figcaption>
-					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual,visual&lt;/meta>
-&lt;meta property="schema:accessModeSufficient">textual&lt;/meta></code></pre>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessModeSufficient">textual&lt;/meta>
+&lt;meta property="schema:accessModeSufficient">auditory&lt;/meta></code></pre>
 				</figure>
 
-				<figure id="ex-epub2">
-					<figcaption>
-						<div class="label">Example 2 &#8212; EPUB 2</div>
-					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessModeSufficient" content="textual,visual"/>
-&lt;meta name="schema:accessModeSufficient" content="textual"/></code></pre>
-				</figure>
-				
 				<figure id="ex-audiobooks">
 					<figcaption>
 						<div class="label">Example 3 &#8212; Audiobooks</div>
@@ -58,11 +67,7 @@
 			<section id="onix">
 				<h3>ONIX Mapping</h3>
 				
-				<p>The <code>textual</code> value most commonly maps to <a 
-						href="https://ns.editeur.org/onix/en/81">list 81</a>
-					<a href="../../onix/codelist-81/81-10.html">code 10</a>. It can map to other values
-					such as <a href="../../onix/codelist-81/81-16.html">code 16</a> for text that is not part
-					of the main content</p>
+				<p>ONIX currently does not include a means of expressing sufficient access modes.</p>
 			</section>
 			
 			<section id="refs">
