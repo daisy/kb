@@ -956,6 +956,18 @@
 		"showInRootIndex": false,
 		"categories": [
 			{
+				"title": "accessMode",
+				"id": "accessmode",
+				"indexPage": "../accessMode.html",
+				"showInRootIndex": false
+			},
+			{
+				"title": "accessModeSufficient",
+				"id": "accessmodesufficient",
+				"indexPage": "../accessModeSufficient.html",
+				"showInRootIndex": false
+			},
+			{
 				"title": "accessibilityFeature",
 				"id": "accessibilityfeature",
 				"indexPage": "../accessibilityFeature.html",

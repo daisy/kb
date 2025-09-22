@@ -43,7 +43,7 @@
 				req.addEventListener("load", loadUpdates);
 				req.addEventListener("error", showError);
 				req.addEventListener("abort", showError);
-				req.open("GET", "/publishing/docs/new/feed.xml");
+				req.open("GET", "/publishing/ja/new/feed.xml");
 				req.send();
 			
 			req.onloadend = function() {

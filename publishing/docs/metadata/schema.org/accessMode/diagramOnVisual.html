@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>diagramOnVisual</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessMode property's diagramOnVisual value">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-schema', 'accessmode'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="expl">
+				<div class="warning" role="note" aria-labelledby="dep-note">
+					<p id="dep-note" class="label">Caution</p>
+					<p>The application of this value and <a href="chartOnVisual.html"><code>chartOnVisual</code></a>
+						is currently under discussion. One or both terms may be deprecated and/or replaced in the
+						future.</p>
+				</div>
+				
+				<h3>Explanation</h3>
+				
+				<p>A <dfn>diagramOnVisual</dfn> access mode indicates that a publication contains images
+					of diagrams. It is expressed in metadata using the <code>diagramOnVisual</code> value.</p>
+				
+				<p>As <code>diagramOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
+				
+				<p>Diagrams are graphics that represent concepts, flow and relationships. Common examples include
+					mind maps, anatomical diagrams, flowcharts, instructions to complete tasks, etc. For graphics
+					that represent concepts, see <a href="chartOnVisual.html"><code>chartOnVisual</code></a>.</p>
+				
+				<p>The <code>diagramOnVisual</code> value is also commonly paired with <a 
+						href="textOnVisual.html"><code>textOnVisual</code></a> if the diagram also contains text
+					content necessary to its understanding. (If the diagram is encoded in a format like SVG where
+					the text character data is retained in the markup, however, <code>textOnVisual</code> would
+					not apply.)</p>
+					
+				<p>It is also not uncommon to pair <code>diagramOnVisual</code> with
+					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
+					only way to differentiate information (e.g., a flow chart that uses colors to represent
+					different organizational groups).</p>
+				
+				<p>The <code>diagamOnVisual</code> value would not be specified if the graphic does not carry
+					information necessary to understand the publication, although such cases are rare for diagrams.</p>
+				
+				<p>A diagramOnVisual access mode is common in publications produced using the EPUB format
+					but is less common for audiobooks. It is only potentially relevant when an audiobook also contains
+					supplementary material beyond the audio.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">visual&lt;/meta>
+&lt;meta property="schema:accessMode">diagramOnVisual&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="visual"/>
+&lt;meta name="schema:accessMode" content="diagramOnVisual"/></code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["auditory", "visual", "diagramOnVisual"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="onix">
+				<h3>ONIX Mapping</h3>
+				
+				<p>The <code>diagramOnVisual</code> value maps to <a href="https://ns.editeur.org/onix/en/81">list 81</a>
+					<a href="../../onix/codelist-81/81-19.html">code 19</a> ("Figures, Diagrams, Charts").</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>Schema.org &#8212; <a href="https://schema.org/accessMode">accessMode</a></li>
+					<li>Schema.org Accessibility Vocabulary &#8212; <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#diagramOnVisual">diagramOnVisual</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

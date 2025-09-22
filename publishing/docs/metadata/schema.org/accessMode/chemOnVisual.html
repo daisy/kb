@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>chemOnVisual</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guidelines for using the schema.org accessMode property's chemOnVisual value">
+		<script>
+			var page_info = {
+				'category': ['metadata', 'meta-schema', 'accessmode'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
+				'addh4': true
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<section id="expl">
+				<h3>Explanation</h3>
+				
+				<p>A <dfn>chemOnVisual</dfn> access mode indicates that a publication contains images of chemical
+					equations and formulas. It is expressed in metadata using the <code>chemOnVisual</code> value.</p>
+				
+				<p>As <code>chemOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
+				
+				<p>It is not uncommon to pair <code>chemOnVisual</code> with
+					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
+					only way to differentiate information (e.g., if relationships are color coded).</p>
+				
+				<p>It is sometimes also paired with <a href="textOnVisual.html"><code>textOnVisual</code></a>
+					if text content beyond the equation or formula data itself is also encoded in the image (e.g.,
+					if relationships or descriptions are drawn as text in the image canvas).</p>
+				
+				<p>Note that chemistry represented using a text-based markup language like MathML, or a formatting
+					language like LaTeX, is considered a <a href="textual.html">textual access mode</a>.</p>
+				
+				<p>A chemOnVisual access mode is common in publications produced using the EPUB format
+					as there is no support for rendering chemical markup languages like ChemML. It is only potentially
+					relevant to audiobooks if there is supplementary material beyond the audio.</p>
+			</section>
+			
+			<section id="ex">
+				<h3>Examples</h3>
+
+				<figure id="ex-epub3">
+					<figcaption>
+						<div class="label">Example 1 &#8212; EPUB 3</div>
+					</figcaption>
+					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">visual&lt;/meta>
+&lt;meta property="schema:accessMode">chemOnVisual&lt;/meta></code></pre>
+				</figure>
+				
+				<figure id="ex-epub2">
+					<figcaption>
+						<div class="label">Example 2 &#8212; EPUB 2</div>
+					</figcaption>
+					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="visual"/>
+&lt;meta name="schema:accessMode" content="chemOnVisual"/></code></pre>
+				</figure>
+				
+				<figure id="ex-audiobooks">
+					<figcaption>
+						<div class="label">Example 3 &#8212; Audiobooks</div>
+					</figcaption>
+					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["auditory", "visual", "chemOnVisual"]</code></pre>
+				</figure>
+			</section>
+			
+			<section id="onix">
+				<h3>ONIX Mapping</h3>
+				
+				<p>The <code>chemOnVisual</code> value maps to <a href="https://ns.editeur.org/onix/en/81">list 81</a>
+					<a href="../../onix/codelist-81/81-47.html">code 47</a> ("Chemical content").</p>
+			</section>
+			
+			<section id="refs">
+				<h3>Related Links</h3>
+
+				<ul>
+					<li>Schema.org &#8212; <a href="https://schema.org/accessMode">accessMode</a></li>
+					<li>Schema.org Accessibility Vocabulary &#8212; <a 
+						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#chemOnVisual">chemOnVisual</a></li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
