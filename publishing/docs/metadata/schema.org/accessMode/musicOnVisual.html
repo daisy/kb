@@ -20,19 +20,22 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>musicOnVisual</code> value is used to indicate that a publication contains images of
-					musical scores. This value is always paired with a <a href="visual.html"><code>visual</code> 
-						acces mode</a> as it is a modifier.</p>
+				<p>A <dfn>musicOnVisual</dfn> access mode indicates that a publication contains images of
+					musical scores. It is expressed in metadata using the <code>musicOnVisual</code> value.</p>
+				
+				<p>As <code>musicOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
 				
 				<p>The value is also commonly paired with <a href="textOnVisual.html"><code>textOnVisual</code>
 						if, for example, the lyrics for a musical score also drawn in the image canvas.</a>
 					
-				<p>It is also possible for <code>musicOnVisual</code> to be paired with
+				<p>It is also possible to pair <code>musicOnVisual</code> with
 					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
 					only way to differentiate information (e.g., color coding to help learners read music).</p>
 				
 				<p>As support for rendering markup languages that represent musical scores is not generally available,
-					using images for music compositions is common. Consequently, a <code>musicOnVisual</code> access
+					using images for music compositions is common. Consequently, a musicOnVisual access
 					mode would be typical for any publications produced using the EPUB format that contains music
 					scores. It is only relevant to an audiobook if it also contains supplementary material
 					beyond the audio.</p>

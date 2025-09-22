@@ -27,26 +27,29 @@
 				
 				<h3>Explanation</h3>
 				
-				<p>The <code>chartOnVisual</code> value is used to indicate that a publication contains images of 
-					charts. This value is always paired with a <a href="visual.html"><code>visual</code>
-						acces mode</a> as it is a modifier.</p>
+				<p>A <dfn>chartOnVisual</dfn> access mode indicates that a publication contains images of 
+					charts. It is expressed in metadata using the <code>chartOnVisual</code> value.</p>
+				
+				<p>As <code>chartOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two together.</p>
 				
 				<p>Charts are graphics that represent data. Common examples include pie charts, bar charts, line graphs,
 					scatter plots, bubble charts, graphs, etc. For graphics that represent concepts, see <a 
 						href="diagramOnVisual.html"><code>diagramOnVisual</code></a>.</p>
 				
-				<p>The <code>chartOnVisual</code> value is also commonly paired with <a 
+				<p>It is also common to pair the <code>chartOnVisual</code> value with <a 
 						href="textOnVisual.html"><code>textOnVisual</code></a> if the chart also contains text 
 					content necessary to its understanding. (If the chart is encoded in a format like SVG 
 					where the text character data is retained in the markup, however, <code>textOnVisual</code>
 					would not apply.)</p>
 					
-				<p>It is also not uncommon for <code>chartOnVisual</code> to be paired with
+				<p>It is also not uncommon to pair <code>chartOnVisual</code> with
 					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
 					only way to differentiate information (e.g., a pie chart without a secondary indicator
 					to differentiate each slice).</p>
 				
-				<p>The <code>chartOnVisual</code> access mode is common in publications produced using the EPUB format,
+				<p>A chartOnVisual access mode is common in publications produced using the EPUB format
 					but is less common for audiobooks. It is only potentially relevant when an audiobook also contains
 					supplementary material beyond the audio.</p>
 			</section>

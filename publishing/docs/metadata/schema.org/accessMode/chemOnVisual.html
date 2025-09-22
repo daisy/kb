@@ -20,22 +20,25 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>chemOnVisual</code> value is used to indicate that a publication contains images of chemical
-					equations and formulas. This value is always paired with a <a href="visual.html"><code>visual</code> 
-						acces mode</a> as it is a modifier.</p>
+				<p>A <dfn>chemOnVisual</dfn> access mode indicates that a publication contains images of chemical
+					equations and formulas. It is expressed in metadata using the <code>chemOnVisual</code> value.</p>
 				
-				<p>It is not uncommon for <code>chemOnVisual</code> to be paired with
+				<p>As <code>chemOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
+				
+				<p>It is not uncommon to pair <code>chemOnVisual</code> with
 					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
 					only way to differentiate information (e.g., if relationships are color coded).</p>
 				
 				<p>It is sometimes also paired with <a href="textOnVisual.html"><code>textOnVisual</code></a>
-					if text content beyond the equation or forumla data itself is also encoded in the image (e.g.,
+					if text content beyond the equation or formula data itself is also encoded in the image (e.g.,
 					if relationships or descriptions are drawn as text in the image canvas).</p>
 				
 				<p>Note that chemistry represented using a text-based markup language like MathML, or a formatting
 					language like LaTeX, is considered a <a href="textual.html">textual access mode</a>.</p>
 				
-				<p>The <code>chemOnVisual</code> access mode is common in publications produced using the EPUB format
+				<p>A chemOnVisual access mode is common in publications produced using the EPUB format
 					as there is no support for rendering chemical markup languages like ChemML. It is only potentially
 					relevant to audiobooks if there is supplementary material beyond the audio.</p>
 			</section>

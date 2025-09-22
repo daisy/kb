@@ -20,26 +20,26 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>visual</code> access mode value is used to indicate that a publication contains visual
-					content such as images, grapics and video, or that it requires visual perception to fully
+				<p>A <dfn>visual</dfn> access mode indicates that a publication contains content that must be seen to be
+					understood, such as images, graphics and video, or that it requires visual perception to fully
 					access information (e.g., the ability to perceive background or border colors, or to read
-					text that is encoded in images).</p>
+					text that is encoded in images). It is expressed in metadata using the <code>visual</code> value.</p>
 				
-				<p>This value is not set if the visual content does not contain any information necessary to
-					understanding the content (e.g., logos, cover artwork, and visual flair at the start of
+				<p>Do not set the <code>visual</code> value if the visual content does not contain any information
+					necessary to understand the content (e.g., logos, cover artwork, and visual flair at the start of
 					chapters).</p>
 				
-				<p>A <code>visual</code> access mode is common in publications produced using the EPUB format,
-					but is less common for audiobooks. It is only potentially relevant when an audiobook also contains
+				<p>A visual access mode is common in publications produced using the EPUB format but is less common 
+					for audiobooks. It is only potentially relevant when an audiobook also contains
 					supplementary material beyond the audio.</p>
 				
-				<p>The <code>visual</code> value should always be set when using any of the visual content
+				<p>You should always set the <code>visual</code> value when using any of the visual content
 					indicators &#8212; <a href="chartOnVisual.html"><code>chartOnVisual</code></a>,
 					<a href="chemOnVisual.html"><code>chemOnVisual</code></a>,
 					<a href="diagramOnVisual.html"><code>diagramOnVisual</code></a>,
 					<a href="mathOnVisual.html"><code>mathOnVisual</code></a>,
 					<a href="musicOnVisual.html"><code>musicOnVisual</code></a>, and
-					<a href="textOnVisual.html"><code>textOnVisual</code></a>. It is also set with
+					<a href="textOnVisual.html"><code>textOnVisual</code></a>. You should also set it with
 					<a href="colorDependent.html"><code>colorDependent</code></a> when the color requirement
 					is in the visual content (as opposed to, say, colored textual content).</p>
 			</section>

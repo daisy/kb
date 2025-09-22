@@ -8,7 +8,7 @@
 		<script>
 			var page_info = {
 				'category': ['metadata', 'meta-schema', 'accessmode'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
+				'appliesTo': ['Audiobooks','EPUB3'],
 				'addh4': true
 			};
 		</script>
@@ -20,10 +20,11 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>auditory</code> value is used to indicate that there is an auditory component to
-					the content (e.g., audio tracks on their own or as part of a video, or an audiobook).</p>
+				<p>An <dfn>auditory</dfn> access mode indicates that there is content that must be heard to
+					be understood (e.g., audio tracks on their own or as part of a video, or an audiobook).
+					It is expressed in metadata using the <code>auditory</code> value.</p>
 				
-				<p>The <code>auditory</code> value does not have to be set if the audio does not include
+				<p>You do not have to set the <code>auditory</code> value if the audio does not include
 					information necessary to understand the content (e.g., background noises in an interactive
 					game or mood music).</p>
 				

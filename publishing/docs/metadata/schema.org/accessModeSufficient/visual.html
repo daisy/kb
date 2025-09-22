@@ -19,9 +19,13 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 
-				<p>The <code>visual</code> sufficient access mode value is used to indicate that a publication can be
-					read, in whole or in part, if the user is able to visually perceive the content. It mostly commonly
-					indicates that a publication contains images and/or videos.</p>
+				<p>A <dfn>visual</dfn> sufficient access mode value indicates that a publication can be
+					read, in whole or in part, if the user is able to visually perceive the content. It is
+					expressed in metadata using the <code>visual</code> value.</p>
+				
+				<p>A <code>visual</code> value mostly commonly indicates that a publication contains images
+					and/or videos, but it is also used if the presentation must be visually perceived to
+					be understood.</p>
 				
 				<p>If only a single visual sufficient access mode is set, it indicates that only sighted readers will
 					be able to read the content (i.e., the content is not universally accessible). Examples of publications
@@ -43,7 +47,7 @@
 </code></pre>
 				
 				<p>A single <code>visual</code> sufficient access mode is common in accessible publications produced
-					using the EPUB format, but would never apply to an audiobook.</p>
+					using the EPUB format but would never apply to an audiobook.</p>
 				
 				<p>Note that the <a href="../accessMode.html#visual-content-indicators">visual content indicators</a>
 					that can be specified as access modes are never listed as sufficient access modes. Only the

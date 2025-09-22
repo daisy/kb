@@ -8,7 +8,7 @@
 		<script>
 			var page_info = {
 				'category': ['metadata', 'meta-schema', 'accessmodesufficient'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2']
+				'appliesTo': ['Audiobooks','EPUB3']
 			};
 		</script>
 		<script src="/js/init.js"></script>
@@ -19,8 +19,9 @@
 			<section id="desc">
 				<h3>Explanation</h3>
 				
-				<p>The <code>auditory</code> sufficient access mode value is used to indicate that a publication can be
-					read, in whole or in part, if a user is able to perceive sound.</p>
+				<p>An <dfn>auditory</dfn> sufficient access mode indicates that a publication can be
+					read, in whole or in part, if a user is able to perceive sound.  It is expressed 
+					in metadata using the <code>auditory</code> value.</p>
 				
 				<p>A single auditory sufficient access mode is, by design, most commonly associated with
 					audiobooks, but it is also possible for formats like EPUB 3 that provide text and audio
@@ -35,8 +36,8 @@
 				<p>The <code>auditory</code> value is more commonly found in combination with <code>textual</code>
 					for works that include auditory clips, whether standalone or when the audio is part of a video.</p>
 				
-				<p>Note that it is not possible for EPUB 2 publications to have an auditory access mode as the format
-					does not support embedding audio or have an equivalent to EPUB 3's media overlays.</p>
+				<p>Note that it is not possible for EPUB 2 publications to have an auditory sufficient access mode as
+					the format does not support embedding audio or have an equivalent to EPUB 3's media overlays.</p>
 			</section>
 
 			<section id="ex">

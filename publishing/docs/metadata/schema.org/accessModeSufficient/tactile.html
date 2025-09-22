@@ -19,15 +19,17 @@
 			<section id="def">
 				<h3>Explanation</h3>
 
-				<p>The <code>tactile</code> sufficient access mode value is used to indicate that a publication can be
-					read, in whole or in part, if a user is able to perceive content through touch.</p>
+				<p>A <dfn>tactile</dfn> sufficient access mode indicates that a publication can be
+					read, in whole or in part, if a user is able to perceive content through touch. It is
+					expressed in metadata using the <code>tactile</code> value.</p>
 				
 				<p>A single tactile sufficient access mode is most commonly associated with braille publications,
 					such as can be produced using the eBraille format (an specialization of EPUB 3 for braille).
 					EPUB publications can also entirely consist of braille content although this is not common.</p>
 				
-				<p>A tactile sufficient access mode is sometimes found paired with another access mode. For example,
-					an audiobook for blind users might also include tactile graphics.</p>
+				<p>A tactile sufficient access mode is sometimes found paired with other sufficient access modes.
+					For example, an audiobook for blind users might also include tactile graphics, in which case
+					it would have a sufficient access mode set of <code>auditory</code> and <code>tactile</code>.</p>
 			</section>
 
 			<section id="ex">

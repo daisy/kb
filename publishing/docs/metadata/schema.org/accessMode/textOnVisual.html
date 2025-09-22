@@ -20,25 +20,28 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>textOnVisual</code> value is used to indicate that a publication contains images of text.
-					This value is always paired with a <a href="visual.html"><code>visual</code> acces mode</a>
-					as it is a modifier.</p>
+				<p>A <dfn>textOnVisual</dfn> access mode indicates that a publication contains images of text. It is 
+					expressed in metadata using the <code>textOnVisual</code> value.</p>
+				
+				<p>As <code>textOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
 				
 				<p>Images of text are where the text is part of the image data so can only be read visually.
 					JPEG and PNG are two common image formats that cannot preserve text separate from the visual
 					canvas it is drawn on. SVG, on the other hand, has markup elements to contain and present
 					text content, which allow reading systems and assistive technologies to access the character
-					data indepenent from its rendering.</p>
+					data independent from its rendering.</p>
 				
-				<p>A <code>textOnVisual</code> access mode is not specified where the text does not carry information
+				<p>Do not set the <code>textOnVisual</code> value when the text does not carry information
 					necessary to understand the publication. Corporate logos and the title on a cover page are a
 					couple of examples of image text that is considered decorative.</p>
 				
-				<p>The value is also sometimes paired with <a href="colorDependent.html"><code>colorDependent</code></a>
+				<p>The value is sometimes paired with <a href="colorDependent.html"><code>colorDependent</code></a>
 					if color perception is the only way to differentiate information (e.g., colored text to differentiate
 					different learning levels or related topics).</p>
 				
-				<p>The <code>textOnVisual</code> access mode is common in publications produced using the EPUB format,
+				<p>A textOnVisual access mode is common in publications produced using the EPUB format,
 					particularly for comics and manga, but is less common for audiobooks. It is only potentially relevant 
 					when an audiobook also contains supplementary material beyond the audio.</p>
 			</section>

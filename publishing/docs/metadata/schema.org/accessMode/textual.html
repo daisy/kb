@@ -20,10 +20,11 @@
 			<section id="expl">
 				<h3>Explanation</h3>
 				
-				<p>The <code>textual</code> access mode value is used to indicate that a publication contains information
-					encoded as text character data. Consequently, the value only applies to digital publications (e.g.,
-					even though a print book has text content it is considered to have a visual access mode because you
-					have to be able to see the ink on the page).</p>
+				<p>A <dfn>textual</dfn> access mode indicates that a publication contains information encoded as text
+					character data. It is expressed in metadata using the <code>tactile</code> value.</p>
+				
+				<p>The value only applies to digital publications (e.g., even though a print book has text content 
+					it is considered to have a visual access mode because you must be able to see the ink on the page).</p>
 				
 				<p>Text character data can be rendered and manipulated in a variety of ways to accommodate different user
 					needs &#8212; visually for sighted readers and readers with low vision, as synthetic speech for readers
@@ -31,13 +32,13 @@
 				
 				<p>If a publication also contains images of text (i.e., where the text is part of the image data), set the 
 					<a href="#textOnVisual"><code>textOnVisual</code></a> and <a href="#visual"><code>visual</code></a>
-					access modes. If a publication only consists of images of text (e.g., comics and manga) a 
-					<code>textual</code> access mode is not set.</p>
+					access mode values. If a publication only consists of images of text (e.g., comics and manga), do not 
+					set a <code>textual</code> access mode value.</p>
 				
-				<p>If an image format allows the text content to be retained in text form (e.g., SVG), a
-					<code>textual</code> access mode is specified in addition to <code>visual</code> (assuming there
-					is more to the image to understand it than just the text). The <code>textOnVisual</code> value is
-					not set because it is possible for reading systems and assistive technologies to access and read
+				<p>If an image format allows the text content to be retained in text form (e.g., SVG), set a
+					<code>textual</code> value in addition to <code>visual</code> (assuming there
+					is more to the image to understand it than just the text). Do not set the <code>textOnVisual</code>
+					value because it is possible for reading systems and assistive technologies to access and read
 					aloud the text content for users.</p>
 				
 				<p>The <code>textual</code> value is also sometimes paired with <a 
@@ -45,9 +46,9 @@
 					to differentiate information (e.g., colored text to differentiate different learning levels or 
 					related topics).</p>
 				
-				<p>A <code>textual</code> access mode is common in publications produced using the EPUB format,
-					but is less common for audiobooks. It is only potentially relevent when an audiobook also contains
-					supplementary material beyond the audio.</p>
+				<p>A textual access mode is common in publications produced using the EPUB format but is less common 
+					for audiobooks. It is only potentially relevant when an audiobook also contains supplementary 
+					material beyond the audio.</p>
 			</section>
 			
 			<section id="ex">

@@ -27,9 +27,12 @@
 				
 				<h3>Explanation</h3>
 				
-				<p>The <code>diagramOnVisual</code> value is used to indicate that a publication contains images
-					of diagrams. This value is always paired with a <a href="visual.html"><code>visual</code> 
-						acces mode</a> as it is a modifier.</p>
+				<p>A <dfn>diagramOnVisual</dfn> access mode indicates that a publication contains images
+					of diagrams. It is expressed in metadata using the <code>diagramOnVisual</code> value.</p>
+				
+				<p>As <code>diagramOnVisual</code> describes a characteristic of visual content, it is considered
+					a modifier of the <a href="visual.html"><code>visual</code> access mode value</a> and you should
+					always pair the two values together.</p>
 				
 				<p>Diagrams are graphics that represent concepts, flow and relationships. Common examples include
 					mind maps, anatomical diagrams, flowcharts, instructions to complete tasks, etc. For graphics
@@ -41,15 +44,15 @@
 					the text character data is retained in the markup, however, <code>textOnVisual</code> would
 					not apply.)</p>
 					
-				<p>It is also not uncommon for <code>diagramOnVisual</code> to be paired with
+				<p>It is also not uncommon to pair <code>diagramOnVisual</code> with
 					<a href="colorDependent.html"><code>colorDependent</code></a> if color perception is the
 					only way to differentiate information (e.g., a flow chart that uses colors to represent
 					different organizational groups).</p>
 				
-				<p>A <code>diagamOnVisual</code> access mode would not be specified if the graphic does not carry
+				<p>The <code>diagamOnVisual</code> value would not be specified if the graphic does not carry
 					information necessary to understand the publication, although such cases are rare for diagrams.</p>
 				
-				<p>The <code>diagramOnVisual</code> access mode is common in publications produced using the EPUB format,
+				<p>A diagramOnVisual access mode is common in publications produced using the EPUB format
 					but is less common for audiobooks. It is only potentially relevant when an audiobook also contains
 					supplementary material beyond the audio.</p>
 			</section>
