@@ -415,24 +415,35 @@ KB.prototype.generatePageTitle = function () {
 	
 		for (var x = 0; x < page_info['category'].length; x++) {
 		
-			var index_url = '';
+			var category = findCategory(topic_list, page_info.category[x]);
 			
-			// if more than one category, need to add ../ to reach the right page
-			if (page_info.category.length > 1) {
-				for (var y = page_info.category.length-1; y > x; y--) {
-					index_url += '../';
-				}
+			var index_url = '';
+
+			if (index_url === '' && category.hasOwnProperty('indexPage')) {
+				index_url = category.indexPage;
 			}
 			
-			index_url += 'index.html'
+			else {
+				// if more than one category, need to add ../ to reach the right page
+				if (page_info.category.length > 1) {
+					for (var y = page_info.category.length-1; y > x; y--) {
+						index_url += '../';
+					}
+				}
+				
+				index_url += 'index.html'
+			}
 			
 			if (x > 0) {
 				div.appendChild(document.createTextNode(' - '));
 			}
 			
-			var category = findCategory(topic_list, page_info.category[x]);
+			var cat_a = document.createElement('a');
+				cat_a.href = index_url;
+				cat_a.classList.add('breadcrumb');
+				cat_a.appendChild(document.createTextNode(category.title));
 			
-			div.appendChild(document.createTextNode(category.title));
+			div.appendChild(cat_a);
 		}
 	}
 	

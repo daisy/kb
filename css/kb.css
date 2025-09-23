@@ -161,6 +161,12 @@ a.permalink {
 	border-bottom: none !important;
 }
 
+a.breadcrumb,
+a.breadcrumb:visited{
+	color: rgb(0,0,200);
+	border-bottom: 0.1rem dotted rgb(0,0,200);
+}
+
 /* page headers and footers */
 
 header {
