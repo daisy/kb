@@ -427,7 +427,13 @@ KB.prototype.generatePageTitle = function () {
 				// if more than one category, need to add ../ to reach the right page
 				if (page_info.category.length > 1) {
 					for (var y = page_info.category.length-1; y > x; y--) {
+						
 						index_url += '../';
+						
+						// handle wcag folder being separated from conformance
+						if (page_info.category[0] === 'conformance' && y == 1) {
+							index_url += 'conformance/'
+						}
 					}
 				}
 				
