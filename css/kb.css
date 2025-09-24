@@ -1082,13 +1082,31 @@ td.gssb_a {
 	padding-bottom: 0.8rem;
 }
 
+
+/* prev next links */
+
+nav.topic-nav {
+	border-top: 0.1rem solid rgb(20,120,240);
+	margin: 4rem 3rem 5rem 4rem;
+}
+
+nav.topic-nav div:nth-child(1) {
+	padding-top: 0.5rem;
+	float: left;
+}
+
+nav.topic-nav div:nth-child(2) {
+	padding-top: 0.5rem;
+	float: right;
+}
+
 /* back to top links */
 
 p.backtotop {
 	text-align: right;
 	max-width: 48em;
 	line-height: 1rem;
-	margin: 7rem 2rem 10rem 0;
+	margin: 7rem 2rem 0 0;
 }
 
 

@@ -881,6 +881,40 @@ KB.prototype.generateFooter = function () {
 		document.getElementById('body').insertAdjacentElement('beforeEnd', top);
 	}
 	
+	var prev = document.querySelector('link[rel="prev"]');
+	var next = document.querySelector('link[rel="next"]');
+	
+	if (prev || next) {
+		var topic_nav = document.createElement('nav');
+			topic_nav.classList.add('topic-nav');
+		
+		var prev_div = document.createElement('div');
+		
+		if (prev) {
+			prev_div.appendChild(document.createTextNode('Previous: '));
+			var a = document.createElement('a');
+				a.href = prev.href;
+				a.appendChild(document.createTextNode(prev.title));
+			prev_div.appendChild(a);
+		}
+		
+		topic_nav.appendChild(prev_div);
+
+		var next_div = document.createElement('div');
+		
+		if (next) {
+			next_div.appendChild(document.createTextNode('Next: '));
+			var a = document.createElement('a');
+				a.href = next.href;
+				a.appendChild(document.createTextNode(next.title));
+			next_div.appendChild(a);
+		}
+		
+		topic_nav.appendChild(next_div);
+		
+		document.getElementById('body').insertAdjacentElement('beforeEnd', topic_nav);
+	}
+	
 	var footer = document.createElement('footer');
 	var spacer = '\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0';
 	
