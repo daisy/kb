@@ -9,6 +9,17 @@
  * 
  */
 
+
+/* flip to https on site */
+
+if (window.location.hostname.toLowerCase() === 'kb.daisy.org' && window.location.protocol === 'http:') {
+  const newUrl = 'https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash;
+  window.location.replace(newUrl);
+}
+
+/* ------------ */
+
+
 var lang = document.documentElement.lang ? document.documentElement.lang.toLowerCase() : 'en';
 
 var msg, topic_list, sc_map;
