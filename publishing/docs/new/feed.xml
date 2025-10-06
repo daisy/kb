@@ -5,9 +5,24 @@
 		<description>Recent updates to the DAISY Accessible Publishing KB</description>
 		<link>https://kb.daisy.org/publishing/docs</link>
 		<copyright>2025 DAISY. All rights reserved</copyright>
-		<lastBuildDate>Mon, 22 Sep 2025 00:01:00 +0500</lastBuildDate>
-		<pubDate>Mon, 22 Sep 2025 12:00:00 +0500</pubDate>
+		<lastBuildDate>Mon, 06 Oct 2025 00:01:00 +0500</lastBuildDate>
+		<pubDate>Mon, 06 OCt 2025 12:00:00 +0500</pubDate>
 		<ttl>1440</ttl>
+		
+		<item>
+			<title>doc-pullquote role tagging updated</title>
+			<link>https://kb.daisy.org/publishing/docs/html/dpub-aria/doc-pullquote.html</link>
+			<description>
+				<![CDATA[
+				<p>The <code>doc-pullquote</code> role was corrected in DPUB-ARIA 1.1 to inherit its
+					semantics from the <code>section</code> role not <code>none</code>. This means
+					the guidance on adding a fallback <code>presentation</code> role no longer
+					applies. The page on <code>doc-pullquote</code></a> in the knowledge base 
+					has been updated to reflect this revised usage.</p>
+				]]>	
+			</description>
+			<pubDate>Mon, 06 Oct 2025 12:00:00 +0500</pubDate>
+		</item>
 		
 		<item>
 			<title>Access mode and sufficient access mode updates</title>
@@ -22,7 +37,7 @@
 					<code>textOnVisual</code>.</p>
 				]]>	
 			</description>
-			<pubDate>Thu, 28 Aug 2025 12:00:00 +0500</pubDate>
+			<pubDate>Mon, 22 Sep 2025 12:00:00 +0500</pubDate>
 		</item>
 		
 		<item>

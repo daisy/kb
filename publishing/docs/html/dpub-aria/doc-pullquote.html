@@ -31,8 +31,8 @@
 					</figcaption>
 
 					<pre role="doc-example" id="ex-001-src" class="prettyprint linenums small"><code>&lt;p>With a deafening crack, 
-   &lt;span role="doc-pullquote presentation" id="pq01">a
-   cornice broke free high above, unleashing a massive 
+   &lt;span role="doc-pullquote" id="pq01">a cornice
+   broke free high above, unleashing a massive 
    avalanche&lt;/span>. &#8230; &lt;/p></code></pre>
 				</figure>
 
@@ -41,7 +41,7 @@
 						<div class="label">Example 2 &#8212; Pullquote duplicated from the text</div>
 					</figcaption>
 
-					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;blockquote role="doc-pullquote presentation" aria-hidden="true">
+					<pre role="doc-example" id="ex-002-src" class="prettyprint linenums small"><code>&lt;blockquote role="doc-pullquote" aria-hidden="true">
    there are few things as important as toast
 &lt;/blockquote></code></pre>
 				</figure>
@@ -51,7 +51,7 @@
 				<h3>Relation to ARIA</h3>
 
 				<p><code>doc-pullquote</code> inherits its semantics from the <a
-						href="https://www.w3.org/TR/wai-aria/#none">none role</a> (i.e., it is presentational).</p>
+						href="https://www.w3.org/TR/wai-aria/#section">section role</a>.</p>
 			</section>
 
 			<section id="usage">
@@ -68,11 +68,6 @@
 					repeated content such as pullquotes that will allow them to be ignored by default but still be
 					accessed by users interested in skimming the quotes.</p>
 
-				<p><strong>Note:</strong> the ARIA 1.1 specification currently advises adding the backup role of
-						<code>presentation</code> until support for <code>none</code> becomes more prevalent. As
-						<code>doc-pullquote</code> inherits from <code>none</code>, the same advice applies for this
-					role.</p>
-				
 				<p>For a simplified list of all the elements the role is allowed on, refer to the <a 
 					href="https://www.w3.org/TR/epub-aria-authoring/#sec-mappings">mapping table</a> in the <a 
 						href="https://www.w3.org/TR/epub-aria-authoring/">EPUB Type to ARIA Role Authoring 
