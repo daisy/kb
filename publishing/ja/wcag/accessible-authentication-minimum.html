@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>アクセシブルな認証（最低限）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/wcag/accessible-authentication-minimum.html">
+		<meta name="description" content="Explainer for success criterion 3.3.8 Accessible Authentication (Minimum)">
+		<script>
+			var page_info = {
+				'category': ['conformance', 'wcag'],
+				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+			};
+		</script>
+		<script src="/js/init.js"></script>
+	</head>
+	<body>
+		<main>
+			<section id="about">
+				<h3>概要</h3>
+				
+				<table class="sc-info">
+					<colgroup>
+						<col style="width: 12rem;">
+						<col style="width: auto;">
+					</colgroup>
+					<tr>
+						<th>バージョン：</th>
+						<td>WCAG 2.2以上</td>
+					</tr>
+					<tr>
+						<th>セクション番号：</th>
+						<td>3.3.8</td>
+					</tr>
+					<tr>
+						<th>レベル：</th>
+						<td>A</td>
+					</tr>
+					<tr>
+						<th>適用対象：</th>
+						<td class="docs">
+							<ul>
+								<li>認証フォーム</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>要件：</th>
+						<td class="desc">
+							<p>認知機能テスト（パスワードの記憶やパズルの解決など）は認証プロセスのどのステップにおいても要求しない。ただし、そのステップで次の少なくとも一つが提供される場合は除く。</p>
+							
+							<ul>
+								<li> <strong>代替手段</strong>：認知機能テストに依存しない別の認証方法がある。</li>
+								<li> <strong>メカニズム</strong>：認知機能テストを利用者が完遂できるように支援するメカニズムが利用できる。</li>
+								<li> <strong>物体の認識</strong>：認知機能テストは、物体を認識させるものである。</li>
+								<li> <strong>個人特有のコンテンツ</strong>：認知機能テストは、その利用者本人がウェブサイトに提供した非テキストコンテンツを識別させるものである。</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th id="guidance">ガイダンス：</th>
+						<td class="docs">
+							<ul>
+								<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html">達成基準 3.3.8の理解</a></li>
+								<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#accessible-authentication-minimum">達成基準 3.3.8を満たす方法</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>達成方法：</th>
+						<td class="docs">WCAG 2.2の達成基準に対応する達成方法はまだ利用できない。</td>
+					</tr>
+				</table>
+			</section>
+			<section id="purpose">
+				<h3>目的</h3>
+				
+				<p>この達成基準の目的は、不正アクセスを防ぐために、パスワード入力、記憶、パズルの解決、計算などの認知機能テストを使用する際に、認知障害のあるユーザーが自分自身を認証できるようにすることです。</p>
+			</section>
+			<section id="meeting">
+				<h3>要件の満たし方</h3>
+				
+				<p>デジタル出版物ではユーザーを認証することが一般的ではないため、この達成基準はほとんど適用されません。（通常、ユーザーエージェントによって認証されます）</p>
+				
+				<p>ただし、コンテンツ製作者が出版物の一部へのアクセスを保護するために認知機能テストを含む認証フォームを使用する場合には、認知機能テストに依存しない代替手段、テストでユーザーを支援するメカニズム、物体の認識のみを必要とするテスト、ユーザーが提供したコンテンツによる方法が存在するのを確認してください。</p>
+			</section>
+			<section id="kb">
+				<h3>追加情報</h3>
+				
+				<p>出版フォーマットでの実装が不十分であるため、ナレッジベースには現在アクセシブルな認証に関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+			</section>
+		</main>
+	</body>
+</html>

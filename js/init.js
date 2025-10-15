@@ -90,7 +90,6 @@ KB.prototype.initializePage = function (type) {
 		if (!url.match('https://')) {
 			url = url.replace('http://', 'https://');
 		}
-		this.writeHeadTag('canonical', url);
 		
 		this.writeHeadTag('js', 'https://smart.daisy.org/js/sponsor.js');
 		this.writeHeadTag('css', '/css/kb.css');
@@ -157,12 +156,6 @@ KB.prototype.writeHeadTag = function (type, path, options) {
 		tag.setAttribute('type', 'image/x-icon');
 		tag.setAttribute('href', this.kb_url + 'favicon.ico');
 		tag.setAttribute('sizes', 'any');
-	}
-	
-	else if (type === 'canonical') {
-		tag = document.createElement('link');
-		tag.setAttribute('rel', 'canonical');
-		tag.setAttribute('href', path);
 	}
 	
 	// add the generated tag to the page header
