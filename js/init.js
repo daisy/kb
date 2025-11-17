@@ -13,8 +13,13 @@
 /* flip to https on site */
 
 if (window.location.hostname.toLowerCase() === 'kb.daisy.org' && window.location.protocol === 'http:') {
-  const newUrl = 'https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash;
-  window.location.replace(newUrl);
+  const httpsUrl = 'https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash;
+  window.location.replace(httpsUrl);
+}
+
+else if (window.location.match('//')) {
+  const slashlessUrl = window.location.replace(/(?<!:)\/\/+/g, '/');
+  window.location.replace(slashlessUrl);
 }
 
 /* ------------ */
