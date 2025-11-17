@@ -100,7 +100,6 @@ https://kb.daisy.org/publishing/docs/html/main.html
 https://kb.daisy.org/publishing/docs/html/maps.html
 https://kb.daisy.org/publishing/docs/html/mathml.html
 https://kb.daisy.org/publishing/docs/html/meta.html
-https://kb.daisy.org/publishing/docs/html/new.html
 https://kb.daisy.org/publishing/docs/html/notes.html
 https://kb.daisy.org/publishing/docs/html/object.html
 https://kb.daisy.org/publishing/docs/html/order.html
@@ -120,7 +119,6 @@ https://kb.daisy.org/publishing/docs/html/tables-summary.html
 https://kb.daisy.org/publishing/docs/html/tables.html
 https://kb.daisy.org/publishing/docs/html/title.html
 https://kb.daisy.org/publishing/docs/html/video.html
-https://kb.daisy.org/publishing/docs/html/word-breaks.html
 https://kb.daisy.org/publishing/docs/html/dpub-aria/doc-abstract.html
 https://kb.daisy.org/publishing/docs/html/dpub-aria/doc-acknowledgments.html
 https://kb.daisy.org/publishing/docs/html/dpub-aria/doc-afterword.html
@@ -385,8 +383,6 @@ https://kb.daisy.org/publishing/docs/text-to-speech/overview.html
 https://kb.daisy.org/publishing/docs/text-to-speech/pls.html
 https://kb.daisy.org/publishing/docs/text-to-speech/speech.html
 https://kb.daisy.org/publishing/docs/text-to-speech/ssml.html
-https://kb.daisy.org/publishing/docs/tutorials/index.html
-https://kb.daisy.org/publishing/docs/tutorials/language.html
 https://kb.daisy.org/publishing/docs/wcag/abbreviations.html
 https://kb.daisy.org/publishing/docs/wcag/accessible-authentication-no-exception.html
 https://kb.daisy.org/publishing/docs/wcag/accessible-authentication.html
@@ -646,7 +642,6 @@ https://kb.daisy.org/publishing/ja/metadata/schema.org/accessMode.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/accessModeSufficient.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/index.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityFeature/alternativeText.html
-https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityFeature/annotations.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityFeature/ARIA.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityFeature/audioDescription.html
 https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityFeature/braille.html
