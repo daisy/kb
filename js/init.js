@@ -17,12 +17,6 @@ if (window.location.hostname.toLowerCase() === 'kb.daisy.org' && window.location
   window.location.replace(httpsUrl);
 }
 
-if (window.location.href.match(/(?<!:)\/\/+/)) {
-  const slashlessUrl = window.location.href.replace(/(?<!:)\/\/+/g, '/');
-  window.location.replace(slashlessUrl);
-}
-
-
 /* ------------ */
 
 
