@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>検証（Validation)</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/validation/index.html">
-		<meta name="description" content="Table of contents for the validation section.">
-		<script>
-			var page_info = {
-				'isIndex': true,
-				'subIndex': true,
-				'root_id': 'epub-validation'
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
-	
-	<body>
-		<main>
-		</main>
-	</body>
-</html>
+---
+title: 検証（Validation)
+language: ja
+description: Table of contents for the validation section
+category: ['epub','epub-validation']
+canonical: https://kb.daisy.org/publishing/ja/epub/validation/
+appliesTo: ['EPUB3','EPUB2']
+layout: publishing/pages/index
+index: true
+topics: true
+---
+
+{% assign cat = page.category[0] %}
+{% assign subcat = page.category[1] %}
+
+{% include publishing/topic_index.html category=cat subcategory=subcat %}

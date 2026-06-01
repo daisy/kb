@@ -1,0 +1,42 @@
+{% if page.allTopics %}
+	{% assign hd = "h4" %}
+{% else %}
+	{% assign hd = "h3" %}
+{% endif %}
+
+{% if page.language == "en" %}
+	{% assign path = "/publishing/docs/" | append: include.category | append: "/" %}
+{% else %}
+	{% assign path = "/publishing/" | append: page.language | append: "/" | append: include.category | append: "/"  %}
+{% endif %}
+
+{% if include.subcategory %}
+	{% assign topics = site.data[page.language].topics[include.category].categories[include.subcategory] %}
+{% else %}
+	{% assign topics = site.data[page.language].topics[include.category] %}
+{% endif %}
+
+{% if topics.categories %}
+
+	{% for category in topics.categories %}
+
+	<section id="{{ category | first }}">
+		<{{ hd }}>{{ category.last.title }}</{{ hd }}>
+		<ol role="list">
+			{% for topic in category.last.topics %}
+				{{ topic | format_topic_li: path }}
+			{% endfor %}
+		</ol>
+	</section>
+	
+	{% endfor %}
+	
+{% else %}
+	
+	<ol role="list">
+		{% for topic in topics.topics %}
+			{{ topic | format_topic_li: path }}
+		{% endfor %}
+	</ol>
+	
+{% endif %}

@@ -1,11 +1,2 @@
 
 url: "http://kb.daisy.org"
-plugins:
-  - jekyll-sitemap
-
-defaults:
-  -
-    scope:
-      path: "publishing/wip"
-    values:
-      sitemap: false

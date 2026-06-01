@@ -1,0 +1,68 @@
+{
+  "kb_name": {
+    "publishing": "アクセシブル出版ナレッジベース",
+    "kb": "ナレッジベース"
+  },
+  "UI": {
+    "applies": "適用対象",
+    "cat": "カテゴリー： ",
+	"onpage": "このページ",
+	"topics": "トピック"
+  },
+  "header": {
+    "skip": "コンテンツにスキップ",
+    "logo": "DAISY"
+  },
+  "category": {
+    "category": "カテゴリー",
+    "conformance": "適合性（conformance）",
+    "css": "CSS",
+    "epub": "EPUB",
+    "fxl": "固定レイアウト",
+    "html": "HTML",
+    "metadata": "メタデータ",
+    "navigation": "ナビゲーション",
+    "script": "スクリプト",
+    "sync-media": "メディアの同期",
+    "text-to-speech": "テキスト読み上げ（TTS)"
+  },
+  "footer": {
+    "a11y": "EPUBアクセシビリティ",
+    "about": "ナレッジベースについて",
+    "contrib": "貢献する",
+    "copy": "DAISYコンソーシアム",
+    "epub3": "EPUB3",
+    "feedback": "フィードバック",
+    "gloss": "用語集",
+    "privacy": "プライバシーポリシー",
+    "rev": "改訂履歴",
+    "report": "問題を報告する",
+    "request": "トピックのリクエスト",
+    "site": "サイト",
+    "spec": "規格",
+    "support": "サポート",
+    "terms": "利用規約",
+    "top": "トップに戻る↑",
+    "topics": "すべてのトピック",
+	"whatnew": "新着情報",
+	"lang": "言語",
+	"en": "英語",
+	"ja": "日本語"
+  },
+  "pageControl": {
+    "copy": "コピー",
+    "dfnLink": "定義へ移動",
+    "permalink": "パーマリンク",
+    "permalinkSymbol": "§"
+  },
+  "topics": {
+    "toc": "目次",
+    "related": "関連トピック"
+  },
+  "appliesTo": {
+    "yes": "はい",
+    "no": "いいえ",
+    "partial": "部分的",
+	"partialNote": "* 目次および補足的なHTMLリソースに適用されます。"
+  }
+}

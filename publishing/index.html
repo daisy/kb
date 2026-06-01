@@ -1,41 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Accessible Publishing Knowledge Base</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="canonical" href="https://kb.daisy.org/publishing/index.html">
-		<script>
-			var lang = window.navigator.language.toLowerCase().replace(/-.*/,'');
-			
-			if (lang == 'en') {
-				document.location.href = 'docs/';
-			}
-			
-			/* all other supported languages are in language code directories */
-			else if (lang == 'ja') {
-				document.location.href = lang + '/';
-			}
-			
-			else {
-				document.location.href = 'docs/';
-			}
-		</script>
-		<script type="text/javascript">
-			var page_info = {
-				'isRootIndex': true
-			};
-		</script>
-		<script type="text/javascript" src="/js/init.js"></script>
-	</head>
+---
+title: DAISY Accessible Publishing Knowledge Bases
+language: en
+brand: false
+canonical: https://kb.daisy.org/publishing/
+layout: publishing/default
+---
 
-	<body>
-		<main>
-			<ul>
-				<li><a href="docs/index.html">English</a></li>
-				<li><a href="ja/index.html">Japanese</a></li>
-				<li><a>Francais</a></li>
-			</ul>
-		</main>
-	</body>
-</html>
+<script>
+	var lang = window.navigator.language.toLowerCase().replace(/-.*/,'');
+	
+	if (lang == 'en') {
+		document.location.href = 'docs/';
+	}
+	
+	/* all other supported languages are in language code directories */
+	else if (lang == 'ja') {
+		document.location.href = lang + '/';
+	}
+	
+	else {
+		document.location.href = 'docs/';
+	}
+</script>
+
+<ul>
+	<li><a href="docs/index.html">English</a></li>
+	<li><a href="ja/index.html">日本語</a></li>
+	<li><a>Francais</a></li>
+</ul>

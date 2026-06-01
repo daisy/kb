@@ -1,0 +1,22 @@
+{% assign cat = page.category[0] %}
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">{{ site.data[page.language].ui.UI.onpage }}</h3>
+	</nav>
+	
+	{% if page.related %}
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">{{ site.data[page.language].ui.topics.related }}</h3>
+			<ol>
+				{% for related in page.related %}
+					{% if page.relatedParent %}
+						{% assign label = site.data[page.language].topics[cat].categories[page.relatedParent].topics[related].title %}
+					{% else %}
+						{% assign label = site.data[page.language].topics[cat].topics[related].title %}
+					{% endif %}
+				<li><a href="{{ related }}.html">{{ label }}</a></li>
+				{% endfor %}
+			</ol>
+		</nav>
+	{% endif %}
+</div>

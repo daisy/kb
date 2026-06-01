@@ -1,0 +1,21 @@
+---
+layout: pages/topic
+---
+
+<nav id="toc" class="site">
+	<h2>{{ page.title }}</h2>
+	
+	{% assign cat-list = "conformance,epub,navigation,metadata,html,css,script,fxl,sync-media,text-to-speech" | split: ',' %}
+	
+	{% for category in cat-list %}
+	<section id="{{ category }}">
+		<h3>{{ site.data[page.language].topics[category].title }}</h3>
+		
+		<p class="topic_subtitle">{{ site.data[page.language].topics[category].subtitle }}</p>
+		
+		{% include publishing/topic_index.html category=category %}
+	</section>
+	
+	{% endfor %}
+	
+</nav>

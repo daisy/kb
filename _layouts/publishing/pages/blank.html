@@ -1,0 +1,11 @@
+---
+layout: publishing/two-col-body
+---
+
+<section {% if page.root %} id="home"{% else %} class="blank"{% endif %}>
+	<h2 class="noCategory">{{ page.title }}</h2>
+	
+	{{content}}
+	
+	<p class="backtotop"><a href="#">{{ site.data[page.language].ui.footer.top }}</a></p>
+</section>

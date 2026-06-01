@@ -1,0 +1,10 @@
+{% if page.language == 'ja' %}
+	{% assign search_id = '26859456d1c9349ab' %}
+{% else %}
+	{% assign search_id = '012567327240487320396:ngadtxfagto' %}
+{% endif %}
+
+<search title="{{ site.data[page.language].ui.kb_name.kb }}" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx={{ search_id }}"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_{{ page.language }}" data-gl="{{ page.language }}"></div>
+</search>

@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Metadata</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/docs/metadata/index.html">
-		<meta name="description" content="Table of contents for the metadata section.">
-		<script>
-			var page_info = {
-				'category': 'metadata',
-				'isIndex': true,
-				'root_id': 'metadata'
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
-	
-	<body>
-		<main>
-		</main>
-	</body>
-</html>
+---
+title: Metadata
+category: ['metadata']
+language: en
+description: Table of contents for the metadata section
+canonical: https://kb.daisy.org/publishing/docs/metadata/
+layout: publishing/pages/index
+index: true
+topics: true
+---
+
+{% assign cat = page.category[0] %}
+{% include publishing/topic_index.html category=cat %}

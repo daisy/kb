@@ -1,46 +1,38 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>読み上げ順</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/reading-order.html">
-		<meta name="description" content="Guidance on ordering and identifying epub content documents in the spine">
-		<script>
-			var page_info = {
-				'category': 'epub',
-				'appliesTo': ['EPUB3','EPUB2'],
-				'addh4': true
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
-	<body>
-		<main>
-			<section id="summary">
-				<h3>要約</h3>
-				
-				<p>各ドキュメントにリニアコンテンツが含まれているか非リニアコンテンツが含まれているかを識別し、読み上げ順序が論理的であることを確認した上で、コンテンツ ドキュメントを順序付けしたものをEPUBの<code>spine</code>に指定します。</p>
-			</section>
-			
-			<section id="tech">
-				<h3>テクニック</h3>
-				
-				<ul>
-					<li>すべてのコンテンツ ドキュメントのエントリを順序付けます。</li>
-					<li> <code>linear</code>属性を使用して、リニアコンテンツと非リニアコンテンツを区別します。</li>
-				</ul>
-			</section>
+---
+title: 読み上げ順
+language: ja
+description: Guidance on ordering and identifying epub content documents in the spine
+category: ['epub']
+canonical: https://kb.daisy.org/publishing/ja/epub/reading-order.html
+appliesTo: ['EPUB3','EPUB2']
+layout: publishing/pages/topic
+addh4: true
+---
 
-			<section id="ex">
-				<h3>例</h3>
-				
-				<figure id="ex-01">
-					<figcaption>
-						<div class="label">例1 — 表紙を非リニアとして含める</div>
-						<p>この例では、リーディングシステムが表紙を最初の文書として提示する必要がないため、表紙は非リニアとしてマークされています。</p>
-					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
+<section id="summary">
+	<h3>要約</h3>
+	
+	<p>各ドキュメントにリニアコンテンツが含まれているか非リニアコンテンツが含まれているかを識別し、読み上げ順序が論理的であることを確認した上で、コンテンツ ドキュメントを順序付けしたものをEPUBの<code>spine</code>に指定します。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>すべてのコンテンツ ドキュメントのエントリを順序付けます。</li>
+		<li> <code>linear</code>属性を使用して、リニアコンテンツと非リニアコンテンツを区別します。</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — 表紙を非リニアとして含める</div>
+			<p>この例では、リーディングシステムが表紙を最初の文書として提示する必要がないため、表紙は非リニアとしてマークされています。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
    …
    &lt;spine&gt;
       &lt;itemref idref="cover" linear="no"/&gt;
@@ -52,14 +44,14 @@
       …
    &lt;/spine&gt;
 &lt;/package&gt;</code></pre>
-				</figure>
-				
-				<figure id="ex-02">
-					<figcaption>
-						<div class="label">例2 - 個別の説明ファイルを含める</div>
-						<p>画像の説明は非リニアとしてマークされ、章の合間に出てこないようにspineの最後に含まれています。</p>
-					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package …&gt;
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例2 - 個別の説明ファイルを含める</div>
+			<p>画像の説明は非リニアとしてマークされ、章の合間に出てこないようにspineの最後に含まれています。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package …&gt;
    …
    &lt;spine&gt;
       …
@@ -72,32 +64,32 @@
       …
    &lt;/spine&gt;
 &lt;/package&gt;</code></pre>
-				</figure>
-			</section>
-			
-			<section id="faq">
-				<h3>よくある質問</h3>
-				
-				<dl>
-					<dt id="faq-001">リーディングシステムは、出版物のページをめくるときに、非リニアコンテンツを読者から隠しますか?</dt>
-					<dd>
-						<p>いいえ、EPUB 仕様では非リニアコンテンツをレンダリングする特定の方法が規定されていないため、リーディングシステムが非リニアとしてマークされたコンテンツを非表示にするかどうかは分かりません。2つの章の間に非リニアドキュメントを配置すると、ユーザーが手動で出版物のページをめくったときにそのコンテンツに遭遇することがあります。</p>
-						<p>一部のリーディングシステムは非リニアドキュメントを無視し、ユーザーがリンクをクリックした場合にのみレンダリングしますが、このような動作は普遍的ではありません。</p>
-					</dd>
-				</dl>
-			</section>
-			
-			<section id="desc">
-				<h3>解説</h3>
-				
-				<section id="order">
-					<h4>Spineの順序</h4>
-					
-					<p>EPUB パッケージ ドキュメントの<a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素は</a>、出版物内のドキュメントの順序を定義します。リーディングシステムはこの要素を使用して、現在ユーザーが読んでいる次のドキュメントを特定します。</p>
-					
-					<p><code>spine</code> は1 つ以上の<code>itemref</code>要素で構成され、各要素は<a href="https://www.w3.org/TR/epub/#sec-manifest-elem">manifest</a>内の項目を参照します。<code>itemref</code>の<code>idref</code>属性は次の例に示すように、レンダリングするマニフェスト項目の特定の ID を提供します。(値は URL ではなく ID 参照であるため、参照の先頭にハッシュ (#) がないことに注意してください。)</p>
-					
-					<pre id="ex-expl-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">リーディングシステムは、出版物のページをめくるときに、非リニアコンテンツを読者から隠しますか?</dt>
+		<dd>
+			<p>いいえ、EPUB 仕様では非リニアコンテンツをレンダリングする特定の方法が規定されていないため、リーディングシステムが非リニアとしてマークされたコンテンツを非表示にするかどうかは分かりません。2つの章の間に非リニアドキュメントを配置すると、ユーザーが手動で出版物のページをめくったときにそのコンテンツに遭遇することがあります。</p>
+			<p>一部のリーディングシステムは非リニアドキュメントを無視し、ユーザーがリンクをクリックした場合にのみレンダリングしますが、このような動作は普遍的ではありません。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<section id="order">
+		<h4>Spineの順序</h4>
+		
+		<p>EPUB パッケージ ドキュメントの<a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素は</a>、出版物内のドキュメントの順序を定義します。リーディングシステムはこの要素を使用して、現在ユーザーが読んでいる次のドキュメントを特定します。</p>
+		
+		<p><code>spine</code> は1 つ以上の<code>itemref</code>要素で構成され、各要素は<a href="https://www.w3.org/TR/epub/#sec-manifest-elem">manifest</a>内の項目を参照します。<code>itemref</code>の<code>idref</code>属性は次の例に示すように、レンダリングするマニフェスト項目の特定の ID を提供します。(値は URL ではなく ID 参照であるため、参照の先頭にハッシュ (#) がないことに注意してください。)</p>
+		
+		<pre id="ex-expl-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
    …
    &lt;manifest&gt;
       …
@@ -112,55 +104,54 @@
       …
    &lt;/spine&gt;
 &lt;/package&gt;</code></pre>
-					
-					<p>通常、読者はEPUB出版物がspine内の複数の文書から構成されていることを知りません。リーディングシステムは読者にこの事実を明らかにせず、読者がある文書の最後に到達すると、<code>spine</code>を調べ、次のページを読み込み、自動的に次のページに進みます。</p>
-					
-					<p>主要なコンテンツ ドキュメントをすべて<code>spine</code>から参照することは非常に重要であり、これらのドキュメントを順序付けて、出版物の主要な内容を論理的な順序で提示しなければなりません。ドキュメントの順序が間違うことはあまり発生しませんが、編集や改訂の際に生じる可能性があります (新しい章やセクションを挿入した場合など)。このような場合に、ドキュメントの順序が間違っていたり、ドキュメントが1つ欠けていたりすると、すべての読者が混乱します。そのため、これはアクセシビリティの問題というよりも、一般的なユーザビリティの問題です。</p>
-				</section>
-				
-				<section id="linear">
-					<h4>リニアコンテンツ</h4>
-					
-					<p>リニア コンテンツ ドキュメントとは、著者がユーザーに順番に読んでもらうことを想定しているドキュメントです。第 1 章の次は第 2 章、第 3 章、というように続きます。リニアな読み上げ順は、出版物の主な流れを表します。</p>
-					
-					<p>読者はリニア文書を順番に読みますが、非リニア文書についてはそのように読む必要はありません。非リニア文書の例としては、解答集があります。読者は、対応する設問を含む章の後で解答集を見直したいかもしれませんし、本の最後まで待ってから解答を確認したいかもしれませんし、あるいは、まったく興味がないかもしれません。つまり、コンテンツ製作者がspineとして挿入した解答を読むことは必須ではないのです。</p>
-					
-					<p>非リニアコンテンツ ドキュメントは、次の例に示すように、 <code>itemref</code>要素に値<code>no</code>を持つ<code>linear</code>属性を追加することによって識別されます。</p>
-					
-					<pre id="ex-expl-02-src" class="prettyprint linenums"><code>&lt;itemref
+		
+		<p>通常、読者はEPUB出版物がspine内の複数の文書から構成されていることを知りません。リーディングシステムは読者にこの事実を明らかにせず、読者がある文書の最後に到達すると、<code>spine</code>を調べ、次のページを読み込み、自動的に次のページに進みます。</p>
+		
+		<p>主要なコンテンツ ドキュメントをすべて<code>spine</code>から参照することは非常に重要であり、これらのドキュメントを順序付けて、出版物の主要な内容を論理的な順序で提示しなければなりません。ドキュメントの順序が間違うことはあまり発生しませんが、編集や改訂の際に生じる可能性があります (新しい章やセクションを挿入した場合など)。このような場合に、ドキュメントの順序が間違っていたり、ドキュメントが1つ欠けていたりすると、すべての読者が混乱します。そのため、これはアクセシビリティの問題というよりも、一般的なユーザビリティの問題です。</p>
+	</section>
+	
+	<section id="linear">
+		<h4>リニアコンテンツ</h4>
+		
+		<p>リニア コンテンツ ドキュメントとは、著者がユーザーに順番に読んでもらうことを想定しているドキュメントです。第 1 章の次は第 2 章、第 3 章、というように続きます。リニアな読み上げ順は、出版物の主な流れを表します。</p>
+		
+		<p>読者はリニア文書を順番に読みますが、非リニア文書についてはそのように読む必要はありません。非リニア文書の例としては、解答集があります。読者は、対応する設問を含む章の後で解答集を見直したいかもしれませんし、本の最後まで待ってから解答を確認したいかもしれませんし、あるいは、まったく興味がないかもしれません。つまり、コンテンツ製作者がspineとして挿入した解答を読むことは必須ではないのです。</p>
+		
+		<p>非リニアコンテンツ ドキュメントは、次の例に示すように、 <code>itemref</code>要素に値<code>no</code>を持つ<code>linear</code>属性を追加することによって識別されます。</p>
+		
+		<pre id="ex-expl-02-src" class="prettyprint linenums"><code>&lt;itemref
     idref="answers-01"
     linear="no"/&gt;</code></pre>
-					
-					<div class="note" role="note" aria-labelledby="linear-note-01">
-						<p id="linear-note-01" class="label">注記</p>
-						<p>リーディングシステムは、 <code>linear</code>属性のない<code>itemref</code>要素がリニアコンテンツ ドキュメントを表すと想定するため、EPUB 出版物で<code>linear="yes"</code>が設定されていることはほとんどありません。</p>
-					</div>
-					
-					<p>非リニアコンテンツを<code>spine</code>に配置すると、コンテンツの読みやすさにいくつかの問題が生じます。すべてのリーディングシステムが非リニアコンテンツを同じように処理するわけではないため、コンテンツ製作者はリーディングシステムがそのコンテンツをユーザーにどのように表示するかは想定できません。リーディングシステムは、そのようなコンテンツを<code>spine</code>に配置されている場所に表示する場合と、そうではない場合があります。</p>
-					
-					<p>したがって、非リニアコンテンツに関する懸念事項は、その性質や目的がそれ自体で明確であるかという点です。読者がリンクをたどって非リニアコンテンツに到達したとき、その目的を知っているとは限らないのです。</p>
-					
-					<p>例えば、解答集の場合、ファイルの見出しで設問に対する解答が始まることを示すようにします。画像による説明を別の非リニアファイルに配置する場合は、画像による説明が何を説明するものなのかを明確になるようにします。</p>
-					
-					<p>非リニアコンテンツのもう 1 つのオプションは、リニアの読書体験への影響が最も少ない場所に配置することです。たとえば、画像の説明とポップアウト画像をspineのすべてのリニアコンテンツの後に配置できます (<a href="#ex-02">例 2</a>を参照)。 <code>spine</code>の最後に配置することは、コンテンツを適切に説明できない場合に特に便利です。たとえば、画像の拡大バージョンには、明示的なキャプションが適さない場合があります。</p>
-					
-					<div class="note" role="note" aria-labelledby="linear-note-02">
-						<p id="linear-note-02" class="label">注記</p>
-						<p>EPUB 3の非リニアコンテンツ要件は、EPUB 2とは1つの重要な点で異なります。コンテンツ製作者はspineにすべての非リニアドキュメントへのリンクを含めなければならないという点です。この要件により、手動で出版物のページをめくっているときにリーディングシステムが非リニアコンテンツをレンダリングするかどうかに関係なく、読者が非リニアコンテンツにアクセスできるようになります。</p>
-						
-						<p>ほとんどの場合、コンテンツ製作者はリニアコンテンツからリンクされていない非リニアコンテンツを含めないことが一般的であるため、この要件を満たすのは困難ではありません。既知の問題の1つは、spineに非リニアの表紙を含めることです (<a href="#ex-01">例 1</a>を参照)。このドキュメントへのリンク要件を満たすには、 <a href="../navigation/landmarks.html"><code>landmarks nav</code></a>に表紙へのリンクを含めます。</p>
-					</div>
-				</section>
-			</section>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-01">
+			<p id="linear-note-01" class="label">注記</p>
+			<p>リーディングシステムは、 <code>linear</code>属性のない<code>itemref</code>要素がリニアコンテンツ ドキュメントを表すと想定するため、EPUB 出版物で<code>linear="yes"</code>が設定されていることはほとんどありません。</p>
+		</div>
+		
+		<p>非リニアコンテンツを<code>spine</code>に配置すると、コンテンツの読みやすさにいくつかの問題が生じます。すべてのリーディングシステムが非リニアコンテンツを同じように処理するわけではないため、コンテンツ製作者はリーディングシステムがそのコンテンツをユーザーにどのように表示するかは想定できません。リーディングシステムは、そのようなコンテンツを<code>spine</code>に配置されている場所に表示する場合と、そうではない場合があります。</p>
+		
+		<p>したがって、非リニアコンテンツに関する懸念事項は、その性質や目的がそれ自体で明確であるかという点です。読者がリンクをたどって非リニアコンテンツに到達したとき、その目的を知っているとは限らないのです。</p>
+		
+		<p>例えば、解答集の場合、ファイルの見出しで設問に対する解答が始まることを示すようにします。画像による説明を別の非リニアファイルに配置する場合は、画像による説明が何を説明するものなのかを明確になるようにします。</p>
+		
+		<p>非リニアコンテンツのもう 1 つのオプションは、リニアの読書体験への影響が最も少ない場所に配置することです。たとえば、画像の説明とポップアウト画像をspineのすべてのリニアコンテンツの後に配置できます (<a href="#ex-02">例 2</a>を参照)。 <code>spine</code>の最後に配置することは、コンテンツを適切に説明できない場合に特に便利です。たとえば、画像の拡大バージョンには、明示的なキャプションが適さない場合があります。</p>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-02">
+			<p id="linear-note-02" class="label">注記</p>
+			<p>EPUB 3の非リニアコンテンツ要件は、EPUB 2とは1つの重要な点で異なります。コンテンツ製作者はspineにすべての非リニアドキュメントへのリンクを含めなければならないという点です。この要件により、手動で出版物のページをめくっているときにリーディングシステムが非リニアコンテンツをレンダリングするかどうかに関係なく、読者が非リニアコンテンツにアクセスできるようになります。</p>
 			
-			<section id="refs">
-				<h3>関連リンク</h3>
+			<p>ほとんどの場合、コンテンツ製作者はリニアコンテンツからリンクされていない非リニアコンテンツを含めないことが一般的であるため、この要件を満たすのは困難ではありません。既知の問題の1つは、spineに非リニアの表紙を含めることです (<a href="#ex-01">例 1</a>を参照)。このドキュメントへのリンク要件を満たすには、 <a href="../navigation/landmarks.html"><code>landmarks nav</code></a>に表紙へのリンクを含めます。</p>
+		</div>
+	</section>
+</section>
 
-				<ul>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a> </li>
-					<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear"><code>linear</code>属性</a> </li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+{% include publishing/appliesto.html %}
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a> </li>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear"><code>linear</code>属性</a> </li>
+	</ul>
+</section>

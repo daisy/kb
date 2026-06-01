@@ -1,0 +1,23 @@
+---
+layout: publishing/two-col-body
+---
+{% assign cat = page.category[0] %}
+
+{% if page.category[1] %}
+	{% assign title = page.title %}
+	{% assign subtitle = "" %}
+{% else %}
+	{% assign title = site.data[page.language].topics[cat].title %}
+	{% assign subtitle = site.data[page.language].topics[cat].subtitle %}
+{% endif %}
+
+<div>
+	<h2 class="noCategory">{{ title }}</h2>
+	{% unless subtitle == "" %}
+		<p class="topic_subtitle">{{ subtitle }}</p>
+	{% endunless %}
+	<nav role="doc-toc" id="toc" aria-label="Table of contents">
+		{{content}}
+	</nav>
+	<p class="backtotop"><a href="#">{{ site.data[page.language].ui.footer.top }}</a></p>
+</div>

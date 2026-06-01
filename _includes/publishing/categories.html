@@ -1,0 +1,20 @@
+{% assign cat-list = "conformance,css,epub,fxl,html,metadata,navigation,script,sync-media,text-to-speech" | split: ',' %}
+
+{% if page.language == "en" %}
+	{% assign path = "docs" %}
+{% else %}
+	{% assign path = page.language %}
+{% endif %}
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">{{ site.data[page.language].ui.category.category }}</h3>
+		<ol role="list">
+			{% for category in cat-list %}
+				<li{% if category == page.category[0] %} class="active-cat" aria-current="location"{% endif %}>
+					<a href="/publishing/{{ path }}/{{ category }}/index.html">{{ site.data[page.language].ui.category[category] }}</a>
+				</li>
+			{% endfor %}
+		</ol>
+	</nav>
+</div>

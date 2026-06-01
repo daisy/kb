@@ -1,0 +1,30 @@
+{% if page.index %}
+	{% assign classes = "index category" %}
+{% elsif page.allTopics %}
+	{% assign classes = "index" %}
+{% elsif page.search %}
+	{% assign classes = "search" %}
+{% elsif page.category[1] == "dpub-aria" %}
+	{% assign classes = "main" %}
+{% elsif page.root %}
+	{% assign classes = "" %}
+{% else %}
+	{% assign classes = "category" %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="{{ page.language }}">
+	<head>
+		{% include publishing/head.html %}
+	</head>
+
+	<body>
+		{% include publishing/header.html %}
+		
+		<main id="main" class="{{ classes }}">
+			{% include publishing/support.html %}
+			{{content}}
+		</main>
+		
+		{% include publishing/footer.html %}
+	</body>
+</html>

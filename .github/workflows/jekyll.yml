@@ -1,0 +1,38 @@
+name: Jekyll build and deploy
+
+on:
+  pull_request:
+  
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+    
+    - uses: actions/cache@v5
+      with:
+          path: |
+            .asdf/**
+            vendor/bundle
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/cache.key') }}
+          restore-keys: |
+            ${{ runner.os }}-cache-
+    
+    - name: Build & Deploy to GitHub Pages
+      uses: jeffreytse/jekyll-deploy-action@v0.7.0
+      with:
+        provider: 'github'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: 'public'
+        jekyll_src: './'
+        jekyll_cfg: '_config.yml'

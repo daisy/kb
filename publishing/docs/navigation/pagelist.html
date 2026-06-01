@@ -1,52 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Page List</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/docs/navigation/pagelist.html">
-		<meta name="description" content="Guidance for including a page list in a digital publication.">
-		<script>
-			var page_info = {
-				'category': 'nav',
-				'appliesTo': ['Audiobooks', 'EPUB3','EPUB2'],
-				'related': ['nav-pagenav','nav-pagebreaks','nav-pagesrc']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
+---
+title: Page List
+language: en
+description: Guidance for including a page list in a digital publication
+category: ['navigation']
+canonical: https://kb.daisy.org/publishing/docs/navigation/pagelist.html
+appliesTo: ['Audiobooks','EPUB3','EPUB2']
+layout: publishing/pages/topic
+related: ['nav-pagenav','nav-pagebreaks','nav-pagesrc']
+---
+
+<section id="summary">
+	<h3>Summary</h3>
 	
-	<body>
-		<main>
-			<section id="summary">
-				<h3>Summary</h3>
-				
-				<p>Include a page list so users of digital publications can coordinate their position with a statically
-					paginated equivalent.</p>
-			</section>
-			
-			<section id="tech">
-				<h3>Techniques</h3>
-				
-				<ul>
-					<li>Include a page list when a publication has statically paginated equivalent. [[WCAG-2.4.5]]</li>
-				</ul>
-			</section>
+	<p>Include a page list so users of digital publications can coordinate their position with a statically
+		paginated equivalent.</p>
+</section>
 
-			<section id="ex">
-				<h3>Examples</h3>
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Include a page list when a publication has statically paginated equivalent. [[WCAG-2.4.5]]</li>
+	</ul>
+</section>
 
-				<figure id="ex-01">
-					<figcaption>
-						<div class="label">Example 1 &#8212; Page list (EPUB 3)</div>
-						<p>The page list is a simple ordered list of links to the page break locations. It is identified
-							by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
-						<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
-							not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
-						<p>An ARIA <code>role</code> attribute (see the <a href="#ex-02">next example</a>) is not necessary if the 
-							page list is always hidden from users or the EPUB navigation document is not included in the spine.</p>
-					</figcaption>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden">
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Page list (EPUB 3)</div>
+			<p>The page list is a simple ordered list of links to the page break locations. It is identified
+				by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
+			<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
+				not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
+			<p>An ARIA <code>role</code> attribute (see the <a href="#ex-02">next example</a>) is not necessary if the 
+				page list is always hidden from users or the EPUB navigation document is not included in the spine.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden">
  &lt;ol>
    &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
    &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
@@ -57,17 +48,17 @@
    &lt;li>&lt;a href="georgia.xhtml#page758">758&lt;/a>&lt;/li>
  &lt;/ol>
 &lt;/nav></code></pre>
-				</figure>
-				
-				<figure id="ex-02">
-					<figcaption>
-						<div class="label">Example 2 &#8212; Page list (Web)</div>
-						<p>A page list for use on the Web generally is identified by the <code>role</code> attribute 
-							value <code>doc-pagelist</code>. The <code>aria-label</code> attribute is used to provide
-							a title for the navigation element, but an explicit heading can also be used (refer to the
-							second <code>nav</code> element).</p>
-					</figcaption>
-					<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list">
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Page list (Web)</div>
+			<p>A page list for use on the Web generally is identified by the <code>role</code> attribute 
+				value <code>doc-pagelist</code>. The <code>aria-label</code> attribute is used to provide
+				a title for the navigation element, but an explicit heading can also be used (refer to the
+				second <code>nav</code> element).</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list">
  &lt;ol>
    &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
    &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
@@ -83,15 +74,15 @@
    &#8230;
  &lt;/ol>
 &lt;/nav></code></pre>
-				</figure>
-				
-				<figure id="ex-03">
-					<figcaption>
-						<div class="label">Example 3 &#8212; Page list (EPUB 2 and DAISY 3)</div>
-						<p>The page list in EPUB 2 and DAISY 3 publications is expressed using a custom XML grammar
-							called the NCX.</p>
-					</figcaption>
-					<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;?xml version="1.0" encoding="UTF-8"?>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Page list (EPUB 2 and DAISY 3)</div>
+			<p>The page list in EPUB 2 and DAISY 3 publications is expressed using a custom XML grammar
+				called the NCX.</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;ncx xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
      xmlns="http://www.daisy.org/z3986/2005/ncx/"
      version="2005-1" xml:lang="en">
@@ -115,76 +106,75 @@
         &#8230;
     &lt;/pageList>
 &lt;/ncx></code></pre>
-				</figure>
-			</section>
-			
-			<section id="faq">
-				<h3>Frequently Asked Questions</h3>
-				
-				<dl>
-					<dt id="faq-pl-001">How should I order the links the page list?</dt>
-					<dd>
-						<p>There is currently no requirement on how to order the links in the page list. A
-							common technique is to order the links numerically, but sometimes the order of the
-							content in the digital publication does not match the order in the physical (e.g.,
-							sometimes the publisher might move front matter to the back). Some EPUB creators 
-							prefer to order the page list to match the digital content in these cases.</p>
-					</dd>
-					
-					<dt id="faq-pl-002">Does a publication with a page list have to have page break markers?</dt>
-					<dd>
-						<p>A page list may be included in a digital publication that does not have page break
-							markers, but this practice tends to be rare and is often not very helpful for 
-							users. An example would be a page list that only links to the first page of each
-							chapter. The page list could link to the chapter headings instead of having a page
-							break marker. But since the table of contents would already provide access to each
-							chapter, this approach has limited use.</p>
-					</dd>
-				</dl>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>If a reflowable publication is derived from a statically paginated source, such as a print
-					edition, including a page list allows users to coordinate positions. For example, a student
-					using a digital edition in a class where her peers are using print books would be able to jump
-					to the same pages during instruction.</p>
-				
-				<p>The page list itself is a list of links to all the page break locations. User agents can use
-					this list to provide automatic page jump functionality, or a user can access it directly to
-					manually select the page they wish to go to.</p>
-				
-				<p>In EPUB 3, the page list is expressed in a <a 
-					href="https://www.w3.org/TR/epub-33/#sec-nav-pagelist">page list nav element</a> in the
-					navigation document. This element is essentially a flat list of links to each page break
-					location.</p>
-				
-				<pre id="expl-pl-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list">
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-pl-001">How should I order the links the page list?</dt>
+		<dd>
+			<p>There is currently no requirement on how to order the links in the page list. A
+				common technique is to order the links numerically, but sometimes the order of the
+				content in the digital publication does not match the order in the physical (e.g.,
+				sometimes the publisher might move front matter to the back). Some EPUB creators 
+				prefer to order the page list to match the digital content in these cases.</p>
+		</dd>
+		
+		<dt id="faq-pl-002">Does a publication with a page list have to have page break markers?</dt>
+		<dd>
+			<p>A page list may be included in a digital publication that does not have page break
+				markers, but this practice tends to be rare and is often not very helpful for 
+				users. An example would be a page list that only links to the first page of each
+				chapter. The page list could link to the chapter headings instead of having a page
+				break marker. But since the table of contents would already provide access to each
+				chapter, this approach has limited use.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>If a reflowable publication is derived from a statically paginated source, such as a print
+		edition, including a page list allows users to coordinate positions. For example, a student
+		using a digital edition in a class where her peers are using print books would be able to jump
+		to the same pages during instruction.</p>
+	
+	<p>The page list itself is a list of links to all the page break locations. User agents can use
+		this list to provide automatic page jump functionality, or a user can access it directly to
+		manually select the page they wish to go to.</p>
+	
+	<p>In EPUB 3, the page list is expressed in a <a 
+		href="https://www.w3.org/TR/epub-33/#sec-nav-pagelist">page list nav element</a> in the
+		navigation document. This element is essentially a flat list of links to each page break
+		location.</p>
+	
+	<pre id="expl-pl-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list">
  &lt;ol>
    &lt;li>&lt;a href="chapter01.xhtml#page1">1&lt;/a>&lt;/li>
    &lt;li>&lt;a href="chapter01.xhtml#page2">2&lt;/a>&lt;/li>
    &#8230;
  &lt;/ol>
 &lt;/nav></code></pre>
-					
-				<p>In EPUB 2, a page list is expressed using the
-					<a href="https://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1.2">
-						<code>pageList</code> element</a> in the NCX file. (See <a href="#ex-02">example 2</a>.)</p>
-			</section>
-			
-			<section id="refs">
-				<h3>Related Links</h3>
+		
+	<p>In EPUB 2, a page list is expressed using the
+		<a href="https://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1.2">
+			<code>pageList</code> element</a> in the NCX file. (See <a href="#ex-02">example 2</a>.)</p>
+</section>
 
-				<ul>
-					<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element">The <code>nav</code>
-						element</a></li>
-					<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-nav-pagelist"
-							>The <code>page-list nav</code> Element</a></li>
-					<li>EPUB 2 &#8212; <a href="http://www.daisy.org/z3986/2005/Z3986-2005.html#li_392a"><code>pageList</code>
-						element</a></li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+{% include publishing/appliesto.html %}
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element">The <code>nav</code>
+			element</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-nav-pagelist"
+				>The <code>page-list nav</code> Element</a></li>
+		<li>EPUB 2 &#8212; <a href="http://www.daisy.org/z3986/2005/Z3986-2005.html#li_392a"><code>pageList</code>
+			element</a></li>
+	</ul>
+</section>

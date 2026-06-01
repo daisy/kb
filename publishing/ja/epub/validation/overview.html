@@ -1,56 +1,46 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>検証手順</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/validation/overview.html">
-		<meta name="description" content="Overview of validating EPUB publications for conformance and accessibility.">
-		<script>
-			var page_info = {
-				'category': ['epub','epub-validation'],
-				'appliesTo': ['EPUB3','EPUB2']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
+---
+title: 検証手順
+language: ja
+description: Overview of validating EPUB publications for conformance and accessibility.
+category: ['epub','epub-validation']
+canonical: https://kb.daisy.org/publishing/ja/epub/validation/overview.html
+appliesTo: ['EPUB3','EPUB2']
+layout: publishing/pages/topic
+---
+
+<section id="process">
+	<h3>概要</h3>
 	
-	<body>
-		<main>
-			<section id="process">
-				<h3>概要</h3>
-				
-				<p>検証（Validation）とは、出版物がEPUB規格およびWCAG アクセシビリティ ガイドラインの要件から逸脱していないかを確認する作業です。一部のテストは作業を高速化するために自動化されていますが、他のテストは人間によってしか確実には実行できません。たとえば、画像に代替テキストがあるかどうかは機械的に検出できますが、その内容が十分な意味があるかどうかを判断できるのは人間だけです。</p>
-				
-				<p>検証メッセージの解読は複雑な場合もありますが、エラーを見つけて修正する作業が大事です。これにより、出版物が障害者にとってアクセシブルになるだけでなく、出版物があらゆる読者にとっても期待どおりにレンダリングされることが保証されます。この手順を省略すると、EPUB 出版物がまったく使い物にならなくなるかもしれません。</p>
-				
-				<p>出版物を完全にチェックするには、次の検証手順を実行する必要があります。</p>
-				
-				<ol>
-					<li> <a href="epubcheck.html">EPUBCheck</a> — EPUBCheck を使用して出版物を検証すると、EPUB規格の要件に準拠していることが保証されます。</li>
-					
-					<li> <a href="ace.html">Ace by DAISY</a> — Ace ツールを使用して出版物を検証すると、自動的にテストできるアクセシビリティの問題を発見するのに役立ちます。</li>
-					
-					<li> <a href="smart.html">Ace SMART</a> — SMART ツールを使用して出版物を手動でチェックすることで、WCAG のすべての要件を満たしていることを確認でき、適合性を表明できるようになります。</li>
-				</ol>
-				
-				<p>これらの手順は EPUB 3 と EPUB 2 の両方の出版物で実行できますが、Ace ツールと SMART ツールは EPUB 2 のチェック用に特に最適化されているわけではありません。詳細については、各ツールのナレッジ ベース ページを参照してください。</p>
-				
-				<div class="note" role="note" aria-labelledby="val-note">
-					<p class="label" id="val-note">注記</p>
-					<p>将来的には、3 つのステップを 1 つのアプリケーションに統合する取り組みにより、このプロセスが簡素化される予定です。</p>
-				</div>
-			</section>
-			
-			<section id="ref">
-				<h3>関連リンク</h3>
-				
-				<ul>
-					<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
-					<li><a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">DAISYのAce</a></li>
-					<li><a href="https://smart.daisy.org/">Ace SMART</a></li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+	<p>検証（Validation）とは、出版物がEPUB規格およびWCAG アクセシビリティ ガイドラインの要件から逸脱していないかを確認する作業です。一部のテストは作業を高速化するために自動化されていますが、他のテストは人間によってしか確実には実行できません。たとえば、画像に代替テキストがあるかどうかは機械的に検出できますが、その内容が十分な意味があるかどうかを判断できるのは人間だけです。</p>
+	
+	<p>検証メッセージの解読は複雑な場合もありますが、エラーを見つけて修正する作業が大事です。これにより、出版物が障害者にとってアクセシブルになるだけでなく、出版物があらゆる読者にとっても期待どおりにレンダリングされることが保証されます。この手順を省略すると、EPUB 出版物がまったく使い物にならなくなるかもしれません。</p>
+	
+	<p>出版物を完全にチェックするには、次の検証手順を実行する必要があります。</p>
+	
+	<ol>
+		<li> <a href="epubcheck.html">EPUBCheck</a> — EPUBCheck を使用して出版物を検証すると、EPUB規格の要件に準拠していることが保証されます。</li>
+		
+		<li> <a href="ace.html">Ace by DAISY</a> — Ace ツールを使用して出版物を検証すると、自動的にテストできるアクセシビリティの問題を発見するのに役立ちます。</li>
+		
+		<li> <a href="smart.html">Ace SMART</a> — SMART ツールを使用して出版物を手動でチェックすることで、WCAG のすべての要件を満たしていることを確認でき、適合性を表明できるようになります。</li>
+	</ol>
+	
+	<p>これらの手順は EPUB 3 と EPUB 2 の両方の出版物で実行できますが、Ace ツールと SMART ツールは EPUB 2 のチェック用に特に最適化されているわけではありません。詳細については、各ツールのナレッジ ベース ページを参照してください。</p>
+	
+	<div class="note" role="note" aria-labelledby="val-note">
+		<p class="label" id="val-note">注記</p>
+		<p>将来的には、3 つのステップを 1 つのアプリケーションに統合する取り組みにより、このプロセスが簡素化される予定です。</p>
+	</div>
+</section>
+
+{% include publishing/appliesto.html %}
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	
+	<ul>
+		<li><a href="https://github.com/w3c/epubcheck/releases">EPUBCheck</a></li>
+		<li><a href="https://inclusivepublishing.org/toolbox/accessibility-checker/">DAISYのAce</a></li>
+		<li><a href="https://smart.daisy.org/">Ace SMART</a></li>
+	</ul>
+</section>

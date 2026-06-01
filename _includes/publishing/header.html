@@ -1,0 +1,13 @@
+{% if page.language == 'en' %}
+	{% assign path = '/publishing/docs/' %}
+{% else %}
+	{% capture path %}/publishing/{{ page.language }}/{% endcapture %}
+{% endif %}
+<header>
+	<a href="#main" id="skip-main">{{ site.data[page.language].ui.header.skip }}</a>
+	<h1>
+		<a href="{{ path }}" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="{{ site.data[page.language].ui.header.logo }}"> {{ site.data[page.language].ui.kb_name.publishing }}</a>
+	</h1>
+	{% include publishing/search.html %}
+</header>

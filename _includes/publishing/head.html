@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<title>{% unless page.root %} {{ page.title }} - {% endunless %}{{ site.data[page.language].ui.kb_name.publishing }}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ page.description }}">
+
+<link rel="canonical" href="{{ page.canonical }}">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		{% if page.addh4 %}
+		'addh4': true
+		{% endif %}
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+{% if page.index or page.glossary %}
+<link rel="stylesheet" href="/css/primary-nav.css">
+{% endif %}
+
+{% if page.root %}
+	<link rel="stylesheet" href="/css/root.css">
+{% endif %}
+	
+{% if page.allTopics %}
+<link rel="stylesheet" href="/css/topics.css">
+{% endif %}
+
+{% include google.html %}
+
+{% include favicon.html %}

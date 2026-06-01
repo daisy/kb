@@ -1,82 +1,72 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>アニメーション画像（Animated Graphics）</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/images-animated.html">
-		<meta name="description" content="Guidelines for accessible animated graphics.">
-		<script>
-			var page_info = {
-				'category': 'html',
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2'],
-				'related': ['html-image-desc','html-image-icon','html-image-text','html-image-maps']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
+---
+title: アニメーション画像（Animated Graphics）
+language: ja
+description: Guidelines for accessible animated graphics.
+category: ['html']
+canonical: https://kb.daisy.org/publishing/ja/html/images-animated.html
+appliesTo: ['Audiobooks*','EPUB3','EPUB2']
+related: ['html-image-desc','html-image-icon','html-image-text','html-image-maps']
+layout: publishing/pages/topic
+---
+
+<section id="summary">
+	<h3>要約</h3>
+	<p>アニメーション画像に発作を及ぼすリスクが無いこと、およびユーザーがそれを無効にできることを確認してください。</p>
 	
-	<body>
-		<main>
-			<section id="summary">
-				<h3>要約</h3>
-				<p>アニメーション画像に発作を及ぼすリスクが無いこと、およびユーザーがそれを無効にできることを確認してください。</p>
-				
-				<div class="note" role="note" aria-labelledby="note-1">
-					<p id="note-1" class="label">注記</p>
-					<p>このページでは、アニメーション画像形式によって発生する固有の問題についてのみ説明しています。WCAG要件を満たすために、これらのグラフィックには必要に応じて<a href="images-desc.html">代替テキストと拡張説明</a>も必要です。</p>
-				</div>
-			</section>
-			
-			<section id="tech">
-				<h3>テクニック</h3>
-				<ul>
-					<li>
-						<p>アニメーションが発作のリスクをもたらさないようにします。[[WCAG-2.3.1]] および [[WCAG-2.3.2]]</p>
-					</li>
-					<li>
-						<p>アニメーションは5秒後に停止するか、オフにできるようにします。[[WCAG-2.2.2]]</p>
-					</li>
-				</ul>
-			</section>
-			
-			<section id="ex">
-				<h3>例</h3>
-				
-				<figure id="ex-01">
-					<figcaption><span class="label">例 — 置き換え可能な画像</span></figcaption>
-					<p>アニメーションGIFを代替となる静止画像に置き換えるJavaScriptを使用したボタンが設けられています。</p>
-					<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img id="rocket"
+	<div class="note" role="note" aria-labelledby="note-1">
+		<p id="note-1" class="label">注記</p>
+		<p>このページでは、アニメーション画像形式によって発生する固有の問題についてのみ説明しています。WCAG要件を満たすために、これらのグラフィックには必要に応じて<a href="images-desc.html">代替テキストと拡張説明</a>も必要です。</p>
+	</div>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	<ul>
+		<li>
+			<p>アニメーションが発作のリスクをもたらさないようにします。[[WCAG-2.3.1]] および [[WCAG-2.3.2]]</p>
+		</li>
+		<li>
+			<p>アニメーションは5秒後に停止するか、オフにできるようにします。[[WCAG-2.2.2]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption><span class="label">例 — 置き換え可能な画像</span></figcaption>
+		<p>アニメーションGIFを代替となる静止画像に置き換えるJavaScriptを使用したボタンが設けられています。</p>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img id="rocket"
     src="rocket-launch.gif"
     alt="Rocket blasting off" /&gt;
 &lt;button
    onclick="replaceImage('rocket', 'static-rocket-launch.jpg')"
    &gt;Stop animation&lt;/button&gt;</code></pre>
-				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>解説</h3>
-				
-				<p>アニメーションGIFなどのアニメーション画像は、出版物ではあまり使用されませんが、その使用には、画像に関する<a href="images-desc.html">基本的な説明</a>を超える、アクセシビリティに関する特有の課題があります。アニメーション画像は非常に短いビデオクリップのようなものなので、ビデオが引き起こすいくつかの問題についても考慮しなければなりません。</p>
-				
-				<p>主な懸案事項は、画像が発作の危険をもたらさないかという点です。画像はアニメーション化されているため、フラッシュは1秒あたり3回を超えてはなりません。アニメーションが1秒未満でありアニメーションが無限ループで再生される場合には、アニメーションのフラッシュ回数に1秒間あたりのアニメーションのループ回数を掛けて、1秒あたりのフラッシュ回数を計算しなければなりません。</p>
-				
-				<p>アニメーションが5秒後に自動的に終了する場合は、ユーザーが動画コンテンツの再生を停止できるというWCAGの要件を満たしています。電子出版物のページ付けにより、通常、ユーザーはアニメーションが完了しないと画像にたどりつけません。この問題を回避するには、ドキュメント内のアニメーション画像をアニメーション化されていない画像に置き換えるコントロール（通常はボタン）を追加します。その後、ユーザーはアニメーションを再生するかどうかを決定できます。</p>
-				
-				<div class="note" role="note" aria-labelledby="note-2">
-					<p id="note-2" class="label">注記</p>
-					<p><code>canvas</code>要素を使用して作成されたアニメーションでも、点滅やユーザーによるオフ設定が必要となるという同じ課題がありますが、このセクションでは説明していない追加の課題も発生します。ナレッジベースの今後の更新では、アニメーション化されたキャンバスについても取り扱う予定です。</p>
-				</div>
-			</section>
-			
-			<section id="refs">
-				<h3>関連リンク</h3>
-				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a> </li>
-					<li>HTML — <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"><code>img</code>要素</a> </li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>アニメーションGIFなどのアニメーション画像は、出版物ではあまり使用されませんが、その使用には、画像に関する<a href="images-desc.html">基本的な説明</a>を超える、アクセシビリティに関する特有の課題があります。アニメーション画像は非常に短いビデオクリップのようなものなので、ビデオが引き起こすいくつかの問題についても考慮しなければなりません。</p>
+	
+	<p>主な懸案事項は、画像が発作の危険をもたらさないかという点です。画像はアニメーション化されているため、フラッシュは1秒あたり3回を超えてはなりません。アニメーションが1秒未満でありアニメーションが無限ループで再生される場合には、アニメーションのフラッシュ回数に1秒間あたりのアニメーションのループ回数を掛けて、1秒あたりのフラッシュ回数を計算しなければなりません。</p>
+	
+	<p>アニメーションが5秒後に自動的に終了する場合は、ユーザーが動画コンテンツの再生を停止できるというWCAGの要件を満たしています。電子出版物のページ付けにより、通常、ユーザーはアニメーションが完了しないと画像にたどりつけません。この問題を回避するには、ドキュメント内のアニメーション画像をアニメーション化されていない画像に置き換えるコントロール（通常はボタン）を追加します。その後、ユーザーはアニメーションを再生するかどうかを決定できます。</p>
+	
+	<div class="note" role="note" aria-labelledby="note-2">
+		<p id="note-2" class="label">注記</p>
+		<p><code>canvas</code>要素を使用して作成されたアニメーションでも、点滅やユーザーによるオフ設定が必要となるという同じ課題がありますが、このセクションでは説明していない追加の課題も発生します。ナレッジベースの今後の更新では、アニメーション化されたキャンバスについても取り扱う予定です。</p>
+	</div>
+</section>
+
+{% include publishing/appliesto.html %}
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img&gt;: 画像埋め込み要素</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"><code>img</code>要素</a> </li>
+	</ul>
+</section>

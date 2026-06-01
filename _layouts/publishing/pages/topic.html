@@ -1,0 +1,33 @@
+---
+layout: publishing/default
+---
+{% if page.category[2] %}
+	{% assign path =  '../../|../|' | split: "|" %}
+{% elsif page.category[1] %}
+	{% assign path = '../||' | split: "|" %}
+{% else %}
+	{% assign path = '||' | split: "|" %}
+{% endif %}
+
+<div id="col-wrapper">
+	{% include publishing/page_toc.html%}
+	
+	<div id="body">
+		{% unless page.allTopics %}
+		
+		<div id="page-title">
+			{% if page.category %}
+				{% include publishing/breadcrumb.html %}
+			{% endif %}
+			
+			<h2{% unless page.category %} class="noCategory"{% endunless %}>{{page.title}}</h2>
+		</div>
+		{% endunless %}
+		
+		{{content}}
+		
+		<p class="backtotop"><a href="#">{{ site.data[page.language].ui.footer.top }}</a></p>
+	</div>
+	
+	{% include publishing/categories.html%}
+</div>

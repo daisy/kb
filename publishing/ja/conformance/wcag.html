@@ -1,119 +1,112 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>WCAG</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/conformance/wcag.html">
-		<meta name="description" content="Provides and overview of the Web Content Accessibility Guidelines (WCAG) standard and its requirements.">
-		<script>
-			var page_info = {
-				'category': 'conformance',
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-		<style>
-			dl {
-				margin-left: 2rem;
-			}
-			dt {
-				font-weight: bold;
-			}
-			dd > ol {
-				margin-left: 0;
-				padding-left: 0;
-			}</style>
-	</head>
-	<body>
-		<main>
-			<section id="summary">
-				<h3>要約</h3>
+---
+title: WCAG
+language: ja
+description: Provides and overview of the Web Content Accessibility Guidelines (WCAG) standard and its requirements.
+category: ['conformance']
+canonical: https://kb.daisy.org/publishing/ja/conformance/wcag.html
+appliesTo: ['Audiobooks*','EPUB3','EPUB2']
+layout: publishing/pages/topic
+---
 
-				<p>W3CのWeb Content Accessibility Guidelines (WCAG) は、アクセシブルなWebベースのコンテンツを作成するための国際的に認められた規格です。</p>
-			</section>
+<style>
+	dl {
+		margin-left: 2rem;
+	}
+	dt {
+		font-weight: bold;
+	}
+	dd > ol {
+		margin-left: 0;
+		padding-left: 0;
+	}
+</style>
 
-			<section id="overview">
-				<h3>概要</h3>
+<section id="summary">
+	<h3>要約</h3>
 
-				<p>WCAGガイドラインは、アクセシビリティに対して階層的なアプローチを採用しており、すべてのコンテンツ製作者が達成するよう努めるべき4つの高レベルの<em>原則</em>から始まります。これらの原則は以下のように定義されています。</p>
+	<p>W3CのWeb Content Accessibility Guidelines (WCAG) は、アクセシブルなWebベースのコンテンツを作成するための国際的に認められた規格です。</p>
+</section>
 
-				<ol>
-					<li> <a href="https://www.w3.org/TR/WCAG2/#perceivable">知覚可能</a>— 情報及びユーザインタフェース コンポーネントは、利用者が知覚できる方法で利用者に提示できなければならない。</li>
-					<li>
+<section id="overview">
+	<h3>概要</h3>
+
+	<p>WCAGガイドラインは、アクセシビリティに対して階層的なアプローチを採用しており、すべてのコンテンツ製作者が達成するよう努めるべき4つの高レベルの<em>原則</em>から始まります。これらの原則は以下のように定義されています。</p>
+
+	<ol>
+		<li> <a href="https://www.w3.org/TR/WCAG2/#perceivable">知覚可能</a>— 情報及びユーザインタフェース コンポーネントは、利用者が知覚できる方法で利用者に提示できなければならない。</li>
+		<li>
 <a href="https://www.w3.org/TR/WCAG2/#operable">操作可能</a> — ユーザインタフェース コンポーネント及びナビゲーションは操作できなければならない。</li>
-					<li>
+		<li>
 <a href="https://www.w3.org/TR/WCAG2/#understandable">理解可能</a> — 情報及びユーザインタフェースの操作は理解できなければならない。</li>
-					<li> <a href="https://www.w3.org/TR/WCAG2/#robust">堅牢（robust）</a> — コンテンツは、支援技術を含む様々なユーザエージェントが確実に解釈できるように十分に堅牢 (robust) でなければならない。</li>
-				</ol>
+		<li> <a href="https://www.w3.org/TR/WCAG2/#robust">堅牢（robust）</a> — コンテンツは、支援技術を含む様々なユーザエージェントが確実に解釈できるように十分に堅牢 (robust) でなければならない。</li>
+	</ol>
 
-				<p>これらの原則のそれぞれが、次のレベルとしてコンプライアンスを達成するための一連の<em>ガイドライン</em>に細分化されています。</p>
+	<p>これらの原則のそれぞれが、次のレベルとしてコンプライアンスを達成するための一連の<em>ガイドライン</em>に細分化されています。</p>
 
-				<dl>
-					<dt>1. 知覚可能</dt>
-					<dd>
-						<ol class="none" role="list">
-							<li>1.1 テキストによる代替</li>
-							<li>1.2 時間依存メディア</li>
-							<li>1.3 適応可能</li>
-							<li>1.4 判別可能</li>
-						</ol>
-					</dd>
-					<dt>2. 操作可能</dt>
-					<dd>
-						<ol class="none" role="list">
-							<li>2.1 キーボード操作可能</li>
-							<li>2.2 十分な時間</li>
-							<li>2.3 発作と身体的反応</li>
-							<li>2.4 ナビゲーション可能</li>
-							<li>2.5 入力のモーダル化</li>
-						</ol>
-					</dd>
-					<dt>3. 理解可能</dt>
-					<dd>
-						<ol class="none" role="list">
-							<li>3.1 読み取り可能</li>
-							<li>3.2 予測可能</li>
-							<li>3.3 入力支援</li>
-						</ol>
-					</dd>
-					<dt>4. 堅牢（robust）</dt>
-					<dd>
-						<ol class="none" role="list">
-							<li>4.1 互換性</li>
-						</ol>
-					</dd>
-				</dl>
+	<dl>
+		<dt>1. 知覚可能</dt>
+		<dd>
+			<ol class="none" role="list">
+				<li>1.1 テキストによる代替</li>
+				<li>1.2 時間依存メディア</li>
+				<li>1.3 適応可能</li>
+				<li>1.4 判別可能</li>
+			</ol>
+		</dd>
+		<dt>2. 操作可能</dt>
+		<dd>
+			<ol class="none" role="list">
+				<li>2.1 キーボード操作可能</li>
+				<li>2.2 十分な時間</li>
+				<li>2.3 発作と身体的反応</li>
+				<li>2.4 ナビゲーション可能</li>
+				<li>2.5 入力のモーダル化</li>
+			</ol>
+		</dd>
+		<dt>3. 理解可能</dt>
+		<dd>
+			<ol class="none" role="list">
+				<li>3.1 読み取り可能</li>
+				<li>3.2 予測可能</li>
+				<li>3.3 入力支援</li>
+			</ol>
+		</dd>
+		<dt>4. 堅牢（robust）</dt>
+		<dd>
+			<ol class="none" role="list">
+				<li>4.1 互換性</li>
+			</ol>
+		</dd>
+	</dl>
 
-				<p>これらのガイドラインのさらに下のレベルは<em>達成基準</em>です。これは、WCAGがアクセシブルなコンテンツの概要から、それを実際に達成する方法に落とし込んだレベルです。これらの基準は非常に広範囲に渡るためここでは省略します。詳細については、<a href="https://www.w3.org/TR/WCAG2/">WCAGガイドライン</a>を参照してください。</p>
+	<p>これらのガイドラインのさらに下のレベルは<em>達成基準</em>です。これは、WCAGがアクセシブルなコンテンツの概要から、それを実際に達成する方法に落とし込んだレベルです。これらの基準は非常に広範囲に渡るためここでは省略します。詳細については、<a href="https://www.w3.org/TR/WCAG2/">WCAGガイドライン</a>を参照してください。</p>
 
-				<p>アクセシブルなコンテンツを作成するために求められる要素を、これら3つのレベルで段階的に改良した後は、達成基準への準拠をテストするために<em>十分な達成方法及び参考達成方法</em>に進んでください。コンテンツを検証するために必要なフォーマット固有の情報が基準として示されています。</p>
+	<p>アクセシブルなコンテンツを作成するために求められる要素を、これら3つのレベルで段階的に改良した後は、達成基準への準拠をテストするために<em>十分な達成方法及び参考達成方法</em>に進んでください。コンテンツを検証するために必要なフォーマット固有の情報が基準として示されています。</p>
 
-				<p>このナレッジベースは、特に<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ仕様</a>を満たすための出版技術に重点を置いていますが、コンテンツをアクセシブルにする要素を真に理解するには、より高レベルの概念を理解することも必要です。このサイト全体を通じて、関連する技術へのリンクをみつけることができます。各セクションの導入部分では、これらをアクセシブルな構造にすること（つまり、より高レベルのガイドラインにどのように適合させるか）がなぜ必要なのかを説明しようと努めています。</p>
-			</section>
+	<p>このナレッジベースは、特に<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ仕様</a>を満たすための出版技術に重点を置いていますが、コンテンツをアクセシブルにする要素を真に理解するには、より高レベルの概念を理解することも必要です。このサイト全体を通じて、関連する技術へのリンクをみつけることができます。各セクションの導入部分では、これらをアクセシブルな構造にすること（つまり、より高レベルのガイドラインにどのように適合させるか）がなぜ必要なのかを説明しようと努めています。</p>
+</section>
 
-			<section id="conformance">
-				<h3>適合性</h3>
+<section id="conformance">
+	<h3>適合性</h3>
 
-				<p>WCAGは、ウェブページが提供するサポートの範囲を示すために、「「A」から「AAA」までの3つの適合レベルを定義しています。</p>
+	<p>WCAGは、ウェブページが提供するサポートの範囲を示すために、「「A」から「AAA」までの3つの適合レベルを定義しています。</p>
 
-				<p>レベルAは、ドキュメントが満たすべき最低限のアクセシビリティのベースラインですが、このレベルでは対象ユーザーにとって問題が残る可能性が高いです。レベルAAは、一般的にドキュメントがアクセシブルであるとみなされるために満たすべき実際のベースラインと考えられています。</p>
+	<p>レベルAは、ドキュメントが満たすべき最低限のアクセシビリティのベースラインですが、このレベルでは対象ユーザーにとって問題が残る可能性が高いです。レベルAAは、一般的にドキュメントがアクセシブルであるとみなされるために満たすべき実際のベースラインと考えられています。</p>
 
-				<p>レベルAAを満たすには、レベルAのすべての要件を満たす必要があることに注意してください。上位の適合レベルは、それより下の適合レベルを基礎としています。</p>
+	<p>レベルAAを満たすには、レベルAのすべての要件を満たす必要があることに注意してください。上位の適合レベルは、それより下の適合レベルを基礎としています。</p>
 
-				<p>レベルAAAは、一般的にドキュメントがすべての要件を満たすことは不可能であるため、目標レベルであると広く考えられています。コンテンツ製作者はこのレベルの達成基準を無視すべきではありませんが、達成するには複雑すぎる要件は見送っても構いません。</p>
-			</section>
+	<p>レベルAAAは、一般的にドキュメントがすべての要件を満たすことは不可能であるため、目標レベルであると広く考えられています。コンテンツ製作者はこのレベルの達成基準を無視すべきではありませんが、達成するには複雑すぎる要件は見送っても構いません。</p>
+</section>
 
-			<section id="refs">
-				<h3>関連リンク</h3>
+{% include publishing/appliesto.html %}
 
-				<ul>
-					<li><a href="https://www.w3.org/TR/WCAG2/">WCAG</a></li>
-					<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAGを理解する</a></li>
-					<li> <a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG に準拠する方法 (クイックリファレンス)</a> </li>
-					<li><a href="https://www.w3.org/WAI/translations/">翻訳</a></li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li><a href="https://www.w3.org/TR/WCAG2/">WCAG</a></li>
+		<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAGを理解する</a></li>
+		<li> <a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG に準拠する方法 (クイックリファレンス)</a> </li>
+		<li><a href="https://www.w3.org/WAI/translations/">翻訳</a></li>
+	</ul>
+</section>

@@ -1,0 +1,16 @@
+<div class="category">
+	{{ site.data[page.language].ui.UI.cat }}
+	{% assign len = page.category | size | minus: 1 %}
+	{% for i in (0..len) %}
+		{% assign cat = page.category[i] %}
+		{% if i > 0 %} - {% endif %}
+		{% if i < 2 %}
+			{{ site.data[page.language].topics[cat].title | format_breadcrumb_link: path[i] }}
+		{% else %}
+			{% assign parent_ref = i | minus: 1 %}
+			{% assign parent = page.category[parent_ref] %}
+			{{ site.data[page.language].topics[parent].categories[cat].title | format_breadcrumb_link: path[i] }}
+		{% endif %}
+	{% endfor %}
+</div>
+	

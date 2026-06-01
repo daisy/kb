@@ -1,133 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>accessMode</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/docs/metadata/schema.org/accessMode.html">
-		<meta name="description" content="Guidelines for using the schema.org accessMode property">
-		<script>
-			var page_info = {
-				'category': ['metadata', 'meta-schema'],
-				'appliesTo': ['Audiobooks','EPUB3','EPUB2'],
-				'addh4': true
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
+---
+title: accessMode
+language: en
+description: Guidelines for using the schema.org accessMode property
+category: ['metadata','schema.org']
+canonical: https://kb.daisy.org/publishing/docs/metadata/schema.org/accessMode.html
+appliesTo: ['Audiobooks','EPUB3','EPUB2']
+layout: publishing/pages/topic
+addh4: true
+---
 
-	<body>
-		<main>
-			<section id="def">
-				<h3>Definition</h3>
+<section id="def">
+	<h3>Definition</h3>
 
-				<p class="desc">An access mode through which the intellectual content of a described resource or
-					adaptation is communicated (i.e., the human sensory perceptual system or cognitive faculty through
-					which a person may process or perceive information).</p>
-			</section>
+	<p class="desc">An access mode through which the intellectual content of a described resource or
+		adaptation is communicated (i.e., the human sensory perceptual system or cognitive faculty through
+		which a person may process or perceive information).</p>
+</section>
 
-			<section id="ex">
-				<h3>Examples</h3>
+<section id="ex">
+	<h3>Examples</h3>
 
-				<figure id="ex-epub3">
-					<figcaption>
-						<div class="label">Example 1 &#8212; EPUB 3</div>
-					</figcaption>
-					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta>
+	<figure id="ex-epub3">
+		<figcaption>
+			<div class="label">Example 1 &#8212; EPUB 3</div>
+		</figcaption>
+		<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessMode">textual&lt;/meta>
 &lt;meta property="schema:accessMode">visual&lt;/meta></code></pre>
-				</figure>
+	</figure>
 
-				<figure id="ex-epub2">
-					<figcaption>
-						<div class="label">Example 2 &#8212; EPUB 2</div>
-					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/>
+	<figure id="ex-epub2">
+		<figcaption>
+			<div class="label">Example 2 &#8212; EPUB 2</div>
+		</figcaption>
+		<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessMode" content="textual"/>
 &lt;meta name="schema:accessMode" content="visual"/></code></pre>
-				</figure>
-				
-				<figure id="ex-audiobooks">
-					<figcaption>
-						<div class="label">Example 3 &#8212; Audiobooks</div>
-					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["textual", "visual"]</code></pre>
-				</figure>
-				
-				<figure id="ex-rdfa">
-					<figcaption>
-						<div class="label">Example 4 &#8212; HTML with RDFa</div>
-					</figcaption>
-					<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/>
+	</figure>
+	
+	<figure id="ex-audiobooks">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Audiobooks</div>
+		</figcaption>
+		<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessMode": ["textual", "visual"]</code></pre>
+	</figure>
+	
+	<figure id="ex-rdfa">
+		<figcaption>
+			<div class="label">Example 4 &#8212; HTML with RDFa</div>
+		</figcaption>
+		<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;meta property="accessMode" content="textual"/>
 &lt;meta property="accessMode" content="visual"/></code></pre>
-				</figure>
+	</figure>
 
-				<figure id="ex-micro">
-					<figcaption>
-						<div class="label">Example 5 &#8212; HTML with microdata</div>
-					</figcaption>
-					<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/>
+	<figure id="ex-micro">
+		<figcaption>
+			<div class="label">Example 5 &#8212; HTML with microdata</div>
+		</figcaption>
+		<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;meta itemprop="accessMode" content="textual"/>
 &lt;meta itemprop="accessMode" content="visual"/></code></pre>
-				</figure>
-			</section>
+	</figure>
+</section>
 
-			<section id="value">
-				<h3>Values</h3>
+<section id="value">
+	<h3>Values</h3>
 
-				<p>The access mode values identify the default nature of the content. Images and video are visual
-					content, for example. Video clips also typically have audio, so have an auditory mode (as do audio
-					clips). Text content is textual.</p>
+	<p>The access mode values identify the default nature of the content. Images and video are visual
+		content, for example. Video clips also typically have audio, so have an auditory mode (as do audio
+		clips). Text content is textual.</p>
 
-				<p>Adaptations are not identified using this property, as they are not the primary way that the content
-					is consumed. If adaptations, such as extended descriptions, are provided for the primary content,
-					they are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
-				
-				<div class="note" role="note" aria-labelledby="format-note">
-					<p class="label" id="format-note">Note</p>
-					<p>Unless the metadata format used supports lists (e.g., JSON-LD), use a separate property
-						declaration for each access mode. Do not merge the values into a single property using spaces,
-						commas, or other delimiters.</p>
-				</div>
-				
-				<p>The following values are recommended for this property:</p>
-				
-				<ul>
-					<li><a href="accessMode/auditory.html">auditory</a></li>
-					<li><a href="accessMode/tactile.html">tactile</a></li>
-					<li><a href="accessMode/textual.html">textual</a></li>
-					<li><a href="accessMode/visual.html">visual</a></li>
-				</ul>
-				
-				<p id="visual-content-indicators">The following values are also often paired with a visual access mode
-					to provide additional information about the type of content in visual form:</p>
-				
-				<ul>
-					<li><a href="accessMode/chartOnVisual.html">chartOnVisual</a></li>
-					<li><a href="accessMode/chemOnVisual.html">chemOnVisual</a></li>
-					<li><a href="accessMode/diagramOnVisual.html">diagramOnVisual</a></li>
-					<li><a href="accessMode/mathOnVisual.html">mathOnVisual</a></li>
-					<li><a href="accessMode/musicOnVisual.html">musicOnVisual</a></li>
-					<li><a href="accessMode/textOnVisual.html">textOnVisual</a></li>
-				</ul>
-				
-				<p>In addition the <a href="accessMode/colorDependent.html">colorDependent</a> value can be
-					paired with either visual or textual access modes to indicate that color perception is
-					necessary to understand part or all of the content.</p>
-			</section>
+	<p>Adaptations are not identified using this property, as they are not the primary way that the content
+		is consumed. If adaptations, such as extended descriptions, are provided for the primary content,
+		they are used in determining the <a href="#accessModeSufficient">sufficient access modes</a>.</p>
+	
+	<div class="note" role="note" aria-labelledby="format-note">
+		<p class="label" id="format-note">Note</p>
+		<p>Unless the metadata format used supports lists (e.g., JSON-LD), use a separate property
+			declaration for each access mode. Do not merge the values into a single property using spaces,
+			commas, or other delimiters.</p>
+	</div>
+	
+	<p>The following values are recommended for this property:</p>
+	
+	<ul>
+		<li><a href="accessMode/auditory.html">auditory</a></li>
+		<li><a href="accessMode/tactile.html">tactile</a></li>
+		<li><a href="accessMode/textual.html">textual</a></li>
+		<li><a href="accessMode/visual.html">visual</a></li>
+	</ul>
+	
+	<p id="visual-content-indicators">The following values are also often paired with a visual access mode
+		to provide additional information about the type of content in visual form:</p>
+	
+	<ul>
+		<li><a href="accessMode/chartOnVisual.html">chartOnVisual</a></li>
+		<li><a href="accessMode/chemOnVisual.html">chemOnVisual</a></li>
+		<li><a href="accessMode/diagramOnVisual.html">diagramOnVisual</a></li>
+		<li><a href="accessMode/mathOnVisual.html">mathOnVisual</a></li>
+		<li><a href="accessMode/musicOnVisual.html">musicOnVisual</a></li>
+		<li><a href="accessMode/textOnVisual.html">textOnVisual</a></li>
+	</ul>
+	
+	<p>In addition the <a href="accessMode/colorDependent.html">colorDependent</a> value can be
+		paired with either visual or textual access modes to indicate that color perception is
+		necessary to understand part or all of the content.</p>
+</section>
 
-			<section id="refs">
-				<h3>Related Links</h3>
+{% include publishing/appliesto.html %}
 
-				<ul>
-					<li>Schema.org &#8212; <a href="https://schema.org/accessMode">accessMode</a></li>
-					<li>Schema.org Accessibility Vocabulary &#8212; <a 
-						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode">accessMode</a>
-					</li>
-					<li>IMS Global &#8212; 
-						<a href="https://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access 
-							For All (AfA) Digital Resource Description Specification Information Model
-							Version 3.0 Specification</a>
-					</li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>Schema.org &#8212; <a href="https://schema.org/accessMode">accessMode</a></li>
+		<li>Schema.org Accessibility Vocabulary &#8212; <a 
+			href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode">accessMode</a>
+		</li>
+		<li>IMS Global &#8212; 
+			<a href="https://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access 
+				For All (AfA) Digital Resource Description Specification Information Model
+				Version 3.0 Specification</a>
+		</li>
+	</ul>
+</section>

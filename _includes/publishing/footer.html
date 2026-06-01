@@ -1,0 +1,69 @@
+{% if page.language == "en" %}
+	{% assign path = "docs" %}
+{% else %}
+	{% assign path = page.language %}
+{% endif %}
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>{{ site.data[page.language].ui.footer.site }}</div>
+			<ul>
+				<li>
+					<a href="/publishing/{{path}}/topics.html">{{ site.data[page.language].ui.footer.topics }}</a>
+				</li>
+				<li>
+					<a href="/publishing/{{path}}/glossary">{{ site.data[page.language].ui.footer.gloss }}</a>
+				</li>
+				<li>
+					<a href="/publishing/{{path}}/new">{{ site.data[page.language].ui.footer.whatnew }}</a>
+				</li>
+				<li>
+					<a href="/publishing/{{path}}/about.html">{{ site.data[page.language].ui.footer.about }}</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">{{ site.data[page.language].ui.footer.support }}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>{{ site.data[page.language].ui.footer.feedback }}</div>
+			<ul>
+				<li>
+					<a href="/publishing/{{path}}/reporting/#bugs">{{ site.data[page.language].ui.footer.report }}</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main{{ page.url }}">{{ site.data[page.language].ui.footer.rev }}</a>
+				</li>
+				<li>
+					<a href="/publishing/{{path}}/reporting/#new">{{ site.data[page.language].ui.footer.request }}</a>
+				</li>
+				<li>
+					<a href="/publishing/{{path}}/contribute">{{ site.data[page.language].ui.footer.contrib }}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>{{ site.data[page.language].ui.footer.spec }}</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">{{ site.data[page.language].ui.footer.a11y }}</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">{{ site.data[page.language].ui.footer.epub3 }}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>{{ site.data[page.language].ui.footer.lang }}</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en"{% if page.language == 'en' %} selected=""{% endif %}>{{ site.data[page.language].ui.footer.en }}</option>
+				<option value="ja"{% if page.language == 'ja' %} selected=""{% endif %}>{{ site.data[page.language].ui.footer.ja }}</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; {{ 'now' | date: "%Y" }} {{ site.data[page.language].ui.footer.copy }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">{{ site.data[page.language].ui.footer.terms }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">{{ site.data[page.language].ui.footer.privacy }}</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	

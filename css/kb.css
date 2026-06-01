@@ -867,10 +867,15 @@ rt {
 
 /* glossary */
 
-body#glossary nav#toc ol {
+#glossary nav#toc ol {
 	max-width: 72rem;
 	grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
 	padding-left: 0;
+}
+
+dl.glossary {
+	margin-top: 4rem;
+	margin-left: 4rem
 }
 
 .glossary dt {
@@ -1096,6 +1101,26 @@ p.backtotop {
 }
 
 
+/* uncategorized root pages */
+
+section.blank {
+	margin-top: 0;
+}
+
+section.blank h2.noCategory {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+dl.navigating dt {
+	font-size: 115%;
+	color: rgb(0,0,90);
+	text-indent: 2rem;
+}
+
+
+
+
 /* zoom and mobile fixes */
 
 @media screen and (max-width: 1000px) {
@@ -1226,7 +1251,7 @@ p.backtotop {
 		padding-left: 2rem;
 	}
 	
-	body#glossary nav#toc ol {
+	#glossary nav#toc ol {
 		padding-left: 2rem;
 	}
 }

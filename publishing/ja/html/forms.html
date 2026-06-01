@@ -1,73 +1,64 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>フォーム</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/forms.html">
-		<meta name="description" content="Guidelines for the creation of accessible forms.">
-		<script>
-			var page_info = {
-				'category': 'html',
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
-	
-	<body>
-		<main>
-			<section id="summary">
-				<h3>要約</h3>
-				
-				<p>視覚的な表現に頼らず、フォームを理解しやすく操作しやすいようにします。</p>
-			</section>
-			
-			<section id="tech">
-				<h3>テクニック</h3>
-				
-				<ul>
-					<li>
-						<p>フォームコントロールの使用方法についてのラベルと説明を付けます。[[WCAG-3.3.2]]</p>
-					</li>
-					<li>
-						<p>チェックボックスやラジオボタンなどの関連するコントロールの固まりをグループ化します。[[WCAG-1.3.1]]</p>
-					</li>
-					<li>
-						<p>必須のフォームフィールドを識別します。[[WCAG-3.3.2]]</p>
-					</li>
-					<li>
-						<p>フォーム入力エラーを特定して説明します。</p>
-					</li>
-				</ul>
-			</section>
-			
-			<section id="desc">
-				<h3>解説</h3>
-				<p>フォームを効果的に使用するための最大の障壁の1つは、フォームのレイアウトについての理解と移動です。ユーザーの助けになるように、フォームコントロールには常に<code>label</code>要素を使用して明確にラベルを付けてください。</p>
+---
+title: フォーム
+language: ja
+description: Guidelines for the creation of accessible forms.
+category: ['html']
+canonical: https://kb.daisy.org/publishing/ja/html/forms.html
+appliesTo: ['Audiobooks*','EPUB3','EPUB2']
+layout: publishing/pages/topic
+---
 
-				<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;label id="label" for="fname"&gt;First name:&lt;/label&gt;
+<section id="summary">
+	<h3>要約</h3>
+	
+	<p>視覚的な表現に頼らず、フォームを理解しやすく操作しやすいようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>フォームコントロールの使用方法についてのラベルと説明を付けます。[[WCAG-3.3.2]]</p>
+		</li>
+		<li>
+			<p>チェックボックスやラジオボタンなどの関連するコントロールの固まりをグループ化します。[[WCAG-1.3.1]]</p>
+		</li>
+		<li>
+			<p>必須のフォームフィールドを識別します。[[WCAG-3.3.2]]</p>
+		</li>
+		<li>
+			<p>フォーム入力エラーを特定して説明します。</p>
+		</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	<p>フォームを効果的に使用するための最大の障壁の1つは、フォームのレイアウトについての理解と移動です。ユーザーの助けになるように、フォームコントロールには常に<code>label</code>要素を使用して明確にラベルを付けてください。</p>
+
+	<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;label id="label" for="fname"&gt;First name:&lt;/label&gt;
 
 &lt;input type="text"
       id="fname"
       name="first-name"/&gt;</code></pre>
 
-				<p><code>for</code>属性は、ラベルをそのコントロールに明示的に関連付けるために使用されます。 <code>label</code>内にコントロールを含んでいる場合にも、この属性を付けるべきです。</p>
+	<p><code>for</code>属性は、ラベルをそのコントロールに明示的に関連付けるために使用されます。 <code>label</code>内にコントロールを含んでいる場合にも、この属性を付けるべきです。</p>
 
-				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label id="label" for="q1a"&gt;
+	<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label id="label" for="q1a"&gt;
    &lt;input type="radio"
         id="q1a"
         name="q1-answer"/&gt; a. Apples
 &lt;/label&gt;</code></pre>
 
-				<div class="note" role="note" aria-labelledby="note-1">
-					<p id="note-1" class="label">注記</p>
-					<p>フォームコントロールが<code>label</code>によって識別されない場合は、コントロールの<code>aria-labelledby</code>属性を使用して、ラベルを含む要素を示します。</p>
-				</div>
+	<div class="note" role="note" aria-labelledby="note-1">
+		<p id="note-1" class="label">注記</p>
+		<p>フォームコントロールが<code>label</code>によって識別されない場合は、コントロールの<code>aria-labelledby</code>属性を使用して、ラベルを含む要素を示します。</p>
+	</div>
 
-				<p>追加の指示（テキスト制限や文字制限など）を付ける場合は、ラベル内にそれらを組み込んで、ユーザーがすぐに情報を利用できるようにしてください。これが難しい場合は、追加の指示を含む要素を示すコントロールにaria-describedby属性を追加してください。</p>
+	<p>追加の指示（テキスト制限や文字制限など）を付ける場合は、ラベル内にそれらを組み込んで、ユーザーがすぐに情報を利用できるようにしてください。これが難しい場合は、追加の指示を含む要素を示すコントロールにaria-describedby属性を追加してください。</p>
 
-				<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;label for="uname"&gt;User name:&lt;/label&gt;
+	<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;label for="uname"&gt;User name:&lt;/label&gt;
 
 &lt;input type="text"
       id="uname"
@@ -79,26 +70,26 @@
    length and contain only alphanumeric characters.
 &lt;/span&gt;</code></pre>
 
-				<p>支援技術を使用するユーザーが視覚的な手がかりがなくても認識できるように、必須フィールドにはHTML5の<code>required</code>属性の付与が必要です。</p>
+	<p>支援技術を使用するユーザーが視覚的な手がかりがなくても認識できるように、必須フィールドにはHTML5の<code>required</code>属性の付与が必要です。</p>
 
-				<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input type="text"
+	<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;input type="text"
       id="uname"
       name="username"
       aria-describedby="req"
       required="required"
       aria-required="true"/&gt;</code></pre>
 
-				<div class="note" role="note" aria-labelledby="note-2">
-					<p id="note-2" class="label">注記</p>
-					<p>すべての支援技術が新しいHTML5属性を認識できるとは限らないので、<code>aria-required</code>属性の付与が推奨されます。</p>
-				</div>
+	<div class="note" role="note" aria-labelledby="note-2">
+		<p id="note-2" class="label">注記</p>
+		<p>すべての支援技術が新しいHTML5属性を認識できるとは限らないので、<code>aria-required</code>属性の付与が推奨されます。</p>
+	</div>
 
-				<p class="bridgehead">検証</p>
+	<p class="bridgehead">検証</p>
 
-				<p>フォームにユーザーによる修正が必須な無効データが含まれている場合（訳注：ユーザーが無効データをフォームに入力した場合等）、各フィールドに<code>aria-invalid</code>属性を追加し、支援技術によってそれらのフィールドをすばやく識別して、ユーザーをそのフィールドに移動できるようにします。</p>
+	<p>フォームにユーザーによる修正が必須な無効データが含まれている場合（訳注：ユーザーが無効データをフォームに入力した場合等）、各フィールドに<code>aria-invalid</code>属性を追加し、支援技術によってそれらのフィールドをすばやく識別して、ユーザーをそのフィールドに移動できるようにします。</p>
 
 
-				<pre id="ex-05-src" class="prettyprint linenums"><code>if (country.value == 'US' &amp;&amp; zip.value = '') {
+	<pre id="ex-05-src" class="prettyprint linenums"><code>if (country.value == 'US' &amp;&amp; zip.value = '') {
    zip.setAttribute('aria-invalid', true);
 }
 
@@ -106,11 +97,11 @@ else {
    zip.setAttribute('aria-invalid', false);
 }</code></pre>
 
-				<p>フォーム要素にデフォルトの状況では<code>aria-valid</code>を付けないでください。ユーザーがフォームを送信するまでは、フォーム内のフィールドは有効でも無効でもありません。</p>
+	<p>フォーム要素にデフォルトの状況では<code>aria-valid</code>を付けないでください。ユーザーがフォームを送信するまでは、フォーム内のフィールドは有効でも無効でもありません。</p>
 
-				<p>すべてのユーザーの体験向上のため、フォームフィールドに、正規表現によって検証が行える新しいHTML5の<code>pattern</code>属性の使用を検討してください。問題があればすぐにユーザーに警告され、送信するまで待つ必要がありません。<code>pattern</code>属性による検証を使用する場合は、要件を説明するために必ず<code>title</code>属性も付けてください。ユーザー名フィールドでは、次のように文字数と文字の種類を制限できます。</p>
+	<p>すべてのユーザーの体験向上のため、フォームフィールドに、正規表現によって検証が行える新しいHTML5の<code>pattern</code>属性の使用を検討してください。問題があればすぐにユーザーに警告され、送信するまで待つ必要がありません。<code>pattern</code>属性による検証を使用する場合は、要件を説明するために必ず<code>title</code>属性も付けてください。ユーザー名フィールドでは、次のように文字数と文字の種類を制限できます。</p>
 
-				<pre id="ex-06-src" class="prettyprint linenums small"><code>&lt;input type="text"
+	<pre id="ex-06-src" class="prettyprint linenums small"><code>&lt;input type="text"
       id="uname"
       name="username"
       aria-labelledby="username-label"
@@ -118,16 +109,15 @@ else {
       title="User names must be 8 to 16 alphanumeric characters"
       required="required"
       aria-required="true" /&gt;</code></pre>
-			</section>
+</section>
 
-			<section id="refs">
-				<h3>関連リンク</h3>
+{% include publishing/appliesto.html %}
 
-				<ul>
-					<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">&lt;form&gt;</a> </li>
-					<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sec-forms.html#sec-forms">フォーム</a> </li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">&lt;form&gt;</a> </li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sec-forms.html#sec-forms">フォーム</a> </li>
+	</ul>
+</section>

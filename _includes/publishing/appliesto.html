@@ -1,0 +1,44 @@
+{% if page.appliesTo %}
+<section id="applies-to">
+	<h3>{{ site.data[page.language].ui.UI.applies }}</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				{% if page.appliesTo contains "EPUB3" %}
+				<td class="yes">{{ site.data[page.language].ui.appliesTo.yes }}</td>
+				{% else %}
+				<td class="no">{{ site.data[page.language].ui.appliesTo.no }}</td>
+				{% endif %}
+				
+				{% if page.appliesTo contains "EPUB2" %}
+				<td class="yes">{{ site.data[page.language].ui.appliesTo.yes }}</td>
+				{% else %}
+				<td class="no">{{ site.data[page.language].ui.appliesTo.no }}</td>
+				{% endif %}
+				
+				{% if page.appliesTo contains "Audiobooks" or page.appliesTo contains "Audiobooks*" %}
+				{% if page.appliesTo contains "Audiobooks" %}
+				<td class="yes">{{ site.data[page.language].ui.appliesTo.yes }}</td>
+				{% else %}
+				<td class="partial">{{ site.data[page.language].ui.appliesTo.partial }} <a href="#aud01" role="doc-noteref">*</a></td>
+				{% endif %}
+				{% else %}
+				<td class="no">{{ site.data[page.language].ui.appliesTo.no }}</td>
+				{% endif %}
+			</tr>
+		</tbody>
+	</table>
+	
+	{% if page.appliesTo contains "Audiobooks*" %}
+	<p id="aud01" class="small" role="doc-footnote">{{ site.data[page.language].ui.appliesTo.partialNote }}</p>
+	{% endif %}
+	
+</section>
+{% endif %}
+	

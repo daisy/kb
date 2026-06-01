@@ -1,104 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>audioDescription</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature/audioDescription.html">
-		<meta name="description" content="Guidelines for using the schema.org accessibilityFeature property's audioDescription value">
-		<script>
-			var page_info = {
-				'category': ['metadata', 'meta-schema', 'accessibilityfeature'],
-				'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
+---
+title: audioDescription
+language: en
+description: Guidelines for using the schema.org accessibilityFeature property's audioDescription value
+category: ['metadata','schema.org','accessibilityFeature']
+canonical: https://kb.daisy.org/publishing/docs/metadata/schema.org/accessibilityFeature/audioDescription.html
+appliesTo: ['Audiobooks','EPUB3','EPUB2']
+layout: publishing/pages/topic
+---
 
-	<body>
-		<main>
-			<section id="def">
-				<h3>Definition</h3>
-				
-				<p class="desc">Audio descriptions are available (e.g., via an [HTML] track element with its kind attribute set to "descriptions").</p>
-			</section>
-			
-			<section id="ex">
-				<h3>Examples</h3>
-				
-				<figure id="ex-epub3">
-					<figcaption>
-						<div class="label">Example 1 &#8212; EPUB 3</div>
-					</figcaption>
-					<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">
+<section id="def">
+	<h3>Definition</h3>
+	
+	<p class="desc">Audio descriptions are available (e.g., via an [HTML] track element with its kind attribute set to "descriptions").</p>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-epub3">
+		<figcaption>
+			<div class="label">Example 1 &#8212; EPUB 3</div>
+		</figcaption>
+		<pre id="ex-epub3-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityFeature">
    audioDescription
 &lt;/meta></code></pre>
-				</figure>
-				
-				<figure id="ex-epub2">
-					<figcaption>
-						<div class="label">Example 2 &#8212; EPUB 2</div>
-					</figcaption>
-					<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
+	</figure>
+	
+	<figure id="ex-epub2">
+		<figcaption>
+			<div class="label">Example 2 &#8212; EPUB 2</div>
+		</figcaption>
+		<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityFeature"
       content="audioDescription"/></code></pre>
-				</figure>
-				
-				<figure id="ex-audiobooks">
-					<figcaption>
-						<div class="label">Example 3 &#8212; Audiobooks</div>
-					</figcaption>
-					<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["audioDescription"]</code></pre>
-				</figure>
-			</section>
-			
-			<section id="desc">
-				<h3>Explanation</h3>
-				
-				<p>The <a 
-					href="https://www.w3.org/2021/a11y-discov-vocab/latest/#audioDescription"><code>audioDescription</code></a>
-					value indicates that description tracks are included for any video sources that
-					require them.</p>
-				
-				<p>Audio descriptions differ from <a href="#captions">captions</a> and subtitles in that they
-					describe the actions that are occurring in the video (i.e., they provide more information
-					that just what is being spoken). Audio descriptions are most helpful when the content cannot
-					be seen.</p>
-				
-				<figure id="ex-ad">
-					<figcaption>
-						<p class="label">Audio description provided for an HTML video using a <code>track</code>
-							element.</p>
-					</figcaption>
-					<pre id="ex-ad-src" class="prettyprint">&lt;video>
+	</figure>
+	
+	<figure id="ex-audiobooks">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Audiobooks</div>
+		</figcaption>
+		<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityFeature": ["audioDescription"]</code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The <a 
+		href="https://www.w3.org/2021/a11y-discov-vocab/latest/#audioDescription"><code>audioDescription</code></a>
+		value indicates that description tracks are included for any video sources that
+		require them.</p>
+	
+	<p>Audio descriptions differ from <a href="#captions">captions</a> and subtitles in that they
+		describe the actions that are occurring in the video (i.e., they provide more information
+		that just what is being spoken). Audio descriptions are most helpful when the content cannot
+		be seen.</p>
+	
+	<figure id="ex-ad">
+		<figcaption>
+			<p class="label">Audio description provided for an HTML video using a <code>track</code>
+				element.</p>
+		</figcaption>
+		<pre id="ex-ad-src" class="prettyprint">&lt;video>
 &lt;source src="speech.mp4" type="video/mp4"/>
 &lt;track src="description.vtt" kind="descriptions" srclang="en" label="English"/>
 &lt;/video><code></code></pre>
-				</figure>
-				
-				<div class="note" role="note" aria-labelledby="ad-note">
-					<p id="ad-note" class="label">Note</p>
-					<p>The HTML <code>audio</code> element cannot be used to render audio descriptions, as it
-						does not provide a display area for them.</p>
-				</div>
-			</section>
-			
-			<section id="onix">
-				<h3>ONIX Mapping</h3>
-				
-				<p>The <code>audioDescription</code> value maps to <a href="https://ns.editeur.org/onix/en/175">list
-						175</a> code V215 ("Audio description of video").</p>
-			</section>
-			
-			<section id="refs">
-				<h3>Related Links</h3>
-				
-				<ul>
-					<li>Schema.org &#8212; <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a></li>
-					<li>Schema.org Accessibility Vocabulary &#8212; <a 
-						href="https://www.w3.org/2021/a11y-discov-vocab/latest/#audioDescription">audioDescription</a>
-					</li>
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+	</figure>
+	
+	<div class="note" role="note" aria-labelledby="ad-note">
+		<p id="ad-note" class="label">Note</p>
+		<p>The HTML <code>audio</code> element cannot be used to render audio descriptions, as it
+			does not provide a display area for them.</p>
+	</div>
+</section>
+
+<section id="onix">
+	<h3>ONIX Mapping</h3>
+	
+	<p>The <code>audioDescription</code> value maps to <a href="https://ns.editeur.org/onix/en/175">list
+			175</a> code V215 ("Audio description of video").</p>
+</section>
+
+{% include publishing/appliesto.html %}
+
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ul>
+		<li>Schema.org &#8212; <a href="https://schema.org/accessibilityFeature">accessibilityFeature</a></li>
+		<li>Schema.org Accessibility Vocabulary &#8212; <a 
+			href="https://www.w3.org/2021/a11y-discov-vocab/latest/#audioDescription">audioDescription</a>
+		</li>
+	</ul>
+</section>

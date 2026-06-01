@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>HTML（エイチ ティー エム エル）</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/index.html">
-		<meta name="description" content="Index of HTML-related topics for producing accessible digital publications.">
-		<script>
-			var page_info = {
-				'category': 'html',
-				'isIndex': true,
-				'root_id': 'html'
-			};
-		</script>
-		<script src="/js/init.js"></script>
-	</head>
-	
-	<body>
-		<main>
-		</main>
-	</body>
-</html>
+---
+title: HTML（エイチ ティー エム エル）
+category: ['html']
+language: ja
+description: Index of HTML-related topics for producing accessible digital publications
+canonical: https://kb.daisy.org/publishing/ja/html/
+layout: publishing/pages/index
+index: true
+topics: true
+---
+
+{% assign cat = page.category[0] %}
+{% include publishing/topic_index.html category=cat %}
