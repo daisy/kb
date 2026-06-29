@@ -63,72 +63,6 @@ layout: publishing/pages/topic
 &lt;/figure></code></pre>
 	</figure>
 	
-	<figure id="ex-02">
-		<figcaption>
-			<div class="label">Example &#8212; Extended description in <code>details</code></div>
-			<p>The following example uses the HTML <code>details</code> element to create a description that is
-				collapsed from view by default. The <code>aria-details</code> attribute is used to associate
-				the image with the description.</p>
-		</figcaption>
-		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
-   &lt;figcaption>
-      The hydrologic cycle.
-   &lt;/figcaption>
-   &lt;img
-      src="graphics/water-cycle.jpg"
-      aria-details="fig-01-desc"
-      alt="The hydrologic cycle, showing the 
-        circular nature of the process as water 
-        evaporates from a body of water and 
-        eventually returns to it"/>
-&lt;/figure>
-&lt;details id="fig-01-desc">
-   &lt;summary>Description&lt;/summary>
-   &lt;p>
-      The diagram shows the processes of 
-      evaporation, condensation,
-      evapotranspiration, water storage
-      in ice and snow, and precipitation.
-      A large body of water &#8230;
-   &lt;/p>
-&lt;/details></code></pre>
-	</figure>
-	
-	<figure id="ex-04">
-		<figcaption>
-			<div class="label">Example &#8212; Hidden description</div>
-			<p>The following example uses the <code>aria-describedBy</code> attribute to link to a hidden
-				description, leaving no visual indication at all that a description is available.</p>
-			<p>Note that <strong>support for this attribute is poor in EPUB</strong>, particularly when referencing
-				hidden content. While valid, it may prevent any users from reaching the description, so should be
-				used with caution. The Open Web Platform is moving away from hidden content that can only be
-				accessed via assistive technologies.</p>
-			<p>This technique is not recommended if the description contains structured markup like tables or
-				lists, as all tagging is stripped and only the text content read to users.</p>
-		</figcaption>
-		<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
-   &lt;img
-      src="graphics/water-cycle.jpg"
-      alt="The hydrologic cycle, showing the 
-        circular nature of the process as water 
-        evaporates from a body of water and 
-        eventually returns to it"
-      aria-describedby="desc01"/>
-   &lt;figcaption>
-     The hydrologic cycle.
-     &lt;aside id="desc01" hidden="hidden">
-        &lt;p>
-           The diagram shows the processes of 
-           evaporation, condensation,
-           evapotranspiration, water storage
-           in ice and snow, and precipitation.
-           A large body of water &#8230;
-        &lt;/p>
-     &lt;/aside>
-   &lt;/figcaption>
-&lt;/figure></code></pre>
-	</figure>
-	
 	<figure id="ex-05">
 		<figcaption>
 			<div class="label">Example &#8212; Image with label and caption on opposite sides</div>
@@ -305,14 +239,14 @@ layout: publishing/pages/topic
 	
 	<p>The following sections explain some of the better supported methods for adding extended descriptions
 		to images. Other methods are possible, but support in reading systems is often not as robust as in
-		browsers. For testing information, refer to the DIAGRAM Center's <a 
-			href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
-			Practices for Authoring Extended Descriptions in EPUB</a>.</p>
+		browsers. For testing information, refer to <a 
+			href="https://inclusivepublishing.org/ExtendedDescriptionsBestPractices">DAISY's Best Practices for
+			Implementing Extended Descriptions in EPUB</a>.</p>
 	
 	<section id="hyperlinks">
 		<h4>Hyperlinks</h4>
 		
-		<p>Plain old hyperlinks are one of the most widely accessible ways to direct users to a
+		<p>Plain old hyperlinks are the most widely accessible way to direct users to a
 			description. Adding an <code>aria-details</code> attribute to the image enables
 			assistive technologies to make the link available to the user when they encounter the
 			image instead of having to search for the link after.</p>
@@ -326,7 +260,7 @@ layout: publishing/pages/topic
 		<p>Note that a hyperlink does not always have to reference a description in another document;
 			descriptions might be included at the end of a section, like footnotes.</p>
 		
-		<p>In EPUB, when possible, the linked description should be in a file by itself to avoid issues
+		<p>When possible, the linked description should be in a file by itself to avoid issues
 			reaching the description (i.e., not all reading systems are able to locate the user properly 
 			when there are multiple descriptions in the same file). If there are many images, however,
 			adding each description to a separate file can bloat the spine (i.e., every description file
@@ -335,30 +269,112 @@ layout: publishing/pages/topic
 		<p>An image can be used to minimize the appearance of the link, but EPUB some reading systems
 			have issues with image links (they cannot be activated).</p>
 		
-		<p>Despite these shortcomings, however, hyperlinks are one of the more reliable techniques
-			currently supported in EPUB.</p>
+		<p>Despite these shortcomings, however, hyperlinks are the most reliable technique currently
+			supported in EPUB.</p>
 	</section>
 	
-	<section id="details">
-		<h4>The <code>details</code> element</h4>
+	<section id="poor-support">
+		<h4>Poorly supported techniques</h4>
 		
-		<p>The <code>details</code> element provides a collapsible means of including a description
-			for an image. The advantage of this element is that it allows both sighted and non-sighted
-			readers access to the description at their discretion (i.e., sighted readers can choose
-			whether to expand and read the description just as assistive technologies users can decide
-			whether to have the text read out).</p>
+		<p>The following techniques are often mentioned in guidelines for accessible HTML content, but
+			although they work well in browsers, their support in EPUB reading systems is currently limited.
+			Use of these techniques is only recommended if there is no better option available.</p>
 		
-		<p>Support for this element is not yet universal in EPUB, however. The element text may always
-			be open by default, and expanding the element when initially closed can cause problems with the
-			pagination produced by user agents (e.g., opening the element pushes content at the bottom of
-			the page out of view).</p>
+		<section id="hidden">
+			<h4>The <code>aria-describedBy</code> attribute</h4>
+			
+			<p>The <code>aria-describedBy</code> attribute allows a description to be linked directly
+				to an image. The description must be contained in an element in the same file as the image.
+				The ID of the element containing the description is the referenced from the 
+				<code>aria-describedBy</code> attribute.</p>
+			
+			<figure id="ex-04">
+				<figcaption>
+					<div class="label">Example &#8212; Hidden description</div>
+				</figcaption>
+				<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"
+      aria-describedby="desc01"
+   &lt;figcaption>
+     The hydrologic cycle.
+     &lt;aside id="desc01">
+        &lt;h4>Description of hydrologic cycle&lt;/h4>
+        &lt;p>
+           The diagram shows the processes of 
+           evaporation, condensation,
+           evapotranspiration, water storage
+           in ice and snow, and precipitation.
+           A large body of water &#8230;
+        &lt;/p>
+     &lt;/aside>
+   &lt;/figcaption>
+&lt;/figure></code></pre>
+			</figure>
+			
+			<p>The element containing the description can be either visible or hidden content, although
+				it is generally not recommended to reference hidden content due to poor support in EPUB
+				reading systems. If the reading system does not support the <code>aria-describedby</code>
+				attribute, a visible description will still be accessible to all users.
+				
+			<p>Use of the <code>aria-describedby</code> attribute is not recommended when a description
+				contains structured markup like tables or lists, as all tagging is stripped and only the
+				text content is read to users.</p>
+		</section>
 		
-		<p>To use the element in EPUB publications, it is also recommended to put the element immediately
-			after a closing <code>figure</code> tag when the description is for a figure. The element often
-			does not work when included inside a <code>figure</code>.</p>
-		
-		<p>Despite these shortcomings, this element is still one of the more reliable techniques currently
-			supported in EPUB.</p>
+		<section id="details">
+			<h4>The <code>details</code> element</h4>
+			
+			<p>The <code>details</code> element provides a collapsible means of including a description
+				for an image. The advantage of this element is that it allows both sighted and non-sighted
+				readers access to the description at their discretion (i.e., sighted readers can choose
+				whether to expand and read the description just as assistive technologies users can decide
+				whether to have the text read out).</p>
+			
+			<p>Support for this element is not yet universal in EPUB, however. The element text may always
+				be open by default, and expanding the element when initially closed can cause problems with the
+				pagination produced by user agents (e.g., opening the element pushes content at the bottom of
+				the page out of view).</p>
+			
+			<p>If the <code>details</code> element must be used with a <code>figure</code> tag, put it immediately after 
+				the closing <code>&lt;/figure></code> tag. The <code>details</code> element often does not work when 
+				included inside a <code>figure</code>.</p>
+			
+			<figure id="ex-06">
+				<figcaption>
+					<div class="label">Example &#8212; Extended description in <code>details</code></div>
+					<p>The following example uses the HTML <code>details</code> element to create a description that is
+						collapsed from view by default. The <code>aria-details</code> attribute is used to associate
+						the image with the description.</p>
+				</figcaption>
+				<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure id="fig-01">
+   &lt;figcaption>
+      The hydrologic cycle.
+   &lt;/figcaption>
+   &lt;img
+      src="graphics/water-cycle.jpg"
+      aria-details="fig-01-desc"
+      alt="The hydrologic cycle, showing the 
+        circular nature of the process as water 
+        evaporates from a body of water and 
+        eventually returns to it"/>
+&lt;/figure>
+&lt;details id="fig-01-desc">
+   &lt;summary>Description&lt;/summary>
+   &lt;p>
+      The diagram shows the processes of 
+      evaporation, condensation,
+      evapotranspiration, water storage
+      in ice and snow, and precipitation.
+      A large body of water &#8230;
+   &lt;/p>
+&lt;/details></code></pre>
+			</figure>
+		</section>
 	</section>
 </section>
 
@@ -367,9 +383,9 @@ layout: publishing/pages/topic
 <section id="refs">
 	<h3>Related Links</h3>
 	<ul>
-		<li>DIAGRAM &#8212; <a 
-			href="http://diagramcenter.org/best-practices-for-authoring-extended-descriptions.html">Best
-			Practices for Authoring Extended Descriptions in EPUB</a></li>
+		<li>DAISY &#8212; <a 
+				href="https://inclusivepublishing.org/ExtendedDescriptionsBestPractices">Best Practices for
+				Implementing Extended Descriptions in EPUB</a></li>
 		<li>DIAGRAM &#8212; <a href="https://poet.diagramcenter.org/">POET Image Description Training
 			Tool</a></li>
 		<li>MDN &#8212; <a

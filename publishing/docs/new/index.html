@@ -50,94 +50,15 @@ layout: publishing/pages/blank
 	
 	<div id="update-list">
 		<dl class="value">
-			<dt>October 6, 2025 — <code>doc-pullquote</code> role tagging updated</dt>
+			<dt>June 29, 2026 — Image description techniques updated</dt>
 			<dd>
-				<p>The <code>doc-pullquote</code> role was corrected in DPUB-ARIA 1.1 to inherit its
-					semantics from the <code>section</code> role not <code>none</code>. This means
-					the guidance on adding a fallback <code>presentation</code> role no longer
-					applies. The <a href="../html/dpub-aria/doc-pullquote.html">page on <code>doc-pullquote</code></a>
-					in the knowledge base has been updated to reflect this revised usage.</p>
-			</dd>
-			
-			<dt>September 22, 2025 — Access mode and sufficient access mode updates</dt>
-			<dd>
-				<p>The <a href="../metadata/schema.org/accessMode.html">access mode</a>
-					and <a href="../metadata/schema.org/accessModeSufficient.html">sufficient access
-						mode</a> values are now covered in their own pages, providing updated information,
-					examples, and mappings to their ONIX equivalents.</p>
-				<p>The coverage of access modes has also been updated to the include visual content indicators -
-					<a href="../metadata/schema.org/accessMode/chartOnVisual.html"><code>chartOnVisual</code></a>,
-					<a href="../metadata/schema.org/accessMode/chemOnVisual.html"><code>chemOnVisual</code></a>,
-					<a href="../metadata/schema.org/accessMode/colorDependent.html"><code>colorDependent</code></a>,
-					<a href="../metadata/schema.org/accessMode/diagramOnVisual.html"><code>diagramOnVisual</code></a>,
-					<a href="../metadata/schema.org/accessMode/mathOnVisual.html"><code>mathOnVisual</code></a>,
-					<a href="../metadata/schema.org/accessMode/musicOnVisual.html"><code>musicOnVisual</code></a>, and
-					<a href="../metadata/schema.org/accessMode/textOnVisual.html"><code>textOnVisual</code></a>.</p>
-			</dd>
-			
-			<dt>August 28, 2025 — Accessibility hazards updates</dt>
-			<dd>
-				<p>The <a href="../metadata/schema.org/accessibilityHazard.html">accessibility hazard values</a>
-					are now covered in their own pages, providing updated information, examples of each value,
-					and mappings to their ONIX equivalents.</p>
-				<p>The coverage of values has also been updated to include the individual unknown
-					hazard properties -
-					<a href="../metadata/schema.org/accessibilityHazard/unknownFlashingHazard.html"><code>unknownFlashingHazard</code></a>,
-					<a href="../metadata/schema.org/accessibilityHazard/unknownMotionSimulationHazard.html"><code>unknownMotionSimulationHazard</code></a>, and
-					<a href="../metadata/schema.org/accessibilityHazard/unknownSoundHazard.html"><code>unknownSoundHazard</code></a>.
-				</p>
-			</dd>
-			
-			<dt>August 26, 2025 — Accessibility feature updates</dt>
-			<dd>
-				<p>New pages are now available describing how to use the recently added <code>latex-chemistry</code>
-					and <code>MathML-chemistry</code> pages.</p>
-				<p>The guidance on using the <code>annotations</code> value has been removed as the value
-					has been deprecated.</p>
-			</dd>
-			
-			<dt>August 26, 2025 — Added mappings from acceessibility features to ONIX</dt>
-			<dd>
-				<p>The <a href="../metadata/schema.org/accessibilityFeature.html">accessibilityFeature</a> 
-					value pages now include mappings to their ONIX counterparts.</p>
-			</dd>
-			
-			<dt>August 25, 2025 — Added coverage of ONIX codelist 81</dt>
-			<dd>
-				<p><a href="../metadata/onix/">Codelist 81</a> describes the type of content in a publication.
-					It is equivalent to the <a href="../metadata/schema.org/accessMode.html">schema.org access
-						modes</a>.</p>
-			</dd>
-			
-			<dt>August 12, 2025 — Added coverage of ONIX codelist 143</dt>
-			<dd>
-				<p>The section on ONIX metadata has been expanded to include coverage of <a 
-						href="../metadata/onix/codelist-143/">codelist 143</a>. This list defines codes
-					for expressing information about potential hazards.</p>
-			</dd>
-			
-			<dt>August 8, 2025 — ONIX metadata section expanded</dt>
-			<dd>
-				<p>The ONIX metadata page has been replaced by new pages that individually cover each of 
-					the <a href="../metadata/onix/codelist-196/">codes in list 196</a>. The update also adds
-					coverage of all the new codes added in recent ONIX updates. Future updates will add
-					coverage of codes outside of list 196 that are used to express accessibility information.</p>
-			</dd>
-			
-			<dt>July 8, 2025 — Prioritizing links to image descriptions</dt>
-			<dd>
-				<p>The page on <a href="https://kb.daisy.org/publishing/docs/html/images-desc.html">providing
-						image descriptions</a> has been updated to prioritize the current best practice of
-					using the <code>aria-details</code> attribute to reference a hyperlink to the
-					description.</p>
-			</dd>
-			
-			<dt>April 2, 2025 — Knowledge base now available in Japanese</dt>
-			<dd>
-				<p>The knowledge base has been <a href="https://kb.daisy.org/publishing/ja/">translated into
-						Japanese</a>. It is also available to Japanese users in the <a 
-							href="https://daisy.org/activities/software/ace/">Ace by DAISY</a> validation 
-					tool.</p>
+				<p>The <a href="../html/images-desc.html">image description techniques</a> have been updated to
+					reflect recent changes to the recommendations in the <a 
+						href="https://inclusivepublishing.org/ExtendedDescriptionsBestPractices">DAISY Best Practices
+						for Implementing Extended Descriptions in EPUB</a>.</p>
+				<p>The use of hyperlinked descriptions remains the preferred technique, but the use of the
+					<code>details</code> element is no longer recommended at this time due to support issues
+					in reading systems.</p>
 			</dd>
 		</dl>
 	</div>
