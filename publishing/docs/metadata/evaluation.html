@@ -119,7 +119,7 @@ addh4: true
 </section>
 
 <section id="desc">
-	<h3>Explanation</h3>
+	<h3>Properties</h3>
 
 	<p>Evaluation metadata provides additional information about the individual or organization that has
 		assessed a publication against accessibility standards. It also allows identification of the
@@ -141,39 +141,48 @@ addh4: true
 			that someone has checked and confirmed the publication conforms to a standard. The value of the
 			element is a string or URL that identifies the standard.</p>
 		
-		<p id="syntax-11">In particular, the EPUB Accessibility 1.1 standard uses this property to identify 
-			publications that conform to its requirements. The value of the property identifies both the
-			version of the standard the publication conforms to as well as the version and level of <a
-				href="../conformance/wcag.html">WCAG conformance</a>, and must match the following
+		<p id="syntax-11">In particular, the EPUB Accessibility standard from version 1.1 onward uses this
+			property to identify publications that conform to its requirements. The value of the property
+			identifies both the version of the standard the publication conforms to as well as the version
+			and level of <a href="../conformance/wcag.html">WCAG conformance</a>, and must match the following
 			pattern:</p>
 		
 		<blockquote>
-			<code>EPUB Accessibility 1.1 - WCAG 2.X Level (A|AA|AAA)</code>
+			<code>EPUB Accessibility <var>X</var> - WCAG <var>Y</var> Level <var>Z</var></code>
 		</blockquote>
 		
-		<p>The value "<code>2.X</code>" is replaced by the version of WCAG (e.g., 2.0 or 2.1) and
-			"<code>(A|AA|AAA)</code>" is replaced by which of those levels was achieved.</p>
+		<p>where:</p>
 		
-		<p>For example, the following values are currently valid to use with this property:</p>
+		<ul>
+			<li><var>X</var> is replaced by the version of the <a href="https://www.w3.org/TR/epub-a11y/">W3C
+					EPUB Accessibility standard.</a>
+				(1.1 or higher).</li>
+			<li><var>Y</var> is replaced by the version of WCAG 2 (2.0, 2.1, or 2.2).</li>
+			<li><var>Z</var> is replaced by the WCAG conformance level that was achieved
+				(A, AA, or AAA).</li>
+		</ul>
+		
+		<p>For example, the following values are currently valid to use with this property to indicate
+			conformance to the EPUB Accessibility 1.2 standard at WCAG 2 Level A or AA:</p>
 		
 		<ul>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.0 Level A</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.2 Level AA</code>
 			</li>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AA</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.2 Level A</code>
 			</li>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.0 Level AAA</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.1 Level AA</code>
 			</li>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.1 Level A</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.1 Level A</code>
 			</li>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AA</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.0 Level AA</code>
 			</li>
 			<li>
-				<code>EPUB Accessibility 1.1 - WCAG 2.1 Level AAA</code>
+				<code>EPUB Accessibility 1.2 - WCAG 2.0 Level A</code>
 			</li>
 		</ul>
 		
@@ -185,19 +194,19 @@ addh4: true
 			<dt>EPUB 3 usage:</dt>
 			<dd>
 				<pre id="expl-01-src" class="prettyprint linenums small"><code>&lt;meta property="dcterms:conformsTo">
-  EPUB Accessibility 1.1 - WCAG 2.0 Level AA
+  EPUB Accessibility 1.2 - WCAG 2.2 Level AA
 &lt;/meta></code></pre>
 			</dd>
 			<dt>EPUB 2 usage:</dt>
 			<dd>
 				<pre id="expl-02-src" class="prettyprint linenums small"><code>&lt;meta
   name="dcterms:conformsTo"
-  content="EPUB Accessibility 1.1 - WCAG 2.0 Level AA"/></code></pre>
+  content="EPUB Accessibility 1.2 - WCAG 2.2 Level AA"/></code></pre>
 			</dd>
 		</dl>
 		
 		<section id="a11y-transition">
-			<h5>Transitioning from EPUB Accessibility 1.0 to 1.1</h5>
+			<h5>Transitioning from EPUB Accessibility 1.0</h5>
 			
 			<p>The EPUB Accessibility 1.0 specification was developed by the <a 
 				href="https://idpf.org/">IDPF</a> and used conformance URLs that <a 
@@ -211,16 +220,24 @@ addh4: true
      rel="dcterms:conformsTo"
      href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aa"/></code></pre>
 			
-			<p>As IDPF no longer exists, the EPUB Working Group decided to drop the use of IDPF URLs for
-				the conformance identifier and move to the <a href="#syntax-11">string-based identifier
-					system</a> described earlier. While the IDPF URLs remain valid for existing 1.0
-				content, publishers conforming to the Accessibility 1.0 requirements are encouraged to move
-				to declaring conformance to the new 1.1 specification.</p>
+			<p>As IDPF no longer exists, the W3C Publishing Working Group decided to drop the
+				use of IDPF URLs for the conformance identifier and move to the <a 
+					href="#syntax-11">string-based identifier system</a> described earlier. While the
+				IDPF URLs remain valid for existing 1.0 content, publishers conforming to the
+				Accessibility 1.0 requirements are encouraged to move to declaring conformance
+				to the new W3C standard.</p>
 			
-			<p><strong>Publications that conform to the EPUB Accessibility 1.0 standard also conform to
-				the 1.1 standard at the same WCAG level.</strong></p>
+			<p>Publications that conformed to the IDPF 1.0 standard also conform to the 1.1 of the W3C standard.
+				The following list maps the old identifiers to their latest replacements:</p>
 			
-			<p>The following list maps the old identifiers to their replacements:</p>
+			<div class="note" role="note" aria-labelledby="support-note">
+				<p id="support-note" class="label">Note</p>
+				
+				<p>Due to changes in metadata requirements in the EPUB Accessibility 1.2 standard, EPUB publications
+					that conformed to the 1.0 standard cannot automatically declare declare conformance to 1.2 to
+					above. Conformance to the latest discoverability metadata and EPUB requirements will first have
+					to be confirmed.</p>
+			</div>
 			
 			<dl class="conf-map">
 				<dt>WCAG 2.0 Level A</dt>
@@ -264,10 +281,10 @@ addh4: true
 							<p>1.0 markup:</p>
 							<pre><code>&lt;link rel="dcterms:conformsTo"
        href="http://www.idpf.org/epub/a11y/accessibility-20170105.html#wcag-aaa"/></code></pre>
-									</li>
-									<li>
-										<p>1.1 markup:</p>
-										<pre><code>&lt;meta property="dcterms:conformsTo">
+						</li>
+						<li>
+							<p>1.1 markup:</p>
+							<pre><code>&lt;meta property="dcterms:conformsTo">
    EPUB Accessibility 1.1 - WCAG 2.0 Level AAA
 &lt;/meta></code></pre>
 						</li>
@@ -364,6 +381,44 @@ addh4: true
 			</dd>
 		</dl>
 	</section>
+	
+	<section id="a11y:contactEmail">
+		<h4>a11y:contactEmail</h4>
+		
+		<blockquote>
+			<p>
+				<em>Provides an email address for requesting more information about the accessibility of the EPUB
+					publication or to report issues with the work.</em>
+			</p>
+		</blockquote>
+		
+		<p>Publishers often rely on spot checking and automation to verify that their content meets accessibility
+			requirements. The accessibility contact email is intended to provide a way for users to contact the
+			individual or department responsible for accessibility if they discover an issue with their publication.
+			It is also meant as a way for users to contact the publisher if they require more information about the
+			accessible qualities of a publication before purchasing it.</p>
+		
+		<div class="note" role="note" aria-labelledby="contact-note">
+			<p id="contact-note" class="label">Note</p>
+			
+			<p>The <code>a11y:contactEmail</code> property is not meant to capture a general feedback address for
+				all publisher inquiries.</p>
+		</div>
+		
+		<dl>
+			<dt>EPUB 3 usage:</dt>
+			<dd>
+				<pre id="ex-09-src" class="prettyprint linenums"><code>&lt;meta property="a11y:contactEmail">
+   accessibility-info@example.com
+&lt;/meta></code></pre>
+			</dd>
+			<dt>EPUB 2 usage:</dt>
+			<dd>
+				<pre id="ex-10-src" class="prettyprint linenums"><code>&lt;meta name="a11y:contactEmail"
+  content="accessibility-info@example.com"/></code></pre>
+			</dd>
+		</dl>
+	</section>
 </section>
 
 {% include publishing/appliesto.html %}
@@ -372,12 +427,16 @@ addh4: true
 	<h3>Related Links</h3>
 	
 	<ul>
-		<li>
+		<li>W3C &#8212;
 			<a href="https://www.w3.org/TR/epub-a11y/#sec-conf-reporting">EPUB Accessibility &#8212;
 				Conformance Reporting</a>
 		</li>
-		<li>
+		<li>W3C &#8212;
 			<a href="https://www.w3.org/TR/epub-a11y/#app-a11y-vocab">EPUB Accessibility Vocabulary</a>
+		</li>
+		<li>W3C &#8212;
+			<a href="https://w3c.github.io/publ-a11y/package-metadata-authoring-guide/">Expressing 
+				Accessibility Metadata in the EPUB Package Document</a>
 		</li>
 	</ul>
 </section>

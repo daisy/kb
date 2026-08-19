@@ -24,9 +24,9 @@ layout: publishing/pages/topic
 
 	<p>The primary advantage of this approach to accessibility is that it keeps EPUB aligned with the body
 		of work that has already been done to make web content accessible. It also immediately makes web
-		content accessibility specialists knowledgeable about the issues involved in ebook production. And,
-		more generally, it means that content creators seeking to discover how to make their publications
-		more accessible have a wealth of general resources available to them beyond this knowledge base.</p>
+		content accessibility specialists knowledgeable about the issues involved in ebook production. More
+		generally, it means that content creators seeking to discover how to make their publications more
+		accessible have a wealth of general resources available to them beyond this knowledge base.</p>
 
 	<p>But EPUB is also its own unique format, and WCAG is not a simple blanket set of practices that all
 		apply in every situation. The knowledge base aims to bridge this gap for EPUB content by focusing on
@@ -52,23 +52,32 @@ layout: publishing/pages/topic
 
 			<ul>
 				<li>A list of all accessibility features (<a
-					href="../metadata/schema.org/accessibilityFeature.html"
+						href="../metadata/schema.org/accessibilityFeature.html"
 						><code>accessibilityFeature</code></a>).</li>
-				<li>The modes in which the content is expressed (<a 
-					href="../metadata/schema.org/accessMode.html"><code>accessMode</code></a>).</li>
+				<li>The sufficient access modes that can be used to read the content, particularly those
+					that only require a single capability (<a 
+						href="../metadata/schema.org/accessModeSufficient.html"
+						><code>accessModeSufficient</code></a>).</li>
 				<li>Any potential physical hazards the content might present (<a
 					href="../metadata/schema.org/accessibilityHazard.html"
 						><code>accessibilityHazard</code></a>).</li>
 			</ul>
 			
 			<p>It is also recommended to provide a summary when the other metadata does not fully capture
-				everything a user needs to know (<a 
-					href="../metadata/schema.org/accessibilitySummary.html"
-					><code>accessibilitySummary</code></a>). Likewise, if there are sufficient access modes
-				that only require a single capability, it is recommended to identify these for users
-				(<a href="../metadata/schema.org/accessModeSufficient.html"
-					><code>accessModeSufficient</code></a>).</p>
-
+				everything a user needs to know (<a href="../metadata/schema.org/accessibilitySummary.html"
+					><code>accessibilitySummary</code></a>). The modes in which the content is expressed (<a 
+						href="../metadata/schema.org/accessMode.html"><code>accessMode</code></a>) should also
+				be listed.</p>
+			
+			<div class="note" role="note" aria-labelledby="support-note">
+				<p id="support-note" class="label">Note</p>
+				
+				<p>Prior to <a href="https://www.w3.org/TR/epub-a11y-12/">EPUB Accessibility 1.2</a>, 
+					the <code>accessMode</code> property was required and the <code>accessModeSufficient</code>
+					property was recommended. Their priorities were switched because the sufficient access modes
+					are more helpful to users when searching for content they can read.</p>
+			</div>
+			
 			<p>A more complete overview of this metadata is provided in the <a
 				href="../metadata/schema.org/index.html">Schema.org Metadata</a> section of this knowledge base.</p>
 
@@ -112,14 +121,31 @@ layout: publishing/pages/topic
 			publications</a>:</p>
 
 	<ul>
-		<li>What version of the specification and what <a href="wcag.html">WCAG</a> level was met.</li>
-		<li>Who evaluated the publication.</li>
-		<li>What credentials the evaluator has, if any.</li>
-		<li>Where to find a more in-depth evaluation report.</li>
+		<li>What version of the specification and what <a href="wcag.html">WCAG</a> level was met
+			is listed using the <a 
+				href="../metadata/evaluation.html#dcterms:conformsTo"><code>dcterms:conformsTo</code> 
+				property</a>.</li>
+		<li>Who evaluated the publication is listed using the <a 
+				href="../metadata/evaluation.html#a11y:certifiedBy"><code>a11y:certifiedBy</code> property</a>.</li>
+		<li>What credentials the evaluator has, if any, is listed using the <a 
+				href="../metadata/evaluation.html#a11y:certifierCredential"><code>a11y:certifierCredential</code>
+				property</a>.</li>
+		<li>Where to find a more in-depth evaluation report is listed using the <a 
+				href="../metadata/evaluation.html#a11y:certifierReport"><code>a11y:certifierReport</code>
+				property</a>.</li>
 	</ul>
 
 	<p>A complete listing of this metadata and how to use it is provided in the <a
 			href="../metadata/evaluation.html">Evaluation Metadata</a> section of this knowledge base.</p>
+</section>
+
+<section id="contact">
+	<h3>Accessibility Contact</h3>
+	
+	<p>The EPUB Accessibility specification also defines contact metadata (<a
+			href="../metadata/evaluation.html#a11y:contactEmail"><code>a11y:contactEmail</code></a>)
+		so that user's can report accessibility issues with an EPUB publication or ask additional questions
+		about its conformance.</p>
 </section>
 
 <section id="opt">
@@ -199,6 +225,17 @@ layout: publishing/pages/topic
 		</dd>
 	</dl>
 </section>
+	
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ul>
+		<li>W3C &#8212; <a href="https://www.w3.org/TR/epub-a11y">EPUB Accessibility</a></li>
+		<li>W3C &#8212; <a href="https://www.w3.org/TR/epub-a11y-tech">EPUB Accessibility Techniques</a></li>
+		<li>W3C &#8212; <a href="https://www.w3.org/TR/epub-a11y-explain">EPUB Accessibility Explainer</a></li>
+		<li>DAISY &#8212; <a href="https://daisy.github.io/ace/">Ace</a></li>
+		<li>DAISY &#8212; <a href="https://smart.daisy.org/">Ace SMART</a></li>
+	</ul>
+</section>
 
 {% include publishing/appliesto.html %}
-	
