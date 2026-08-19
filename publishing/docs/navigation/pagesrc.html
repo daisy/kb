@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Page Source - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for identifying the source of pagination in a digital publication">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/navigation/pagesrc.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="nav-pagenav.html"></a></li>
+				
+					
+				<li><a href="nav-pagebreaks.html"></a></li>
+				
+					
+				<li><a href="nav-pagelist.html"></a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Navigation</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Page Source</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Identify the source of pagination so users can be sure the digital publication will be useful for
+		their needs.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Identify the source of the page breaks in the metadata. [[WCAG-1.3.1]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Page break source identification (<code>pageBreakSource</code>)</div>
+			
+			<p>Unlike having to pair <code>dc:source</code> and <code>source-of</code> properties to identify the
+				pagination source, the <code>pageBreakSource</code> property only requires the identifier for
+				static page source (i.e., it can do in one property what previously required two).</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource">urn:isbn:9781234567891&lt;/meta></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Page break source identification (<code>source-of</code>)</div>
+			
+			<p>This example uses the old <code>source-of</code> property to identify the pagination source.
+				<strong>This method is no longer recommended.</strong> Refer to the <a href="#faq-001">FAQ
+					entry</a> below for more information.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;dc:source id="pg-src">urn:isbn:9781234567891&lt;/dc:source>
+&lt;meta property="source-of" refines="#pg-src">pagination&lt;/meta></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Should I use the <code>source-of</code> or <code>pageBreakSource</code> property?</dt>
+		<dd>
+			<p>The older way to identify the pagination source in EPUB is through a combination of 
+				<code>dc:source</code> and <code>source-of</code> metadata properties. This approach has two
+				serious flaws, however: one is that it only works for EPUB (refining metadata does not work 
+				in other frameworks); the other is that it does not work for digital-only editions (i.e., 
+				where the page breaks do not have a source).</p>
+			
+			<p id="pbs">The replacement method that uses only a single property called 
+				<code>pageBreakSource</code> is now preferred (see <a href="#ex-07">example 7</a>).
+				Although it will take another revision of EPUB before this property is fully integrated
+				into the standard, there are no barriers to using it. Epubcheck correctly validates the
+				property.</p>
+			
+			<p>The value of the <code>pageBreakSource</code> property can be set to "none" if the page 
+				breaks were created specifically for the digital edition, overcoming the problem
+				of using <code>dc:source</code>.</p>
+			
+			<p>Refer to <a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source 
+				Identification</a> for more information about the <code>pageBreakSource</code> property.</p>
+		</dd>
+		
+		<dt id="faq-002">What if the pagination source does not have a unique identifier like an ISBN?</dt>
+		<dd>
+			<p>It is not required that the <code>pageBreakSource</code> property contain a unique identifier,
+				only that it uniquely identify the source. In the absence of a unique identifier, create a
+				unique name for the source document using the information you have about it.</p>
+			
+			<p>There are many types of documents with static pagination but without unique identifiers that
+				can be represented as EPUBs &#8212; PDF manuals, word processing documents, etc.</p>
+			
+			<p>For these types of documents, you can minimally use the title to identify the page break 
+				source. For greater specificity, add the author(s), creation date, etc. to the
+				identifier.</p>
+			
+			<pre><code>&lt;metadata &#8230;>
+&#8230;
+&lt;meta property="pageBreakSource">
+ACME Explosive Tennis Balls - 
+User Manual, 5th Edition, PDF
+&lt;/meta>
+&#8230;
+&lt;/metadata></code></pre>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>Although the <a href="pagelist.html">page list</a> and <a href="pagebreaks.html">page break
+		markers</a> are the technologies that allow users to access static page break locations, without
+		knowing the source of the pagination, users cannot determine the usefulness of a digital
+		publication. A student in a classroom, for example, needs to know whether the pagination was
+		derived from the same version of a print book that the rest of their class is using.</p>
+	
+	<p>The source of the pagination is identified using the <code>pageBreakSource</code> property.</p>
+	
+	<pre id="expl-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource">urn:isbn:9780123456789&lt;/meta></code></pre>
+	
+	<p>The value of the property is a unique identifier for the statically paginated source, such as
+		its ISBN.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>EPUB &#8212; <a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source
+			Identification</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/navigation/pagesrc.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

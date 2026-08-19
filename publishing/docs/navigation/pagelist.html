@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Page List - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for including a page list in a digital publication">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/navigation/pagelist.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="nav-pagenav.html"></a></li>
+				
+					
+				<li><a href="nav-pagebreaks.html"></a></li>
+				
+					
+				<li><a href="nav-pagesrc.html"></a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Navigation</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Page List</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Include a page list so users of digital publications can coordinate their position with a statically
+		paginated equivalent.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Include a page list when a publication has statically paginated equivalent. [[WCAG-2.4.5]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Page list (EPUB 3)</div>
+			<p>The page list is a simple ordered list of links to the page break locations. It is identified
+				by the <code>epub:type</code> attribute value <code>page-list</code>.</p>
+			<p>Note that the page list includes the <code>hidden</code> attribute so that the list is
+				not presented to users if the <a href="toc.html">table of contents</a> is also included in the spine.</p>
+			<p>An ARIA <code>role</code> attribute (see the <a href="#ex-02">next example</a>) is not necessary if the 
+				page list is always hidden from users or the EPUB navigation document is not included in the spine.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden">
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page754">754&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page755">755&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page756">756&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page757">757&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page758">758&lt;/a>&lt;/li>
+ &lt;/ol>
+&lt;/nav></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Page list (Web)</div>
+			<p>A page list for use on the Web generally is identified by the <code>role</code> attribute 
+				value <code>doc-pagelist</code>. The <code>aria-label</code> attribute is used to provide
+				a title for the navigation element, but an explicit heading can also be used (refer to the
+				second <code>nav</code> element).</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list">
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &#8230;
+ &lt;/ol>
+&lt;/nav>
+
+&lt;nav role="doc-pagelist" aria-labelledby="pg-hd">
+ &lt;h2 id="pg-hd">Page List&lt;/h2>
+ &lt;ol>
+   &lt;li>&lt;a href="georgia.xhtml#page752">752&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="georgia.xhtml#page753">753&lt;/a>&lt;/li>
+   &#8230;
+ &lt;/ol>
+&lt;/nav></code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Page list (EPUB 2 and DAISY 3)</div>
+			<p>The page list in EPUB 2 and DAISY 3 publications is expressed using a custom XML grammar
+				called the NCX.</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;ncx xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
+     xmlns="http://www.daisy.org/z3986/2005/ncx/"
+     version="2005-1" xml:lang="en">
+    &#8230;
+    &lt;pageList>
+        &lt;navLabel>
+            &lt;text>Pages&lt;/text>
+        &lt;/navLabel>
+        &lt;pageTarget type="normal" id="page752" value="752" playOrder="1">
+            &lt;navLabel>
+                &lt;text>752&lt;/text>
+            &lt;/navLabel>
+            &lt;content src="georgia.xhtml#page752"/>
+        &lt;/pageTarget>
+        &lt;pageTarget type="normal" id="page753" value="753" playOrder="2">
+            &lt;navLabel>
+                &lt;text>753&lt;/text>
+            &lt;/navLabel>
+            &lt;content src="georgia.xhtml#page753"/>
+        &lt;/pageTarget>
+        &#8230;
+    &lt;/pageList>
+&lt;/ncx></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-pl-001">How should I order the links the page list?</dt>
+		<dd>
+			<p>There is currently no requirement on how to order the links in the page list. A
+				common technique is to order the links numerically, but sometimes the order of the
+				content in the digital publication does not match the order in the physical (e.g.,
+				sometimes the publisher might move front matter to the back). Some EPUB creators 
+				prefer to order the page list to match the digital content in these cases.</p>
+		</dd>
+		
+		<dt id="faq-pl-002">Does a publication with a page list have to have page break markers?</dt>
+		<dd>
+			<p>A page list may be included in a digital publication that does not have page break
+				markers, but this practice tends to be rare and is often not very helpful for 
+				users. An example would be a page list that only links to the first page of each
+				chapter. The page list could link to the chapter headings instead of having a page
+				break marker. But since the table of contents would already provide access to each
+				chapter, this approach has limited use.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>If a reflowable publication is derived from a statically paginated source, such as a print
+		edition, including a page list allows users to coordinate positions. For example, a student
+		using a digital edition in a class where her peers are using print books would be able to jump
+		to the same pages during instruction.</p>
+	
+	<p>The page list itself is a list of links to all the page break locations. User agents can use
+		this list to provide automatic page jump functionality, or a user can access it directly to
+		manually select the page they wish to go to.</p>
+	
+	<p>In EPUB 3, the page list is expressed in a <a 
+		href="https://www.w3.org/TR/epub-33/#sec-nav-pagelist">page list nav element</a> in the
+		navigation document. This element is essentially a flat list of links to each page break
+		location.</p>
+	
+	<pre id="expl-pl-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list">
+ &lt;ol>
+   &lt;li>&lt;a href="chapter01.xhtml#page1">1&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="chapter01.xhtml#page2">2&lt;/a>&lt;/li>
+   &#8230;
+ &lt;/ol>
+&lt;/nav></code></pre>
+		
+	<p>In EPUB 2, a page list is expressed using the
+		<a href="https://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1.2">
+			<code>pageList</code> element</a> in the NCX file. (See <a href="#ex-02">example 2</a>.)</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element">The <code>nav</code>
+			element</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-nav-pagelist"
+				>The <code>page-list nav</code> Element</a></li>
+		<li>EPUB 2 &#8212; <a href="http://www.daisy.org/z3986/2005/Z3986-2005.html#li_392a"><code>pageList</code>
+			element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/navigation/pagelist.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

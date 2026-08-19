@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Asides - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for accessibly structuring content">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/asides.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Asides</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Marking secondary content with the <code>aside</code> element enables assistive technologies
+		to distinguish it from the primary narrative, allowing users to skip over the material.</p>
+	
+	<div class="note" role="note" aria-labelledby="support-note">
+		<p id="support-note" class="label">Note</p>
+		<p>The default nature of the <code>aside</code> element is changing. <code>asides</code>
+			without an accessible name that are within a <code>section</code> element will no longer
+			be considered complementary landmarks. They will instead be considered generic elements
+			(i.e., the same as <code>div</code> elements).</p>
+		<p>This page will be updated once this change gets real-world implementation. For now, the
+			guidance on this page remains current best practice.</p>
+	</div>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Use the <code>aside</code> element for secondary material, such as sidebars. <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Include a heading for each aside <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; A sidebar</div>
+			<p>The sidebar heading is one level lower than its containing section.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section &#8230;>
+   &lt;h2 id="s02">Section 2: The War of 1812&lt;/h2>
+   &#8230;
+   &lt;aside aria-labelledby="sb01">
+      &lt;h3 id="sb01">Timeline of Events&lt;/h3>
+      &#8230;
+   &lt;/aside>
+   &#8230;
+&lt;/section></code></pre>
+	</figure>
+</section>
+
+<figure id="ex-02">
+	<figcaption>
+		<div class="label">Example 2 &#8212; A footnote</div>
+		<p>The role <code>doc-footnote</code> means the <code>aside</code> does not require
+			an accessible name.</p>
+	</figcaption>
+	<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;aside
+    role="doc-footnote"
+    id="fn01">
+   &lt;p>[1] &#8230;&lt;/p>
+&lt;/aside></code></pre>
+</figure>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Why don't sidebars need a role?</dt>
+		<dd>
+			<p>The <code>aside</code> element, per the HTML specification definition, defines sidebars:</p>
+			
+			<blockquote>
+				<p>The <code>aside</code> element represents a section of a page that consists of content 
+					that is tangentially related to the content &#8230; [s]uch sections are often represented
+					as sidebars in printed typography.</p>
+			</blockquote>
+			
+			<p>Adding an additional role will not improve the accessibility.</p>
+		</dd>
+		
+		<dt id="faq-002">What heading level should I use with asides?</dt>
+		<dd>
+			<p>Although the positioning of supplementary content in the markup is not fixed in the
+				same way as the primary narrative (i.e., where best to place the content is often
+				a matter of choice), supplementary content always belongs to a section. For that reason,
+				it should be treated as a subsection of the <code>section</code> that contains
+				it. Consequently, the first heading level within an <code>aside</code> should always
+				be one level lower than its containing section.</p>
+			
+			<p>For example, if a chapter has a heading in an <code>h2</code> tag, the headings of
+				any sidebars within it should begin with <code>h3</code>. This helps ensure that
+				users of assistive technologies can logically find these subsections of content when
+				navigating by heading level. A user will not expect a sidebar to have an <code>h1</code>
+				heading in such a scenario, as that would make it a higher-level content section.</p>
+			
+			<p>If a publisher cannot maintain heading numbering consistency, they should try to find
+				another method that users can predict. For example, using <code>h6</code> for all
+				sidebars. In this case, though, the publisher should instruct users on this convention;
+				for example, in a section on how to use the ebook.</p>
+			
+			<p>While numbering gaps and inconsistent numbering of headings is technically not a failure
+				of WCAG requirements, it also doesn't make for a great reading experience for users
+				who need to move around by heading.</p>
+		</dd>
+		
+		<dt id="faq-003">Do sidebars require accessible names?</dt>
+		<dd>
+			<p>It depends on how many there are in a document.</p>
+			
+			<p>If a document only has one <code>aside</code> element without a role, then an accessible
+				name is not required.</p>
+			
+			<p>If there is more than one, however, then without an accessible name to differentiate them,
+				users cannot determine which is which without navigating to each in turn.</p>
+			
+			<p>(Note that this is the same rule for adding accessible names that applies to any landmark
+				role.)</p>
+		</dd>
+		
+		<dt id="faq-004">Should I use <code>aside</code> or <code>article</code>?</dt>
+		<dd>
+			<p>The <code>aside</code> element is best used when the content is explains or expands on
+				the primary narrative. It is most appropriate for sidebars, glossaries, and similar 
+				explanatory content.</p>
+			
+			<p>The <code>article</code> element is best used when the content is independent from
+				the other content of the document or publication. In a scientific journal, for example,
+				each article is independent of the others, even if they have a common theme.</p>
+		</dd>
+		
+		<dt id="faq-005">Why don't all roles require an accessible name?</dt>
+		<dd>
+			<p>When used on an <code>aside</code>, roles such as <code>doc-footnote</code> and
+				<code>doc-pullquote</code> change the nature of the element from its default
+				of a complementary landmark. Since the <code>aside</code> is no longer recognized
+				as a complementary landmark when these roles are applied, it does not require an
+				accessible name.</p>
+			<p>When using roles, refer to their definitions to determine whether they require
+				accessible names.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The <code>aside</code> element was introduced in HTML5 to allow authors to identify secondary 
+		content such as sidebars. When users of assistive technologies encounter an <code>aside</code>,
+		the content is typically introduced as "complementary", allowing them to recognize that it is
+		not part of the primary narrative.</p>
+	
+	<p>Prior to the introduction of this element, background coloring and borders were often the only way
+		that secondary content was distinguished from the primary narrative. These methods are opaque to
+		assistive technologies, however, so it was often confusing why the narrative would suddenly change
+		when a sidebar did not have a heading, and was not always clear if a new section of primary content
+		were beginning if it did have a heading.</p>
+	
+	<p>Using the <code>aside</code> element not only offers users the ability to skip the content when
+		reading, but being complementary landmarks they are also able to easily find and return to the
+		content after finishing the section. Each sidebar requires an accessible name for this feature
+		to be most effective, otherwise users will not be able to distinguish one sidebar from the
+		next.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">&lt;aside>: The Aside element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-aside-element">The
+					<code>aside</code> element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">Headings and
+				sections</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/asides.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

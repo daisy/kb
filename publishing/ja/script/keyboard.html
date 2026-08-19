@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> キーボード コントロール - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ensuring that users can control all content by keyboard alone.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/script/keyboard.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>キーボード コントロール</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	<p>ユーザーがキーボードですべての機能をコントロールできるようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	<ul>
+		<li>
+			<p>すべてのコントロールをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
+		</li>
+		<li>
+			<p>すべてのリンクをキーボードから操作できるようにします。[[WCAG-2.1.1]]</p>
+		</li>
+		<li>
+			<p>キーボードトラップがないようにします。[[WCAG-2.1.2]]</p>
+		</li>
+		<li>
+			<p>一文字のみで構成されるキーボードショートカットは使用しないようにします。[[WCAG-2.1.4]]</p>
+		</li>
+		<li>
+			<p>アクティブなコントロールのフォーカスを見えるようにします。[[WCAG-2.4.7]]</p>
+		</li>
+		<li>
+			<p>コントロールにフォーカスが移動しただけではイベントを起動しないようにします。[[WCAG-3.2.1]]</p>
+		</li>
+		<li>
+			<p>予期できないイベントは、ユーザーによる値の入力や設定変更の時に起動します。[[WCAG-3.2.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>多くのユーザーにとって、コンテンツを操作する主な、または唯一の方法は、キーボードまたはキーボードのような入力デバイス（音声認識ソフトウェア、仮想キーボードなど）を使用することです。これらのユーザーにとって、すべての機能がキーボードで操作できるのは必須事項です。</p>
+	
+	<p>キーボードの相互運用性の問題が発生する最も一般的な原因は、コンテンツ製作者がページにカスタムスクリプトコントロールとリンクを追加した場合です。ボタン、スライダー、ハイパーリンクなどのHTMLネイティブ要素を使用すると、通常、キーボード入力の落とし穴を回避できます。このような場合、コンテンツ製作者はコントロールをアクセシブルに作成するだけで済みます。たとえば、コントロールに明確なラベルを付け、目的に応じてグループ化します。</p>
+	
+	<p>カスタムコントロールを使う場合、コンテンツ製作者は作成したコントロールがネイティブコントロールと同じ要件をすべて満たすようにしなければなりません。次に例を示します。</p>
+	
+	<ul>
+		<li>ユーザーがコントロールにアクセスできること</li>
+		<li>コントロールの目的が明確であること</li>
+		<li>コントロールがキーボードで操作できること</li>
+		<li>ユーザーがコントロールに閉じ込められないこと</li>
+	</ul>
+	
+	<p>カスタムコントロールを作成する際は、ショートカットキーによる出版物の使用に与える影響についての考慮も重要です。目の見える読者にとっては、単一キーの印刷可能な文字（文字、数字、句読点）を操作のショートカットとして割り当てることは便利に思えるかもしれませんが、コマンドを入力しようとする読者の入力が妨害される可能性があります。その結果、ユーザーが必要な機能を完了できなかったり、コンテンツ内で希望しない動作がアクティブ化される可能性があります。コンテンツ製作者は常に、ユーザーが単一文字のショートカットを再設定またはオフにできるようにしなければなりません。</p>
+	
+	<p>また、要素にフォーカスが移動した際にコンテキストの変化を引き起こさない点も重要です（ユーザーがタブで要素に移動した時など）。新しいウィンドウを開く、フォームを送信する、コンテンツを変更するなどのコンテキストの変化は、何が起こったのかが見えない読者には混乱を引き起こします。</p>
+	
+	<p>同様に、フィールドに入力したり、コントロールの設定を変更した場合も、予期しないコンテキストの変化を発生させてはなりません。</p>
+	
+	<div class="note" role="note" aria-labelledby="kbd-note">
+		<p id="kbd-note" class="label">注記</p>
+		<p>レベルA適合のキーボード要件では、開始点と終了点だけでなく、移動の完全なパスが不可欠な機能は、除外されます。たとえば、ユーザーがオブジェクトをドラッグしてドロップできるプログラムは、移動先へのパスは重要ではないため除外されません。一方、描画プログラムは、完全なパスが描画されたオブジェクトに影響するため、除外されます。</p>
+	</div>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element"><code>link</code>要素</a></li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/forms.html#forms">フォーム</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/script/keyboard.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 隠されないフォーカス（最低限） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explainer for success criterion 2.4.12 Focus Not Obscured (Minimum)">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/wcag/focus-not-obscured-minimum.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="../index.html" class="breadcrumb">アクセシビリティ適合（conformance）</a>
+		
+	
+		
+		 - 
+		
+			<a href="index.html" class="breadcrumb">WCAG</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>隠されないフォーカス（最低限）</h2>
+		</div>
+		
+		
+		<section id="about">
+	<h3>概要</h3>
+	
+	<table class="sc-info">
+		<colgroup>
+			<col style="width: 12rem;">
+			<col style="width: auto;">
+		</colgroup>
+		<tr>
+			<th>バージョン：</th>
+			<td>WCAG 2.2以上</td>
+		</tr>
+		<tr>
+			<th>セクション番号：</th>
+			<td>2.4.11</td>
+		</tr>
+		<tr>
+			<th>レベル：</th>
+			<td>AA</td>
+		</tr>
+		<tr>
+			<th>適用対象：</th>
+			<td class="docs">
+				<ul>
+					<li>ボタン</li>
+					<li>コントロール</li>
+					<li>入力</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>要件：</th>
+			<td class="desc">
+				<p>ユーザインタフェース コンポーネントがキーボードフォーカスを受け取るとき、コンテンツ制作者が作成したコンテンツによって、そのコンポーネントの全体が隠されるようなことがない。</p>
+			</td>
+		</tr>
+		<tr>
+			<th id="guidance">ガイダンス：</th>
+			<td class="docs">
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">達成基準2.4.12の理解</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced">達成基準2.4.12を満たす方法</a></li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>達成方法：</th>
+			<td class="docs"> WCAG 2.2 達成基準に対応する達成方法はまだ利用できません。</td>
+		</tr>
+	</table>
+</section>
+
+<section id="purpose">
+	<h3>目的</h3>
+	
+	<p>この達成基準の目的は、キーボード（および同様の入力デバイス）のユーザーが、ドキュメント内の他のコンテンツによって、フォーカスされた要素が隠されて見つけられず、混乱しないようにすることです。</p>
+</section>
+
+<section id="meeting">
+	<h3>要件の満たし方</h3>
+	
+	<p>コンテンツ製作者は、フォーカス可能な要素がドキュメント内の他のコンテンツによって完全に隠れないようにする必要があります。この問題は、固定ヘッダーと固定フッター（つまり、ページの上部または下部に付いたままになるもの）によってコンテンツが隠れたり、非モーダル ダイアログ（つまり、読み続けるために閉じる必要のないポップアップ）によってテキストが重なったりする Web ページでよく発生します。</p>
+	
+	<p>この達成基準は、ユーザーがフォーカスされた要素の上にコンテンツを移動する場合には適用されません（例：ドラッグできるポップアップの場合。）この要件では、フォーカス可能な要素がそのようなコンテンツのデフォルトの位置で隠れないようにすることのみが要求されます。</p>
+</section>
+
+<section id="kb">
+	<h3>追加情報</h3>
+	
+	<p>ナレッジ ベースには現在、出版形式での固定ヘッダーとフッター、および非モーダル ダイアログのサポートが不十分なため、非表示のフォーカスされたコンテンツに関する情報は含まれていません。詳細については、<a href="#guidance">WCAG ガイダンス ドキュメント</a>を参照してください。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/conformance/wcag/focus-not-obscured-minimum.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

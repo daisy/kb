@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Links - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for ensuring that links are identifiable and understandable">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/links.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Links</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure links are understandable and distinguishable from their surrounding text.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Check that the purpose of each link is clear. <span class="wcag-level">[<a href="/publishing/docs/wcag/link-purpose-in-context.html">WCAG 2.4.4 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Check that links are distinguishable from their surrounding text. <span class="wcag-level">[<a href="/publishing/docs/wcag/use-of-color.html">WCAG 1.4.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Group sets of related links. <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Avoid context changes from links. <span class="wcag-level">[<a href="/publishing/docs/wcag/change-on-request.html">WCAG 3.2.5 - AAA</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Example</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Link with full context of destination</div>
+			<p>The user can determine the destination of the link from the text of the <code>a</code> element alone.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p>For more information, refer to &lt;a href="#&#8230;">Section 1.1
+   of Web Publications&lt;/a>&lt;/p></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Link with alternate text</div>
+			<p>The <code>title</code> attribute is used to provide additional context.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;a href="#&#8230;" title="The EPUB specifications">click here&lt;/a></code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Visual distinction using bolding</div>
+			<p>By specifying <code>bolder</code>, either a medium font or a bold one is used to help make links visually
+				stand out from their surrounding text.</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   font-weight: bolder;
+   color: rgb(51,102,204);
+}</code></pre>
+	</figure>
+	
+	<figure id="ex-04">
+		<figcaption>
+			<div class="label">Example 4 &#8212; Visual distinction using a border</div>
+			<p>A dotted border is placed under all links to highlight them instead of a line.</p>
+		</figcaption>
+		<pre id="ex-04-src" class="prettyprint linenums"><code>a {
+   text-decoration: none;
+   padding-bottom: 0.3rem;
+   border-bottom: 0.1rem dotted rgb(100,100,100);
+}</code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>A common problem when creating hyperlinks is that the text inside of the link does not provide the full
+		context of what is being linked to. The assumption most people make is that links are only encountered
+		where they are placed in the text, when in reality users can iterate over the links before, during and
+		after reading a section. Without meaningful labels, the result can be a confusing mess of "see here" and
+		"read more" link text being offered with no indication of where those links go.</p>
+	
+	<p>To avoid this problem, always ensure that the text of the hyperlink is meaningful on its own. If you can
+		read the link out of the context of its surrounding prose, and it clearly indicates where links to, you
+		will improve the experience for users using ATs.</p>
+	
+	<p class="bridgehead">Overuse</p>
+	
+	<p>A more complicated issue with links is the number to include in a document. The more that you use, the
+		more inconvenience it can cause to your users. For example, keyboard users may have to tab through all
+		of the links to locate one they want to follow after finishing a section. Another problem is that linked
+		text is often preceded by the word "link" being announced to the user, which can disrupt the reading
+		experience when done in excess.</p>
+	
+	<p>The complicating factor is that generous hyperlinking can also be of benefit to many users, too.
+		Keywords are often hyperlinked to their definitions, for example, which can quickly lead to tens and
+		hundreds of hyperlinked words in a chapter. Although an impediment to some users, the ease of access
+		often facilitates the process for users with learning disabilities and cognitive issues.</p>
+	
+	<p>Removing redundant links from EPUBs is a good idea, but what constitutes redundant linking has to be
+		addressed on a case-by-case basis. Hyperlinking only the first instance of a keyword in each chapter
+		might be one method of reducing the overall number, for example.</p>
+	
+	<p class="bridgehead">Perception</p>
+	
+	<p>Another problem with links is that they cannot always be perceived by a user (e.g., color blindness may
+		make the links imperceptible from the surrounding text), in which case the person will not be aware that
+		they are potentially missing access to additional information.</p>
+	
+	<p>To avoid the problem of links blending into their surroundings, hyperlinked text should be discoverable by
+		more than just its color. Underlining of links is not required, but some other visual cue should be
+		provided if underlines are removed (e.g., increased bolding of the font).</p>
+	
+	<p>Avoid overriding the color of visited links to make them match unvisited links, particularly in heavily
+		cross-referenced works. A lack of visual distinguishment of where the user has already been can cause
+		navigation problems for some users.</p>
+	
+	<p>It is also helpful when possible to alert users that clicking on a link will open a new window, as
+		such changes in context can be disorienting for users.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">&lt;a>: The Anchor
+			element</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element">The
+			<code>a</code> element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/links.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

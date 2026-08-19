@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> Schema.org アクセシビリティ メタデータ - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for using schema.org accessibility metadata in publications">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/metadata/schema.org/">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="../index.html" class="breadcrumb">メタデータ</a>
+		
+	
+		
+		 - 
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Schema.org アクセシビリティ メタデータ</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+
+	<p>出版物がどのように配布または消費されるかに関係なく、schema.orgアクセシビリティ メタデータを組み込み、発見できるようにします。</p>
+</section>
+
+<section id="prop">
+	<h3>プロパティ</h3>
+
+	<p><a href="https://schema.org/CreativeWork">schema.orgのCreativeWorkクラス</a>には、出版物のアクセシビリティに関する品質を識別するのに使用する一連のプロパティがあります。HTMLドキュメントでは、このメタデータをRDFaまたはmicrodata属性を使用してコンテンツ (ビデオなど) のアクセシビリティに関する品質を識別できます。また、EPUBパッケージ ドキュメントに組み込んで、特定の出版物のレンディションについてのアクセシビリティの全体像も提供できます。</p>
+
+	<p>各プロパティの使用方法の詳細については、それぞれのナレッジ ベース ページを参照してください。</p>
+
+	<ul>
+		<li>
+			<a href="accessibilityFeature.html"><code>accessibilityFeature</code></a>
+		</li>
+		<li>
+			<a href="accessibilityHazard.html"><code>accessibilityHazard</code></a>
+		</li>
+		<li>
+			<a href="accessibilitySummary.html"><code>accessibilitySummary</code></a>
+		</li>
+		<li>
+			<a href="accessMode.html"><code>AccessMode</code></a>
+		</li>
+		<li>
+			<a href="accessModeSufficient.html"><code>accessModeSufficient</code></a>
+		</li>
+	</ul>
+	
+	<div class="note" role="note" aria-labelledby="opt-note">
+		<p id="opt-note" class="label">注記</p>
+		<p><a href="accessibilityAPI.html"><code>accessibilityAPI</code></a>と<a href="accessibilityControl.html"><code>accessibilityControl</code></a>もschema.orgアクセシビリティに関するプロパティですが、デジタル出版物に対する利用は希です。</p>
+	</div>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — パッケージ ドキュメントのメタデータ （EPUB 3）</div>
+			<p>次の例は、MathMLと説明付き画像、およびアクセシブルなスクリプト コンテンツを含む数学の教科書の典型的なメタデータ セットを示しています。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta property="schema:accessibilitySummary"&gt;
+     This publication conforms to WCAG 2.0 Level AA.
+  &lt;/meta&gt;
+  &lt;meta property="schema:accessMode"&gt;textual&lt;/meta&gt;
+  &lt;meta property="schema:accessMode"&gt;visual&lt;/meta&gt;
+  &lt;meta property="schema:accessModeSufficient"&gt;textual&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;structuralNavigation&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;MathML&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;alternativeText&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityFeature"&gt;longDescription&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noFlashingHazard&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noSoundHazard&lt;/meta&gt;
+  &lt;meta property="schema:accessibilityHazard"&gt;noMotionSimulationHazard&lt;/meta&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+	</figure>
+
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — パッケージ ドキュメントのメタデータ （EPUB 2）</div>
+			<p>以下は、EPUB 2 パッケージ ドキュメントで使用されるわずかに異なる構文（つまり、 <code>name</code>と<code>content</code>属性の使用）を示す<a>例 1</a>の部分的なレンダリングです。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;metadata&gt;
+  &lt;meta name="schema:accessibilitySummary" content="This publication conforms to WCAG 2.0 Level AA."/&gt;
+  &lt;meta name="schema:accessMode" content="textual"/&gt;
+  …
+&lt;/metadata&gt;</code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">例 3 — オーディオブックのマニフェストメタデータ</div>
+			<p>次の例は、オーディオブックのマニフェストで使用するために、例 1 を JSON で書き直したものです。</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums small"><code>…
+  "accessibilitySummary": "This publication conforms to WCAG 2.0 Level AA.",
+  "accessMode": ["textual", "visual"],
+  "accessModeSufficient" : [
+    {
+      "type": "ItemList",
+      "itemListElement": [textual]
+    }
+  ],
+  "accessibilityFeature": ["structuralNavigation", "MathML", "alternativeText", "longDescription"],
+  "accessibilityHazard": ["noFlashingHazard", "noSoundHazard", "noMotionSimulationHazard"],
+  …</code></pre>
+	</figure>
+	
+	<figure id="ex-04">
+		<figcaption>
+			<div class="label">例4 — 埋め込みメタデータ（RDFa）</div>
+			<p>ある一つのビデオを説明するアクセシビリティ メタデータは、HTMLドキュメントのbodyに組み込まれています。</p>
+		</figcaption>
+		<pre id="ex-04-src" class="prettyprint linenums small"><code>&lt;div vocab="https://schema.org" typeof="VideoObject" property="video"&gt;
+  &lt;video controls="controls" src="croc.mp4"/&gt;
+  &lt;meta property="accessibilityFeature" content="captions"/&gt;
+  &lt;meta property="accessibilityFeature" content="transcript"/&gt;
+  &lt;meta property="accessibilityHazard" content="none"/&gt;
+  &lt;p&gt;A transcript of the video follows:&lt;/p&gt;
+  …
+&lt;/div&gt;</code></pre>
+	</figure>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li><a href="http://www.a11ymetadata.org">a11ymetadata プロジェクト</a> </li>
+		<li><a href="https://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">IMS Global Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/metadata/schema.org/">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

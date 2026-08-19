@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> ラベル - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on providing labels for inputs and controls.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/script/labels.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>ラベル</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	<p>すべての入力フォームとカスタムコントロールには、その目的を明確に説明するラベルを付けます。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	<ul>
+		<li>
+			<p>入力フォームにラベルを付けます。[[WCAG-3.3.2]]</p>
+		</li>
+		<li>
+			<p>期待される値の説明を提供します。[[WCAG-3.3.2]]</p>
+		</li>
+		<li>
+			<p>個々のコントロールにラベルを付けます。[[WCAG-4.1.2]]</p>
+		</li>
+		<li>
+			<p>コントロールのグループにラベルを付けます。[[WCAG-4.1.2]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — <code>label</code>の関連付け</div>
+			<p><code>for</code>属性は、ラベルが記述する要素のIDを参照するために使用されます。 <code>for</code>属性を使用すると、ラベルは要素の前または後のどこにでも付けられます。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;tr&gt;
+   &lt;td&gt;
+      &lt;input type="text" id="name"/&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+      &lt;label for="name"&gt;Full name&lt;/label&gt;
+   &lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+	</figure>
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — <code>label</code>のラッピング</div>
+			<p><code>label</code>に、入力／コントロールとラベルの両方を組み込める場合には <code>for</code>属性は省略します。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;label&gt;
+   &lt;input type="text" id="name"/&gt;
+   Full name
+&lt;/label&gt;</code></pre>
+	</figure>
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">例 3 — グループ化に<code>fieldset</code>を使用する</div>
+			<p><code>legend</code>要素で、コントロール／入力のセットのラベルを提供します。</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Accessibility Features&lt;/legend&gt;
+   &lt;label&gt;
+      &lt;input type="checkbox" name="a11yFeature"
+         value="alternativeText"/&gt; Alternative text
+   &lt;/label&gt;
+   &lt;label&gt;
+      &lt;input type="checkbox" name="a11yFeature"
+         value="longDescription"/&gt; Extended descriptions
+   &lt;/label&gt;
+   …
+&lt;/fieldset&gt;</code></pre>
+	</figure>
+	<figure id="ex-04">
+		<figcaption>
+			<div class="label">例 4 — <code>aria-labelledby</code>を使用して名前を識別する</div>
+			<p><code>aria-labelledby</code>属性を、生年月日フィールドのセットの最初の<code>input</code>を参照するために使用します。これらの入力はラベルとして機能します。</p>
+		</figcaption>
+		<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Birth Date&lt;/legend&gt;
+   &lt;select id="y" aria-labelledby="yr"&gt;
+      &lt;input value="year" id="yr"&gt;Year&lt;/input&gt;
+      …
+   &lt;select&gt;
+   &lt;select id="m" aria-labelledby="mo"&gt;
+      &lt;input value="month" id="mo"&gt;Month&lt;/input&gt;
+      …
+   &lt;select&gt;
+   &lt;select id="d" aria-labelledby="day"&gt;
+      &lt;input value="day" id="day"&gt;Day&lt;/input&gt;
+      …
+   &lt;select&gt;
+&lt;/fieldset&gt;</code></pre>
+	</figure>
+	<figure id="ex-05">
+		<figcaption>
+			<div class="label">例 5 — マルチパートラベル</div>
+			<p><code>aria-labelledby</code>属性を、あいまいさを避けるために、アドレスタイプとフィールド名の両方を参照するために使用します。</p>
+		</figcaption>
+		<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;table&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span id="shipping"&gt;Shipping Address&lt;/span&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span id="billing"&gt;Billing Address&lt;/span&gt;
+         &lt;label&gt;
+            &lt;input type="checkbox" id="bill-sameas" tabindex="8"/&gt;
+            Use shipping address for billing
+         &lt;/label&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="str"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="ship-street"
+            aria-labelledby="shipping str" tabindex="1"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;Street&lt;/span&gt;
+         &lt;input type="text" id="bill-street"
+            aria-labelledby="billing str" tabindex="9"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;
+         &lt;span class="label" id="city"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="ship-city"
+            aria-labelledby="shipping city" tabindex="2"/&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+         &lt;span class="label"&gt;City&lt;/span&gt;
+         &lt;input type="text" id="bill-city"
+            aria-labelledby="billing city" tabindex="10"/&gt;
+      &lt;/td&gt;
+   &lt;/tr&gt;
+   …
+&lt;/table&gt;</code></pre>
+	</figure>
+	<figure id="ex-06">
+		<figcaption>
+			<div class="label">例6 — 非表示のラベルを追加する</div>
+			<p>各部分に目に見えるラベルがないため、 <code>aria-label</code>属性を電話番号フィールドの各部分を識別するために使用します。</p>
+		</figcaption>
+		<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;fieldset&gt;
+   &lt;legend&gt;Phone Number&lt;/legend&gt;
+   &lt;input type="text" id="country" aria-label="country code"/&gt;
+   &lt;input type="text" id="area" aria-label="area code"/&gt;
+   &lt;input type="text" id="local" aria-label="number"/&gt;
+&lt;/fieldset&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>入力フォームとカスタムスクリプトコントロールにアクセシブルな名前を付けることは、ユーザーがその目的を理解できるようにするために不可欠です。ラベルが提供されると、支援技術によって各コントロールの名前が処理され、ユーザーはそれぞれの目的をすぐに理解できるようになります。</p>
+	
+	<p>ただし、フォームのレイアウト方法により、ユーザーに入力フィールドの説明ラベルが表示される前にそのフィールドに到達してしまったり、フィールドよりかなり前にラベルが表示されてしまうことはよくあります。ラベルが提供されていない場合は、動的コンテンツを操作したりフォームに入力したりする操作がわかりにくくなることがあります。</p>
+	
+	<p>HTMLには、ラベルをコントロールに関連付けるための二つのネイティブ要素が用意されています。</p>
+	
+	<dl>
+		<dt>
+			<code>label</code>
+		</dt>
+		<dd>
+			<p><code>label</code>要素は、個々のコントロールのアクセシブルな名前を識別するために使用します。コントロールとそのラベルを囲むか（<a href="#ex-01">例 1</a>を参照）、コントロールのIDを参照する<code>for</code>属性を追加できます（<a href="#ex-02">例 1</a>を参照）。</p>
+		</dd>
+		<dt>
+			<code>fieldset</code>
+		</dt>
+		<dd>
+			<p><code>fieldset</code>要素は、関連するコントロールのセットをグループ化するために使用します。子の<code>legend</code>要素にはラベルを付与できます。（<a href="#ex-03">例 3 を</a>参照）。</p>
+		</dd>
+	</dl>
+	
+	<p>これらのネイティブメソッドには二つの短所があります。一つは、単一のラベルしか付けられないこと、もう一つは、ラベルがページの表示部分にある必要があり、テキストが<code>label</code>要素によってキャプチャされることです。より複雑なケースは、次のARIA属性で対応できます。</p>
+	
+	<dl>
+		<dt>
+			<code>aria-labelledby</code>
+		</dt>
+		<dd>
+			<p><code>aria-labelledby</code>属性は、複数の要素を参照するために使用します。コントロールに完全なコンテキストを与えるために複数の情報が必要な場合に便利です（<a href="#ex-05">例 5 を</a>参照）。また、 <code>label</code>要素を使用できない場合にラベルを識別するのにも使用できます（<a href="#ex-04">例 4 を</a>参照）。</p>
+		</dd>
+		<dt>
+			<code>aria-label</code>
+		</dt>
+		<dd>
+			<p><code>aria-label</code>属性は、他の方法でラベルを付けられない場合に使用します（<a href="#ex-06">例 6</a>を参照）。属性の値はコントロールのラベルです。</p>
+		</dd>
+	</dl>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/forms.html#the-label-element"><code>label</code>要素</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element"><code>fieldset</code>要素</a></li>
+		<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-label">aria-label（プロパティ）</a></li>
+		<li>ARIA — <a href="https://www.w3.org/TR/wai-aria/#aria-labelledby">aria-labelledby（プロパティ）</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/script/labels.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> epub:type 属性 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for using the epub:type attribute to identify document structures.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/epub-type.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>epub:type 属性</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p><code>epub:type</code>属性は EPUB リーディングシステムでのユーザー体験を向上させることができますが、支援技術でのアクセシビリティは<strong>向上しません</strong>。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li> <code>epub:type</code>属性を使用して脚注と文末脚注を識別します。</li>
+	</ul>
+	
+	<div class="note" role="note" aria-labelledby="note-1">
+		<p id="note-1" class="label">注記</p>
+		<p>現時点では、ユーザー機能強化を提供する<code>epub:type</code>の他の使用法は知られていません。</p>
+	</div>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption><span class="label">一般的な注のセマンティクス</span></figcaption>
+		<dl>
+			<dt id="ex01-footnote">脚注と参考文献</dt>
+			<dd>
+				<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;p&gt;lorum ipsum.&lt;a epub:type="noteref" href="#fn01"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;aside epub:type="footnote"&gt;
+   …
+&lt;/aside&gt;</code></pre>
+			</dd>
+			<dt id="ex01-endnote">文末脚注と参考文献</dt>
+			<dd>
+				<pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;p&gt;lorum ipsum.&lt;a epub:type="noteref" href="#en01"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;aside epub:type="endnote"&gt;
+   …
+&lt;/aside&gt;</code></pre>
+			</dd>
+			<dt id="ex01-endnotes">文末脚注セクション</dt>
+			<dd>
+				<pre id="ex-01b-src" class="prettyprint linenums small"><code>&lt;section epub:type="endnotes"&gt;
+   &lt;h1&gt;Endnotes&lt;/h1&gt;
+   
+   &lt;section&gt;
+     &lt;h2&gt;Chapter 1&lt;/h2&gt;
+     &lt;aside epub:type="endnote"&gt;
+       …
+     &lt;/aside&gt;
+     …
+   &lt;/section&gt;
+   …
+&lt;/section&gt;</code></pre>
+			</dd>
+		</dl>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>脚注を開くなどの特殊な動作を有効にするには、それらのコンテンツがリーディングシステムにより適切に識別される必要があります。</p>
+	
+	<p><code>epub:type</code>属性は、ドキュメント本文内の任意の要素に追加のセマンティクスを付与するために使用できます。<a href="https://www.w3.org/TR/epub-ssv/">EPUB Structural Semantics Vocabulary</a>で定義されている用語であればどれでも使用できますが、この属性はポップアップ脚注以外ではあまり使用されていません。</p>
+	
+	<p>特定のセマンティクスのみが特定のタグで使用できることに注意してください。たとえば、 <code>aside</code>要素を脚注としてマークすることは適切ですが、 <code>section</code>を脚注としてマークすることはあまり適切ではありません。<a href="https://www.w3.org/TR/epub-ssv/">Structural Semantics Vocabulary</a>には、このプロセスを容易にするために各セマンティクスと組み合わせて使用​​される共通要素がリストアップされています（ただし、ルールに例外が発生する場合もあります）。</p>
+</section>
+
+<section id="a11y">
+	<h3>ARIA ロールとの比較</h3>
+		
+	<p><code>epub:type</code>属性は、ポップアップ形式の脚注などのユーザーエージェントの動作を容易にするだけです。これは、出版社のワークフローのセマンティクスとアクセシビリティのニーズの橋渡しをすることが期待されていましたが、成功しませんでした。それ自体では出版物のアクセシビリティは<strong>向上しません</strong>。</p>
+	
+	<p>この属性は<a href="roles.html">、ARIAロール</a>を生成する手段として内部ワークフローで依然として役立つ可能性がありますが、このような場合には ARIA 仕様の要件に厳密に従う必要があります。ロールの使用は<code>epub:type</code>よりもはるかに制限的です。</p>
+	
+	<p>アクセシビリティと拡張ユーザーエージェントの動作が重複する場合には、 <code>epub:type</code>と<code>role</code>属性の両方を使用することもできます。</p>
+	
+	<p><code>epub:type</code>から ARIA<code>role</code>属性に切り替えるときに避けるべき悪習慣の一覧については、「<a href="https://idpf.github.io/epub-guides/epub-aria-authoring/">EPUB Type to ARIA Role Authoring Guide</a>」を参照してください。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"><code>epub:type</code>属性</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/epub-type.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

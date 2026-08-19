@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 記事 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for identifying and structuring articles.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/articles.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>記事</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>デジタル出版物内の自己完結型のコンテンツ記事を識別するには、 <code>article</code>要素を使用します。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>雑誌、ジャーナル、新聞などに掲載されているような自己完結型の記事には<code>article</code>要素を使用します。[[WCAG-1.3.1]]</p>
+		</li>
+		<li>
+			<p>各記事に見出しを加えます。 [[WCAG-1.3.1]]</p>
+		</li>
+		<li>
+			<p>サイドバーなど、記事内の補助的な資料には<code>aside</code>要素を使用します。[[WCAG-1.3.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — 基本的な記事</div>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;article&gt;
+   &lt;header&gt;
+      &lt;h2&gt;The Deterrent Effects of Slap-Induced Cranial Trauma&lt;/h2&gt;
+      &lt;p class="byline"&gt;M. Howard, C. Howard, and L. Fine&lt;/p&gt;
+      &lt;p class="id"&gt;DOI: &lt;a href="https://dx.doi.org/10xxx/"
+         &gt;https://dx.doi.org/10xxx/&lt;/a&gt;&lt;/p&gt;
+   &lt;/header&gt;
+   &lt;section id="abstract" role="doc-abstract"&gt;
+      &lt;p&gt;… &lt;/p&gt;
+   &lt;/section&gt;
+   …
+&lt;/section&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001"> <code>aside</code>と<code>article</code>どちらを使うべきでしょうか?</dt>
+		<dd>
+			<p><code>aside</code>要素は、コンテンツが主要な内容を説明または補足する場合に最適です。サイドバー、用語集、および同様の説明コンテンツに最適です。</p>
+			
+			<p><code>article</code>要素は、コンテンツがドキュメントまたは出版物の他のコンテンツから独立している場合に最適です。たとえば、科学雑誌では、共通のテーマがあっても、各記事は他の記事から独立しています。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>記事ベースの出版物は商業出版では一般的ではありませんが、科学雑誌などの出版分野では中心的な存在です。出版物に記事が含まれている場合、意味的に正確な<code>article</code>要素を使用してタグ付けできます。</p>
+	
+	<p>HTMLの仕様では、 <code>article</code>要素のコンテンツは、「原則として、（例: シンジケーション内などで）独立して配布または再利用可能」です 。この意味で、記事は、より大きなデジタル作品内の自己完結型のミニ出版物のようなものです。<code>section</code>要素は作品を小さな複数のセクションに分割するのに使用される一方、<code>article</code>要素は個別のコンテンツの固まりであり、<code>section</code>要素を使用してさらに分割されるかもしれません。</p>
+	
+	<p>支援技術のユーザーにとって、 <code>article</code>と<code>section</code>タグの主な違いは、それらの識別方法にあります。 <code>section</code>はランドマーク（目印）と見なされますが、 <code>article</code>はそうではありません。Jaws や NVDA などのスタンドアロンの支援技術では、通常、この違いに関係なく、ユーザーは記事に移動できますが、記事はページのランドマーク（目印）のリストには含まれません。</p>
+	
+	<p><code>article</code>要素は、対話型のゲームなどのスクリプトコンテンツをカプセル化するのに使用されることもあります。記事という従来の出版概念に限定されず、コンテンツの個別の項目をカプセル化するものとみなせます。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">&lt;article&gt;: 記事コンテンツ要素</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-article-element"><code>article</code>要素</a> </li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/articles.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

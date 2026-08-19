@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Overview - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of accessibility issues related to EPUB fixed layout publications">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/fxl/overview.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Fixed Layouts</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Overview</h2>
+		</div>
+		
+		
+		<section id="layouts">
+	<h3>Layouts</h3>
+	
+	<p>A fixed-layout publication is one where each page has a fixed size (height and width). The content of
+		these pages is laid out in a pixel-precise manner &#8212; elements have fixed coordinates where they
+		are to render.</p>
+	
+	<p>Fixed layouts are commonly created using images but can also be achieved in HTML through the use of
+		absolute positioning with CSS. They are typically used to create comics, manga, children's story
+		books, cookbooks and textbooks, but can be found in any material trying to reproduce pixel-precise
+		layouts.</p>
+	
+	<p>EPUB supports two primary approaches to creating fixed layouts:</p>
+	
+	<ol>
+		<li><a href="html.html">HTML-based layouts</a> &#8212; the HTML page is given a set height and width
+			and content is positioned within the area.</li>
+		<li><a href="svg.html">SVG-based layouts</a> &#8212; image formats (e.g., SVG, JPEG, PNG) are used
+			to create the content.</li>
+	</ol>
+	
+	<p>In some cases, these approaches are mixed. An HTML or SVG document might be used to display an image
+		format, for example, so that alternative text and extended descriptions can also be provided.</p>
+	
+	<div class="note" role="note" aria-labelledby="img-note">
+		<p id="img-note" class="label">Note</p>
+		<p>An alternative to HTML and SVG fixed layouts is to include images directly in the EPUB spine. As
+			support for, and accessibility of, this approach is limited, this topic is only minimally
+			covered on the <a href="img.html">images in spine page</a>.</p>
+	</div>
+</section>
+
+<section id="creation">
+	<h3>Creation</h3>
+	
+	<section id="creation-package-meta">
+		<h4>Package Metadata</h4>
+		
+		<p>The only difference between a primarily fixed-layout publication and one with only a few pages is
+			in the package document metadata.</p>
+		
+		<p>When the publication consists entirely, or predominantly, of fixed layout pages, a single global
+			declaration of the <a href="https://www.w3.org/TR/epub/#layout"
+					><code>rendition:layout</code> property</a> is all that is needed:</p>
+		
+		<pre id="ex-cr-01" class="prettyprint linenums"><code>&lt;metadata>
+   &lt;meta property="rendition:layout">pre-paginated&lt;/meta>
+   &#8230;
+&lt;/metadata></code></pre>
+		
+		<p>If a document is reflowable, it can be overridden using the
+				<code>rendition:layout-reflowable</code> property on its spine item reference:</p>
+		
+		<pre id="ex-cr-02" class="prettyprint linenums"><code>&lt;spine>
+   &#8230;
+   &lt;itemref ref="p211"/>
+   &lt;itemref ref="index" property="rendition:layout-reflowable"/>
+&lt;/spine></code></pre>
+		
+		<p>If only a few pages use fixed layouts, the preceding process is simply reversed. Although it is
+			not necessary to specify a global <code>rendition:layout</code> property for reflowable
+			publications (this is the default in EPUB), one can be added as follows:</p>
+		
+		<pre id="ex-cr-03" class="prettyprint linenums"><code>&lt;metadata>
+   &lt;meta property="rendition:layout">reflowable&lt;/meta>
+   &#8230;
+&lt;/metadata></code></pre>
+		
+		<p>The fixed layout pages then override this setting using the
+				<code>rendition:layout-pre-paginated</code> value on their relevant spine item
+			references:</p>
+		
+		<pre id="ex-cr-04" class="prettyprint linenums"><code>&lt;spine>
+   &#8230;
+   &lt;itemref ref="c01"/>
+   &lt;itemref ref="plate-01" property="rendition:layout-pre-paginated"/>
+   &lt;itemref ref="plate-02" property="rendition:layout-pre-paginated"/>
+   &lt;itemref ref="c02"/>
+   &#8230;
+&lt;/spine></code></pre>
+	</section>
+	
+	<section id="creation-dimensions">
+		<h4>Page Dimensions</h4>
+		
+		<p>The package metadata declarations only tell reading systems which pages to render as fixed
+			layouts. It is still necessary to identify the dimensions of the page so that the reading system
+			renders the page in an appropriately sized area.</p>
+		
+		<p>The dimensions for fixed layout XHTML and SVG differ as each relies on the markup capabilities of
+			its respective format.</p>
+		
+		<p>For HTML layouts, the height and width of the page is specified in pixels using a
+				<code>viewport</code> declaration in the HTML header.</p>
+		
+		<pre id="ex-dim-01" class="prettyprint linenums"><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+   &lt;head>
+      &lt;title>Page 1&lt;/title>
+      &lt;meta name="viewport" content="height=1200,width=800"/>
+      &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+		
+		<p>For SVG layouts, the height and width of the page is specified in pixels using the
+				<code>viewBox</code> attribute.</p>
+		
+		<pre id="ex-dim-02" class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+   &#8230;
+&lt;/svg></code></pre>
+	</section>
+</section>
+
+<section id="display-meta">
+	<h3>Display Metadata</h3>
+	
+	<p>EPUB 3 provides the following metadata properties to control the layout and appearance of
+		fixed-layout pages:</p>
+	
+	<dl class="value">
+		<dt id="rendition-orientation">rendition:orientation</dt>
+		<dd>
+			<p>The <a href="https://www.w3.org/TR/epub/#orientation"
+						><code>rendition:orientation</code> property</a> specifies the author's preferred
+				orientation for displaying the fixed-layout page(s).</p>
+			<p>The value can be one of <code>portrait</code>, <code>landscape</code>, or <code>auto</code>
+				for no preference.</p>
+			<p>The property can be declared globally for all pages using a <code>meta</code> tag:</p>
+			<pre id="ex-o01" class="prettyprint linenums"><code>&lt;meta property="rendition:orientation">landscape&lt;/meta></code></pre>
+			<p>Or can be set for specific pages in the spine using the <code>properties</code>
+				attribute:</p>
+			<pre id="ex-o02" class="prettyprint linenums"><code>&lt;itemref idref="pg22" <strong>properties="rendition:orientation-portrait"</strong></code></pre>
+		</dd>
+		<dt id="rendition-spread">rendition:spread</dt>
+		<dd>
+			<p>The <a href="https://www.w3.org/TR/epub/#spread"
+						><code>rendition:spread</code> property</a> specifies the author's preference for
+				when a reading should display the fixed-layout page(s) in a <a href="spreads.html">synthetic
+					spread</a> (i.e., side-by-side in two-page layout).</p>
+			<p>The value can be one of <code>landscape</code> (only when the device is held in landscape
+				orientation), <code>both</code> (when the device is in either landscape or portrait
+				orientation), <code>auto</code> (no preference), or <code>none</code>.</p>
+			<p>The property can be declared globally for all pages using a <code>meta</code> tag:</p>
+			<pre id="ex-s01" class="prettyprint linenums"><code>&lt;meta property="rendition:spread">landscape&lt;/meta></code></pre>
+			<p>Or can be set for specific pages in the spine using the <code>properties</code>
+				attribute:</p>
+			<pre id="ex-s02" class="prettyprint linenums"><code>&lt;itemref idref="pg124" <strong>properties="rendition:spread-both"</strong>/></code></pre>
+		</dd>
+		<dt id="rendition-page-spread">rendition:page-spread-left, -right and -center</dt>
+		<dd>
+			<p>The <a href="https://www.w3.org/TR/epub/#page-spread"
+						><code>rendition:page-spread-*</code> properties</a> specify the author's preference
+				for which slot in a two-page spread the reading should display the fixed-layout page.</p>
+			<p>Unlike the right- and left-hand properties, <code>page-spread-center</code> property is used
+				to indicate that only a single, centered slot should be used to display the page.</p>
+			<p>The page-spread properties can only be set for specific pages in the spine using the
+					<code>properties</code> attribute:</p>
+			<pre id="ex-pss01" class="prettyprint linenums"><code>&lt;itemref idref="pg2" <strong>properties="rendition:page-spread-left"</strong>/>
+&lt;itemref idref="pg3" <strong>properties="rendition:page-spread-right"</strong>/></code></pre>
+		</dd>
+	</dl>
+</section>
+
+<section id="a11y">
+	<h3>Accessibility</h3>
+	
+	<p>Fixed-layout publications present a number of challenges for accessibility. These include:</p>
+	
+	<ul>
+		<li>the incorrect ordering of HTML markup in order to visually display content, leading to a
+			confusing reading experience when read by assistive technology (AT);</li>
+		<li>content spread across multiple pages, making for an incoherent reading order;</li>
+		<li>images of text being used without text alternatives, leaving no content to be read by AT;</li>
+		<li>text or image content that cannot be zoomed, or that requires scrolling when zoomed, making
+			reading by persons with low vision difficult to impossible.</li>
+	</ul>
+	
+	<p>The degree of accessibility that can be achieved depends heavily on a combination of the type of
+		layout used and the complexity of the content. It is likely going to be easier to make a simple
+		children's book accessible, for example, than it is to make a complex textbook. Often, fixed-layout
+		content will only be accessible if an alternative serialization is provided.</p>
+	
+	<div class="note" role="note" aria-labelledby="wcag-note">
+		<p id="wcag-note" class="label">Note</p>
+		<p>WCAG 2.1 introduces a new <a href="https://www.w3.org/TR/WCAG2/#reflow">reflowable success
+				criterion</a> for level AA conformance, which will make it difficult for most fixed layout
+			publications to conform to that standard.</p>
+	</div>
+	
+	<p>This section of the knowledge base explores techniques for improving the accessibility of
+		fixed-layout publications, but it is generally recommended to create reflowable content when a
+		publication has to be broadly accessible.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ol>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-fixed-layouts">Fixed layouts</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#app-rendering-vocab">Package rendering
+			vocabulary</a></li>
+	</ol>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/fxl/overview.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

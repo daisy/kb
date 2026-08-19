@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Table Summaries - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for describing the structure of tables">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/tables-summary.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="tables-basics.html">Table Basics</a></li>
+				
+					
+				<li><a href="tables-captions.html">Table Captions</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Table Summaries</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Add summaries for tables with complex layouts to explain how they are structured.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Provide a summary that describes the structure of complex tables. <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></li>
+		<li>Ensure the summary and caption do not repeat the same text. <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Summary in the table caption</div>
+			<p>In these examples, the summary is provided within the table's <code>caption</code>
+				element. One example uses a <code>p</code> tag, so the summary is always visible,
+				while the other uses a <code>details</code> element to collapse the summary.</p>
+		</figcaption>
+		
+		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;caption>
+      &lt;p class="title">Consolidated Statements of Operations&lt;p>
+      &lt;p class="desc">
+         The table contains the complete list of
+         operational expenses for the last three years.
+         These expenses are categorized within the table to &#8230;
+      &lt;/p>
+   &lt;/caption>
+   &#8230;
+&lt;/table></code></pre>
+		
+		<pre id="ex-01b-src" class="prettyprint linenums"><code>&lt;table aria-details="tbl-desc">
+   &lt;caption>
+      &lt;p class="title">Consolidated Statements of Operations&lt;/p>
+      &lt;details id="tbl-desc">
+         &lt;summary>Description&lt;/summary>
+         &lt;p class="desc">
+            The table contains the complete list
+            of operational expenses for the last
+            three years. These expenses are
+            categorized within the table to &#8230;
+         &lt;/p>
+      &lt;details>
+   &lt;/caption>
+   &#8230;
+&lt;/table></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Summary in a figure</div>
+			<p>In the first example, the table summary is provided in the figure's <code>figcaption</code>
+				element.</p>
+			<p>In the second example, a <code>details</code> element is used for the table summary. As the
+				<code>details</code> element is not well supported inside a <code>figure</code> in EPUB,
+				it is placed after the <code>figure</code> and linked to it using the <code>aria-details</code>
+				attribute.</p>
+		</figcaption>
+		
+		<pre id="ex-02a-src" class="prettyprint linenums"><code>&lt;figure aria-details="tbl-desc">
+   &lt;figcaption>
+      &lt;p class="title">Consolidated Statements of Operations&lt;/p>
+      &lt;p class="desc">
+         The table contains the complete list of
+         operational expenses for the last three years.
+         These expenses are categorized within the table to &#8230;
+      &lt;/p>
+   &lt;/figcaption>
+
+   &lt;table aria-details="tbl-desc">
+      &#8230;
+   &lt;/table>
+&lt;/figure></code></pre>
+		
+		<pre id="ex-02b-src" class="prettyprint linenums"><code>&lt;figure aria-details="tbl-desc">
+   &lt;figcaption>Consolidated Statements of Operations&lt;/figcaption>
+
+   &lt;table aria-details="tbl-desc">
+      &#8230;
+   &lt;/table>
+&lt;/figure>
+
+&lt;details id="tbl-desc">
+   &lt;summary>Description&lt;/summary>
+   &lt;p class="desc">
+      The table contains the complete list
+      of operational expenses for the last
+      three years. These expenses are
+      categorized within the table to &#8230;
+   &lt;/p>
+&lt;details></code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Hidden summary associated with ARIA attributes</div>
+			<p>In this example, the summary cannot be visibly displayed, so the hidden text is linked
+				to the table using the <code>aria-describedby</code> attributes. Although assistive
+				technologies will normally not read hidden text, the use of the ARIA attribute allows
+				users to hear the summary.</p>
+		</figcaption>
+		
+		<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;table aria-describedby="tbl-desc">
+   &#8230;
+&lt;/table>
+
+&lt;p id="tbl-desc" hidden="">
+   The table contains the complete list of
+   operational expenses for the last three years.
+   These expenses are categorized within the table to &#8230;
+&lt;/p></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>For tables with complex information or structures, including a description for the user on how to
+		read the table can greatly assist comprehension. These summaries are beneficial for many different
+		user needs, not only for users who cannot see the content.</p>
+	
+	<p>The summary for a table should ideally be placed before users encounter the table. If this is
+		not possible, ARIA attributes such as <code>aria-details</code> and <code>aria-describedby</code>
+		can be used to programmatically link the summary to the table. These attributes allow assistive
+		technologies to provide the summary to the user when they reach the table, despite being positioned
+		elsewhere.</p>
+	
+	<p>There are many methods for adding summaries. While this page lists some, the HTML specification also
+		includes a <a href="https://html.spec.whatwg.org/multipage/tables.html#table-descriptions-techniques"
+			>section detailing others</a>. All these methods are valid, so the choice of which to use can
+		be dictated by the publisher's workflow needs.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/tables.html#table-descriptions-techniques">Techniques for describing tables</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/tables-summary.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

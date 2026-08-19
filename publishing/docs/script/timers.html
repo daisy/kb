@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Timers - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for creating accessible timers in publications">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/script/timers.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Scripted Content and Forms</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Timers</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	<p>Ensure that users have the time they need to complete timed actions.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	<ul>
+		<li>
+			<p>Allow users to turn off, adjust or extend time limits [[WCAG-2.2.1]]</p>
+		</li>
+		<li>
+			<p>Avoid time limits on activities [[WCAG-2.2.3]]</p>
+		</li>
+		<li>
+			<p>Warn users about periods of inactivity that can cause data loss [[WCAG-2.2.6]]</p>
+		</li>
+		<li>
+			<p>Ensure users can reauthenticate and continue sessions without loss of data [[WCAG-2.2.5]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The kind of time limits that WCAG addresses are not common in digital publications. These limits
+		typically occur due to user inactivity (e.g., to automatically log users out of sites so
+		that their accounts are not compromised) and to ensure the proper functioning of an application
+		(e.g., so users cannot hold purchases indefinitely).</p>
+	
+	<p>Some digital publications do make use of time limits, though, particularly educational works that
+		embed quizzes, tests, and interactive activities. Whether the timing is essential to the activity
+		&#8212; and therefore subject to the requirement to allow users to extend, adjust, or it turn off
+		&#8212; is more complex in these cases.</p>
+	
+	<p>For example, if a test is essential to the grading of the student, then having a time limit may be
+		exempt. If, however, an activity is only for practice, users should be able to control the timing.</p>
+	
+	<div class="note" role="note" aria-labelledby="test-note">
+		<p id="test-note" class="label">Note</p>
+		<p>In practice, whether students should be permitted more time to complete tests, and how to allow
+			this in a digital publication, is a complicated issue. Local laws may require accommodations
+			for students that allow additional time. It is better to avoid adding time-critical functions
+			to publications whenever possible.</p>
+	</div>
+	
+	<p>In general, it is best to allow users to control time limits that affect their interaction and
+		comprehension of the content. Users with vision and cognitive issues, for example, may need more
+		time to complete activities both because it requires more work to understand the layout of the
+		content and to comprehend the activity to perform.</p>
+	
+	<p>Users should also be alerted if periods of inactivity will result in the loss of any data they have
+		input or progress they have made in an activity. If the period of inactivity is set too short, some
+		users may appear inactive, for example, while they are still reading instructions.</p>
+	
+	<p>Moreover, if sessions are used to maintain the user's current state (i.e., they must log in to a
+		service that tracks their activities in a publication), the user should be able to reauthenticate
+		and not lose their data or progress.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers">Timers</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/script/timers.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> メディアオーバーレイ - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of the EPUB 3 Media Overlays feature.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/sync-media/overlays.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">マルチメディアの同期</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>メディアオーバーレイ</h2>
+		</div>
+		
+		
+		<style>
+	/* element tables */
+	
+	table.elemDef {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	
+	table.elemDef thead {
+		background-color: rgb(240,240,240);
+	}
+	
+	table.elemDef th {
+		font-size: 90%;
+		padding: 0.25em;
+	}
+	
+	table.elemDef td {
+		border-style: solid;
+		border-color: rgb(0,0,0);
+		border-width: 1px 0 0 0;
+		vertical-align: top;
+	}
+	
+	table.elemDef a {
+		font-weight: bold;
+	}
+	
+	td.root {
+		padding-left: 0.5em;
+	}
+	
+	td.firstChild {
+		padding-left: 2em;
+	}
+	
+	td.secondChild {
+		padding-left: 3em;
+	}
+	
+	td.thirdChild {
+		padding-left: 4em;
+		padding-right: 1em;
+	}
+	
+	td.use {
+		max-width: 25em;
+		padding: 0.25em 2em;
+	}
+</style>
+
+<section id="def">
+	<h3>概要</h3>
+	
+	<p>EPUB3では、メディアを同期するための<a href="https://www.w3.org/TR/epub/#sec-media-overlays">メディアオーバーレイ</a>と呼ばれる実装が定義されています。この仕様では、テキストのレンダリングと音声の再生を同期するための<a href="https://www.w3.org/TR/2008/REC-SMIL3-20081201/">SMIL</a>文法のプロファイルが定義されています。</p>
+	
+	<p>メディアオーバーレイ ドキュメントは、次の要素を使用して構築されています。</p>
+	
+	<table class="elemDef">
+		<thead>
+			<tr>
+				<th>要素</th>
+				<th>使用</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="root"><a href="https://www.w3.org/TR/epub/#sec-smil-smil-elem">smil</a></td>
+				<td class="use"> <code>smil</code>要素は、各メディアオーバーレイのルート要素であり、オプションの<code>head</code>と必須の<code>body</code>要素が含まれます。</td>
+			</tr>
+			<tr>
+				<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-head-elem">head</a></td>
+				<td class="use"><code>head</code>要素には、オプションの<code>metadata</code>要素を用いてメタデータを付加できますが、EPUB3仕様ではメタデータは必須ではありません。</td>
+			</tr>
+			<tr>
+				<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">metadata</a></td>
+				<td class="use"><code>metadata</code>要素は、外部の名前空間のメタデータをオーバーレイに付加するための拡張要素です。</td>
+			</tr>
+			<tr>
+				<td class="firstChild"><a href="https://www.w3.org/TR/epub/#sec-smil-body-elem">body</a></td>
+				<td class="use"> <code>body</code>要素の配下の<code>seq</code>と<code>par</code>要素の順序により再生が定義されます。</td>
+			</tr>
+			<tr>
+				<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">seq</a></td>
+				<td class="use"><code>seq</code>要素は、オーバーレイを構造化するために使用します。ユーザーが読み飛ばし、または回避したいセクション、表、リストなどの複雑な構造を表すのに使用します。</td>
+			</tr>
+			<tr>
+				<td class="secondChild"><a href="https://www.w3.org/TR/epub/#sec-smil-par-elem">par</a></td>
+				<td class="use"> <code>par</code>要素は、子の<code>text</code>や<code>audio</code>要素内の同期ポイントを定義します。</td>
+			</tr>
+			<tr>
+				<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-text-elem">text</a></td>
+				<td class="use"><code>text</code>要素によって、視覚的なレンダリングと同期されるコンテンツドキュメントと要素が識別されます。</td>
+			</tr>
+			<tr>
+				<td class="thirdChild"><a href="https://www.w3.org/TR/epub/#sec-smil-audio-elem">audio</a></td>
+				<td class="use"> <code>audio</code>要素で、音声ファイルを指定します。オプションで再生の開始点と終了点を指定します。</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p>出版物を同期するには、出版物内の各コンテンツドキュメントに個別のオーバーレイが関連付けられていなければなりません。オーバーレイは、パッケージ ドキュメントのmanifest要素内で、オーバーレイを定義する<code>media-overlay</code>属性の<code>item</code>のID値を持つものとして、コンテンツ ドキュメントに関連付けられます。</p>
+	
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — 基本的なオーバーレイドキュメント</div>
+		</figcaption>
+		
+		<p>次の例は、見出しと二つの段落のみで構成される章のオーバーレイドキュメントを示しています。</p>
+		
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;smil xmlns="http://www.w3.org/ns/SMIL"
+	  xmlns:epub="http://www.idpf.org/2007/ops"
+	  version="3.0"&gt;
+   &lt;body&gt;
+	  &lt;seq
+		   epub:textref="chapter_001.xhtml"
+		   epub:type="bodymatter chapter"&gt;
+	  
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01h01"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:00.000" 
+				   clipEnd="0:00:05.250"/&gt;
+		 &lt;/par&gt;
+		 
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01p0001"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:05.250"
+				   clipEnd="0:00:58.100"/&gt;
+		 &lt;/par&gt;
+		 
+		 &lt;par&gt;
+			&lt;text src="chapter_001.xhtml#c01p0002"/&gt;
+			&lt;audio
+				   src="audio/c01.mp4"
+				   clipBegin="0:00:58.100"
+				   clipEnd="0:02:04.000"/&gt;
+		 &lt;/par&gt;
+	  &lt;/seq&gt;
+   &lt;/body&gt;
+&lt;/smil&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — 章のドキュメントをオーバーレイにリンクする</div>
+		</figcaption>
+		
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;item id="xchapter_001"
+	  href="chapter_001.xhtml"
+	  media-type="application/xhtml+xml"
+	  media-overlay="chapter_001_overlay"/&gt;
+
+&lt;item id="chapter_001_overlay"
+	  href="chapter_001_overlay.smil"
+	  media-type="application/smil+xml"/&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="samp" class="sample">
+	<h3>サンプル</h3>
+	
+	<p><a href="https://idpf.github.io/epub3-samples/30/samples.html">EPUBサンプルプロジェクト</a>に、メディアオーバーレイを実装する次の出版物があります。</p>
+	
+	<ul>
+		<li><a href="https://github.com/IDPF/epub3-samples/tree/main/30/moby-dick/OPS">Moby Dick</a></li>
+	</ul>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li><a href="https://www.w3.org/TR/epub/#sec-media-overlays">EPUBメディアオーバーレイ 3.0</a></li>
+		<li><a href="https://www.w3.org/TR/2008/REC-SMIL3-20081201/">同期マルチメディア統合言語（SMIL 3.0）</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/sync-media/overlays.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

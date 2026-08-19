@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Reading Order - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ordering and identifying epub content documents in the spine">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/epub/reading-order.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">EPUB</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Reading Order</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Order content documents in the EPUB <code>spine</code> to ensure the reading order is logical and
+		identify whether each document contains linear or non-linear content.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Order the entries for all content documents.</li>
+		<li>Use the <code>linear</code> attribute to differentiate linear and non-linear content.</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Including a non-linear cover</div>
+			<p>The cover is marked as non-linear in this example as it is not essential that reading
+				systems present it as the first document.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;spine>
+      &lt;itemref idref="cover" linear="no"/>
+      &lt;itemref idref="title"/>
+      &lt;itemref idref="toc"/>
+      &lt;itemref idref="intro"/>
+      &lt;itemref idref="c01"/>
+      &lt;itemref idref="c02"/>
+      &#8230;
+   &lt;/spine>
+&lt;/package></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Including separate description files</div>
+			<p>The image descriptions are marked as non-linear and included at the end of the spine to
+				avoid users encountering them between chapters.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;spine>
+      &#8230;
+      &lt;itemref idref="appendix-03"/>
+      &lt;itemref idref="desc-01" linear="no"/>
+      &lt;itemref idref="desc-02" linear="no"/>
+      &lt;itemref idref="desc-03" linear="no"/>
+      &lt;itemref idref="desc-04" linear="no"/>
+      &lt;itemref idref="desc-05" linear="no"/>
+      &#8230;
+   &lt;/spine>
+&lt;/package></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Do reading systems hide non-linear content from readers when paging through a publication?</dt>
+		<dd>
+			<p>No, the EPUB specification does not mandate a specific way of rendering non-linear content,
+				so you cannot rely on reading systems hiding content marked as non-linear. If you place a
+				non-linear document between two chapters, some users will encounter that content as they
+				manually page through the publication.</p>
+			<p>Although some reading systems will ignore non-linear documents, only rendering them if a
+				user clicks on a link to them, such behaviour is not universal.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<section id="order">
+		<h4>Spine Order</h4>
+		
+		<p>The <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code> element</a> in the
+			EPUB package document defines the order of documents in the publication. Reading systems use
+			the element to determine which document comes next when users are reading.</p>
+		
+		<p>The <code>spine</code> consists of one or more <code>itemref</code> elements, each of which
+			references an item in the <a href="https://www.w3.org/TR/epub/#sec-manifest-elem">manifest</a>.
+			The <code>idref</code> attribute on the <code>itemref</code> provides the specific ID of manifest
+			item to render, as depicted in the following example. (Note there is no hash (#) at the start of
+			the reference as the value is an ID reference not a URL.)</p>
+		
+		<pre id="ex-expl-01-src" class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;manifest>
+      &#8230;
+      &lt;item id="c01"
+            href="xhtml/chapter01.xhtml"
+            media-type="application/xhtml+xml"/>
+      &#8230;
+   &lt;/manifest>
+   &lt;spine>
+      &#8230;
+      &lt;itemref idref="c01"/>
+      &#8230;
+   &lt;/spine>
+&lt;/package></code></pre>
+		
+		<p>The average reader is typically not aware that an EPUB publication is usually a set of many
+			documents in the spine. The reading system hides this fact from them, as when they reach the
+			end of one document, it automatically propagates the next page by inspecting the
+			<code>spine</code> to load the next.</p>
+		
+		<p>It is critical that you reference all the primary content documents from the <code>spine</code>,
+			and you must order these documents to present the primary narrative of the publication in
+			logical sequence. Although misorderding documents is not common, it can happen during edits and
+			revisions (e.g., if you insert a new chapter or section). In these cases, all readers will be
+			confused if the documents are out of sequence, or if one is missing, so it is more of a general
+			usability issue than specifically an accessibility one.</p>
+	</section>
+	
+	<section id="linear">
+		<h4>Linear Content</h4>
+		
+		<p>Linear content documents are those that the author expects users to read sequentially: Chapter 1
+			is followed by Chapter 2, which is followed by Chapter 3, and so on. The linear reading order
+			represents the primary pathway through a publication.</p>
+		
+		<p>If readers are expected to read linear documents in sequence, then it follows that they are not
+			required to read non-linear documents that way. An answer key is an example of a non-linear
+			document. The reader might want to review it after the chapter containing the corresponding
+			quiz, they might want to wait until the end of the book before checking the answers, or they
+			might not be interested in it at all. It is not essential to read the answers where the author
+			has inserted them into the spine, in other words.</p>
+		
+		<p>Non-linear content documents are identified by adding a <code>linear</code> attribute with the
+			value <code>no</code> to the <code>itemref</code> element, as depicted in the following
+			example:</p>
+		
+		<pre id="ex-expl-02-src" class="prettyprint linenums"><code>&lt;itemref
+    idref="answers-01"
+    linear="no"/></code></pre>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-01">
+			<p id="linear-note-01" class="label">Note</p>
+			<p>Reading systems assume that <code>itemref</code> elements without a <code>linear</code>
+				attribute represent linear content documents, so it is rare to find
+				<code>linear="yes"</code> set in EPUB publications.</p>
+		</div>
+		
+		<p>The placement of non-linear content in the <code>spine</code> does pose some issues for the
+			readability of the content. Because reading systems do not all handle non-linear content the
+			same way, authors cannot assume how reading systems will present it to users. Reading systems
+			may or may not present such content where it is placed in the <code>spine</code>.</p>
+		
+		<p>Consequently, a primary consideration for non-linear content is to ensure that its nature
+			and purpose is clear on its own. Do not assume that readers will have followed a link to reach
+			the non-linear content, so will already know its purpose.</p>
+		
+		<p>Using the example of an answer key, make sure that the file starts with a heading that
+			identifies that what follows are the answers to the quiz. If you place image descriptions in a
+			separate non-linear file, ensure that each description makes clear what image it is
+			describing.</p>
+		
+		<p>Another option for non-linear content is to place it where it will have the least impact on the
+			linear reading experience. You can place image descriptions and pop-out images after all the 
+			linear content in the spine, for example (see <a href="#ex-02">example 2</a>). Placement at the
+			end of the <code>spine</code> is particularly useful when you cannot adequately describe the
+			content. An enlarged version of an image might suffer from an explicit caption, for
+			example.</p>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-02">
+			<p id="linear-note-02" class="label">Note</p>
+			<p>EPUB 3's requirements for non-linear content differ from EPUB 2's in one significant way,
+				namely authors must include a link to all non-linear documents in the spine. This
+				requirement ensures that readers can reach the non-linear content regardless of whether
+				reading systems render it while manually paging through a publication.</p>
+			
+			<p>In most cases, this requirement is not onerous to meet, as authors typically do not include
+				non-linear content that they have not linked from the linear content. One known issue
+				involves including a non-linear cover in the spine (see <a href="#ex-01">example 1</a>). To
+				satisfy the linking requirement to this document, you can include a link to the cover in
+				the <a href="../navigation/landmarks.html"><code>landmarks nav</code></a>.</p>
+		</div>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-spine-elem">The <code>spine</code> element</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear">The <code>linear</code> attribute</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/epub/reading-order.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

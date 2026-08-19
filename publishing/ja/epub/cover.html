@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 表紙 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Accessible practices for including cover images in EPUB publications.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/cover.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">EPUB</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>表紙</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>表紙画像に含まれる関連する情報の説明を加えるようにしましょう。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>画像が周囲のテキストで説明されていない場合は、 <code>alt</code>属性に代替テキストを入力します。[[WCAG-1.1.1]]</p>
+		</li>
+		<li>
+			<p>複雑な画像には拡張説明を提供します。[[WCAG-1.1.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — HTML 表紙</div>
+			<p>表紙に出版物の基本情報が含まれている場合にのみ、代替テキストが必要です。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img src="images/cover.jpg"
+     role="doc-cover"
+     alt="EPUB 3 Best Practices - O'Reilly - Pencil drawing of a goat"&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — 説明付きの HTML 表紙</div>
+			<p>表紙の追加の詳細説明は<code>aria-describedby</code>属性を使用して提供します。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;img src="images/cover.jpg"
+     role="doc-cover"
+     alt="Accessible EPUB 3 - O'Reilly - Pencil drawing of a goat"
+     aria-describedby="cover-desc"&gt;
+&lt;p id="cover-desc" hidden="hidden"&gt;Best practices for creating universally usable content.
+   Excerpt from EPUB 3 Best Practices&lt;/p&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">例 3 — パッケージ ドキュメント 表紙 (EPUB 3)</div>
+			<p>表紙画像は、EPUB 3 マニフェスト内の<code>properties</code>属性値「 <code>cover-image</code> 」によって識別されます。</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;manifest xmlns:dc="http://purl.org/dc/elements/1.1/" …&gt;
+   &lt;item src="images/cover.jpg"
+         id="cover"
+         media-type="image/jpeg"
+         properties="cover-image"/&gt;
+   …
+&lt;/manifest&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">代替テキストに「cover:」と前置きする必要がありますか?</dt>
+		<dd>
+			<p>これは、画像が表紙であることを識別するのに便利な従来の方法ですが、現在は <code>doc-cover</code>ロールを使用できるようになったため、必須ではなくなりました。また場合によっては重複した情報を提供してしまうことになります。<br>支援技術はこのロールがある場合に、画像が表紙であることを認識するべきですが、このロールのサポートはまだ広く普及していないため、この方法を引き続き使用することは許容されます。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>表紙画像はタイトルや著者だけでなく、出版物に関する重要な情報を伝えることがよくあります。表紙は、出版物と他の作品との関係など、追加のコンテキストを提供する場合もあります。また、出版物の表紙画像が、その本を識別するのに使われることもあります (たとえば、教授は表紙の主要な特徴で教科書を参照することがよくあります)。</p>
+	
+	<p>表紙画像の重要さにもかかわらず、「表紙画像」のみのような役に立たない代替テキストで説明されているのをしばしば見かけます。このような場合、画像を見られないユーザーは出版物が口語的な説明と一致しているかどうかが判断できないため、不利益を被ります。</p>
+	
+	<p>このため、代替テキストには、表紙に関する関連情報をできるだけ多く含めることをお勧めします。画像に表示されているテキストを含めることは良い出発点ですが、必要に応じて、表紙画像自体の短い説明も含めます (たとえば、一部の表紙には画像が含まれず、単色のみの場合があります)。</p>
+	
+	<p>表紙に絵画、工芸品、古代遺物の写真が掲載されている場合など、表紙についてより長い説明が必要になることもあります。</p>
+	
+	<section>
+		<h4>EPUB 3</h4>
+		
+		<p>EPUB 3 では、画像のマニフェスト<code>item</code>の<code>properties</code>属性に<code>cover-image</code>値を追加することで、パッケージ ドキュメント内で表紙画像を識別できます (<a href="#ex-03">例 3</a>を参照)。</p>
+		
+		<p>これを使用した場合、EPUB リーディングシステムでは、この画像を本棚でユーザーに表示したり、出版物を読み込むときにスプラッシュ ページとして使用したりします。画像の代替テキストや説明を提供する方法はありませんが、リーディングシステムは通常、読者が出版物にアクセスできるように、本棚にタイトルと著者情報を提供します。</p>
+	</section>
+	
+	<section>
+		<h4>EPUB 2</h4>
+		
+		<p>EPUB 2 も同様に表紙画像を識別する機能を提供しますが、パッケージ ドキュメントのメタデータを通じて識別します。</p>
+		
+		<pre id="epub2-ex01" class="prettyprint linenums"><code>&lt;meta name="cover" content="manifest_cover_id" /&gt;</code></pre>
+		
+		<p>この場合、 <code>content</code>属性は画像のマニフェスト<code>item</code>の ID を参照します。(この方法は EPUB 2 仕様の正式な一部ではありませんが、EPUB 2 リーディングシステムでは認識されます。)</p>
+		
+		<p>EPUB 3 と同様に、コンテンツ製作者がこれらの画像をアクセシブルにする方法はありません。</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	
+	<ul>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#cover-image"><code>cover-image</code>プロパティ</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/epub/cover.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

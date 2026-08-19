@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Header Scope - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for indicating the scope of table headers">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/tables-scope.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="tables-basics.html">Table Basics</a></li>
+				
+					
+				<li><a href="tables-headers.html">Complex Headers</a></li>
+				
+					
+				<li><a href="tables-layout.html">Layout Tables</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Header Scope</h2>
+		</div>
+		
+		
+		<style>
+	table {
+		width: 80%;
+	}
+	td {
+		text-align: center;
+	}
+</style>
+
+<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Identify which column(s) or row(s) table headers apply to so that users of assistive technologies
+		can understand the context of the data they are reading.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Ensure that table headers are identified and their scope (row or column) is defined.<span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption><span class="label">Example 1 &#8212; Sectioned Table</span></figcaption>
+		
+		<p>In this example, the table shows population change over time. It is split into sections
+			for each fictional region, so the scope "<code>rowgroup</code>" is applied to each
+			section heading to associate it with all the cells in the group (each <code>tbody</code>
+			element defines a new group).</p>
+		
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>1950</th>
+					<th>1975</th>
+					<th>2000</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th colspan="4" scope="rowgroup">Gondor</th>
+				</tr>
+				<tr>
+					<th>Male</th>
+					<td>1,001,542</td>
+					<td>1,583,771</td>
+					<td>2,221,945</td>
+				</tr>
+				<tr>
+					<th>Female</th>
+					<td>1,122,947</td>
+					<td>1,782,371</td>
+					<td>2,544,187</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<th colspan="4" scope="rowgroup">Mordor</th>
+				</tr>
+				<tr>
+					<td colspan="4" class="center">&#8230;</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;table>
+   &lt;thead>
+      &lt;tr>
+         &lt;th>&lt;/th>
+         &lt;th>1950&lt;/th>
+         &lt;th>1975&lt;/th>
+         &lt;th>2000&lt;/th>
+      &lt;/tr>
+   &lt;/thead>
+   &lt;tbody>
+      &lt;tr>
+         &lt;th colspan="4" scope="rowgroup">Gondor&lt;/th>
+      &lt;/tr>
+      &lt;tr>
+         &lt;th>Male&lt;/th>
+         &lt;td>1,001,542&lt;/td>
+         &lt;td>1,583,771&lt;/td>
+         &lt;td>2,221,945&lt;/td>
+      &lt;/tr>
+      &lt;tr>
+         &lt;th>Female&lt;/th>
+         &lt;td>1,122,947&lt;/td>
+         &lt;td>1,782,371&lt;/td>
+         &lt;td>2,544,187&lt;/td>
+      &lt;/tr>
+   &lt;/tbody>
+   &lt;tbody>
+      &lt;tr>
+         &lt;th colspan="4" scope="rowgroup">Mordor&lt;/th>
+      &lt;/tr>
+      &#8230;
+   &lt;/tbody>
+&lt;/table></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The <code>scope</code> attribute is used to clarify relationships between headers and
+		cells. It is attached to <code>th</code> elements to clarify their directionality and
+		takes one of the following four values:</p>
+	
+	<dl>
+		<dt><code>col</code></dt>
+		<dd>
+			<p>The <code>col</code> value indicates that the header applies to the cells below or above
+				it (dpeending on the directionality of the language).</p>
+			<p>The <code>col</code> value can be used with headers that span multiple columns (i.e.,
+				that have a <code>colspan</code> attribute).</p>
+		</dd>
+		
+		<dt><code>colgroup</code></dt>
+		<dd>
+			<p>The <code>colgroup</code> value indicates that the header applies to the cells in the 
+				corresponding <code>colgroup</code> element definition.</p>
+			<p>The <code>colgroup</code> value must always correspond to a <code>colgroup</code> element
+				declaration for the table. If a <code>colgroup</code> element is not defined, the value is
+				invalid.</p>
+		</dd>
+		
+		<dt><code>row</code></dt>
+		<dd>
+			<p>The <code>row</code> value indicates that the header applies to the cells to the right or
+				left of it (depending on the directionality of the language).</p>
+			<p>The <code>row</code> value can be used with headers that span multiple rows (i.e., that
+				have a <code>rowspan</code> attribute).</p>
+		</dd>
+		
+		<dt><code>rowgroup</code></dt>
+		<dd>
+			<p>The <code>rowgroup</code> value indicates that the header applies to the cells above or below
+				and to the right or left (depending on the directionality of the language) in the group 
+				of rows the header belongs to.</p>
+			<p>A row group is defined by the <code>thead</code>, <code>tbody</code>, or <code>tfoot</code> 
+				that the header is within. If none of these elements are specified, the attribute value is
+				invalid.</p>
+		</dd>
+	</dl>
+	
+	<p>Although it is not necessary to specify a scope for simple tables where the first row(s) or column(s)
+		contain the header cells, it is best to specify the scope whenever there is an ambiguity.</p>
+	
+	<p>If a table is divided into sections, for example, the header rows for each section might be read
+		out for each cell if a row group is not properly defined (see <a href="#ex-01">Example 1</a>.</p>
+	
+	<p>If you do not declare a scope information where these ambiguities exist, assistive technologies
+		will make a best guess at how to apply the headers, which can lead to incorrect interpretations.</p>
+	
+	<div class="note" role="note" aria-labelledby="group-note">
+		<p id="group-note" class="label">Note</p>
+		<p>Some guidance states that <code>col</code> and <code>row</code> scopes cannot be used when 
+			<code>colspan</code> and <code>rowspan</code> attributes are declared; that you must define
+			<code>colgroup</code> and <code>rowgroup</code> scopes with the applicable structuring requirements.
+			This advice is incorrect.</p>
+	</div>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">&lt;table>: The Table
+			element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">The
+					<code>table</code> element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/tables-scope.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

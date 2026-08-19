@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 太字と斜体 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for the application of bolding and italics.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/emphasis.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>太字と斜体</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>強調を適切に用いると、ユーザーはキーワードと純粋にスタイル的な装飾を音声の強調によって区別できるようになります。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>強調されたテキストがユーザーにとって重要な情報（例：声の強勢、キーワード）を伝える場合は、 <code>em</code>や<code>strong</code>などのセマンティックマークアップを使用します。[[WCAG-1.3.1]]</li>
+		<li>強調や太字を純粋にスタイル上使用する場合は CSS を使用します。[[WCAG-1.3.1]]</li>
+	</ul>
+	
+	<p>HTML 5では、<code>em</code>、<code>strong</code>、<code>i</code>、<code>b</code>要素のより正確な使用方法が定義されていることに注意してください (以下の<a href="#emph-expl">説明表</a>を参照)。 WCAG 2.0に準拠するためにこれらのルールに従う必要はありませんが、ベストプラクティスとして考慮してください。このセクションの例は、これらのガイドラインに従っています。</p>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	<figure id="ex-01">
+		<figcaption><span class="label">例1 — 声の強勢を表す<code>em</code>の使用</span></figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;p&gt;
+   … There was nothing so &lt;em&gt;very&lt;/em&gt; remarkable
+   in that; nor did Alice think it so &lt;em&gt;very&lt;/em&gt;
+   much out of the way to hear the Rabbit say to
+   itself, &lt;q&gt;Oh dear! Oh dear! I shall be 
+   late!&lt;/q&gt; …
+&lt;/p&gt;</code></pre>
+		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   … 'Really this is what is meant by the Fourth
+   Dimension, though some people who talk about the 
+   Fourth Dimension do not know they mean it. It is 
+   only another way of looking at Time. &lt;em&gt;There 
+   is no difference between Time and any of the 
+   three dimensions of Space except that our 
+   consciousness moves along it&lt;/em&gt;. …
+&lt;/p&gt;</code></pre>
+	</figure>
+	<figure id="ex-02">
+		<figcaption><span class="label">例2 — 重要性を示すための<code>strong</code>の使用</span></figcaption>
+		<pre id="ex-02a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;strong&gt;Warning&lt;/strong&gt;, all features should 
+   be considered unstable …
+&lt;/p&gt;</code></pre>
+		<pre id="ex-02b-src" class="prettyprint linenums"><code>&lt;p&gt;
+   &lt;strong&gt;Do not feed the bears!&lt;/strong&gt; 
+&lt;/p&gt;</code></pre>
+	</figure>
+	<figure id="ex-03">
+		<figcaption><span class="label">例3 — ラテン語の用語に対する<code>i</code>要素の使用</span></figcaption>
+		<pre id="ex-03a-src" class="prettyprint linenums"><code>&lt;p&gt;
+   When hybrids are able to breed &lt;i&gt;inter se&lt;/i&gt;, 
+   they transmit …
+&lt;/p&gt;</code></pre>
+		<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;p&gt;
+   Among the sea-shells, the most abundant was the 
+   &lt;i&gt;Patella deaurat&lt;/i&gt; …
+&lt;/p&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>太字と斜体には、強調する点、トーンや場所の変更、特別な名前など、テキストに関連するさまざまな情報が含まれます。ただし、正しいセマンティックタグを用いてこの書式設定を適用しないと、同じ情報を視覚障害のあるユーザーに伝えることはできません。</p>
+	
+	<p>次の表は、太字と斜体にさまざまな HTML5 および CSS メソッドを適用する方法を示しています。</p>
+	
+	<table id="emph-expl">
+		<colgroup>
+			<col style="width: 10em;">
+			<col style="width: 60em;">
+		</colgroup>
+		<tr>
+			<th>要素/プロパティ</th>
+			<th>目的</th>
+		</tr>
+		<tr>
+			<td class="center"><code>em</code></td>
+			<td> <code>em</code>要素は、テキストが音声的に強調されることを示します。</td>
+		</tr>
+		<tr>
+			<td class="center"><code>strong</code></td>
+			<td>
+<code>strong</code>要素は重要さを示し、命令文を述べるときや、「警告」や「警戒」などのシグナルワードを使用するときなどに用います。</td>
+		</tr>
+		<tr>
+			<td class="center"><code>i</code></td>
+			<td> <code>i</code>要素はイタリック体の使用が口調や声の変化を示す場合に使用されます。HTML5 仕様で例として挙げられているのは、夢の内容が長く続く場合ですが、メインの物語から思考や思い出へと話が逸れる場合など、同様の状況にも使用できます。<code>i</code>要素は、強調の背後に意味的な重要性がある場合（例：イタリック体の単語が、専門用語、外国語などを示す場合など）にも使用されます。</td>
+		</tr>
+		<tr>
+			<td class="center"><code>b</code></td>
+			<td> <code>b</code>要素は、太字で意味を伝える場合に常に使用されます。これは、（キーワードなどの）セマンティックタグの付与に<code>i</code>が使用されるのと同様です。</td>
+		</tr>
+		<tr>
+			<td class="center">
+				<code class="property">font-style: italic</code><br>
+				<code class="property">font-weight: bold</code>
+			</td>
+			<td>太字と斜体が装飾の目的で使用される場合（見出しや導入語など）には太字と斜体のCSSプロパティを使用してください。CSSフォーマットにはセマンティクス（意味）を含まないので、強調は支援技術を通じて認識されません。</td>
+		</tr>
+	</table>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">&lt;em&gt;: 強調要素</a> </li>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">&lt;strong&gt;: 強い重要性要素</a> </li>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i">&lt;i&gt;: 慣用テキスト要素</a> </li>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b">&lt;b&gt;: 注目付け要素</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"><code>em</code>要素</a> </li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element"><code>strong</code>要素</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element"><code>i</code>要素</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element"><code>b</code>要素</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/emphasis.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

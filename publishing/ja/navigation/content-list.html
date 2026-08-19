@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> コンテンツリスト（Content Lists） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Best practices for adding navigational lists of tables, figures, and similar content.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/navigation/content-list.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>コンテンツリスト（Content Lists）</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>表、イラスト、ビデオなどの重要なコンテンツのリストを提供することで、読者は容易にそれらの項目との間を往復できます。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>二次コンテンツ用のナビゲーションリストを含めます。[[WCAG-2.4.5]]</p>
+		</li>
+		<li>
+			<p>リスト内の項目を区別するために意味のある名前を付けます。[[WCAG-2.4.6]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — 図表一覧</div>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="loi"&gt;
+&lt;h2&gt;List of Figures&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+	&lt;a href="s01.xhtml#fig1"&gt;Figure 1 — Gaseous anomalies&lt;/a&gt;
+  &lt;/li&gt;
+  …
+&lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例2 — ビデオのリスト</div>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav epub:type="lov"&gt;
+&lt;h2&gt;List of Video&lt;/h2&gt;
+&lt;ol&gt;
+  …
+  &lt;li&gt;
+	&lt;a href="s04.xhtml#vid04-1"&gt;4.1 — Cell mitosis&lt;/a&gt;
+  &lt;/li&gt;
+  …
+&lt;/nav&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">EPUBナビゲーション ドキュメントにコンテンツリストを組み込むべきでしょうか？</dt>
+		<dd>
+			<p><em>spineにナビゲーション ドキュメントを含んでいる場合に限り必要です。</em></p>
+			<p>ナビゲーション ドキュメントにコンテンツリストを組み込むのが理想ですが、EPUBリーディングシステムは通常は目次のみのサポートであり、場合によってページ一覧がサポートされるといった状況です。EPUB規格の上ではEPUBリーディングシステムはナビゲーション ドキュメントのすべてのコンテンツにアクセスできるようにする必要がありますが、現実にはそのようになっていません。以上のような理由で、ナビゲーション ドキュメントがspineにない場合には読者はリストにアクセスできません。</p>
+		</dd>
+		<dt id="faq-002"><code>epub:type</code>属性を付ける必要はありますか？</dt>
+		<dd>
+			<p>リストがナビゲーション ドキュメントに含まれている場合のみ必要です。これらの値は、リーディングシステムがリストの目的を判断するのに役立ちますが、現時点ではそれらの使用法は知られていません。通常、<a href="toc.html"><code>toc</code></a> 、<a href="pagelist.html"><code>pagelist</code></a> 、および<a href="landmarks.html"><code>landmarks</code></a>の値のみが認識されます。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>印刷出版物では、情報のある場所をすぐに見つけられるように、図、表、イラストのリストが組み込まれてきました。読者が主要な内容を読む際には、思考の流れを見失わないようにこの情報をスキップすることが多く、通常、この項目を含む作品や章を読み終えた後などに、この情報に戻ります。</p>
+	
+	<p>視覚的に読む読者は、そのようなコンテンツを視覚的に素早くざっと読み飛ばせるという利点がありますが、支援技術を使用している人や認知障害のある人にとっては、このコンテンツに戻るのは時間がかかり、困難な場合があります。</p>
+	
+	<p>コンテンツ リストを作成するときは、HTML <code>nav</code>要素を使用して、リストに意味のあるタイトルを付けます。また、リスト内の各エントリがリンク先のコンテンツを意味のある形で説明するようにします（たとえば、詳細なコンテキストがない「図 1」などの単純なラベルは使用しないでください）。</p>
+	
+	<p>デジタル出版物のリストでは、印刷物のような従来の2次元コンテンツに限定されません。出版物に音声、ビデオ、インタラクティブ コンテンツが含まれている場合には、これらのコンテンツのリストを組み込めます。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	
+	<ul>
+		<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-package-nav-def-types-other">その他の<code>toc nav</code>要素</a></li>
+		<li>EPUB Structural Semantics Vocabulary — <a href="https://www.w3.org/TR/epub-ssv/#navigation">ドキュメントナビゲーション</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/navigation/content-list.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

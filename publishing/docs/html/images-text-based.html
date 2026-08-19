@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Text-based Images - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Practices for identifying and describing text-based images">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/images-text-based.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="images-desc.html">Image Descriptions</a></li>
+				
+					
+				<li><a href="images-text.html">Images of Text</a></li>
+				
+					
+				<li><a href="images-deco.html">Decorative Images</a></li>
+				
+					
+				<li><a href="images-icons.html">Icons</a></li>
+				
+					
+				<li><a href="images-selection.html">Image Selection</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Text-based Images</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Identify and describe text-based imagery so that assistive technologies do not ignore, or attempt
+		to read out, the text they contain.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Use the <code>role</code> attribute value <code>img</code> to identify text-based images. <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></li>
+		<li>Provide alternative text and/or an extended description. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></li>
+		<li>Ensure sufficient contrast between text and background. <span class="wcag-level">[<a href="/publishing/docs/wcag/contrast-minimum.html">WCAG 1.4.3 - AA</a>]</span></li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; ASCII drawing with alt text</div>
+			<p>The <code>aria-label</code> attribute provides the alternative text description.
+				This attribute serves the same purpose as the <code>alt</code> attribute as that
+				attribute is only allowed on <code>img</code> elements.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Winnie the Pooh with Hunny pot">
+    _
+ __( )_
+(      (o____
+ |          |
+ |      (__/
+   \     /   ___
+   /     \  \___/
+ /    ^    /     \
+|   |  |__|_HUNNY |
+|    \______)____/
+ \         /
+   \     /_
+    |  ( __)
+    (____)
+&lt;/pre></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Emoticon with alt text</div>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;span role="img" aria-label="shrug">¯\_(ツ)_/¯&lt;span></code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Redacted text</div>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>In the case of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text">_____&lt;span>
+   it is clear that the crime of
+   &lt;span
+         class="redacted"
+         role="img"
+         aria-label="redacted text">_____&lt;span>
+   &#8230;
+&lt;p></code></pre>
+	</figure>
+	
+	<figure id="ex-04">
+		<figcaption>
+			<div class="label">Example 4 &#8212; ASCII drawing with description</div>
+			<p>The <code>aria-describedby</code> attribute is used to provide a description for
+				the ASCII image.</p>
+		</figcaption>
+		<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;pre
+    role="img"
+    aria-label="Skeleton in graveyard"
+    aria-describedby="skeleton-desc">
+           _..--""---.
+          /           ".
+          `            l
+          |'._  ,._ l/"\
+          |  _J&lt;__/.v._/
+           \( ,~._,,,,-)
+            `-\' \`,,j|
+               \_,____J
+          .--.__)--(__.--.
+         /  `-----..--'. j
+         '.- '`--` `--' \\
+        //  '`---'`  `-' \\
+       //   '`----'`.-.-' \\
+     _//     `--- -'   \' | \________
+    |  |         ) (      `.__.---- -'\
+     \7          \`-(               74\\\
+     ||       _  /`-(               l|//7__
+     |l    ('  `-)-/_.--.          f''` -.-"|
+     |\     l\_  `-'    .'         |     |  |
+     llJ   _ _)J--._.-('           |     |  l
+     |||( ( '_)_  .l   ". _    ..__I     |  L
+     ^\\\||`'   "   '"-. " )''`'---'     L.-'`-.._
+          \ |           ) /.              ``'`-.._``-.
+          l l          / / |                      |''|
+           " \        / /   "-..__                |  |
+           | |       / /          1       ,- t-...J_.'
+           | |      / /           |       |  |
+           J  \  /"  (            l       |  |
+           | ().'`-()/            |       |  |
+          _.-"_.____/             l       l.-l
+      _.-"_.+"|                  /        \.  \
+/"\.-"_.-"  | |                 /          \   \
+\_   "      | |                1            | `'|
+  |ll       | |                |            i   |
+  \\\       |-\               \j ..          L,,'. `/
+ __\\\     ( .-\           .--'    ``--../..'      '-..
+   `'''`----`\\\\ .....--'''
+              \\\\                           -nabis  ''
+
+&lt;/pre>
+&lt;p id="skeleton-desc" hidden="">
+   A skeleton is posing next to a grave marker &#8230;
+&lt;/p></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Are fill in the blank fields text-based images?</dt>
+		<dd>
+			<p>Yes, the use of underscores to identify where to write answers is a type of text-based
+				image. If these fields are not identified, users typically get no indication either that
+				an answer is needed or what length it should be.</p>
+			<p>The alternative text for the field can be used to describe the expected input.</p>
+			<p>For example, a free-form input field could be expressed like this:</p>
+			<pre class="prettyprint linenums"><code>&lt;p>The US capital
+   &lt;span role="img" aria-label="answer field">__________&lt;span>
+   is located on the Potomac River.&lt;/p></code></pre>
+			<p>While a field that expects a specific number of characters could be expressed like this:
+			<pre class="prettyprint linenums"><code>&lt;p>The quick brown 
+   &lt;span role="img" aria-label="answer field - 3 letters">_ _ _&lt;span>
+   jumped over the lazy dog.&lt;/p></code></pre>
+			<p>Ideally, publishers should use the native HTML form fields for text input, but this is not
+				always possible when the digital edition must exactly replicate the print.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>Although the name "ASCII art" is commonly used to describe text-based images, it is no
+		longer the case that such artwork is composed solely of printable characters from the ASCII
+		set. Support for Unicode on modern computers means that all printable characters from the
+		Unicode planes are now usable.</p>
+	
+	<p>The requirements for text-based images are largely the same as those for raster and vector images,
+		but the implementation differs slightly. One key difference is that text-based images are
+		indistinguishable from the surrounding text by default (i.e., they are not a separate format or
+		have unique tagging, like JPEGs and SVGs).</p>
+	
+	<p>To identify that a series of characters represent a text-based image, add the ARIA <code>role</code>
+		attribute with the value "<code>img</code>" to a tag around the image (refer to 
+		<a href="#ex-01">Example 1</a>). Text-based images are often wrapped in <code>pre</code> tags to
+		retain their layout, but single-line images may, for example, be wrapped in <code>span</code> tags.</p>
+	
+	<p>If you do not identify the text-based image with a role, assistive technologies will try to announce
+		the text they contain. For images composed of punctuation, this may mean nothing is announced to
+		users (they may only hear a pause). For images with alphanumeric characters, users may hear
+		gibberish as the characters are read out.</p>
+	
+	<p>With the image identified, the requirements become familiar to those for any image. Alternative
+		text is typically required but cannot be provided by an <code>alt</code> attribute as it is only
+		allowed on <code>img elements</code>. For text-based images, the <code>aria-label</code> or
+		<code>aria-labelledby</code> attribute can be used to provide the alternative text (see 
+		<a href="#ex-01">Example 1</a>).</p>
+	
+	<p>For complex image, descriptions can be provided using the <code>aria-describedby</code> or
+		<code>aria-details</code> attribute (see <a href="#ex-04">Example 4</a>). For more information
+		about describing images, refer to the <a href="images-desc.html">Image Descriptions</a> page.</p>
+	
+	<p>It is also important to consider contrast issues with text-based images. Although not strictly
+		required by WCAG that images have sufficient contrast (except where they contain actual words),
+		the use of text characters allows authors control over the contrast between the text used to create
+		the image and the background the images appear on. Using sufficient contrast ensures readers will be
+		able to perceive the image.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ul>
+		<li>ARIA &#8212; <a href="https://www.w3.org/TR/wai-aria/#img"><code>img</code> (role)</a></li>
+		<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/img_role">ARIA: img role</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/images-text-based.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> ドロップキャップ - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for creating accessible drop caps.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/dropcaps.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>ドロップキャップ</h2>
+		</div>
+		
+		
+		<style>
+	p.first {
+		margin-left: 5rem;
+	}
+	p.first::first-letter {
+		float: left;
+		font-size: 3em;
+		line-height: 1;
+		padding-right: 0.1em;
+	}
+</style>
+
+<section id="summary">
+	<h3>要約</h3>
+	
+	<p>ドロップキャップは複数のユーザーグループにとって問題があり、アクセシビリティを確保しつつ一貫してレンダリングするのは容易ではありません。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>ドロップキャップをフォーマットするには、CSSの<code>initial-letter</code>プロパティを使用します。[[WCAG-1.3.1]]</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>ドロップキャップは伝統的に文書の新しいセクションを強調するために使用されていました。たとえば、ラテン語の写本では、新しいセクションの開始時の区切りがなかったため、テキストをざっと読むユーザーに対して、ドロップキャップによる視覚的な目印が提供されていました。</p>
+	
+	<p>出版物はもはやこのようにレイアウトされなくなり、今では主要な新しいセクションは、新しいページの先頭に大きな文字で見出しを付けて配置し強調表示されます。</p>
+	
+	<p>装飾的なドロップキャップは、出版物に華やかさを加えるために今でも時々使用されていますが、様式化された文字はもはや機能的な目的を果たしません。この余分な書式設定は、残念ながら一部のユーザーにとっては読みの妨げとなります。次のような例があります。</p>
+	
+	<ul>
+		<li>様式化されたドロップキャップの書式設定によって最初の文字が単語の残りの部分から分離されている場合、支援技術では最初の単語を適切に読み上げできません。</li>
+		<li>画像が使用されている場合、ズームするとドロップキャップの画像がピクセル化されます。</li>
+		<li>ドロップキャップのサイズが拡大すると、テキストの流れを追うことが困難になります（たとえば、ディスレクシアのユーザーは、ドロップキャップから最初の行まで追うことや、読み続けるための正しい次の行を見つけることが困難な場合があります）。</li>
+	</ul>
+	
+	<p>これらの理由から、ドロップキャップの使用を避けるのが最善のアドバイスです。</p>
+	
+	<p>ただし、実際にはドロップキャップを完全に回避することはできません。次のセクションでは、ドロップキャップをアクセシビリティ対応しつつフォーマットする最も一般的な方法をいくつか紹介します。</p>
+	
+	<section id="first-letter">
+		<h4>CSS <code>::first-letter</code>疑似要素</h4>
+		
+		<p>CSS <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter"><code>::first-letter</code>疑似要素は</a>現在、ドロップ キャップをアクセシブルな方法でフォーマットするための最適なオプションです。</p>
+		
+		<p>たとえば、新しい章の次のマークアップ例があるとします。</p>
+		
+		<pre id="ex-ln-html" class="prettyprint linenums"><code>&lt;section role="doc-chapter" id="c01"&gt;
+   &lt;h2&gt;Chapter 1&lt;/h2&gt;
+   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit …&lt;/p&gt;
+   …
+&lt;/section&gt;</code></pre>
+		
+		<p>次の CSS セレクターを使用して文字「L」をドロップキャップとしてスタイル設定し、章としてマークされた各セクションの最初の<code>p</code>要素の最初の文字を取得できます。</p>
+		
+		<pre id="ex-ln-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child::first-letter {
+   float: left;
+   font-size: 3em;
+   line-height: 1;
+   padding-right: 0.1em;
+}</code></pre>
+		
+		<p>このマークアップの表示例を次に示します。</p>
+		
+		<p class="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 						ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 						in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 						cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		<p>ドロップキャップのマークアップはCSSのみを使用して行われるため、最初の単語を音声化する支援技術の機能には影響がありません。また、文字が拡大されて読みにくい場合は、ユーザーがリーディングシステムの設定でテキストの書式を変更できるでしょう。</p>
+		
+		<p>このアプローチの唯一の欠点は、ドロップキャップの書式設定が常に一定ではないことです。文字をフローティングして行の高さを調整することに依存するため、リーディングシステムやブラウザーによってドロップキャップの配置が異なってきます。</p>
+	</section>
+	
+	<section id="initial-letter">
+		<h4>CSS <code>initial-letter</code>プロパティ</h4>
+		
+		<p>CSSの<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials"><code>initial-letter</code>プロパティは、</a>フロートと行の高さを持つ<code>first-letter</code>セレクターを使用してドロップキャップを作成しようとしたときに発生する書式設定の問題を解消できる可能性があります。このプロパティの値を用いて、対象となるテキストを何行分の高さにするかを指定します。</p>
+		
+		<p>たとえば、2行の高さのドロップキャップを作成するには、次のCSSを指定するだけです。</p>
+		
+		<pre id="ex-il-css" class="prettyprint linenums"><code>section[@role='doc-chapter'] p:first-child {
+	initial-letter: 2;
+}</code></pre>
+		
+		<p>（レーズドキャップを作成するには、 <code>initial-letter: 2 1</code>を使用します）</p>
+		
+		<p>このアプローチの問題点は、現時点では<a href="https://caniuse.com/?search=initial-letter">プロパティのサポートが部分的</a>にしか行われていないことです。サポートが広まるまでは、他の代替手段を使用する必要があります。</p>
+	</section>
+	
+	<section id="html-img">
+		<h4>画像</h4>
+		
+		<p>HTMLの<code>img</code>タグは、次の例のようにドロップキャップをフォーマットするために使用されることがあります。</p>
+		
+		<pre id="ex-hi-01" class="prettyprint linenums"><code>&lt;img src="images/caps/a.jpg" alt="C"/&gt;all me Ishmael …</code></pre>
+		
+		<p><code>img</code>タグを使用すると、スクリーンリーダーはテキストを適切にレンダリングできなくなります。この場合、スクリーンリーダーは「Image Cee all me Ishmael」のように読み上げてしまうでしょう。</p>
+		
+		<p>同様のパターンとして、ドロップキャップをフォーマットするために<code>span</code>タグを使用する方法があります。</p>
+		
+		<pre id="ex-hi-02" class="prettyprint linenums"><code>&lt;span class="dropcap"&gt;C&lt;/span&gt;all me Ishmael …</code></pre>
+		
+		<p>文字の書式設定を確実にするために、CSS 背景画像がよく適用されます。ただし、この方法は<code>img</code>タグを使用するのと変わりません。最初の文字が他の文字とは別に発音されてしまうからです。</p>
+	</section>
+	
+	<section id="aria">
+		<h4>ARIA</h4>
+		
+		<p>最初の文字に<code>img</code>または<code>span</code>タグを使用する際の問題の回避策として、ARIA 属性と非表示コンテンツの使用が提案されることがあります。たとえば、 <a href="https://adrianroselli.com/2019/10/accessible-drop-caps.html">「Accessible Drop Caps」</a>の記事を参照してください。</p>
+		
+		<p>このアプローチの問題点は、EPUB リーディングシステムの ARIA 属性のサポートに依存しているだけでなく（サポートが不十分）、コンテンツを非表示にする機能（これもサポートが不十分）にも依存している点です。</p>
+		
+		<p>結局、このアプローチはアクセシブルなように見えますが、視覚的にも支援技術のユーザーにとってもコンテンツの重複が生じる可能性があります。純粋に Web ベースの出版物にのみ使用するのがよいでしょう。</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ul>
+		<li>CSS — <a href="https://www.w3.org/TR/CSS22/selector.html#first-letter">The :first-letter 疑似要素</a> </li>
+		<li>CSS —<a href="https://www.w3.org/TR/css-inline-3/#sizing-drop-initials">頭文字の作成: initial-letter プロパティ</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/dropcaps.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

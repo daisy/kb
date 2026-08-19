@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Video - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for the accessible inclusion of video content, covering controls, tracks and transcripts">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/video.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Video</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure the video is labeled, the user can control playback, and there are alternatives for users who
+		cannot see or hear the video or who need more time to process the information.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Include a label that describes the video. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Enable the <code>video</code> element's native controls by default. <span class="wcag-level">[<a href="/publishing/docs/wcag/keyboard.html">WCAG 2.1.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Include captions for audio content. <span class="wcag-level">[<a href="/publishing/docs/wcag/captions-prerecorded.html">WCAG 1.2.2 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Include a transcript or audio alternative for video with no audio. <span class="wcag-level">[<a href="/publishing/docs/wcag/audio-only-and-video-only-prerecorded.html">WCAG 1.2.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Include a transcript and/or audio descriptions when the video has audio. <span class="wcag-level">[<a href="/publishing/docs/wcag/audio-only-and-video-only-prerecorded.html">WCAG 1.2.1 - A</a>]</span>, <span class="wcag-level">[<a href="/publishing/docs/wcag/audio-description-or-media-alternative-prerecorded.html">WCAG 1.2.3 - A</a>]</span>, and <span class="wcag-level">[<a href="/publishing/docs/wcag/audio-description-prerecorded.html">WCAG 1.2.5 - AA</a>]</span></p>
+		</li>
+		<li>
+			<p>Ensure the video does not present the risk of seizures. <span class="wcag-level">[<a href="/publishing/docs/wcag/three-flashes-or-below-threshold.html">WCAG 2.3.1 - A</a>]</span> and <span class="wcag-level">[<a href="/publishing/docs/wcag/three-flashes.html">WCAG 2.3.2 - AAA</a>]</span></p>
+		</li>
+		<li>
+			<p>Ensure users can disable any audio that starts automatically or turn off its volume. <span class="wcag-level">[<a href="/publishing/docs/wcag/audio-control.html">WCAG 1.4.2 - A</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example &#8212; Enabling native controls</div>
+			<p>Setting the <code>controls</code> attribute enables the native HTML controls by default.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;video &#8230; controls="controls">
+   &#8230;
+&lt;/video></code></pre>
+	</figure>
+
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example &#8212; Adding a label</div>
+			<p>The <code>aria-label</code> attribute provides the title of the video.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;video &#8230; aria-label="The General">
+   &#8230;
+&lt;/video></code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example &#8212; Including timed tracks</div>
+			<p>The <code>track</code> identifies the subtitles and captions files for the video.
+				The <code>kind</code> attribute designates the nature of the supplied track.</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;video
+       src="video/big-hollywood-blockbuster.mp4"
+       controls="controls"
+       aria-label="Kaplowy - The movie">
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/>
+&lt;/video></code></pre>
+	</figure>
+
+	<figure id="ex-05">
+		<figcaption>
+			<div class="label">Example &#8212; Providing a transcript</div>
+			<p>The transcript is included in a <code>details</code> element after the video so that users
+				can decide whether to expand the element and read the text.</p>
+		</figcaption>
+		<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General"
+      aria-details="#transcript">
+   &#8230;
+&lt;/video>
+&lt;details id="transcript">
+	&lt;summary>Transcript&lt;/summary>
+	&lt;p>Jospeh M Schenck presents Buster Keaton
+	   in 'The General' &#8230;&lt;/p>
+	&#8230;
+&lt;/details></code></pre>
+	</figure>
+	
+	<figure id="ex-06">
+		<figcaption>
+			<div class="label">Example &#8212; Including a fallback error message</div>
+			<p>A user agent will only render the content inside the <code>video</code> element if it does not
+				support the element. The user agent does not display this content if it does not support the
+				provided video formats (the user agent will display its own error message in such cases).</p>
+		</figcaption>
+		<pre id="ex-06-src" class="prettyprint linenums"><code>&lt;video
+      src="video/the_general.mp4"
+      controls="controls"
+      aria-label="The General">
+   &#8230;
+   &lt;div class="err">
+     &lt;p>
+       Sorry, it appears your system 
+       does not support video playback.
+     &lt;/p>
+   &lt;/div>
+&lt;/video></code></pre>
+	</figure>
+	
+	<figure id="ex-07">
+		<figcaption>
+			<div class="label">Example &#8212; Video with variety of accessible features</div>
+			<p>This example combines elements from the previous examples to show a possible complete
+				example of an embedded video. It includes English subtitles and captions, fallback
+				content, a link to a web-hosted version, and a transcript.</p>
+		</figcaption>
+		<pre id="ex-07-src" class="prettyprint linenums"><code>&lt;video
+      src="https://example.com/videos/the_general.mp4"
+      controls="controls"
+      aria-label="general"
+      aria-details="#transcript">
+   &lt;track
+      kind="subtitles"
+      src="subtitles.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;track
+      kind="captions"
+      src="captions.en.vtt"
+      srclang="en"
+      label="English"/>
+   &lt;p>Your reading system does not support the video
+      element. Please try the link to open the video in a
+      browser.&lt;/p>
+&lt;/video>
+&lt;p>
+   &lt;a href="https://example.org/videos/the_general.mp4">
+      Watch video in browser
+   &lt;/a>
+&lt;/p>
+&lt;details id="transcript">
+   &lt;summary>Transcript&lt;/summary>
+   &lt;p>&lt;/p>
+   &#8230;
+&lt;/details></code></pre>
+	</figure>
+	
+	<figure id="ex-08">
+		<figcaption>
+			<div class="label">Example &#8212; Link to alternative video</div>
+			<p>Although not strictly an accessibility issue, when an EPUB publication references a video
+				on the web, providing a separate link to the video may allow some users to access the video
+				when they are prevented from doing so by their reading system (e.g., if the reading
+				system blocks external resources or cannot play the provided format). Refer to the
+				knowledge base page on <a href="../epub/remote-resources.html">remote resources</a> for
+				more information.</p>
+			<p>Note that this technique does not help if a user does not have access to the internet,
+				which is why embedding videos in EPUBs should be preferred whenever possible.</p>
+			<p>Accessibility features have been omitted from the markup for brevity.</p>
+		</figcaption>
+		<pre id="ex-08-src" class="prettyprint linenums"><code>&lt;video src="https://example.org/videos/the_general.mp4" &#8230;>
+   &#8230;
+&lt;/video>
+&lt;p>
+   &lt;a href="https://example.org/videos/the_general.mp4">
+      Watch video in browser
+   &lt;/a>
+&lt;/p></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>When including video clips, ensure that the native user agent controls are enabled by default (i.e.,
+		by setting the <code>controls</code> attribute on the <code>video</code> element). This practice
+		ensures that the controls are accessible even if scripting is not available. If you define your own
+		custom controls, disable the native controls by JavaScript so they remain available in user agent
+		that do not support scripting.</p>
+	
+	<p>Providing a label for videos ensures that users can understand the purpose of the video before
+		choosing whether to view it. The poster image that authors can specify to provide a snapshot of the
+		video for visual readers, for example, is not available to users who are blind. The label is the
+		only means of understanding the content without downloading it for these users. For users on mobile
+		devices, especially with high bandwidth costs, this information can save them both time and
+		money.</p>
+	
+	<p>In terms of providing alternatives, WCAG requires multiple options for video content to address the
+		needs of different user groups:</p>
+	
+	<ul>
+		<li>Transcripts and/or audio description tracks for users who are blind or have low vision.</li>
+		<li>Captions for users who cannot hear the video.</li>
+	</ul>
+	
+	<p>WCAG refers to transcripts as "media alternatives" because they cannot be a simple listing of
+		the spoken dialogue. The transcripts must include descriptions of the actions and any other
+		important events in the video.</p>
+	
+	<p>Progressing from level A to AA also increases the requirement. Transcripts are not sufficient to
+		for video with audio at level AA, for example, only an audio description track is sufficient.</p>
+		
+	<p>Although the <code>video</code> element allows child content for fallback purposes, such content is
+		not intended to serve as an accessible alternative. The user agent only makes this content
+		available to the user if it does not support the <code>video</code> element (e.g., in EPUB 2 user
+		agents).</p>
+	
+	<p>It is also important to consider that users need to be able to hear the audio produced by their
+		assistive technologies (e.g., a screen reader). Automatically playing a video with audio interferes
+		with their ability to hear the text, for example, so unless the clip only plays for three seconds
+		or less, the user must be able to disable playback or mute the volume without also muting their
+		assistive technology (i.e., the system audio control is not sufficient to meet this requirement as
+		it will raise and lower all audio in synchronicity).</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">&lt;video>: The
+			Video Embed element</a></li>
+		<li>HTML &#8212; <a 
+			href="https://html.spec.whatwg.org/multipage/media.html#the-video-element">The
+					<code>video</code> element</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/media.html#the-track-element">The
+					<code>track</code> element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/video.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

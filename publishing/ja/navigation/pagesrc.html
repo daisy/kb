@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> ページソース（Page Source） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for identifying the source of pagination in a digital publication.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/navigation/pagesrc.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>ページソース（Page Source）</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>ページネーションのソースを設定して、電子出版物がユーザーのニーズに確実に役立つようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>メタデータの中でページ区切りのソースを設定します。[[WCAG-1.3.1]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 - ページ区切りソースの識別 ( <code>pageBreakSource</code> )</div>
+			
+			<p>ページネーション ソースを識別するために、<code>dc:source</code>と<code>source-of</code>の二つのプロパティを用いる必要は無く、<code>pageBreakSource</code>プロパティのみを用います（つまり、以前は2つのプロパティが必要だったことを1つのプロパティで表現できます)。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource"&gt;urn:isbn:9781234567891&lt;/meta&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — ページ区切りのソース識別 ( <code>source-of</code> )</div>
+			
+			<p>この例では、古い<code>source-of</code>プロパティを使用してページネーション ソースを識別します。<strong>この方法は推奨されなくなりました。</strong>詳細については、以下の<a href="#faq-001">FAQ エントリ</a>を参照してください。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;dc:source id="pg-src"&gt;urn:isbn:9781234567891&lt;/dc:source&gt;
+&lt;meta property="source-of" refines="#pg-src"&gt;pagination&lt;/meta&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001"><code>source-of</code>プロパティまたは<code>pageBreakSource</code>プロパティのどちらを使用するべきでしょうか？</dt>
+		<dd>
+			<p>EPUB でページ区切りのソースを識別する古い方法は、 <code>dc:source</code>と<code>source-of</code>メタデータ プロパティの組み合わせです。ただし、この方法には 2 つの重大な欠陥があります。1 つは、EPUB でしか機能しないこと (メタデータの調整は他のフレームワークでは機能しません)、もう 1 つは、デジタル版のみでは機能しないこと (つまり、ページ区切りにソースがない場合) です。</p>
+			
+			<p id="pbs">現在は、<code>pageBreakSource</code>という単一のプロパティのみを使用する方法が推奨されています (<a href="#ex-07">例 7</a>を参照)。このプロパティが標準に完全に統合されるまでには EPUB の別の改訂が必要になりますが、使用に問題はありません。Epubcheck はこのプロパティを正しく検証します。</p>
+			
+			<p>ページ区切りがデジタル版専用に作成された場合は、 <code>pageBreakSource</code>プロパティの値を「none」に設定して、 <code>dc:source</code>の使用に関する問題を解決できます。</p>
+			
+			<p><code>pageBreakSource</code>プロパティの詳細については、 <a>「ページ ソースの識別」</a>を参照してください。</p>
+		</dd>
+		
+		<dt id="faq-002">ページネーション ソースに ISBN のような一意の識別子がない場合はどうなりますか?</dt>
+		<dd>
+			<p><code>pageBreakSource</code>プロパティに一意の識別子が含まれている必要はなく、ソースを一意に識別するだけで十分です。一意の識別子がない場合は、ソース ドキュメントに関する情報を使用して、ソース ドキュメントの一意の名前を作成します。</p>
+			
+			<p>PDF マニュアル、ワードプロセッサ ドキュメントなど、静的なページ番号を持ちながら一意の識別子を持たない、EPUB として表現できるドキュメントの種類は多数あります。</p>
+			
+			<p>このような種類のドキュメントでは、ページ区切りのソース識別のために最低でもタイトルが利用できます。より詳細にするには、作成者、作成日などを識別子に追加します。</p>
+			
+			<pre><code>&lt;metadata …&gt;
+…
+&lt;meta property="pageBreakSource"&gt;
+ACME Explosive Tennis Balls - 
+User Manual, 5th Edition, PDF
+&lt;/meta&gt;
+…
+&lt;/metadata&gt;</code></pre>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p><a href="pagelist.html">ページ リスト</a>と<a href="pagebreaks.html">ページ区切りマーカー</a>は、ユーザーが静的なページ区切りの場所にアクセスできるテクノロジーですが、ページ区切りのソースが判らなければ、ユーザーは電子出版物の有用性を判断できません。たとえば、教室の生徒は、ページ区切りがクラスの他の生徒が使用している印刷書籍と同じバージョンから派生したものかを知る必要があります。</p>
+	
+	<p>ページ区切りのソースは、 <code>pageBreakSource</code>プロパティを使用して識別されます。</p>
+	
+	<pre id="expl-01-src" class="prettyprint linenums"><code>&lt;meta property="pageBreakSource"&gt;urn:isbn:9780123456789&lt;/meta&gt;</code></pre>
+	
+	<p>プロパティの値は、ISBN など、静的にページ分けされたソースの一意の識別子です。</p>
+</section>
+	
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>EPUB —<a href="https://www.w3.org/publishing/a11y/page-source-id/">ページソース識別</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/navigation/pagesrc.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

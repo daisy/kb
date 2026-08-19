@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Text Direction - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for using the dir attribute in the EPUB package document">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/epub/dir.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">EPUB</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Text Direction</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Set the base direction for metadata in the package document to ensure that it is rendered correctly.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Set the <code>dir</code> attribute on the <code>package</code> element [[WCAG-1.3.2]]</li>
+		<li>Set the <code>dir</code> attribute on <code>meta</code> elements whenever the base direction changes [[WCAG-1.3.2]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Declaring the default base direction</div>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="he" dir="rtl">
+   &#8230;
+&lt;/package></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Overriding the default base direction</div>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="ar" dir="rtl">
+   &lt;metadata>
+      &#8230;
+      &lt;dc:subject dir="ltr">POETRY / Middle Eastern&lt;/dc:subject>
+      &#8230;
+   &lt;/metadata>
+   &#8230;
+&lt;/package></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Can I set the language of the text instead?</dt>
+		<dd>
+			<p>No. The language declaration does not affect the display directionality. <a 
+				href="language.html">Setting the language</a> is important for text-to-speech rendering.</p>
+		</dd>
+		
+		<dt>Why do I need to declare a default left-to-right base direction in EPUB 3 but not HTML?</dt>
+		<dd>
+			<p>HTML defaults to left-to-right in the absence of a <code>dir</code> attribute.</p>
+			
+			<p>EPUB 3 did not define the default directionality for package document metadata prior to EPUB
+				3.3, or require support for both left-to-right and right-to-left text ranges, so reading
+				systems often only support a single direction regardless of what is authored. Adding the
+				<code>dir</code> attribute to set the default text direction, and to indicate changes on
+				individual metadata elements <a href="#faq-002">may help with rendering</a> in
+				these older reading systems, but is not guaranteed. Regardless, it is recommended to set
+				the attribute going forward to ensure the correct base direction is applied.</p>
+			
+			<p>If a base direction is not specified, reading systems are expected to default to using the
+				Unicode Bidi Algorithm to determine it. As there was initially no default base direction,
+				one could not be added when the requirements for the attribute were improved. Too many
+				publications were authored assuming their local base direction would be applied.</p>
+		</dd>
+		
+		<dt id="faq-002">Why is the attribute labelled "under-implemented" in EPUB 3.3?</dt>
+		<dd>
+			<p>Most reading systems only support display of a single default text directionality, which
+				leads to text in another direction being incorrectly displayed to users. Features like this
+				typically have to be removed from W3C standards, but it is hoped the support situation will
+				improve moving forward because of the attribute's importance for internationalization.</p>
+			
+			<p>W3C allowed existing EPUB features that did not meet the minimum support threshold to be
+				retained provided they offered essential functionality and were marked "under-implemented".
+				The label will be removed in the future when support increases.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>It is important to set the base direction for text in the package document to help ensure that it is
+		displayed properly by reading systems and read properly by assistive technologies.</p>
+	
+	<div class="note" role="note" aria-labelledby="html-dir">
+		<p id="html-dir" class="label">Note</p>
+		<p>The <code>dir</code> attribute only affects text content in the <code>metadata</code> section;
+			it does not affect how EPUB content documents are rendered. For information about setting the
+			base direction in EPUB content documents, refer to the Knowledge Base's <a 
+				href="../html/dir.html">HTML Text Direction</a> page.</p>
+	</div>
+	
+	<p>There are three ways to set the base direction in the package document:</p>
+	
+	<dl>
+		<dt>Globally</dt>
+		<dd>
+			<p>To set the base direction for all text content, set a <code>dir</code> attribute
+				on the root <code>package</code> element.</p>
+			
+			<pre id="desc-01-src" class="prettyprint linenums"><code>&lt;package &#8230; xml:lang="he" dir="rtl"></code></pre>
+			
+			<div class="note" role="note" aria-labelledby="epub2-support">
+				<p id="epub2-support" class="label">Note</p>
+				<p>EPUB 2 does not support the <code>dir</code> attribute in the package document,
+					so this technique does not apply.</p>
+			</div>
+		</dd>
+		
+		<dt>Per-element</dt>
+		<dd>
+			<p>To override the default base direction on the <code>package</code> element, add a
+				<code>dir</code> attribute to each metadata element with a different base direction.</p>
+			
+			<pre id="desc-02-src" class="prettyprint linenums"><code>&lt;dc:creator &#8230; xml:lang="ar" dir="rtl">&#8230;&lt;/dc:creator></code></pre>
+			
+			<div class="note" role="note" aria-labelledby="epub2-support">
+				<p class="label">Note</p>
+				<p>EPUB 2 does not support the <code>dir</code> attribute in the package document,
+					so this technique does not apply.</p>
+			</div>
+		</dd>
+		
+		<dt>Inline</dt>
+		<dd>
+			<p id="unicode-ctrl">It is not possible to identify inline changes in the base direction in the
+				package document. Although using markup to set the base direction is preferred, in these
+				cases you can use Unicode control characters to identify the changes. For an
+				introduction to the control characters and how to use them, refer to the W3C article <a 
+					href="https://www.w3.org/International/questions/qa-bidi-unicode-controls">How to use
+					Unicode controls for bidi text</a>.</p>
+		</dd>
+	</dl>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub-33/#attrdef-dir">The <code>dir</code> attribute</a></li>
+		<li>W3C &#8212; <a href="https://www.w3.org/International/articles/inline-bidi-markup/uba-basics">Unicode Bidirectional Algorithm basics</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/epub/dir.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

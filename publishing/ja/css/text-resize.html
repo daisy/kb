@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 文字サイズの変更 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ensuring content adapts to text resizing.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/css/text-resize.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">CSS</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>文字サイズの変更</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>フォントサイズを変更しても、ユーザーがリフロー可能なテキストを読めるようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>相対的なサイズ単位を使用する [[WCAG-1.4.4]]</p>
+		</li>
+		<li>
+			<p>コンテナ要素のサイズを変更可能にする [[WCAG-1.4.4]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 — <code>em</code>の単位を用いてフォントサイズを設定する</div>
+			<p>次の例では、<code>h1</code>要素のフォントサイズを22px相当に設定します。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>h1 {
+   font-size: 1.3750em;
+}</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 — ルートフォントサイズを62.5%に設定する</div>
+			<p>一般的なデザイン手法では、ルート<code>html</code>要素のフォントサイズを62.5%に設定します。これにより、1remは10pxに相当し、コンテンツ製作者はフォントサイズをより簡単に定義できます（たとえば、1.6remは16pxに相当します）。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>html {
+   font-size: 62.5%;
+}
+
+h1 {
+   font-size: 2.2rem;
+}</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">EPUBリーディングシステムは拡大縮小やフォントサイズの変更をサポートしていますか？</dt>
+		<dd>
+			<p>リーディングシステムは通常、リフロー型の出版物ではフォントサイズの変更を、固定レイアウトでは拡大縮小をサポートしています。</p>
+			
+			<p>したがって、コンテンツ製作者は、リフロー型の出版物のテキストコンテンツのサイズが変更されても問題が発生しないようにする必要があります（例：フォントサイズを大きくするとボタンが判読できなくなるなど）。</p>
+			
+			<p>固定レイアウトは拡大縮小できるため、通常はこの達成基準を満たしますが、拡大縮小するとリフローの要件は満たせなくなります（<a href="https://www.w3.org/TR/WCAG2/#reflow">達成基準 1.4.10</a>）。</p>
+		</dd>
+	</dl>
+</section>
+			
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>ユーザーがテキストサイズを変更できるようにする要件は、WCAGの<a href="https://www.w3.org/TR/WCAG2/#reflow">達成基準 1.4.4</a>で定義されています。この達成基準では、ユーザーエージェントのズーム機能を用いてこの機能を提供することを認めていますが、リフロー型のコンテンツの場合、ほとんどのリーディングシステムのズーム機能は頼れるような機能ではありません。</p>
+	
+	<p>むしろ、ほとんどのリーディングシステムでは、ユーザーが自分のニーズに合わせてデフォルトのフォントサイズを拡大または縮小できるようにしており、通常はデフォルトの半分から二倍まで選択できます。</p>
+	
+	<p>CSSと明示的な寸法宣言（例：高さと幅の属性）がない場合、リフロー型のコンテンツでは通常、テキストサイズの変更によって問題が発生することはありません。ただし、コンテンツ製作者が要素の寸法を固定すると、テキストが拡大された時に要素内に収まらない部分がはみ出して見切れてしまい、ユーザーがコンテンツを読み取れなくなる可能性があります。</p>
+	
+	<p>このような問題はボタンでよく発生します。CSSによって高さと幅がピクセル単位で指定された次のボタンの例を考えてみましょう。</p>
+	
+	<input type="button" value="Submit" style="width: 75px; height: 30px">
+	
+	<p>ユーザーがフォントサイズを二倍にすると、ボタンの固定された寸法からはみ出した部分は切れてしまいます。</p>
+	
+	<input type="button" value="Submit" style="width: 75px; height: 30px; font-size: 200%;">
+	
+	<p>フォントサイズの変更に適応できない寸法を持つコンテナー要素でも同じ問題が発生します。</p>
+	
+	<p>この問題を回避するには、フォントと要素のサイズを指定するときに、<code>em</code>、<code>rem</code>、<code>%</code>（パーセント）などの柔軟な寸法単位を使用してください。これにより、サイズを変更すると、フォントと要素の両方が適応できるようになります。ピクセルなどの柔軟性のない単位を使用すると、テキストがはみ出して見切れてしまったり、他のコンテンツに被さってしまうでしょう。</p>
+	
+	<div class="note" role="note" aria-labelledby="fxl-note">
+		<p id="fxl-note" class="label">注記</p>
+		<p>固定レイアウトの出版物では、通常、リーディングシステムによってユーザーがフォントサイズを変更する代わりにコンテンツを拡大縮小できるため、この問題は回避されます。</p>
+	</div>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>CSS —<a href="https://www.w3.org/TR/CSS22/syndata.html#length-units">長さ</a></li>
+		<li>CSS —<a href="https://www.w3.org/TR/CSS22/fonts.html#font-size-props">フォントサイズ：'font-size'プロパティ</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/css/text-resize.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

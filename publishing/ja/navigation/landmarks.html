@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> ランドマーク（Landmarks） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for including a list of landmarks in EPUB publication.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/navigation/landmarks.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>ランドマーク（Landmarks）</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>ランドマークを使用すると、出版物の複数ドキュメントに広がる主要な構造セクションに容易にアクセスできます。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>ランドマーク ナビゲーション要素を組み込みます。[[WCAG-2.4.5]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — ランドマーク ナビゲーション（EPUB 3）</div>
+			<p>ランドマークは、通常リンクを均一に並べたリストとして表現します（ネストしたリンクはありません）。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="landmarks"&gt;
+   &lt;h2&gt;Guide&lt;/h2&gt;
+   &lt;ol&gt;
+     &lt;li&gt;
+       &lt;a 
+         epub:type="toc"
+         href="#toc"&gt;Table of Contents&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a
+         epub:type="loi"
+         href="front.html#loi"&gt;List of Images&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a
+         epub:type="lot"
+         href="front.html#lot"&gt;List of Tables&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a 
+         epub:type="bodymatter"
+         href="c01.html#c01"&gt;Start of Content&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a
+         epub:type="glossary"
+         href="gloss.html#gloss"&gt;Glossary&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a
+         epub:type="bibliography"
+         href="app.html#biblio"&gt;Bibliography&lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+       &lt;a
+         epub:type="index"
+         href="index.html#index"&gt;Index&lt;/a&gt;
+     &lt;/li&gt;
+   &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">すでに<code>toc nav</code>ですべてにリンクしている場合、なぜ<code>landmarks nav</code>を含める必要があるのですか？</dt>
+		<dd><p><code>landmarks nav</code>により、目次全体をナビゲートしなくても出版物の主要セクションに簡単にアクセスできるようになるだけでなく、ユーザー エージェントの動作も容易になります。たとえば、本文の最初のページを自動的に開くオプションを提供したり、索引や用語集へのクイック リンクを提供したりできるデバイスでは、 <code>landmarks nav</code>の追加のセマンティクスをこの目的で利用できます。</p></dd>
+		<dt id="faq-002">パッケージドキュメントに<code>guide</code>を組み込む必要がありますか？</dt>
+		<dd><p>NCX ファイルを組み込む機能と同様に、<code>guide</code>要素は、古いユーザー エージェントでの前方互換性を容易にするためだけにEPUB 3に存在します。古いシステムのサポートは必須ではありませんが、サポートしたい場合には<code>guide</code>を組み込むべきです。</p></dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>ランドマーク ナビゲーションを使用すると、コンテンツの主要なセクションに素早くアクセスできます。これはARIAランドマークと似ていますが、ARIAランドマークは、ユーザーが現在いるページを対象に支援技術によって動的に構成されます。一方、ランドマーク ナビゲーションは、複数のドキュメントから構成される出版物全体に広がるセクションを一覧できる静的リストです。また、ランドマーク ナビゲーション要素は、ARIAランドマークとは異なり、支援技術ユーザーだけでなくすべてのユーザーが利用できます。</p>
+	
+	<section>
+		<h4>EPUB 3</h4>
+		
+		<p>すべてのEPUB出版物には、すべての主要なランドマーク（<code>landmarks nav</code>）へのガイドが組み込まれるべきです。</p>
+		
+		<p>各ランドマークの性質は、そのリンク要素 ( <code>a</code> ) の<code>epub:type</code>属性で識別される必要があります。<a href="https://www.w3.org/TR/epub-ssv/">EPUB 3 Structural Semantics Vocabulary</a>の一般的なランドマーク プロパティには、次のものがあります。</p>
+		
+		<ul>
+			<li>bodymatter（出版物のメインコンテンツ）</li>
+			<li>toc（見出し）</li>
+			<li>bibliography（参考文献）</li>
+			<li>index（索引）</li>
+			<li>glossary（用語集）</li>
+		</ul>
+		
+		<p><a href="toc.html"><code>toc nav</code></a>とは異なり、<code>landmarks nav</code>リンクは、単一の均一なリストでなければなりません。</p>
+	</section>
+	
+	<section>
+		<h4>EPUB 2</h4>
+		
+		<p>EPUB 2では、ランドマークはNCX の<code>guide</code>要素を用いて指定します。</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a></li>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-nav-landmarks"><code>landmarks nav</code>要素</a></li>
+		<li>EPUB 2 —<a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6">ガイド</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/navigation/landmarks.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

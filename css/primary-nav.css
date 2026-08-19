@@ -1,0 +1,144 @@
+
+body {
+}
+
+nav#toc {
+	margin: 2em 0 0 2em;
+	padding: 0em;
+}
+
+nav#toc.site {
+	margin: 0 0 0 2em;
+}
+
+nav#toc h2 {
+    margin: 1rem;
+    font-size: 135% !important;
+    padding: 1rem;
+}
+
+nav#toc > section,
+nav#toc > details {
+	padding: 0 1rem;
+	background-color: rgb(251,252,253);
+}
+
+nav#toc > details {
+	margin-bottom: 3em;
+}
+
+nav#toc > details > summary {
+	font-family: Raleway;
+	font-size: 105%;
+	padding: 0.7em;
+	margin: 0;
+	letter-spacing: 0.125rem;
+	font-weight: bold;
+}
+
+nav#toc > details > summary::-webkit-details-marker {
+	display: none;
+}
+
+nav#toc > details > summary {
+	list-style-type: none;
+}
+
+nav#toc > details > summary:before {
+	content: "+";
+	color: rgb(27,95,161);
+	float: left;
+	margin-right: 0.7rem;
+	font-size: 160%;
+	font-weight: normal;
+}
+
+nav#toc > details[open] > summary:before {
+	content: "-";
+}
+
+nav#toc > details > summary + section {
+	margin-top: 0;
+}
+
+nav#toc > div#exp {
+	margin-bottom: 1em;
+}
+
+nav#toc > section > section {
+	margin: 1rem 0 0 0;
+}
+
+nav#toc h3 {
+	margin: 2rem 0 1rem 0;
+	font-size: 125%;
+	font-weight: normal;
+}
+
+nav#toc h3::before {
+	content: '';
+}
+
+nav#toc h4 {
+	margin: 3rem 0 1rem 1rem;
+	font-weight: normal;
+	font-size: 120%;
+}
+
+nav#toc ol {
+	list-style-type: none;
+	max-width: 90rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+	margin: 0;
+	padding-left: 0;
+}
+
+nav#toc li {
+	font-size: 110%;
+	padding: 0.5rem;
+	margin: 0.5rem;
+}
+
+nav#toc a:hover {
+	text-decoration: underline;
+	color: rgb(240,0,0) !important;
+}
+
+nav#toc a {
+	text-decoration: none;
+	color: rgb(0,0,200) !important;
+	border: none !important;
+	display: inline-block;
+	width: 30rem;
+}
+
+div.col-wrapper {
+	grid-template-columns: 25% 75%;
+}
+
+
+/* zoom and mobile fixes */
+
+@media screen and (max-width: 600px),
+@media only screen
+	and (max-device-width: 480px) {
+  
+	nav#toc {
+		margin: 2em 0 0 2em;
+	}
+	nav#toc.site {
+		margin: 0 0 0 0.5em;
+	}
+	main > section, main > details {
+		margin-left: 0.5em;
+	}
+	nav#toc > section, nav#toc > details {
+		max-width: 92%;
+	}
+	
+	nav#toc ol {
+		display: block;
+		grid-template-columns: none;
+	}
+}

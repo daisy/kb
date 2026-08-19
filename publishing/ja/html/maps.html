@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> イメージマップ - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for producing accessible image maps.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/maps.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">関連トピック</h3>
+			<ol>
+				
+					
+				<li><a href="html-images-desc.html"></a></li>
+				
+					
+				<li><a href="html-image-text.html"></a></li>
+				
+					
+				<li><a href="html-image-deco.html"></a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>イメージマップ</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>イメージマップの領域にラベルを付け、マップを見ることができないユーザーや領域を簡単にアクティブ化できないユーザーが、マップにアクセスできるようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>
+			<p>各<code>area</code>要素に説明を含む代替テキストを付けてください。[[WCAG-1.1.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — クライアントサイドマップ</div>
+			<p>マップの各<code>area</code>要素に、代替テキストによる説明が付与されています。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="north-america.png"
+    usemap="#na-map"/&gt;
+  &lt;map id="na-map"&gt;
+    &lt;area shape="poly" coords="…" href="ca-info.xhtml" alt="Canada"/&gt;
+    &lt;area shape="poly" coords="…" href="us-info.xhtml" alt="US"/&gt;
+    &lt;area shape="poly" coords="…" href="mx-info.xhtml" alt="Mexico"/&gt;
+  &lt;/map&gt;
+</code></pre>
+	</figure>
+
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例2 — サーバーサイドマップ</div>
+			<p>サーバーサイドマップの後ろにリンクが提供されるため、マップを表示できないユーザーでも情報にアクセスできます。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure&gt;&lt;a href="…"&gt;&lt;img
+    src="north-america.png"
+    ismap="ismap"/&gt;&lt;/a&gt;
+    &lt;p&gt;Regions: &lt;a href="ca-info.xhtml"&gt;Canada&lt;/a&gt; | 
+       &lt;a href="us-info.xhtml"&gt;US&lt;/a&gt; | 
+       &lt;a href="mx-info.xhtml"&gt;Mexico&lt;/a&gt;&lt;/p&gt;
+    &lt;/figure&gt;
+</code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>イメージマップは、ユーザーがクリック、タッチ、またはその他の方法で、画像のどこをアクティブ化するかによって、固有の操作が実行されるコンテキスト依存の画像です。イメージマップは、二次元画像を動的にして、インフォグラフィック上のポイントに関する詳細情報を提供するのによく使用されます。</p>
+	
+	<p class="bridgehead">クライアントサイド 対 サーバーサイド</p>
+	
+	<p>マップを作成するには二つの方法があります。ローカルで<code>usemap</code>属性を使い、クリック可能な領域を定義する<code>map</code>要素を参照する方法と、リモートで画像を<code>a</code>タグで囲み、<code>img</code>タグに<code>ismap</code>属性を設定する方法です。</p>
+	
+	<p>サーバーサイド マップは、本質的にアクセシビリティが低いものになります。ユーザーが画像を見て領域を判別する必要があり、また、ユーザーが画像の正確な場所をクリックする必要があるためです。</p>
+	
+	<p>クライアントサイド マップでは、関連付けられた<code>map</code>要素を使用してクリック可能な領域を定義します。各領域は<code>area</code>要素内で指定され、各<code>area</code>にはその目的を示す<code>alt</code>属性が付与されている必要があります。これにより、視覚に障害のあるユーザーが機能を簡単に見つけることができます。支援技術により、ユーザーはこれらの領域を繰り返し利用できるため、サーバーサイド マップよりもはるかに使いやすいオプションとなり、煩わしいフォールバックも必要ありません。</p>
+	
+	<p>実際のところ、サーバーサイド マップは追加機能を提供しないため、その使用は推奨されません。使用する必要がある場合は、マップを操作できないユーザーが機能に平等にアクセスできるように、クリック可能な各領域に対応するリンクのセットを提供する必要があります。</p>
+	
+	<p>ただし、よりよい代替手段が利用できる場合は（たとえば、テキストの画像をリンク可能にできる場合）、どちらの種類のマップも使用しないでください。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>MDN — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map">&lt;map&gt;</a></li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/image-maps.html#image-maps">イメージマップ</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-map-element"><code>map</code>要素</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element"><code>area</code>要素</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-ismap"><code>ismap</code>属性</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/maps.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

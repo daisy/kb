@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 読み上げ順 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ordering and identifying epub content documents in the spine">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/reading-order.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">EPUB</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>読み上げ順</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>各ドキュメントにリニアコンテンツが含まれているか非リニアコンテンツが含まれているかを識別し、読み上げ順序が論理的であることを確認した上で、コンテンツ ドキュメントを順序付けしたものをEPUBの<code>spine</code>に指定します。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>すべてのコンテンツ ドキュメントのエントリを順序付けます。</li>
+		<li> <code>linear</code>属性を使用して、リニアコンテンツと非リニアコンテンツを区別します。</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例1 — 表紙を非リニアとして含める</div>
+			<p>この例では、リーディングシステムが表紙を最初の文書として提示する必要がないため、表紙は非リニアとしてマークされています。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;spine&gt;
+      &lt;itemref idref="cover" linear="no"/&gt;
+      &lt;itemref idref="title"/&gt;
+      &lt;itemref idref="toc"/&gt;
+      &lt;itemref idref="intro"/&gt;
+      &lt;itemref idref="c01"/&gt;
+      &lt;itemref idref="c02"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例2 - 個別の説明ファイルを含める</div>
+			<p>画像の説明は非リニアとしてマークされ、章の合間に出てこないようにspineの最後に含まれています。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;spine&gt;
+      …
+      &lt;itemref idref="appendix-03"/&gt;
+      &lt;itemref idref="desc-01" linear="no"/&gt;
+      &lt;itemref idref="desc-02" linear="no"/&gt;
+      &lt;itemref idref="desc-03" linear="no"/&gt;
+      &lt;itemref idref="desc-04" linear="no"/&gt;
+      &lt;itemref idref="desc-05" linear="no"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">リーディングシステムは、出版物のページをめくるときに、非リニアコンテンツを読者から隠しますか?</dt>
+		<dd>
+			<p>いいえ、EPUB 仕様では非リニアコンテンツをレンダリングする特定の方法が規定されていないため、リーディングシステムが非リニアとしてマークされたコンテンツを非表示にするかどうかは分かりません。2つの章の間に非リニアドキュメントを配置すると、ユーザーが手動で出版物のページをめくったときにそのコンテンツに遭遇することがあります。</p>
+			<p>一部のリーディングシステムは非リニアドキュメントを無視し、ユーザーがリンクをクリックした場合にのみレンダリングしますが、このような動作は普遍的ではありません。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<section id="order">
+		<h4>Spineの順序</h4>
+		
+		<p>EPUB パッケージ ドキュメントの<a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素は</a>、出版物内のドキュメントの順序を定義します。リーディングシステムはこの要素を使用して、現在ユーザーが読んでいる次のドキュメントを特定します。</p>
+		
+		<p><code>spine</code> は1 つ以上の<code>itemref</code>要素で構成され、各要素は<a href="https://www.w3.org/TR/epub/#sec-manifest-elem">manifest</a>内の項目を参照します。<code>itemref</code>の<code>idref</code>属性は次の例に示すように、レンダリングするマニフェスト項目の特定の ID を提供します。(値は URL ではなく ID 参照であるため、参照の先頭にハッシュ (#) がないことに注意してください。)</p>
+		
+		<pre id="ex-expl-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;manifest&gt;
+      …
+      &lt;item id="c01"
+            href="xhtml/chapter01.xhtml"
+            media-type="application/xhtml+xml"/&gt;
+      …
+   &lt;/manifest&gt;
+   &lt;spine&gt;
+      …
+      &lt;itemref idref="c01"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+		
+		<p>通常、読者はEPUB出版物がspine内の複数の文書から構成されていることを知りません。リーディングシステムは読者にこの事実を明らかにせず、読者がある文書の最後に到達すると、<code>spine</code>を調べ、次のページを読み込み、自動的に次のページに進みます。</p>
+		
+		<p>主要なコンテンツ ドキュメントをすべて<code>spine</code>から参照することは非常に重要であり、これらのドキュメントを順序付けて、出版物の主要な内容を論理的な順序で提示しなければなりません。ドキュメントの順序が間違うことはあまり発生しませんが、編集や改訂の際に生じる可能性があります (新しい章やセクションを挿入した場合など)。このような場合に、ドキュメントの順序が間違っていたり、ドキュメントが1つ欠けていたりすると、すべての読者が混乱します。そのため、これはアクセシビリティの問題というよりも、一般的なユーザビリティの問題です。</p>
+	</section>
+	
+	<section id="linear">
+		<h4>リニアコンテンツ</h4>
+		
+		<p>リニア コンテンツ ドキュメントとは、著者がユーザーに順番に読んでもらうことを想定しているドキュメントです。第 1 章の次は第 2 章、第 3 章、というように続きます。リニアな読み上げ順は、出版物の主な流れを表します。</p>
+		
+		<p>読者はリニア文書を順番に読みますが、非リニア文書についてはそのように読む必要はありません。非リニア文書の例としては、解答集があります。読者は、対応する設問を含む章の後で解答集を見直したいかもしれませんし、本の最後まで待ってから解答を確認したいかもしれませんし、あるいは、まったく興味がないかもしれません。つまり、コンテンツ製作者がspineとして挿入した解答を読むことは必須ではないのです。</p>
+		
+		<p>非リニアコンテンツ ドキュメントは、次の例に示すように、 <code>itemref</code>要素に値<code>no</code>を持つ<code>linear</code>属性を追加することによって識別されます。</p>
+		
+		<pre id="ex-expl-02-src" class="prettyprint linenums"><code>&lt;itemref
+    idref="answers-01"
+    linear="no"/&gt;</code></pre>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-01">
+			<p id="linear-note-01" class="label">注記</p>
+			<p>リーディングシステムは、 <code>linear</code>属性のない<code>itemref</code>要素がリニアコンテンツ ドキュメントを表すと想定するため、EPUB 出版物で<code>linear="yes"</code>が設定されていることはほとんどありません。</p>
+		</div>
+		
+		<p>非リニアコンテンツを<code>spine</code>に配置すると、コンテンツの読みやすさにいくつかの問題が生じます。すべてのリーディングシステムが非リニアコンテンツを同じように処理するわけではないため、コンテンツ製作者はリーディングシステムがそのコンテンツをユーザーにどのように表示するかは想定できません。リーディングシステムは、そのようなコンテンツを<code>spine</code>に配置されている場所に表示する場合と、そうではない場合があります。</p>
+		
+		<p>したがって、非リニアコンテンツに関する懸念事項は、その性質や目的がそれ自体で明確であるかという点です。読者がリンクをたどって非リニアコンテンツに到達したとき、その目的を知っているとは限らないのです。</p>
+		
+		<p>例えば、解答集の場合、ファイルの見出しで設問に対する解答が始まることを示すようにします。画像による説明を別の非リニアファイルに配置する場合は、画像による説明が何を説明するものなのかを明確になるようにします。</p>
+		
+		<p>非リニアコンテンツのもう 1 つのオプションは、リニアの読書体験への影響が最も少ない場所に配置することです。たとえば、画像の説明とポップアウト画像をspineのすべてのリニアコンテンツの後に配置できます (<a href="#ex-02">例 2</a>を参照)。 <code>spine</code>の最後に配置することは、コンテンツを適切に説明できない場合に特に便利です。たとえば、画像の拡大バージョンには、明示的なキャプションが適さない場合があります。</p>
+		
+		<div class="note" role="note" aria-labelledby="linear-note-02">
+			<p id="linear-note-02" class="label">注記</p>
+			<p>EPUB 3の非リニアコンテンツ要件は、EPUB 2とは1つの重要な点で異なります。コンテンツ製作者はspineにすべての非リニアドキュメントへのリンクを含めなければならないという点です。この要件により、手動で出版物のページをめくっているときにリーディングシステムが非リニアコンテンツをレンダリングするかどうかに関係なく、読者が非リニアコンテンツにアクセスできるようになります。</p>
+			
+			<p>ほとんどの場合、コンテンツ製作者はリニアコンテンツからリンクされていない非リニアコンテンツを含めないことが一般的であるため、この要件を満たすのは困難ではありません。既知の問題の1つは、spineに非リニアの表紙を含めることです (<a href="#ex-01">例 1</a>を参照)。このドキュメントへのリンク要件を満たすには、 <a href="../navigation/landmarks.html"><code>landmarks nav</code></a>に表紙へのリンクを含めます。</p>
+		</div>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a> </li>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#attrdef-itemref-linear"><code>linear</code>属性</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/epub/reading-order.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

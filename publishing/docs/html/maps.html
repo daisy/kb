@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Image Maps - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for producing accessible image maps">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/maps.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="images-desc.html">Image Descriptions</a></li>
+				
+					
+				<li><a href="images-text.html">Images of Text</a></li>
+				
+					
+				<li><a href="images-deco.html">Decorative Images</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Image Maps</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure the areas of an image map are labelled so that the map is accessible to users who cannot
+		see it or easily activate the regions.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Ensure each <code>area</code> element has descriptive alternative text <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Example</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; A client-side map</div>
+			<p>Each of the map's <code>area</code> elements contains an alternative text description.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img
+    src="north-america.png"
+    usemap="#na-map"/>
+  &lt;map id="na-map">
+    &lt;area shape="poly" coords="&#8230;" href="ca-info.xhtml" alt="Canada"/>
+    &lt;area shape="poly" coords="&#8230;" href="us-info.xhtml" alt="US"/>
+    &lt;area shape="poly" coords="&#8230;" href="mx-info.xhtml" alt="Mexico"/>
+  &lt;/map></code></pre>
+	</figure>
+
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; A server-side map</div>
+			<p>Links are provided after a server-side map so that users who cannot see the map still have 
+				access to the information.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;figure>&lt;a href="&#8230;">&lt;img
+    src="north-america.png"
+    ismap="ismap"/>&lt;/a>
+    &lt;p>Regions: &lt;a href="ca-info.xhtml">Canada&lt;/a> | 
+       &lt;a href="us-info.xhtml">US&lt;/a> | 
+       &lt;a href="mx-info.xhtml">Mexico&lt;/a>&lt;/p>
+    &lt;/figure></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>An image map is a context-sensitive image that, depending on where the user clicks, touches or otherwise 
+		activates it, results in a unique operation being performed. Image maps are commonly used to make 
+		two-dimensional images dynamic, to provide more information about points on an infographic, etc.</p>
+	
+	<p class="bridgehead">Client-side v. Server-side</p>
+	
+	<p>There are two ways to create maps: locally using the <code>usemap</code> attribute to reference a
+		<code>map</code> element that defines the clickable region; and remotely by enclosing the image in an
+		<code>a</code> tag and setting the <code>ismap</code> attribute on the <code>img</code> tag.</p>
+	
+	<p>Server-side maps are inherently less accessible, both because they require that the user be able to see
+		the image to discern the regions and also because they require that the user be able to click on the
+		image in an exact spot.</p>
+	
+	<p>Client-side maps make use of an associated <code>map</code> element to define the clickable regions. Each
+		region is specified in an <code>area</code> element, and each <code>area</code> should include an
+		<code>alt</code> attribute that indicates its purpose so that non-visual users can easily discover
+		the functionality. Assistive technologies allow users to iterate over these areas, making them a much
+		friendlier option than server-side maps, and without requiring intrusive fallbacks.</p>
+	
+	<p>In fact, server-side maps provide no additional functionality, so their use is never recommended. If one
+		must be used, a set of links corresponding to each clickable region should be provided so that users
+		who cannot interact with the map have equal access to the functionality.</p>
+	
+	<p>Note that neither kind of map should be used when a better alternative is available (e.g., to make
+		an image of text linkable).</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map">&lt;map></a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/image-maps.html#image-maps">Image
+			maps</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/image-maps.html#the-map-element">The
+					<code>map</code> element</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element">The
+					<code>area</code> element</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-ismap">The
+					<code>ismap</code> attribute</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/maps.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>
