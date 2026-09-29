@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> Spine内の画像 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of issues using images in the EPUB spine for fixed layouts.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/fxl/img-spine.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">固定レイアウト</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Spine内の画像</h2>
+		</div>
+		
+		
+		<style>
+	pre {
+		font-size: 1.4rem;
+	}
+</style>
+
+<section id="overview">
+	<h3>概要</h3>
+	
+	<p>固定レイアウトのEPUB出版物を作成する非公式な方法として、<a href="https://www.w3.org/TR/epub/#sec-spine-elem">パッケージドキュメントのspine</a>に画像（SVGを除く）を直接組み込む方法があります。ただし、フォールバックなしではspineに画像を組み込めないため、一般的にはこの方法で固定レイアウトページを作成することはありません。ほとんどの場合、<a href="html.html">XHTML</a>または<a href="svg.html">SVGの</a>固定レイアウトページに画像を埋め込む方がシンプルです。</p>
+	
+	<p>spineに画像を使用すると、固定レイアウトのメタデータは設定されず、バリデーションエラーが発生します（例えば、必要とされる寸法はXHTMLとSVGでのみ規定できます）。リーディングシステムが出版物をレンダリングしない原因となる場合もあるでしょう。</p>
+	
+	<p>関連する問題として、この方法では固定レイアウトのメタデータを指定できないため、ページの表示をほとんど制御できません。また、<a href="#a11y">アクセシビリティの問題</a>も深刻です。</p>
+</section>
+
+<section id="ceration">
+	<h3>製作</h3>
+	
+	<p>spine内に画像を配置することは、spine内にXHTMLまたはSVGドキュメントを配置することと変わりません。manifest内で画像が宣言されている場所を参照するには、 <code>itemref</code>要素を使用します。</p>
+	
+	<pre id="ex-01" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;manifest&gt;
+      &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg"/&gt;
+      …
+   &lt;/manifest&gt;
+   &lt;spine&gt;
+      &lt;itemref ref="pg01"/&gt;
+      …
+   &lt;/spine&gt;
+&lt;/package&gt;</code></pre>
+	
+	<p>ただし、前述の例を<a href="../validation/epubcheck.html">EPUBCheck</a>で検証すると、spineでJPEGがサポートされていないため、エラーが発生します。</p>
+	
+	<p>出版物のエラーをなくすには、manifestエントリでXHTMLまたはSVGドキュメントへのフォールバックを指定しなければなりません。</p>
+	
+	<pre id="ex-02" class="prettyprint linenums"><code>&lt;manifest&gt;
+   &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg" &lt;strong&gt;fallback="pg01-fb"&lt;/strong&gt;/&gt;
+   &lt;item id="pg01-fb" src="pg01.xhtml" media-type="application/xhtml+xml"/&gt;
+   …
+&lt;/manifest&gt;</code></pre>
+	
+	<p>リーディングシステムがspineの画像をサポートしていない場合には、これで代わりにフォールバックのXHTMLページをレンダリングできるようになります。</p>
+</section>
+
+<section id="a11y">
+	<h3>アクセシビリティ</h3>
+	
+	<p>spineの画像は、固定レイアウトを作成する方法としては最もアクセシブルでないものです。</p>
+	
+	<p>画像の代替テキストや拡張説明は、フォールバックを通じて提供しない限り、提供できません。そのため、リーディングシステムが画像のレンダリングをサポートしている場合、ユーザーが代替テキストにアクセスする方法はありません（つまり、ユーザーには通常、フォールバックを表示するオプションは提供されず、リーディングシステムが自動的に何を表示するか選択します）。結果として、支援技術のユーザーが出版物を読むときに何も読み上げられません。</p>
+	
+	<p>また、ユーザーが代替手段にアクセスできるという保証がなければ、代替手段がWCAGに準拠しているとしても、WCAGに準拠していると主張することは<strong>できません</strong>。</p>
+	
+	<p>固定レイアウトページごとにバックアップを作成するコストを回避するために、出版物がリーディングシステムでサポートされていないことを伝える一つのフォールバックドキュメントを使用する場合があります。この方法は、基本的に、テキスト代替を提供しないのと同じくらい読者にとって役に立ちません。</p>
+	
+	<p>同様に、固定レイアウトページとコンテンツのテキストシリアライズの間に一対一の相関関係がない場合があります。この場合、読者を混乱させることなく各ページにフォールバックを設定することはできません (たとえば、一連のページが同じテキストシリアライズにフォールバックする場合、リーディングシステムはページをめくるたびに同じテキストをレンダリングし続けてしまいます)。</p>
+	
+	<p><a href="https://www.w3.org/TR/epub-multi-rend/">マルチレンディション</a>の使用は、代替シリアライズの必要性の解決を意図していましたが、仕様に対するサポートは事実上ありません。</p>
+	
+	<p>以上の理由により、常に<a href="html.html">XHTML</a>あるいは<a href="svg.html">SVG</a>による固定レイアウトページを推奨します。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	
+	<ul>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-spine-elem"><code>spine</code>要素</a></li>
+		<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-manifest-fallbacks">manifest フォールバック</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/fxl/img-spine.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

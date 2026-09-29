@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Text Resizing - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ensuring content adapts to text resizing">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/css/text-resize.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">CSS</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Text Resizing</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure that changes to font size do not prevent users from being able to read reflowable text.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Use relative size units [[WCAG-1.4.4]]</p>
+		</li>
+		<li>
+			<p>Ensure container elements can resize [[WCAG-1.4.4]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example &#8212; Setting font size in <code>em</code> units</div>
+			<p>The following example sets the font size of <code>h1</code> elements to the
+				equivalent of 22px.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>h1 {
+   font-size: 1.3750em;
+}</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example &#8212; Setting the root font size to 62.5%</div>
+			<p>A common design technique is to set font size to 62.5% on the root <code>html</code>
+				element. This makes 1rem equivalent to 10px, which allows authors to define font sizes more
+				easily (e.g., 1.6rem becomes the equivalent of 16px).</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>html {
+   font-size: 62.5%;
+}
+
+h1 {
+   font-size: 2.2rem;
+}</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Do EPUB reading systems support zooming or font resizing?</dt>
+		<dd>
+			<p>Reading systems typically support font resizing in reflowable publications and zooming
+				in fixed layouts.</p>
+			
+			<p>Authors consequently need to ensure that resizing the text content of their reflowable
+				publications does not introduce issues (e.g., buttons that are illegible after increasing
+				the font size).</p>
+			
+			<p>Although fixed layouts can be zoomed, so typically pass this success criterion, zooming
+				typically leads to their failing the requirement for reflowability (<a
+					href="https://www.w3.org/TR/WCAG2/#reflow">success criterion 1.4.10</a>).</p>
+		</dd>
+	</dl>
+</section>
+			
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The requirement to ensure users can resize text is defined by WCAG <a
+		href="https://www.w3.org/TR/WCAG2/#reflow">success criterion 1.4.4</a>. Although this success
+		criterion allows the user agent to provide this functionality through zoom, zooming is not a
+		reliable feature of most reading systems for reflowable content.</p>
+	
+	<p>Rather, most reading systems allow the user to increase or decrease the default font size to
+		better suit their needs &#8212; typically allowing the user to choose between half and double the
+		default.</p>
+	
+	<p>In the absence of CSS and explicit dimension declarations (e.g., height and width attributes), text
+		resizing does not normally present any issues for reflowable content. Once authors fix the
+		dimensions of elements, however, it is possible that the text gets clipped as it is expanded,
+		making it impossible for users to read the content.</p>
+	
+	<p>A common example of where this occurs is with buttons. Consider the following example button with
+		its height and width specified in pixels by CSS:</p>
+	
+	<input type="button" value="Submit" style="width: 75px; height: 30px"/>
+	
+	<p>If the user doubles the font size, the text within the button gets clipped because of the inflexible
+		dimensions:</p>
+	
+	<input type="button" value="Submit" style="width: 75px; height: 30px; font-size: 200%;"/>
+	
+	<p>The same issue occurs in any container element with dimensions that cannot adapt to changes to the
+		font size.</p>
+	
+	<p>To avoid this problem, authors need to ensure that they use flexible measurement units like
+		<code>em</code>, <code>rem</code> and <code>%</code> (percent) when specifying both font and
+		element sizes as this allows both to adapt to changes in size. Using inflexible units like
+		pixels will cause text to be clipped or overflow into other content.</p>
+	
+	<div class="note" role="note" aria-labelledby="fxl-note">
+		<p id="fxl-note" class="label">Note</p>
+		<p>Fixed layout publications typically avoid this problem because reading systems allow users to
+			zoom the content instead of change the font size.</p>
+	</div>
+</section>
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/syndata.html#length-units">Lengths</a></li>
+		<li>CSS &#8212; <a href="https://www.w3.org/TR/CSS22/fonts.html#font-size-props">Font size: the 'font-size' property</a></li>
+	</ul>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/css/text-resize.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

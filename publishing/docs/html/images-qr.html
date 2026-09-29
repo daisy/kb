@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> QR Codes - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for creating accessible QR codes">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/images-qr.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="images-desc.html">Image Descriptions</a></li>
+				
+					
+				<li><a href="images-deco.html">Decorative Images</a></li>
+				
+					
+				<li><a href="images-icons.html">Icons</a></li>
+				
+					
+				<li><a href="images-selection.html">Image Selection</a></li>
+				
+					
+				<li><a href="images-animated.html">Animated Images</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>QR Codes</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure that Quick Response (QR) codes follow image accessibility best practices and that
+		alternative means of following their links are provided.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Ensure QR codes are clearly identified. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Include instructions on how to activate QR codes. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Provide an alternative link to the same destination. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-content.html">WCAG 1.1.1 - A</a>]</span></p>
+		</li>
+		<li>
+			<p>Ensure sufficient contrast between the QR code and the background. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-contrast.html">WCAG 1.4.11 - AA</a>]</span></p>
+		</li>
+		<li>
+			<p>Ensure QR codes are large enough to be scanned easily. <span class="wcag-level">[<a href="/publishing/docs/wcag/target-size-minimum.html">WCAG 2.5.8 - AA</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Clickable QR code with activation details</div>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;a href="https://publisher.example.com/promo">
+   &lt;img src="img/qr-promo.jpg" aria-details="qr-desc"/>
+&lt;/a>
+&lt;details id="qr-desc">
+   &lt;summary>Details&lt;/summary>
+   &lt;p>Buy one get one book by the author until September 25, 2025.&lt;/p>
+   &lt;p>If you are reading this book on a device that cannot connect to the internet,
+      use the camera on a phone or tablet to scan the QR code and open our site.
+      Alternatively, you can access the promo by typing the following URL in a
+      browser: &lt;a 
+      href="https://publisher.example.com/promo">publisher.example.com/promo&lt;/a>
+   &lt;/p>
+&lt;/details>
+		</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">What should I do with a QR code on the cover?</dt>
+		<dd>
+			<p>If a QR code is part of the front or back cover, make sure that users will be able to
+				interact with the image long enough to scan it. Reading systems often only flash the front
+				cover image while a book is loading, or show a thumbnail of it in the user's bookshelf.</p>
+			<p>Placing the QR code in its own document in the reading order will make it more accessible.
+				It will be the only content on the page, for example, which will make scanning easier for
+				all users. Alternatively, incorporate it into the related front or back matter.</p>
+			<p>If the QR code is kept as part of the cover, make sure that the cover image description
+				indicates that there is a scannable code. Also, make sure that the cover image can be
+				accessed long enough to scan it, typically by making it part of the linear reading order.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>Quick Response (QR) codes have become ubiquitous in print media as a simple means of directing people
+		to web sites. Users do not have to remember URLs or manually retype them into their mobile device's
+		browser. They can just point the camera on their smart phone or tablet at the QR code and a scanner
+		will read the embedded URL and offer to open the web site or app for them.</p>
+	
+	<p>QR codes are now commonly found in print books, especially on covers but also within the content.
+		Some common uses include to direct users to:</p>
+	
+	<ul>
+		<li>book reviews</li>
+		<li>the author's biography, contact details, social media and web sites</li>
+		<li>free previews, sales, and promotions</li>
+		<li>additional works by the author or in the same genre</li>
+		<li>interactive media such as images, audio, and video that accompany the book</li>
+	</ul>
+	
+	<p>Although these kinds of links are essential to get users from print to digital, QR codes
+		are making a presence in ebooks, as well, as reading devices are not always connected
+		to the web and may lack the ability to open web links. QR codes are an effective means
+		of getting users from static reading systems when done accessibly.</p>
+	
+	<p>Although QR codes offer some obvious benefits when a device is not connected to the internet,
+		they also have some drawbacks, more so than with typical graphical images. In particular:</p>
+	
+	<ul>
+		<li>Blind users may not be able to ensure that the code is fully on the screen in order to
+			scan it. With ebook reading systems, there is also the risk that the image will get split
+			between page breaks.</li>
+		<li>Users with low vision or color perception issues may not be aware that the image represents
+			a scannable QR code if the code is not black and white.</li>
+		<li>Users may not have another device to scan the code with, and users with mobility issues
+			may not be able to hold a second device to scan it.</li>
+		<li>The image may be too small or too far away from the user to effectively scan it.</li>
+		<li>Users unfamiliar with the codes or with cognitive disabilities may struggle to understand
+			what to do with them.</li>
+	</ul>
+
+	<section id="desc-a11y">
+		<h4>Accessibility considerations</h4>
+		
+		<p>To create accessible QR codes, the following issues need to be considered:</p>
+		
+		<dl>
+			<dt>Contrast</dt>
+			<dd>
+				<p>Although QR codes are most commonly black and white, this is not a requirement. Any color
+					can be used for the QR code. If the contrast between the foreground and background is not
+					sufficient, it is possible that some users may not be able to make out that there is a
+					QR code present. Meeting the contrast requirements in WCAG success criterion 1.4.11 is
+					a minimum for any QR code.</p>
+			</dd>
+			
+			<dt>Identification</dt>
+			<dd>
+				<p>If a user is not aware that an image represents a QR code, they will not know that they
+					can interact with it. Ensure that the alt text for the image clearly indicates that it
+					contains a QR code. For users with low vision, consider placing a border around the
+					image to draw attention to it so it is not mistaken as decorative.</p>
+			</dd>
+			
+			<dt>Size</dt>
+			<dd>
+				<p>The size of the QR code image can affect its usability. For one, if the image is too
+					large or small, users may have trouble scanning it. The image may be blurry, or the code
+					sequences might not be differentiable, if it is too small. Too large and users may have
+					trouble fitting the code on screen to scan it, or a reading system might split the
+					image to create a page break. The minimum recommended physical size for QR codes is
+					often cited as 2cm by 2cm. For a digital code, this is roughly the equivalent of 76
+					pixels by 76 pixels. (This size will easily meet both the minimum and enhanced target
+					size requirements in WCAG success criteria 2.5.5 and 2.5.8 if the code is clickable.)</p>
+			</dd>
+			
+			<dt>Usage</dt>
+			<dd>
+				<p>Although QR codes have become more common, not everyone is familiar with how to use
+					them. Users may get even more confused about what to do when they do not have a second
+					device to scan the code with. This may require them to save the image to their local
+					file system and open the image in a dedicated scanning application. While it is not
+					expected that publishers can account for every scenario, some general instructions on
+					how to use the QR code will help users unfamiliar with them.</p>
+			</dd>
+			
+			<dt>Alternatives</dt>
+			<dd>
+				<p>Although QR codes can be effective for getting users from reading systems without
+					internet connections, they are burdensome for users who are connected. Clicking a
+					hyperlink is much simpler than scanning a code. This is especially true for users
+					who cannot see the code or may have difficulties scanning it. Making the QR code
+					clickable and/or providing a hyperlink in an extended description will help ensure
+					that users can pick the most effective method for them. Ensuring that the URL
+					contained in the code is the text of an alternative hyperlink also allows users to
+					copy and paste it into a browser.</p>
+			</dd>
+		</dl>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+			element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"
+			>The <code>img</code> element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/images-qr.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

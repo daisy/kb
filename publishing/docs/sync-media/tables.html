@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Tables - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Practices for identifying tables to improve synchronized text-audio playback">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/sync-media/tables.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Synchronized Multimedia</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Tables</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Identify table structures in the synchronized media format to improve their navigation during
+		synchronized media playback.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Structure tables, rows, and cells using <code>seq</code> elements. [[WCAG-1.3.1]]</li>
+		<li>Identify the type of <code>seq</code> element using the <code>epub:type</code> attribute. [[WCAG-1.3.1]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<p>Example 1 &#8212; A comparison of XHTML table markup to overlay table markup</p>
+		<pre id="ex-01-src" class="prettyprint linenums small"><code>&lt;table>
+   &lt;tr>
+	  &lt;td>
+		 &lt;p>&#8230;&lt;/p>
+		 &lt;p>&#8230;&lt;/p>
+	  &lt;/td>
+	  &lt;td>&#8230;&lt;/td>
+	  &lt;td>
+		 &lt;ul>
+			&lt;li>&#8230;&lt;/lt>
+		 &lt;/ul>
+	  &lt;/td>
+   &lt;/tr>
+&lt;/table></code></pre>
+					
+		<pre id="ex-01a-src" class="prettyprint linenums small"><code>&lt;seq epub:type="table">
+   &lt;seq epub:type="table-row">
+	  &lt;seq epub:type="table-cell">
+		 &lt;par>&#8230;&lt;/par>
+		 &lt;par>&#8230;&lt;/par>
+	  &lt;/seq>
+	  &lt;par epub:type="table-cell">&#8230;&lt;/par>
+	  &lt;seq epub:type="table-cell">
+		 &lt;seq epub:type="list">
+			&lt;par epub:type="list-item">&#8230;&lt;/par>
+		 &lt;/seq>
+	  &lt;/seq>
+   &lt;/seq>
+&lt;/seq></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>In the same way that XHTML tables provide markup structure that can be navigated by users using
+		assistive technologies, so too must Media Overlay documents provide equivalent skippability and
+		escapability functionality through markup to facilitate playback.</p>
+	
+	<p>This structure can be layered into an overlay using <code>seq</code> elements to represent the
+		corresponding rows and cells in the markup. The typical process for converting table markup to overlay
+		markup follows:</p>
+	
+	<ul>
+		<li>A single <code>seq</code> element encloses the entire table, and includes an <code>epub:type</code>
+			attribute specifying the property <code class="property">table</code>.</li>
+		<li>Each row in the table is represented using a <code>seq</code> element with an <code>epub:type</code>
+			attribute specifying the property <code class="property">table-row</code>.</li>
+		<li>Complex table cells &#8212; those that contain two or more synchronization points &#8212; are
+			identified using <code>seq</code> elements with an <code>epub:type</code> attribute specifying the
+			property <code class="property">table-cell</code>. If the cell contains a complex structure like a
+			nested table or list, that structure must be marked up as appropriate to ensure escapability and
+			skippability from it.</li>
+		<li>Simple table cells containing only a single synchronization point can be represented using
+			<code>par</code> elements with an <code>epub:type</code> attribute specifying the property <code
+				class="property">table-cell</code>.</li>
+	</ul>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-smil-seq-elem">The
+			<code>seq</code> Element</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-smil-par-elem">The
+			<code>par</code> Element</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-skippability"
+			>Skippability</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-escapability"
+			>Escapability</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub-ssv/#sec-tables">Stuctural Semantics
+			Vocabulary &#8212; Tables</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/sync-media/tables.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

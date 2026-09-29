@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 用語集 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for the accessible inclusion of glossaries.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/html/glossaries.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>用語集</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+
+	<p>セクションとリストを使用して用語集を作成し、用語に容易にアクセスできるようにします。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+
+	<ul>
+		<li>
+			<p>関連する用語のセットをグループ化するには、 <code>section</code>要素を使用します。[[WCAG-1.3.1]]</p>
+		</li>
+		<li>
+			<p>各セクションに見出しを付けます。[[WCAG-1.3.1]]</p>
+		</li>
+		<li>
+			<p>用語のリストを構造化するには<code>dl</code>要素を使用します。[[WCAG-1.3.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<p class="label">例 — 基本的な用語集</p>
+		</figcaption>
+		
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary of Terms&lt;/h2&gt;
+   
+   &lt;dl&gt;
+      &lt;dt&gt;AstroSeneca&lt;/dt&gt;
+      &lt;dd&gt;
+         &lt;p&gt;First Roman philosopher in space.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+  &lt;/dl&gt;
+&lt;/section&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<p class="label">例 — アルファベットでの分類のためのわかりやすい小見出しが付いた用語集</p>
+		</figcaption>
+
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary&lt;/h2&gt;
+   
+   &lt;section&gt;
+     &lt;h3&gt;A&lt;/h3&gt;
+     
+     &lt;dl&gt;
+       &lt;dt&gt;Absorbitron&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;Transformer known to change into a sponge.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/section&gt;</code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<p class="label">例 — 暗黙的な見出しを持つ用語集</p>
+			<p>用語のグループが視覚的なスペースによってのみ区切られている場合には、<code>aria-label</code>属性を使用して支援技術用の見出しを付けます。</p>
+		</figcaption>
+
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-glossary"&gt;
+   &lt;h2&gt;Glossary&lt;/h2&gt;
+   
+   &lt;section aria-label="A"&gt;
+     &lt;dl&gt;
+       &lt;dt&gt;Anti-oxidants&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;People who dislike oxidants.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   &lt;section aria-label="B"&gt;
+     &lt;dl&gt;
+       &lt;dt&gt;Beta-Carotene&lt;/dt&gt;
+       &lt;dd&gt;
+         &lt;p&gt;Carotene that is still in a debugging stage.&lt;/p&gt;
+       &lt;/dd&gt;
+       …
+     &lt;/dl&gt;
+   &lt;/section&gt;
+   
+   …
+&lt;/section&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+
+	<dl>
+		<dt id="faq-indexes-spec">EPUB 辞書と用語集の仕様に従う必要がありますか？</dt>
+		<dd>
+			<p>このドキュメントの構造化原則に従うことを推奨します。アクセシビリティに最も役立つ原則がこのページで繰り返されていますが、<code>epub:type</code>セマンティクスの使用は必須ではありません。これらのセマンティクスは出版社の内部ワークフローには役立つかもしれませんが、現時点ではリーディングシステムの用語集を拡張するものではなく、<code>epub:type</code>セマンティクスはアクセシビリティに寄与しません。</p>
+
+			<p>パッケージドキュメントの識別要件については、現時点ではこの仕様の採用は限定的であるため、従う必要はありません。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>技術用語や一般的でない方法で使用される用語についての用語集の提供は、特に学習障害や認知障害のあるユーザーにとって役立ちます。ユーザーが容易に定義を調べられるように、用語が使用されている箇所から定義へのリンクを設けてください。通常、用語集の用語の出現箇所すべてにリンクを設ける必要は無く、リンクが多すぎると、逆に支援技術のユーザーのナビゲーションに影響してしまいます（つまり、ドキュメント内のリンクを確認するのが難しくなります）。新しいセクションの最初の出現箇所のみにリンクを設けることを検討してください。</p> 
+
+	<p>用語集のアルファベット順および数字順の項目を容易に移動できるようにするには、入れ子になった<code>section</code>要素を使用します。多くの用語集では、各項目の間に数字または文字がヘッダーとして存在しますが、ヘッダーが存在しないか必要でない場合は、囲んでいるセクションの<code>aria-label</code>属性に数字または文字を付けて、支援技術によって読み上げられるようにします。明示的または暗黙的な見出しがないと、支援技術ではセクション間を移動する機能が提供されません。（純粋にスタイル要素として扱われます）。</p>
+
+	<p>各セクションの用語を、定義リストを使用して構造化します。これらのリストを使用すると、支援技術のユーザーは、段落や同様のマークアップを使用する場合のように一度に1つずつ移動する必要がなくなり、リスト項目を前後に移動できるようになります。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	
+	<ul>
+		<li>DPUB-ARIA — <a href="https://www.w3.org/TR/dpub-aria/#doc-glossary"><code>doc-glossary</code>（ロール）</a> </li>
+		<li><a href="https://www.idpf.org/epub/dict/">EPUB 辞書と用語集 1.0</a></li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-section-element"><code>section</code>要素</a> </li>
+		<li>HTML —<a href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections">見出しとセクション</a> </li>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element"><code>dl</code>要素</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/html/glossaries.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

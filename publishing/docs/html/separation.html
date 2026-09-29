@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Separation of Style - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for separating visual presentation from semantic markup">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/separation.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Separation of Style</h2>
+		</div>
+		
+		
+		<script>
+	var page_info = {
+		'category': 'html',
+		'appliesTo': ['Audiobooks*','EPUB3','EPUB2']
+	};
+</script>
+<style type="text/css">
+	@namespace epub 'http://www.idpf.org/2007/ops';
+	
+	aside[epub|type ~= 'sidebar'],
+	aside[epub\:type ~= 'sidebar']{
+		padding: 0.5em;
+		margin-left: 2em;
+		width: 25%;
+		max-width: 15em;
+		background-color: rgb(240, 240, 240);
+		border: solid 1px rgb(0, 0, 0);
+		float: right;
+	}
+	
+	aside[epub|type ~= 'sidebar'] h4,
+	aside[epub\:type ~= 'sidebar'] h4{
+		margin: 0em;
+		padding: 0em;
+	}
+	
+	aside[epub|type ~= 'warning'],
+	aside[epub\:type ~= 'warning']{
+		width: 80%;
+		background-color: rgb(255, 255, 255);
+		border: solid 2px rgb(200, 0, 0);
+		padding-top: 1em;
+	}
+	
+	aside[epub|type ~= 'warning'] h4,
+	aside[epub\:type ~= 'warning'] h4{
+		text-indent: 0.5em;
+		width: 4em;
+		margin: -1.5em 0em 0em 1em;
+		background-color: rgb(255, 255, 200);
+		border: solid 1px rgb(0, 0, 0);
+		color: rgb(0, 0, 0);
+	}
+</style>
+	
+<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>The use of proper semantic markup provides equal access to users who cannot see or distinguish all 
+		color variations.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Ensure that color is not the primary means of conveying information. <span class="wcag-level">[<a href="/publishing/docs/wcag/use-of-color.html">WCAG 1.4.1 - A</a>]</span></p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Adding a border to examples</div>
+			<p>CSS is used to highlight examples with a thick grey left border. The CSS selector finds
+				<code>pre</code> elements whose <code>role</code> attribute contains the value <code>doc-example</code>.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code class="lang-css">pre[role~='doc-example'] {
+   border-left: solid 3px; rgb(180,180,180);
+}</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Including style overrides for mobile rendering</div>
+			<p>The second linked style sheet is only applied when the maximum screen width is no more than
+				480 pixels, allowing styles optimized for mobile devices to override the defaults.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;html &#8230;>
+   &lt;head>
+     &#8230;
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3.css"
+         media="screen"/>
+     
+     &lt;link
+         rel="stylesheet"
+         type="text/css"
+         href="#css/epub3-mobile.css"
+         media="screen and (max-width:480px)"/>
+     &#8230;
+   &lt;/head>
+   &#8230;
+&lt;/html></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The visual appearance of content is often the only consideration that authors take into account when
+		producing content, but this focus excludes that many users are not going to be reading visually (e.g.,
+		refreshable braille, text-to-speech playback, etc.). Separating style from markup is consequently not
+		just about keeping CSS in a separate file from your markup, but recognizing that markup must convey
+		meaning to be useful to all users, and that visual rendering is only one possible use case.</p>
+	
+	<p>Semantically-rich markup enables meaningful styling, and the <a href="roles.html">ARIA <code>role</code> 
+		attribute</a> can be used with CSS selectors to apply styling by purpose. The use of semantic styling 
+		is encouraged as it ensures focus is kept on how the data is represented, not just how it looks when 
+		rendered.</p>
+	
+	<p>But note that the choices that you make for your content are not necessarily the optimal ones for
+		many visual users. A user may prefer a different color scheme, to increase the contrast levels, to
+		change the justification, fonts or line height to better suit their needs.</p>
+	
+	<p>For this reason, cleanly separating style information from the markup is a good practice to maintain.
+		Avoid using the <code>style</code> attribute, as it can impede the ability of users to reflow and
+		re-style documents.</p>
+	
+	<p>CSS style definitions can be linked to the content documents to which they apply via the HTML5
+		<code>link</code> element. Multiple style sheets may be attached to a document to target different
+		rendering mediums and/or to more cleanly group style by function.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/dom.html#aria-role-attribute"
+			>ARIA <code>role</code> attribute</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-epub-type-attribute"
+				><code>epub:type</code> attribute</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/separation.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

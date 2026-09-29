@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Icons - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for creating accessible icons">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/images-icons.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">Related Topics</h3>
+			<ol>
+				
+					
+				<li><a href="images-desc.html">Image Descriptions</a></li>
+				
+					
+				<li><a href="images-deco.html">Decorative Images</a></li>
+				
+					
+				<li><a href="images-selection.html">Image Selection</a></li>
+				
+					
+				<li><a href="images-animated.html">Animated Images</a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Icons</h2>
+		</div>
+		
+		
+		<style>
+	.min-ex {
+		max-width: 10rem;
+	}
+	.dark {
+		background-color: rgb(0,0,200);
+	}
+	.shrink {
+		height: 24px;
+		width: 24px;
+	}
+</style>
+<section id="summary">
+	<h3>Summary</h3>
+	<p>Ensure that icons are clearly and consistently labelled to identify their purpose.</p>
+</section>
+<section id="tech">
+	<h3>Techniques</h3>
+	<ul>
+		<li>
+			<p>Ensure icons are consistently identified. <span class="wcag-level">[<a href="/publishing/docs/wcag/consistent-identification.html">WCAG 3.2.4 - AA</a>]</span></p>
+		</li>
+		<li>
+			<p>Ensure sufficient contrast between the icon and the background. <span class="wcag-level">[<a href="/publishing/docs/wcag/non-text-contrast.html">WCAG 1.4.11 - AA</a>]</span></p>
+		</li>
+		<li>
+			<p>Identify and label font icons. <span class="wcag-level">[<a href="/publishing/docs/wcag/consistent-identification.html">WCAG 3.2.4 - AA</a>]</span></p>
+		</li>
+		<li>
+			<p>If the icon is for a control, ensure it is at least 44 by 44 pixels in size. <span class="wcag-level">[<a href="/publishing/docs/wcag/target-size.html">WCAG 2.5.5 - AAA</a>]</span></p>
+		</li>
+	</ul>
+</section>
+<section id="ex">
+	<h3>Examples</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<p class="label">Example 1 &#8212; Common Sidebar Identification</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;aside
+    id="warn-001"
+    class="warning">
+   &lt;img src="bomb.png" alt="Warning"/>
+   &lt;p>The following experiment may cause
+      bodily harm if &#8230; &lt;/p>
+&lt;/aside>
+
+&#8230;
+
+&lt;aside
+    id="warn-002"
+    class="warning">
+   &lt;img src="bomb.png" alt="Warning"/>
+   &lt;p>Risk of explosion increases as the
+    coefficient &#8230; &lt;/p>
+&lt;/aside></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<p class="label">Example 2 &#8212; Sufficient Contrast</p>
+		</figcaption>
+		<p>The following example shows an icon with sufficient background contrast.</p>
+		<p class="min-ex">
+			<img src="../graphics/html/info.png" alt=""/>
+		</p>
+		<p>The following example shows the same icon with insufficient background contrast.</p>
+		<p class="min-ex dark">
+			<img src="../graphics/html/info.png" alt=""/>
+		</p>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<p class="label">Example 3 &#8212; Font Icon</p>
+			<p>In the following example, a private use area code point is used to render an email icon
+				from a fictitious "Icons" font family.</p>
+		</figcaption>
+		<p class="figlabel">CSS</p>
+		<pre id="ex-03a-src" class="prettyprint linenums"><code>.icon { font-family: 'Icons' !important; }
+.email { background-color: #ffffff; }
+.email:before { content: "\f8ee"; }</code></pre>
+		<p class="figlabel">HTML</p>
+		<pre id="ex-03b-src" class="prettyprint linenums"><code>&lt;p>
+   &lt;span
+    class="icon email"
+    role="img"
+    aria-label="Email the publisher">&lt;/span>
+&lt;/p></code></pre>
+	</figure>
+	
+	<figure id="ex-04">
+		<figcaption>
+			<p class="label">Example 4 &#8212; Sufficient Size</p>
+		</figcaption>
+		
+		<p>The following example shows the AAA minimum target size of 44 by 44 pixels required in WCAG 2.1.</p>
+		<p class="min-ex"><img src="../graphics/html/info.png" alt="Image Description"/></p>
+			
+		<p>The following example shows the AA minimum target size of 24 by 24 pixels required in WCAG 2.2.</p>
+		<p class="min-ex"><img class="shrink" src="../graphics/html/info.png" alt="Image Description"/></p>
+	</figure>
+</section>
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>Although icons are not as prevalent in digital publications as on the web generally, they are not
+		uncommon. Icons are often used to identify key items of interest in a publication, for example,
+		such as the various kinds of sidebars that occur in textbooks and other works of non-fiction. They
+		are also commonly used to in place of text to identify the presence of extended descriptions for
+		images. And, of course, they are prevalent as controls for interactive content.</p>
+	
+	<p>Making icons accessible generally follows the same requirements as any images, but there are some
+		additional requirements specific to them. Key among these is the need for consistency of naming.
+		It is not enough to provide a label, as users come to expect the meaning and purpose of the icons
+		to remain consistent across a publication. An icon used to link to an extended description, for
+		example, should not have a label "Extended description for figure 1" in one place and "Read more
+		about figure 2" in the next. The labels will not be identical, since the figure number will change,
+		but the phrasing needs to be consistent.</p>
+	
+	<p>It is also important that the icons can be clearly distinguished. Meeting the 3:1 contrast ratio
+		requirement between the icon and its background ensures that users are able to perceive both where
+		icons are used and what they depict. Similarly, the icons should be at least 24 pixels in length
+		and height when the image represents a target for an input action like a click. Although not
+		specifically a WCAG requirement, icon should be sized to ensure they are legible by the widest
+		possible audience without the need for magnification. Avoiding complex imagery in an icon is also
+		recommended, as even sighted users may struggle to make out the meaning.</p>
+	
+	<p>Font icons are a slightly different beast from image icons as they rely on the author using the
+		private use area of Unicode (i.e., special code points that are not assigned to any character, so
+		the author can provide a font that defines icons for those code points). The problem with this
+		approach is that private use area code points are unknown to user agents and assistive
+		technologies, so there is no way for them to announce the meaning of the icon. To work around this
+		problem, authors can attach the ARIA role "img" and provide a label where the icon is inserted (see
+		<a href="#ex-03">example 3</a> above).</p>
+</section>
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>MDN &#8212; <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">&lt;img>: The Image Embed
+			element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"
+			>The <code>img</code> element</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/images-icons.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

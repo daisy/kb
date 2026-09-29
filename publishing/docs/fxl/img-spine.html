@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Images in Spine - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of issues using images in the EPUB spine for fixed layouts">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/fxl/img-spine.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Fixed Layouts</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Images in Spine</h2>
+		</div>
+		
+		
+		<style>
+	pre {
+		font-size: 1.4rem;
+	}
+</style>
+
+<section id="overview">
+	<h3>Overview</h3>
+	
+	<p>An unofficial way to create fixed-layout EPUB publications is to include images (excluding SVG)
+		directly in the <a href="https://www.w3.org/TR/epub/#sec-spine-elem"
+			>package document spine</a>. This method of creating fixed layout pages is not commonly used,
+		however, as images are not allowed in the spine without fallbacks, so in most cases it is simpler
+		just to embed the image in either an <a href="html.html">XHTML</a> or <a href="svg.html">SVG</a>
+		fixed layout page.</p>
+	
+	<p>When using images in the spine, no fixed-layout metadata is set as it will cause validation errors
+		(e.g., because the required dimensions can only be determined from XHTML and SVG). It may even cause
+		reading systems not to render the publication.</p>
+	
+	<p>A related problem is that by not being able to specify fixed-layout metadata, this method offers
+		little control over the presentation of the pages. It also comes with severe <a href="#a11y"
+			>accessibility problems</a>.</p>
+</section>
+
+<section id="creation">
+	<h3>Creation</h3>
+	
+	<p>Putting images in the spine is no different than putting XHTML or SVG documents in the spine &#8212;
+		an <code>itemref</code> element is used to refer to where the image is declared in the manifest:</p>
+	
+	<pre id="ex-01" class="prettyprint linenums"><code>&lt;package &#8230;>
+   &#8230;
+   &lt;manifest>
+      &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg"/>
+      &#8230;
+   &lt;/manifest>
+   &lt;spine>
+      &lt;itemref ref="pg01"/>
+      &#8230;
+   &lt;/spine>
+&lt;/package></code></pre>
+	
+	<p>If the preceding example were validated with <a href="../validation/epubcheck.html">EPUBCheck</a>,
+		however, it would result in an error because JPEGs are not supported in the spine.</p>
+	
+	<p>To make the publication valid, a fallback to either an XHTML or SVG document must be specified on the
+		manifest entry.</p>
+	
+	<pre id="ex-02" class="prettyprint linenums"><code>&lt;manifest>
+   &lt;item id="pg01" src="pg01.jpg" media-type="image/jpeg" <strong>fallback="pg01-fb"</strong>/>
+   &lt;item id="pg01-fb" src="pg01.xhtml" media-type="application/xhtml+xml"/>
+   &#8230;
+&lt;/manifest></code></pre>
+	
+	<p>If a reading system does not support images in the spine, it can now render the fallback XHTML page
+		instead.</p>
+</section>
+
+<section id="a11y">
+	<h3>Accessibility</h3>
+	<p>Images in the spine are the least accessible way of creating a fixed layout.</p>
+	<p>There is no way to provide either alternative text or extended descriptions for the images without
+		having to provide these through a fallback. As a result, if the reading system supports rendering
+		the images, there will be no way for users to access the text alternatives (i.e., users are
+		typically not provided the option to view fallbacks; the reading system automatically selects which
+		to display). The result is that users of assistive technologies will hear nothing when the
+		publication is read.</p>
+	<p>Also, without any assurance that users can reach the alternative, it is also <strong>not
+			possible</strong> to make a claim of WCAG conformance, even if the alternative would be
+		conforming.</p>
+	<p>To avoid the cost of creating a backup for every fixed layout page, a single fallback document that
+		simply says the publication is not supported by the reading system might be used. This practice is
+		basically as useless to readers as not providing text alternatives.</p>
+	<p>Similarly, there may not be a one-to-one correlation between fixed layout pages and a text
+		serialization of the content. In this case, it will not be possible for each page to have a fallback
+		without confusing the reader somehow (e.g., if a series of pages fall back to the same text
+		serialization, the reading system will keep rendering the text every time a page is turned).</p>
+	<p>The use of <a href="https://www.w3.org/TR/epub-multi-rend/">multiple renditions</a> was
+		intended to help solve the need for alternative serializations, but there is virtually no support
+		for the specification.</p>
+	<p>For these reasons, <a href="html.html">XHTML</a> and <a href="svg.html">SVG</a> fixed layout pages
+		should always be preferred.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-spine-elem"
+				>The <code>spine</code> element</a></li>
+		<li>EPUB 3 &#8212; <a
+			href="https://www.w3.org/TR/epub/#sec-manifest-fallbacks"
+				>Manifest fallbacks</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/fxl/img-spine.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

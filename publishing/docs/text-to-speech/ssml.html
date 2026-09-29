@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> SSML - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of using the EPUB 3 SSML attributes to improve text-to-speech rendering">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/text-to-speech/ssml.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Text to Speech</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>SSML</h2>
+		</div>
+		
+		
+		<div class="warning" aria-labelledby="note-hd">
+	<p id="note-hd" class="label">Note</p>
+	<p>There is no support for the EPUB SSML attributes in reading systems at this time.</p>
+</div>
+
+<section id="summary">
+	<h3>Summary</h3>
+
+	<p>The EPUB SSML attributes offer the promise of improved voicing of text.</p>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<p class="label">Example 1 &#8212; Declaring the SSML namespace and phonetic alphabet on the
+				document root</p>
+		</figcaption>
+
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;html &#8230;
+   xmlns:ssml="http://www.w3.org/2001/10/synthesis"
+   ssml:alphabet="x-sampa">
+   &#8230;
+&lt;/html></code></pre>
+	</figure>
+
+	<figure id="ex-02">
+		<figcaption>
+			<p class="label">Example 2 &#8212; Declaring a phonetic alphabet and pronunciation at the word
+				level</p>
+			<p>Single letters are a poor choice to define in a lexicon because they could be initials,
+				directions or other forms of contractions depending on context.</p>
+		</figcaption>
+
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p>
+   &#8230; farther &lt;span 
+   ssml:alphabet="ipa" ssml:ph="nɔrθ">N.&lt;/span>
+   another elevation begins &#8230;
+&lt;/p></code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<p class="label">Example 3 &#8212; Defining different pronunciations for heteronyms</p>
+		</figcaption>
+
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p>
+   The guitarist was playing a
+   &lt;span ssml:ph="beIs">bass&lt;/span> that was shaped
+   like a &lt;span ssml:ph="b&amp;s">bass&lt;/span>.
+&lt;/p></code></pre>
+	</figure>
+
+	<figure id="ex-04">
+		<figcaption>
+			<p class="label">Example 4 &#8212; Defining a pronunciation when a default alphabet has already
+				been set</p>
+		</figcaption>
+
+		<pre id="ex-04-src" class="prettyprint linenums"><code>&lt;p>
+   The guitarist was playing a bass that was shaped
+   like a &lt;span ssml:ph="b&amp;s">bass&lt;/span>.
+&lt;/p></code></pre>
+		<p>A <a href="pls.html">PLS lexicon</a> would including the following entry to define the default
+			pronunciation:</p>
+		<pre class="prettyprint linenums"><code>&lt;lexeme>
+   &lt;grapheme>bass&lt;/grapheme>
+   &lt;phoneme>beIs&lt;/phoneme>
+&lt;/lexeme></code></pre>
+	</figure>
+
+	<figure id="ex-05">
+		<figcaption>
+			<p class="label">Example 5 &#8212; Defining different pronunciations based on context</p>
+		</figcaption>
+
+		<pre id="ex-05-src" class="prettyprint linenums"><code>&lt;p>
+   You'll be an
+   &lt;span ssml:ph="Ekstr@ lArdZ">XL&lt;/span>
+   by the end of Super Bowl 
+   &lt;span ssml:ph="'fOrti">XL&lt;/span>
+   at the rate you're eating.
+&lt;/p></code></pre>
+	</figure>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>SSML &#8212; the <a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup
+			Language</a> &#8212; provides a way for content creators to enhance the default synthetic speech
+		rendering of their publications at the markup level. The liberal use of SSML ensures that anyone
+		listening to your work via TTS playback hears the prose as intended, not based on the best guess of
+		their rendering engine.</p>
+
+	<p>The <code>phoneme</code> element from SSML has been implemented in EPUB 3 as a pair of attributes for
+		defining pronunciations at the markup level:</p>
+
+	<ul>
+		<li>The <code>ssml:alphabet</code> attribute is used to set the default phonetic alphabet.</li>
+		<li>The <code>ssml:ph</code> attribute is used to define the pronunciation for any element with text
+			content or for which a phonetic pronunciation can be associated (e.g., an empty element whose
+			voicing is derived from an attached attribute).</li>
+	</ul>
+
+	<p>(Support for the full SSML specification is not available in EPUB 3.)</p>
+
+	<p>Unlike <a href="pls.html">PLS lexicons</a>, SSML provides fine-grained control over pronunciation at
+		the markup level. SSML can be used to override a default pronunciation for heteronyms, to correctly
+		pronounce complex word and number forms, etc.</p>
+
+	<p>To use the SSML attributes, you must first declare the SSML namespace. The declaration is typically
+		made once per document on the root <code>html</code> element. (See <a href="#ex01">Example
+		1</a>.)</p>
+
+	<p>A default alphabet is also typically defined once on the root <code>html</code> element, as it is
+		rare to need to switch phonetic alphabets within any single document. Adding the
+			<code>ssml:alphabet</code> attribute to the root ensures that all instance of the
+			<code>ssml:ph</code> attribute have an in-scope alphabet defined. It is an error to define a
+		pronunciation in an <code>ssml:ph</code> attribute without an in-scope alphabet, and will result in
+		rendering errors. (See <a href="#ex01">Example 1</a>.)</p>
+
+	<p>When an <code>ssml:ph</code> attribute is encountered, it's value is passed to the text-to-speech
+		(TTS) engine in place of the element's content, providing the lowest-level override. The
+		pronunciation of SSML attributes also takes precedence over PLS lexicon entries, ensuring that
+		heteronyms and other exceptions to the rule can be properly handled.</p>
+
+	<p>Note that the value of the <code>ssml:ph</code> attribute entirely replaces the content of the
+		element that it is attached to, including all descendant elements. The attribute should not be
+		attached to a <code>p</code> tag to define the pronunciation of one word contained in the paragraph,
+		for example, as only that one word will be read in place of the entire paragraph. The use of
+			<code>span</code> elements is recommended when no markup exists on the word(s) that need a
+		pronunciation attached.</p>
+
+	<p>The SSML attributes are not valid on SVG or MathML content, but are valid on any XHTML content that
+		can be embedded in those grammars.</p>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+
+	<dl>
+		<dt id="faq-001">Should I use IPA or X-SAMPA or something else to write my pronunciations?</dt>
+		<dd>
+			<p>Although IPA is arguably the most widely recognized phonetic alphabet, that does not mean
+				that it has full support even in existing synthetic speech engines. Some engines support
+				only their own alphabets, for example. IPA is also less developer-friendly than X-SAMPA
+				because it uses Unicode characters that require modifying most keyboard layouts to input,
+				whereas X-SAMPA is ASCII-based. Internal workflows should be a determining factor at this
+				time. The ultimate answer will depend on what engines are employed in reading systems.</p>
+			
+			<p>Note that it is possible to translate one alphabet representation to the other, so work in
+				either alphabet shouldn't ever be <q>lost</q> if there does turn out to be a clear winner
+				and loser.</p>
+		</dd>
+		
+		<dt id="faq-002">Should I use PLS lexicons or SSML?</dt>
+		<dd>
+			<p>The inclusion of the technologies in EPUB 3 was not to require a choice to be made; the
+				technologies are meant to complement each other. PLS lexicons allow you to define a word
+				once and have the TTS engine do the work of replacing it each time it occurs in the prose.
+					<a href="ssml.html">SSML</a>, on the other hand, provides the fine-grained control that
+				is just not possible in a lexicon, at the price of having to tag each instance of a term
+				that has to be replaced.</p>
+			
+			<p>It is possible to use SSML exclusively, but it is costly in terms of production time and can
+				excessively bloat the size of your content files depending on how many unique terms have to
+				be handled and how often they occur.</p>
+		</dd>
+	</dl>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>EPUB 3 TTS Enhancements &#8212; <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML
+				attributes</a></li>
+		<li>
+			<a href="https://www.w3.org/TR/speech-synthesis11/">Speech Synthesis Markup Language (SSML)
+				Version 1.1</a>
+		</li>
+		<li><a href="https://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">Computer-coding the IPA: a proposed
+				extension of SAMPA</a> (X-SAMPA)</li>
+		<li>
+			<a href="https://www.internationalphoneticassociation.org/IPAcharts/IPA_chart_orig/pdfs/IPA_Kiel_2020_full.pdf">The International
+				Phonetic Alphabet (Revised to 2020)</a>
+		</li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/text-to-speech/ssml.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

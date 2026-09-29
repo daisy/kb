@@ -1,0 +1,9 @@
+
+nav#toc h2 {
+	margin: 4rem 0 3rem -1rem;
+	font-size: 160% !important;
+}
+
+nav#toc p {
+	margin-bottom: 3rem;
+}

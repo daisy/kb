@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Digital Publishing Roles - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guide to using the DPUB-ARIA roles module">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/dpub-aria/index.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Digital Publishing Roles</h2>
+		</div>
+		
+		
+		<section id="desc">
+	<h3>Explanation</h3>
+
+	<p>The Digital Publishing WAI-ARIA module (DPUB-ARIA) is an extension of the ARIA specification. It
+		provides an additional set of publishing-specific roles for use with the <a href="../roles.html">ARIA
+				<code>role</code> attribute</a>.</p>
+
+	<p>The publishing roles are intended to improve the usability of publications both by providing
+		assistive technologies (AT) with additional information about important structures and by ensuring
+		that common publishing markup idioms are accessible.</p>
+
+	<p>The roles are not intended as a mechanism for workflow semantics so do not provide the same breadth
+		of coverage as, for example, the <a href="https://www.w3.org/TR/epub-ssv/">EPUB
+			Structural Semantics vocabulary</a>. Care needs to be taken both with the number of roles used
+		and the manner in which they are used, as incorrect use can impair the ability of users to
+		accessibly consume a publication.</p>
+</section>
+
+<section id="roles">
+	<h3>Roles</h3>
+
+	<nav role="doc-index" id="Roles" aria-label="index of roles">
+		<ul class="multicol">
+			<li>
+				<a href="doc-abstract.html">doc-abstract</a>
+			</li>
+			<li>
+				<a href="doc-acknowledgments.html">doc-acknowledgments</a>
+			</li>
+			<li>
+				<a href="doc-afterword.html">doc-afterword</a>
+			</li>
+			<li>
+				<a href="doc-appendix.html">doc-appendix</a>
+			</li>
+			<li>
+				<a href="doc-backlink.html">doc-backlink</a>
+			</li>
+			<li>
+				<a href="doc-biblioentry.html">doc-biblioentry</a>
+			</li>
+			<li>
+				<a href="doc-bibliography.html">doc-bibliography</a>
+			</li>
+			<li>
+				<a href="doc-biblioref.html">doc-biblioref</a>
+			</li>
+			<li>
+				<a href="doc-chapter.html">doc-chapter</a>
+			</li>
+			<li>
+				<a href="doc-colophon.html">doc-colophon</a>
+			</li>
+			<li>
+				<a href="doc-conclusion.html">doc-conclusion</a>
+			</li>
+			<li>
+				<a href="doc-cover.html">doc-cover</a>
+			</li>
+			<li>
+				<a href="doc-credit.html">doc-credit</a>
+			</li>
+			<li>
+				<a href="doc-credits.html">doc-credits</a>
+			</li>
+			<li>
+				<a href="doc-dedication.html">doc-dedication</a>
+			</li>
+			<li>
+				<a href="doc-endnote.html">doc-endnote</a>
+			</li>
+			<li>
+				<a href="doc-endnotes.html">doc-endnotes</a>
+			</li>
+			<li>
+				<a href="doc-epigraph.html">doc-epigraph</a>
+			</li>
+			<li>
+				<a href="doc-epilogue.html">doc-epilogue</a>
+			</li>
+			<li>
+				<a href="doc-errata.html">doc-errata</a>
+			</li>
+			<li>
+				<a href="doc-example.html">doc-example</a>
+			</li>
+			<li>
+				<a href="doc-footnote.html">doc-footnote</a>
+			</li>
+			<li>
+				<a href="doc-foreword.html">doc-foreword</a>
+			</li>
+			<li>
+				<a href="doc-glossary.html">doc-glossary</a>
+			</li>
+			<li>
+				<a href="doc-glossref.html">doc-glossref</a>
+			</li>
+			<li>
+				<a href="doc-index.html">doc-index</a>
+			</li>
+			<li>
+				<a href="doc-introduction.html">doc-introduction</a>
+			</li>
+			<li>
+				<a href="doc-noteref.html">doc-noteref</a>
+			</li>
+			<li>
+				<a href="doc-notice.html">doc-notice</a>
+			</li>
+			<li>
+				<a href="doc-pagebreak.html">doc-pagebreak</a>
+			</li>
+			<li>
+				<a href="doc-pagelist.html">doc-pagelist</a>
+			</li>
+			<li>
+				<a href="doc-part.html">doc-part</a>
+			</li>
+			<li>
+				<a href="doc-preface.html">doc-preface</a>
+			</li>
+			<li>
+				<a href="doc-prologue.html">doc-prologue</a>
+			</li>
+			<li>
+				<a href="doc-pullquote.html">doc-pullquote</a>
+			</li>
+			<li>
+				<a href="doc-qna.html">doc-qna</a>
+			</li>
+			<li>
+				<a href="doc-subtitle.html">doc-subtitle</a>
+			</li>
+			<li>
+				<a href="doc-tip.html">doc-tip</a>
+			</li>
+			<li>
+				<a href="doc-toc.html">doc-toc</a>
+			</li>
+		</ul>
+		<br />
+	</nav>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+
+	<dl>
+		<dt id="faq-001">What are implicit roles and why do they matter?</dt>
+		<dd>
+			<p>Many HTML elements have default accessibility semantics so do not require a an explicit role.
+				The <code>nav</code> element, for example, has the implicit role <code>navigation</code>.
+				Similarly, the <code>aside</code> element has the implicit role <code>complementary</code>.
+				(For the complete list of elements and their implicit roles, please see the <a
+					href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document.)</p>
+
+			<p>A feature of these implicit roles is that if an assigned role is not recognized, assistive
+				technologies are expected to ignore the unknown role and default to the implicit. This
+				ensures that assistive technologies can still make sense of the document when encountering,
+				for example, new roles they are not aware of.</p>
+
+			<p>To avoid problems with assistive technologies not recognizing the DPUB ARIA roles, it is
+				recommended that when an element has an implicit role you ensure that the role you are using
+				has the same ancestor role (e.g., use navigation roles with the <code>nav</code>
+				element).</p>
+
+			<p>This issue will diminish as support for the DPUB ARIA module gains traction. The solution is
+				also imperfect, as there have been reports that implicit roles are not always
+				recognized.</p>
+		</dd>
+		<dt id="faq-002">When should I include fallback roles?</dt>
+		<dd>
+			<p>When an HTML element does not have an implicit role (e.g., <code>span</code> and
+					<code>div</code>), it is recommended to include a fallback role from the <a
+					href="https://www.w3.org/TR/wai-aria/">core ARIA specification</a> for whichever role
+				you are using from the DPUB ARIA module. This ensures that even if the DPUB role is not yet
+				understood by an assistive technology, it will still understand the general purpose of the
+				role.</p>
+
+			<p>The <code>role</code> attribute accepts multiple roles separated by spaces, so the ARIA
+				fallback role can be added after the DPUB ARIA role.</p>
+
+			<figure id="faq-ex-01">
+				<figcaption>
+					<p><strong>Example</strong>: The <code>note</code> role can be used as a fallback for
+						the DPUB ARIA <code>doc-tip</code> role.</p>
+				</figcaption>
+				<pre role="doc-example" id="faq-ex-01-src" class="prettyprint linenums small"><code>&lt;div role="doc-tip note"></code></pre>
+			</figure>
+
+			<p>The order of roles is important so do not add ARIA roles before the DPUB roles or the DPUB
+				roles will never be recognized.</p>
+
+			<p>Similar to the issue of <a href="#faq01">matching implied semantics</a>, the need for
+				fallback semantics will diminish with time. The use of fallback semantics is also known to
+				be imperfect, as the fallbacks are not recognized in all cases.</p>
+		</dd>
+
+		<dt id="faq-003">Why shouldn't every section of a publication be a landmark?</dt>
+		<dd>
+			<p>Users already have access to the table of contents, which is a much more effective tool for
+				understanding and navigating the structure of a publication. Landmarks are intended to
+				provide quick access to the key sections a user might want to reach.</p>
+
+			<p>Landmarks are also an unstructured list of links, so setting every section as a landmark
+				actually makes it harder for users to understand the structure. Making every section a
+				landmark also unnecessarily proliferates the total number of landmarks in a page, which in
+				turn reduces the usefulness of the list (i.e., being able to quickly locate a key
+				section).</p>
+		</dd>
+
+		<dt id="faq-004">Why isn't there a role for every semantic in the EPUB Structural Semantic vocabulary?</dt>
+		<dd>
+			<p>The EPUB Structural Semantic vocabulary was designed primarily to provide semantics for
+				publishers' internal workflows. It was hoped that the attribute would be able to serve a
+				dual purpose of providing accessibility mappings for useful roles, but this hope never
+				materialized into a workable solution. Assistive technologies are not aware of the
+					<code>epub:type</code> attribute and there is no interest in trying to reconcile it with
+				the existing ARIA roles.</p>
+
+			<p>The result is that the EPUB vocabulary contains far more semantics than will ever be
+				necessary to improve the actual usability of publications. Implementing all of the semantics
+				in a publication would likely just overload users with unnecessary information and make it
+				harder for them to effectively read the publication (i.e., it would create a lot of semantic
+				noise while reading).</p>
+		</dd>
+	</dl>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>
+			<a href="https://www.w3.org/TR/dpub-aria/">Digital Publishing WAI-ARIA Module</a>
+		</li>
+		<li>
+			<a href="https://www.w3.org/TR/wai-aria/#role_definitions">WAI-ARIA roles</a>
+		</li>
+		<li>
+			<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>
+		</li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/dpub-aria/">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

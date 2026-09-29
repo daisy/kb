@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Keyboard Control - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on ensuring that users can control all content by keyboard alone">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/script/keyboard.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Scripted Content and Forms</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Keyboard Control</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	<p>Ensure that users can control all functionality via their keyboard.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	<ul>
+		<li>
+			<p>Ensure all controls are keyboard accessible. [[WCAG-2.1.1]]</p>
+		</li>
+		<li>
+			<p>Ensure all links are keyboard accessible. [[WCAG-2.1.1]]</p>
+		</li>
+		<li>
+			<p>Avoid keyboard traps. [[WCAG-2.1.2]]</p>
+		</li>
+		<li>
+			<p>Avoid keyboard shortcuts that consist of only a single character. [[WCAG-2.1.4]]</p>
+		</li>
+		<li>
+			<p>Ensure focus on active control is visible. [[WCAG-2.4.7]]</p>
+		</li>
+		<li>
+			<p>Do not trigger events when a control recieves focus. [[WCAG-3.2.1]]</p>
+		</li>
+		<li>
+			<p>Do trigger unexpected events when a user inputs values or changes settings. [[WCAG-3.2.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>For many users, the primary or only way they can interact with content is via a keyboard or
+		keyboard-like input device (e.g., voice recognition software, virtual keyboards). It is imperative
+		for these users that all functionality be operable by keyboard.</p>
+	
+	<p>The most common cause of keyboard interoperability issues is when authors add custom scripted
+		controls and links to their pages. Using HTML-native elements such as buttons, sliders and
+		hyperlinks generally avoids keyboard input pitfalls. In these cases, authors only need to ensure
+		that the controls are created accessibly &#8212; for example, that they are clearly labeled and
+		grouped according to their purpose.</p>
+	
+	<p>For custom controls, authors need to ensure that their creations meet all the same requirements
+		as native controls. Some examples include:</p>
+	
+	<ul>
+		<li>that users are able to reach the control;</li>
+		<li>that the purpose of the control is clear;
+		<li>that the control is operable by keyboard; and</li>
+		<li>that users do not get trapped in the control.</li>
+	</ul>
+	
+	<p>When creating custom controls, it is also important to consider the effects of shortcut keys on
+		their ability to use a publication. It may seem like a convenience to sighted readers to assign
+		single-key printable character (letters, numbers, punctuation) as a shortcut for an operation, but
+		readers trying to enter commands may have their input intercepted. The result may be that the user
+		cannot complete a necessary function or may potentially activate an unwanted action in the content.
+		Authors must always allow users to remap or turn off single-character shortcuts.</p>
+	
+	<p>It is also important to not cause changes of context when focus changes to the element (e.g., the
+		user tabs to it). Changing the context, such as opening a new window, submitting a form, or
+		altering the content, can cause confusion for readers who cannot see what has occurred.</p>
+	
+	<p>Similarly, entering input into a field or changing the setting of a control must not cause an
+		unexpected change of context.</p>
+	
+	<div class="note" role="note" aria-labelledby="kbd-note">
+		<p id="kbd-note" class="label">Note</p>
+		<p>The keyboard requirement for Level A conformance excludes functionality where the full path of
+			movement is essential, not just the start and end points. A program that allows a user to drag
+			an object and drop it, for example, is not excluded because the path to the destination does not
+			matter. A drawing program, on the other hand, would be exempt because full path affects the
+			drawn object.</p>
+	</div>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	<ul>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">The
+			<code>link</code> element</a></li>
+		<li>HTML &#8212; <a
+			href="https://html.spec.whatwg.org/multipage/forms.html#forms">Forms</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/script/keyboard.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

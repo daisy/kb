@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> ページリスト（Page List） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for including a page list in a digital publication.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/navigation/pagelist.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+		<nav class="mini-toc" aria-labelledby="related-hd">
+			<h3 id="related-hd">関連トピック</h3>
+			<ol>
+				
+					
+				<li><a href="nav-pagenav.html"></a></li>
+				
+					
+				<li><a href="nav-pagebreaks.html"></a></li>
+				
+					
+				<li><a href="nav-pagesrc.html"></a></li>
+				
+			</ol>
+		</nav>
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>ページリスト（Page List）</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>電子出版物のユーザーが、（紙媒体のような）静的にページ付けされた出版物と同じ位置に移動できるようにするために、ページリストを組み込んでください。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>出版物に静的にページ付けされた同等の出版物がある場合、ページリストを組み込んでください。[[WCAG-2.4.5]]</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — ページリスト（EPUB 3）</div>
+			<p>ページリストは、ページ区切り位置へのリンクの単純な順序付きリストです。これは<code>epub:type</code>属性値<code>page-list</code>によって識別されます。</p>
+			<p>spineに<a href="toc.html">目次</a>を含んでいる場合には、リストがユーザーに表示されないようにページリストに対して<code>hidden</code>属性を設定するよう注意してください。</p>
+			<p>ページリストが常にユーザーに対して非表示になっている場合、あるいはEPUBナビゲーション ドキュメントがspineに含まれていない場合には、ARIA <code>role</code>属性（<a href="#ex-02">次の例</a>を参照）は必要ありません。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list" hidden="hidden"&gt;
+ &lt;ol&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page752"&gt;752&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page753"&gt;753&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page754"&gt;754&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page755"&gt;755&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page756"&gt;756&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page757"&gt;757&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page758"&gt;758&lt;/a&gt;&lt;/li&gt;
+ &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — ページリスト (Web)</div>
+			<p>Web 上で使用されるページリストは、通常、 <code>role</code>属性値<code>doc-pagelist</code>によって識別されます。<code>aria-label</code>属性は、ナビゲーション要素のタイトルを提供するために使用されますが、明示的な見出しも使用できます（2 番目の<code>nav</code>要素を参照）。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-pagelist" aria-label="Page list"&gt;
+ &lt;ol&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page752"&gt;752&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page753"&gt;753&lt;/a&gt;&lt;/li&gt;
+   …
+ &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;nav role="doc-pagelist" aria-labelledby="pg-hd"&gt;
+ &lt;h2 id="pg-hd"&gt;Page List&lt;/h2&gt;
+ &lt;ol&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page752"&gt;752&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="georgia.xhtml#page753"&gt;753&lt;/a&gt;&lt;/li&gt;
+   …
+ &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">例 3 — ページリスト（EPUB 2 および DAISY 3）</div>
+			<p>EPUB 2 および DAISY 3 出版物のページリストは、NCXと呼ばれるカスタムXML文法を使用して表現されます。</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ncx xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
+     xmlns="http://www.daisy.org/z3986/2005/ncx/"
+     version="2005-1" xml:lang="en"&gt;
+    …
+    &lt;pageList&gt;
+        &lt;navLabel&gt;
+            &lt;text&gt;Pages&lt;/text&gt;
+        &lt;/navLabel&gt;
+        &lt;pageTarget type="normal" id="page752" value="752" playOrder="1"&gt;
+            &lt;navLabel&gt;
+                &lt;text&gt;752&lt;/text&gt;
+            &lt;/navLabel&gt;
+            &lt;content src="georgia.xhtml#page752"/&gt;
+        &lt;/pageTarget&gt;
+        &lt;pageTarget type="normal" id="page753" value="753" playOrder="2"&gt;
+            &lt;navLabel&gt;
+                &lt;text&gt;753&lt;/text&gt;
+            &lt;/navLabel&gt;
+            &lt;content src="georgia.xhtml#page753"/&gt;
+        &lt;/pageTarget&gt;
+        …
+    &lt;/pageList&gt;
+&lt;/ncx&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-pl-001">ページリストのリンクはどのような順序にすれば良いでしょうか？</dt>
+		<dd>
+			<p>現在、ページリスト内のリンクの順序に関する要件はありません。一般的な手法はリンクを数字順に並べることですが、電子出版物のコンテンツの順序が物理的な順序と一致しない場合があります（たとえば、出版社が前書きを最後に移動する場合があります）。このような場合、一部のEPUB作成者は、デジタルコンテンツに合わせたページリスト順番を好みます。</p>
+		</dd>
+		
+		<dt id="faq-pl-002">ページリストを含む出版物にはページ区切りマーカーが必要ですか？</dt>
+		<dd>
+			<p>ページリストは、ページ区切りマーカーのない電子出版物に含まれる場合がありますが、この方法はまれであり、ユーザーにとってあまり役に立ちません。例としては、各章の最初のページにのみリンクするページリストがあります。ページリストは、ページ区切りマーカーの代わりに、章の見出しにリンクできます。ただし、通常は目次によって各章へのアクセスが提供されるので、このアプローチの活用は限定的です。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>印刷物のような静的にページ番号が付けられた原本よりリフロー可能な出版物が製作される場合、ページリストを組み込むと、ユーザーは静的なページ位置に移動できます。たとえば、クラスメイトが印刷物の本を使用しているクラスでデジタル版を使用している学生は、授業中にまったく同じページに移動できます。</p>
+	
+	<p>ページリスト自体は、すべてのページ区切り位置へのリンクのリストです。ユーザーエージェントはこのリストを使用して自動ページ ジャンプ機能を提供できます。また、ユーザーはこのリストに直接アクセスして手動で移動したいページを選択できます。</p>
+	
+	<p>EPUB 3 では、ページリストはナビゲーション ドキュメント内の<a href="https://www.w3.org/TR/epub-33/#sec-nav-pagelist">ページリスト nav 要素</a>で表現されます。この要素は、基本的に各ページ区切り位置へのリンクのフラットリストです。</p>
+	
+	<pre id="expl-pl-01-src" class="prettyprint linenums"><code>&lt;nav epub:type="page-list"&gt;
+ &lt;ol&gt;
+   &lt;li&gt;&lt;a href="chapter01.xhtml#page1"&gt;1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="chapter01.xhtml#page2"&gt;2&lt;/a&gt;&lt;/li&gt;
+   …
+ &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+		
+	<p>EPUB 2 では、ページリストは NCX ファイルの<a href="https://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1.2"><code>pageList</code>要素</a>を使用して表現されます（<a href="#ex-02">例 2</a>を参照）。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>HTML — <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element"><code>nav</code>要素</a></li>
+		<li>EPUB 3 — <a href="https://www.w3.org/TR/epub/#sec-nav-pagelist"><code>page-list nav</code>要素</a></li>
+		<li>EPUB 2 — <a href="http://www.daisy.org/z3986/2005/Z3986-2005.html#li_392a"><code>pageList</code>要素</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/navigation/pagelist.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

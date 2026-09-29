@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> カスタムコントロール - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on using ARIA roles, states, and properties to create accessible custom controls.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/script/controls.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>カスタムコントロール</h2>
+		</div>
+		
+		
+		<style>
+	div#sc015-ex01-controls {
+		margin-left: 5em;
+		padding: 0.2em;
+		width: 7em;
+		text-align: center;
+		border: 1px solid rgb(0, 0, 0);
+		background-color: rgb(243, 243, 243)
+	}
+	
+	div#sc015-ex01-controls img {
+		display: inline;
+	}
+</style>
+
+<section id="summary">
+	<h3>要約</h3>
+	<p>支援技術のユーザーにカスタムコントロールをアクセシブルにするには、ARIAのrole（役割）、state（状態）、property（プロパティ）を使用する必要があります。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	<ul>
+		<li>
+			<p>role（役割）、state（状態）、property（プロパティ）を使用してインタラクションを行えるようにします。[[WCAG-4.1.2]]</p>
+		</li>
+		<li>
+			<p>ARIAのrole（役割）、state（状態）、property（プロパティ）が指定された要素に対して有効であることを確認します。[[WCAG-4.1.1]]</p>
+		</li>
+		<li>
+			<p>すべての親/子の役割の要件が満たされていることを確認します。[[WCAG-4.1.1]]</p>
+		</li>
+		<li>
+			<p>コントロールがフォーカスされただけではイベントを起動しないでください。[[WCAG-3.2.1]]</p>
+		</li>
+		<li>
+			<p>予期しないイベント起動は、ユーザーが値を入力したり設定を変更した際に行います。[[WCAG-3.2.1]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — カスタムボタンの識別</div>
+			<p><code>img</code>要素には<code>button</code>のrole（役割）があり、支援技術に対して画像ではなくボタンとして識別されます。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;img src="controls/start.png"
+    id="start"
+    role="button"
+    tabindex="0"
+    alt="Start"/&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — JavaScript を使用してstate（状態）を管理する</div>
+			<p>次の簡単な例は、カスタム コントロールを作成するときに注意しなければならない考慮事項の一部を示しています。コールバック関数の設定と設定解除、コントロールの有効化と無効化、ボタンの外観の変更などです。この画像をキーボードで動作させるには、ユーザーのキー押下を確認してから、アクションをオン/オフしなければなりません。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums small"><code>&lt;img src="controls/play.png"
+    id="start"
+    alt="Start"
+    role="button"
+    aria-disabled="false"
+    tabindex="0"
+    onclick="controlPlayback('start')"/&gt;
+
+&lt;img src="controls/stop.png"
+    id="stop"
+    alt="Stop"
+    role="button"
+    aria-disabled="true"
+    tabindex="0"/&gt;
+
+&lt;script&gt;
+&lt;![CDATA[
+function controlPlayback(action) {
+
+  var isStart = (action == 'start') ? true : false;
+  
+  var start_image = isStart ? 
+           'controls/play-disabled.png' : 
+           'controls/play.png';
+  
+  var stop_image = isStart ? 
+           'controls/stop.png' : 
+           'controls/stop-disabled.png';
+  
+  var start = document.getElementById('start');
+    start.setAttribute('aria-disabled', 
+              !start.getAttribute('aria-disabled'));
+    start.setAttribute('disabled', 
+              !start.getAttribute('disabled'));
+    start.onclick = isStart ? 
+            null : 
+            function () { controlPlayback('start'); };
+    start.setAttribute('src', start_image);
+  
+  var stop = document.getElementById('stop');
+    stop.setAttribute('aria-disabled', 
+              !stop.getAttribute('aria-disabled'));
+    stop.setAttribute('disabled', 
+              !stop.getAttribute('disabled'));
+    stop.onclick = isStart ? 
+            function () { controlPlayback('stop'); } : 
+            null;
+    stop.setAttribute('src', stop_image);
+   
+   if (isStart) {
+    start.removeAttribute('onkeypress');
+    stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
+   }
+   
+   else {
+    stop.removeAttribute('onkeypress');
+    start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
+   }
+  
+  alert(isStart ? 'Playback started!' : 'Playback stopped!');
+}
+]]&gt;
+&lt;/script&gt;</code></pre>
+		<p>次のボタンは、このコードの動作を示しています。</p>
+		<div id="ex01-controls">
+			<img src="../graphics/aria/play.png" width="32" height="32" id="start" role="button" aria-disabled="false" tabindex="0" onclick="controlPlayback('start')" onkeypress="if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }" alt="開始">
+			<img src="../graphics/aria/stop-disabled.png" width="32" height="32" id="stop" role="button" aria-disabled="true" tabindex="0" alt="停止">
+		</div>
+		<script>
+			//<![CDATA[
+			function controlPlayback(action) {
+				
+				var isStart = (action == 'start') ? true: false;
+				
+				var start_image = isStart ? '../../../graphics/publishing/aria/play-disabled.png': '../../../graphics/publishing/aria/play.png';
+				var stop_image = isStart ? '../../../graphics/publishing/aria/stop.png': '../../../graphics/publishing/aria/stop-disabled.png';
+				
+				var start = document.getElementById('start');
+				start.setAttribute('aria-disabled', ! start.getAttribute('aria-disabled'));
+				start.setAttribute('disabled', ! start.getAttribute('disabled'));
+				start.onclick = isStart ? null: function () {
+					controlPlayback('start');
+				};
+				start.setAttribute('src', start_image);
+				
+				var stop = document.getElementById('stop');
+				stop.setAttribute('aria-disabled', ! stop.getAttribute('aria-disabled'));
+				stop.setAttribute('disabled', ! stop.getAttribute('disabled'));
+				stop.onclick = isStart ? function () {
+					controlPlayback('stop');
+				}: null;
+				stop.setAttribute('src', stop_image);
+				
+				/* enable/disable keypresses */
+				if (isStart) {
+					start.removeAttribute('onkeypress');
+					stop.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('stop'); }");
+				} else {
+					stop.removeAttribute('onkeypress');
+					start.setAttribute('onkeypress', "if (event.keyCode==32||event.keyCode==13) { controlPlayback('start'); }");
+				}
+				
+				alert(isStart ? 'Playback started!': 'Playback stopped!');
+			}//]]></script>
+	</figure>
+</section>
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>HTMLには数多くのネイティブコントロール（例：<code>input</code> 、 <code>button</code> 、 <code>progress</code>）が用意されていますが、開発者は、多くの場合に、スタイル制限の回避や特殊な機能の導入のために、同等のコントロールを独自に作成しなければなりません。</p>
+	
+	<p>カスタムコントロールを作成すると、機能を動作させるためのJavaScriptがデフォルトでは支援技術に反映されないために、深刻なアクセシビリティの問題が発生しかねません。たとえば、テキストや画像の範囲などの非インタラクティブ要素が動的に作成されると、支援技術を通じると、それらをアクティブ化できることを認識できません。また、アクションが発生しても、コンテンツの変更はアクセシビリティツリーに反映されません（つまり、新しいコンテンツは利用できません）。</p>
+	
+	<p>こうしたスクリプトにおけるアクセシビリティの問題は、Webの開発初期に問題となっていましたが、ARIAのrole（役割）、state（状態）、property（プロパティ）の導入により、多くの問題が軽減されました。カスタムコントロールにこれらの属性を追加すると、支援技術を通じてその存在が認識され、コントロールの現在の状態に関する情報がユーザーに伝わるようになります。</p>
+	
+	<p>次のリストでは、各属性タイプの目的について説明します。</p>
+	
+	<dl class="value">
+		<dt id="roles">役割（Role）</dt>
+		<dd>
+			<p>ARIA <code>role</code>属性は、カスタムコントロールの機能を説明するために使用されます（たとえば、画像がボタンのように機能することを示すなど）。</p>
+			<p>カスタムコントロールには、その目的を支援技術に通知するためのrole（役割）が必要です。これにより、支援技術は、予想される使用方法に応じて要素をユーザーに提示できます。</p>
+			<p><a href="https://www.w3.org/TR/wai-aria/#role_definitions">現在サポートされているroleのリスト</a>については、ARIA仕様をご覧ください。</p>
+		</dd>
+		<dt id="states">状態（State）</dt>
+		<dd>
+			<p>state属性は、コントロールの現在の状態（現在チェックされているかどうか、非表示になっているかどうかなど）を識別します。</p>
+			<p>ユーザーがコントロールやコンテンツと対話するときに、State属性がスクリプトによって維持されなければなりません。そうしないと、ユーザーが機能を使用できなくなる可能性があります（たとえば、音量を下げることができない、重要なコンテンツを表示できないなど）。</p>
+			<p><a href="https://www.w3.org/TR/wai-aria/#global_states">現在サポートされているstateのリスト</a>については、ARIA仕様をご覧ください。</p>
+		</dd>
+		<dt id="properties">プロパティ（Property）</dt>
+		<dd>
+			<p>プロパティ属性は、コントロールが許可する最小値や最大値、グループ内での位置など、コントロールに関するメタ情報を識別します。</p>
+			<p>stateとは異なり、プロパティは通常、コンテンツが読み込まれるときに一回だけ設定されます。</p>
+			<p><a href="https://www.w3.org/TR/wai-aria/#global_states">現在サポートされているプロパティのリスト</a>については、ARIA仕様をご覧ください。</p>
+		</dd>
+	</dl>
+	
+	<p>もちろん、カスタムコントロールをアクセシブルにするには、正しい役割（role）、状態（state）、プロパティ（property）が適用されているのを確認するだけでは不十分です。コンテンツ製作者は、コントロールがフォーカスや入力を受け取ったときなどに、コンテキスト内で予期しない変更がトリガーされないようにする必要があります。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="partial">部分的 <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* 目次および補足的なHTMLリソースに適用されます。</p>
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ul>
+		<li>WAI-ARIA —<a href="https://www.w3.org/TR/wai-aria/#roles">Roleモデル</a></li>
+		<li>WAI-ARIA —<a href="https://www.w3.org/TR/wai-aria/#states_and_properties">サポートされているstateとproperty</a></li>
+		<li><a href="https://www.w3.org/WAI/standards-guidelines/aria/">WAI-ARIA の概要</a></li>
+		<li><a href="https://www.w3.org/TR/wai-aria-practices/">WAI-ARIA オーサリング プラクティス — WAI-ARIA を使用してアクセシブルなウィジェットを構築するための一般的な手順</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/script/controls.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

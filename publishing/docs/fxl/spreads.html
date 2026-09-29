@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Multipage Spreads - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Issues using multipage fixed layout spreads">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/fxl/spreads.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Fixed Layouts</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Multipage Spreads</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>When a single image is presented as a two-page spread, provide alternative text and description on
+		the first page and refer back to the description from second page.</p>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>It is common with fixed layouts, especially those that replicate a print work, to have a single image
+		that is split across two pages (e.g., maps). The use of <a href="overview.html#rendition-spread"
+			>synthetic spreads</a> (side-by-side pages) allows authors to place both images in the reading
+		system display at the same time.</p>
+	
+	<p>The question this practice raises is how to effectively describe the split image. Do you describe
+		each half separately, and what if the image halves do not make sense separately? Do you only
+		describe one half, and, if so, what about the other half?</p>
+	
+	<p>A common web technique when there is a group of related images on a single page is to only describe
+		the first image and treat the others as decorative so that users do not encounter duplicate
+		descriptions.</p>
+	
+	<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;figure aria-details="map-desc">
+   &lt;figcaption>&#8230;&lt;/figcaption>
+   &lt;img src="map-pt1.jpeg" alt="World Map" />
+   &lt;img src="map-pt2.jpeg" alt="" />
+&lt;/figure></code></pre>
+	
+	<p>This technique does not work well with publications, however, because the related images in a spread
+		are on separate pages (i.e., it leaves users of assistive technologies with a seemingly empty page
+		if only one image is described).</p>
+	
+	<p>A solution to this problem is to provide the description with the first image but use the alternative
+		text to guide users to the split nature of the image.</p>
+	
+	<p>For example, the alternative text of the first image in a spread could include the total number of
+		parts the image contains:</p>
+	
+	<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;body>
+   &lt;img src="map-pt1.jpeg" alt="World Map (Page 1 of 2)" aria-details="map-desc" />
+   &#8230;
+&lt;/body></code></pre>
+	
+	<p>The second page would then indicate it is the second in the series and refer back to the first for
+		the description:</p>
+	
+	<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;body>
+   &lt;img src="map-pt2.jpeg" alt="World Map (Page 2 of 2). Refer to previous page for description." />
+   &#8230;
+&lt;/body></code></pre>
+	
+	<p>Although there is some redundancy in this approach, because users following the text linearly will
+		already have encountered the description, it ensures that a user who lands on the second page of the
+		spread first (e.g., by choosing to jump to a specific page) does not lose the context.</p>
+	
+	<div class="note" role="note" aria-labelledby="desc-note">
+		<p id="desc-note" class="label">Note</p>
+		<p>Refer to the fixed layout images knowledge base page for more information on how to add an
+			extended description.</p>
+	</div>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+	
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#spread">The
+					<code>rendition:spread</code> property</a></li>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#page-spread">The
+					<code>rendition:page-spread-*</code> properties</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/fxl/spreads.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

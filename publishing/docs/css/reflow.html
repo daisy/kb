@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Reflow - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance on making content reflow when zoomed for easier reading">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/css/reflow.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">CSS</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Reflow</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Ensure the content of a publication reflows to fit within the available screen space when zoomed
+		up to 400%.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Use CSS to adapt layouts [[WCAG-1.4.10]]</p>
+		</li>
+		
+		<li>
+			<p>Use relative size units for container elements [[WCAG-1.4.10]]</p>
+		</li>
+		
+		<li>
+			<p>Enable line breaking of long words [[WCAG-1.4.10]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>WCAG's <a href="https://www.w3.org/TR/WCAG2/#reflow">Reflow success criterion</a> requires that
+		content not require scrolling in two dimensions as it is zoomed to 400% on a standard desktop
+		screen at 1080px wide and 1024px high resolution. For vertical scrolling pages, this requirement
+		means that the user must not have to scroll horizontally to read the content (with some exceptions
+		for content that cannot adapt without becoming unusable or unreadable); the content should adapt to
+		fit within the screen area.</p>
+	
+	<p>This sort of adaptation is known as responsive web design. Web site authors use CSS layouts together
+		with media queries to reduce multi-column page layouts down to a single column as the available
+		screen space is reduced.</p>
+	
+	<section id="reflow">
+		<h4>Reflowable Publications</h4>
+		
+		<p>Unlike web sites, reflowable digital publications are not generally laid out in columns or
+			grids. As a result, meeting the reflow requirement typically does not require a lot of additional
+			work for most basic works like novels.</p>
+		
+		<p>Authors only need to ensure that they have styled the content so that it can adapt as it is zoomed.
+			Some common problems that can break the reflow requirement even in reflowable books include:</p>
+		
+		<ul>
+			<li>Styling elements using absolute units like pixels &#8212; as the visible screen area is
+				reduced, these units cannot adapt to the changes but stay fixed (i.e., forcing
+				scrollbars).</li>
+			<li>Using layout tables to place content in grids &#8212; tables can only be compressed so
+				much, whereas using CSS styling allows authors to change from grid layouts to a single
+				column as the zooming changes.</li>
+			<li>Not allowing word wrapping of long words &#8212; Soft hyphens (&amp;shy;) and CSS word break
+				handling rules can minimize scrolling caused by very long words or URLs.</li>
+		</ul>
+	</section>
+	
+	<section id="fxl">
+		<h4>Fixed Layouts</h4>
+		
+		<div class="caution" aria-labelledby="note-hd">
+			<p id="note-hd" class="label">Caution</p>
+			<p>The problems of meeting this requirement for fixed layouts are currently under discussion in
+				the W3C EPUB 3 Working Group. Additional guidance will be provided in future updates to
+				this page.</p>
+		</div>
+		
+		<p>Whether fixed layouts meet the reflow requirement depends on how they are constructed:</p>
+		
+		<ul>
+			<li>
+				<p>Image-based fixed layouts, where the two-dimensional presentation is essential to the
+					content, are likely exempt from the requirement not to need scrolling as they are
+					scaled. This category includes pages in comics and manga, pages in illustrated
+					children's books (where the text is part of the illustration), maps, and graphics.</p>
+			</li>
+			<li>
+				<p>All other types of fixed layouts (i.e., where the positioning of the content has no
+					meaning and is purely presentational) must meet the reflow requirement.</p>
+			</li>
+		</ul>
+		
+		<p>Although in theory it would be possible to use adaptive design techniques to make fixed layout
+			content reflow as it is zoomed, the lack of reading system support in EPUB for rerendering
+			fixed layout pages as they scale makes it impossible to author conforming content at this
+			time.</p>
+		
+		<p>EPUB reading systems typically only allow users to zoom fixed layout pages on mobile devices,
+			but even here they scale the whole page. Consequently, such content cannot meet the WCAG
+			requirement for accessibility support in user agents no matter what the author does to make
+			their content accessible.</p>
+		
+		<p>Moreover, there may not even be enough support for zooming on desktop reading systems for any
+			fixed layout content to meet the requirement for being accessibility supported.</p>
+		
+		<p>As a result, it is likely not possible to make a claim of WCAG AA support for fixed layout
+			publications at this time.</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/css/reflow.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

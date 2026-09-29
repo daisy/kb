@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Images - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of issues using images for fixed layout pages">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/fxl/img.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Fixed Layouts</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Images</h2>
+		</div>
+		
+		
+		<section id="desc">
+	<h3>Overview</h3>
+	
+	<p>Images are often an integral part of fixed layout publications. Fixed layout publications sometimes
+		consist entirely of images, in the case of comics, or images may be used as backgrounds to a story,
+		as in children's books.</p>
+	
+	<p>Ensuring that the information conveyed in the images is available to users who may not be able to
+		perceive the background or may have difficulty processing it, is consequently of high priority in
+		making fixed layouts as accessible as possible.</p>
+	
+	<p>The <a href="../html/images-desc.html">basic requirements for all images</a>, to provide alt text and
+		extended descriptions when they contain information necessary to understanding the publication,
+		applies to fixed layouts. For example, while a reader may be able to follow the dialogue of a story
+		when it is overlaid as text, only the placement on image might give context to what character is
+		saying what.</p>
+	
+	<p>The challenge with fixed layouts is finding ways to describe the image and provide context given that
+		there is no extra area on the page users can access in which to place a description.</p>
+</section>
+
+<section id="svg">
+	<h3>SVG</h3>
+	
+	<p>SVG provides two elements for describing images:</p>
+	
+	<ul>
+		<li><code>title</code> &#8212; the equivalent of the HTML <code>alt</code> attribute; it is used to
+			provide alternative text for an entire SVG image and individual components within it.</li>
+		<li><code>desc</code> &#8212; used to provide an extended description for the entire SVG image and
+			individual components within it.</li>
+	</ul>
+	
+	<p>When a publication is made of <a href="svg.html">fixed-layout SVG pages</a> these two elements can be
+		used to describe the content. Note that ARIA attributes (<code>role</code> and
+			<code>aria-describedby</code>) are added to improve support in assistive technologies as SVG is
+		still not well supported.</p>
+	
+	<pre class="prettyprint linenums"><code>&lt;svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" &#8230;
+     <strong>role="group" aria-describedby="svgtitle svgdesc"</strong>>
+   &lt;title id="svgtitle">The Hydrologic Cycle&lt;/title>
+   &lt;desc id="svgdesc">The continuous cycle by which water &#8230;&lt;/desc>
+   &#8230;
+&lt;/svg></code></pre>
+	
+	<div class="note" role="note" aria-labelledby="svg-role">
+		<p id="svg-role" class="label">Note</p>
+		<p>The role <code>group</code> is given to the image because it contains additional text content
+			(not shown) that the user will interact with. If the image were entirely graphical, the role
+				<code>img</code> would be used instead.</p>
+	</div>
+	
+	<p>The <code>title</code> and <code>desc</code> elements can also be used to annotate components of a
+		larger image.</p>
+	
+	<pre class="prettyprint linenums"><code>&lt;g fill="lightgray" stroke="gray" role="img" aria-describedby="gtitle">
+      &lt;title id="gtitle">Rain clouds&lt;/title>
+      &#8230;
+&lt;/g></code></pre>
+	
+	<p>The one problem with using these elements to annotate SVG images is that their content is typically
+		only made available to users of assistive technologies.</p>
+	
+	<p>A more advanced approach would be to add a link or button to view the description using script or
+		animations (e.g., open the description like a pop-out). EPUB reading system support for such
+		approaches is likely to be limited, however, as animations, for example, were completely restricted
+		until EPUB 3.2.</p>
+</section>
+
+<section id="html">
+	<h3>HTML</h3>
+	
+	<p>When an image is embedded in an HTML fixed layout page, there are more options available for
+		including accessible descriptions. As with SVG fixed layouts, the primary consideration is once
+		again the limitation of having only limited screen space in which to include the description.</p>
+	
+	<p>For this reason, descriptions are typically hidden from view using a variety of HTML, ARIA and CSS
+		techniques. Descriptions can be hidden, clipped, made opaque, layered under an image, etc. The <a
+			href="../html/hidden.html">knowledge base page on hidden content</a> delves into these
+		possibilities in more detail.</p>
+	
+	<p>Support for scripting in XHTML content documents in EPUB is generally much better than is available
+		for SVG, so there are more reliable techniques that can be used to make the descriptions viewable by
+		a wider range of users. Clicking or tapping on an image can be used to show its description, for
+		example. The <a href="http://idpf.github.io/epub3-samples/30/samples.html#the-voyage-of-life-tol"
+			>Voyage of Life sample EPUB</a> contains an experimental example of this technique.</p>
+	
+	<p>Unlike reflowable publications, the CSS <code class="property">background-image</code> property can
+		be used with fixed layouts to set the background image for a page. It is best to limit this practice
+		to backgrounds that are purely presentational as much as possible, however, as it complicates the
+		ability to provide a description that any user will be able to reach (i.e., it often involves hiding
+		the description only for assistive technologies).</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/fxl/img.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

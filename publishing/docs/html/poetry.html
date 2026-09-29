@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Poetry - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Practices for formatting poetry and lyrics accessibly">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/html/poetry.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">HTML</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Poetry</h2>
+		</div>
+		
+		
+		<style>
+	blockquote {
+		font-style: italic;
+	}
+	.pre {
+		white-space: pre;
+	}
+</style>
+<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Structuring and describing lines of poetry and lyrics improves access for users who cannot
+		see the difference in layout from regular prose.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>Use the <code>br</code> tag to identify line breaks <span class="wcag-level">[<a href="/publishing/docs/wcag/info-and-relationships.html">WCAG 1.3.1 - A</a>]</span></li>
+		<li>Use <code>span</code> tags when additional line formatting is needed.</li>
+		<li>Include descriptions for poetry that conveys meaning through its visual layout.</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; A basic poem with multiple stanzas</div>
+			<p>As the lines of the poems do not require any special formatting, only <code>br</code>
+				tags are needed to identify the line endings. <code>p</code> tags are used to separate
+				the stanzas.</p>
+		</figcaption>
+		
+		<blockquote>
+			<h4>The Tyger</h4>
+			
+			<p class="stanza">Tyger Tyger, burning bright,<br/> 
+				In the forests of the night;<br/>
+				What immortal hand or eye,<br/>
+				Could frame thy fearful symmetry?</p>
+			
+			<p class="stanza">In what distant deeps or skies.<br/>
+				Burnt the fire of thine eyes?<br/>
+				On what wings dare he aspire?<br/>
+				What the hand, dare seize the fire?</p>
+			
+			<p>&#8230;</p>
+		</blockquote>
+		
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;section>
+   &lt;h2>The Tyger&lt;/h2>
+
+   &lt;p class="stanza">Tyger Tyger, burning bright,&lt;br/> 
+      In the forests of the night;&lt;br/>
+      What immortal hand or eye,&lt;br/>
+      Could frame thy fearful symmetry?&lt;/p>
+
+   &lt;p class="stanza">In what distant deeps or skies.&lt;br/>
+      Burnt the fire of thine eyes?&lt;br/>
+      On what wings dare he aspire?&lt;br/>
+      What the hand, dare seize the fire?&lt;/p>
+
+   &lt;p>&#8230;&lt;/p>
+&lt;/section></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Preserving line indentation using white space</div>
+			<p>In the following poem, <code>span</code> tags are used to preserve line indenting.
+				The CSS <code>white-space</code> property is set to <code>pre</code> to preserve
+				spacing.</p>
+		</figcaption>
+		
+		<blockquote>
+			<p>i will wade out<br/>
+				<span class="pre">               till my thighs are steeped in burning flowers</span><br/>
+				I will take the sun in my mouth<br/>
+				and leap into the ripe air<br/>
+				<span class="pre">                           Alive</span><br/>
+				<span class="pre">                                 with closed eyes</span><br/>
+				to dash against darkness<br/>
+				<span class="pre">                       in the sleeping curves of my body</span><br/>
+				Shall enter fingers of smooth mastery<br/>
+				with chasteness of sea-girls<br/>
+				<span class="pre">                             Will i complete the mystery</span><br/>
+				<span class="pre">                             of my flesh</span><br/>
+				I will rise<br/>
+				<span class="pre">            After a thousand years</span><br/>
+				lipping<br/>
+				flowers<br/>
+				<span class="pre">        And set my teeth in the silver of the moon</span></p>
+		</blockquote>
+		
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;p class="poem">i will wade out&lt;br/>
+&lt;span class="preserve">               till my thighs are steeped in burning flowers&lt;/span>&lt;br/>
+I will take the sun in my mouth&lt;br/>
+and leap into the ripe air&lt;br/>
+&lt;span class="preserve">                           Alive&lt;/span>&lt;br/>
+&lt;span class="preserve">                                 with closed eyes&lt;/span>&lt;br/>
+to dash against darkness&lt;br/>
+&lt;span class="preserve">                       in the sleeping curves of my body&lt;/span>&lt;br/>
+Shall enter fingers of smooth mastery&lt;br/>
+with chasteness of sea-girls&lt;br/>
+&lt;span class="preserve">                             Will i complete the mystery&lt;/span>&lt;br/>
+&lt;span class="preserve">                             of my flesh&lt;/span>&lt;br/>
+I will rise&lt;br/>
+&lt;span class="preserve">            After a thousand years&lt;/span>&lt;br/>
+lipping&lt;br/>
+flowers&lt;br/>
+&lt;span class="preserve">        And set my teeth in the silver of the moon&lt;/span>&lt;/p></code></pre>
+	</figure>
+	
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; Preserving indentation using text indents</div>
+			<p>The same poem from <a href="#ex-02">Example 2</a> is shown but uses <code>span</code> 
+				tags with CSS indenting. The <code>span</code> tags also need to have their
+				CSS <code>display</code> set to <code>inline-block</code> for the formatting to work.</p>
+		</figcaption>
+		
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;p class="poem">i will wade out&lt;br/>
+&lt;span style="text-indent: 6rem">till my thighs are steeped in burning flowers&lt;/span>&lt;br/>
+I will take the sun in my mouth&lt;br/>
+and leap into the ripe air&lt;br/>
+&lt;span style="text-indent: 11rem">Alive&lt;/span>&lt;br/>
+&lt;span style="text-indent: 13rem">with closed eyes&lt;/span>&lt;br/>
+to dash against darkness&lt;br/>
+&lt;span style="text-indent: 10rem">in the sleeping curves of my body&lt;/span>&lt;br/>
+Shall enter fingers of smooth mastery&lt;br/>
+with chasteness of sea-girls&lt;br/>
+&lt;span style="text-indent: 11.5rem">Will i complete the mystery&lt;/span>&lt;br/>
+&lt;span style="text-indent: 11.5rem">of my flesh&lt;/span>&lt;br/>
+I will rise&lt;br/>
+&lt;span style="text-indent: 5rem">After a thousand years&lt;/span>&lt;br/>
+lipping&lt;br/>
+flowers&lt;br/>
+&lt;span style="text-indent: 3.5rem">And set my teeth in the silver of the moon&lt;/span>&lt;/p></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Can I use images for poetry?</dt>
+		<dd>
+			<p>The layout of some poetry is too complex to be represented by HTML and CSS. In
+				these cases, the only option may be to use an image to represent the source.</p>
+			<p>If an image must be used, you must provide the text of the poem for users
+				who cannot perceive the layout (e.g., in a <code>details</code> element). It will
+				also be necessary to describe how the text is arranged in the image so that readers
+				are able to understand the intent of the poem.</p>
+			<p>The use of images should be a last resort for only the most difficult of layouts.</p>
+		</dd>
+		
+		<dt id="faq-002">Can I use <code>pre</code> tags for layout?</dt>
+		<dd>
+			<p>Yes, but the <code>pre</code> tag is best reserved for poetry that relies on positioning
+				of individual characters and words. For simple indenting, using <code>span</code> or
+				<code>div</code> tags with CSS styling is often a better option.</p>
+		</dd>
+		
+		<dt id="faq-003">Can I identify poetry with ARIA?</dt>
+		<dd>
+			<p>No. Although the line-based formatting of poetry is visually distinctive from standard
+				prose, and read differently from the continuous flow of prose, HTML does not provide native
+				semantic elements for marking up poetry. ARIA also lacks roles to identify poems and their
+				internal structures.</p>
+			
+			<p>For books of poetry, this is generally not an issue as users know what types of works they are
+				reading, but for works of fiction, especially, authors may randomly intersperse poems and
+				lyrics between paragraphs of text without indicating a change in style has occurred.</p>
+			
+			<p>At this time, users of assistive technologies are left to intuit changes in writing style
+				by how the applications respond to the markup that is available (e.g., that they stop reading
+				a line at a <code>br</code> tag).</p>
+		</dd>
+		
+		<dt id="faq-004">Do I need whitespace around the <code>br</code> tags?</dt>
+		<dd>
+			<p>Yes, many reading systems do not support reading by line when <code>br</code> tags
+				are present. If you run the text of each line into a <code>br</code> tag as in the
+				following example:</p>
+			
+			<pre class="prettyprint linenums">&#8230;lipping&lt;br/>flowers&lt;br/>&#8230;</pre>
+			
+			<p>then these reading systems will slur the words together when text-to-speech playback is
+				enabled.</p>
+			
+			<p>To avoid this issue, ensure that there is always at least one whitespace character before
+				or after the <code>br</code> tag. Adding a line break after each <code>br</code> tag, as
+				in the <a href="#ex">examples above</a>, will avoid this issue, as will adding a space
+				before the <code>br</code> tag.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>Although HTML does not include semantically meaningful markup for expressing poetry, it is possible
+		to mark up lines of verse using native elements.</p>
+	
+	<p>The <code>p</code> element is commonly associated with paragraphs of text, for example, but HTML
+		expands the tag's meaning to include poetry:</p>
+	
+	<blockquote>
+		<p>A paragraph is typically a run of phrasing content &#8230; but can also be used for more general
+			thematic grouping. For instance, an address is also a paragraph, as is &#8230; a stanza in a
+			poem.</p>
+	</blockquote>
+	
+	<p>The lines within each stanza are then identified using <code>br</code> tags. Assistive
+		technologies can pause reading at each <code>br</code> tag, allowing users to move line-by-line
+		through the poem (refer to <a href="#ex-01">Example 1</a>).</p>
+	
+	<div class="note" role="note" aria-labelledby="bug-note">
+		<p id="bug-note" class="label">Note</p>
+		<p>There is a known bug with chromium-based reading systems on MacOS where VoiceOver repeats lines
+			when <code>br</code> tags are used inside a <code>blockquote</code>. This affects quoted poetry
+			and lyrics (e.g., in epigraphs). For more information on the current status, refer to the <a 
+				href="https://bugs.chromium.org/p/chromium/issues/detail?id=1322784">bug report</a>.</p>
+	</div>
+	
+	<p>Although this markup pattern works for basic poetry, there will be many situations where
+		it is too limited. Poetry often makes use of visual layout to convey meaning. In these cases,
+		CSS styling will also be needed to retain indentation and placement of text (refer to
+		examples <a href="#ex-02">2</a> and <a href="#ex-03">3</a>).</p>
+	
+	<p>With visual poetry, it is also important to provide a description of the layout for those who
+		cannot see the content or have difficulty viewing the full layout. This is important not only
+		when an <a href="#faq-01">image has to be used</a>, but any time the layout conveys meaning.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="partial">Partial <a href="#aud01" role="doc-noteref">*</a></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<p id="aud01" class="small" role="doc-footnote">* Applies to the table of contents and any supplementary HTML resources.</p>
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/html/poetry.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

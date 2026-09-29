@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> Table of Contents - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidance for providing a table of contents in an EPUB publication">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/navigation/toc.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Navigation</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>Table of Contents</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>Summary</h3>
+	
+	<p>Providing a table of contents allows readers to more easily understand and navigate the content
+		of a publication.</p>
+</section>
+
+<section id="tech">
+	<h3>Techniques</h3>
+	
+	<ul>
+		<li>
+			<p>Include a table of contents. [[WCAG-2.4.5]]</p>
+		</li>
+		<li>
+			<p>Ensure the table of contents has at least one link to each document in the publication. [[WCAG-2.4.5]]</p>
+		</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>Examples</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">Example 1 &#8212; Basic table of contents</div>
+			<p>A table of contents is an ordered list of links into the content.</p>
+			<p>Note that the <code>epub:type</code> attribute is not used outside of EPUB. Similarly,
+				the <code>role</code> attribute is not necessary in EPUB unless the navigation document
+				is included in the spine.</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
+&lt;ol>
+  &lt;li>
+	&lt;a href="s01.xhtml">A simple link&lt;/a>
+  &lt;/li>
+  &#8230;
+&lt;/ol>
+&lt;/nav></code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">Example 2 &#8212; Nested entries</div>
+			<p>Ordered lists are nested to reproduce the hierarchy of the publication. A <code>span</code>
+				is used to represent an unlinked heading.</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
+&lt;ol>
+  &#8230;
+  &lt;li>
+	&lt;a href="s03.xhtml">A linked heading&lt;/a>
+	&lt;ol>
+	  &lt;li>&lt;a href="s03-01.xhtml">Subsection&lt;/a>
+	  &#8230;
+	&lt;/ol>
+  &lt;/li>
+  &lt;li>
+	&lt;span class="navhd">An unlinked heading&lt;/span>
+	&lt;ol>
+	  &lt;li>
+		&lt;a href="s04-01.xhtml">Subsection&lt;/a>
+	  &lt;/li>
+	  &#8230;
+	&lt;/ol>
+  &lt;/li>
+  &#8230;
+&lt;/nav></code></pre>
+	</figure>
+
+	<figure id="ex-03">
+		<figcaption>
+			<div class="label">Example 3 &#8212; TOC with hidden branches (EPUB 3-only)</div>
+			<p>The following example hides branches of the table of contents from visual rendering.
+				These branches are normally not accessible to anyone, but in EPUB 3 the <code>hidden</code>
+				attribute has special handling that is supposed to allow the branches to be viewable
+				when the reading system renders the table of contents.</p>
+		</figcaption>
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;nav role="doc-toc" epub:type="toc" id="toc">
+&lt;h2>Table of Contents&lt;/h2>
+&lt;ol>
+  &#8230;
+  &lt;li>
+	&lt;a href="s05.xhtml">A linked heading&lt;/a>
+	&lt;ol hidden="hidden">
+	  &lt;li>
+		&lt;a href="s05-01.xhtml">Hidden subsection&lt;/a>
+	  &lt;/li>
+	  &#8230;
+	&lt;/ol>
+  &lt;/li>
+  &#8230;
+&lt;/ol>
+&lt;/nav></code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>Frequently Asked Questions</h3>
+	
+	<dl>
+		<dt id="faq-001">Why does EPUB 3 allow NCX files, and do I need to include one?</dt>
+		<dd><p>The NCX file is allowed for forwards compatibility purposes only. An EPUB 2 user agents may
+			open an EPUB 3 publication, but it will not be able to use the new navigation document
+			format.</p>
+			<p>You can ignore the NCX file if your book won't render properly as EPUB 2 content, or if you aren't
+				targeting cross-compatibility.</p>
+			<p>Your publication may still open on EPUB 2 user agents even without an NCX. Some user
+				agents, like Adobe Digital Editions, will not provide navigation by table of contents but will
+				open the publication.</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>Explanation</h3>
+	
+	<p>The table of contents is one of the key methods users use to move around the content of a publication, as
+		it provides users easy access to the major sections of the publication. This, in turn, simplifies quick traversal
+		and random inspection of the content.</p>
+	
+	<p>A table of contents is typically constructed using an ordered list (<code>ol</code>) inside of a
+		<code>nav</code> element, but the requirements for specific technologies are listed below.</p>
+	
+	<section>
+		<h4>EPUB 3</h4>
+		
+		<p>In EPUB 3, publications must provide a table of contents in the <a
+			href="https://www.w3.org/TR/epub/#sec-nav">EPUB navigation document</a> (the <code>toc
+				nav</code>).</p>
+		
+		<p>Each list item must either contain a single link (<code>a</code>) to a section of the document, or a 
+			link or heading (<code>span</code>) followed by a list of subsections.</p>
+		
+		<p>If the pronunciation of a link will be ambiguous or incomplete due to embedded images, math content, or
+			other content without intrinsic text, a <code>title</code> attribute must be attached containing an
+			alternate pronunciation.</p>
+		
+		<p>If an author intends to include the table of contents in the spine of the publication, the <code>hidden</code>
+			attribute can be used to hide branches from the visual rendering. EPUB user agents are required to ignore
+			this attribute when they present the table of contents to users outside of the spine (i.e., the hidden links
+			will be available in the user agent-generated table of contents).</p>
+	</section>
+	
+	<section>
+		<h4>EPUB 2</h4>
+		
+		<p>EPUB 2 makes use of the <a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">DAISY NCX file</a>
+			for provision of a table of contents. The entries of the table of contents are constructed using <code>navPoint</code>
+			elements. These elements can be nested to create a hierarchical list of navigation points.</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>Related Links</h3>
+
+	<ul>
+		<li>EPUB 3 &#8212; <a href="https://www.w3.org/TR/epub/#sec-nav-toc">The
+					<code>toc nav</code> Element</a></li>
+		<li>HTML &#8212; <a href="https://html.spec.whatwg.org/multipage/sections.html#the-nav-element">The <code>nav</code>
+				element</a></li>
+		<li>EPUB 2 &#8212; <a href="https://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4.1">Declarative
+				Global Navigation &#8212; the NCX</a></li>
+		<li>Z39.86-2005 &#8212; <a href="https://daisy.org/activities/standards/daisy/daisy-3/z39-86-2005-r2012-specifications-for-the-digital-talking-book/#NCX">Navigation
+				Control File (NCX)</a></li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/navigation/toc.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

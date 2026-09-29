@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> accessibilityHazard - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guidelines for using the schema.org accessibilityHazard property">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/metadata/schema.org/accessibilityHazard.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="../index.html" class="breadcrumb">メタデータ</a>
+		
+	
+		
+		 - 
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>accessibilityHazard</h2>
+		</div>
+		
+		
+		<section id="def">
+	<h3>定義</h3>
+
+	<p class="desc">記述されたリソース特性が、一部のユーザーにとって生理的な危険を示します。WCAG <a href="https://www.w3.org/WAI/WCAG22/Understanding/seizures-and-physical-reactions">2.2 ガイドライン 2.3</a>に関連します。</p>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+
+	<figure id="ex-epub3">
+		<figcaption>
+			<div class="label">例 1 — EPUB 3</div>
+		</figcaption>
+		<pre id="a11y-13-src" class="prettyprint linenums"><code>&lt;meta property="schema:accessibilityHazard"&gt;flashing&lt;/meta&gt;
+&lt;meta property="schema:accessibilityHazard"&gt;motionSimulation&lt;/meta&gt;</code></pre>
+	</figure>
+
+	<figure id="ex-epub2">
+		<figcaption>
+			<div class="label">例 2 — EPUB 2</div>
+		</figcaption>
+		<pre id="ex-epub2-src" class="prettyprint linenums"><code>&lt;meta name="schema:accessibilityHazard" content="flashing"/&gt;
+&lt;meta name="schema:accessibilityHazard" content="motionSimulation"/&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-audiobooks">
+		<figcaption>
+			<div class="label">例3 — オーディオブック</div>
+		</figcaption>
+		<pre id="ex-audiobooks-src" class="prettyprint linenums"><code>"accessibilityHazard": ["flashing", "motionSimulation"]</code></pre>
+	</figure>
+	
+	<figure id="ex-rdfa">
+		<figcaption>
+			<div class="label">例4 — RDFaを使用したHTML</div>
+		</figcaption>
+		<pre id="ex-rdfa-src" class="prettyprint linenums"><code>&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: &lt;span
+property="accessibilityHazard"&gt;flashing&lt;/span&gt; 
+in this video may cause seizures in some 
+individuals.&lt;/p&gt;</code></pre>
+	</figure>
+
+	<figure id="ex-micro">
+		<figcaption>
+			<div class="label">例5 — マイクロデータを含むHTML</div>
+		</figcaption>
+		<pre id="ex-micro-src" class="prettyprint linenums"><code>&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: &lt;span
+itemprop="accessibilityHazard"&gt;flashing&lt;/span&gt; 
+in this video may cause seizures in some 
+individuals.&lt;/p&gt;</code></pre>
+	</figure>
+</section>
+
+<section id="value">
+	<h3>値</h3>
+
+	<p>以下の値は、潜在的な危険性（または危険性の欠如）を特定し、そのような敏感なユーザーが事前に何を予期すべきかを知るために使用されます。</p>
+	
+	<div class="note" role="note" aria-labelledby="format-note">
+		<p class="label" id="format-note">注記</p>
+		<p>使用するメタデータ形式（JSON-LD など）がリストをサポートしていない場合、機能ごとに個別のプロパティ宣言を使用します。スペース、カンマ、その他の区切り文字を使用して値を 1 つのプロパティに結合しないでください。</p>
+	</div>
+	
+		<section id="flashing">
+			<h4>flasing （閃光）</h4>
+		
+			<p><code>flashing</code>値は、出版物に1秒間に3回以上閃光するコンテンツの存在、あるいは閃光が<a href="https://www.w3.org/TR/WCAG2/#dfn-general-flash-and-red-flash-thresholds">一般閃光閾値及び赤色閃光閾値</a>を下回っているのを示すために使用します。</p>
+
+			<p>光に敏感なユーザーによってはこれらの閃光により、頭痛や発作を引き起こす危険があります。この値を設定するだけでなく、出版物にはそのようなコンテンツが配置されている箇所に警告を組み込むべきです。</p>
+
+			<p>ビデオは閃光の危険（ストロボ効果など）の原因としてよく認識されていますが、閃光のリスクをもたらす可能性のあるコンテンツの種類は多数あります（アニメーション グラフィック、スクリプト化されたゲームや画像など）。</p>
+		</section>
+
+		<section id="noFlashingHazard">
+			<h4>noFlashingHazard（閃光の危険性なし）</h4>
+		
+			<p><code>noFlashingHazard</code>値は<a href="#flashing"><code>flashing</code></a>の逆で、発行者が出版物の閃光の危険性をチェックし、存在しないことを確認したことを示すのに使用します。</p>
+
+			<p>この値は、閃光の欠如が危険であることを示すものでは<strong>ありません</strong>。</p>
+		</section>
+
+		<section id="none">
+			<h4>none （アクセシビリティ上の危険性なし）</h4>
+		
+			<p><code>none</code>値は、コンテンツがユーザーにとって既知の危険をもたらさないことを発行者が確信している場合に使用します。</p>
+
+			<p>この値は通常、動的コンテンツやマルチメディア コンテンツがない（つまり、出版物がテキストや静的画像のみで構成されている）場合にのみ使用します。</p>
+		</section>
+
+		<section id="motionSimulation">
+			<h4>motionSimulation</h4>
+		
+			<p><code>motionSimulation</code>値は、動きをシミュレートするコンテンツの存在を示すのに使用します。</p>
+
+			<p>モーション シミュレーションは、一部のユーザーに頭痛や吐き気を引き起こす可能性があります。この値を設定するだけでなく、このようなコンテンツが配置されている場所には警告を記載するべきです。</p>
+
+			<p>モーション シミュレーションは、一人称視点のビデオやゲーム、3D エクスペリエンスやアニメーションなど、さまざまなメディアで使われています。</p>
+		</section>
+
+		<section id="noMotionSimulationHazard">
+			<h4>noMotionSimulationHazard</h4>
+		
+			<p><code>noMotionSimulationHazard</code>値は<a href="#motionSimulation"><code>motionSimulation</code></a>の反対で、発行者が出版物のモーション シミュレーション ハザードを確認し、危険が無いことを示すのに使用します。</p>
+
+			<p>この値は、モーションシミュレーションの欠如が危険であることを示すものでは<strong>ありません</strong>。</p>
+		</section>
+
+		<section id="sound">
+			<h4>sound</h4>
+		
+			<p><code>sound</code>値は、一部のユーザーに発作を引き起こす可能性のある聴覚コンテンツが出版物に含まれていることを示すために使用します。このような発作の原因は、鳴り響く音やブザー音、突然の大きな音、特定の言葉や音楽など多岐にわたります。</p>
+
+			<p>出版物に聴覚コンテンツが含まれている場合には用心に用心を重ねてこのプロパティが設定されるべきであり、ユーザーはコンテンツを再生するかどうかを常に決定するべきです（つまり、聴覚コンテンツは自動再生されるべきではありません）。</p>
+		</section>
+
+		<section id="noSoundHazard">
+			<h4>noSoundHazard （音の危険性なし）</h4>
+		
+			<p><code>noSoundHazard</code>値は<a href="#sound"><code>sound</code></a>の反対で、発行者が出版物の音声による危険性をチェックし危険が無いことを示すのに使用します。</p>
+
+			<p>この値は、音声がないことが危険であることを示すものでは<strong>ありません</strong>。</p>
+		</section>
+
+		<section id="unknown">
+			<h4>unknown（不明）</h4>
+		
+			<p><code>unknown</code>値は、発行者がまだ出​​版物の危険性をチェックしていないか、一部のコンテンツが危険をもたらすかどうか不明であることを示すために使用されます。</p>
+
+			<p>この値は、アクセシビリティ レビューが完了する前に出版物をリリースする必要がある場合にのみ、一時的なプレースホルダーとして使用してください。</p>
+		</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				
+				<td class="yes">はい</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>Schema.org — <a href="https://schema.org/accessibilityHazard">accessibilityHazard</a> </li>
+		<li>Schema.orgアクセシビリティ語彙 — <a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityHazard">accessibilityHazard</a> </li>
+		<li>IMS Global — <a href="https://www.imsglobal.org/accessibility/afav3p0pd//AfA3p0_DRDinfoModel_v1p0pd.html">Access For All (AfA) デジタルリソース記述仕様情報モデル バージョン 3.0 仕様</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/metadata/schema.org/accessibilityHazard.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

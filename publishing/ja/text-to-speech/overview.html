@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 概要 - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of the text-to-speech enhancements available in EPUB 3.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/text-to-speech/overview.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb"></a>
+		
+	
+</div>
+	
+			
+			
+			<h2>概要</h2>
+		</div>
+		
+		
+		<section id="def" aria-label="Explanation">
+	<p>出版物を合成音声で読み上げる機能は、人間によるナレーションも提供されるかどうかに関係なく、多くのユーザーが頼りにする重要なアクセシビリティ機能です（たとえば、多くのユーザーは、TTSエンジンによる高速再生を好みます）。</p>
+
+	<p>リーディングシステムに音声読み上げ（TTS）機能が含まれているか、または支援技術による音声読み上げが可能であれば、基本的な再生は可能ですが、使用されている語彙が複雑だと、通常、強化されていない合成音声エンジンでは発音を間違ってしまう場合があります。</p>
+
+	<p>コンテンツ製作者によってTTS再生の質を向上できる三つの技術があります。</p>
+
+	<dl>
+		<dt id="def-pls">
+			<a href="pls.html">PLS発音辞書（Pronunciation Lexicons）</a>
+		</dt>
+		<dd>
+			<p>発音辞書仕様（Pronunciation Lexicon Specification）で、国際的に使用できる発音をXML形式で定義できます。定義されたエントリーに一致する単語が文章内に見つかると、エンジンのデフォルトのレンダリングの代わりに定義された発音が使用されます。この辞書で、文脈によって意味が変化しない単語の発音を簡単に定義できます。</p>
+		</dd>
+
+		<dt id="def-ssml">
+			<a href="ssml.html">SSMLマークアップ</a>
+		</dt>
+		<dd>
+			<p>合成音声マークアップ言語（Synthetic Speech Markup Language / SSML）を使用して、発音をマークアップに直接埋め込めます。要素にSSML属性が検出されると、エンジンのデフォルトのレンダリングやPLSエントリーの代わりに提供された発音が使用されます。SSMLですべての発音を定義することもできますが、PLS辞書の補足として使用する方が適しています（異音語や曖昧な数値形式を明確にするなど）。</p>
+		</dd>
+
+		<dt id="def-speech">
+			<a href="speech.html">CSS Speech（音声）プロパティ</a>
+		</dt>
+		<dd>
+			<p>CSS speechモジュールには、音声再生を制御できるさまざまなプロパティが含まれています。単語や数字を一文字ずつ読み上げる制御から音声キューや一時停止の挿入まで、これらのプロパティを使用すると、従来の発音の強化を超えて、再生を制御できます。</p>
+		</dd>
+	</dl>
+
+	<p>ただし、これらの技術はいずれもリーディングシステムではサポートされていません。W3C Web Accessibility Initiative（WAI）には現在、<a href="https://www.w3.org/WAI/pronunciation/">発音タスク フォース（Pronounciation task force）</a>があり、これらの技術のサポートについての問題を検討しています。発音タスクフォースの作業から新しい方向性が出てくれば、このページは更新されます。</p>
+</section>
+
+<section id="samp" class="sample">
+	<h3>サンプル</h3>
+
+	<p>拡張TTS機能を実装した出版物が<a href="https://idpf.github.io/epub3-samples/30/samples.html">EPUBサンプル プロジェクト</a>にあります：</p>
+
+	<ul>
+		<li> 						<a href="https://github.com/IDPF/epub3-samples/tree/main/30/georgia-pls-ssml/EPUB">Georgia</a> </li>
+	</ul>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+	<ol>
+		<li>EPUB 3 TTS拡張機能 —<a href="https://www.w3.org/TR/epub-tts/#pls">発音辞書（Pronunciation lexicons）</a> </li>
+		<li><a href="https://www.w3.org/TR/pronunciation-lexicon/">発音辞書仕様（Pronunciation Lexicon Specification）（PLS）バージョン1.0</a> </li>
+		<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#ssml">SSML属性</a> </li>
+		<li><a href="https://www.w3.org/TR/speech-synthesis11/">音声合成マークアップ言語（SSML）バージョン1.1</a></li>
+		<li>EPUB 3 TTS拡張機能 — <a href="https://www.w3.org/TR/epub-tts/#css-speech">CSS speech</a> </li>
+		<li> <a href="https://www.w3.org/TR/css-speech-1/">CSS Speech モジュール</a>（ EPUB 3で参照される作業草案）</li>
+		<li> <a href="https://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm">IPAのコンピュータコーディング：SAMPAの拡張案</a>（X-SAMPA）</li>
+		<li><a href="https://www.internationalphoneticassociation.org/IPAcharts/IPA_chart_orig/pdfs/IPA_Kiel_2020_full.pdf">国際音声記号（IPA）（2020年改訂版）</a></li>
+	</ol>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/text-to-speech/overview.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> 外部リソース - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/epub/remote-resources.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+		'addh4': true
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">EPUB</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>外部リソース</h2>
+		</div>
+		
+		
+		<section id="summary">
+	<h3>要約</h3>
+	
+	<p>極力、EPUBコンテナー外からのリソースの提供は避けましょう。</p>
+</section>
+
+<section id="tech">
+	<h3>テクニック</h3>
+	
+	<ul>
+		<li>すべてのリソースを EPUBコンテナー内にホストします。</li>
+		<li>リソースを外部から提供しなければならない場合は、外部リソースにアクセスするための代替手段を提供します。</li>
+	</ul>
+</section>
+
+<section id="ex">
+	<h3>例</h3>
+	
+	<figure id="ex-01">
+		<figcaption>
+			<div class="label">例 1 — 代替音声へのリンク</div>
+			<p><code>audio</code>要素の後にリンクが提供されていれば、ユーザーは、リーディングシステムによる外部リソースへのアクセスがブロックされた場合に、ブラウザーから音声ファイルを開くことができます。</p>
+		</figcaption>
+		<pre id="ex-01-src" class="prettyprint linenums"><code>&lt;audio src="https://example.org/audio/war_of_the_worlds.mp3" …&gt;
+   …
+&lt;/audio&gt;
+&lt;p&gt;
+   &lt;a href="https://example.org/audio/war_of_the_worlds.mp3"&gt;
+      Listen in browser
+   &lt;/a&gt;
+&lt;/p&gt;</code></pre>
+	</figure>
+	
+	<figure id="ex-02">
+		<figcaption>
+			<div class="label">例 2 — フォールバックフォント</div>
+			<p>外部フォントが使用できない場合に備えて、フォールバック システム フォントを指定できます。</p>
+		</figcaption>
+		<pre id="ex-02-src" class="prettyprint linenums"><code>@import url('https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap');
+
+body {
+   font-family: 'Roboto', Arial, sans-serif;
+}</code></pre>
+	</figure>
+</section>
+
+<section id="faq">
+	<h3>よくある質問</h3>
+	
+	<dl>
+		<dt id="faq-001">外部ファイルへの代替リンクは<code>audio</code>または<code>video</code>要素内に配置する必要がありますか?</dt>
+		<dd>
+			<p><code>audio</code>と<code>video</code>要素内のフォールバック コンテンツは、リーディングシステムが要素をサポートしていない場合にのみユーザーに提示されます（例：EPUB 2リーディングシステムでは、XHTML 1.1に<code>video</code>要素がありません)。</p>
+			
+			<pre id="ex-faq-01-src" class="prettyprint linenums"><code>&lt;audio …&gt;
+   &lt;p&gt;Sorry, your reading system does not support
+      the audio element. The audio file cannot be
+      played.&lt;/p&gt;
+&lt;/audio&gt;</code></pre>
+			
+			<p>リーディングシステムがリソースをダウンロードできない場合、または提供された形式を再生できない場合、要素内のコンテンツにはアクセスできません。このような場合、リーディングシステムは独自のエラー メッセージを表示します（つまり、内部のフォールバック コンテンツは表示されません）。</p>
+			
+			<p>古いリーディングシステムを使用しているユーザーのアクセスを可能にするために、要素内に Webでホストされているファイルへのリンクを提供すると便利に思えるかもしれませんが、他の状況での可用性が制限されます。たとえば、最新のリーディングシステムがファイルにアクセスできない場合、誰でもアクセスできるリンクを使用すると、柔軟性が向上します。</p>
+			
+			<p>これらの要素内に、トランスクリプトなどのアクセシビリティのための代替手段を置いてはいけません。</p>
+		</dd>
+		
+		<dt id="faq-002">リモートオーディオやビデオをYouTubeで提供できますか?</dt>
+		<dd>
+			<p>場合によります。</p>
+			<p>ユーザーをWeb上の音声ファイルまたはビデオ ファイルにリンクしたい場合は、任意のサイトでホストできます。EPUBでは、外部ハイパーリンクを配置する場所に制限はありません。</p>
+			<p>HTML <code>iframe</code>要素を使用して YouTubeページをEPUBに埋め込もうとしている場合は、答えは「いいえ」です。セキュリティ上の理由から、EPUBではWebページを出版物に直接埋め込むことはできません。出版社がEPUBコンテナー外でリモート ビデオファイルをホストすることを許可する例外は、ビデオファイルにのみ適用され、ビデオを埋め込むWebページには適用されません。</p>
+		</dd>
+	</dl>
+</section>
+
+<section id="desc">
+	<h3>解説</h3>
+	
+	<p>外部リソースに関する問題は主にユーザビリティに関するものですが、すべてのユーザーに影響するものも、そうではないものもあります。このセクションでは、外部リソースをEPUBに含める方法と、発生する可能性のあるユーザビリティとアクセシビリティの問題を軽減する方法について説明します。</p>
+	
+	<div class="note" role="note" aria-labelledby="epub2-note">
+		<p id="epub2-note" class="label">注記</p>
+		<p>EPUB2では外部リソースは許可されませんでした。このセクションのガイダンスは、EPUB2形式には適用されません。</p>
+	</div>
+	
+	<section id="res">
+		<h4>リモートで許可されるリソース</h4>
+		
+		<p>EPUB3では、EPUBコンテナー（つまり、出版物を格納するzipファイル）の外部でホストできるリソースは次の四種類のみです。</p>
+		
+		<ul>
+			<li>音声</li>
+			
+			<li>ビデオ</li>
+				
+			<li>スクリプトによって取得されたリソース（例：JavaScript XmlHttpRequest およびFetch APIを使用）。</li>
+				
+			<li>フォント</li>
+		</ul>
+		
+		<p>音声とビデオの場合、対応するメディアタイプ （例：MP3ファイルの場合は<code>audio/mp3</code>）を持つファイルのみ適用できます。音声プレーヤーまたはビデオ プレーヤー（例：YouTube）を埋め込んだHTMLページを参照することはできません。</p>
+		
+		<p>外部リソースと外部ハイパーリンクを混同しないでください。外部リソースは、ユーザーをWebに送るハイパーリンクとは対照的に、出版物に取り込まれるリソースです。 <code>audio</code>要素と<code>video</code>要素を使用すると、参照先のファイルがどこにあるかに関係なく、音声リソースとビデオリソースを埋め込むことができます。その一方で、YouTubeへのハイパーリンクは、ユーザーをそのWebサイトに送ります。</p>
+	</section>
+	
+	<section id="identify">
+		<h4>外部リソースの識別</h4>
+		
+		<p>外部リソースはEPUBコンテナーに含まれていませんが、EPUBマニフェストにパブリケーション リソースとして列挙しなければなりません。リソースの完全なURLは、マニフェストエントリの<code>href</code>属性に記載します。</p>
+		
+		<p>加えて、外部リソースを参照するEPUBコンテンツ ドキュメントには、<code>properties</code>属性に対して"<code>remote-resources</code>"の値を設定しなければなりません。（リーディングシステムは、このプロパティにより、たとえば、必要なファイルに対してのみ外部アクセスを選択的に有効にできます。）</p>
+		
+		<p>次の例は、音声を埋め込むXHTMLファイルとリモートMP3ファイルのマニフェストエントリを示しています（ファイル<code>c01.xhtml</code>には、<a>例１</a>に示すように<code>audio</code>要素が含まれます）。</p>
+		
+		<pre id="ex-ident-01-src" class="prettyprint linenums"><code>&lt;package …&gt;
+   …
+   &lt;manifest&gt;
+      &lt;item id="audio01"
+            href="https://example.org/audio/war_of_the_worlds.mp3"
+            media-type="audio/mp3"/&gt;
+      
+      &lt;item id="c01"
+            href="xhtml/c01.xhtml"
+            media-type="application/xhtml+xml"
+            properties="remote-resources"/&gt;
+      …
+   &lt;/manifest&gt;
+   …
+&lt;/package&gt;</code></pre>
+		
+		<p>外部リソースURLをマニフェストに追加する場合、文字列内のアンパサンド（&amp;）をエスケープする必要があることに注意してください。たとえば、URLに複数のパラメーターを含むクエリ文字列がある場合は、次の例のように &amp;amp; エンティティを使用して各アンパサンドをエンコードする必要があります。</p>
+		
+		<pre id="ex-ident-02-src" class="prettyprint linenums"><code>Font URL:
+https://fonts.googleapis.com/css2?family=Roboto&lt;strong&gt;&amp;&lt;/strong&gt;display=swap
+
+Manifest encoding:
+&lt;item id="font01"
+      href="https://fonts.googleapis.com/css2?family=Roboto&amp;amp;display=swap"
+      media-type="font/ttf"</code></pre>
+	</section>
+	
+	<section id="usability">
+		<h4>ユーザビリティの考慮</h4>
+		
+		<p>リソースをリモートでホストする最も一般的な理由は、そのサイズです。出版物に数ギガバイトのデータに相当するビデオが複数含まれている場合、そのような出版物を配布することは現実的ではない可能性があります。ベンダーはサイズ制限のために出版物を拒否する可能性があります。また、ベンダーがそのような大きな出版物を受け入れたとしても、ユーザーはビデオを見ることに興味がない場合でも、すべてのデータがダウンロードされるまで待ってから読み始めなければなりません。</p>
+		
+		<p>リソースをリモートでホストすることは、サイズ制限を回避し、一部のリソースのダウンロードを必要になるまで延期できますが、深刻なユーザビリティの問題も伴います。ユーザーには、アクティブなインターネット接続を備えたデバイスと、インターネットへのアクセスをブロックしないリーディングシステムが必要になります。たとえば、インターネット接続を備えたタブレットを持っているからといって、リーディングシステムが出版物に Web からのリソースの取得を許可するわけではありません。セキュリティ上の問題が発生する可能性があります。</p>
+		
+		<p>フォントは、ユーザーが通常フォントの不在に気付かないため、リモート ホスティングに最適な候補の一つです。フォントが利用できない場合、リーディングシステムは自動的に次の利用可能なフォントにフォールバックします。出版物のテキストは意図したとおりにきれいに表示されない可能性がありますが、読みやすさは一般的に損なわれません (次の<a href="#a11y">アクセシビリティ</a>に関するセクションで説明する 1 つの例外を除く)。</p>
+		
+		<p>EPUB コンテナの外部で音声とビデオをホストする前に、それらが利用できない場合のユーザー体験を考慮してください。それらがテキストの理解に不可欠な場合、アクセスできないユーザーは重要な情報を見逃すことになります。</p>
+		
+		<p>リーディングシステムのサポートと接続の問題を軽減するには、音声ファイルまたは動画ファイルに直接リンクする方法をユーザーに提供してみてください (<a href="#ex-01">例１</a>を参照)。これにより、ユーザーはリーディングシステムを回避して、ブラウザで直接コンテンツを開くことができるようになります。</p>
+		
+		<p>EPUBコンテナーの外部で提供されているスクリプト データは、ユーザビリティの観点から最も問題のあるタイプの外部リソースです。EPUB ではスクリプトのサポートが普遍的ではないだけでなく、スクリプトをサポートするリーディングシステムでも、外部データを呼び出すための API がサポートされていない場合があります。つまり、外部音声とビデオを許可するリーディングシステムであっても、外部スクリプトの呼び出しは許可されない可能性があります。</p>
+		
+		<p>外部データ呼び出しの場合、外部スクリプト呼び出しが最新バージョンのデータを取得するためだけのものである場合は、既定のデータセットを埋め込むことを検討してください。これにより、少なくとも、ユーザーは出版物の中で動作しないアプリケーションを持つことなく、スクリプト化されたコンテンツを操作できるようになります。</p>
+	</section>
+	
+	<section id="a11y">
+		<h4>アクセシビリティに関する考慮事項</h4>
+		
+		<p>外部リソースの問題は主にユーザビリティに関するものですが、出版物のアクセシビリティが影響を受ける可能性のあるケースが少なくとも一つあります。読みやすさを補助するために特殊なフォントを使用する場合 (たとえば、ディスレクシアのユーザーがテキストを読めるようにするため)、フォントを外部でホストすると、対象ユーザーが出版物にアクセスしにくくなる可能性があります。この場合、フォントを外部でホストすることによるメリットは、リスクに見合わない可能性があります。</p>
+		
+		<p>音声およびビデオ リソースの場合、アクセシブルな制作方法に従うことで、リーディングシステムがそれらを取得できない場合に生じる不便さを軽減できます。たとえば、音声およびビデオの書き起こしを提供することで、ユーザーが情報にアクセスできるようになることがあります。</p>
+	</section>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+<section id="refs">
+	<h3>関連リンク</h3>
+
+	<ul>
+		<li>EPUB 3 —<a href="https://www.w3.org/TR/epub/#sec-resource-locations">リソースの場所</a> </li>
+	</ul>
+</section>
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/epub/remote-resources.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

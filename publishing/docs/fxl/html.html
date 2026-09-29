@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+<title> HTML Layouts - Accessible Publishing Knowledge Base</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of HTML-based EPUB fixed layout publications">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/docs/fxl/html.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">Skip to Content</a>
+	<h1>
+		<a href="/publishing/docs/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> Accessible Publishing Knowledge Base</a>
+	</h1>
+	
+
+<search title="Knowledge Base" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=012567327240487320396:ngadtxfagto"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_en" data-gl="en"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">On this Page</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	Category: 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">Fixed Layouts</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>HTML Layouts</h2>
+		</div>
+		
+		
+		<section id="overview">
+	<h3>Overview</h3>
+	
+	<p>Fixed-layout publications can be created using HTML documents to combine text and images. Each
+		document is assigned a fixed height and width, the canvas on which the content is positioned. CSS is
+		used to absolutely position content elements within this display area, or images are embedded in the
+		page that fit the dimensions.</p>
+	
+	<p>The advantage of using HTML for fixed layouts is that it makes the text content of each page
+		available to assistive technologies. In the case of images, it allows the native accessibility
+		techniques HTML affords to be used to provide alternative text and extended descriptions.</p>
+</section>
+
+<section id="epub">
+	<h3>EPUB</h3>
+	
+	<p>Although it is possible to create fixed layouts on the Web, they are not naturally supported by
+		browsers. A browser will render the page as designed but not make any optimizations to support the
+		rendering.</p>
+	
+	<p>To fix this problem for publishing, EPUB 3 introduced metadata to aid reading systems in creating the
+		appropriate display area and characteristics for each fixed layout page.</p>
+	
+	<p>EPUB publications can consist entirely of fixed layout XHTML pages or there may only be a few fixed
+		layout pages interspersed in a reflowable publication (e.g., a map might be included as a fixed
+		layout in an otherwise reflowable publication).</p>
+	
+	<p>It is also possible to mix <a href="svg.html">fixed-layout SVG pages</a> with fixed-layout XHTML
+		pages, or with <a href="img.html">images directly in the EPUB reading order</a>.</p>
+	
+	<div class="note" role="note" aria-labelledby="create-note">
+		<p id="create-note" class="label">Note</p>
+		<p>Refer to the <a href="index.html#creation">fixed layouts overview page</a> for more information
+			about how fixed-layout publications are created.</p>
+	</div>
+</section>
+
+<section id="a11y">
+	<h3>Accessibility</h3>
+	
+	<p>The same practices that make reflowable publications accessible are used to create fixed layout HTML
+		pages with the greatest accessibility. Some key practices include:</p>
+	
+	<ul>
+		<li>Ensuring the <a href="../html/order.html">logical reading order</a> &#8212; The order of content
+			must match the order that the user would logically be expected to encounter it on the page. Use
+			CSS to arrange the position on screen.</li>
+		<li>Avoid splitting content across pages &#8212; although there are some methods to make <a
+				href="spreads.html">page spreads</a> accessible, when supplementary information, like
+			sidebars, are split across pages it makes retaining a logical reading order difficult.</li>
+		<li>Using structural markup &#8212; Makes sure the content is marked up meaningfully so it can be
+			navigated by assistive technologies. For example, use <a href="../html/tables.html">heading</a>
+			and <a href="../html/tables.html">table</a> markup instead of styling content to look like these
+			structures.</li>
+		<li>Describing all meaningful <a href="../html/images-desc.html">images</a>
+			&#8212; All images that contain information necessary to understand the publication must be
+			described using alternative text and/or extended descriptions. Background images often provide
+			context for character interactions, so dialogue may not make sense without the scene
+			setting.</li>
+		<li>Avoiding images of text &#8212; Layering text over top of a background image makes it accessible
+			to assistive technologies.</li>
+		<li>Ensuring <a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">text contrast</a> &#8212;
+			Because fixed layouts often involve the layering of text over images, it is important to ensure
+			that the text is visually distinguishable from its background.</li>
+	</ul>
+	
+	<p>Even when following these practices, a key problem that limits the accessibility of fixed layouts is
+		that reading systems often lock out users from changing the appearance of the documents to preserve
+		the author's layout (e.g., disabling the ability to increase font size or changing text color). As
+		a result, even the best efforts to make a fixed-layout publication accessible may still leave it
+		unreadable to some users.</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>Applies To</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">Yes</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+				
+				
+				<td class="no">No</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">Back to Top ↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">Categories</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/docs/conformance/index.html">Conformance</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/docs/fxl/index.html">Fixed Layouts</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/metadata/index.html">Metadata</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/navigation/index.html">Navigation</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/script/index.html">Scripting</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/sync-media/index.html">Sync Media</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/docs/text-to-speech/index.html">Text-to-Speech</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>Site</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/topics.html">All Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/glossary">Glossary</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/new">What's New</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/about.html">About the KB</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Feedback</div>
+			<ul>
+				<li>
+					<a href="/publishing/docs/reporting/#bugs">Report Errors</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/docs/fxl/html.html">Revision History</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/reporting/#new">Request Topics</a>
+				</li>
+				<li>
+					<a href="/publishing/docs/contribute">Contribute</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Specifications</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUB Accessibility</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB 3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>Language</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en" selected="">English</option>
+				<option value="ja">Japanese</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 The DAISY Consortium&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">Terms of Use&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">Privacy Policy</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>

@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+<title> SVG（スケーラブル ベクター グラフィックス） - アクセシブル出版ナレッジベース</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of SVG-based EPUB fixed layout publications.">
+
+<link rel="canonical" href="https://kb.daisy.org/publishing/ja/fxl/svg.html">
+
+<script async="" src="//cse.google.com/adsense/search/async-ads.js"></script>
+<script src="https://smart.daisy.org/js/sponsor.js"></script>
+
+<script>
+	var page_info = {
+		
+	}
+</script>
+
+<script src="/js/prettify.js"></script>
+
+<script src="/js/kb.js"></script>
+<script>
+	var kb = new KB();
+	
+	window.onload = function () {
+		kb.initialize();
+	}
+</script>
+
+<link rel="stylesheet" href="/css/kb.css">
+<link rel="stylesheet" href="/css/sponsor.css">
+<link rel="stylesheet" href="/css/prettify.css">
+
+
+
+
+	
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=G-FKBYKZH39R" async="async"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FKBYKZH39R');
+</script>
+
+
+
+<link rel="icon" type="image/x-icon" href="https://kb.daisy.org/favicon.ico" sizes="any">
+
+
+	</head>
+
+	<body>
+		
+<header>
+	<a href="#main" id="skip-main">コンテンツにスキップ</a>
+	<h1>
+		<a href="/publishing/ja/" class="home-link"><img class="logo" src="/graphics/daisy_high.jpg"
+				alt="DAISY"> アクセシブル出版ナレッジベース</a>
+	</h1>
+	
+
+<search title="ナレッジベース" hidden="">
+	<script async="" src="https://cse.google.com/cse.js?cx=26859456d1c9349ab"></script>
+	<div class="gcse-searchbox-only" data-lr="lang_ja" data-gl="ja"></div>
+</search>
+
+</header>
+
+		
+		<main id="main" class="category">
+			
+<aside id="sponsor" class="kb" aria-label="Support">
+	<span>If you find this Knowledge Base useful, please help us by donating to support its ongoing
+		maintenance.</span>
+	<a href="https://daisy.org/KBSponsor">Support our work</a>
+	<input type="button" value="X" onclick="daisySponsor.closeSponsorBox()" aria-label="Close" title="Close">
+</aside>
+
+			
+
+<div id="col-wrapper">
+	
+<div id="nav-col">
+	<nav role="doc-toc" id="mini-nav" class="mini-toc" aria-labelledby="page-toc-hd">
+		<h3 id="page-toc-hd">このページ</h3>
+	</nav>
+	
+	
+</div>
+
+	
+	<div id="body">
+		
+		
+		<div id="page-title">
+			
+				<div class="category">
+	カテゴリー： 
+	
+	
+		
+		
+		
+			<a href="index.html" class="breadcrumb">固定レイアウト</a>
+		
+	
+</div>
+	
+			
+			
+			<h2>SVG（スケーラブル ベクター グラフィックス）</h2>
+		</div>
+		
+		
+		<section id="overview">
+	<h3>概要</h3>
+	
+	<p>固定レイアウトの出版物は、SVGを使用してテキストと画像を組み合わせて作成できます。各画像には固定の高さと幅が割り当てられ、コンテンツはこのキャンバス領域内に配置されます。</p>
+	
+	<p>固定レイアウトにSVGを使用する利点は、SVGでは他の画像形式と違ってテキストコンテンツを画像データとして書き込むのではなく（訳注：テキスト情報のまま）埋め込める点です。このようにマークアップされたテキストは支援技術で読み取れます。SVGでは、画像の代替テキストや拡張説明を組み込む方法も提供されています。</p>
+	
+	<p>弱視の読者にとっては、画像の拡大の際に、ピクセル画素化されて見にくくなることなく、画像の大きさの変更ができる（スケーラブル）というのも、SVG画像の利点です。</p>
+</section>
+
+<section id="epub">
+	<h3>EPUB</h3>
+	
+	<p>SVGは固定レイアウトコンテンツに最適ですが、WebブラウザーはSVGを出版物の一部としてレンダリングするように最適化されていません。たとえば、サイズや向きの制御は制限されます。</p>
+	
+	<p>出版におけるこの問題を解決するために、EPUB 3では、リーディングシステムが各固定レイアウトページに適切な表示領域と特性を作成できるように支援するメタデータが導入されました。</p>
+	
+	<p>EPUB出版物は、固定レイアウトのSVGページで完全に構成することも、リフロー型の出版物内にいくつかの固定レイアウトページを散在させることもできます。</p>
+	
+	<p>SVGの固定レイアウトページや、<a href="html.html">XHTMLの固定レイアウトページ</a>を混在させたり、また、<a href="img.html">画像を直接EPUBの読み取り順序に並べた固定レイアウト</a>を混在させたりもできます。</p>
+	
+	<div class="note" role="note" aria-labelledby="create-note">
+		<p id="create-note" class="label">注記</p>
+		<p>固定レイアウトの出版物の、作成方法の詳細については、<a href="index.html#creation">固定レイアウトの概要ページ</a>をご覧ください。</p>
+	</div>
+</section>
+
+<section id="a11y">
+	<h3>アクセシビリティ</h3>
+	
+	<p>リフロー型の出版物をアクセシビリティ対応にするのと同じ手法が、アクセシビリティを最大限に高めた固定レイアウトのSVGページの作成にも使用できます。主な手法には次のようなものがあります。</p>
+	
+	<ul>
+		<li><a href="../html/order.html">論理的な読み順</a>の確保 — SVG内のテキストコンテンツの順序は、ユーザーのページ上での論理的な読み順序と一致していなければなりません。</li>
+		<li>画像とコンポーネントの説明 — SVGの<code>title</code>と<code>desc</code>要素を使用して、ページ全体とドキュメント内の画像コンポーネントの両方を説明します。</li>
+		<li>テキストを画像にしない — テキストコンテンツはSVGに組み込んでスタイル設定できます。画像にしてはいけません。</li>
+		<li><a href="https://www.w3.org/TR/WCAG2/#contrast-minimum">テキストのコントラスト</a>の確保 — SVGのテキストコンポーネントが背景と視覚的に区別できるのが重要です。</li>
+	</ul>
+	
+	<p>SVGをスケーラブルでない画像形式（JPEG、GIF、PNG など）のラッパーとしてのみ使用する場合、スケーラブルである利点は失われます。これらの画像形式がスケーラブルでない点はSVGでは改善されません。スケーラブルでない画像形式を使うならば、画像を記述する方法がより多く提供されているHTMLラッパーの方が適しているでしょう。</p>
+	
+	<p>SVGが有するアクセシビリティ機能にもかかわらず、SVGコンテンツは画像ベースという制約により、完全にアクセシブルなSVGページは作成できないことがあります。EPUB3リーディングシステムでは固定レイアウト出版物の外観を変更する際に制限があるため、読みやすさも損なわれます。</p>
+</section>
+
+
+<section id="applies-to">
+	<h3>適用対象</h3>
+	<table>
+		<tbody>
+			<tr>
+				<th><a href="https://www.w3.org/TR/epub/">EPUB 3</a></th>
+				<th><a href="http://idpf.org/epub/201/">EPUB 2</a></th>
+				<th><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></th>
+			</tr>
+			<tr>
+				
+				
+				<td class="yes">はい</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+				
+				
+				<td class="no">いいえ</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+</section>
+
+	
+
+		
+		<p class="backtotop"><a href="#">トップに戻る↑</a></p>
+	</div>
+	
+	
+
+
+	
+<div id="categories">
+	<nav role="doc-toc" class="mini-toc" aria-labelledby="cat-hd">
+		<h3 id="cat-hd">カテゴリー</h3>
+		<ol role="list">
+			
+				<li>
+					<a href="/publishing/ja/conformance/index.html">適合性（conformance）</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/css/index.html">CSS</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/epub/index.html">EPUB</a>
+				</li>
+			
+				<li class="active-cat" aria-current="location">
+					<a href="/publishing/ja/fxl/index.html">固定レイアウト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/html/index.html">HTML</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/metadata/index.html">メタデータ</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/navigation/index.html">ナビゲーション</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/script/index.html">スクリプト</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/sync-media/index.html">メディアの同期</a>
+				</li>
+			
+				<li>
+					<a href="/publishing/ja/text-to-speech/index.html">テキスト読み上げ（TTS)</a>
+				</li>
+			
+		</ol>
+	</nav>
+</div>
+
+</div>
+
+		</main>
+		
+		
+<footer>
+	<div class="footer-lists">
+		<div class="footer-list">
+			<div>サイト</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/topics.html">すべてのトピック</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/glossary">用語集</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/new">新着情報</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/about.html">ナレッジベースについて</a>
+				</li>
+				<li>
+					<a href="https://daisy.org/KBSponsor">サポート</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>フィードバック</div>
+			<ul>
+				<li>
+					<a href="/publishing/ja/reporting/#bugs">問題を報告する</a>
+				</li>
+				<li>
+					<a href="https://github.com/DAISY/kb/commits/main/publishing/ja/fxl/svg.html">改訂履歴</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/reporting/#new">トピックのリクエスト</a>
+				</li>
+				<li>
+					<a href="/publishing/ja/contribute">貢献する</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>規格</div>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/TR/epub-a11y/">EPUBアクセシビリティ</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/TR/epub/">EPUB3</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-list">
+			<div>言語</div>
+			<select onchange="kb.switchLanguage(this)">
+				<option value="en">英語</option>
+				<option value="ja" selected="">日本語</option>
+			</select>
+		</div>
+	</div>
+	<p class="copy">&copy; 2026 DAISYコンソーシアム&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+			href="http://www.daisy.org/terms-use">利用規約&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a><a
+				href="https://daisy.org/about-us/terms-and-conditions/privacy/">プライバシーポリシー</a></p>
+</footer>
+<script src="/js/google-clean.js"></script>
+	
+	</body>
+</html>
