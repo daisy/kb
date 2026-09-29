@@ -51,7 +51,7 @@ layout: publishing/pages/topic
 			<p>If a landmark section contains content before its heading, the <code>aria-labelledby</code>
 				should always be used to ensure the heading is correctly identified as the label.</p>
 		</figcaption>
-		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-labelledby="c23_hd">
+		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="c23_hd">
    &lt;img src="img/comic/panel23.jpg" alt="Cartoon panel before chapter start"/>
    &lt;details>
       &lt;summary>Description&lt;/summary>
@@ -83,7 +83,7 @@ layout: publishing/pages/topic
 			<p>The following landmark does not have an explicit title, so a label is provided using the
 					<code>aria-label</code> attribute.</p>
 		</figcaption>
-		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="Chapter 21">
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-label="Chapter 21">
    &lt;p>I awoke to find &#8230;&lt;/p>
    &#8230;
 &lt;/section>

@@ -47,7 +47,7 @@ layout: publishing/pages/topic
 			<div class="label">例 2 — あいまいなラベルを持つランドマークロール</div>
 			<p>ランドマークセクションのコンテンツが見出しの前にある場合は、見出しがラベルとして正しく識別されるように、常に<code>aria-labelledby</code>を使用する必要があります。</p>
 		</figcaption>
-		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-labelledby="c23_hd"&gt;
+		<pre id="ex-01a-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-labelledby="c23_hd"&gt;
 	&lt;img src="img/comic/panel23.jpg" alt="章見出しの前のひとコマ漫画"/&gt;
 	&lt;details&gt;
 		&lt;summary&gt;詳細&lt;/summary&gt;
@@ -76,7 +76,7 @@ layout: publishing/pages/topic
 			<div class="label">例4 — ラベルが追加されたランドマーク</div>
 			<p>次のランドマークに明示的なタイトルが存在しない場合には、<code>aria-label</code>属性を使用してラベルを設定します。</p>
 		</figcaption>
-		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="chapter" aria-label="第21章"&gt;
+		<pre id="ex-03-src" class="prettyprint linenums"><code>&lt;section role="doc-chapter" aria-label="第21章"&gt;
     &lt;p&gt;目が覚めると …&lt;/p&gt;
     …
 &lt;/section&gt;
