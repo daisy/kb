@@ -15,6 +15,11 @@
 <html lang="{{ page.language }}">
 	<head>
 		{% include publishing/head.html %}
+		
+		{% if page.language == "en" %}
+		<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+		<script src="https://files.bpcontent.cloud/2026/08/17/13/20260817131327-SBLD064K.js" defer></script>
+		{% endif %}
 	</head>
 
 	<body>

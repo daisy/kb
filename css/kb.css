@@ -1091,6 +1091,16 @@ td.gssb_a {
 	padding-bottom: 0.8rem;
 }
 
+/* chat bot */
+
+button#bp-toggle-chat {
+	float: right;
+	margin-top: -5rem;
+	margin-right: -39rem;
+	border: none;
+	background-color: inherit;
+}
+
 /* back to top links */
 
 p.backtotop {
@@ -1133,6 +1143,10 @@ dl.navigating dt {
 		margin-top: 0;
 		margin-left: 10rem;
 		min-width: 10rem;
+	}
+	button#bp-toggle-chat {
+		float: none;
+		margin-top: 0;
 	}
 	div#nav-col,
 	div#categories {
@@ -1230,6 +1244,11 @@ dl.navigating dt {
 		min-width: 10rem;
 	}
 	
+	button#bp-toggle-chat {
+		float: none;
+		margin-top: 0;
+	}
+
 	nav.mini-toc {
 		margin-left: 0;
 	}

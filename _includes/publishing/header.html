@@ -10,4 +10,8 @@
 				alt="{{ site.data[page.language].ui.header.logo }}"> {{ site.data[page.language].ui.kb_name.publishing }}</a>
 	</h1>
 	{% include publishing/search.html %}
+	
+	{% if page.language == "en" %}
+	<button id="bp-toggle-chat" title="Chat"><img src="/graphics/chat.png" width="40" alt="Chat"/></button>
+	{% endif %}
 </header>
